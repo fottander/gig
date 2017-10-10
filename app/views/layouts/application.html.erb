@@ -23,14 +23,24 @@
           <a href="#">FIND A GIG</a>
         </li>
         <li>
-          <a href="#">HOW IT WORKS</a>
+          <%= link_to "REGISTER", new_company_registration_path %>
         </li>
       </ul>
     </header>
     <hr>
 
     <body>
-      <%= yield %>
+        <% if flash[:notice] %>
+        <div class='notice'>
+            <%= flash[:notice] %>
+        </div>
+        <% end %>
+        <% if flash[:alert] %>
+        <div class='alert'>
+            <%= flash[:alert] %>
+        </div>
+        <% end %>
+        <%= yield %>
     </body>
 
     <footer class="site-footer">
