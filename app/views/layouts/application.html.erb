@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Gig</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <title><%= content_for?(:title) ? yield(:title) : "GIG" %></title>
 
-  <body>
-    <%= yield %>
-  </body>
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+    </head>
+
+    <header class="sticky-shrinknav-header">
+      <ul class="menu sticky-shrinknav-menu">
+        <li>
+          <a href="#">POST GIG</a>
+        </li>
+        <li>
+          <a href="#">FIND FREELANCERS</a>
+        </li>
+        <li>
+          <a href="#">FIND A GIG</a>
+        </li>
+        <li>
+          <a href="#">HOW IT WORKS</a>
+        </li>
+      </ul>
+    </header>
+    <hr>
+
+    <body>
+      <%= yield %>
+    </body>
+
+    <footer class="site-footer">
+      <div class="row medium-unstack">
+        <div class="medium-4 columns">
+          <h4 class="site-footer-title">FOLLOW US</h4>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+        <div class="medium-4 columns">
+          <h4 class="site-footer-title">USEFUL LINKS</h4>
+        </div>
+        <div class="medium-4 columns">
+          <p class="site-footer-title">HELLO</p>
+        </div>
+      </div>
+    </footer>
 </html>
