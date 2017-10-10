@@ -6,4 +6,4 @@ Feature: Homepage
     And I should see "POST GIG"
     And I should see "FIND FREELANCERS"
     And I should see "FIND A GIG"
-    Then I should see "HOW IT WORKS"
+    Then I should see "REGISTER"

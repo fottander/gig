@@ -6,4 +6,6 @@ Feature: Company registration
   Scenario: I register my company
     Given I am on the home page
     And I click "REGISTER"
-    And I should see "Register as a company"
+    And I should see "REGISTER NEW USER"
+    And I click "Company"
+    And I fill in "Email" with "mail@mail.com"
