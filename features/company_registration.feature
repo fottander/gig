@@ -7,5 +7,5 @@ Feature: Company registration
     Given I am on the home page
     And I click "REGISTER"
     And I should see "REGISTRATION"
-    And I click "Company registration"
+    And I click "Company registration >"
     And I fill in "Email" with "mail@mail.com"
