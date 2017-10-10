@@ -1,5 +1,5 @@
-<h2>Log in as user</h2>
-<%= link_to "Company login >", new_company_session_path %>
+<h2>Log in as company</h2>
+<%= link_to "User login >", new_user_session_path %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -20,6 +20,6 @@
 
   <div class="actions">
     <%= f.submit "Log in", class: 'round button' %>
-    <p>or <%= render "devise/shared/links" %></p>
+    <p>or <%= render "companies/shared/links" %></p>
   </div>
 <% end %>
