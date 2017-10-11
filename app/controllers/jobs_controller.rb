@@ -1,8 +1,8 @@
 class JobsController < ApplicationController
-  before_action :authenticate_company!
+  before_action :authenticate_company!, except: [:index]
 
   def index
-
+    @jobs = Job.all.order(created_at: :desc)
   end
 
   def new
