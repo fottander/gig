@@ -14,3 +14,8 @@ Given(/^I am logged in as company "([^"]*)"$/) do |email|
   company = Company.find_by(email: email)
   login_as(company, scope: :company)
 end
+
+Given("I am logged in as user {string}") do |email|
+  user = User.find_by(email: email)
+  login_as(user, scope: :user)
+end

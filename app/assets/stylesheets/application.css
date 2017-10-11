@@ -22,6 +22,22 @@
    padding-bottom: 10px;
  }
 
+ .alert {
+   font-family: 'Montserrat', sans-serif;
+   background-color: #f2dede ;
+   border-color: #eed3d7 ;
+   color: #b94a48 ;
+   text-align: left;
+}
+
+.notice {
+   font-family: 'Montserrat', sans-serif;
+   background-color: #dff0d8 ;
+   border-color: #d6e9c6 ;
+   color: #468847 ;
+   text-align: left;
+}
+
  body {
     padding-top: 150px;
     margin-left: 40px;
@@ -97,3 +113,106 @@
    font-weight: bold;
    letter-spacing: 1.5px;
  }
+
+ /* DASHBOARD */
+
+.holy-grail-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr 1fr;
+      grid-template-columns: 1fr 3fr 1fr;
+  -ms-grid-rows: 1fr 8fr 1fr;
+      grid-template-rows: 1fr 8fr 1fr;
+  grid-gap: 20px;
+  height: 100vh;
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-grid {
+    -ms-grid-rows: 2fr 1fr 5fr 1fr;
+        grid-template-rows: 2fr 1fr 5fr 1fr;
+  }
+}
+
+.holy-grail-left,
+.holy-grail-middle {
+  padding: 1rem;
+  border: 1px solid #ededed;
+  background-color: #ededed;
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-left {
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-middle {
+    -ms-grid-row: 3;
+        grid-row-start: 3;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+
+.marketing-site-content-section {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+
+.marketing-site-content-section .button.round {
+  border-radius: 5000px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.marketing-site-content-section .marketing-site-content-section-block {
+  padding: 1rem;
+  -webkit-flex: 1 0 100%;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
+  background: #e6e6e6;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+@media screen and (min-width: 40em) {
+  .marketing-site-content-section .marketing-site-content-section-block {
+    -webkit-flex: 1 0 50%;
+        -ms-flex: 1 0 50%;
+            flex: 1 0 50%;
+    padding: 2rem;
+  }
+}
+
+.marketing-site-content-section-block-header {
+  font-size: 24px;
+}
+
+.marketing-site-content-section-block-subheader {
+  font-size: 13px;
+}
