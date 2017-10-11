@@ -6,7 +6,7 @@ Feature: Post job ad
   Background:
     Given the following companies exist
       | email          | name | address | zip_code | city | org_number | phone | password  | password_confirmation |
-      | felix@mail.com | bill | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
+      | felix@mail.com | bill | gatan 3 | 536      | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
 
     Scenario: Company tries to post without being logged in
       Given I am on the home page
@@ -24,7 +24,8 @@ Feature: Post job ad
       And I fill in "Category" with "målare"
       And I fill in "City" with "göteborg"
       And I fill in "Budget" with "130kr/timma"
-      And I fill in "Deadline" with "14 dagar"
+      And I fill in "Deadline" with "2017-10-10"
       And I fill in "Duration" with "5 dagar"
       And I fill in "Hours/week" with "30 timmar i veckan"
       And I click "Post job"
+      Then I should see "New job created!"
