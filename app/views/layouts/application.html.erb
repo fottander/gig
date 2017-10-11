@@ -14,7 +14,7 @@
     <header class="sticky-shrinknav-header">
       <ul class="menu sticky-shrinknav-menu">
         <li>
-          <a href="#">POST GIG</a>
+          <%= link_to "POST JOB", new_job_path %>
         </li>
         <li>
           <a href="#">FIND FREELANCERS</a>
@@ -23,14 +23,34 @@
           <a href="#">FIND A GIG</a>
         </li>
         <li>
-          <a href="#">HOW IT WORKS</a>
+          <%= link_to "LOGIN", new_user_session_path %>
+        </li>
+        <li>
+          <%= link_to "REGISTER", new_user_registration_path %>
+        </li>
+        <li>
+        <% if company_signed_in? %>
+         <%= link_to "SIGN OUT", destroy_company_session_path, {method: :delete} %>
+         <% elsif user_signed_in? %>
+         <%= link_to "SIGN OUT", destroy_user_session_path, {method: :delete} %>
+        <% end %>
         </li>
       </ul>
     </header>
     <hr>
 
     <body>
-      <%= yield %>
+        <% if flash[:notice] %>
+        <div class='notice'>
+            <%= flash[:notice] %>
+        </div>
+        <% end %>
+        <% if flash[:alert] %>
+        <div class='alert'>
+            <%= flash[:alert] %>
+        </div>
+        <% end %>
+        <%= yield %>
     </body>
 
     <footer class="site-footer">

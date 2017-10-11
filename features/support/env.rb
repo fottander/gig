@@ -12,3 +12,10 @@ end
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
 include FactoryGirl::Syntax::Methods
+
+After do
+  Warden.test_reset!
+end
+
+Warden.test_mode!
+World Warden::Test::Helpers

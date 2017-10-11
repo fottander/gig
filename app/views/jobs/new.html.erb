@@ -1,0 +1,22 @@
+<h2>Post a job ad</h2>
+<%= form_for @job do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :description %>
+<%= f.text_area :description %>
+<%= f.label :requirement %>
+<%= f.text_field :requirement %>
+<%= f.label :category %>
+<%= f.text_field :category %>
+<%= f.label :city %>
+<%= f.text_field :city %>
+<%= f.label :budget %>
+<%= f.text_field :budget %>
+<%= f.label :deadline, 'Deadline (ex. 2017-xx-xx)' %>
+<%= f.text_field :deadline %>
+<%= f.label :duration %>
+<%= f.text_field :duration %>
+<%= f.label :hour_week, 'Hours/week' %>
+<%= f.text_field :hour_week %>
+<%= f.submit 'Post job', class: 'button inc' %>
+<% end %>
