@@ -6,7 +6,7 @@ Feature: Company registration
   Background:
     Given the following companies exist
       | email          | name | address | zip_code | city | org_number | phone | password  | password_confirmation |
-      | felix@mail.com | bill | gatan 3 | 53653643 | gbgb | 34534      | 98789 | 12345678  | 12345678              |
+      | felix@mail.com | bill | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
 
     Scenario: I register my company
       Given I am on the home page

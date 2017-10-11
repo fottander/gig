@@ -22,6 +22,10 @@ RSpec.describe Company, type: :model do
     it { is_expected.to validate_presence_of :phone }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_many :jobs }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:company)).to be_valid

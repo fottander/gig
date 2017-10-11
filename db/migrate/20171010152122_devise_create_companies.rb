@@ -34,8 +34,8 @@ class DeviseCreateCompanies < ActiveRecord::Migration[5.1]
       t.string :address
       t.integer :zip_code
       t.string :city
-      t.integer :org_number
-      t.integer :phone
+      t.string :org_number
+      t.string :phone
 
       t.timestamps null: false
     end
