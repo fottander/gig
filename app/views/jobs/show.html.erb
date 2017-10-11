@@ -1,0 +1,6 @@
+<h4>Job details</h4>
+<%= @job.title %>
+| <%= @job.budget %> | Skapad: <%= @job.created_at.strftime("%Y-%m-%d") %> | Går ut: <%= @job.deadline %> |<br>
+<%= @job.description %> <br>
+| Kategorier: <%= @job.category %> | Krav: <%= @job.requirement %> |<br>
+| Stad: <%= @job.city %> | Varaktighet: <%= @job.duration %> | Timmar/vecka: <%= @job.hour_week %> |<br>

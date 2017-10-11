@@ -1,0 +1,18 @@
+<div id='job'>
+  <h2>Browse all jobs</h2>
+  <% @jobs.each do |job| %>
+  <div class='row'>
+    <div class="job-<%= job.id %>">
+      <div class='large-6 columns'>
+        <div class='job-title'>
+          <%= link_to job.title, job_path(job)%>
+        </div>
+        | <%= job.budget %> | Skapad: <%= job.created_at.strftime("%Y-%m-%d") %> | Går ut: <%= job.deadline %> |<br>
+        <%= job.description %> <br>
+        | Kategorier: <%= job.category %> | Krav: <%= job.requirement %> |<br>
+        | Stad: <%= job.city %> | Varaktighet: <%= job.duration %> | Timmar/vecka: <%= job.hour_week %> |<br>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
