@@ -1,1 +1,12 @@
 <h2>Browse all gigs</h2>
+<% @jobs.each do |job| %>
+<%= job.title %>
+<%= job.description %>
+<%= job.requirement %>
+<%= job.category %>
+<%= job.city %>
+<%= job.budget %>
+<%= job.deadline %>
+<%= job.duration %>
+<%= job.hour_week %>
+<% end %>

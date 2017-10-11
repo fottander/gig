@@ -5,8 +5,8 @@ Feature: Show job ads
 
   Background:
     Given the following job ads exist
-      | title   | description | category | city | budget      | deadline   | duration | hour_week |
-      | målare  | måla hus    | målare   | gbg  | 140kr/timma | 2017-10-10 | 14 dagar | 45h/vecka |
+      | title   | description | requirement      | category | city | budget      | deadline   | duration | hour_week |
+      | målare  | måla hus    | 2 års erfarenhet | målare   | gbg  | 140kr/timma | 2017-10-10 | 14 dagar | 45        |
 
     Scenario: I see job ads
       Given I am on the home page
@@ -19,4 +19,4 @@ Feature: Show job ads
       And I should see "140kr/timma"
       And I should see "2017-10-10"
       And I should see "14 dagar"
-      And I should see "45h/vecka"
+      And I should see "45"
