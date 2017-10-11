@@ -11,7 +11,7 @@ Feature: Show job ads
     Scenario: I see job ads
       Given I am on the home page
       And I click "FIND A GIG"
-      And I should see "Browse all gigs"
+      And I should see "Browse all jobs"
       And I should see "målare"
       And I should see "måla hus"
       And I should see "målare"
@@ -20,3 +20,10 @@ Feature: Show job ads
       And I should see "2017-10-10"
       And I should see "14 dagar"
       And I should see "45"
+
+    Scenario: I click on an ad
+      Given I am on the home page
+      And I click "FIND A GIG"
+      And I click "målare"
+      And I should see "Job details"
+      Then I should see "målare"
