@@ -19,3 +19,7 @@ Given("I am logged in as user {string}") do |email|
   user = User.find_by(email: email)
   login_as(user, scope: :user)
 end
+
+Given("I am on the dashboards page") do
+  visit dashboards_path
+end

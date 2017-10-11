@@ -17,3 +17,9 @@ Feature: User dashboard
       And I click "Log in"
       Then I should see "Signed in successfully."
       And I should see "Dashboard"
+
+    Scenario: I create a Profile
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
+      And I click "Profile"
+      And I should see "Create profile"
