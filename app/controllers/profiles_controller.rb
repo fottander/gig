@@ -4,11 +4,17 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
   end
 
+  def show
+    
+  end
+
   def create
     @profile = Profile.new profile_params
     @profile.user_id = current_user.id
     if @profile.save
       flash[:notice] = "New profile created!"
+      @profile = Profile.find_by(user_id: current_user)
+      session[:current_profile_id] = @profile.id
       redirect_to new_profile_path
     end
   end

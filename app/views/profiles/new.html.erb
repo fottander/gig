@@ -1,4 +1,22 @@
 <h4>Create profile</h4>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Account' %>
+      </li>
+      <li>
+        <%= link_to 'Profile', new_profile_path %>
+      </li>
+      <li>
+        <%= link_to 'Applications' %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
 <%= form_for @profile do |f| %>
 <%= f.label :username %>
 <%= f.text_field :username %>
@@ -16,3 +34,4 @@
 <%= f.text_field :city %>
 <%= f.submit 'Submit', class: 'button inc' %>
 <% end %>
+</div>
