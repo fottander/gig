@@ -8,12 +8,19 @@ Feature: Edit profile
       | email          | password  | password_confirmation |
       | felix@mail.com | 12345678  | 12345678              |
 
-    Given the following profiles exist
-      | username | title  | description         | category         | city     |
-      | fisken   | målare | målare och snickare | målare, snickare | göteborg |
-
     Scenario: I edit profile
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
+      And I click "Create profile"
+      And I should see "Create profile"
+      And I fill in "Username" with "Fisken"
+      And I fill in "Title" with "Målare, snickare med lång erfarenhet"
+      And I fill in "Description" with "Jag är en 29 årig målare och snickare från gbg"
+      And I fill in "Skills" with ""
+      And I fill in "Rate" with ""
+      And I fill in "Categories" with "målare, snickare, alltiallo"
+      And I fill in "City" with "Göteborg"
+      And I click "Submit"
+      Then I should see "New profile created!"
       And I click "Edit profile"
       And I should see "Edit profile information"

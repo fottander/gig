@@ -1,0 +1,31 @@
+<h3>Edit profile information</h3>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Dashboard', dashboards_path %>
+      </li>
+      <li>
+        <%= link_to 'Account' %>
+      </li>
+      <li>
+        <%= link_to 'Profile', profile_path(session[:current_profile_id]) %>
+      </li>
+      <li>
+        <%= link_to 'Applications' %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="marketing-site-content-section">
+
+    </div>
+
+  </div>
+
+</div>
