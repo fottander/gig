@@ -20,7 +20,15 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @profile = Profile.find(params[:id])
+  end
 
+  def update
+    @profile = Profile.find(params[:id])
+    if @profile.update profile_params
+      flash[:notice] = "Profile edited!"
+      redirect_back(fallback_location: profile_path(session[:current_profile_id]))
+    end
   end
 
   private
