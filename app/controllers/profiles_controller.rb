@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    
+    @profile = Profile.find_by(user_id: current_user)
   end
 
   def create
@@ -15,8 +15,12 @@ class ProfilesController < ApplicationController
       flash[:notice] = "New profile created!"
       @profile = Profile.find_by(user_id: current_user)
       session[:current_profile_id] = @profile.id
-      redirect_to new_profile_path
+      redirect_to dashboards_path
     end
+  end
+
+  def edit
+
   end
 
   private

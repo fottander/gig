@@ -1,1 +1,37 @@
 <h4>Profile info</h4>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Dashboard', dashboards_path %>
+      </li>
+      <li>
+        <%= link_to 'Account' %>
+      </li>
+      <li>
+        <%= link_to 'Profile', profile_path(session[:current_profile_id]) %>
+      </li>
+      <li>
+        <%= link_to 'Applications' %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="marketing-site-content-section">
+      <%= @profile.username %><br>
+      <%= @profile.title %><br>
+      <%= @profile.description %><br>
+      <%= @profile.skill %><br>
+      <%= @profile.rate %><br>
+      <%= @profile.category %><br>
+      <%= @profile.city %>
+    </div>
+
+  </div>
+
+</div>

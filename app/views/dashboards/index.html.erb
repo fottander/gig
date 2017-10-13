@@ -48,7 +48,7 @@
             <% end %>
           </p>
           <% if @profile.present? %>
-            <%= link_to 'Edit profile', profile_path(session[:current_profile_id]), class: 'round button small' %>
+            <%= link_to 'Edit profile', edit_profile_path(session[:current_profile_id]), class: 'round button small' %>
             <% else %>
             <%= link_to 'Create profile', new_profile_path, class: 'round button small' %>
           <% end %>
