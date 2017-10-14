@@ -4,7 +4,7 @@
     <div class="holy-grail-left">
       <ul>
         <li>
-          <%= link_to 'Account' %>
+          <%= link_to 'Account', edit_user_registration_path %>
         </li>
         <li>
           <% if @profile.present? %>
@@ -32,7 +32,7 @@
             Last name: <%= current_user.last_name %><br>
             Phone: <%= current_user.phone %>
           </p>
-          <a href="#" class="round button small">Edit account</a>
+          <%= link_to 'Edit Account', edit_user_registration_path, class: 'round button small' %>
         </div>
         <div class="marketing-site-content-section-block">
           <h3 class="marketing-site-content-section-block-header">Profile info</h3>

@@ -31,7 +31,7 @@
       <%= @profile.category %><br>
       <%= @profile.city %>
     </div>
-
+    <%= link_to 'Edit profile', edit_profile_path(session[:current_profile_id]), class: 'round button small' %>
   </div>
 
 </div>
