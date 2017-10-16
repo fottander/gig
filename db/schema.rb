@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011081254) do
+ActiveRecord::Schema.define(version: 20171012081035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,20 @@ ActiveRecord::Schema.define(version: 20171011081254) do
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string "username"
+    t.string "title"
+    t.text "description"
+    t.string "skill"
+    t.string "rate"
+    t.string "category"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,7 +82,7 @@ ActiveRecord::Schema.define(version: 20171011081254) do
     t.inet "last_sign_in_ip"
     t.string "first_name"
     t.string "last_name"
-    t.integer "phone"
+    t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -76,4 +90,5 @@ ActiveRecord::Schema.define(version: 20171011081254) do
   end
 
   add_foreign_key "jobs", "companies"
+  add_foreign_key "profiles", "users"
 end

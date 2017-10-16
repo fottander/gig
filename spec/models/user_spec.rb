@@ -13,6 +13,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of :email }
   end
 
+  describe 'Associations' do
+    it { is_expected.to have_one :profile }
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:user)).to be_valid

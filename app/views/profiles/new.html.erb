@@ -1,0 +1,40 @@
+<h4>Create profile</h4>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Dashboard', dashboards_path %>
+      </li>
+      <li>
+        <%= link_to 'Account', edit_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Profile', new_profile_path %>
+      </li>
+      <li>
+        <%= link_to 'Applications' %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
+<%= form_for @profile do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %>
+<%= f.label :title %>
+<%= f.text_area :title %>
+<%= f.label :description %>
+<%= f.text_field :description %>
+<%= f.label :skill, 'Skills' %>
+<%= f.text_field :skill %>
+<%= f.label :rate %>
+<%= f.text_field :rate %>
+<%= f.label :category, 'Categories' %>
+<%= f.text_field :category %>
+<%= f.label :city %>
+<%= f.text_field :city %>
+<%= f.submit 'Submit', class: 'button inc' %>
+<% end %>
+</div>

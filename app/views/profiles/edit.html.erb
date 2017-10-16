@@ -1,0 +1,41 @@
+<h3>Edit profile information</h3>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Dashboard', dashboards_path %>
+      </li>
+      <li>
+        <%= link_to 'Account', edit_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Profile', profile_path(@profile.id) %>
+      </li>
+      <li>
+        <%= link_to 'Applications' %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
+  <%= form_for @profile do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username, value: @profile.username %>
+  <%= f.label :title %>
+  <%= f.text_area :title, value: @profile.title %>
+  <%= f.label :description %>
+  <%= f.text_field :description, value: @profile.description %>
+  <%= f.label :skill, 'Skills' %>
+  <%= f.text_field :skill, value: @profile.skill %>
+  <%= f.label :rate %>
+  <%= f.text_field :rate, value: @profile.rate %>
+  <%= f.label :category, 'Categories' %>
+  <%= f.text_field :category, value: @profile.category %>
+  <%= f.label :city %>
+  <%= f.text_field :city, value: @profile.city %>
+  <%= f.submit 'Submit', class: 'button inc' %>
+  <% end %>
+
+</div>
