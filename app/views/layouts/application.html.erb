@@ -12,9 +12,9 @@
     </head>
 
     <div class="topnav" id="myTopnav">
-      <a href="#home">HOME</a>
+      <%= link_to "HOME", root_path %>
       <%= link_to "POST JOB", new_job_path %>
-      <a href="#">FIND FREELANCERS</a>
+      <%= link_to "FIND FREELANCERS", profiles_path %>
       <%= link_to "FIND A GIG", jobs_path %>
       <% if company_signed_in? %>
        <%= link_to "DASHBOARD", dashboards_path %>
