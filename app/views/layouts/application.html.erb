@@ -11,32 +11,20 @@
       <%= csrf_meta_tags %>
     </head>
 
-    <header class="sticky-shrinknav-header">
-      <ul class="menu sticky-shrinknav-menu">
-        <li>
-          <%= link_to "POST JOB", new_job_path %>
-        </li>
-        <li>
-          <a href="#">FIND FREELANCERS</a>
-        </li>
-        <li>
-          <%= link_to "FIND A GIG", jobs_path %>
-        </li>
-        <li>
-          <%= link_to "LOGIN", new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to "REGISTER", new_user_registration_path %>
-        </li>
-        <li>
-        <% if company_signed_in? %>
-         <%= link_to "SIGN OUT", destroy_company_session_path, {method: :delete} %>
-         <% elsif user_signed_in? %>
-         <%= link_to "SIGN OUT", destroy_user_session_path, {method: :delete} %>
-        <% end %>
-        </li>
-      </ul>
-    </header>
+    <div class="topnav" id="myTopnav">
+      <a href="#home">HOME</a>
+      <%= link_to "POST JOB", new_job_path %>
+      <a href="#">FIND FREELANCERS</a>
+      <%= link_to "FIND A GIG", jobs_path %>
+      <%= link_to "LOGIN", new_user_session_path %>
+      <%= link_to "REGISTER", new_user_registration_path %>
+      <% if company_signed_in? %>
+       <%= link_to "SIGN OUT", destroy_company_session_path, {method: :delete} %>
+       <% elsif user_signed_in? %>
+       <%= link_to "SIGN OUT", destroy_user_session_path, {method: :delete} %>
+      <% end %>
+      <a href="javascript:void(0);" class="icon" onclick="myNav()">&#9776;</a>
+    </div>
     <hr>
 
     <body>
