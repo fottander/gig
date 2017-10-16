@@ -99,6 +99,7 @@
   /* FOOTER */
 
  .site-footer {
+   overflow: auto;
    background: #0a0a0a;
    font-family: 'Montserrat', sans-serif;
    color: #fefefe;
