@@ -143,7 +143,7 @@
   -ms-grid-rows: 1fr 8fr 1fr;
       grid-template-rows: 1fr 8fr 1fr;
   grid-gap: 20px;
-  height: 100vh;
+  height: 80vh;
 }
 
 @media screen and (max-width: 60em) {
