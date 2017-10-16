@@ -10,7 +10,7 @@
         <%= link_to 'Account', edit_user_registration_path %>
       </li>
       <li>
-        <%= link_to 'Profile', profile_path(session[:current_profile_id]) %>
+        <%= link_to 'Profile', profile_path(@profile.id) %>
       </li>
       <li>
         <%= link_to 'Applications' %>
@@ -31,7 +31,7 @@
       <%= @profile.category %><br>
       <%= @profile.city %>
     </div>
-    <%= link_to 'Edit profile', edit_profile_path(session[:current_profile_id]), class: 'round button small' %>
+    <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'round button small' %>
   </div>
 
 </div>

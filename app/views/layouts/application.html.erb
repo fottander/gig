@@ -16,12 +16,15 @@
       <%= link_to "POST JOB", new_job_path %>
       <a href="#">FIND FREELANCERS</a>
       <%= link_to "FIND A GIG", jobs_path %>
-      <%= link_to "LOGIN", new_user_session_path %>
-      <%= link_to "REGISTER", new_user_registration_path %>
       <% if company_signed_in? %>
+       <%= link_to "DASHBOARD", dashboards_path %>
        <%= link_to "SIGN OUT", destroy_company_session_path, {method: :delete} %>
        <% elsif user_signed_in? %>
+       <%= link_to "DASHBOARD", dashboards_path %>
        <%= link_to "SIGN OUT", destroy_user_session_path, {method: :delete} %>
+       <% else %>
+       <%= link_to "LOGIN", new_user_session_path %>
+       <%= link_to "REGISTER", new_user_registration_path %>
       <% end %>
       <a href="javascript:void(0);" class="icon" onclick="myNav()">&#9776;</a>
     </div>

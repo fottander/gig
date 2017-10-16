@@ -10,7 +10,7 @@
         <%= link_to 'Account', edit_user_registration_path %>
       </li>
       <li>
-        <%= link_to 'Profile', profile_path(session[:current_profile_id]) %>
+        <%= link_to 'Profile', profile_path(@profile.id) %>
       </li>
       <li>
         <%= link_to 'Applications' %>
