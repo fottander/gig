@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'panels/index'
+
   devise_for :companies, controllers: {
-  registrations: 'companies/registrations'
-}
+    registrations: 'companies/registrations'
+  }
+  devise_scope :copmany do
+    authenticated :company do
+      root to: 'panels#index'
+    end
+  end
 
   devise_for :users, controllers: {
     registrations: 'user/registrations'
