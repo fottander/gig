@@ -240,3 +240,133 @@
 .marketing-site-content-section-block-subheader {
   font-size: 13px;
 }
+
+/* SHOW PROFILE */
+
+.card-profile-stats {
+  border: 1px solid #cacaca;
+  margin: 0 0 1.25rem;
+  padding: 1.25rem;
+  background: #fefefe;
+}
+
+.card-profile-stats .card-profile-stats-intro {
+  text-align: center;
+}
+
+.card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
+  border-radius: 50%;
+  margin: 0 0 1.25rem;
+}
+
+.card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-content p:last-child {
+  margin: 0;
+}
+
+.card-profile-stats .card-profile-stats-container {
+  text-align: center;
+}
+
+.card-profile-stats .card-profile-stats-container .card-profile-stats-statistic {
+  margin: 0 0 1.25rem;
+}
+
+.card-profile-stats .card-profile-stats-container .card-profile-stats-statistic p:last-child {
+  margin: 0;
+}
+
+@media print, screen and (min-width: 64em) {
+  .card-profile-stats .card-profile-stats-intro {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    text-align: left;
+  }
+  .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
+    margin: 0 1.25rem 0 0;
+    max-width: 250px;
+  }
+  .card-profile-stats .card-profile-stats-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+  }
+}
+
+/* INDEX PROFILE */
+
+.profile-card-action-icons {
+  background-color: #fefefe;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  border-radius: 0.125rem;
+  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.18), 0 0.125rem 2px rgba(0, 0, 0, 0.36);
+}
+
+.profile-card-action-icons .card-section {
+  background-color: inherit;
+  padding: 0.5rem 0 0;
+}
+
+.profile-card-action-icons .card-section .profile-card-header,
+.profile-card-action-icons .card-section .profile-card-about {
+  border-bottom: 0.0625rem solid #cacaca;
+  padding: 0.7rem 1rem;
+}
+
+.profile-card-action-icons .card-section .profile-card-header {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile-card-action-icons .card-section .profile-card-header .profile-card-avatar {
+  margin-right: 0.5rem;
+}
+
+.profile-card-action-icons .card-section .profile-card-header .profile-card-avatar .avatar-image {
+  border-radius: 50%;
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+.profile-card-action-icons .card-section .profile-card-header .profile-card-author {
+  -webkit-flex: 1 0 0;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  margin-top: 0.3rem;
+  padding-bottom: 0;
+}
+
+.profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-title,
+.profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-description {
+  margin-bottom: 0;
+}
+
+.profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-title {
+  color: #0a0a0a;
+}
+
+.profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-description {
+  color: #8a8a8a;
+  font-size: 0.9em;
+}
+
+.profile-card-action-icons .card-section .profile-card-about .about-title {
+  text-transform: uppercase;
+}
