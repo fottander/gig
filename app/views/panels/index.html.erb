@@ -1,1 +1,57 @@
 <h1>Company control panel</h1>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Account', edit_company_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Jobs' %>
+      </li>
+      <li>
+        <%= link_to 'Applications' %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="marketing-site-content-section">
+      <div class="marketing-site-content-section-block">
+        <h3 class="marketing-site-content-section-block-header">Account info</h3>
+        <p class="marketing-site-content-section-block-subheader subheader">
+          Email: <%= current_company.email %><br><br>
+          Name: <%= current_company.name %><br>
+          Address: <%= current_company.address %><br>
+          Zip code: <%= current_company.zip_code %><br>
+          City: <%= current_company.city %><br>
+          Org number: <%= current_company.org_number %><br>
+          Phone: <%= current_company.phone %>
+        </p>
+        <%= link_to 'Edit Account', edit_company_registration_path, class: 'round button small'  %>
+      </div>
+      <div class="marketing-site-content-section-block">
+        <h3 class="marketing-site-content-section-block-header">Profile info</h3>
+        <p class="marketing-site-content-section-block-subheader subheader">
+          <p>köabef</p>
+        </p>
+          <%= link_to 'Edit profile', panels_path, class: 'round button small' %>
+      </div>
+      <div class="marketing-site-content-section-block small-order-2 medium-order-1">
+        <h3 class="marketing-site-content-section-block-header">Applications</h3>
+        <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
+        <a href="#" class="round button small">View applications</a>
+      </div>
+      <div class="marketing-site-content-section-block">
+        <h3 class="marketing-site-content-section-block-header">Invoices</h3>
+        <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
+        <a href="#" class="round button small">View invoices</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>

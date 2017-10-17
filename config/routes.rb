@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'panels/index'
-
   devise_for :companies, controllers: {
     registrations: 'companies/registrations'
   }
-  devise_scope :copmany do
+  devise_scope :company do
     authenticated :company do
       root to: 'panels#index'
     end
@@ -21,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   root controller: :index, action: :index
+
+  resources :panels, only: [:index]
 
   resources :dashboards, only: [:index]
 
