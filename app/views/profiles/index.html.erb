@@ -1,1 +1,17 @@
-<h3>Browse all freelancers</h3>
+<div id='profile'>
+  <h2>Browse all freelancers</h2>
+  <% @profiles.each do |profile| %>
+  <div class='row'>
+    <div class="profile-<%= profile.id %>">
+      <div class='large-6 columns'>
+        <div class='profile-title'>
+          <%= link_to profile.username, profile_path(profile)%>
+        </div>
+        | Titel: <%= profile.title %> | Skills: <%= profile.skill %> | Stad: <%= profile.city %> |<br>
+        Beskrivning: <%= profile.description %> <br>
+        | Kategorier: <%= profile.category %> | Budget: <%= profile.rate %> |<br>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -14,7 +14,7 @@ Feature: Show freelancers
       And I should see "Browse all freelancers"
       And I should see "fisken"
       And I should see "Erfaren målare"
-      And I shouöd see "Erfaren målare och snickare med 5 års erfarenhet"
+      And I should see "Erfaren målare och snickare med 5 års erfarenhet"
       And I should see "måleri 5 år, snicker 3 år."
       And I should see "Från 150 kr/timma"
       And I should see "målare, snickare"

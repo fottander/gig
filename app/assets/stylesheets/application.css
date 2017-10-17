@@ -17,7 +17,12 @@
  */
  .job-title {
    font-family: 'Montserrat', sans-serif;
-   margin-left: -10px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+ }
+
+ .profile-title {
+   font-family: 'Montserrat', sans-serif;
    padding-top: 10px;
    padding-bottom: 10px;
  }
