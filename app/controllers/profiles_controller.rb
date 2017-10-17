@@ -1,11 +1,15 @@
 class ProfilesController < ApplicationController
 
+  def index
+    @profiles = Profile.all
+  end
+
   def new
     @profile = Profile.new
   end
 
   def show
-    @profile = Profile.find_by(user_id: current_user)
+    @profile = Profile.find(params[:id])
   end
 
   def create
@@ -27,7 +31,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     if @profile.update profile_params
       flash[:notice] = "Profile edited!"
-      redirect_back(fallback_location: profile_path(session[:current_profile_id]))
+      redirect_back(fallback_location: profile_path(@profile))
     end
   end
 

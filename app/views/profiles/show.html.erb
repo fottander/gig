@@ -1,37 +1,74 @@
 <h4>Profile info</h4>
-<div class="holy-grail-grid">
-
-  <div class="holy-grail-left">
-    <ul>
-      <li>
-        <%= link_to 'Dashboard', dashboards_path %>
-      </li>
-      <li>
-        <%= link_to 'Account', edit_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to 'Profile', profile_path(@profile.id) %>
-      </li>
-      <li>
-        <%= link_to 'Applications' %>
-      </li>
-      <li>
-        <%= link_to 'Invoices' %>
-      </li>
-    </ul>
-  </div>
-
-  <div class="holy-grail-middle">
-    <div class="marketing-site-content-section">
-      <%= @profile.username %><br>
-      <%= @profile.title %><br>
-      <%= @profile.description %><br>
-      <%= @profile.skill %><br>
-      <%= @profile.rate %><br>
-      <%= @profile.category %><br>
-      <%= @profile.city %>
+<% if user_signed_in? %>
+  <% if current_user.id == @profile.user_id %>
+  <div class="holy-grail-grid">
+    <div class="holy-grail-left">
+      <ul>
+        <li>
+          <%= link_to 'Dashboard', dashboards_path %>
+        </li>
+        <li>
+          <%= link_to 'Account', edit_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to 'Profile', profile_path(@profile.id) %>
+        </li>
+        <li>
+          <%= link_to 'Applications' %>
+        </li>
+        <li>
+          <%= link_to 'Invoices' %>
+        </li>
+      </ul>
     </div>
-    <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'round button small' %>
-  </div>
 
+    <div class="holy-grail-middle">
+      <div class="marketing-site-content-section">
+        <%= @profile.username %><br>
+        <%= @profile.title %><br>
+        <%= @profile.description %><br>
+        <%= @profile.skill %><br>
+        <%= @profile.rate %><br>
+        <%= @profile.category %><br>
+        <%= @profile.city %>
+      </div>
+      <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'round button small' %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+<div class="card-profile-stats">
+  <div class="card-profile-stats-intro">
+    <img class="card-profile-stats-intro-pic" src="https://pbs.twimg.com/profile_images/732634911761260544/OxHbNdTF.jpg" alt="profile-image" />
+    <div class="card-profile-stats-intro-content">
+      <h3><%= @profile.username %></h3>
+      <p><%= @profile.description %></small></p>
+    </div> <!-- /.card-profile-stats-intro-content -->
+  </div> <!-- /.card-profile-stats-intro -->
+
+  <hr />
+
+  <div class="card-profile-stats-container">
+    <div class="card-profile-stats-statistic">
+      <span class="stat">Titel</span>
+      <p><%= @profile.title %></p>
+    </div> <!-- /.card-profile-stats-statistic -->
+    <div class="card-profile-stats-statistic">
+      <span class="stat">Skills</span>
+      <p><%= @profile.skill %></p>
+    </div> <!-- /.card-profile-stats-statistic -->
+    <div class="card-profile-stats-statistic">
+      <span class="stat">Stad</span>
+      <p><%= @profile.city %></p>
+    </div> <!-- /.card-profile-stats-statistic -->
+    <div class="card-profile-stats-statistic">
+      <span class="stat">Kategorier</span>
+      <p><%= @profile.category %></p>
+    </div> <!-- /.card-profile-stats-statistic -->
+    <div class="card-profile-stats-statistic">
+      <span class="stat">Rate</span>
+      <p><%= @profile.rate %></p>
+    </div> <!-- /.card-profile-stats-statistic -->
+  </div> <!-- /.card-profile-stats-container -->
 </div>
