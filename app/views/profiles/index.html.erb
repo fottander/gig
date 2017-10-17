@@ -1,24 +1,30 @@
-<div id='profile'>
-  <h2>Browse all freelancers</h2>
-  <% @profiles.each do |profile| %>
-  <div class="card profile-card-action-icons">
-    <div class="profile-<%= profile.id %>">
-      <div class="card-section">
+<h2>Browse all freelancers</h2>
+<% @profiles.each do |profile| %>
+<div class="card profile-card-action-icons">
+    <div class="card-section">
         <div class="profile-card-header">
-          <div class="profile-card-avatar">
-            <img class="avatar-image" src="https://i.imgur.com/3AeQRbR.jpg" alt="Harry Manchanda">
-          </div>
-          <div class="profile-card-author">
-            <h5 class="author-title"><%= link_to profile.username, profile_path(profile)%></h5>
-            <p class="author-description"><%= profile.title %></p>
-          </div>
+            <div class="profile-card-avatar">
+                <img class="avatar-image" src="https://pbs.twimg.com/profile_images/732634911761260544/OxHbNdTF.jpg" alt="Harry Manchanda">
+            </div>
+            <div class="profile-card-author">
+                <h5 class="author-title"><%= link_to profile.username, profile_path(profile)%></h5>
+                <p class="author-description"><%= profile.title %></p>
+            </div>
         </div>
         <div class="profile-card-about">
-        Beskrivning: <%= profile.description %> <br>
-        | Kategorier: <%= profile.category %> | Budget: <%= profile.rate %> | Skills: <%= profile.skill %> | Stad: <%= profile.city %> |<br>
+            Beskrivning:
+            <%= profile.description %>
+            <br>
+            | Kategorier:
+            <%= profile.category %>
+            | Budget:
+            <%= profile.rate %>
+            | Skills:
+            <%= profile.skill %>
+            | Stad:
+            <%= profile.city %>
+            |<br>
         </div>
-      </div>
     </div>
-  </div>
-  <% end %>
 </div>
+<% end %>
