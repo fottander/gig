@@ -1,6 +1,55 @@
 <h4>Job details</h4>
-<%= @job.title %>
-| <%= @job.budget %> | Skapad: <%= @job.created_at.strftime("%Y-%m-%d") %> | Går ut: <%= @job.deadline %> |<br>
-<%= @job.description %> <br>
-| Kategorier: <%= @job.category %> | Krav: <%= @job.requirement %> |<br>
-| Stad: <%= @job.city %> | Varaktighet: <%= @job.duration %> | Timmar/vecka: <%= @job.hour_week %> |<br>
+<div class="portfolio-resume row">
+
+  <div class="large-4 columns">
+    <div class="portfolio-resume-wrapper">
+      <h3 class="portfolio-resume-header">Details</h3>
+      <ul>
+        <li>
+          Stad: <%= @job.city %>
+        </li>
+        <li>
+          Kategorier: <%= @job.category %>
+        </li>
+        <li>
+          Krav: <%= @job.requirement %>
+        </li>
+        <li>
+          Varaktighet: <%= @job.duration %>
+        </li>
+        <li>
+          Budget: <%= @job.budget %>
+        </li>
+        <li>
+          Timmar/vecka: <%= @job.hour_week %>
+        </li>
+        <li>
+          Deadline: <%= @job.deadline%>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="large-4 columns">
+    <div class="portfolio-resume-wrapper">
+      <h3 class="portfolio-resume-header">Description</h3>
+      <div class="portfolio-resume-spacing">
+        <h5><strong><%= @job.title %></strong></h5>
+        Jobb ID: <%= @job.id %>
+        <p><%= @job.description %></p>
+      </div>
+      <%= button_to 'Apply', job_path(@job), class: 'round button small' %>
+    </div>
+  </div>
+
+  <div class="large-4 columns">
+    <div class="portfolio-resume-wrapper">
+      <h3 class="portfolio-resume-header">Company info</h3>
+      <h5><strong><%= @company.name %></strong></h5>
+      <div class="portfolio-resume-contact-info">
+        <p><%= @company.city %></p>
+      </div>
+    </div>
+  </div>
+
+</div>
