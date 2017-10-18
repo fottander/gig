@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: [:index]
 
-  resources :jobs, only: [:index, :new, :create, :show]
+  resources :jobs, only: [:index, :new, :create, :show, :edit, :update]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 

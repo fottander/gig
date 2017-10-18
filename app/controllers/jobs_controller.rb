@@ -9,6 +9,18 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update job_params
+      flash[:notice] = "Job edited!"
+      redirect_back(fallback_location: job_path(@job))
+    end
+  end
+
   def new
     @job = Job.new
   end

@@ -4,7 +4,7 @@
   <div class="holy-grail-left">
     <ul>
       <li>
-        <%= link_to 'Panel', panels_path %>
+        <%= link_to 'Control panel', panels_path %>
       </li>
       <li>
         <%= link_to 'Account', edit_company_registration_path %>
@@ -16,8 +16,8 @@
         <%= link_to 'Invoices' %>
       </li>
     </ul>
-    <p>Unhappy?</p>
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    Unhappy?<br>
+    <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
   </div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -76,7 +76,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update" %>
+      <%= f.submit "Update", class: 'round button' %>
     </div>
     <% end %>
 

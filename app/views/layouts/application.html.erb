@@ -17,7 +17,7 @@
       <%= link_to "FIND FREELANCERS", profiles_path %>
       <%= link_to "FIND A GIG", jobs_path %>
       <% if company_signed_in? %>
-       <%= link_to "DASHBOARD", dashboards_path %>
+       <%= link_to "CONTROL PANEL", panels_path %>
        <%= link_to "SIGN OUT", destroy_company_session_path, {method: :delete} %>
        <% elsif user_signed_in? %>
        <%= link_to "DASHBOARD", dashboards_path %>

@@ -1,0 +1,49 @@
+<h3>Edit job information</h3>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Control panel', panels_path %>
+      </li>
+      <li>
+        <%= link_to 'Account', edit_company_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Payments' %>
+      </li>
+      <li>
+        <% if @job.present? %>
+          <%= link_to 'Jobs', job_path(current_company.id) %>
+          <% else %>
+          <%= link_to 'Jobs', new_job_path %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
+  <%= form_for @job do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, value: @job.title %>
+  <%= f.label :description %>
+  <%= f.text_area :description, value: @job.description %>
+  <%= f.label :requirement %>
+  <%= f.text_field :requirement, value: @job.requirement %>
+  <%= f.label :category, 'Categories' %>
+  <%= f.text_field :category, value: @job.category %>
+  <%= f.label :city %>
+  <%= f.text_field :city, value: @job.city %>
+  <%= f.label :budget, 'Categories' %>
+  <%= f.text_field :budget, value: @job.budget %>
+  <%= f.label :deadline %>
+  <%= f.text_field :deadline, value: @job.deadline %>
+  <%= f.label :duration %>
+  <%= f.text_field :duration, value: @job.duration %>
+  <%= f.label :hour_week %>
+  <%= f.text_field :hour_week, value: @job.hour_week %>
+  <%= f.submit 'Submit', class: 'button inc' %>
+  <% end %>
+
+</div>
