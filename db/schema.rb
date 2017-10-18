@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018100637) do
+ActiveRecord::Schema.define(version: 20171018204145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,11 @@ ActiveRecord::Schema.define(version: 20171018100637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "job_id"
+    t.bigint "profile_id"
+    t.string "profile_username"
     t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["profile_id"], name: "index_applications_on_profile_id"
+    t.index ["profile_username"], name: "index_applications_on_profile_username"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -75,8 +79,6 @@ ActiveRecord::Schema.define(version: 20171018100637) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "application_id"
-    t.index ["application_id"], name: "index_profiles_on_application_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -101,7 +103,7 @@ ActiveRecord::Schema.define(version: 20171018100637) do
   end
 
   add_foreign_key "applications", "jobs"
+  add_foreign_key "applications", "profiles"
   add_foreign_key "jobs", "companies"
-  add_foreign_key "profiles", "applications"
-  add_foreign_key "profiles", "users", on_update: :cascade
+  add_foreign_key "profiles", "users"
 end

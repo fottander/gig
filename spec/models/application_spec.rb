@@ -11,7 +11,7 @@ RSpec.describe Application, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to have_one :profile }
+    it { is_expected.to belong_to :profile }
     it { is_expected.to belong_to :job }
   end
 

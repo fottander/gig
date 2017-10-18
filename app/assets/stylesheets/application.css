@@ -379,13 +379,13 @@
 }
 
 .portfolio-resume-wrapper {
-  padding: 2rem 4rem;
+  padding: 1rem 0.5rem;
 }
 
 .portfolio-resume-header {
   text-transform: uppercase;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 0.5px solid #e6e6e6;
   font-weight: bold;
   margin-bottom: 1rem;
 }

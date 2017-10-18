@@ -1,6 +1,10 @@
 <h3>Create a job application</h3>
-<%= form_for ([@job, @application]) do |f| %>
-<%= f.label :message %>
-<%= f.text_area :message %>
-<%= f.submit 'Submit', class: 'button inc' %>
+<% if @profile.present? %>
+  <%= form_for ([@job, @application]) do |f| %>
+  <%= f.label :message %>
+  <%= f.text_area :message %>
+  <%= f.submit 'Submit', class: 'button inc' %>
+  <% end %>
+<% else %>
+<p>Please create a profile before you apply. <%= link_to 'Click here', dashboards_path %></p>
 <% end %>
