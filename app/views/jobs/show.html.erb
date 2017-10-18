@@ -1,7 +1,7 @@
 <h4>Job details</h4>
 <div class="portfolio-resume row">
 
-  <div class="large-4 columns">
+  <div class="large-3 columns">
     <div class="portfolio-resume-wrapper">
       <h3 class="portfolio-resume-header">Details</h3>
       <ul>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="large-4 columns">
+  <div class="large-3 columns">
     <div class="portfolio-resume-wrapper">
       <h3 class="portfolio-resume-header">Description</h3>
       <div class="portfolio-resume-spacing">
@@ -38,16 +38,28 @@
         Jobb ID: <%= @job.id %>
         <p><%= @job.description %></p>
       </div>
-      <%= button_to 'Apply', job_path(@job), class: 'round button small' %>
+      <%= link_to 'Apply', new_job_application_path(@job), class: 'round button small' %>
     </div>
   </div>
 
-  <div class="large-4 columns">
+  <div class="large-3 columns">
     <div class="portfolio-resume-wrapper">
       <h3 class="portfolio-resume-header">Company info</h3>
       <h5><strong><%= @company.name %></strong></h5>
       <div class="portfolio-resume-contact-info">
         <p><%= @company.city %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="large-3 columns">
+    <div class="portfolio-resume-wrapper">
+      <h3 class="portfolio-resume-header">Applications</h3>
+      <div class="portfolio-resume-spacing">
+        <% @applications.each do |application| %>
+        <%= application.message %>
+        <hr>
+        <% end %>
       </div>
     </div>
   </div>

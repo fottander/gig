@@ -1,0 +1,6 @@
+<h3>Create a job application</h3>
+<%= form_for ([@job, @application]) do |f| %>
+<%= f.label :message %>
+<%= f.text_area :message %>
+<%= f.submit 'Submit', class: 'button inc' %>
+<% end %>

@@ -8,6 +8,7 @@ class JobsController < ApplicationController
   def show
     @company = Company.find(params[:id])
     @job = Job.find(params[:id])
+    @applications = @job.applications
   end
 
   def edit
