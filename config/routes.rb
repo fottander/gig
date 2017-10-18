@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :companies, controllers: {
-  registrations: 'companies/registrations'
-}
+    registrations: 'companies/registrations'
+  }
+  devise_scope :company do
+    authenticated :company do
+      root to: 'panels#index'
+    end
+  end
 
   devise_for :users, controllers: {
     registrations: 'user/registrations'
@@ -15,9 +20,11 @@ Rails.application.routes.draw do
 
   root controller: :index, action: :index
 
+  resources :panels, only: [:index]
+
   resources :dashboards, only: [:index]
 
-  resources :jobs, only: [:index, :new, :create, :show]
+  resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 

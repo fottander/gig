@@ -9,6 +9,18 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    if @job.update job_params
+      flash[:notice] = "Job edited!"
+      redirect_back(fallback_location: job_path(@job))
+    end
+  end
+
   def new
     @job = Job.new
   end
@@ -19,6 +31,14 @@ class JobsController < ApplicationController
     if @job.save
       flash[:notice] = "New job created!"
       redirect_to new_job_path
+    end
+  end
+
+  def destroy
+    @job = Job.find(params[:id])
+    if @job.destroy
+      flash[:notice] = "Job Deleted!"
+      redirect_back(fallback_location: panels_path)
     end
   end
 
