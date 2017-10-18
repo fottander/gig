@@ -52,6 +52,7 @@
     </div>
   </div>
 
+  <% if @company.name == current_company.name %>
   <div class="large-3 columns">
     <div class="portfolio-resume-wrapper">
       <h3 class="portfolio-resume-header">Applications</h3>
@@ -64,5 +65,6 @@
       </div>
     </div>
   </div>
+  <% end %>
 
 </div>
