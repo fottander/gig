@@ -1,6 +1,5 @@
 class ApplicationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
-  before_action :authenticate_company!, only: [:show]
 
   def new
     @application = Application.new
@@ -10,6 +9,9 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = Application.find(params[:id])
+    @job = Job.find(params[:job_id])
+    @comments = Comment.where(application_id: @application)
+    @profile = Profile.find_by(user_id: current_user)
   end
 
   def create

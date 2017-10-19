@@ -13,6 +13,7 @@ RSpec.describe Application, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :profile }
     it { is_expected.to belong_to :job }
+    it { is_expected.to have_many :comments }
   end
 
   describe 'Factory' do

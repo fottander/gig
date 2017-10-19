@@ -55,8 +55,20 @@
         </div>
         <div class="marketing-site-content-section-block small-order-2 medium-order-1">
           <h3 class="marketing-site-content-section-block-header">Applications</h3>
-          <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
-          <a href="#" class="round button small">View applications</a>
+          <p class="marketing-site-content-section-block-subheader subheader">
+            <% if @applications.present? %>
+              <% @applications.each do |application| %>
+              Application ID: <%= application.id %><br>
+              Job ID: <%= application.job_id %><br>
+              Skapad: <%= application.created_at.strftime("%Y-%m-%d") %>
+              <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'round button small' %>
+              <hr>
+              <% end %>
+            <% else %>
+              <strong>No applications so far!</strong><br>
+              <h6><strong>Apply for jobs</strong> <%= link_to 'here!', jobs_path %></h6>
+            <% end %>
+          </p>
         </div>
         <div class="marketing-site-content-section-block">
           <h3 class="marketing-site-content-section-block-header">Invoices</h3>

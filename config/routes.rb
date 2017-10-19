@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comments/new'
+
   devise_for :companies, controllers: {
     registrations: 'companies/registrations'
   }

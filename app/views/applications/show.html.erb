@@ -11,3 +11,10 @@
         </div>
     </div>
 </div>
+<% @comments.each do |comment| %>
+<%= comment.profile_username %>
+<%= comment.company_name %><br>
+<%= comment.comment %><br>
+<hr>
+<% end %>
+<%= link_to 'Reply', new_job_application_comment_path(@job, @application), class: 'round button small' %>

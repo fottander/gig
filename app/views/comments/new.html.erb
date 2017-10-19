@@ -1,0 +1,6 @@
+<h3>Reply to application no. <%= @application.id %></h3>
+<%= form_for ([@job, @application, @comment]) do |f| %>
+<%= f.label :comment %>
+<%= f.text_area :comment %>
+<%= f.submit 'Submit', class: 'button inc' %>
+<% end %>
