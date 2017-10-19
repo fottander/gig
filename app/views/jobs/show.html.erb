@@ -52,19 +52,22 @@
     </div>
   </div>
 
-  <% if @company.name == current_company.name %>
-  <div class="large-3 columns">
-    <div class="portfolio-resume-wrapper">
-      <h3 class="portfolio-resume-header">Applications</h3>
-      <div class="portfolio-resume-spacing">
-        <% @applications.each do |application| %>
-        <%= link_to application.profile_username, job_application_path(@job, application) %>
-        <%= link_to 'Profile', profile_path(application.profile_id) %>
-        <hr>
-        <% end %>
+  <% if @company.present? %>
+    <% if @company.name == current_company.name %>
+    <div class="large-3 columns">
+      <div class="portfolio-resume-wrapper">
+        <h3 class="portfolio-resume-header">Applications</h3>
+        <div class="portfolio-resume-spacing">
+          <% @applications.each do |application| %>
+          <h5><strong><%= application.profile_username %></strong></h5>
+          | <%= link_to 'Reply', job_application_path(@job, application) %> |
+          <%= link_to 'Profile', profile_path(application.profile_id) %> |
+          <hr>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+    <% end %>
   <% end %>
 
 </div>

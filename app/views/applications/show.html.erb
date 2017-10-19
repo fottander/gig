@@ -1,2 +1,13 @@
-<h3>Application reply from <%= @application.profile_username %></h3>
-<%= @application.message %>
+<h3>Application reply</h3>
+<div class="card profile-card-action-icons">
+    <div class="card-section">
+        <div class="profile-card-header">
+            <div class="profile-card-author">
+                <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
+            </div>
+        </div>
+        <div class="profile-card-about">
+            <%= @application.message %>
+        </div>
+    </div>
+</div>
