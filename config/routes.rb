@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:index]
 
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resources :applications, except: [:index]
+    resources :applications, except: [:index] do
+      resources :comments, except: [:index]
+    end
   end
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
