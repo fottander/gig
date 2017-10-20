@@ -13,7 +13,7 @@
 </div>
 <% @comments.each do |comment| %>
 <strong><%= comment.profile_username %></strong>
-<strong><%= comment.company_name %></strong><br>
+<strong><%= comment.company_name %></strong> | <%= comment.created_at.in_time_zone("Stockholm").strftime("%D %R") %> |<br>
 <%= comment.comment %><br>
 <hr>
 <% end %>
