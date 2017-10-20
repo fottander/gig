@@ -23,7 +23,16 @@ class ApplicationsController < ApplicationController
     @application.profile_username = @profile.username
     if @application.save
       flash[:notice] = "New job application sent!"
-      redirect_back(fallback_location: job_path(@job))
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def destroy
+    @job = Job.find(params[:job_id])
+    @application = Application.find(params[:id])
+    if @application.destroy
+      flash[:notice] = "Application deleted!"
+      redirect_back(fallback_location: dashboards_path)
     end
   end
 

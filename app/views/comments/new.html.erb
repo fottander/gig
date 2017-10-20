@@ -1,4 +1,5 @@
 <h3>Reply to application no. <%= @application.id %></h3>
+<%= link_to 'Back to application', job_application_path(@job, @application) %>
 <%= form_for ([@job, @application, @comment]) do |f| %>
 <%= f.label :comment %>
 <%= f.text_area :comment %>

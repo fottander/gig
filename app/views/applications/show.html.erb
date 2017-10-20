@@ -12,8 +12,8 @@
     </div>
 </div>
 <% @comments.each do |comment| %>
-<%= comment.profile_username %>
-<%= comment.company_name %><br>
+<strong><%= comment.profile_username %></strong>
+<strong><%= comment.company_name %></strong><br>
 <%= comment.comment %><br>
 <hr>
 <% end %>

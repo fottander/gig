@@ -60,13 +60,14 @@
               <% @applications.each do |application| %>
               Application ID: <%= application.id %><br>
               Job ID: <%= application.job_id %><br>
-              Skapad: <%= application.created_at.strftime("%Y-%m-%d") %>
-              <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'round button small' %>
+              Skapad: <%= application.created_at.strftime("%Y-%m-%d") %><br>
+              <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
+              <%= link_to 'Delete application', job_application_path(application.job_id, application.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
               <hr>
               <% end %>
             <% else %>
-              <strong>No applications so far!</strong><br>
-              <h6><strong>Apply for jobs</strong> <%= link_to 'here!', jobs_path %></h6>
+              <strong>No applications so far</strong><br>
+              <%= link_to 'Apply for jobs here!', jobs_path %>
             <% end %>
           </p>
         </div>
