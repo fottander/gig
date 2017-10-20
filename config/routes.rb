@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'comments/new'
+
   devise_for :companies, controllers: {
     registrations: 'companies/registrations'
   }
@@ -24,7 +26,11 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: [:index]
 
-  resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :applications, except: [:index] do
+      resources :comments, except: [:index]
+    end
+  end
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 

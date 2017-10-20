@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012081035) do
+ActiveRecord::Schema.define(version: 20171019133446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "applications", force: :cascade do |t|
+    t.string "message"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "job_id"
+    t.bigint "profile_id"
+    t.string "profile_username"
+    t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["profile_id"], name: "index_applications_on_profile_id"
+    t.index ["profile_username"], name: "index_applications_on_profile_username"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.bigint "application_id"
+    t.bigint "profile_id"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "profile_username"
+    t.string "company_name"
+    t.bigint "job_id"
+    t.index ["application_id"], name: "index_comments_on_application_id"
+    t.index ["company_id"], name: "index_comments_on_company_id"
+    t.index ["company_name"], name: "index_comments_on_company_name"
+    t.index ["job_id"], name: "index_comments_on_job_id"
+    t.index ["profile_id"], name: "index_comments_on_profile_id"
+    t.index ["profile_username"], name: "index_comments_on_profile_username"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -89,6 +120,12 @@ ActiveRecord::Schema.define(version: 20171012081035) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applications", "jobs"
+  add_foreign_key "applications", "profiles"
+  add_foreign_key "comments", "applications"
+  add_foreign_key "comments", "companies"
+  add_foreign_key "comments", "jobs"
+  add_foreign_key "comments", "profiles"
   add_foreign_key "jobs", "companies"
   add_foreign_key "profiles", "users"
 end
