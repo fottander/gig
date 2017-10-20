@@ -14,7 +14,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to 'Applications' %>
+          <%= link_to 'Jobs', jobs_path %>
         </li>
         <li>
           <%= link_to 'Invoices' %>
@@ -61,6 +61,7 @@
               Application ID: <%= application.id %><br>
               Job ID: <%= application.job_id %><br>
               Skapad: <%= application.created_at.strftime("%Y-%m-%d") %><br>
+              Antal svar: <%= application.comments.count %><br>
               <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
               <%= link_to 'Delete application', job_application_path(application.job_id, application.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
               <hr>
