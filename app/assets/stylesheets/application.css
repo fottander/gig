@@ -45,8 +45,6 @@
 
  body {
     padding-top: 1px;
-    margin-left: 40px;
-    margin-right: 40px;
   }
 
   a {
@@ -56,6 +54,11 @@
      font-family: 'Montserrat', sans-serif;
      letter-spacing: 1.5px;
  }
+
+  h3 {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
 
   hr {
     margin-top: 0.5em;
@@ -71,6 +74,8 @@
   background: #fefefe;
   border-radius: 0;
   overflow: hidden;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 @media screen and (max-width: 39.9375em) {
@@ -360,6 +365,8 @@
  /* DASHBOARD */
 
 .holy-grail-grid {
+  margin-left: 40px;
+  margin-right: 40px;
   overflow: auto;
   display: -ms-grid;
   display: grid;
@@ -464,8 +471,9 @@
 /* SHOW PROFILE */
 
 .card-profile-stats {
+  margin-left: 40px;
+  margin-right: 40px;
   border: 1px solid #cacaca;
-  margin: 0 0 1.25rem;
   padding: 1.25rem;
   background: #fefefe;
 }
@@ -528,6 +536,8 @@
 /* INDEX PROFILE */
 
 .profile-card-action-icons {
+  margin-left: 40px;
+  margin-right: 40px;
   background-color: #fefefe;
   font-weight: 400;
   margin-bottom: 1.6rem;
@@ -593,8 +603,9 @@
 
 /* SHOW JOB AD & APPLY */
 
-
 .portfolio-resume-spacing {
+  margin-left: 40px;
+  margin-right: 40px;
   margin-bottom: 2rem;
 }
 
