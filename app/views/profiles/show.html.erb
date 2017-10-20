@@ -24,13 +24,13 @@
 
     <div class="holy-grail-middle">
       <div class="marketing-site-content-section">
-        <%= @profile.username %><br>
-        <%= @profile.title %><br>
-        <%= @profile.description %><br>
-        <%= @profile.skill %><br>
-        <%= @profile.rate %><br>
-        <%= @profile.category %><br>
-        <%= @profile.city %>
+        Username: <%= @profile.username %><br>
+        Title: <%= @profile.title %><br>
+        Desription: <%= @profile.description %><br>
+        Skills: <%= @profile.skill %><br>
+        Rate: <%= @profile.rate %><br>
+        Categories: <%= @profile.category %><br>
+        City: <%= @profile.city %>
       </div>
       <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'round button small' %>
     </div>

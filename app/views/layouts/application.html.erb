@@ -12,10 +12,7 @@
     </head>
 
     <div class="topnav" id="myTopnav">
-      <%= link_to "HOME", root_path %>
-      <%= link_to "POST JOB", new_job_path %>
-      <%= link_to "FIND FREELANCERS", profiles_path %>
-      <%= link_to "FIND A GIG", jobs_path %>
+      <a href="/" id="logo"></a>
       <% if company_signed_in? %>
        <%= link_to "CONTROL PANEL", panels_path %>
        <%= link_to "SIGN OUT", destroy_company_session_path, {method: :delete} %>
@@ -26,6 +23,9 @@
        <%= link_to "LOGIN", new_user_session_path %>
        <%= link_to "REGISTER", new_user_registration_path %>
       <% end %>
+      <%= link_to "FIND A GIG", jobs_path %>
+      <%= link_to "FIND FREELANCERS", profiles_path %>
+      <%= link_to "POST JOB", new_job_path %>
       <a href="javascript:void(0);" class="icon" onclick="myNav()">&#9776;</a>
     </div>
     <hr>
@@ -48,7 +48,6 @@
       <div class="row medium-unstack">
         <div class="medium-4 columns">
           <h4 class="site-footer-title">FOLLOW US</h4>
-          <p>Lorem ipsum dolor sit amet.</p>
         </div>
         <div class="medium-4 columns">
           <h4 class="site-footer-title">USEFUL LINKS</h4>
