@@ -72,6 +72,20 @@
     border-color: #0a0a0a;
  }
 
+ /* Comments */
+
+ .comment-section {
+   margin-left: 40px;
+   margin-right: 40px;
+ }
+
+ /* simple form */
+
+ .simple-form {
+   margin-left: 40px;
+   margin-right: 40px;
+ }
+
  /* FORM */
 
 .login-box {
