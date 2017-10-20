@@ -21,7 +21,7 @@
   <div class="holy-grail-middle">
     <div class="marketing-site-content-section">
       <div class="marketing-site-content-section-block">
-        <h3 class="marketing-site-content-section-block-header">Account info</h3>
+        <h2 class="marketing-site-content-section-block-header">Account info</h2>
         <p class="marketing-site-content-section-block-subheader subheader">
           Email: <%= current_company.email %><br><br>
           Name: <%= current_company.name %><br>
@@ -34,18 +34,19 @@
         <%= link_to 'Edit Account', edit_company_registration_path, class: 'round button small'  %>
       </div>
       <div class="marketing-site-content-section-block">
-        <h3 class="marketing-site-content-section-block-header">Payment info</h3>
+        <h2 class="marketing-site-content-section-block-header">Payment info</h2>
         <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
           <%= link_to 'Payments', panels_path, class: 'round button small' %>
       </div>
       <div class="marketing-site-content-section-block">
-        <h3 class="marketing-site-content-section-block-header">Jobs</h3>
+        <h2 class="marketing-site-content-section-block-header">Jobs</h2>
         <p class="marketing-site-content-section-block-subheader subheader">
         <% if @job.present? %>
           <% @job.each do |job| %>
           <div>
             <%= link_to job.title, job_path(job) %><br>
             Skapat: <%= job.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
+            Antal svar: <%= job.applications.count %><br>
             <%= link_to 'Edit job', edit_job_path(job), class: 'tiny round button inc' %>
             <%= link_to 'Delete job', job_path(job), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
           </div>
@@ -57,7 +58,7 @@
       </p>
       </div>
       <div class="marketing-site-content-section-block">
-        <h3 class="marketing-site-content-section-block-header">Invoices</h3>
+        <h2 class="marketing-site-content-section-block-header">Invoices</h2>
         <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
         <a href="#" class="round button small">View invoices</a>
       </div>
