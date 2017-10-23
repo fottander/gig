@@ -25,7 +25,7 @@
     <div class="holy-grail-middle">
       <div class="marketing-site-content-section">
         <div class="marketing-site-content-section-block">
-          <h3 class="marketing-site-content-section-block-header">Account info</h3>
+          <h2 class="marketing-site-content-section-block-header">Account info</h2>
           <p class="marketing-site-content-section-block-subheader subheader">
             Email: <%= current_user.email %><br><br>
             First name: <%= current_user.first_name %><br>
@@ -35,7 +35,7 @@
           <%= link_to 'Edit Account', edit_user_registration_path, class: 'round button small' %>
         </div>
         <div class="marketing-site-content-section-block">
-          <h3 class="marketing-site-content-section-block-header">Profile info</h3>
+          <h2 class="marketing-site-content-section-block-header">Profile info</h2>
           <p class="marketing-site-content-section-block-subheader subheader">
             <% if @profile.present? %>
               Username: <%= @profile.username %><br><br>
@@ -54,7 +54,7 @@
           <% end %>
         </div>
         <div class="marketing-site-content-section-block small-order-2 medium-order-1">
-          <h3 class="marketing-site-content-section-block-header">Applications</h3>
+          <h2 class="marketing-site-content-section-block-header">Applications</h2>
           <p class="marketing-site-content-section-block-subheader subheader">
             <% if @applications.present? %>
               <% @applications.each do |application| %>
@@ -73,7 +73,7 @@
           </p>
         </div>
         <div class="marketing-site-content-section-block">
-          <h3 class="marketing-site-content-section-block-header">Invoices</h3>
+          <h2 class="marketing-site-content-section-block-header">Invoices</h2>
           <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
           <a href="#" class="round button small">View invoices</a>
         </div>

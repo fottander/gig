@@ -1,10 +1,10 @@
-<h2>Browse all jobs</h2>
+<h3>Browse all jobs</h3>
 <% @jobs.each do |job| %>
 <div class="card profile-card-action-icons">
     <div class="card-section">
         <div class="profile-card-header">
             <div class="profile-card-author">
-                <h5 class="author-title"><%= link_to job.title, job_path(job)%></h5>
+                <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
                 | Skapad: <%= job.created_at.strftime("%Y-%m-%d") %> | Går ut: <%= job.deadline %> |
             </div>
         </div>

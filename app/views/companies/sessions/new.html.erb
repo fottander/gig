@@ -1,25 +1,37 @@
-<h2>Log in as company</h2>
-<%= link_to "User login >", new_user_session_path %>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<h3>Log in as company</h3>
+<div class="login-box">
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1">
+      <div class="login-box-form-section">
+        <h1 class="login-box-title">Sign up</h1>
+        <%= link_to "User login >", new_user_session_path %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="login-box-input">
+          <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+        </div>
+        <div class="login-box-input">
+          <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
+        </div>
+        <% if devise_mapping.rememberable? -%>
+          <div class="login-box-input">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+        <div class="actions">
+          <%= f.submit "Log in", class: 'button expand' %>
+          <p>or <%= render "companies/shared/links" %></p>
+        </div>
+        <%end %>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: 'round button' %>
-    <p>or <%= render "companies/shared/links" %></p>
+    <div class="small-12 medium-6 column small-order-1 medium-order-2 login-box-social-section">
+      <div class="login-box-social-section-inner">
+        <span class="login-box-social-headline">Sign in with<br />your social network</span>
+        <a class="login-box-social-button-facebook">Log in with facebook</a>
+        <a class="login-box-social-button-twitter">Log in with Twitter</a>
+        <a class="login-box-social-button-google">Log in with Google+</a>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>

@@ -1,4 +1,4 @@
-<h4>Profile info</h4>
+<h3>Profile info</h3>
 <% if user_signed_in? %>
   <% if current_user.id == @profile.user_id %>
   <div class="holy-grail-grid">
@@ -24,25 +24,25 @@
 
     <div class="holy-grail-middle">
       <div class="marketing-site-content-section">
-        <%= @profile.username %><br>
-        <%= @profile.title %><br>
-        <%= @profile.description %><br>
-        <%= @profile.skill %><br>
-        <%= @profile.rate %><br>
-        <%= @profile.category %><br>
-        <%= @profile.city %>
+        Username: <%= @profile.username %><br>
+        Title: <%= @profile.title %><br>
+        Desription: <%= @profile.description %><br>
+        Skills: <%= @profile.skill %><br>
+        Rate: <%= @profile.rate %><br>
+        Categories: <%= @profile.category %><br>
+        City: <%= @profile.city %>
       </div>
       <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'round button small' %>
     </div>
   </div>
   <% end %>
-<% end %>
+<% else %>
 
 <div class="card-profile-stats">
   <div class="card-profile-stats-intro">
     <img class="card-profile-stats-intro-pic" src="https://pbs.twimg.com/profile_images/732634911761260544/OxHbNdTF.jpg" alt="profile-image" />
     <div class="card-profile-stats-intro-content">
-      <h3><%= @profile.username %></h3>
+      <h2><%= @profile.username %></h2>
       <p><%= @profile.description %></small></p>
     </div> <!-- /.card-profile-stats-intro-content -->
   </div> <!-- /.card-profile-stats-intro -->
@@ -72,3 +72,4 @@
     </div> <!-- /.card-profile-stats-statistic -->
   </div> <!-- /.card-profile-stats-container -->
 </div>
+<% end %>

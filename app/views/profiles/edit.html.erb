@@ -20,6 +20,7 @@
       </li>
     </ul>
   </div>
+  <div class="simple-form">
   <%= form_for @profile do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username, value: @profile.username %>
@@ -37,5 +38,5 @@
   <%= f.text_field :city, value: @profile.city %>
   <%= f.submit 'Submit', class: 'button inc' %>
   <% end %>
-
+  </div>
 </div>
