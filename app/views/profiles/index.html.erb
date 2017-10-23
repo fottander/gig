@@ -16,7 +16,11 @@
         </div>
         <div class="profile-card-about">
             Beskrivning:
-            <%= profile.description %>
+            <% if profile.description.length > 100 %>
+                <%= truncate(profile.description, length: 100) %>
+            <% else %>
+                <%= profile.description %>
+            <% end %>
             <br>
             | Kategorier:
             <%= profile.category %>

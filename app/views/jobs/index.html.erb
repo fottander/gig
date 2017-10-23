@@ -12,7 +12,13 @@
             </div>
         </div>
         <div class="profile-card-about">
-          Beskrivning: <%= job.description %> <br>
+          Beskrivning:
+          <% if job.description.length > 100 %>
+              <%= truncate(job.description, length: 100) %>
+          <% else %>
+              <%= job.description %>
+          <% end %>
+          <br>
           | Stad: <%= job.city %> | Kategorier: <%= job.category %> | Krav: <%= job.requirement %> |<br>
           | Varaktighet: <%= job.duration %> | <%= job.budget %> | Timmar/vecka: <%= job.hour_week %> |<br>
         </div>
