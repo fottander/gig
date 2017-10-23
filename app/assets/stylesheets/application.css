@@ -566,13 +566,13 @@
 
 .profile-card-action-icons .card-section {
   background-color: inherit;
-  padding: 0.5rem 0 0;
+  padding: 0.1rem 0 0;
 }
 
 .profile-card-action-icons .card-section .profile-card-header,
 .profile-card-action-icons .card-section .profile-card-about {
   border-bottom: 0.0625rem solid #cacaca;
-  padding: 0.7rem 1rem;
+  padding: 0.2rem 1rem;
 }
 
 .profile-card-action-icons .card-section .profile-card-header {
@@ -598,9 +598,16 @@
   -webkit-flex: 1 0 0;
       -ms-flex: 1 0 0px;
           flex: 1 0 0;
-  margin-top: 0.3rem;
   padding-bottom: 0;
 }
+
+  @media screen and (max-width: 39.9375em) {
+    .profile-card-action-icons .card-section .profile-card-header .profile-card-author .add-friend {
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+    }
+  }
 
 .profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-title,
 .profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-description {

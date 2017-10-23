@@ -36,7 +36,7 @@
     <%= f.text_field :category, value: @job.category %>
     <%= f.label :city %>
     <%= f.text_field :city, value: @job.city %>
-    <%= f.label :budget, 'Categories' %>
+    <%= f.label :budget %>
     <%= f.text_field :budget, value: @job.budget %>
     <%= f.label :deadline %>
     <%= f.text_field :deadline, value: @job.deadline %>
@@ -45,6 +45,6 @@
     <%= f.label :hour_week %>
     <%= f.text_field :hour_week, value: @job.hour_week %>
     <%= f.submit 'Submit', class: 'button inc' %>
-    <% end %>  
+    <% end %>
   </div>
 </div>
