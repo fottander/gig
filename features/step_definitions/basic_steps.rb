@@ -23,3 +23,7 @@ end
 Given("I am on the dashboards page") do
   visit dashboards_path
 end
+
+Then(/^I select "([^"]*)" from "([^"]*)"$/) do |option, choices|
+  select option, from: choices
+end

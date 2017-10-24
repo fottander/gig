@@ -23,62 +23,82 @@
     </div>
 
     <div class="holy-grail-middle">
-      <div class="marketing-site-content-section">
-        <div class="marketing-site-content-section-block">
-          <h2 class="marketing-site-content-section-block-header">Account info</h2>
-          <p class="marketing-site-content-section-block-subheader subheader">
+      <div class="portfolio-resume row">
+
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Account info</h3>
+            <p class="portfolio-resume-subheader">
             Email: <%= current_user.email %><br><br>
             First name: <%= current_user.first_name %><br>
             Last name: <%= current_user.last_name %><br>
-            Phone: <%= current_user.phone %>
-          </p>
-          <%= link_to 'Edit Account', edit_user_registration_path, class: 'round button small' %>
+            Phone: <%= current_user.phone %><br>
+            <%= link_to 'Edit Account', edit_user_registration_path, class: 'round button small' %>
+            </p>
+          </div>
         </div>
-        <div class="marketing-site-content-section-block">
-          <h2 class="marketing-site-content-section-block-header">Profile info</h2>
-          <p class="marketing-site-content-section-block-subheader subheader">
+
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Profile info</h3>
+            <p class="portfolio-resume-subheader">
             <% if @profile.present? %>
               Username: <%= @profile.username %><br><br>
               Title: <%= @profile.title %><br>
               Skills: <%= @profile.skill %><br>
               Categories: <%= @profile.category %><br>
-              City: <%= @profile.city %>
+              City: <%= @profile.city %><br>
+              <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'round button small' %>
               <% else %>
-              Create profile
+              Create profile <br>
+              <%= link_to 'Create profile', new_profile_path, class: 'round button small' %>
             <% end %>
-          </p>
-          <% if @profile.present? %>
-            <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'round button small' %>
-            <% else %>
-            <%= link_to 'Create profile', new_profile_path, class: 'round button small' %>
-          <% end %>
+            </p>
+          </div>
         </div>
-        <div class="marketing-site-content-section-block small-order-2 medium-order-1">
-          <h2 class="marketing-site-content-section-block-header">Applications</h2>
-          <p class="marketing-site-content-section-block-subheader subheader">
-            <% if @applications.present? %>
-              <% @applications.each do |application| %>
-              Application ID: <%= application.id %><br>
-              Job ID: <%= application.job_id %><br>
-              Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
-              Antal svar: <%= application.comments.count %><br>
-              <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
-              <%= link_to 'Delete application', job_application_path(application.job_id, application.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
-              <hr>
-              <% end %>
-            <% else %>
-              <strong>No applications so far</strong><br>
-              <%= link_to 'Apply for jobs here!', jobs_path %>
-            <% end %>
-          </p>
-        </div>
-        <div class="marketing-site-content-section-block">
-          <h2 class="marketing-site-content-section-block-header">Invoices</h2>
-          <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
-          <a href="#" class="round button small">View invoices</a>
+
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Jobs</h3>
+            <p class="portfolio-resume-subheader">
+              Here are all the current jobs
+            </p>
+          </div>
         </div>
       </div>
+      <hr>
+      <div class="portfolio-resume row">
+        <div class="large-6 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Invoices</h3>
+            <p class="portfolio-resume-subheader">
+              Here are all the current Invoices
+            </p>
+          </div>
+        </div>
 
+        <div class="large-6 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Applications</h3>
+              <% if @applications.present? %>
+                <% @applications.each do |application| %>
+                <p class="portfolio-resume-subheader">
+                Application ID: <%= application.id %><br>
+                Job ID: <%= application.job_id %><br>
+                Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
+                Antal svar: <%= application.comments.count %><br>
+                <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
+                <%= link_to 'Delete application', job_application_path(application.job_id, application.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
+                <hr>
+                <% end %>
+              <% else %>
+                <strong>No applications so far</strong><br>
+                <%= link_to 'Apply for jobs here!', jobs_path %>
+              <% end %>
+              </p>
+          </div>
+        </div>
+
+      </div>
     </div>
-
   </div>

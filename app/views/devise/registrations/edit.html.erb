@@ -17,15 +17,14 @@
         <% end %>
       </li>
       <li>
-        <%= link_to 'Applications' %>
-      </li>
-      <li>
         <%= link_to 'Invoices' %>
       </li>
     </ul>
     Unhappy?<br>
     <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
   </div>
+
+  <div class="holy-grail-middle">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
@@ -76,5 +75,6 @@
       <%= f.submit "Update", class: 'round button' %>
     </div>
   <% end %>
+  </div>
 
 </div>

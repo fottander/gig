@@ -4,9 +4,14 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create
     super
   end
-  
+
   def update
    super
+  end
+
+  def edit
+    @profile = Profile.find_by(user_id: current_user)
+    super
   end
 
   protected

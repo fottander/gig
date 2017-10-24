@@ -8,12 +8,19 @@
             </div>
             <div class="profile-card-author">
                 <h4 class="author-title"><%= link_to profile.username, profile_path(profile)%></h4>
-                <p class="author-description"><%= profile.title %></p>
+                Title: <%= profile.title %>
+                <div class="small-12 medium-2 columns add-friend">
+                  <%= link_to 'View', profile_path(profile), class: 'small button inc' %>
+                </div>
             </div>
         </div>
         <div class="profile-card-about">
             Beskrivning:
-            <%= profile.description %>
+            <% if profile.description.length > 100 %>
+                <%= truncate(profile.description, length: 100) %>
+            <% else %>
+                <%= profile.description %>
+            <% end %>
             <br>
             | Kategorier:
             <%= profile.category %>
