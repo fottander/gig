@@ -34,9 +34,9 @@
       <%= f.label :requirement %>
       <%= f.text_field :requirement, value: @job.requirement %>
       <%= f.label :category, 'Categories' %>
-      <%= f.text_field :category, value: @job.category %>
+      <%= f.select :category, options_for_select(Job.category), { include_blank: true }, value: @job.category %>
       <%= f.label :city %>
-      <%= f.text_field :city, value: @job.city %>
+      <%= f.select :city, options_for_select(Job.city), { include_blank: true }, value: @job.city %>
       <%= f.label :budget %>
       <%= f.text_field :budget, value: @job.budget %>
       <%= f.label :deadline %>
