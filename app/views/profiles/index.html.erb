@@ -1,4 +1,11 @@
 <h3>Browse all freelancers</h3>
+<div class="button-select-section">
+    <%= link_to 'Målare', {controller: 'profiles', with_category: 'Målare'}, {class: 'button-select'} %>
+    <%= link_to 'Snickare', {controller: 'profiles', with_category: 'Snickare'}, {class: 'button-select'} %>
+    <%= link_to 'Plåtslagare', {controller: 'profiles', with_category: 'Plåtslagare'}, {class: 'button-select'} %>
+    <%= link_to 'Lagerarbetare', {controller: 'profiles', with_category: 'Lagerarbetare'}, {class: 'button-select'} %>
+</div>
+
 <% @profiles.each do |profile| %>
 <div class="card profile-card-action-icons">
     <div class="card-section">
@@ -10,7 +17,7 @@
                 <h4 class="author-title"><%= link_to profile.username, profile_path(profile)%></h4>
                 Title: <%= profile.title %>
                 <div class="small-12 medium-2 columns add-friend">
-                  <%= link_to 'View', profile_path(profile), class: 'small button inc' %>
+                  <%= link_to 'View', profile_path(profile), class: 'boton-large' %>
                 </div>
             </div>
         </div>
