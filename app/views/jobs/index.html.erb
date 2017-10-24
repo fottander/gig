@@ -1,5 +1,6 @@
 <h3>Browse all jobs</h3>
 <div class="button-select-section">
+    <%= link_to 'Alla kategorier', {controller: 'jobs'}, {class: 'button-select'} %>
     <%= link_to 'Målare', {controller: 'jobs', with_category: 'Målare'}, {class: 'button-select'} %>
     <%= link_to 'Snickare', {controller: 'jobs', with_category: 'Snickare'}, {class: 'button-select'} %>
     <%= link_to 'Plåtslagare', {controller: 'jobs', with_category: 'Plåtslagare'}, {class: 'button-select'} %>
