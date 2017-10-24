@@ -1,7 +1,10 @@
 class ProfilesController < ApplicationController
 
   def index
-    @profiles = Profile.all
+    @profiles = Profile.where(nil)
+    filtering_params(params).each do |key, value|
+      @profiles = @profiles.public_send(key, value) if value.present?
+    end
   end
 
   def new
@@ -40,4 +43,9 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:username, :title, :description, :skill, :rate, :category, :city)
   end
+
+  def filtering_params(params)
+    params.slice(:with_category)
+  end
+  
 end

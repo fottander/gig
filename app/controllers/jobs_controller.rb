@@ -2,7 +2,10 @@ class JobsController < ApplicationController
   before_action :authenticate_company!, except: [:index, :show]
 
   def index
-    @jobs = Job.all.order(created_at: :desc)
+    @jobs = Job.where(nil)
+    filtering_params(params).each do |key, value|
+      @jobs = @jobs.public_send(key, value) if value.present?
+    end
   end
 
   def show
@@ -48,6 +51,10 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:title, :description, :requirement, :category, :city, :budget, :deadline, :duration, :hour_week, :active)
+  end
+
+  def filtering_params(params)
+    params.slice(:with_category)
   end
 
 end

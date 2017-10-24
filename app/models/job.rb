@@ -3,6 +3,8 @@ class Job < ApplicationRecord
   belongs_to :company
   has_many :applications, dependent: :destroy
 
+  scope :with_category, -> (category) { where category: category }
+
   def self.city
     ['Hela sverige', 'Göteborg', 'Malmö', 'Stockholm']
   end
