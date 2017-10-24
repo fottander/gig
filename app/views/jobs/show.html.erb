@@ -1,73 +1,73 @@
 <h3>Job details</h3>
-<div class="portfolio-resume row">
-
-  <div class="large-3 columns">
-    <div class="portfolio-resume-wrapper">
-      <h3 class="portfolio-resume-header">Details</h3>
-      <ul >
-        <li>
-          Stad: <%= @job.city %>
-        </li>
-        <li>
-          Kategorier: <%= @job.category %>
-        </li>
-        <li>
-          Krav: <%= @job.requirement %>
-        </li>
-        <li>
-          Varaktighet: <%= @job.duration %>
-        </li>
-        <li>
-          Budget: <%= @job.budget %>
-        </li>
-        <li>
-          Timmar/vecka: <%= @job.hour_week %>
-        </li>
-        <li>
-          Deadline: <%= @job.deadline%>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="large-3 columns">
-    <div class="portfolio-resume-wrapper">
-      <h3 class="portfolio-resume-header">Description</h3>
-      <div class="portfolio-resume-spacing">
-        <h5><strong><%= @job.title %></strong></h5>
-        Jobb ID: <%= @job.id %>
-        <p><%= @job.description %></p>
-      </div>
-      <%= link_to 'Apply', new_job_application_path(@job), class: 'round button small' %>
-    </div>
-  </div>
-
-  <div class="large-3 columns">
-    <div class="portfolio-resume-wrapper">
-      <h3 class="portfolio-resume-header">Company info</h3>
-      <h5><strong><%= @company.name %></strong></h5>
-      <div class="portfolio-resume-contact-info">
-        <p><%= @company.city %></p>
-      </div>
-    </div>
-  </div>
-
-  <% if current_company.present? %>
-    <% if @company.name == current_company.name %>
+<div class="card-profile-stats">
+  <div class="portfolio-resume row">
     <div class="large-3 columns">
       <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Applications</h3>
+        <h3 class="portfolio-resume-header">Details</h3>
+        <ul >
+          <li>
+            Stad: <%= @job.city %>
+          </li>
+          <li>
+            Kategorier: <%= @job.category %>
+          </li>
+          <li>
+            Krav: <%= @job.requirement %>
+          </li>
+          <li>
+            Varaktighet: <%= @job.duration %>
+          </li>
+          <li>
+            Budget: <%= @job.budget %>
+          </li>
+          <li>
+            Timmar/vecka: <%= @job.hour_week %>
+          </li>
+          <li>
+            Deadline: <%= @job.deadline%>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="large-3 columns">
+      <div class="portfolio-resume-wrapper">
+        <h3 class="portfolio-resume-header">Description</h3>
         <div class="portfolio-resume-spacing">
-          <% @applications.each do |application| %>
-          <h5><strong><%= application.profile_username %></strong></h5>
-          | <%= link_to 'Reply', job_application_path(@job, application) %> |
-          <%= link_to 'Profile', profile_path(application.profile_id) %> |
-          <hr>
-          <% end %>
+          <h5><strong><%= @job.title %></strong></h5>
+          Jobb ID: <%= @job.id %>
+          <p><%= @job.description %></p>
+        </div>
+        <%= link_to 'Apply', new_job_application_path(@job), class: 'round button small' %>
+      </div>
+    </div>
+
+    <div class="large-3 columns">
+      <div class="portfolio-resume-wrapper">
+        <h3 class="portfolio-resume-header">Company info</h3>
+        <h5><strong><%= @company.name %></strong></h5>
+        <div class="portfolio-resume-contact-info">
+          <p><%= @company.city %></p>
         </div>
       </div>
     </div>
-    <% end %>
-  <% end %>
 
+    <% if current_company.present? %>
+      <% if @company.name == current_company.name %>
+      <div class="large-3 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Applications</h3>
+          <div class="portfolio-resume-spacing">
+            <% @applications.each do |application| %>
+            <h5><strong><%= application.profile_username %></strong></h5>
+            | <%= link_to 'Reply', job_application_path(@job, application) %> |
+            <%= link_to 'Profile', profile_path(application.profile_id) %> |
+            <hr>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>

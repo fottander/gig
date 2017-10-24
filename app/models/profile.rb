@@ -2,6 +2,7 @@ class Profile < ApplicationRecord
   validates_presence_of :username, :description, :category, :city
   belongs_to :user
   has_many :applications, dependent: :destroy
+  default_scope {order('created_at DESC')}
 
   scope :with_category, -> (category) { where category: category }
 
