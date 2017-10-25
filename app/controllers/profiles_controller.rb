@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   def index
-    @profiles = Profile.where(nil)
+    @profiles = Profile.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @profiles = @profiles.public_send(key, value) if value.present?
     end
@@ -47,5 +47,5 @@ class ProfilesController < ApplicationController
   def filtering_params(params)
     params.slice(:with_category)
   end
-  
+
 end

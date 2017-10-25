@@ -10,6 +10,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'foundation-rails'
 gem 'devise'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-foundation'
 
 group :development, :test do
   gem 'pry-byebug'
