@@ -16,7 +16,7 @@
             </div>
             <div class="profile-card-author">
                 <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
-                | Skapad: <%= job.created_at.strftime("%Y-%m-%d") %> | Går ut: <%= job.deadline %> |
+                | <%= job.company_username %> | Skapad: <%= job.created_at.strftime("%Y-%m-%d") %> | Går ut: <%= job.deadline %> |
                 <div class="small-12 medium-2 columns add-friend">
                   <%= link_to 'Apply', job_path(job), class: 'boton-large' %>
                 </div>
