@@ -611,10 +611,13 @@
 .profile-card-action-icons .card-section .profile-card-about-message {
   color: #696868;
   margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 5px;
 }
 
 .profile-card-action-icons .card-section .profile-card-header {
+  background-color: #F5F5F5;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
