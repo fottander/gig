@@ -55,6 +55,11 @@
                 <%= link_to job.title, job_path(job) %><br>
                 Skapat: <%= job.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
                 Antal svar: <%= job.applications.count %><br>
+                <% if job.active == true %>
+                  <p style="color: green;">Aktivt</p>
+                <% else %>
+                  <p style="color: red;">Inaktivt</p>
+                <% end %>
                 </p>
                 <%= link_to 'Edit job', edit_job_path(job), class: 'tiny round button inc' %>
                 <%= link_to 'Delete job', job_path(job), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
