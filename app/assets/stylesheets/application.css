@@ -594,7 +594,7 @@
   }
   .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
     margin: 0 1.25rem 0 0;
-    max-width: 250px;
+    max-width: 200px;
   }
   .card-profile-stats .card-profile-stats-container {
     display: -webkit-flex;
