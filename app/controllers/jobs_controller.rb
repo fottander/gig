@@ -9,7 +9,6 @@ class JobsController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
     @job = Job.find(params[:id])
     @applications = @job.applications
   end
@@ -33,6 +32,8 @@ class JobsController < ApplicationController
   def create
     @job = Job.new job_params
     @job.company_id = current_company.id
+    @job.company_name = current_company.name
+    @job.company_city = current_company.city
     if @job.save
       flash[:notice] = "New job created!"
       redirect_to new_job_path
