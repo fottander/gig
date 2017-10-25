@@ -15,18 +15,6 @@
  *= require foundation_and_overrides
 
  */
- .job-title {
-   font-family: 'Montserrat', sans-serif;
-   padding-top: 10px;
-   padding-bottom: 10px;
- }
-
- .profile-title {
-   font-family: 'Montserrat', sans-serif;
-   padding-top: 10px;
-   padding-bottom: 10px;
- }
-
  .alert {
    font-family: 'Montserrat', sans-serif;
    background-color: #f2dede ;
@@ -81,7 +69,7 @@
    color: #fff;
    border: 1px solid #37a000;
    padding: 10px 25px;
-   margin: 0;
+   margin-bottom: 2px;
    text-transform: uppercase;
    display: inline-block;
    border-radius: 3px;
@@ -115,15 +103,19 @@
  /* Comments */
 
  .comment-section {
-   margin-left: 40px;
-   margin-right: 40px;
+   margin-left: 5px;
+   margin-right: 5px;
+ }
+
+ .comment-section .comment-section-comment {
+   color: #696868;
  }
 
  /* simple form */
 
  .simple-form {
-   margin-left: 40px;
-   margin-right: 40px;
+   margin-left: 20px;
+   margin-right: 20px;
  }
 
  /* FORM */
@@ -532,6 +524,7 @@
 .card-profile-stats {
   margin-left: 40px;
   margin-right: 40px;
+  margin-bottom: 20px;
   border: 1px solid #cacaca;
   padding: 1.25rem;
   background: #fefefe;
@@ -613,6 +606,12 @@
 .profile-card-action-icons .card-section .profile-card-about {
   border-bottom: 0.0625rem solid #cacaca;
   padding: 0.2rem 1rem;
+}
+
+.profile-card-action-icons .card-section .profile-card-about-message {
+  color: #696868;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .profile-card-action-icons .card-section .profile-card-header {

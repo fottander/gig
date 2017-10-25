@@ -17,17 +17,20 @@
                   <%= link_to 'Apply', job_path(job), class: 'boton-large' %>
                 </div>
             </div>
+
         </div>
         <div class="profile-card-about">
-          Beskrivning:
-          <% if job.description.length > 100 %>
-              <%= truncate(job.description, length: 100) %>
-          <% else %>
-              <%= job.description %>
-          <% end %>
-          <br>
-          | Stad: <%= job.city %> | Kategorier: <%= job.category %> | Krav: <%= job.requirement %> |<br>
-          | Varaktighet: <%= job.duration %> | <%= job.budget %> | Timmar/vecka: <%= job.hour_week %> |<br>
+            <strong>Detaljer</strong>
+            <div class="profile-card-about-message">
+                <% if job.description.length > 100 %>
+                    <%= truncate(job.description, length: 100) %>
+                <% else %>
+                    <%= job.description %>
+                <% end %>
+                <br>
+                | Stad: <%= job.city %> | Kategorier: <%= job.category %> | Krav: <%= job.requirement %> |<br>
+                | Varaktighet: <%= job.duration %> | <%= job.budget %> | Timmar/vecka: <%= job.hour_week %> |<br>
+            </div>
         </div>
     </div>
 </div>
