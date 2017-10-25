@@ -13,4 +13,6 @@ class Job < ApplicationRecord
   def self.category
     ['Målare', 'Snickare', 'Plåtslagare', 'Lagerarbetare']
   end
+
+  self.per_page = 5
 end

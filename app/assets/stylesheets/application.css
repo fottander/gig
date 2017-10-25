@@ -100,6 +100,27 @@
 
  }
 
+ /* PAGINATE */
+
+ .will-paginate {
+   margin-left: 25px;
+ }
+
+ .will-paginate a {
+   color: #0a0a0a;
+   font-size: 15px;
+   font-family: 'Montserrat', sans-serif;
+   letter-spacing: 1.5px;
+ }
+
+ .pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #37a000;
+    border-radius: 1rem;
+    color: #fefefe;
+    cursor: default;
+  }
+
  /* Comments */
 
  .comment-section {

@@ -34,3 +34,6 @@
     </div>
 </div>
 <% end %>
+<div class="will-paginate">
+    <%= will_paginate @jobs, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

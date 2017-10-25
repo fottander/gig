@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   before_action :authenticate_company!, except: [:index, :show]
 
   def index
-    @jobs = Job.where(nil)
+    @jobs = Job.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @jobs = @jobs.public_send(key, value) if value.present?
     end
