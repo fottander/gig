@@ -15,18 +15,6 @@
  *= require foundation_and_overrides
 
  */
- .job-title {
-   font-family: 'Montserrat', sans-serif;
-   padding-top: 10px;
-   padding-bottom: 10px;
- }
-
- .profile-title {
-   font-family: 'Montserrat', sans-serif;
-   padding-top: 10px;
-   padding-bottom: 10px;
- }
-
  .alert {
    font-family: 'Montserrat', sans-serif;
    background-color: #f2dede ;
@@ -81,7 +69,8 @@
    color: #fff;
    border: 1px solid #37a000;
    padding: 10px 25px;
-   margin: 0;
+   margin-bottom: 2px;
+   text-transform: uppercase;
    display: inline-block;
    border-radius: 3px;
    text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
@@ -91,37 +80,42 @@
  }
 
  .button-select {
-  padding: 1.05rem 2.75rem;
-  color: #8a8a8a;
-  background-color: #fff;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 8rem;
-  border: .1rem solid #8a8a8a;
-  -webkit-transition: color .3s,border .3s;
-  transition: color .3s,border .3s;
+   padding: 0.24rem 1.75rem;
+   color: #8a8a8a;
+   background-color: #fff;
+   font-size: 0.8rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   border-radius: 8rem;
+   border: .1rem solid #8a8a8a;
+   -webkit-transition: color .3s,border .3s;
+   transition: color .3s,border .3s;
  }
 
  .button-select-section {
    padding-left: 40px;
-   padding-top: 20px;
-   padding-bottom: 40px;
+   padding-right: 40px;
+   padding-top: 5px;
+   padding-bottom: 30px;
 
  }
 
  /* Comments */
 
  .comment-section {
-   margin-left: 40px;
-   margin-right: 40px;
+   margin-left: 5px;
+   margin-right: 5px;
+ }
+
+ .comment-section .comment-section-comment {
+   color: #696868;
  }
 
  /* simple form */
 
  .simple-form {
-   margin-left: 40px;
-   margin-right: 40px;
+   margin-left: 20px;
+   margin-right: 20px;
  }
 
  /* FORM */
@@ -530,6 +524,7 @@
 .card-profile-stats {
   margin-left: 40px;
   margin-right: 40px;
+  margin-bottom: 20px;
   border: 1px solid #cacaca;
   padding: 1.25rem;
   background: #fefefe;
@@ -613,7 +608,16 @@
   padding: 0.2rem 1rem;
 }
 
+.profile-card-action-icons .card-section .profile-card-about-message {
+  color: #696868;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
 .profile-card-action-icons .card-section .profile-card-header {
+  background-color: #F5F5F5;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
