@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     else
       @company = current_company
       @comment.company_id = @company.id
-      @comment.company_name = @company.name
+      @comment.company_username = @company.username
     end
     @comment.application_id = @application.id
     @comment.job_id = @job.id

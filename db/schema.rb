@@ -36,11 +36,11 @@ ActiveRecord::Schema.define(version: 20171025124133) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_username"
-    t.string "company_name"
+    t.string "company_username"
     t.bigint "job_id"
     t.index ["application_id"], name: "index_comments_on_application_id"
     t.index ["company_id"], name: "index_comments_on_company_id"
-    t.index ["company_name"], name: "index_comments_on_company_name"
+    t.index ["company_username"], name: "index_comments_on_company_username"
     t.index ["job_id"], name: "index_comments_on_job_id"
     t.index ["profile_id"], name: "index_comments_on_profile_id"
     t.index ["profile_username"], name: "index_comments_on_profile_username"
