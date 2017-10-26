@@ -12,6 +12,9 @@ RSpec.describe Job, type: :model do
     it { is_expected.to have_db_column :duration }
     it { is_expected.to have_db_column :hour_week }
     it { is_expected.to have_db_column(:active).of_type(:boolean) }
+    it { is_expected.to have_db_column :company_id }
+    it { is_expected.to have_db_column :company_city }
+    it { is_expected.to have_db_column :company_username }
   end
 
   describe 'Validations' do
