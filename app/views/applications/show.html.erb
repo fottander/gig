@@ -27,6 +27,14 @@
     <% else %>
       <p>Inga svar ännu</p>
     <% end %>
-    <%= link_to 'Reply', new_job_application_comment_path(@job, @application), class: 'boton-large' %>
+  </div>
+</div>
+<div class="card-profile-stats">
+  <div class="simple-form">
+    <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+    <%= label_tag :comment, 'Svara på meddelande' %>
+    <%= text_area_tag :comment %>
+    <%= submit_tag 'Skicka', class: 'boton-large' %>
+    <% end %>
   </div>
 </div>

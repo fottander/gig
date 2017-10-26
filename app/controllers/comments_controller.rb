@@ -1,10 +1,4 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Comment.new
-    @application = Application.find(params[:application_id])
-    @job = Job.find(params[:job_id])
-    @profile = Profile.find_by(user_id: current_user)
-  end
 
   def create
     @application = Application.find(params[:application_id])
@@ -30,6 +24,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.permit(:comment)
   end
 end

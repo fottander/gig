@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :applications, except: [:index] do
-      resources :comments, except: [:index]
+      resources :comments, only: [:create]
     end
   end
 
