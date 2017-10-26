@@ -5,8 +5,8 @@ Feature: Company registration
 
   Background:
     Given the following companies exist
-      | email          | name | address | zip_code | city | org_number | phone | password  | password_confirmation |
-      | felix@mail.com | bill | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
+      | email          | name | username | address | zip_code | city | org_number | phone | password  | password_confirmation |
+      | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
 
     Scenario: I register my company
       Given I am on the home page
@@ -15,6 +15,7 @@ Feature: Company registration
       And I click "Company registration >"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Company name" with "hello"
+      And I fill in "Username" with "oij12"
       And I fill in "Address" with "gatan"
       And I fill in "Zip code" with "23122"
       And I fill in "City" with "Gbg"

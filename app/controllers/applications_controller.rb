@@ -21,8 +21,18 @@ class ApplicationsController < ApplicationController
     @application.job_id = @job.id
     @application.profile_id = @profile.id
     @application.profile_username = @profile.username
+    @application.job_title = @job.title
     if @application.save
       flash[:notice] = "New job application sent!"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def update
+    @application = Application.find(params[:id])
+    @application.status = false # false = hired
+    if @application.save
+      flash[:notice] = "Congratulations! Person has been hired."
       redirect_back(fallback_location: root_path)
     end
   end

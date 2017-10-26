@@ -31,6 +31,7 @@ class DeviseCreateCompanies < ActiveRecord::Migration[5.1]
       # t.datetime :locked_at
 
       t.string :name
+      t.string :username
       t.string :address
       t.integer :zip_code
       t.string :city

@@ -4,6 +4,7 @@ RSpec.describe Company, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :email }
     it { is_expected.to have_db_column :name }
+    it { is_expected.to have_db_column :username }
     it { is_expected.to have_db_column :address }
     it { is_expected.to have_db_column :encrypted_password }
     it { is_expected.to have_db_column :zip_code }
@@ -15,6 +16,7 @@ RSpec.describe Company, type: :model do
   describe 'Validations' do
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :username }
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :zip_code }
     it { is_expected.to validate_presence_of :city }

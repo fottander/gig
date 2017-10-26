@@ -9,6 +9,7 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to have_db_column :rate }
     it { is_expected.to have_db_column :category }
     it { is_expected.to have_db_column :city }
+    it { is_expected.to have_db_column :user_id }
   end
 
   describe 'Validations' do

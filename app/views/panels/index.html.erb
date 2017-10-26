@@ -26,7 +26,8 @@
           <h3 class="portfolio-resume-header">Account info</h3>
           <p class="portfolio-resume-subheader">
             Email: <%= current_company.email %><br><br>
-            Name: <%= current_company.name %><br>
+            Company name: <%= current_company.name %><br>
+            Username: <%= current_company.username %><br>
             Address: <%= current_company.address %><br>
             Zip code: <%= current_company.zip_code %><br>
             City: <%= current_company.city %><br>
@@ -53,8 +54,14 @@
               <% @job.each do |job| %>
                 <p class="portfolio-resume-subheader">
                 <%= link_to job.title, job_path(job) %><br>
+                Job ID: <%= job.id %><br>
                 Skapat: <%= job.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
                 Antal svar: <%= job.applications.count %><br>
+                <% if job.active == true %>
+                  <p class="dash-active", style="color: green;">Aktivt</p>
+                <% else %>
+                  <p class="dash-active", style="color: red;">Inaktivt</p>
+                <% end %>
                 </p>
                 <%= link_to 'Edit job', edit_job_path(job), class: 'tiny round button inc' %>
                 <%= link_to 'Delete job', job_path(job), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
@@ -68,7 +75,28 @@
     </div>
     <hr>
     <div class="portfolio-resume row">
-      <div class="large-6 columns">
+      <div class="large-4 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Active jobs</h3>
+          <p class="portfolio-resume-subheader">
+            <% if @application.present? %>
+              <% @application.each do |application| %>
+                <% if application.status == false %>
+                  <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
+                  ID: <%= application.id %><br>
+                  Job ID: <%= application.job_id %><br>
+                  <%= link_to 'View application', job_application_path(application.job_id,application.id), class: 'tiny round button inc' %><br>
+                <% else %>
+                  <p>No hires yet!</p>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p>No active jobs yet!</p>
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Completed jobs</h3>
           <p class="portfolio-resume-subheader">
@@ -76,8 +104,7 @@
           </p>
         </div>
       </div>
-
-      <div class="large-6 columns">
+      <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Invoices</h3>
             <p class="portfolio-resume-subheader">

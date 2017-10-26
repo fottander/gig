@@ -17,13 +17,16 @@ ActiveRecord::Schema.define(version: 20171025124133) do
 
   create_table "applications", force: :cascade do |t|
     t.string "message"
-    t.boolean "status"
+    t.boolean "status", default: true
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "job_id"
     t.bigint "profile_id"
     t.string "profile_username"
+    t.string "job_title"
     t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["job_title"], name: "index_applications_on_job_title"
     t.index ["profile_id"], name: "index_applications_on_profile_id"
     t.index ["profile_username"], name: "index_applications_on_profile_username"
   end
@@ -36,11 +39,11 @@ ActiveRecord::Schema.define(version: 20171025124133) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_username"
-    t.string "company_name"
+    t.string "company_username"
     t.bigint "job_id"
     t.index ["application_id"], name: "index_comments_on_application_id"
     t.index ["company_id"], name: "index_comments_on_company_id"
-    t.index ["company_name"], name: "index_comments_on_company_name"
+    t.index ["company_username"], name: "index_comments_on_company_username"
     t.index ["job_id"], name: "index_comments_on_job_id"
     t.index ["profile_id"], name: "index_comments_on_profile_id"
     t.index ["profile_username"], name: "index_comments_on_profile_username"
@@ -58,6 +61,7 @@ ActiveRecord::Schema.define(version: 20171025124133) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "name"
+    t.string "username"
     t.string "address"
     t.integer "zip_code"
     t.string "city"
@@ -84,10 +88,10 @@ ActiveRecord::Schema.define(version: 20171025124133) do
     t.datetime "updated_at", null: false
     t.bigint "company_id"
     t.string "company_city"
-    t.string "company_name"
+    t.string "company_username"
     t.index ["company_city"], name: "index_jobs_on_company_city"
     t.index ["company_id"], name: "index_jobs_on_company_id"
-    t.index ["company_name"], name: "index_jobs_on_company_name"
+    t.index ["company_username"], name: "index_jobs_on_company_username"
   end
 
   create_table "profiles", force: :cascade do |t|

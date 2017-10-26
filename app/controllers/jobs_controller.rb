@@ -32,7 +32,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new job_params
     @job.company_id = current_company.id
-    @job.company_name = current_company.name
+    @job.company_username = current_company.username
     @job.company_city = current_company.city
     if @job.save
       flash[:notice] = "New job created!"
@@ -51,7 +51,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :requirement, :category, :city, :budget, :deadline, :duration, :hour_week, :active)
+    params.require(:job).permit(:title, :description, :active, :requirement, :category, :city, :budget, :deadline, :duration, :hour_week, :active)
   end
 
   def filtering_params(params)

@@ -79,6 +79,23 @@
    transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
  }
 
+ .boton-expand {
+   background-color: #37a000;
+   background: -webkit-linear-gradient(#35c350,#03b525);
+   background: linear-gradient(#35c350,#03b525);
+   font: 700 16px/16px 'Montserrat',sans-serif;
+   color: #fff;
+   border: 1px solid #37a000;
+   padding: 10px 115px;
+   text-transform: uppercase;
+   display: inline-block;
+   border-radius: 3px;
+   text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
+   box-sizing: border-box;
+   -webkit-transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
+   transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
+ }
+
  .button-select {
    padding: 0.24rem 1.75rem;
    color: #8a8a8a;
@@ -137,6 +154,11 @@
  .simple-form {
    margin-left: 20px;
    margin-right: 20px;
+ }
+
+ .simple-form-comment {
+   margin-left: 5px;
+   margin-right: 5px;
  }
 
  /* FORM */
@@ -466,8 +488,8 @@
 
 @media screen and (max-width: 60em) {
   .holy-grail-left {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
     -ms-grid-column: 1;
         grid-column-start: 1;
     grid-column-end: 4;
@@ -476,8 +498,8 @@
 
 @media screen and (max-width: 60em) {
   .holy-grail-middle {
-    -ms-grid-row: 3;
-        grid-row-start: 3;
+    -ms-grid-row: 2;
+        grid-row-start: 2;
     -ms-grid-column: 1;
         grid-column-start: 1;
     grid-column-end: 4;
@@ -594,7 +616,7 @@
   }
   .card-profile-stats .card-profile-stats-intro .card-profile-stats-intro-pic {
     margin: 0 1.25rem 0 0;
-    max-width: 250px;
+    max-width: 200px;
   }
   .card-profile-stats .card-profile-stats-container {
     display: -webkit-flex;
@@ -707,4 +729,8 @@
   font-size: 14px;
   font-weight: normal;
   line-height: 1.4;
+}
+
+.dash-active {
+  margin: -15px;
 }
