@@ -1,40 +1,46 @@
 <h3>Application reply</h3>
-<div class="card profile-card-action-icons">
-    <div class="card-section">
-        <div class="profile-card-header">
-            <div class="profile-card-author">
-                <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
-            </div>
-        </div>
-        <div class="profile-card-about-message">
-          Message: <br>
-          <%= @application.message %>
-        </div>
-    </div>
-</div>
-<div class="card-profile-stats">
-  <div class="comment-section">
-    <% if @comments.present? %>
-      <h4 style="color: #37a000">Replies</h4>
-      <% @comments.each do |comment| %>
-      <strong><%= comment.profile_username %></strong>
-      <strong><%= comment.company_username %></strong> | <%= comment.created_at.in_time_zone("Stockholm").strftime("%D %R") %> |<br>
-      <div class="comment-section-comment">
-        <%= comment.comment %><br>
+  <div class="card profile-card-action-icons">
+      <div class="card-section">
+          <div class="profile-card-header">
+              <div class="profile-card-author">
+                  <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
+              </div>
+          </div>
+          <div class="profile-card-about-message">
+            Message: <br>
+            <%= @application.message %>
+          </div>
       </div>
-      <hr>
-      <% end %>
-    <% else %>
-      <p>Inga svar ännu</p>
-    <% end %>
   </div>
-</div>
-<div class="card-profile-stats">
-  <div class="simple-form-comment">
-    <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-    <%= label_tag :comment, 'Svara på meddelande' %>
-    <%= text_area_tag :comment %>
-    <%= submit_tag 'Skicka', class: 'boton-large' %>
-    <% end %>
+  <div class="holy-grail-grid">
+    <div class="holy-grail-left">
+      <p class="portfolio-resume-subheader">
+      - Skriv gärna utförande vad <br>
+      - Berätta vad du som frilansare... <br>
+      - aasefnaweff <br>
+      </p>
+      <%= link_to 'Hire', root_path, class: 'boton-expand' %>
+    </div>
+    <div class="holy-grail-middle">
+      <div class="comment-section">
+        <% if @comments.present? %>
+          <h4 style="color: #37a000">Replies</h4>
+          <% @comments.each do |comment| %>
+          <strong><%= comment.profile_username %></strong>
+          <strong><%= comment.company_username %></strong> | <%= comment.created_at.in_time_zone("Stockholm").strftime("%D %R") %> |<br>
+          <div class="comment-section-comment">
+            <%= comment.comment %><br>
+          </div>
+          <hr>
+          <% end %>
+        <% else %>
+          <p>Inga svar ännu</p>
+        <% end %>
+        <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+        <%= label_tag :comment, 'Svara på meddelande' %>
+        <%= text_area_tag :comment %>
+        <%= submit_tag 'Skicka', class: 'boton-large' %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
