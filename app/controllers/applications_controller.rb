@@ -27,6 +27,15 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def update
+    @application = Application.find(params[:id])
+    @application.status = false # false = hired
+    if @application.save
+      flash[:notice] = "Congratulations! Person has been hired."
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   def destroy
     @job = Job.find(params[:job_id])
     @application = Application.find(params[:id])

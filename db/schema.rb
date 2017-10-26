@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 20171025124133) do
 
   create_table "applications", force: :cascade do |t|
     t.string "message"
-    t.boolean "status"
+    t.boolean "status", default: true
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "job_id"
