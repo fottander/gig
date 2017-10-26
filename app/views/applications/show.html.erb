@@ -19,7 +19,9 @@
       - Berätta vad du som frilansare... <br>
       - aasefnaweff <br>
       </p>
-      <%= link_to 'Hire', job_application_path, method: :patch, class: 'boton-expand' %>
+      <% if @application.status == true %>
+        <%= link_to 'Hire', job_application_path, method: :patch, data: { confirm: "Are you sure?" }, class: 'boton-expand' %>
+      <% end %>
     </div>
     <div class="holy-grail-middle">
       <div class="comment-section">
