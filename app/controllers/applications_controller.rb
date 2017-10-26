@@ -21,6 +21,7 @@ class ApplicationsController < ApplicationController
     @application.job_id = @job.id
     @application.profile_id = @profile.id
     @application.profile_username = @profile.username
+    @application.job_title = @job.title
     if @application.save
       flash[:notice] = "New job application sent!"
       redirect_back(fallback_location: root_path)

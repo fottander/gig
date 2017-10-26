@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 20171025124133) do
     t.bigint "job_id"
     t.bigint "profile_id"
     t.string "profile_username"
+    t.string "job_title"
     t.index ["job_id"], name: "index_applications_on_job_id"
+    t.index ["job_title"], name: "index_applications_on_job_title"
     t.index ["profile_id"], name: "index_applications_on_profile_id"
     t.index ["profile_username"], name: "index_applications_on_profile_username"
   end

@@ -65,6 +65,7 @@
                 <% @applications.each do |application| %>
                  <% if application.status == false %>
                   <p class="portfolio-resume-subheader">
+                  <%= link_to application.job_title, job_path(application.job_id) %><br>
                   Application ID: <%= application.id %><br>
                   Job ID: <%= application.job_id %><br>
                   Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
@@ -98,6 +99,7 @@
                 <% @applications.each do |application| %>
                  <% if application.status == true %>
                   <p class="portfolio-resume-subheader">
+                  <%= link_to application.job_title, job_path(application.job_id) %><br>
                   Application ID: <%= application.id %><br>
                   Job ID: <%= application.job_id %><br>
                   Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
