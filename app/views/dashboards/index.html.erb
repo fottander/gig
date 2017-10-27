@@ -63,14 +63,16 @@
             <p class="portfolio-resume-subheader">
               <% if @applications.present? %>
                 <% @applications.each do |application| %>
-                 <% if application.status == false %>
-                  <p class="portfolio-resume-subheader">
-                  <%= link_to application.job_title, job_path(application.job_id) %><br>
-                  Application ID: <%= application.id %><br>
-                  Job ID: <%= application.job_id %><br>
-                  Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
-                  Antal svar: <%= application.comments.count %><br>
-                  <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
+                 <% if application.hired == true %>
+                   <% if application.complete == false %>
+                    <p class="portfolio-resume-subheader">
+                    <%= link_to application.job_title, job_path(application.job_id) %><br>
+                    Application ID: <%= application.id %><br>
+                    Job ID: <%= application.job_id %><br>
+                    Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
+                    Antal svar: <%= application.comments.count %><br>
+                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
+                  <% end %>
                  <% end %>
                 <% end %>
               <% else %>
@@ -83,7 +85,31 @@
       </div>
       <hr>
       <div class="portfolio-resume row">
-        <div class="large-6 columns">
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Completed jobs</h3>
+            <p class="portfolio-resume-subheader">
+              <% if @applications.present? %>
+                <% @applications.each do |application| %>
+                 <% if application.hired == true %>
+                   <% if application.complete == true %>
+                    <p class="portfolio-resume-subheader">
+                    <%= link_to application.job_title, job_path(application.job_id) %><br>
+                    Application ID: <%= application.id %><br>
+                    Job ID: <%= application.job_id %><br>
+                    Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
+                    Antal svar: <%= application.comments.count %><br>
+                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
+                  <% end %>
+                 <% end %>
+                <% end %>
+              <% else %>
+                No completed jobs<br>
+              <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="large-4 columns">
           <div class="portfolio-resume-wrapper">
             <h3 class="portfolio-resume-header">Invoices</h3>
             <p class="portfolio-resume-subheader">
@@ -91,13 +117,12 @@
             </p>
           </div>
         </div>
-
-        <div class="large-6 columns">
+        <div class="large-4 columns">
           <div class="portfolio-resume-wrapper">
             <h3 class="portfolio-resume-header">Applications</h3>
               <% if @applications.present? %>
                 <% @applications.each do |application| %>
-                 <% if application.status == true %>
+                 <% if application.hired == false %>
                   <p class="portfolio-resume-subheader">
                   <%= link_to application.job_title, job_path(application.job_id) %><br>
                   Application ID: <%= application.id %><br>
@@ -105,7 +130,7 @@
                   Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
                   Antal svar: <%= application.comments.count %><br>
                   <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %>
-                  <%= link_to 'Delete application', job_application_path(application.job_id, application.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
+                  <%= link_to 'Delete', job_application_path(application.job_id, application.id), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
                   <hr>
                  <% end %>
                 <% end %>
