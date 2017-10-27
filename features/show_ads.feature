@@ -31,4 +31,4 @@ Feature: Show job ads
     Scenario: I should only see active ads
       Given I am on the jobs page
       And I should see "målare"
-      And I should not see "plåtslagare"
+      Then I should not see "plåtslagare"
