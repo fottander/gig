@@ -1,6 +1,6 @@
 Feature: Apply to job
   As an user
-  I order to show an employer that I´m interested of a job
+  I order to show an employer that I´m interested in a job
   I would like to be able to send an application
 
   Background:
