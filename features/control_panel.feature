@@ -34,7 +34,9 @@ Feature: Company control panel
 
     Scenario: I inactivate a job ad
       Given I am logged in as company "felix@mail.com"
-      Given I am on control panel page
+      Given I am on the jobs page
+      And I should see "målare sökes"
+      And I click "CONTROL PANEL"
       And I click "Edit job"
       And I should see "Edit job information"
       And I select "Målare" from "Categories"
@@ -43,3 +45,5 @@ Feature: Company control panel
       And I click "Submit"
       And I click "CONTROL PANEL"
       Then I should see "Inaktiv"
+      Given I am on the jobs page
+      Then I should not see "målare sökes"
