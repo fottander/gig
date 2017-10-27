@@ -7,8 +7,8 @@ RSpec.describe Application, type: :model do
     it { is_expected.to have_db_column :profile_id }
     it { is_expected.to have_db_column :profile_username }
     it { is_expected.to have_db_column :job_title }
-    it { is_expected.to have_db_column(:status).of_type(:boolean) }
-    it { is_expected.to have_db_column(:active).of_type(:boolean) }
+    it { is_expected.to have_db_column(:hired).of_type(:boolean) }
+    it { is_expected.to have_db_column(:complete).of_type(:boolean) }
   end
 
   describe 'Validations' do
