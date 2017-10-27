@@ -12,3 +12,7 @@ Given("the following applications exist") do |table|
     create(:application, hash)
   end
 end
+
+Given("I uncheck Active check box") do
+  uncheck 'job_active'
+end

@@ -31,3 +31,15 @@ Feature: Company control panel
       And I should see "målare sökes"
       And I should see "Antal svar: 1"
       Then I should see "Aktiv"
+
+    Scenario: I inactivate a job ad
+      Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
+      And I click "Edit job"
+      And I should see "Edit job information"
+      And I select "Målare" from "Categories"
+      And I select "Göteborg" from "City"
+      And I uncheck Active check box
+      And I click "Submit"
+      And I click "CONTROL PANEL"
+      Then I should see "Inaktiv"
