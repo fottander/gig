@@ -64,7 +64,7 @@
                 <% end %>
                 </p>
                 <%= link_to 'Edit job', edit_job_path(job), class: 'tiny round button inc' %>
-                <%= link_to 'Delete job', job_path(job), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %>
+                <%= link_to 'Delete job', job_path(job), data: { confirm: "Are you sure? This will delete all applications and accepted answers." }, method: :delete, class: 'tiny round button alert' %>
               <% end %>
             <% else %>
               <h6><strong>No jobs yet</strong></h6>
@@ -81,13 +81,14 @@
           <p class="portfolio-resume-subheader">
             <% if @application.present? %>
               <% @application.each do |application| %>
-                <% if application.status == false %>
-                  <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
-                  ID: <%= application.id %><br>
-                  Job ID: <%= application.job_id %><br>
-                  <%= link_to 'View application', job_application_path(application.job_id,application.id), class: 'tiny round button inc' %><br>
-                <% else %>
-                  <p>No hires yet!</p>
+                <% if application.hired == true %>
+                  <% if application.complete == false %>
+                    <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
+                    ID: <%= application.id %><br>
+                    Job ID: <%= application.job_id %><br>
+                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %><br>
+                    <%= link_to 'Complete', complete_job_application_path(application.job_id, application.id), method: :patch, data: { confirm: "Are you sure?" }, class: 'tiny round button alert' %>
+                  <% end %>
                 <% end %>
               <% end %>
             <% else %>
@@ -100,7 +101,20 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Completed jobs</h3>
           <p class="portfolio-resume-subheader">
-            Here are all the finished jobs
+            <% if @application.present? %>
+              <% @application.each do |application| %>
+                <% if application.hired == true %>
+                  <% if application.complete == true %>
+                    <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
+                    ID: <%= application.id %><br>
+                    Job ID: <%= application.job_id %><br>
+                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %><br>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <p>No completed jobs yet!</p>
+            <% end %>
           </p>
         </div>
       </div>

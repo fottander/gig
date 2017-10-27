@@ -45,9 +45,9 @@
       <%= f.text_field :duration, value: @job.duration %>
       <%= f.label :hour_week %>
       <%= f.text_field :hour_week, value: @job.hour_week %>
-      <%= f.label 'Aktiv' %>
-      <%= f.check_box :active, value: true %><br>
-      <%= f.submit 'Submit', class: 'button inc' %>
+      <%= f.check_box :active, value: true %>
+      Aktivera/Inaktivera för att låta personer se din annons eller inte.<br>
+      <%= f.submit 'Submit', class: 'round button inc' %>
       <% end %>
     </div>
   </div>

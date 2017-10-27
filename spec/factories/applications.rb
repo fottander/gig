@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :application do
     message "MyMessage"
-    status true
+    hired false
+    complete false
   end
 end

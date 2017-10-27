@@ -5,6 +5,8 @@ class Job < ApplicationRecord
   default_scope {order('created_at DESC')}
 
   scope :with_category, -> (category) { where category: category }
+  scope :expired, -> { where('deadline >= ?', Date.today) }
+
 
   def self.city
     ['Hela sverige', 'Göteborg', 'Malmö', 'Stockholm']
