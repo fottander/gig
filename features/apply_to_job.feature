@@ -30,3 +30,5 @@ Feature: Apply to job
       Then I should see "New job application sent!"
       And I click "DASHBOARD"
       Then I should see "målare sökes"
+      And I click "View application"
+      Then I should see "I want job"

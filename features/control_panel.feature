@@ -10,9 +10,15 @@ Feature: Company control panel
     Given the following job ads exist
       | title        | description | requirement      | category | city | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
       | målare sökes | måla hus    | 2 års erfarenhet | målare   | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
+    Given the following users exist
+      | email          | password  | password_confirmation | id |
+      | felix@mail.com | 12345678  | 12345678              | 1  |
+    Given the following profiles exist
+      | username | description | category | city     | user_id | id |
+      | Fisken   | målare gbg  | Målare   | Göteborg | 1       | 1  |
     Given the following applications exist
-      | message    | job_id |
-      | I want job | 1      |
+      | message    | job_id | profile_username | profile_id | job_title    |
+      | I want job | 1      | Fisken           | 1          | målare sökes |
 
     Scenario: I go to dashboard
       Given I am on the home page
@@ -47,3 +53,9 @@ Feature: Company control panel
       Then I should see "Inaktiv"
       Given I am on the jobs page
       Then I should not see "målare sökes"
+
+    Scenario: I go to job and see application replies
+      Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
+      And I click "målare sökes"
+      Then I should see "Fisken"
