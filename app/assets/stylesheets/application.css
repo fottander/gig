@@ -60,6 +60,11 @@
     border-color: #0a0a0a;
  }
 
+ .log-reg-link {
+   margin-left: 40px;
+   margin-right: 40px;
+ }
+
  /* Buttons */
  .boton-large {
    background-color: #37a000;
