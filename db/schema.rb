@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171025124133) do
+ActiveRecord::Schema.define(version: 20171030094752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,23 @@ ActiveRecord::Schema.define(version: 20171025124133) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "unit"
+    t.string "amount"
+    t.date "first_day"
+    t.date "last_day"
+    t.text "description"
+    t.string "user_reference"
+    t.string "company_reference"
+    t.integer "terms", default: 30
+    t.boolean "paid", default: false
+    t.bigint "application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["application_id"], name: "index_invoices_on_application_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -134,6 +151,7 @@ ActiveRecord::Schema.define(version: 20171025124133) do
   add_foreign_key "comments", "companies"
   add_foreign_key "comments", "jobs"
   add_foreign_key "comments", "profiles"
+  add_foreign_key "invoices", "applications"
   add_foreign_key "jobs", "companies"
   add_foreign_key "profiles", "users"
 end
