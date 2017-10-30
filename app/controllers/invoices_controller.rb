@@ -22,9 +22,18 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice = Invoice.find(params[:id])
-    if @invoice.update invoice_params
+    if @invoice.update invoice_update_params
       flash[:notice] = "Faktura ändrad"
       redirect_back(fallback_location: invoice_path(@invoice))
+    end
+  end
+
+  def activate
+    @invoice = Invoice.find(params[:id])
+    @invoice.active = true
+    if @invoice.save
+      flash[:notice] = "Faktura godkänd och aktiverad"
+      redirect_back(fallback_location: panels_path)
     end
   end
 
@@ -39,6 +48,10 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
+    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
+  end
+
+  def invoice_update_params
     params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
   end
 end
