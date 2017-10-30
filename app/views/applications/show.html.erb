@@ -15,9 +15,31 @@
   <div class="holy-grail-grid">
     <div class="holy-grail-left">
       <p class="portfolio-resume-subheader">
-      - Skriv gärna utförande vad <br>
-      - Berätta vad du som frilansare... <br>
-      - aasefnaweff <br>
+        <% if @application.complete == true %>
+          <%= form_tag invoices_path(@invoice, job_id: @job.id, application_id: @application.id) do %>
+          <%= label_tag :description, '* Beskrivning' %>
+          <%= text_area_tag :description %>
+          <%= label_tag :quantity, 'Antal' %>
+          <%= text_field_tag :quantity %>
+          <%= label_tag :unit, 'Enhet' %>
+          <%= text_field_tag :unit %>
+          <%= label_tag :amount, '* Belopp' %>
+          <%= text_field_tag :amount %>
+          <%= label_tag :first_day, 'Start dag' %>
+          <%= text_field_tag :first_day %>
+          <%= label_tag :last_day, 'Sista dag' %>
+          <%= text_field_tag :last_day %>
+          <%= label_tag :user_reference, '* Referens(förnamn & efternamn)' %>
+          <%= text_field_tag :user_reference %>
+          <%= label_tag :company_reference, 'Företagsreferens' %>
+          <%= text_field_tag :company_reference %>
+          <%= submit_tag 'Skapa faktura', class: 'boton-large' %>
+          <% end %>
+        <% else %>
+        - Skriv gärna utförande vad <br>
+        - Berätta vad du som frilansare... <br>
+        - aasefnaweff <br>
+        <% end %>
       </p>
       <% if current_company.present? %>
         <% if @application.hired == false %>

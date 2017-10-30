@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030094752) do
+ActiveRecord::Schema.define(version: 20171030112713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,10 +84,21 @@ ActiveRecord::Schema.define(version: 20171030094752) do
     t.string "company_reference"
     t.integer "terms", default: 30
     t.boolean "paid", default: false
-    t.bigint "application_id"
+    t.boolean "active", default: false
+    t.bigint "user_id"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "application_id"
+    t.integer "job_id"
+    t.integer "profile_id"
+    t.string "profile_username"
     t.index ["application_id"], name: "index_invoices_on_application_id"
+    t.index ["company_id"], name: "index_invoices_on_company_id"
+    t.index ["job_id"], name: "index_invoices_on_job_id"
+    t.index ["profile_id"], name: "index_invoices_on_profile_id"
+    t.index ["profile_username"], name: "index_invoices_on_profile_username"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -151,7 +162,8 @@ ActiveRecord::Schema.define(version: 20171030094752) do
   add_foreign_key "comments", "companies"
   add_foreign_key "comments", "jobs"
   add_foreign_key "comments", "profiles"
-  add_foreign_key "invoices", "applications"
+  add_foreign_key "invoices", "companies"
+  add_foreign_key "invoices", "users"
   add_foreign_key "jobs", "companies"
   add_foreign_key "profiles", "users"
 end

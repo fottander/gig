@@ -10,6 +10,13 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column :last_day }
     it { is_expected.to have_db_column :user_reference }
     it { is_expected.to have_db_column :company_reference }
+    it { is_expected.to have_db_column :terms }
+    it { is_expected.to have_db_column(:paid).of_type(:boolean) }
+    it { is_expected.to have_db_column(:active).of_type(:boolean) }
+    it { is_expected.to have_db_column :application_id }
+    it { is_expected.to have_db_column :job_id }
+    it { is_expected.to have_db_column :profile_id }
+    it { is_expected.to have_db_column :profile_username }
   end
 
   describe 'Validations' do
@@ -19,7 +26,8 @@ RSpec.describe Invoice, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to belong_to :application }
+    it { is_expected.to belong_to :user }
+    it { is_expected.to belong_to :company }
   end
 
   describe 'Factory' do
