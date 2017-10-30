@@ -123,6 +123,8 @@
                   <% else %>
                     Godkänd <br>
                   <% end %>
+                  <%= link_to 'Edit', edit_invoice_path(invoice), class: 'tiny round button inc' %>
+                  <%= link_to 'Delete', invoice_path(invoice), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %><br>
                 <% end %>
               <% end %>
             </p>

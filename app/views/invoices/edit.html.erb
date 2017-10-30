@@ -1,0 +1,44 @@
+<h3>Edit invoice details</h3>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Dashboard', dashboards_path %>
+      </li>
+      <li>
+        <%= link_to 'Account', edit_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Profile', profile_path(@profile.id) %>
+      </li>
+      <li>
+        <%= link_to 'Invoices' %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="simple-form">
+    <%= form_for @invoice do |f| %>
+    <%= f.label :description %>
+    <%= f.text_area :description, value: @invoice.description %>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, value: @invoice.quantity %>
+    <%= f.label :unit %>
+    <%= f.text_field :unit, value: @invoice.unit %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount, value: @invoice.amount %>
+    <%= f.label :first_day %>
+    <%= f.text_field :first_day, value: @invoice.first_day %>
+    <%= f.label :last_day %>
+    <%= f.text_field :last_day, value: @invoice.last_day %>
+    <%= f.label :user_reference %>
+    <%= f.text_field :user_reference, value: @invoice.user_reference %>
+    <%= f.label :company_reference %>
+    <%= f.text_field :company_reference, value: @invoice.company_reference %>
+    <%= f.submit 'Submit', class: 'boton-large' %>
+    <% end %>
+    </div>
+  </div>
+</div>
