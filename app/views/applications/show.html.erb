@@ -17,7 +17,7 @@
       <p class="portfolio-resume-subheader">
         <% if @application.complete == true %>
           <% if current_user.present? %>
-            <%= form_tag invoices_path(@invoice, job_id: @job.id, application_id: @application.id) do %>
+            <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
             <%= label_tag :description, '* Beskrivning' %>
             <%= text_area_tag :description %>
             <%= label_tag :quantity, 'Antal' %>

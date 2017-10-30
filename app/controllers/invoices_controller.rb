@@ -11,9 +11,13 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def show
+    @invoice = Invoice.find(params[:id])
+  end
+
   private
 
   def invoice_params
-    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :application_id, :job_id, :profile_id, :profile_username)
+    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
   end
 end

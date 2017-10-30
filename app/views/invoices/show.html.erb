@@ -1,0 +1,15 @@
+<h3>Invoice details</h3>
+<div class="card-profile-stats">
+  Invoice ID: <%= @invoice.id %><br>
+  Job ID: <%= @invoice.job_id %><br>
+  Application ID: <%= @invoice.application_id %><br>
+  Profile: <%= @invoice.profile_username %><br>
+  Referens: <%= @invoice.user_reference %><br>
+  Er referens: <%= @invoice.company_reference %><br>
+  Startdag: <%= @invoice.first_day %> <br>
+  Sista dag: <%= @invoice.last_day %><br>
+  Antal timmar: <%= @invoice.quantity %> <br>
+  Enhet: <%= @invoice.unit %> <br>
+  Summa att betala: <%= @invoice.amount %> <br>
+  Villkor: <%= @invoice.terms %>
+</div>
