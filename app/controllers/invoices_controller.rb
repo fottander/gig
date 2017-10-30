@@ -4,6 +4,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new invoice_params
     @invoice.profile_id = @profile.id
     @invoice.profile_username = @profile.username
+    @invoice.user_id = current_user.id
     if @invoice.save
       flash[:notice] = "Faktura skapad"
       redirect_back(fallback_location: root_path)

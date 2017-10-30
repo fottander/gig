@@ -113,7 +113,18 @@
           <div class="portfolio-resume-wrapper">
             <h3 class="portfolio-resume-header">Invoices</h3>
             <p class="portfolio-resume-subheader">
-              Here are all the current Invoices
+              <% if @invoices.present? %>
+                <% @invoices.each do |invoice| %>
+                  Invoice ID: <%= invoice.id %> <br>
+                  Job ID: <%= invoice.job_id %> <br>
+                  Application ID: <%= invoice.application_id %> <br>
+                  <% if invoice.active == false %>
+                    Inväntar godkännande
+                  <% else %>
+                    Godkänd
+                  <% end %><br>
+                <% end %>
+              <% end %>
             </p>
           </div>
         </div>
