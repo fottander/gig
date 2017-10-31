@@ -2,26 +2,15 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <ul>
-      <li>
-        <%= link_to 'Dashboard', dashboards_path %>
-      </li>
-      <li>
-        <%= link_to 'Account', edit_user_registration_path %>
-      </li>
-      <li>
-        <% if @profile.present? %>
-          <%= link_to 'Profile', edit_profile_path(@profile.id) %>
-          <% else %>
-          <%= link_to 'Create profile', new_profile_path %>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to 'Find jobs', jobs_path %>
-      </li>
-    </ul>
-    Unhappy?<br>
-    <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+    <%= link_to 'Dashboard', dashboards_path, class: 'button-menu' %><br>
+    <%= link_to 'Account', edit_user_registration_path, class: 'button-menu' %><br>
+    <% if @profile.present? %>
+      <%= link_to 'Profile', edit_profile_path(@profile.id), class: 'button-menu' %>
+      <% else %>
+      <%= link_to 'Add profile', new_profile_path, class: 'button-menu' %>
+    <% end %><br>
+    <%= link_to 'Find jobs', jobs_path, class: 'button-menu' %><br>
+    <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -72,7 +61,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update", class: 'round button' %>
+      <%= f.submit "Update", class: 'reply-button' %>
     </div>
   <% end %>
   </div>

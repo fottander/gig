@@ -2,20 +2,10 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <ul>
-      <li>
-        <%= link_to 'Control panel', panels_path %>
-      </li>
-      <li>
-        <%= link_to 'Account', edit_company_registration_path %>
-      </li>
-      <li>
-        <%= link_to 'Create job', new_job_path %>
-      </li>
-      <li>
-        <%= link_to 'Find freelancers', profiles_path %>
-      </li>
-    </ul>
+    <%= link_to 'Control panel', panels_path, class: 'button-menu' %>
+    <%= link_to 'Account', edit_company_registration_path, class: 'button-menu' %>
+    <%= link_to 'Create job', new_job_path, class: 'button-menu' %>
+    <%= link_to 'Find freelancers', profiles_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">

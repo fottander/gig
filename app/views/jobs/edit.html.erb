@@ -2,20 +2,10 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <ul>
-      <li>
-        <%= link_to 'Control panel', panels_path %>
-      </li>
-      <li>
-        <%= link_to 'Account', edit_company_registration_path %>
-      </li>
-      <li>
-        <%= link_to 'Create job', new_job_path %>
-      </li>
-      <li>
-        <%= link_to 'Find freelancers', profiles_path %>
-      </li>
-    </ul>
+    <%= link_to 'Control panel', panels_path, class: 'button-menu' %>
+    <%= link_to 'Account', edit_company_registration_path, class: 'button-menu' %>
+    <%= link_to 'Create job', new_job_path, class: 'button-menu' %>
+    <%= link_to 'Find freelancers', profiles_path, class: 'button-menu' %>
   </div>
   <div class="holy-grail-middle">
     <div class="simple-form">
@@ -40,7 +30,7 @@
       <%= f.text_field :hour_week, value: @job.hour_week %>
       <%= f.check_box :active, value: true %>
       Aktivera/Inaktivera för att låta personer se din annons eller inte.<br>
-      <%= f.submit 'Submit', class: 'round button inc' %>
+      <%= f.submit 'Submit', class: 'reply-button' %>
       <% end %>
     </div>
   </div>

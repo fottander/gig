@@ -38,7 +38,9 @@
           Jobb ID: <%= @job.id %>
           <p><%= @job.description %></p>
         </div>
-        <%= link_to 'Apply', new_job_application_path(@job), class: 'boton-large' %>
+        <% if current_user.present? %>
+          <%= link_to 'Apply', new_job_application_path(@job), class: 'reply-button' %>
+        <% end %>
       </div>
     </div>
 
@@ -58,11 +60,15 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Applications</h3>
           <div class="portfolio-resume-spacing">
-            <% @applications.each do |application| %>
-            <h5><strong><%= application.profile_username %></strong></h5>
-            | <%= link_to 'Reply', job_application_path(@job, application) %> |
-            <%= link_to 'Profile', profile_path(application.profile_id) %> |
-            <hr>
+            <% if @applications.present? %>
+              <% @applications.each do |application| %>
+              <h5><strong><%= application.profile_username %></strong></h5>
+              <%= link_to 'Reply', job_application_path(@job, application), class: 'reply-button' %>
+              <%= link_to 'Profile', profile_path(application.profile_id), class: 'profile-button' %>
+              <hr>
+              <% end %>
+            <% else %>
+              No applications so far
             <% end %>
           </div>
         </div>

@@ -13,10 +13,13 @@
       </div>
   </div>
   <div class="holy-grail-grid">
-    <div class="holy-grail-left">
+    <div class="holy-grail-left-application">
       <p class="portfolio-resume-subheader">
         <% if @application.complete == true %>
           <% if current_user.present? %>
+            <div class='portfolio-resume-subheader-title'>
+              SKAPA FAKTURA
+            </div>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
             <%= label_tag :description, '* Beskrivning' %>
             <%= text_area_tag :description %>
@@ -34,7 +37,7 @@
             <%= text_field_tag :user_reference %>
             <%= label_tag :company_reference, 'Företagsreferens' %>
             <%= text_field_tag :company_reference %>
-            <%= submit_tag 'Skapa faktura', class: 'boton-large' %>
+            <%= submit_tag 'Skapa faktura', class: 'profile-button' %>
             <% end %>
           <% else %>
           - Invänta faktura från frilansare <br>
@@ -48,11 +51,11 @@
       </p>
       <% if current_company.present? %>
         <% if @application.hired == false %>
-          <%= link_to 'Hire', job_application_path, method: :patch, data: { confirm: "Are you sure?" }, class: 'boton-expand' %>
+          <%= link_to 'Hire', job_application_path, method: :patch, data: { confirm: "Are you sure?" }, class: 'profile-button' %>
         <% end %>
       <% end %>
     </div>
-    <div class="holy-grail-middle">
+    <div class="holy-grail-middle-application">
       <div class="comment-section">
         <% if @comments.present? %>
           <h4 style="color: #37a000">Replies</h4>
@@ -70,7 +73,7 @@
         <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
         <%= label_tag :comment, 'Svara på meddelande' %>
         <%= text_area_tag :comment %>
-        <%= submit_tag 'Skicka', class: 'boton-large' %>
+        <%= submit_tag 'Skicka', class: 'reply-button' %>
         <% end %>
       </div>
     </div>
