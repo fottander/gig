@@ -38,9 +38,7 @@
           Jobb ID: <%= @job.id %>
           <p><%= @job.description %></p>
         </div>
-        <% if current_user.present? %>
-          <%= link_to 'Apply', new_job_application_path(@job), class: 'reply-button' %>
-        <% end %>
+        <%= link_to 'Apply', new_job_application_path(@job), class: 'reply-button' %>
       </div>
     </div>
 
