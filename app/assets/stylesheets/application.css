@@ -551,6 +551,16 @@
 }
 
 @media screen and (max-width: 60em) {
+  .holy-grail-left-application {
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-width: 60em) {
   .holy-grail-middle {
     -ms-grid-row: 2;
         grid-row-start: 2;
