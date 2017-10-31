@@ -10,11 +10,10 @@
         <%= link_to 'Account', edit_company_registration_path %>
       </li>
       <li>
-        <% if @job.present? %>
-          <%= link_to 'View job', job_path(current_company.id) %>
-          <% else %>
-          <%= link_to 'Create job', new_job_path %>
-        <% end %>
+        <%= link_to 'Create job', new_job_path %>
+      </li>
+      <li>
+        <%= link_to 'Find freelancers', profiles_path %>
       </li>
     </ul>
   </div>

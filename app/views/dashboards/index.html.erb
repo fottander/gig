@@ -4,20 +4,20 @@
     <div class="holy-grail-left">
       <ul>
         <li>
+          <%= link_to 'Dashboard', dashboards_path %>
+        </li>
+        <li>
           <%= link_to 'Account', edit_user_registration_path %>
         </li>
         <li>
           <% if @profile.present? %>
-            <%= link_to 'Profile', profile_path(@profile.id) %>
+            <%= link_to 'Profile', edit_profile_path(@profile.id) %>
             <% else %>
             <%= link_to 'Profile', new_profile_path %>
           <% end %>
         </li>
         <li>
-          <%= link_to 'Jobs', jobs_path %>
-        </li>
-        <li>
-          <%= link_to 'Invoices' %>
+          <%= link_to 'Find jobs', jobs_path %>
         </li>
       </ul>
     </div>
