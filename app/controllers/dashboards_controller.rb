@@ -3,5 +3,6 @@ class DashboardsController < ApplicationController
   def index
     @profile = Profile.find_by(user_id: current_user)
     @applications = Application.where(profile_id: current_user.profile)
+    @invoices = Invoice.where(user_id: current_user)
   end
 end

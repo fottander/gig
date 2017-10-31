@@ -1,0 +1,45 @@
+<h3>Invoice details</h3>
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <ul>
+      <li>
+        <%= link_to 'Control panel', panels_path %>
+      </li>
+      <li>
+        <%= link_to 'Account', edit_company_registration_path %>
+      </li>
+      <li>
+        <%= link_to 'Create job', new_job_path %>
+      </li>
+      <li>
+        <%= link_to 'Find freelancers', profiles_path %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="holy-grail-middle">
+    Invoice ID: <%= @invoice.id %><br>
+    Job ID: <%= @invoice.job_id %><br>
+    Application ID: <%= @invoice.application_id %><br>
+    Profile: <%= @invoice.profile_username %><br>
+    Referens: <%= @invoice.user_reference %><br>
+    Er referens: <%= @invoice.company_reference %><br>
+    Startdag: <%= @invoice.first_day %> <br>
+    Sista dag: <%= @invoice.last_day %><br>
+    Antal timmar: <%= @invoice.quantity %> <br>
+    Enhet: <%= @invoice.unit %> <br>
+    Summa att betala: <%= @invoice.amount %> <br>
+    Villkor: <%= @invoice.terms %> <br>
+    <% if @invoice.active == false %>
+      Status: <p style="color: red;">Ej godkänd</p>
+    <% else %>
+      Status: <p style="color: green;">Godkänd</p>
+    <% end %>
+    <% if @invoice.paid == false %>
+      Betalningsstatus: <p style="color: red;">Ej betald</p>
+    <% else %>
+      Betalningsstatus: <p style="color: green;">Betald</p>
+    <% end %>
+  </div>
+</div>

@@ -36,4 +36,11 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 
+  resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
+    member do
+      patch :update
+      patch :activate
+    end
+  end
+
 end

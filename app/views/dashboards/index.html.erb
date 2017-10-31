@@ -4,20 +4,20 @@
     <div class="holy-grail-left">
       <ul>
         <li>
+          <%= link_to 'Dashboard', dashboards_path %>
+        </li>
+        <li>
           <%= link_to 'Account', edit_user_registration_path %>
         </li>
         <li>
           <% if @profile.present? %>
-            <%= link_to 'Profile', profile_path(@profile.id) %>
+            <%= link_to 'Profile', edit_profile_path(@profile.id) %>
             <% else %>
-            <%= link_to 'Profile', new_profile_path %>
+            <%= link_to 'Add profile', new_profile_path %>
           <% end %>
         </li>
         <li>
-          <%= link_to 'Jobs', jobs_path %>
-        </li>
-        <li>
-          <%= link_to 'Invoices' %>
+          <%= link_to 'Find jobs', jobs_path %>
         </li>
       </ul>
     </div>
@@ -113,7 +113,20 @@
           <div class="portfolio-resume-wrapper">
             <h3 class="portfolio-resume-header">Invoices</h3>
             <p class="portfolio-resume-subheader">
-              Here are all the current Invoices
+              <% if @invoices.present? %>
+                <% @invoices.each do |invoice| %>
+                  Invoice ID: <%= invoice.id %> <br>
+                  Job ID: <%= invoice.job_id %> <br>
+                  Application ID: <%= invoice.application_id %> <br>
+                  <% if invoice.active == false %>
+                    <p class="dash-active", style="color: red;">Inväntar godkännande</p><br>
+                  <% else %>
+                    <p class="dash-active", style="color: green;">Godkänd</p><br>
+                  <% end %>
+                  <%= link_to 'Edit', edit_invoice_path(invoice), class: 'tiny round button inc' %>
+                  <%= link_to 'Delete', invoice_path(invoice), data: { confirm: "Are you sure?" }, method: :delete, class: 'tiny round button alert' %><br>
+                <% end %>
+              <% end %>
             </p>
           </div>
         </div>
