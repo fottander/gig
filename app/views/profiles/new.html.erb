@@ -10,11 +10,7 @@
         <%= link_to 'Account', edit_user_registration_path %>
       </li>
       <li>
-        <% if @profile.present? %>
-          <%= link_to 'Profile', edit_profile_path(@profile.id) %>
-          <% else %>
-          <%= link_to 'Profile', new_profile_path %>
-        <% end %>
+        <%= link_to 'Create profile', new_profile_path %>
       </li>
       <li>
         <%= link_to 'Find jobs', jobs_path %>
