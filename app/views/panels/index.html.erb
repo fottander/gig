@@ -2,20 +2,10 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <ul>
-      <li>
-        <%= link_to 'Control panel', panels_path %>
-      </li>
-      <li>
-        <%= link_to 'Account', edit_company_registration_path %>
-      </li>
-      <li>
-        <%= link_to 'Create job', new_job_path %>
-      </li>
-      <li>
-        <%= link_to 'Find freelancers', profiles_path %>
-      </li>
-    </ul>
+    <%= link_to 'Control panel', panels_path, class: 'button-menu' %>
+    <%= link_to 'Account', edit_company_registration_path, class: 'button-menu' %>
+    <%= link_to 'Create job', new_job_path, class: 'button-menu' %>
+    <%= link_to 'Find freelancers', profiles_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -34,7 +24,7 @@
             Org number: <%= current_company.org_number %><br>
             Phone: <%= current_company.phone %><br>
             </p>
-            <%= link_to 'Edit Account', edit_company_registration_path, class: 'round button small'  %>
+            <%= link_to 'Edit Account', edit_company_registration_path, class: 'button-green'  %>
         </div>
       </div>
 
@@ -42,7 +32,7 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Payment info</h3>
           <p class="portfolio-resume-subheader">
-            <%= link_to 'Payments', panels_path, class: 'round button small' %>
+            <%= link_to 'Payments', panels_path, class: 'button-green' %>
           </p>
         </div>
       </div>
@@ -63,12 +53,12 @@
                   <p class="dash-active", style="color: red;">Inaktivt</p>
                 <% end %>
                 </p>
-                <%= link_to 'Edit job', edit_job_path(job), class: 'tiny round button inc' %>
-                <%= link_to 'Delete job', job_path(job), data: { confirm: "Are you sure? This will delete all applications and accepted answers." }, method: :delete, class: 'tiny round button alert' %>
+                <%= link_to 'Edit job', edit_job_path(job), class: 'button-green' %>
+                <%= link_to 'Delete job', job_path(job), data: { confirm: "Are you sure? This will delete all applications and accepted answers." }, method: :delete, class: 'button-orange' %>
               <% end %>
             <% else %>
               <h6><strong>No jobs yet</strong></h6>
-              <%= link_to 'Create job', new_job_path, class: 'round button small' %>
+              <%= link_to 'Create job', new_job_path, class: 'button-green' %>
             <% end %>
         </div>
       </div>
@@ -86,8 +76,8 @@
                     <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
                     ID: <%= application.id %><br>
                     Job ID: <%= application.job_id %><br>
-                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %><br>
-                    <%= link_to 'Complete', complete_job_application_path(application.job_id, application.id), method: :patch, data: { confirm: "Are you sure?" }, class: 'tiny round button alert' %>
+                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'button-green' %><br>
+                    <%= link_to 'Complete', complete_job_application_path(application.job_id, application.id), method: :patch, data: { confirm: "Are you sure?" }, class: 'button-orange' %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -108,7 +98,7 @@
                     <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
                     ID: <%= application.id %><br>
                     Job ID: <%= application.job_id %><br>
-                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'tiny round button inc' %><br>
+                    <%= link_to 'View application', job_application_path(application.job_id, application.id), class: 'button-green' %><br>
                   <% end %>
                 <% end %>
               <% end %>
@@ -129,11 +119,11 @@
                   Application ID: <%= invoice.application_id %><br>
                   <% if invoice.active == false %>
                     <p class="dash-active", style="color: red;">Ej godkänd</p><br>
-                    <%= link_to 'Visa', invoice_path(invoice), class: 'tiny round button inc' %>
-                    <%= link_to 'Godkänn', activate_invoice_path(invoice), method: :patch, data: { confirm: "Are you sure?" }, class: 'tiny round button alert' %>
+                    <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
+                    <%= link_to 'Godkänn', activate_invoice_path(invoice), method: :patch, data: { confirm: "Are you sure?" }, class: 'button-orange' %>
                   <% else %>
                     <p class="dash-active", style="color: green;">Godkänd</p><br>
-                    <%= link_to 'Visa', invoice_path(invoice), class: 'tiny round button inc' %>
+                    <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
                   <% end %>
                 <% end %>
               <% end %>

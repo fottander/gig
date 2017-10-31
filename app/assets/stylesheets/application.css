@@ -36,12 +36,15 @@
   }
 
   a {
-     color: #0a0a0a;
-     font-size: 18px;
-     font-weight: bold;
-     font-family: 'Montserrat', sans-serif;
-     letter-spacing: 1.5px;
- }
+  color: #0a0a0a;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+  }
+
+  a:hover, a:focus {
+    color: #37a000; }
 
   h3 {
     margin-left: 40px;
@@ -66,39 +69,35 @@
  }
 
  /* Buttons */
- .boton-large {
-   background-color: #37a000;
-   background: -webkit-linear-gradient(#35c350,#03b525);
-   background: linear-gradient(#35c350,#03b525);
-   font: 700 16px/16px 'Montserrat',sans-serif;
-   color: #fff;
-   border: 1px solid #37a000;
-   padding: 10px 25px;
-   margin-bottom: 2px;
-   text-transform: uppercase;
-   display: inline-block;
-   border-radius: 3px;
-   text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
-   box-sizing: border-box;
-   -webkit-transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
-   transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
+
+ .button-green {
+     background: #41DA51;
+     color: #fff;
+     display: inline-block;
+     text-align: center;
+     text-transform: uppercase;
+     line-height: 1;
+     font-size: 0.7rem;
+     font-family: 'Montserrat',Arial,sans-serif;
+     font-weight: 700;
+     letter-spacing: 0.5px;
+     padding: 0.5rem 1rem 0.5rem;
+     border: none;
  }
 
- .boton-expand {
-   background-color: #37a000;
-   background: -webkit-linear-gradient(#35c350,#03b525);
-   background: linear-gradient(#35c350,#03b525);
-   font: 700 16px/16px 'Montserrat',sans-serif;
+ .button-orange {
+   background: #f77d0e;
    color: #fff;
-   border: 1px solid #37a000;
-   padding: 10px 115px;
-   text-transform: uppercase;
    display: inline-block;
-   border-radius: 3px;
-   text-shadow: 0 -1px 1px rgba(0,0,0,0.2);
-   box-sizing: border-box;
-   -webkit-transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
-   transition: color .2s,background-color .2s,box-shadow .2s,border .2s;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 1;
+   font-size: 0.7rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   font-weight: 700;
+   letter-spacing: 0.5px;
+   padding: 0.5rem 1rem 0.5rem;
+   border: none;
  }
 
  .button-select {
@@ -120,6 +119,36 @@
    padding-top: 5px;
    padding-bottom: 30px;
 
+ }
+
+ .reply-button {
+   background: #41DA51;
+   color: #fff;
+   display: inline-block;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 1;
+   font-size: 1rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   font-weight: 700;
+   letter-spacing: 0.8px;
+   padding: 1rem 1.75rem 1rem;
+   border: none;
+ }
+
+ .profile-button {
+   background: #f77d0e;
+   color: #fff;
+   display: inline-block;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 1;
+   font-size: 1rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   font-weight: 700;
+   letter-spacing: 0.8px;
+   padding: 1rem 1.75rem 1rem;
+   border: none;
  }
 
  /* PAGINATE */
@@ -484,7 +513,27 @@
   }
 }
 
-.holy-grail-left,
+.holy-grail-left {
+  padding-top: 0.5rem;
+  background-color: #2f2e2e;
+}
+
+.button-menu {
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: 1rem;
+  font-family: 'Montserrat',Arial,sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.8rem 1rem 0.8rem;
+  border-bottom: 1px solid #696868;
+  width: calc(100%);
+}
+.holy-grail-left-application,
+.holy-grail-middle-application,
 .holy-grail-middle {
   padding: 1rem;
   border: 1px solid #ededed;
@@ -502,6 +551,16 @@
 }
 
 @media screen and (max-width: 60em) {
+  .holy-grail-left-application {
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    grid-column-end: 4;
+  }
+}
+
+@media screen and (max-width: 60em) {
   .holy-grail-middle {
     -ms-grid-row: 2;
         grid-row-start: 2;
@@ -510,7 +569,6 @@
     grid-column-end: 4;
   }
 }
-
 
 .marketing-site-content-section {
   display: -webkit-flex;
@@ -734,6 +792,13 @@
   font-size: 14px;
   font-weight: normal;
   line-height: 1.4;
+}
+
+.portfolio-resume-subheader-title {
+  text-align: center;
+  color: #f77d0e;
+  margin-top: -15px;
+  font-weight: bold;
 }
 
 .dash-active {
