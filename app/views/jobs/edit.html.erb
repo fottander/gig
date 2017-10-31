@@ -10,17 +10,11 @@
         <%= link_to 'Account', edit_company_registration_path %>
       </li>
       <li>
-        <%= link_to 'Payments' %>
-      </li>
-      <li>
         <% if @job.present? %>
-          <%= link_to 'Jobs', job_path(current_company.id) %>
+          <%= link_to 'View job', job_path(current_company.id) %>
           <% else %>
-          <%= link_to 'Jobs', new_job_path %>
+          <%= link_to 'Create job', new_job_path %>
         <% end %>
-      </li>
-      <li>
-        <%= link_to 'Invoices' %>
       </li>
     </ul>
   </div>
