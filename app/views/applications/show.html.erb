@@ -37,7 +37,7 @@
             <%= text_field_tag :user_reference %>
             <%= label_tag :company_reference, 'Företagsreferens' %>
             <%= text_field_tag :company_reference %>
-            <%= submit_tag 'Skapa faktura', class: 'profile-button' %>
+            <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
             <% end %>
           <% else %>
           - Invänta faktura från frilansare <br>
@@ -51,7 +51,7 @@
       </p>
       <% if current_company.present? %>
         <% if @application.hired == false %>
-          <%= link_to 'Hire', job_application_path, method: :patch, data: { confirm: "Are you sure?" }, class: 'profile-button' %>
+          <%= link_to 'Hire', job_application_path, method: :patch, data: { confirm: "Are you sure?" }, class: 'profile-button-expand' %>
         <% end %>
       <% end %>
     </div>
