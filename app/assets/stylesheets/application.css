@@ -61,12 +61,21 @@
     margin-bottom: 0.5em;
     border-width: 3px;
     border-color: #0a0a0a;
+  }
+
+ .list-item-line {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+   margin-left: 30px;
+   margin-right: 30px;
+   border-width: 0.5px;
+   border-color: #e6e6e6;
  }
 
  .log-reg-link {
    margin-left: 40px;
    margin-right: 40px;
- }
+  }
 
  /* Buttons */
 
@@ -819,7 +828,7 @@
 
 .portfolio-resume-header {
   padding-bottom: 0.5rem;
-  border-bottom: 0.5px solid #e6e6e6;
+  border-bottom: 1px solid #5D5C5C;
   margin-bottom: 1rem;
 }
 
