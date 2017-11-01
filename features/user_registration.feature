@@ -10,7 +10,7 @@ Feature: User registration
 
     Scenario: I register as a user
       Given I am on the home page
-      And I click "REGISTER"
+      And I click "REGISTRERA"
       And I should see "REGISTER AS USER"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Password" with "12345678"
@@ -20,7 +20,7 @@ Feature: User registration
 
     Scenario: I login as a user
       Given I am on the home page
-      And I click "LOGIN"
+      And I click "LOGGA IN"
       And I should see "Log in as user"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Password" with "12345678"

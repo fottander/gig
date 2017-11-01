@@ -29,5 +29,5 @@ Feature: A company hires a person
       And I should see "I want job"
       And I click "Hire"
       Then I should see "Congratulations! Person has been hired."
-      And I click "CONTROL PANEL"
+      And I click "KONTROLLPANEL"
       Then I should see "Fisken"

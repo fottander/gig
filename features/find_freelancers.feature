@@ -12,7 +12,7 @@ Feature: Show freelancers
 
     Scenario: I see freelancers
       Given I am on the home page
-      And I click "FIND FREELANCERS"
+      And I click "HITTA FRILANSARE"
       And I should see "Browse all freelancers"
       And I should see "fisken"
       And I should see "Erfaren målare"
@@ -24,7 +24,7 @@ Feature: Show freelancers
 
     Scenario: I filtrate on a category
       Given I am on the home page
-      And I click "FIND FREELANCERS"
+      And I click "HITTA FRILANSARE"
       And I click "Snickare"
       Then I should see "Erfaren snickare"
       And I should not see "Erfaren målare"

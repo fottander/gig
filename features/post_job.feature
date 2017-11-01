@@ -10,13 +10,13 @@ Feature: Post job ad
 
     Scenario: Company tries to post without being logged in
       Given I am on the home page
-      And I click "POST JOB"
+      And I click "SKAPA ANNONS"
       Then I should see "You need to sign in or sign up before continuing."
 
     Scenario: Company posts an ad
       Given I am on the home page
       Given I am logged in as company "felix@mail.com"
-      And I click "POST JOB"
+      And I click "SKAPA ANNONS"
       And I should see "Skapa annons"
       And I fill in "Titel" with "målare"
       And I fill in "Beskrivning" with "måla hus"
@@ -29,6 +29,6 @@ Feature: Post job ad
       And I fill in "Timmar" with "30 timmar i veckan"
       And I click "Skapa annons"
       Then I should see "New job created!"
-      Given I click "CONTROL PANEL"
+      Given I click "KONTROLLPANEL"
       And I should see "målare"
       Then I should not see "No jobs yet"

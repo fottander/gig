@@ -10,7 +10,7 @@ Feature: User dashboard
 
     Scenario: I go to dashboard
       Given I am on the home page
-      And I click "LOGIN"
+      And I click "LOGGA IN"
       And I should see "Log in as user"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Password" with "12345678"

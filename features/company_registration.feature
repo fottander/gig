@@ -10,7 +10,7 @@ Feature: Company registration
 
     Scenario: I register my company
       Given I am on the home page
-      And I click "REGISTER"
+      And I click "REGISTRERA"
       And I should see "REGISTER AS USER"
       And I click "Company registration >"
       And I fill in "Email" with "mail@mail.com"
@@ -28,7 +28,7 @@ Feature: Company registration
 
     Scenario: I log in as a company
       Given I am on the home page
-      And I click "LOGIN"
+      And I click "LOGGA IN"
       And I click "Company login >"
       And I should see "Log in as company"
       And I fill in "Email" with "felix@mail.com"

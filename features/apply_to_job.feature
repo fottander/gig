@@ -28,7 +28,7 @@ Feature: Apply to job
       And I fill in "Message" with "I want job"
       And I click "Submit"
       Then I should see "New job application sent!"
-      And I click "DASHBOARD"
+      And I click "KONTROLLPANEL"
       Then I should see "målare sökes"
       And I click "View application"
       Then I should see "I want job"

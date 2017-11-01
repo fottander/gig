@@ -22,7 +22,7 @@ Feature: Company control panel
 
     Scenario: I go to dashboard
       Given I am on the home page
-      And I click "LOGIN"
+      And I click "LOGGA IN"
       And I click "Company login >"
       And I should see "Log in as company"
       And I fill in "Email" with "felix@mail.com"
@@ -42,14 +42,14 @@ Feature: Company control panel
       Given I am logged in as company "felix@mail.com"
       Given I am on the jobs page
       And I should see "målare sökes"
-      And I click "CONTROL PANEL"
+      And I click "KONTROLLPANEL"
       And I click "Edit job"
       And I should see "Edit job information"
       And I select "Målare" from "Categories"
       And I select "Göteborg" from "City"
       And I uncheck Active check box
       And I click "Submit"
-      And I click "CONTROL PANEL"
+      And I click "KONTROLLPANEL"
       Then I should see "Inaktiv"
       Given I am on the jobs page
       Then I should not see "målare sökes"
