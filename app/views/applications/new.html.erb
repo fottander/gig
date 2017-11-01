@@ -1,14 +1,24 @@
 <h3>Create a job application</h3>
-<div class="card-profile-stats">
-  <div class="simple-form">
-    <% if @profile.present? %>
-      <%= form_for ([@job, @application]) do |f| %>
-      <%= f.label :message %>
-      <%= f.text_area :message %>
-      <%= f.submit 'Submit', class: 'reply-button' %>
+<div class="holy-grail-grid">
+  <div class="holy-grail-left-application">
+    <div class='holy-grail-left-application-box'>
+      <div class='holy-grail-left-application-box-title'>
+        TIPS FÖR EN BRA ANSÖKAN <br>
+      </div>
+      Hur utförlig din ansökan skrivs och hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
+      Kontaktinformation ska ej avslöjas i ansökan.
+    </div>
+  </div>
+  <div class="holy-grail-middle">
+    <div class="simple-form">
+      <% if @profile.present? %>
+        <%= form_for ([@job, @application]) do |f| %>
+        <%= f.text_area :message, placeholder: 'Message' %>
+        <%= f.submit 'Submit', class: 'reply-button' %>
+        <% end %>
+      <% else %>
+      <p>Please create a profile before you apply. <%= link_to 'Click here', dashboards_path %></p>
       <% end %>
-    <% else %>
-    <p>Please create a profile before you apply. <%= link_to 'Click here', dashboards_path %></p>
-    <% end %>
+    </div>
   </div>
 </div>

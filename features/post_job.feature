@@ -24,7 +24,7 @@ Feature: Post job ad
       And I select "Målare" from "Category"
       And I select "Göteborg" from "City"
       And I fill in "Budget" with "130kr/timma"
-      And I fill in "Deadline" with "2018-10-10"
+      And I fill in "Deadline (ex. 2017-xx-xx)" with "2018-10-10"
       And I fill in "Duration" with "5 dagar"
       And I fill in "Hours/week" with "30 timmar i veckan"
       And I click "Post job"

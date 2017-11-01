@@ -61,7 +61,7 @@
             <% if @applications.present? %>
               <% @applications.each do |application| %>
               <h5><strong><%= application.profile_username %></strong></h5>
-              <%= link_to 'Reply', job_application_path(@job, application), class: 'reply-button' %>
+              <%= link_to 'View', job_application_path(@job, application), class: 'reply-button' %>
               <%= link_to 'Profile', profile_path(application.profile_id), class: 'profile-button' %>
               <hr>
               <% end %>

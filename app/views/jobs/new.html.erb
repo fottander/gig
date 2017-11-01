@@ -1,26 +1,29 @@
 <h3>Post a job ad</h3>
-<div class="card-profile-stats">
-  <div class="simple-form">
-    <%= form_for @job do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-    <%= f.label :requirement %>
-    <%= f.text_field :requirement %>
-    <%= f.label :category %>
-    <%= f.select :category, options_for_select(Job.category), { include_blank: true } %>
-    <%= f.label :city %>
-    <%= f.select :city, options_for_select(Job.city), { include_blank: true } %>
-    <%= f.label :budget %>
-    <%= f.text_field :budget %>
-    <%= f.label :deadline, 'Deadline (ex. 2017-xx-xx)' %>
-    <%= f.text_field :deadline %>
-    <%= f.label :duration %>
-    <%= f.text_field :duration %>
-    <%= f.label :hour_week, 'Hours/week' %>
-    <%= f.text_field :hour_week %>
-    <%= f.submit 'Post job', class: 'reply-button' %>
-    <% end %>
+<div class='holy-grail-grid'>
+  <div class='holy-grail-left-application'>
+    <div class='holy-grail-left-application-box'>
+      Tillfällig arbetskraftsbrist? <br><br>
+      Behöver ni förstärka med nya kvalifikationer? <br><br>
+      Smidiga & snabba provanställningar <br><br>
+      Ett flexibelt verktyg för att anställa arbetare
+    </div>
+  </div>
+  <div class='holy-grail-middle'>
+    <div class="simple-form">
+      <%= form_for @job do |f| %>
+      <%= f.text_field :title, placeholder: 'Title' %>
+      <%= f.text_area :description, placeholder: 'Description' %>
+      <%= f.text_field :requirement, placeholder: 'Requirement' %>
+      <%= f.label :category, 'Category', class: 'hidden-label' %>
+      <%= f.select :category, options_for_select(Job.category), { include_blank: true } %>
+      <%= f.label :city, 'City', class: 'hidden-label' %>
+      <%= f.select :city, options_for_select(Job.city), { include_blank: true } %>
+      <%= f.text_field :budget, placeholder: 'Budget' %>
+      <%= f.text_field :deadline, placeholder: 'Deadline (ex. 2017-xx-xx)' %>
+      <%= f.text_field :duration, placeholder: 'Duration' %>
+      <%= f.text_field :hour_week, placeholder: 'Hours/week' %>
+      <%= f.submit 'Post job', class: 'reply-button' %>
+      <% end %>
+    </div>
   </div>
 </div>
