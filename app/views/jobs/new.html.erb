@@ -1,4 +1,3 @@
-<h3>Post a job ad</h3>
 <div class='holy-grail-grid'>
   <div class='holy-grail-left-application'>
     <div class='holy-grail-left-application-box'>
@@ -10,6 +9,7 @@
   </div>
   <div class='holy-grail-middle'>
     <div class="simple-form">
+      <div class='post-title'><h3>Post a job ad</h3></div>
       <%= form_for @job do |f| %>
       <%= f.text_field :title, placeholder: 'Title' %>
       <%= f.text_area :description, placeholder: 'Description' %>
