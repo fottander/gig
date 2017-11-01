@@ -12,7 +12,7 @@ Feature: Company registration
       Given I am on the home page
       And I click "REGISTRERA"
       And I should see "Registrera ny användare"
-      And I click "Company registration >"
+      And I click "Registrera företag >"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Företagsnamn" with "hello"
       And I fill in "Användarnamn" with "oij12"
@@ -29,7 +29,7 @@ Feature: Company registration
     Scenario: I log in as a company
       Given I am on the home page
       And I click "LOGGA IN"
-      And I click "Company login >"
+      And I click "Logga in företag >"
       And I should see "Logga in som företag"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"

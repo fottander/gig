@@ -23,7 +23,7 @@ Feature: Company control panel
     Scenario: I go to dashboard
       Given I am on the home page
       And I click "LOGGA IN"
-      And I click "Company login >"
+      And I click "Logga in företag >"
       And I should see "Logga in som företag"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
