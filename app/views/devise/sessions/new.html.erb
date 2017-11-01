@@ -17,12 +17,12 @@
         <% if devise_mapping.rememberable? -%>
           <div class="login-box-input">
             <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
+            <%= f.label :remember_me, 'Kom ihåg mig' %>
           </div>
         <% end -%>
         <div class="actions">
           <%= f.submit "Logga in", id: 'reply', class: 'reply-button' %>
-          <p>or <%= render "devise/shared/links" %></p>
+          <p>eller <%= render "devise/shared/links" %></p>
         </div>
         <%end %>
       </div>

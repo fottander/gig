@@ -34,7 +34,7 @@
         </div>
         <div class="login-box-input">
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> tecken minimum)</em>
           <% end %><br />
           <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
         </div>
@@ -47,7 +47,7 @@
         <div class="actions">
           <br>
           <%= f.submit "Registrera", class: 'reply-button' %>
-          <p>or <%= render "companies/shared/links" %></p>
+          <p>eller <%= render "companies/shared/links" %></p>
         </div>
         <%end %>
       </div>
