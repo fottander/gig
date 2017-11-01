@@ -40,13 +40,16 @@
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
             <% end %>
           <% else %>
+          Jobbet har blivit godkänt <br>
           - Invänta faktura från frilansare <br>
           - Nya fakturor hittas i din kontrollpanel
           <% end %>
         <% else %>
-        - Skriv gärna utförande vad <br>
-        - Berätta vad du som frilansare... <br>
-        - aasefnaweff <br>
+        <div class='holy-grail-left-application-box'>
+        Diskutera & chatta<br>
+        Kom ihåg att vara tydlig & ha ett bra bemötande<br>
+        Här finns några exempel<br>
+        </div>
         <% end %>
       </p>
       <% if current_company.present? %>

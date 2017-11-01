@@ -211,6 +211,11 @@
    margin-right: 5px;
  }
 
+ .hidden-label {
+   color: #cacaca;
+   font-size: 16px;
+ }
+
  /* FORM */
 
 .login-box {
@@ -518,7 +523,6 @@
       grid-template-columns: 1fr 3fr;
   -ms-grid-rows: 1fr 8fr 1fr;
       grid-template-rows: 1fr 8fr 1fr;
-  grid-gap: 20px;
   height: 80vh;
 }
 
@@ -548,7 +552,23 @@
   border-bottom: 1px solid #696868;
   width: calc(100%);
 }
-.holy-grail-left-application,
+.holy-grail-left-application {
+  background-color: #F8F8F8;
+  padding: 1rem;
+}
+
+.holy-grail-left-application-box {
+  font: italic 18px/140% Georgia,'Times New Roman',serif;
+  z-index: 2;
+  color: #5D5C5C;
+}
+.holy-grail-left-application-box-title {
+  font: italic 18px/140% Georgia,'Times New Roman',serif;
+  z-index: 2;
+  color: #f77d0e;
+  margin-bottom: 10px;
+}
+
 .holy-grail-middle-application,
 .holy-grail-middle {
   padding: 1rem;
