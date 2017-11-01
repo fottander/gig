@@ -14,18 +14,18 @@
     <div class="topnav" id="myTopnav">
       <a href="/" id="logo"></a>
       <% if company_signed_in? %>
-       <%= link_to "CONTROL PANEL", panels_path %>
-       <%= link_to "SIGN OUT", destroy_company_session_path, {method: :delete} %>
+       <%= link_to "KONTROLLPANEL", panels_path %>
+       <%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %>
        <% elsif user_signed_in? %>
-       <%= link_to "DASHBOARD", dashboards_path %>
-       <%= link_to "SIGN OUT", destroy_user_session_path, {method: :delete} %>
+       <%= link_to "KONTROLLPANEL", dashboards_path %>
+       <%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %>
        <% else %>
-       <%= link_to "LOGIN", new_user_session_path %>
-       <%= link_to "REGISTER", new_user_registration_path %>
+       <%= link_to "LOGGA IN", new_user_session_path %>
+       <%= link_to "REGISTRERA", new_user_registration_path %>
       <% end %>
-      <%= link_to "FIND A GIG", jobs_path %>
-      <%= link_to "FIND FREELANCERS", profiles_path %>
-      <%= link_to "POST JOB", new_job_path %>
+      <%= link_to "HITTA JOBB", jobs_path %>
+      <%= link_to "HITTA FRILANSARE", profiles_path %>
+      <%= link_to "SKAPA ANNONS", new_job_path %>
       <a href="javascript:void(0);" class="icon" onclick="myNav()">&#9776;</a>
     </div>
     <hr>

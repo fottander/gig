@@ -10,19 +10,19 @@ Feature: User registration
 
     Scenario: I register as a user
       Given I am on the home page
-      And I click "REGISTER"
-      And I should see "REGISTER AS USER"
+      And I click "REGISTRERA"
+      And I should see "Registrera ny frilansare"
       And I fill in "Email" with "mail@mail.com"
-      And I fill in "Password" with "12345678"
-      And I fill in "Password confirmation" with "12345678"
-      And I click "Sign up"
+      And I fill in "Lösenord" with "12345678"
+      And I fill in "Bekräfta lösenord" with "12345678"
+      And I click "Registrera"
       Then I should see "You have signed up successfully."
 
     Scenario: I login as a user
       Given I am on the home page
-      And I click "LOGIN"
-      And I should see "Log in as user"
+      And I click "LOGGA IN"
+      And I should see "Logga in som frilansare"
       And I fill in "Email" with "felix@mail.com"
-      And I fill in "Password" with "12345678"
-      And I click "Log in"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
       Then I should see "Signed in successfully."

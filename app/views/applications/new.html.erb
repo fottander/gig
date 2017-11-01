@@ -10,14 +10,14 @@
   </div>
   <div class="holy-grail-middle">
     <div class="simple-form">
-      <div class='post-title'><h3>Create a job application</h3></div>
+      <div class='post-title'><h3>Skapa ansökan</h3></div>
       <% if @profile.present? %>
         <%= form_for ([@job, @application]) do |f| %>
-        <%= f.text_area :message, placeholder: 'Message' %>
-        <%= f.submit 'Submit', class: 'reply-button' %>
+        <%= f.text_area :message, placeholder: 'Skriv ansökan' %>
+        <%= f.submit 'Skapa', class: 'reply-button' %>
         <% end %>
       <% else %>
-      <p>Please create a profile before you apply. <%= link_to 'Click here', dashboards_path %></p>
+      <p>Var vänlig skapa en profil innan du ansöker till jobb <%= link_to 'Klicka här', dashboards_path %></p>
       <% end %>
     </div>
   </div>

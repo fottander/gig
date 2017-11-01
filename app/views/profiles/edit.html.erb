@@ -1,35 +1,35 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <%= link_to 'Dashboard', dashboards_path, class: 'button-menu' %><br>
-    <%= link_to 'Account', edit_user_registration_path, class: 'button-menu' %><br>
+    <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
+    <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
     <% if @profile.present? %>
-      <%= link_to 'Profile', edit_profile_path(@profile.id), class: 'button-menu' %>
+      <%= link_to 'Profil', edit_profile_path(@profile.id), class: 'button-menu' %>
       <% else %>
-      <%= link_to 'Add profile', new_profile_path, class: 'button-menu' %>
+      <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>
-    <%= link_to 'Find jobs', jobs_path, class: 'button-menu' %><br>
+    <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %><br>
   </div>
 
   <div class="holy-grail-middle">
     <div class="simple-form">
-      <div class='post-title'><h3>Edit profile information</h3></div>
+      <div class='post-title'><h3>Redigera profil</h3></div>
       <%= form_for @profile do |f| %>
-      <%= f.label :username %>
+      <%= f.label :username, 'Användarnamn', class: 'form-text' %>
       <%= f.text_field :username, value: @profile.username %>
-      <%= f.label :title %>
+      <%= f.label :title, 'Titel', class: 'form-text' %>
       <%= f.text_area :title, value: @profile.title %>
-      <%= f.label :description %>
+      <%= f.label :description, 'Beskrivning', class: 'form-text' %>
       <%= f.text_field :description, value: @profile.description %>
-      <%= f.label :skill, 'Skills' %>
+      <%= f.label :skill, 'Färdigheter', class: 'form-text' %>
       <%= f.text_field :skill, value: @profile.skill %>
-      <%= f.label :rate %>
+      <%= f.label :rate, 'Lön', class: 'form-text' %>
       <%= f.text_field :rate, value: @profile.rate %>
-      <%= f.label :category, 'Categories' %>
+      <%= f.label :category, 'Kategorier', class: 'form-text' %>
       <%= f.select :category, options_for_select(Profile.category), { include_blank: true }, value: @profile.category %>
-      <%= f.label :city %>
+      <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Profile.city), { include_blank: true }, value: @profile.city %>
-      <%= f.submit 'Submit', class: 'reply-button' %>
+      <%= f.submit 'Spara', class: 'reply-button' %>
       <% end %>
     </div>
   </div>

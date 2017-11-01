@@ -1,9 +1,9 @@
-<h3>Job details</h3>
+<h3>Jobbdetaljer</h3>
 <div class="card-profile-stats">
   <div class="portfolio-resume row">
     <div class="large-3 columns">
       <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Details</h3>
+        <h3 class="portfolio-resume-header">Detaljer</h3>
         <ul >
           <li>
             Stad: <%= @job.city %>
@@ -18,13 +18,13 @@
             Varaktighet: <%= @job.duration %>
           </li>
           <li>
-            Budget: <%= @job.budget %>
+            Lön: <%= @job.budget %>
           </li>
           <li>
             Timmar/vecka: <%= @job.hour_week %>
           </li>
           <li>
-            Deadline: <%= @job.deadline%>
+            Sista ansökningsdag: <%= @job.deadline%>
           </li>
         </ul>
       </div>
@@ -32,19 +32,19 @@
 
     <div class="large-3 columns">
       <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Description</h3>
+        <h3 class="portfolio-resume-header">Beskrivning</h3>
         <div class="portfolio-resume-spacing">
           <h5><strong><%= @job.title %></strong></h5>
           Jobb ID: <%= @job.id %>
           <p><%= @job.description %></p>
         </div>
-        <%= link_to 'Apply', new_job_application_path(@job), class: 'reply-button' %>
+        <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button' %>
       </div>
     </div>
 
     <div class="large-3 columns">
       <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Company info</h3>
+        <h3 class="portfolio-resume-header">Företagsinfo</h3>
         <h5><strong><%= @job.company_username %></strong></h5>
         <div class="portfolio-resume-contact-info">
           <p>Stad: <%= @job.company_city %></p>
@@ -56,17 +56,17 @@
       <% if @job.company_id == current_company.id %>
       <div class="large-3 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Applications</h3>
+          <h3 class="portfolio-resume-header">Ansökningar</h3>
           <div class="portfolio-resume-spacing">
             <% if @applications.present? %>
               <% @applications.each do |application| %>
               <h5><strong><%= application.profile_username %></strong></h5>
-              <%= link_to 'View', job_application_path(@job, application), class: 'reply-button' %>
-              <%= link_to 'Profile', profile_path(application.profile_id), class: 'profile-button' %>
+              <%= link_to 'Visa', job_application_path(@job, application), class: 'reply-button' %>
+              <%= link_to 'Profil', profile_path(application.profile_id), class: 'profile-button' %>
               <hr>
               <% end %>
             <% else %>
-              No applications so far
+              Inga ansökningar hittills
             <% end %>
           </div>
         </div>

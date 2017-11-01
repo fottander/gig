@@ -12,8 +12,8 @@ Feature: Show job ads
 
     Scenario: I see job ads
       Given I am on the home page
-      And I click "FIND A GIG"
-      And I should see "Browse all jobs"
+      And I click "HITTA JOBB"
+      And I should see "Alla annonser"
       And I should see "målare"
       And I should see "måla hus"
       And I should see "målare"

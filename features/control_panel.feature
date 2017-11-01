@@ -22,14 +22,14 @@ Feature: Company control panel
 
     Scenario: I go to dashboard
       Given I am on the home page
-      And I click "LOGIN"
-      And I click "Company login >"
-      And I should see "Log in as company"
+      And I click "LOGGA IN"
+      And I click "Logga in företag >"
+      And I should see "Logga in som företag"
       And I fill in "Email" with "felix@mail.com"
-      And I fill in "Password" with "12345678"
-      And I click "Log in"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
       Then I should see "Signed in successfully."
-      And I should see "Control panel"
+      And I should see "Kontrollpanel"
 
     Scenario: I see the job ad and applications answer count
       Given I am logged in as company "felix@mail.com"
@@ -42,14 +42,14 @@ Feature: Company control panel
       Given I am logged in as company "felix@mail.com"
       Given I am on the jobs page
       And I should see "målare sökes"
-      And I click "CONTROL PANEL"
-      And I click "Edit job"
-      And I should see "Edit job information"
-      And I select "Målare" from "Categories"
-      And I select "Göteborg" from "City"
+      And I click "KONTROLLPANEL"
+      And I click "Redigera jobb"
+      And I should see "Redigera annons"
+      And I select "Målare" from "Kategorier"
+      And I select "Göteborg" from "Stad"
       And I uncheck Active check box
-      And I click "Submit"
-      And I click "CONTROL PANEL"
+      And I click "Spara"
+      And I click "KONTROLLPANEL"
       Then I should see "Inaktiv"
       Given I am on the jobs page
       Then I should not see "målare sökes"

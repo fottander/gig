@@ -40,7 +40,7 @@ class InvoicesController < ApplicationController
   def destroy
     @invoice = Invoice.find(params[:id])
     if @invoice.destroy
-      flash[:notice] = "Invoice Deleted!"
+      flash[:notice] = "Faktura raderad!"
       redirect_back(fallback_location: dashboards_path)
     end
   end

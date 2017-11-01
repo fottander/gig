@@ -1,4 +1,4 @@
-<h3>Application reply</h3>
+<h3>Ansökan</h3>
   <div class="card profile-card-action-icons">
       <div class="card-section">
           <div class="profile-card-header">
@@ -7,7 +7,7 @@
               </div>
           </div>
           <div class="profile-card-about-message">
-            Message: <br>
+            Ansökan: <br>
             <%= @application.message %>
           </div>
       </div>
@@ -22,11 +22,11 @@
             </div>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
             <%= text_area_tag :description, nil, placeholder: '* Beskrivning' %>
-            <%= text_field_tag :quantity, nil, placeholder: 'Antal' %>
-            <%= text_field_tag :unit, nil, placeholder: 'Enhet' %>
-            <%= text_field_tag :amount, nil, placeholder: '* Belopp' %>
-            <%= text_field_tag :first_day, nil, placeholder: 'Start dag' %>
-            <%= text_field_tag :last_day, nil, placeholder: 'Sista dag' %>
+            <%= text_field_tag :quantity, nil, placeholder: 'Antal(ex. antal timmar)' %>
+            <%= text_field_tag :unit, nil, placeholder: 'Enhet(ex.150kr/timma)' %>
+            <%= text_field_tag :amount, nil, placeholder: '* Belopp(ex. totalsumma)' %>
+            <%= text_field_tag :first_day, nil, placeholder: 'Start dag(ex. 2018-xx-xx)' %>
+            <%= text_field_tag :last_day, nil, placeholder: 'Sista dag(ex. 2018-xx-xx)' %>
             <%= text_field_tag :user_reference, nil, placeholder: '* Referens(förnamn & efternamn)' %>
             <%= text_field_tag :company_reference, nil, placeholder: 'Företagsreferens' %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
@@ -46,14 +46,14 @@
       </p>
       <% if current_company.present? %>
         <% if @application.hired == false %>
-          <%= link_to 'Hire', job_application_path, method: :patch, data: { confirm: "Are you sure?" }, class: 'profile-button-expand' %>
+          <%= link_to 'Anställ', job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
         <% end %>
       <% end %>
     </div>
     <div class="holy-grail-middle">
       <div class="comment-section">
         <% if @comments.present? %>
-          <h4 style="color: #37a000">Replies</h4>
+          <h4 style="color: #37a000">Svar</h4>
           <% @comments.each do |comment| %>
           <strong><%= comment.profile_username %></strong>
           <strong><%= comment.company_username %></strong> | <%= comment.created_at.in_time_zone("Stockholm").strftime("%D %R") %> |<br>
@@ -66,7 +66,7 @@
           <p>Inga svar ännu</p>
         <% end %>
         <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-        <%= label_tag :comment, 'Svara på meddelande' %>
+        <%= label_tag :comment, 'Svara på ansökan' %>
         <%= text_area_tag :comment %>
         <%= submit_tag 'Skicka', class: 'reply-button' %>
         <% end %>

@@ -1,49 +1,49 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <%= link_to 'Control panel', panels_path, class: 'button-menu' %>
-    <%= link_to 'Account', edit_company_registration_path, class: 'button-menu' %>
-    <%= link_to 'Create job', new_job_path, class: 'button-menu' %>
-    <%= link_to 'Find freelancers', profiles_path, class: 'button-menu' %>
-    <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button-menu' %>
+    <%= link_to 'Kontrollpanel', panels_path, class: 'button-menu' %>
+    <%= link_to 'Konto', edit_company_registration_path, class: 'button-menu' %>
+    <%= link_to 'Skapa annons', new_job_path, class: 'button-menu' %>
+    <%= link_to 'Hitta frilansare', profiles_path, class: 'button-menu' %>
+    <%= link_to "Radera konto", registration_path(resource_name), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
     <div class='simple-form'>
-      <div class='post-title'><h3>Edit <%= resource_name.to_s.humanize %></h3></div>
+      <div class='post-title'><h3>Redigera konto</h3></div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 
         <div class="field">
-          <%= f.label :email %>
+          <%= f.label :email, class: 'form-text' %>
           <%= f.email_field :email, autofocus: true %>
         </div>
         <div class="field">
-          <%= f.label :name %>
+          <%= f.label :name, 'Företagsnamn', class: 'form-text' %>
           <%= f.text_field :name %>
         </div>
         <div class="field">
-          <%= f.label :username %>
+          <%= f.label :username, 'Användarnamn', class: 'form-text' %>
           <%= f.text_field :username %>
         </div>
         <div class="field">
-          <%= f.label :address %>
+          <%= f.label :address, 'Adress', class: 'form-text' %>
           <%= f.text_field :address %>
         </div>
         <div class="field">
-          <%= f.label :zip_code %>
+          <%= f.label :zip_code, 'Postnummer', class: 'form-text' %>
           <%= f.text_field :zip_code %>
         </div>
         <div class="field">
-          <%= f.label :city %>
+          <%= f.label :city, 'Stad', class: 'form-text' %>
           <%= f.text_field :city %>
         </div>
         <div class="field">
-          <%= f.label :org_number %>
+          <%= f.label :org_number, 'Organisationsnummer', class: 'form-text' %>
           <%= f.text_field :org_number %>
         </div>
         <div class="field">
-          <%= f.label :phone %>
+          <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
           <%= f.text_field :phone %>
         </div>
 
@@ -52,26 +52,26 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+          <%= f.label :password, 'Lösenord', class: 'form-text' %> <i>(lämna tomt om du inte vill ändra lösenord)</i>
           <%= f.password_field :password, autocomplete: "off" %>
           <% if @minimum_password_length %>
             <br />
-            <em><%= @minimum_password_length %> characters minimum</em>
+            <em><%= @minimum_password_length %> tecken minimum</em>
           <% end %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation %>
+          <%= f.label :password_confirmation, 'Bekräfta lösenord', class: 'form-text' %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
         <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+          <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
           <%= f.password_field :current_password, autocomplete: "off" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Update", class: 'reply-button' %>
+          <%= f.submit "Spara", class: 'reply-button' %>
         </div>
       <% end %>
     </div>

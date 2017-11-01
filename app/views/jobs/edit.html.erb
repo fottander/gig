@@ -1,36 +1,36 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <%= link_to 'Control panel', panels_path, class: 'button-menu' %>
-    <%= link_to 'Account', edit_company_registration_path, class: 'button-menu' %>
-    <%= link_to 'Create job', new_job_path, class: 'button-menu' %>
-    <%= link_to 'Find freelancers', profiles_path, class: 'button-menu' %>
+    <%= link_to 'Kontrollpanel', panels_path, class: 'button-menu' %>
+    <%= link_to 'Konto', edit_company_registration_path, class: 'button-menu' %>
+    <%= link_to 'Skapa jobb', new_job_path, class: 'button-menu' %>
+    <%= link_to 'Hitta frilansare', profiles_path, class: 'button-menu' %>
   </div>
   <div class="holy-grail-middle">
     <div class="simple-form">
-      <div class='post-title'><h3>Edit job information</h3></div>
+      <div class='post-title'><h3>Redigera annonsinfo</h3></div>
       <%= form_for @job do |f| %>
-      <%= f.label :title %>
+      <%= f.label :title, 'Titel' %>
       <%= f.text_field :title, value: @job.title %>
-      <%= f.label :description %>
+      <%= f.label :description, 'Beskrivning' %>
       <%= f.text_area :description, value: @job.description %>
-      <%= f.label :requirement %>
+      <%= f.label :requirement, 'Krav' %>
       <%= f.text_field :requirement, value: @job.requirement %>
-      <%= f.label :category, 'Categories' %>
+      <%= f.label :category, 'Kategorier' %>
       <%= f.select :category, options_for_select(Job.category), { include_blank: true }, value: @job.category %>
-      <%= f.label :city %>
+      <%= f.label :city, 'Stad' %>
       <%= f.select :city, options_for_select(Job.city), { include_blank: true }, value: @job.city %>
-      <%= f.label :budget %>
+      <%= f.label :budget, 'Lön' %>
       <%= f.text_field :budget, value: @job.budget %>
-      <%= f.label :deadline %>
+      <%= f.label :deadline, 'Sista ansökningsdag' %>
       <%= f.text_field :deadline, value: @job.deadline %>
-      <%= f.label :duration %>
+      <%= f.label :duration, 'Varaktighet' %>
       <%= f.text_field :duration, value: @job.duration %>
-      <%= f.label :hour_week %>
+      <%= f.label :hour_week, 'Timmar' %>
       <%= f.text_field :hour_week, value: @job.hour_week %>
       <%= f.check_box :active, value: true %>
       Aktivera/Inaktivera för att låta personer se din annons eller inte.<br>
-      <%= f.submit 'Submit', class: 'reply-button' %>
+      <%= f.submit 'Spara', class: 'reply-button' %>
       <% end %>
     </div>
   </div>

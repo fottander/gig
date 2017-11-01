@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @comment.application_id = @application.id
     @comment.job_id = @job.id
     if @comment.save
-      flash[:notice] = "New reply sent!"
+      flash[:notice] = "Nytt svar skickat!"
       redirect_back(fallback_location: root_path)
     end
   end

@@ -9,20 +9,27 @@
   </div>
   <div class='holy-grail-middle'>
     <div class="simple-form">
-      <div class='post-title'><h3>Post a job ad</h3></div>
+      <div class='post-title'><h3>Skapa annons</h3></div>
       <%= form_for @job do |f| %>
-      <%= f.text_field :title, placeholder: 'Title' %>
-      <%= f.text_area :description, placeholder: 'Description' %>
-      <%= f.text_field :requirement, placeholder: 'Requirement' %>
-      <%= f.label :category, 'Category', class: 'hidden-label' %>
+      <%= f.label :title, 'Titel', class: 'form-text' %>
+      <%= f.text_field :title, placeholder: 'Ge din annons en titel ex. "Erfaren målare sökes".' %>
+      <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+      <%= f.text_area :description, placeholder: 'Vad ska frilansaren utföra? Var så utförlig som möjligt.' %>
+      <%= f.label :requirement, 'Krav', class: 'form-text' %>
+      <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
+      <%= f.label :category, 'Kategori', class: 'form-text' %>
       <%= f.select :category, options_for_select(Job.category), { include_blank: true } %>
-      <%= f.label :city, 'City', class: 'hidden-label' %>
+      <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Job.city), { include_blank: true } %>
-      <%= f.text_field :budget, placeholder: 'Budget' %>
-      <%= f.text_field :deadline, placeholder: 'Deadline (ex. 2017-xx-xx)' %>
-      <%= f.text_field :duration, placeholder: 'Duration' %>
-      <%= f.text_field :hour_week, placeholder: 'Hours/week' %>
-      <%= f.submit 'Post job', class: 'reply-button' %>
+      <%= f.label :budget, 'Lön', class: 'form-text' %>
+      <%= f.text_field :budget, placeholder: 'Antingen fast, per timma eller ungefärlig lön.' %>
+      <%= f.label :deadline, 'Sista anmälningsdag', class: 'form-text' %>
+      <%= f.text_field :deadline, placeholder: 'Ex. 2018-xx-xx' %>
+      <%= f.label :duration, 'Varaktighet', class: 'form-text' %>
+      <%= f.text_field :duration, placeholder: 'Hur många dagar/veckor behöver ni personen?' %>
+      <%= f.label :hour_week, 'Timmar', class: 'form-text' %>
+      <%= f.text_field :hour_week, placeholder: 'Hur många timmar per dag/vecka?' %>
+      <%= f.submit 'Skapa annons', class: 'reply-button' %>
       <% end %>
     </div>
   </div>
