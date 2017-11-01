@@ -28,6 +28,6 @@ Feature: A company hires a person
       And I click "Visa"
       And I should see "I want job"
       And I click "Anställ"
-      Then I should see "Congratulations! Person has been hired."
+      Then I should see "Grattis! Du har anlitat personen."
       And I click "KONTROLLPANEL"
       Then I should see "Fisken"

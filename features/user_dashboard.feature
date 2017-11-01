@@ -31,4 +31,4 @@ Feature: User dashboard
       And I select "Målare" from "Kategorier"
       And I select "Göteborg" from "Stad"
       And I click "Skapa"
-      Then I should see "New profile created!"
+      Then I should see "Ny profil skapad!"

@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new profile_params
     @profile.user_id = current_user.id
     if @profile.save
-      flash[:notice] = "New profile created!"
+      flash[:notice] = "Ny profil skapad!"
       @profile = Profile.find_by(user_id: current_user)
       session[:current_profile_id] = @profile.id
       redirect_to dashboards_path
@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find(params[:id])
     if @profile.update profile_params
-      flash[:notice] = "Profile edited!"
+      flash[:notice] = "Profil redigerad!"
       redirect_back(fallback_location: profile_path(@profile))
     end
   end

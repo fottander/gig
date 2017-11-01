@@ -23,7 +23,7 @@ class ApplicationsController < ApplicationController
     @application.profile_username = @profile.username
     @application.job_title = @job.title
     if @application.save
-      flash[:notice] = "New job application sent!"
+      flash[:notice] = "Ny ansökan skickad!"
       redirect_back(fallback_location: root_path)
     end
   end
@@ -32,7 +32,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @application.complete = true
     if @application.save
-      flash[:notice] = "Congratulations! Job completed."
+      flash[:notice] = "Grattis! Jobb genomfört."
       redirect_back(fallback_location: root_path)
     end
   end
@@ -41,7 +41,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @application.hired = true
     if @application.save
-      flash[:notice] = "Congratulations! Person has been hired."
+      flash[:notice] = "Grattis! Du har anlitat personen."
       redirect_back(fallback_location: root_path)
     end
   end
@@ -50,7 +50,7 @@ class ApplicationsController < ApplicationController
     @job = Job.find(params[:job_id])
     @application = Application.find(params[:id])
     if @application.destroy
-      flash[:notice] = "Application deleted!"
+      flash[:notice] = "Ansökan raderad!"
       redirect_back(fallback_location: dashboards_path)
     end
   end

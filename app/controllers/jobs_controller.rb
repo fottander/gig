@@ -20,7 +20,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update job_params
-      flash[:notice] = "Job edited!"
+      flash[:notice] = "Jobb redigerat!"
       redirect_back(fallback_location: job_path(@job))
     end
   end
@@ -35,7 +35,7 @@ class JobsController < ApplicationController
     @job.company_username = current_company.username
     @job.company_city = current_company.city
     if @job.save
-      flash[:notice] = "New job created!"
+      flash[:notice] = "Nytt jobb skapat!"
       redirect_to new_job_path
     end
   end
@@ -43,7 +43,7 @@ class JobsController < ApplicationController
   def destroy
     @job = Job.find(params[:id])
     if @job.destroy
-      flash[:notice] = "Job Deleted!"
+      flash[:notice] = "Jobb raderat!"
       redirect_back(fallback_location: panels_path)
     end
   end

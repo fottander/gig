@@ -27,7 +27,7 @@ Feature: Apply to job
       And I should see "Skapa ansökan"
       And I fill in "Skriv ansökan" with "I want job"
       And I click "Skapa"
-      Then I should see "New job application sent!"
+      Then I should see "Ny ansökan skickad!"
       And I click "KONTROLLPANEL"
       Then I should see "målare sökes"
       And I click "Visa ansökan"
