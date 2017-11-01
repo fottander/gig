@@ -22,11 +22,11 @@
             </div>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
             <%= text_area_tag :description, nil, placeholder: '* Beskrivning' %>
-            <%= text_field_tag :quantity, nil, placeholder: 'Antal' %>
-            <%= text_field_tag :unit, nil, placeholder: 'Enhet' %>
-            <%= text_field_tag :amount, nil, placeholder: '* Belopp' %>
-            <%= text_field_tag :first_day, nil, placeholder: 'Start dag' %>
-            <%= text_field_tag :last_day, nil, placeholder: 'Sista dag' %>
+            <%= text_field_tag :quantity, nil, placeholder: 'Antal(ex. antal timmar)' %>
+            <%= text_field_tag :unit, nil, placeholder: 'Enhet(ex.150kr/timma)' %>
+            <%= text_field_tag :amount, nil, placeholder: '* Belopp(ex. totalsumma)' %>
+            <%= text_field_tag :first_day, nil, placeholder: 'Start dag för anställning' %>
+            <%= text_field_tag :last_day, nil, placeholder: 'Sista dag för anställning' %>
             <%= text_field_tag :user_reference, nil, placeholder: '* Referens(förnamn & efternamn)' %>
             <%= text_field_tag :company_reference, nil, placeholder: 'Företagsreferens' %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
@@ -66,7 +66,7 @@
           <p>Inga svar ännu</p>
         <% end %>
         <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-        <%= label_tag :comment, 'Svara på meddelande' %>
+        <%= label_tag :comment, 'Svara på ansökan' %>
         <%= text_area_tag :comment %>
         <%= submit_tag 'Skicka', class: 'reply-button' %>
         <% end %>
