@@ -62,6 +62,7 @@
     margin-bottom: 0em;
     border-width: 3px;
     border-color: #0a0a0a;
+    max-width: none;
   }
 
  .list-item-line {
