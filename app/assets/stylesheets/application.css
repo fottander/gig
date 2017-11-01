@@ -96,6 +96,18 @@
      border: none;
  }
 
+ .switch-button {
+   padding: 0.4rem 1rem;
+   color: #8a8a8a;
+   background-color: #fff;
+   font-size: 0.7rem;
+   font-weight: 700;
+   text-transform: uppercase;
+   border: .1rem solid #8a8a8a;
+   -webkit-transition: color .3s,border .3s;
+   transition: color .3s,border .3s;
+ }
+
  .button-orange {
    background: #f77d0e;
    color: #fff;
@@ -276,7 +288,6 @@
   border: 0;
   padding-left: 0;
   box-shadow: none;
-  border-bottom: 1px solid #1779ba;
   font-weight: 400;
 }
 
