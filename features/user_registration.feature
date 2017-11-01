@@ -11,7 +11,7 @@ Feature: User registration
     Scenario: I register as a user
       Given I am on the home page
       And I click "REGISTRERA"
-      And I should see "Registrera ny användare"
+      And I should see "Registrera ny frilansare"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
@@ -21,7 +21,7 @@ Feature: User registration
     Scenario: I login as a user
       Given I am on the home page
       And I click "LOGGA IN"
-      And I should see "Logga in som användare"
+      And I should see "Logga in som frilansare"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"

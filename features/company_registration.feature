@@ -11,7 +11,7 @@ Feature: Company registration
     Scenario: I register my company
       Given I am on the home page
       And I click "REGISTRERA"
-      And I should see "Registrera ny användare"
+      And I should see "Registrera ny frilansare"
       And I click "Registrera företag >"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Företagsnamn" with "hello"
