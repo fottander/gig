@@ -1,4 +1,4 @@
-<h3>Application reply</h3>
+<h3>Ansökan</h3>
   <div class="card profile-card-action-icons">
       <div class="card-section">
           <div class="profile-card-header">
@@ -7,7 +7,7 @@
               </div>
           </div>
           <div class="profile-card-about-message">
-            Message: <br>
+            Ansökan: <br>
             <%= @application.message %>
           </div>
       </div>
@@ -46,14 +46,14 @@
       </p>
       <% if current_company.present? %>
         <% if @application.hired == false %>
-          <%= link_to 'Hire', job_application_path, method: :patch, data: { confirm: "Are you sure?" }, class: 'profile-button-expand' %>
+          <%= link_to 'Anställ', job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
         <% end %>
       <% end %>
     </div>
     <div class="holy-grail-middle">
       <div class="comment-section">
         <% if @comments.present? %>
-          <h4 style="color: #37a000">Replies</h4>
+          <h4 style="color: #37a000">Svar</h4>
           <% @comments.each do |comment| %>
           <strong><%= comment.profile_username %></strong>
           <strong><%= comment.company_username %></strong> | <%= comment.created_at.in_time_zone("Stockholm").strftime("%D %R") %> |<br>

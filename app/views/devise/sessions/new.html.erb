@@ -1,18 +1,18 @@
-<h3>Log in as user</h3>
+<h3>Logga in som användare</h3>
 <div class="log-reg-link"><%= link_to "Company login >", new_company_session_path %>
 </div>
 <div class="login-box">
   <div class="row collapse expanded">
     <div class="small-12 medium-6 column small-order-2 medium-order-1">
       <div class="login-box-form-section">
-        <h1 class="login-box-title">Log in</h1>
+        <h1 class="login-box-title">Logga in</h1>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
         <div class="login-box-input">
           <%= f.email_field :email, placeholder: "Email", autofocus: true %>
         </div>
         <div class="login-box-input">
-          <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
+          <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
         </div>
         <% if devise_mapping.rememberable? -%>
           <div class="login-box-input">
@@ -21,7 +21,7 @@
           </div>
         <% end -%>
         <div class="actions">
-          <%= f.submit "Log in", id: 'reply', class: 'reply-button' %>
+          <%= f.submit "Logga in", id: 'reply', class: 'reply-button' %>
           <p>or <%= render "devise/shared/links" %></p>
         </div>
         <%end %>

@@ -1,19 +1,19 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <%= link_to 'Control panel', panels_path, class: 'button-menu' %>
-    <%= link_to 'Account', edit_company_registration_path, class: 'button-menu' %>
-    <%= link_to 'Create job', new_job_path, class: 'button-menu' %>
-    <%= link_to 'Find freelancers', profiles_path, class: 'button-menu' %>
+    <%= link_to 'Kontrollpanel', panels_path, class: 'button-menu' %>
+    <%= link_to 'Konto', edit_company_registration_path, class: 'button-menu' %>
+    <%= link_to 'Skapa jobb', new_job_path, class: 'button-menu' %>
+    <%= link_to 'Hitta frilansare', profiles_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
     <div class='simple-form'>
-    <div class='post-title'><h3>Invoice details</h3></div>
-    Invoice ID: <%= @invoice.id %><br>
-    Job ID: <%= @invoice.job_id %><br>
-    Application ID: <%= @invoice.application_id %><br>
-    Profile: <%= @invoice.profile_username %><br>
+    <div class='post-title'><h3>Fakturadetaljer</h3></div>
+    Faktura ID: <%= @invoice.id %><br>
+    Jobb ID: <%= @invoice.job_id %><br>
+    Ansöknings ID: <%= @invoice.application_id %><br>
+    Profil: <%= @invoice.profile_username %><br>
     Referens: <%= @invoice.user_reference %><br>
     Er referens: <%= @invoice.company_reference %><br>
     Startdag: <%= @invoice.first_day %> <br>

@@ -1,26 +1,26 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <%= link_to 'Dashboard', dashboards_path, class: 'button-menu' %><br>
-    <%= link_to 'Account', edit_user_registration_path, class: 'button-menu' %><br>
-    <%= link_to 'Create profile', new_profile_path, class: 'button-menu' %><br>
-    <%= link_to 'Find jobs', jobs_path, class: 'button-menu' %><br>
+    <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
+    <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
+    <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %><br>
+    <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %><br>
   </div>
 
   <div class="holy-grail-middle">
     <div class="simple-form">
-      <div class='post-title'><h3>Create profile</h3></div>
+      <div class='post-title'><h3>Skapa profil</h3></div>
       <%= form_for @profile do |f| %>
-      <%= f.text_field :username, placeholder: 'Username' %>
-      <%= f.text_area :title, placeholder: 'Title' %>
-      <%= f.text_field :description, placeholder: 'Description' %>
-      <%= f.text_field :skill, placeholder: 'Skills' %>
-      <%= f.text_field :rate, placeholder: 'Rate' %>
-      <%= f.label :category, 'Categories', class: 'hidden-label' %>
+      <%= f.text_field :username, placeholder: 'Användarnamn' %>
+      <%= f.text_area :title, placeholder: 'Titel' %>
+      <%= f.text_field :description, placeholder: 'Beskrivning' %>
+      <%= f.text_field :skill, placeholder: 'Färdigheter' %>
+      <%= f.text_field :rate, placeholder: 'Lön' %>
+      <%= f.label :category, 'Kategorier', class: 'hidden-label' %>
       <%= f.select :category, options_for_select(Profile.category), { include_blank: true } %>
-      <%= f.label :city, 'City', class: 'hidden-label' %>
+      <%= f.label :city, 'Stad', class: 'hidden-label' %>
       <%= f.select :city, options_for_select(Profile.city), { include_blank: true } %>
-      <%= f.submit 'Submit', class: 'reply-button' %>
+      <%= f.submit 'Skapa', class: 'reply-button' %>
       <% end %>
     </div>
   </div>

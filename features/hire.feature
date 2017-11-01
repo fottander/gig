@@ -25,9 +25,9 @@ Feature: A company hires a person
       Given I am on control panel page
       And I click "målare sökes"
       And I should see "Fisken"
-      And I click "View"
+      And I click "Visa"
       And I should see "I want job"
-      And I click "Hire"
+      And I click "Anställ"
       Then I should see "Congratulations! Person has been hired."
       And I click "KONTROLLPANEL"
       Then I should see "Fisken"

@@ -1,4 +1,4 @@
-<h3>Browse all freelancers</h3>
+<h3>Alla frilansare</h3>
 <div class="button-select-section">
     <%= link_to 'Alla kategorier', {controller: 'profiles'}, {class: 'button-select'} %>
     <%= link_to 'Målare', {controller: 'profiles', with_category: 'Målare'}, {class: 'button-select'} %>
@@ -16,9 +16,9 @@
             </div>
             <div class="profile-card-author">
                 <h4 class="author-title"><%= link_to profile.username, profile_path(profile)%></h4>
-                Title: <%= profile.title %>
+                Titel: <%= profile.title %>
                 <div class="small-12 medium-2 columns add-friend">
-                  <%= link_to 'View', profile_path(profile), class: 'reply-button' %>
+                  <%= link_to 'Visa', profile_path(profile), class: 'reply-button' %>
                 </div>
             </div>
         </div>
@@ -32,9 +32,9 @@
             <br>
             | Kategorier:
             <%= profile.category %>
-            | Budget:
+            | Lön:
             <%= profile.rate %>
-            | Skills:
+            | Färdigheter:
             <%= profile.skill %>
             | Stad:
             <%= profile.city %>
