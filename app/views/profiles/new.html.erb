@@ -11,14 +11,19 @@
     <div class="simple-form">
       <div class='post-title'><h3>Skapa profil</h3></div>
       <%= form_for @profile do |f| %>
-      <%= f.text_field :username, placeholder: 'Användarnamn' %>
-      <%= f.text_area :title, placeholder: 'Titel' %>
-      <%= f.text_field :description, placeholder: 'Beskrivning' %>
-      <%= f.text_field :skill, placeholder: 'Färdigheter' %>
-      <%= f.text_field :rate, placeholder: 'Lön' %>
-      <%= f.label :category, 'Kategorier', class: 'hidden-label' %>
+      <%= f.label :username, 'Användarnamn', class: 'form-text' %>
+      <%= f.text_field :username, placeholder: 'Kommer visas i dina jobbansökningar' %>
+      <%= f.label :title, 'Titel', class: 'form-text' %>
+      <%= f.text_area :title, placeholder: 'Ex. Målare med lång erfarenhet' %>
+      <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+      <%= f.text_field :description, placeholder: 'En bra beskrivning ökar dina chanser i ansökan' %>
+      <%= f.label :skill, 'Färdigheter', class: 'form-text' %>
+      <%= f.text_field :skill, placeholder: 'Ex. utomhusmåleri, tapetsering, takläggning etc' %>
+      <%= f.label :rate, 'Lön', class: 'form-text' %>
+      <%= f.text_field :rate, placeholder: 'Minimumlön du kan tänka dig' %>
+      <%= f.label :category, 'Kategorier', class: 'form-text' %>
       <%= f.select :category, options_for_select(Profile.category), { include_blank: true } %>
-      <%= f.label :city, 'Stad', class: 'hidden-label' %>
+      <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Profile.city), { include_blank: true } %>
       <%= f.submit 'Skapa', class: 'reply-button' %>
       <% end %>

@@ -15,19 +15,19 @@
     <div class="simple-form">
       <div class='post-title'><h3>Redigera profil</h3></div>
       <%= form_for @profile do |f| %>
-      <%= f.label :username, 'Användarnamn' %>
+      <%= f.label :username, 'Användarnamn', class: 'form-text' %>
       <%= f.text_field :username, value: @profile.username %>
-      <%= f.label :title, 'Titel' %>
+      <%= f.label :title, 'Titel', class: 'form-text' %>
       <%= f.text_area :title, value: @profile.title %>
-      <%= f.label :description, 'Beskrivning' %>
+      <%= f.label :description, 'Beskrivning', class: 'form-text' %>
       <%= f.text_field :description, value: @profile.description %>
-      <%= f.label :skill, 'Färdigheter' %>
+      <%= f.label :skill, 'Färdigheter', class: 'form-text' %>
       <%= f.text_field :skill, value: @profile.skill %>
-      <%= f.label :rate, 'Lön' %>
+      <%= f.label :rate, 'Lön', class: 'form-text' %>
       <%= f.text_field :rate, value: @profile.rate %>
-      <%= f.label :category, 'Kategorier' %>
+      <%= f.label :category, 'Kategorier', class: 'form-text' %>
       <%= f.select :category, options_for_select(Profile.category), { include_blank: true }, value: @profile.category %>
-      <%= f.label :city, 'Stad' %>
+      <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Profile.city), { include_blank: true }, value: @profile.city %>
       <%= f.submit 'Spara', class: 'reply-button' %>
       <% end %>
