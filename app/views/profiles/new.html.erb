@@ -11,19 +11,14 @@
   <div class="holy-grail-middle">
     <div class="simple-form">
       <%= form_for @profile do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-      <%= f.label :title %>
-      <%= f.text_area :title %>
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-      <%= f.label :skill, 'Skills' %>
-      <%= f.text_field :skill %>
-      <%= f.label :rate %>
-      <%= f.text_field :rate %>
-      <%= f.label :category, 'Categories' %>
+      <%= f.text_field :username, placeholder: 'Username' %>
+      <%= f.text_area :title, placeholder: 'Title' %>
+      <%= f.text_field :description, placeholder: 'Description' %>
+      <%= f.text_field :skill, placeholder: 'Skills' %>
+      <%= f.text_field :rate, placeholder: 'Rate' %>
+      <%= f.label :category, 'Categories', class: 'hidden-label' %>
       <%= f.select :category, options_for_select(Profile.category), { include_blank: true } %>
-      <%= f.label :city %>
+      <%= f.label :city, 'City', class: 'hidden-label' %>
       <%= f.select :city, options_for_select(Profile.city), { include_blank: true } %>
       <%= f.submit 'Submit', class: 'reply-button' %>
       <% end %>
