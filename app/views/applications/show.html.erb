@@ -21,22 +21,14 @@
               SKAPA FAKTURA
             </div>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
-            <%= label_tag :description, '* Beskrivning' %>
-            <%= text_area_tag :description %>
-            <%= label_tag :quantity, 'Antal' %>
-            <%= text_field_tag :quantity %>
-            <%= label_tag :unit, 'Enhet' %>
-            <%= text_field_tag :unit %>
-            <%= label_tag :amount, '* Belopp' %>
-            <%= text_field_tag :amount %>
-            <%= label_tag :first_day, 'Start dag' %>
-            <%= text_field_tag :first_day %>
-            <%= label_tag :last_day, 'Sista dag' %>
-            <%= text_field_tag :last_day %>
-            <%= label_tag :user_reference, '* Referens(förnamn & efternamn)' %>
-            <%= text_field_tag :user_reference %>
-            <%= label_tag :company_reference, 'Företagsreferens' %>
-            <%= text_field_tag :company_reference %>
+            <%= text_area_tag :description, nil, placeholder: '* Beskrivning' %>
+            <%= text_field_tag :quantity, nil, placeholder: 'Antal' %>
+            <%= text_field_tag :unit, nil, placeholder: 'Enhet' %>
+            <%= text_field_tag :amount, nil, placeholder: '* Belopp' %>
+            <%= text_field_tag :first_day, nil, placeholder: 'Start dag' %>
+            <%= text_field_tag :last_day, nil, placeholder: 'Sista dag' %>
+            <%= text_field_tag :user_reference, nil, placeholder: '* Referens(förnamn & efternamn)' %>
+            <%= text_field_tag :company_reference, nil, placeholder: 'Företagsreferens' %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
             <% end %>
           <% else %>

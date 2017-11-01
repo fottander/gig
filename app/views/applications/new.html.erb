@@ -13,8 +13,7 @@
     <div class="simple-form">
       <% if @profile.present? %>
         <%= form_for ([@job, @application]) do |f| %>
-        <%= f.label :message %>
-        <%= f.text_area :message %>
+        <%= f.text_area :message, placeholder: 'Message' %>
         <%= f.submit 'Submit', class: 'reply-button' %>
         <% end %>
       <% else %>
