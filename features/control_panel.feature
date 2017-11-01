@@ -29,7 +29,7 @@ Feature: Company control panel
       And I fill in "Password" with "12345678"
       And I click "Log in"
       Then I should see "Signed in successfully."
-      And I should see "Company control panel"
+      And I should see "Control panel"
 
     Scenario: I see the job ad and applications answer count
       Given I am logged in as company "felix@mail.com"

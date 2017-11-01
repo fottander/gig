@@ -1,34 +1,3 @@
-<h3>Profile info</h3>
-<% if user_signed_in? %>
-  <% if current_user.id == @profile.user_id %>
-  <div class="holy-grail-grid">
-    <div class="holy-grail-left">
-      <%= link_to 'Dashboard', dashboards_path, class: 'button-menu' %><br>
-      <%= link_to 'Account', edit_user_registration_path, class: 'button-menu' %><br>
-      <% if @profile.present? %>
-        <%= link_to 'Profile', edit_profile_path(@profile.id), class: 'button-menu' %>
-        <% else %>
-        <%= link_to 'Add profile', new_profile_path, class: 'button-menu' %>
-      <% end %><br>
-      <%= link_to 'Find jobs', jobs_path, class: 'button-menu' %><br>
-    </div>
-
-    <div class="holy-grail-middle">
-      <div class="marketing-site-content-section">
-        Username: <%= @profile.username %><br>
-        Title: <%= @profile.title %><br>
-        Desription: <%= @profile.description %><br>
-        Skills: <%= @profile.skill %><br>
-        Rate: <%= @profile.rate %><br>
-        Categories: <%= @profile.category %><br>
-        City: <%= @profile.city %>
-      </div>
-      <%= link_to 'Edit profile', edit_profile_path(@profile.id), class: 'reply-button' %>
-    </div>
-  </div>
-  <% end %>
-<% else %>
-
 <div class="card-profile-stats">
   <div class="card-profile-stats-intro">
     <img class="card-profile-stats-intro-pic" src="https://vignette.wikia.nocookie.net/the-enigma-corporation/images/a/ae/Users-Group-icon.png/revision/latest/scale-to-width-down/480?cb=20140213102334" alt="profile-image" />
@@ -63,4 +32,3 @@
     </div> <!-- /.card-profile-stats-statistic -->
   </div> <!-- /.card-profile-stats-container -->
 </div>
-<% end %>

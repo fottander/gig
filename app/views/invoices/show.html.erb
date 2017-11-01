@@ -1,4 +1,3 @@
-<h3>Invoice details</h3>
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
@@ -9,6 +8,8 @@
   </div>
 
   <div class="holy-grail-middle">
+    <div class='simple-form'>
+    <div class='post-title'><h3>Invoice details</h3></div>
     Invoice ID: <%= @invoice.id %><br>
     Job ID: <%= @invoice.job_id %><br>
     Application ID: <%= @invoice.application_id %><br>
@@ -31,5 +32,6 @@
     <% else %>
       Betalningsstatus: <p style="color: green;">Betald</p>
     <% end %>
+    </div>
   </div>
 </div>
