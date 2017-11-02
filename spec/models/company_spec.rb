@@ -11,6 +11,7 @@ RSpec.describe Company, type: :model do
     it { is_expected.to have_db_column :city }
     it { is_expected.to have_db_column :org_number }
     it { is_expected.to have_db_column :phone }
+    it { is_expected.to have_db_column :contact}
   end
 
   describe 'Validations' do
@@ -22,6 +23,7 @@ RSpec.describe Company, type: :model do
     it { is_expected.to validate_presence_of :city }
     it { is_expected.to validate_presence_of :org_number }
     it { is_expected.to validate_presence_of :phone }
+    it { is_expected.to validate_presence_of :contact}
   end
 
   describe 'Associations' do

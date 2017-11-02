@@ -8,7 +8,8 @@
       <% else %>
       <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>
-    <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %><br>
+    <%= link_to 'Utbetalningar', payments_path, class: 'button-menu' %><br>
+    <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
     <%= link_to "Avsluta konto", registration_path(resource_name), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-menu' %>
   </div>
 
@@ -37,13 +38,28 @@
           <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
           <%= f.text_field :phone %>
         </div>
+        <div style='color: #37a000;'>Betalningsinformation</div>
+        <div class="field">
+          <%= f.label :bank, 'Bank', class: 'form-text' %>
+          <%= f.text_field :bank %>
+        </div>
+
+        <div class="field">
+          <%= f.label :clear_nr, 'Clearingnummer', class: 'form-text' %>
+          <%= f.text_field :clear_nr %>
+        </div>
+
+        <div class="field">
+          <%= f.label :account_nr, 'Kontonummer', class: 'form-text' %>
+          <%= f.text_field :account_nr %>
+        </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="field">
-          <%= f.label :password, 'Lösenord', class: 'form-text' %> <i>(lämna tomt om du inte vill ändra det)</i>
+          <%= f.label :password, 'Nytt lösenord', class: 'form-text' %> <i>(lämna tomt om du inte vill ändra det)</i>
           <%= f.password_field :password, autocomplete: "off" %>
           <% if @minimum_password_length %>
             <br />
@@ -52,7 +68,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, 'Bekräfta lösenord', class: 'form-text' %>
+          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text' %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 

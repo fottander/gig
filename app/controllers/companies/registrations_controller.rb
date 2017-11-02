@@ -12,10 +12,10 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   private
 
   def configure_account_update_params
-   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username, :email, :address, :zip_code, :city, :org_number, :phone, :password, :password_confirmation])
+   devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username, :email, :address, :zip_code, :city, :org_number, :phone, :contact, :password, :password_confirmation])
   end
 
   def sign_up_params
-    params.require(:company).permit(:email, :name, :username, :address, :zip_code, :city, :org_number, :phone, :password, :password_confirmation)
+    params.require(:company).permit(:email, :name, :username, :address, :zip_code, :city, :org_number, :phone, :contact, :password, :password_confirmation)
   end
 end

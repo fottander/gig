@@ -31,6 +31,9 @@
           <%= f.text_area :phone, placeholder: "Telefonnummer" %>
         </div>
         <div class="login-box-input">
+          <%= f.text_area :contact, placeholder: "Kontaktperson" %>
+        </div>
+        <div class="login-box-input">
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> tecken minimum)</em>
           <% end %><br />
