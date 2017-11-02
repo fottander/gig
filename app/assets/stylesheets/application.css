@@ -31,6 +31,10 @@
    text-align: left;
 }
 
+  body {
+    font-family: 'Montserrat', sans-serif;
+  }
+
   a {
   color: #0a0a0a;
   font-size: 18px;
