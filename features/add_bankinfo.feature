@@ -10,7 +10,7 @@ Feature: Add bankinfo
 
     Scenario: I add bankinformation
       Given I am logged in as user "felix@mail.com"
-      Given I am on the dashboard page
+      Given I am on the dashboards page
       And I click "Utbetalningar"
       And I should see "Betalningsinformation"
-      And I click "Ange betalningsinformation"  
+      And I click "Ange betalningsinformation"
