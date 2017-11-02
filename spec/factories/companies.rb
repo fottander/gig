@@ -9,5 +9,6 @@ FactoryGirl.define do
     city "city"
     org_number "org"
     phone "phoner"
+    contact "greger"
   end
 end

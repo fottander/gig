@@ -46,6 +46,10 @@
           <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
           <%= f.text_field :phone %>
         </div>
+        <div class="field">
+          <%= f.label :contact, 'Kontaktperson', class: 'form-text' %>
+          <%= f.text_field :contact %>
+        </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

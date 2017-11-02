@@ -21,6 +21,7 @@ Feature: Company registration
       And I fill in "Stad" with "Gbg"
       And I fill in "Organisationsnummer" with "23423424"
       And I fill in "Telefonnummer" with "77387834"
+      And I fill in "Kontaktperson" with "Greger"
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
