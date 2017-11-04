@@ -23,22 +23,27 @@
             </div>
         </div>
         <div class="profile-card-about">
-            Beskrivning:
-            <% if profile.description.length > 100 %>
-                <%= truncate(profile.description, length: 100) %>
-            <% else %>
-                <%= profile.description %>
-            <% end %>
-            <br>
-            | Kategorier:
-            <%= profile.category %>
-            | Lön:
-            <%= profile.rate %>
-            | Färdigheter:
-            <%= profile.skill %>
-            | Stad:
-            <%= profile.city %>
-            |<br>
+            <div class='profile-card-about-title'><%= profile.category %></div>
+            <div class="profile-card-about-message">
+              <% if profile.description.length > 100 %>
+                  <%= truncate(profile.description, length: 100) %>
+              <% else %>
+                  <%= profile.description %>
+              <% end %>
+              <div class='row'>
+                <div class='medium-2 columns'>
+                    Stad: <%= profile.city %>
+                </div>
+                <div class='medium-2 columns'>
+                    Färdigheter: <%= profile.skill %>
+                </div>
+                <div class='medium-2 columns'>
+                    Lön: <%= profile.rate %>
+                </div>
+                <div class='columns'>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
 </div>

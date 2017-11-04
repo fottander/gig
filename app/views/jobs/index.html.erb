@@ -16,23 +16,40 @@
             </div>
             <div class="profile-card-author">
                 <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
-                | <%= job.company_username %> | Skapad: <%= job.created_at.strftime("%Y-%m-%d") %> | Går ut: <%= job.deadline %> |
+                  <%= job.company_username %> | Går ut: <%= job.deadline %>
                 <div class="small-12 medium-2 columns add-friend">
                   <%= link_to 'Ansök', job_path(job), class: 'reply-button' %>
                 </div>
             </div>
           </div>
           <div class="profile-card-about">
-              <strong>Detaljer</strong>
+              <div class='profile-card-about-title'><%= job.category %></div>
               <div class="profile-card-about-message">
                   <% if job.description.length > 100 %>
                       <%= truncate(job.description, length: 100) %>
                   <% else %>
                       <%= job.description %>
                   <% end %>
-                  <br>
-                  | Stad: <%= job.city %> | Kategorier: <%= job.category %> | Krav: <%= job.requirement %> |<br>
-                  | Varaktighet: <%= job.duration %> | <%= job.budget %> | Timmar/vecka: <%= job.hour_week %> |<br>
+                  <div class='row'>
+                    <div class='medium-2 columns'>
+                      Skapad: <%= job.created_at.strftime("%Y-%m-%d") %>
+                    </div>
+                    <div class='medium-2 columns'>
+                      Stad: <%= job.city %>
+                    </div>
+                    <div class='medium-2 columns'>
+                      Krav: <%= job.requirement %>
+                    </div>
+                    <div class='medium-2 columns'>
+                      Varaktighet: <%= job.duration %>
+                    </div>
+                    <div class='medium-2 columns'>
+                      Timmar/vecka: <%= job.hour_week %>
+                    </div>
+                    <div class='medium-2 columns'>
+                      Lön <%= job.budget %>
+                    </div>
+                  </div>
               </div>
           </div>
       </div>

@@ -41,6 +41,7 @@
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 1.5px;
+  text-transform: capitalize;
   }
 
   a:hover, a:focus {
@@ -51,16 +52,19 @@
     margin-right: 40px;
     color: #37a000;
     font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
   }
 
   .post-title h3 {
     color: #37a000;
     margin-left: 0px;
     font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
   }
 
   h2 {
     color: #37a000;
+    text-transform: capitalize;
   }
 
   hr {
@@ -778,8 +782,7 @@
   background-color: #fefefe;
   font-weight: 400;
   margin-bottom: 1.6rem;
-  border-radius: 0.6rem;
-  box-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.18), 0 0.125rem 2px rgba(0, 0, 0, 0.36);
+  border: 2.5px solid #cacaca;
 }
 
 .profile-card-action-icons .card-section {
@@ -789,13 +792,18 @@
 
 .profile-card-action-icons .card-section .profile-card-header,
 .profile-card-action-icons .card-section .profile-card-about {
-  border-bottom: 0.0625rem solid #cacaca;
   padding: 0.2rem 1rem;
+}
+
+.profile-card-action-icons .card-section .profile-card-about-title {
+  font-weight: 700;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .profile-card-action-icons .card-section .profile-card-about-message {
   color: #696868;
-  margin-top: 5px;
+  margin-top: 3px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 5px;
@@ -841,17 +849,13 @@
   margin-bottom: 0;
 }
 
-.profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-title {
-  color: #37a000;
-}
-
 .profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-description {
   color: #8a8a8a;
   font-size: 0.9em;
 }
 
-.profile-card-action-icons .card-section .profile-card-about .about-title {
-  text-transform: uppercase;
+.profile-card-action-icons .card-section .profile-card-about .profile-card-about-title {
+  color: #37a000;
 }
 
 /* SHOW JOB AD & APPLY & DASHBOARDS */
