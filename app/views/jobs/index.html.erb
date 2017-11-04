@@ -31,23 +31,25 @@
                       <%= job.description %>
                   <% end %>
                   <div class='row'>
-                    <div class='medium-2 columns'>
+                    <div class='large-2 columns'>
                       Skapad: <%= job.created_at.strftime("%Y-%m-%d") %>
                     </div>
-                    <div class='medium-2 columns'>
+                    <div class='large-2 columns'>
                       Stad: <%= job.city %>
                     </div>
-                    <div class='medium-2 columns'>
+                    <div class='large-2 columns'>
                       Krav: <%= job.requirement %>
                     </div>
-                    <div class='medium-2 columns'>
+                    <div class='large-2 columns'>
                       Varaktighet: <%= job.duration %>
                     </div>
-                    <div class='medium-2 columns'>
+                    <div class='large-2 columns'>
                       Timmar/vecka: <%= job.hour_week %>
                     </div>
-                    <div class='medium-2 columns'>
+                    <div class='large-2 columns'>
                       Lön <%= job.budget %>
+                    </div>
+                    <div class='columns'>
                     </div>
                   </div>
               </div>
