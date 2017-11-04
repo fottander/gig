@@ -17,9 +17,9 @@
       <%= f.label :requirement, 'Krav' %>
       <%= f.text_field :requirement, value: @job.requirement %>
       <%= f.label :category, 'Kategorier' %>
-      <%= f.select :category, options_for_select(Job.category), { include_blank: true }, value: @job.category %>
+      <%= f.select :category, options_for_select(Job.category, selected: @job.category), { include_blank: true } %>
       <%= f.label :city, 'Stad' %>
-      <%= f.select :city, options_for_select(Job.city), { include_blank: true }, value: @job.city %>
+      <%= f.select :city, options_for_select(Job.city, selected: @job.city), { include_blank: true } %>
       <%= f.label :budget, 'Lön' %>
       <%= f.text_field :budget, value: @job.budget %>
       <%= f.label :deadline, 'Sista ansökningsdag' %>

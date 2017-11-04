@@ -27,9 +27,9 @@
       <%= f.label :rate, 'Lön', class: 'form-text' %>
       <%= f.text_field :rate, value: @profile.rate %>
       <%= f.label :category, 'Kategorier', class: 'form-text' %>
-      <%= f.select :category, options_for_select(Profile.category), { include_blank: true }, value: @profile.category %>
+      <%= f.select :category, options_for_select(Profile.category, selected: @profile.category), { include_blank: true } %>
       <%= f.label :city, 'Stad', class: 'form-text' %>
-      <%= f.select :city, options_for_select(Profile.city), { include_blank: true }, value: @profile.city %>
+      <%= f.select :city, options_for_select(Profile.city, selected: @profile.city), { include_blank: true } %>
       <%= f.submit 'Spara', class: 'reply-button' %>
       <% end %>
     </div>
