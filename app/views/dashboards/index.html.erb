@@ -113,7 +113,7 @@
                   Jobb ID: <%= application.job_id %><br>
                   Skapad: <%= application.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
                   Antal svar: <%= application.comments.count %><br>
-                  <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
+                  <%= link_to 'Visa ansökan/Skapa faktura', job_application_path(application.job_id, application.id), class: 'button-green' %>
                 <% end %>
                <% end %>
               <% end %>
