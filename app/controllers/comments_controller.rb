@@ -18,6 +18,9 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:notice] = "Nytt svar skickat!"
       redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = 'Fyll i alla fält korrekt!'
+      redirect_back(fallback_location: root_path)
     end
   end
 

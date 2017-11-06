@@ -8,6 +8,9 @@ class InvoicesController < ApplicationController
     if @invoice.save
       flash[:notice] = "Faktura skapad"
       redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = 'Fyll i alla fält korrekt!'
+      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -22,9 +25,14 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice = Invoice.find(params[:id])
-    if @invoice.update invoice_update_params
-      flash[:notice] = "Faktura ändrad"
-      redirect_back(fallback_location: invoice_path(@invoice))
+    respond_to do |format|
+      if @invoice.update invoice_update_params
+        format.html { redirect_to invoice_path(@invoice), notice: 'Faktura ändrad' }
+        format.json { render :edit, status: :ok, location: @invoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
+      end
     end
   end
 

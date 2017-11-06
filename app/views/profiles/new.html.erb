@@ -11,6 +11,11 @@
     <div class="simple-form">
       <div class='post-title'><h3>Skapa profil</h3></div>
       <%= form_for @profile do |f| %>
+      <% if @profile.errors.any? %>
+        <% @profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
       <%= f.label :username, 'Användarnamn', class: 'form-text' %>
       <%= f.text_field :username, placeholder: 'Kommer visas i dina jobbansökningar' %>
       <%= f.label :title, 'Titel', class: 'form-text' %>

@@ -22,9 +22,14 @@ class ApplicationsController < ApplicationController
     @application.profile_id = @profile.id
     @application.profile_username = @profile.username
     @application.job_title = @job.title
-    if @application.save
-      flash[:notice] = "Ny ansökan skickad!"
-      redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      if @application.save
+        format.html { redirect_to dashboards_path, notice: 'Ny ansökan skickad!' }
+        format.json { render :new, status: :created}
+      else
+        format.html { render :new }
+        format.json { render json: @application.errors, status: :unprocessable_entity }
+      end
     end
   end
 

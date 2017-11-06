@@ -13,6 +13,11 @@
       <div class='post-title'><h3>Skapa ansökan</h3></div>
       <% if @profile.present? %>
         <%= form_for ([@job, @application]) do |f| %>
+        <% if @application.errors.any? %>
+          <% @application.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
         <%= f.text_area :message, placeholder: 'Skriv ansökan' %>
         <%= f.submit 'Skapa', class: 'reply-button' %>
         <% end %>
