@@ -11,6 +11,11 @@
     <div class="simple-form">
       <div class='post-title'><h3>Skapa annons</h3></div>
       <%= form_for @job do |f| %>
+      <% if @job.errors.any? %>
+        <% @job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
       <%= f.label :title, 'Titel', class: 'form-text' %>
       <%= f.text_field :title, placeholder: 'Ge din annons en titel ex. "Erfaren målare sökes".' %>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>

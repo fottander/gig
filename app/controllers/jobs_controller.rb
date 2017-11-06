@@ -34,9 +34,14 @@ class JobsController < ApplicationController
     @job.company_id = current_company.id
     @job.company_username = current_company.username
     @job.company_city = current_company.city
-    if @job.save
-      flash[:notice] = "Nytt jobb skapat!"
-      redirect_to new_job_path
+    respond_to do |format|
+      if @job.save
+        format.html { redirect_to new_job_path, notice: 'Ny annons skapad!' }
+        format.json { render :new, status: :created}
+      else
+        format.html { render :new }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
+      end
     end
   end
 

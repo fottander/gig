@@ -35,3 +35,35 @@ en:
   date:
     order: ["year", "month",  "day"]
     month_names: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"]
+
+  activerecord:
+    attributes:
+      job:
+        title: "Titel"
+        description: 'Beskrivning'
+        category: 'Kategori'
+        city: 'Stad'
+        budget: 'Budget'
+        deadline: 'Sista ansökningsdag'
+        duration: 'Varaktighet'
+        hour_week: 'Timmar'
+    errors:
+      models:
+        job:
+          attributes:
+            title:
+              blank: "kan inte vara blankt!"
+            description:
+              blank: "kan inte vara blankt!"
+            category:
+              blank: "kan inte vara blankt!"
+            city:
+              blank: "kan inte vara blankt!"
+            budget:
+              blank: "kan inte vara blankt!"
+            deadline:
+              blank: "kan inte vara blankt!"
+            duration:
+              blank: "kan inte vara blankt!"
+            hour_week:
+              blank: "kan inte vara blankt!"
