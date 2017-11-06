@@ -258,6 +258,10 @@
 
  /* FORM */
 
+ .input-mini {
+   width: auto;
+ }
+
 .login-box {
   background: #fefefe;
   overflow: hidden;

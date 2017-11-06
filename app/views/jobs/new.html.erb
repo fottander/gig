@@ -24,7 +24,7 @@
       <%= f.label :budget, 'Lön', class: 'form-text' %>
       <%= f.text_field :budget, placeholder: 'Antingen fast, per timma eller ungefärlig lön.' %>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
-      <%= f.date_select :deadline, {order: [:year, :month, :day], prompt: { day: 'Välj dag', month: 'Välj månad', year: 'Välj år' }, start_year: Date.today.year, end_year: Date.today.year + 2}, {required: true} %>
+      <%= f.date_select :deadline, {order: [:year, :month, :day], prompt: { day: 'Välj dag', month: 'Välj månad', year: 'Välj år' }, start_year: Date.today.year, end_year: Date.today.year + 2}, {:class => "input-mini"} %>
       <%= f.label :duration, 'Varaktighet', class: 'form-text' %>
       <%= f.text_field :duration, placeholder: 'Hur många dagar/veckor behöver ni personen?' %>
       <%= f.label :hour_week, 'Timmar', class: 'form-text' %>
