@@ -74,7 +74,7 @@
               <% if application.hired == true %>
                 <% if application.complete == false %>
                   <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
-                  ID: <%= application.id %><br>
+                  Ansöknings ID: <%= application.id %><br>
                   Jobb ID: <%= application.job_id %><br>
                   <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
                   <%= link_to 'Godkänn', complete_job_application_path(application.job_id, application.id), method: :patch, data: { confirm: "Are you sure?" }, class: 'button-orange' %>
@@ -96,7 +96,7 @@
               <% if application.hired == true %>
                 <% if application.complete == true %>
                   <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
-                  ID: <%= application.id %><br>
+                  Ansöknings ID: <%= application.id %><br>
                   Jobb ID: <%= application.job_id %><br>
                   <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
                   </p>

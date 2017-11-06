@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+
+  date:
+    order: ["year", "month",  "day"]
+    month_names: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"]

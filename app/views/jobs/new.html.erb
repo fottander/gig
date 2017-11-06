@@ -23,12 +23,12 @@
       <%= f.select :city, options_for_select(Job.city), { include_blank: true } %>
       <%= f.label :budget, 'Lön', class: 'form-text' %>
       <%= f.text_field :budget, placeholder: 'Antingen fast, per timma eller ungefärlig lön.' %>
-      <%= f.label :deadline, 'Sista anmälningsdag', class: 'form-text' %>
-      <%= f.text_field :deadline, placeholder: 'Ex. 2018-xx-xx' %>
+      <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
+      <%= f.date_select :deadline, {order: [:year, :month, :day], prompt: { day: 'Välj dag', month: 'Välj månad', year: 'Välj år' }, start_year: Date.today.year, end_year: Date.today.year + 2}, {required: true} %>
       <%= f.label :duration, 'Varaktighet', class: 'form-text' %>
       <%= f.text_field :duration, placeholder: 'Hur många dagar/veckor behöver ni personen?' %>
       <%= f.label :hour_week, 'Timmar', class: 'form-text' %>
-      <%= f.text_field :hour_week, placeholder: 'Hur många timmar per dag/vecka?' %>
+      <%= f.text_field :hour_week, placeholder: 'Hur många timmar per dag eller vecka?' %>
       <%= f.submit 'Skapa annons', class: 'reply-button' %>
       <% end %>
     </div>
