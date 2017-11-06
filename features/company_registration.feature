@@ -25,7 +25,7 @@ Feature: Company registration
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
-      Then I should see "You have signed up successfully."
+      Then I should see "Välkommen! Du har nu registrerat dig."
 
     Scenario: I log in as a company
       Given I am on the home page
@@ -35,4 +35,4 @@ Feature: Company registration
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
-      Then I should see "Signed in successfully."
+      Then I should see "Inloggad. "

@@ -47,8 +47,106 @@ en:
         deadline: 'Sista ansökningsdag'
         duration: 'Varaktighet'
         hour_week: 'Timmar'
+        requirement: 'Krav'
+      user:
+        current_password: 'Nuvarande lösenord'
+        password: 'Lösenord'
+        password_confirmation: 'Bekräfta lösenord'
+        first_name: 'Förnamn'
+        last_name: 'Efternamn'
+        phone: Telefonnummer
+        bank: 'Bank'
+        clear_nr: 'Clearingnummer'
+        account_nr: 'Kontonummer'
+      company:
+        current_password: 'Nuvarande lösenord'
+        password: 'Lösenord'
+        password_confirmation: 'Bekräfta lösenord'
+        name: 'Företagsnamn'
+        username: 'Användarnamn'
+        address: 'Address'
+        zip_code: 'Postnummer'
+        city: 'Stad'
+        phone: 'Telefonnummer'
+        org_number: 'Organisationsnummer'
+        contact: 'Kontaktperson'
+      profile:
+        username: 'Användarnamn'
+        title: 'Titel'
+        description: 'Beskrivning'
+        skill: 'Färdigheter'
+        rate: 'Lön'
+        category: 'Kategori'
+        city: 'Stad'
+      application:
+        message: 'Meddelande'
+      comment:
+        comment: 'Svar'
+      invoice:
+        description: 'Beskrivning'
+        amount: 'Summa'
+        user_reference: 'Referens'
+        quantity: 'Kvantitet'
+        unit: 'Enhet'
+        first_day: 'Första dag'
+        last_day: 'Sista dag'
+        company_reference: 'Företagsreferens'
+        terms: 'Betalningsvillkor'
+
     errors:
       models:
+        company:
+          attributes:
+            email:
+              blank: "är inte ifyllt"
+              taken: "redan tagen"
+              invalid: "Var snäll och fyll i korrekt email"
+            password:
+              blank: "är inte ifyllt"
+              confirmation: "& lösenord matchar inte"
+              too_short: "är för kort (minimum är %{count} tecken)"
+            password_confirmation:
+              blank: "är inte ifyllt"
+              confirmation: "& lösenord matchar inte"
+            current_password:
+              blank: 'är inte ifyllt'
+              invalid: "är inte korrekt"
+              confirmation: "& lösenord matchar inte"
+            name:
+              blank: 'är inte ifyllt'
+            username:
+              blank: 'är inte ifyllt'
+            address:
+              blank: 'är inte ifyllt'
+            zip_code:
+              blank: 'är inte ifyllt'
+            city:
+              blank: 'är inte ifyllt'
+            phone:
+              blank: 'är inte ifyllt'
+            org_number:
+              blank: 'är inte ifyllt'
+            contact:
+              blank: 'är inte ifyllt'
+
+        user:
+          attributes:
+            email:
+              blank: "är inte ifyllt"
+              taken: "redan tagen"
+              invalid: "Var snäll och fyll i korrekt email"
+            password:
+              blank: "är inte ifyllt"
+              confirmation: "& lösenord matchar inte"
+              too_short: "är för kort (minimum är %{count} tecken)"
+            password_confirmation:
+              blank: "är inte ifyllt"
+              confirmation: "& lösenord matchar inte"
+            current_password:
+              blank: 'är inte ifyllt'
+              invalid: "är inte korrekt"
+              confirmation: "& lösenord matchar inte"
+
         job:
           attributes:
             title:
@@ -67,3 +165,35 @@ en:
               blank: "kan inte vara blankt!"
             hour_week:
               blank: "kan inte vara blankt!"
+
+        profile:
+          attributes:
+            username:
+              blank: "kan inte vara blankt!"
+            description:
+              blank: "kan inte vara blankt!"
+            category:
+              blank: "kan inte vara blankt!"
+            city:
+              blank: "kan inte vara blankt!"
+            title:
+              blank: 'kan inte vara blankt!'
+
+        application:
+          attributes:
+            message:
+              blank: 'kan inte vara blankt!'
+
+        comment:
+          attributes:
+            comment:
+              blank: 'kan inte vara blankt!'
+
+        invoice:
+          attributes:
+            description:
+              blank: 'kan inte vara blankt!'
+            amount:
+              blank: 'kan inte vara blankt!'
+            user_reference:
+              blank: 'kan inte vara blankt!'

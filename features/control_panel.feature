@@ -28,7 +28,7 @@ Feature: Company control panel
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
-      Then I should see "Signed in successfully."
+      Then I should see "Inloggad."
       And I should see "Kontrollpanel"
 
     Scenario: I see the job ad and applications answer count

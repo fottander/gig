@@ -17,4 +17,4 @@ Feature: Add bankinfo
       And I fill in "Kontonummer" with "123456"
       And I fill in "Nuvarande lösenord" with "12345678"
       And I click "Spara"
-      Then I should see "Your account has been updated successfully."
+      Then I should see "Ditt konto har uppdaterats utan problem."

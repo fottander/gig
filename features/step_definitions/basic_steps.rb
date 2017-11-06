@@ -22,3 +22,7 @@ end
 Then(/^I select "([^"]*)" from "([^"]*)"$/) do |option, choices|
   select option, from: choices
 end
+
+Then(/^show me the page$/) do
+ save_and_open_page
+end

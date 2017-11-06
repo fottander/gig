@@ -11,8 +11,8 @@ Feature: Apply to job
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following profiles exist
-      | username | description | category | city     | user_id |
-      | Fisken   | målare gbg  | Målare   | Göteborg | 1       |
+      | username | title        | description | category | city     | user_id |
+      | Fisken   | målare 29 år | målare gbg  | Målare   | Göteborg | 1       |
 
     Scenario: I apply to a job
       Given I am logged in as user "felix@mail.com"
