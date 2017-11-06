@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @profiles = Profile.where(nil).paginate(page: params[:page])
