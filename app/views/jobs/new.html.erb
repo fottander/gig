@@ -18,13 +18,13 @@
       <%= f.label :requirement, 'Krav', class: 'form-text' %>
       <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
       <%= f.label :category, 'Kategori', class: 'form-text' %>
-      <%= f.select :category, options_for_select(Job.category), { include_blank: true } %>
+      <%= f.select :category, options_for_select(Job.category), { prompt: 'Välj kategori' }, { class: 'input-mini' } %>
       <%= f.label :city, 'Stad', class: 'form-text' %>
-      <%= f.select :city, options_for_select(Job.city), { include_blank: true } %>
+      <%= f.select :city, options_for_select(Job.city), { prompt: 'Välj stad' }, { class: 'input-mini' } %>
       <%= f.label :budget, 'Lön', class: 'form-text' %>
       <%= f.text_field :budget, placeholder: 'Antingen fast, per timma eller ungefärlig lön.' %>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
-      <%= f.date_select :deadline, {order: [:year, :month, :day], prompt: { day: 'Välj dag', month: 'Välj månad', year: 'Välj år' }, start_year: Date.today.year, end_year: Date.today.year + 2}, {:class => "input-mini"} %>
+      <%= f.date_select :deadline, {order: [:year, :month, :day], prompt: { day: 'Välj dag', month: 'Välj månad', year: 'Välj år' }, start_year: Date.today.year, end_year: Date.today.year + 2}, { class: 'input-mini' } %>
       <%= f.label :duration, 'Varaktighet', class: 'form-text' %>
       <%= f.text_field :duration, placeholder: 'Hur många dagar/veckor behöver ni personen?' %>
       <%= f.label :hour_week, 'Timmar', class: 'form-text' %>
