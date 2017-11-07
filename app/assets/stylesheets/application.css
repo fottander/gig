@@ -915,3 +915,8 @@
 .dash-active {
   margin: -15px;
 }
+
+.dash-active-inv {
+  margin-top: -15px;
+  margin-bottom: 0px;
+}
