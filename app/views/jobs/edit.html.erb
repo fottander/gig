@@ -10,6 +10,11 @@
     <div class="simple-form">
       <div class='post-title'><h3>Redigera annonsinfo</h3></div>
       <%= form_for @job do |f| %>
+      <% if @job.errors.any? %>
+        <% @job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      <% end %>
       <%= f.label :title, 'Titel' %>
       <%= f.text_field :title, value: @job.title %>
       <%= f.label :description, 'Beskrivning' %>

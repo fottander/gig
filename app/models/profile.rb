@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  validates_presence_of :username, :description, :category, :city
+  validates_presence_of :username, :title, :description, :category, :city
   belongs_to :user
   has_many :applications, dependent: :destroy
   default_scope {order('created_at DESC')}

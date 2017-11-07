@@ -258,6 +258,17 @@
 
  /* FORM */
 
+ .input-mini {
+   width: auto;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 16px;
+ }
+
+ .input-medium {
+   font-family: 'Montserrat', sans-serif;
+   font-size: 16px;
+ }
+
 .login-box {
   background: #fefefe;
   overflow: hidden;

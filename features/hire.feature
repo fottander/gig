@@ -14,8 +14,8 @@ Feature: A company hires a person
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following profiles exist
-      | username | description | category | city     | user_id | id |
-      | Fisken   | målare gbg  | Målare   | Göteborg | 1       | 1  |
+      | username | title        | description | category | city     | user_id | id |
+      | Fisken   | 29 år målare | målare gbg  | Målare   | Göteborg | 1       | 1  |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    |
       | I want job | 1      | Fisken           | 1          | målare sökes |

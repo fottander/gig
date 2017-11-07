@@ -3,62 +3,60 @@
 en:
   devise:
     confirmations:
-      confirmed: "Your email address has been successfully confirmed."
-      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      confirmed: Din e-postadress har bekräftats.
+      send_instructions: Du kommer att få ett mail med instruktioner för hur du bekräftar din e-postadress om några minuter. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas får du ett mail med instruktioner för hur du bekräftar din e-postadress inom några minuter. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      already_authenticated: Du är redan inloggad.
+      inactive: Ditt konto är inte aktiverat än..
+      invalid: Ogiltigt %{authentication_keys} eller lösenord.
+      last_attempt: Du har ytterligare ett försök innan ditt konto blir låst.
+      locked: Ditt konto är låst.
+      not_found_in_database: Ogiltigt %{authentication_keys} eller lösenord.
+      timeout: Din session löpte ut. Vänligen logga in igen för att fortsätta.
+      unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
+      unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter.
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
-      reset_password_instructions:
-        subject: "Reset password instructions"
-      unlock_instructions:
-        subject: "Unlock instructions"
-      email_changed:
-        subject: "Email Changed"
+        subject: 'Mastodon: Bekräftelsesinstruktioner för %{instance}'
       password_change:
-        subject: "Password Changed"
+        subject: 'Mastodon: Lösenord ändrat'
+      reset_password_instructions:
+        subject: 'Mastodon: Instruktioner för återställning av lösenord'
+      unlock_instructions:
+        subject: 'Mastodon: Lås upp instruktioner'
     omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
+      failure: Det gick inte att autentisera dig från %{kind} för "%{reason}".
+      success: Autentiserad från %{kind} konto.
     passwords:
-      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password has been changed successfully. You are now signed in."
-      updated_not_active: "Your password has been changed successfully."
+      no_token: Du kan inte komma åt den här sidan utan att komma från ett e-postmeddelande för lösenordsåterställning. Om du kommer från ett lösenordsåterställt e-postmeddelande, var vänlig och se till att du använde hela webbadressen.
+      send_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord på din e-postadress om några minuter. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
+      send_paranoid_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord på din e-postadress om några minuter. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Ditt lösenord har ändrats. Du är nu inloggad.
     registrations:
-      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
-      signed_up: "Welcome! You have signed up successfully."
-      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
-      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
-      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
-      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
-      updated: "Your account has been updated successfully."
+      destroyed: Adjö! Ditt konto har blivit nerstängt. Vi hoppas att vi ses snart igen.
+      signed_up: Välkommen! Du har nu registrerat dig.
+      signed_up_but_inactive: Du har nu registrerat dig. Vi kunde dock inte logga in dig eftersom ditt konto ännu inte är aktiverat.
+      signed_up_but_locked: Du har nu registrerat dig. Vi kunde dock inte logga in eftersom ditt konto är låst.
+      signed_up_but_unconfirmed: Ett meddelande med en bekräftelse länk har skickats till din e-postadress. Vänligen följ länken för att aktivera ditt konto. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
+      update_needs_confirmation: Du har uppdaterat ditt konto med framgång, men vi måste verifiera din nya e-postadress. Vänligen kolla din email och följ bekräfta länken för att bekräfta din nya e-postadress. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
+      updated: Ditt konto har uppdaterats utan problem.
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      already_signed_out: Utloggad.
+      signed_in: Inloggad.
+      signed_out: Utloggad.
     unlocks:
-      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+      send_instructions: Du kommer att få ett mail med instruktioner om hur du låser upp ditt konto inom några minuter. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
+      send_paranoid_instructions: Om ditt konto finns, får du ett mail med instruktioner om hur du låser upp det på några minuter. Kontrollera din spammapp om du inte fick det här e-postmeddelandet.
+      unlocked: Ditt konto ha låsts upp. Vänligen logga in för att fortsätta.
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
-      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
+      already_confirmed: var redan bekräftad, var god försök att logga in
+      confirmation_period_expired: måste bekräftas inom %{period}, var god be om en ny
+      expired: har gått ut, vänligen be om en ny
+      not_found: hittades inte
+      not_locked: var inte låst
       not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+        one: '1 fel förbjöd denna %{resource} att sparas:'
+        other: "%{count} fel förbjöd denna %{resource} från att sparas:"
