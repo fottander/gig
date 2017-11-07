@@ -42,6 +42,12 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @invoice.active = true
     if @invoice.update invoice_activate_params
+      if @invoice.post == true
+        @invoice.update(amount: @invoice.amount + 500)
+      end
+      if @invoice.terms == 60
+        @invoice.update(amount: @invoice.amount + 40)
+      end
       flash[:notice] = "Faktura godkänd och aktiverad"
       redirect_back(fallback_location: panels_path)
     end

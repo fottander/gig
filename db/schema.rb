@@ -76,9 +76,9 @@ ActiveRecord::Schema.define(version: 20171107133252) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.integer "quantity"
-    t.integer "unit"
-    t.string "amount"
+    t.string "quantity"
+    t.string "unit"
+    t.integer "amount"
     t.date "first_day"
     t.date "last_day"
     t.text "description"

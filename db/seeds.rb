@@ -18,7 +18,8 @@ Company.create(
   city: "Göteborg",
   org_number: "3423443453",
   phone: "079347238723",
-  password: "123456"
+  password: "123456",
+  contact: "felix"
 )
 
 puts "Created #{Company.count} company"
