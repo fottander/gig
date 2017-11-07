@@ -10,5 +10,6 @@ FactoryGirl.define do
     org_number "org"
     phone "phoner"
     contact "greger"
+    invoice_address "ohi"
   end
 end

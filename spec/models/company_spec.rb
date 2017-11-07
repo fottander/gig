@@ -12,6 +12,7 @@ RSpec.describe Company, type: :model do
     it { is_expected.to have_db_column :org_number }
     it { is_expected.to have_db_column :phone }
     it { is_expected.to have_db_column :contact}
+    it { is_expected.to have_db_column :invoice_address}
   end
 
   describe 'Validations' do

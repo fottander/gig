@@ -58,5 +58,5 @@ en:
       not_found: hittades inte
       not_locked: var inte låst
       not_saved:
-        one: '1 fel förbjöd denna %{resource} att sparas:'
-        other: "%{count} fel förbjöd denna %{resource} från att sparas:"
+        one: '1 fel förbjöd %{resource} att sparas:'
+        other: "%{count} fel förbjöd %{resource} från att sparas:"

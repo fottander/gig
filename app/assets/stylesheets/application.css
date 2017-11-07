@@ -256,6 +256,13 @@
    font-size: 14px;
  }
 
+ .form-text-grey {
+   color: #6D6D6D;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 700;
+   font-size: 14px;
+ }
+
  /* FORM */
 
  .input-mini {

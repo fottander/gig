@@ -50,22 +50,25 @@
           <%= f.label :contact, 'Kontaktperson', class: 'form-text' %>
           <%= f.text_field :contact %>
         </div>
+        <div class="field">
+          <%= f.label :invoice_address, 'Fakturaadress(Om annan än företagsadress)', class: 'form-text' %>
+          <%= f.text_field :invoice_address, placeholder: 'Ex. BB Redovisning, Norrgatan 43, 42334, Malmö' %>
+        </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="field">
-          <%= f.label :password, 'Nytt lösenord', class: 'form-text' %> <i>(lämna tomt om du inte vill ändra lösenord)</i>
+          <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %> <i>(lämna tomt om du inte vill ändra lösenord)</i>
           <%= f.password_field :password, autocomplete: "off" %>
           <% if @minimum_password_length %>
-            <br />
             <em><%= @minimum_password_length %> tecken minimum</em>
           <% end %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text' %>
+          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
