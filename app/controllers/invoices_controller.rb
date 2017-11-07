@@ -1,4 +1,6 @@
 class InvoicesController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+  before_action :authenticate_company!, only: [:show, :activate]
   def create
     @profile = Profile.find_by(user_id: current_user)
     @invoice = Invoice.new invoice_params
@@ -39,7 +41,7 @@ class InvoicesController < ApplicationController
   def activate
     @invoice = Invoice.find(params[:id])
     @invoice.active = true
-    if @invoice.save
+    if @invoice.update invoice_activate_params
       flash[:notice] = "Faktura godkänd och aktiverad"
       redirect_back(fallback_location: panels_path)
     end
@@ -61,5 +63,9 @@ class InvoicesController < ApplicationController
 
   def invoice_update_params
     params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
+  end
+
+  def invoice_activate_params
+    params.permit(:active, :terms)
   end
 end

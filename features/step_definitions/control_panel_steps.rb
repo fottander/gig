@@ -16,3 +16,17 @@ end
 Given("I uncheck Active check box") do
   uncheck 'job_active'
 end
+
+Then("I check Terms check box") do
+  check 'terms'
+end
+
+Then("I uncheck Terms check box") do
+  uncheck 'terms'
+end
+
+Given("the following invoices exist") do |table|
+  table.hashes.each do |hash|
+    create(:invoice, hash)
+  end
+end

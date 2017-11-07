@@ -121,7 +121,7 @@
                 <% if invoice.active == false %>
                   <p class="dash-active-inv", style="color: red;">Ej godkänd</p>
                   <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
-                  <%= link_to 'Godkänn', activate_invoice_path(invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'button-orange' %>
+                  <%= link_to 'Godkänn', invoice_path(invoice), class: 'button-orange' %>
                 <% else %>
                   <p class="dash-active-inv", style="color: green;">Godkänd <%= invoice.updated_at.strftime("%Y-%m-%d")%></p>
                   <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
