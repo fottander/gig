@@ -66,6 +66,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_activate_params
-    params.permit(:active, :terms)
+    params.permit(:active, :terms, :post)
   end
 end

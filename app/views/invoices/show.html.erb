@@ -23,10 +23,15 @@
     Enhet: <%= @invoice.unit %> <br>
     Summa att betala: <%= @invoice.amount %> SEK<br>
     Villkor: <%= @invoice.terms %> dagar<br>
-    <% if @invoice.active == false %>
-      Status: <p style="color: red;">Ej godkänd</p>
+    <% if @invoice.post == false %>
+      Leveranssätt: Email <br>
     <% else %>
-      Status: <p style="color: green;">Godkänd</p>
+      Leveranssätt: Post <br>
+    <% end %>
+    <% if @invoice.active == false %>
+      <div style="color: red;">Status: Ej godkänd</div>
+    <% else %>
+      <div style="color: green;">Status: Godkänd</div>
     <% end %>
     <% if @invoice.paid == false %>
       Betalningsstatus: <p style="color: red;">Ej betald</p>
@@ -37,6 +42,9 @@
     <%= hidden_field_tag :terms, '30' %>
     <%= check_box_tag :terms, checked = '60' %>
     Klicka för att få 60 dagar fakturatid när du godkänner(+500kr)<br>
+    <%= hidden_field_tag :post, false %>
+    <%= check_box_tag :post, checked = true %>
+    Klicka för att få fakturan på posten(+40kr)<br>
     <%= submit_tag 'Godkänn', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
     <% end %>
     </div>
