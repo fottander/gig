@@ -29,7 +29,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     respond_to do |format|
       if @invoice.update invoice_update_params
-        format.html { redirect_to invoice_path(@invoice), notice: 'Faktura ändrad' }
+        format.html { redirect_to edit_invoice_path(@invoice), notice: 'Faktura ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else
         format.html { render :edit }
