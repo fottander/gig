@@ -64,6 +64,13 @@
 
   h2 {
     color: #37a000;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+  }
+
+  h4 {
+    color: #37a000;
+    font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
