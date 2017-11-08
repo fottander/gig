@@ -24,9 +24,9 @@
       <%= f.label :username, 'Användarnamn', class: 'form-text' %>
       <%= f.text_field :username, value: @profile.username %>
       <%= f.label :title, 'Titel', class: 'form-text' %>
-      <%= f.text_area :title, value: @profile.title %>
+      <%= f.text_field :title, value: @profile.title %>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
-      <%= f.text_field :description, value: @profile.description %>
+      <%= f.text_area :description, value: @profile.description %>
       <%= f.label :skill, 'Färdigheter', class: 'form-text' %>
       <%= f.text_field :skill, value: @profile.skill %>
       <%= f.label :rate, 'Lön', class: 'form-text' %>

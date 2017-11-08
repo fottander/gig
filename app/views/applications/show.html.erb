@@ -25,8 +25,10 @@
             <%= text_field_tag :quantity, nil, placeholder: 'Antal(ex. antal timmar)' %>
             <%= text_field_tag :unit, nil, placeholder: 'Enhet(ex.150kr/timma)' %>
             <%= text_field_tag :amount, nil, placeholder: '* Belopp(endast siffror ex. 2000)' %>
-            <%= text_field_tag :first_day, nil, placeholder: 'Start dag(ex. 2018-xx-xx)' %>
-            <%= text_field_tag :last_day, nil, placeholder: 'Sista dag(ex. 2018-xx-xx)' %>
+            <%= label_tag :first_day, 'Startdag', class: 'invoice-details-date' %>
+            <%= date_field_tag :first_day %>
+            <%= label_tag :last_day, 'Sista dag', class: 'invoice-details-date' %>
+            <%= date_field_tag :last_day %>
             <%= text_field_tag :user_reference, nil, placeholder: '* Referens(förnamn & efternamn)' %>
             <%= text_field_tag :company_reference, nil, placeholder: 'Företagsreferens' %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
