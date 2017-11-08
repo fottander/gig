@@ -1,4 +1,6 @@
 class InvoicesController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+  before_action :authenticate_company!, only: [:show, :activate]
   def create
     @profile = Profile.find_by(user_id: current_user)
     @invoice = Invoice.new invoice_params
@@ -27,7 +29,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     respond_to do |format|
       if @invoice.update invoice_update_params
-        format.html { redirect_to invoice_path(@invoice), notice: 'Faktura ändrad' }
+        format.html { redirect_to edit_invoice_path(@invoice), notice: 'Faktura ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else
         format.html { render :edit }
@@ -39,7 +41,13 @@ class InvoicesController < ApplicationController
   def activate
     @invoice = Invoice.find(params[:id])
     @invoice.active = true
-    if @invoice.save
+    if @invoice.update invoice_activate_params
+      if @invoice.post == true
+        @invoice.update(amount: @invoice.amount + 500)
+      end
+      if @invoice.terms == 60
+        @invoice.update(amount: @invoice.amount + 40)
+      end
       flash[:notice] = "Faktura godkänd och aktiverad"
       redirect_back(fallback_location: panels_path)
     end
@@ -61,5 +69,9 @@ class InvoicesController < ApplicationController
 
   def invoice_update_params
     params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
+  end
+
+  def invoice_activate_params
+    params.permit(:active, :terms, :post)
   end
 end

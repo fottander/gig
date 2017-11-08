@@ -16,3 +16,30 @@ end
 Given("I uncheck Active check box") do
   uncheck 'job_active'
 end
+
+Then("I check Terms check box") do
+  check 'terms'
+end
+
+Then("I uncheck Terms check box") do
+  uncheck 'terms'
+end
+
+Then("I check Post check box") do
+  check 'post'
+end
+
+Then("I uncheck Post check box") do
+  uncheck 'post'
+end
+
+Given("the following invoices exist") do |table|
+  table.hashes.each do |hash|
+    create(:invoice, hash)
+  end
+end
+
+Then("invoice {string} is sending by post") do |id|
+  invoice = Invoice.find_by(id: id)
+  expect(invoice.post).to be true
+end

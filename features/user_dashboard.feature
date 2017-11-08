@@ -15,7 +15,7 @@ Feature: User dashboard
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
-      Then I should see "Inloggad."
+      Then I should see "Välkommen! Du är inloggad."
       And I should see "Kontrollpanel"
 
     Scenario: I create a Profile

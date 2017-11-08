@@ -64,7 +64,7 @@ en:
         password_confirmation: 'Bekräfta lösenord'
         name: 'Företagsnamn'
         username: 'Användarnamn'
-        address: 'Address'
+        address: 'Adress'
         zip_code: 'Postnummer'
         city: 'Stad'
         phone: 'Telefonnummer'

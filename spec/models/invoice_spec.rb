@@ -13,6 +13,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column :terms }
     it { is_expected.to have_db_column(:paid).of_type(:boolean) }
     it { is_expected.to have_db_column(:active).of_type(:boolean) }
+    it { is_expected.to have_db_column(:post).of_type(:boolean) }
     it { is_expected.to have_db_column :application_id }
     it { is_expected.to have_db_column :job_id }
     it { is_expected.to have_db_column :profile_id }
