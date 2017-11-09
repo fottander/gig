@@ -43,8 +43,8 @@
         </div>
       </div>
       <div class="large-6 columns">
-        <h4>Godkänn faktura</h4>
         <% if @invoice.active == false %>
+          <h4>Godkänn faktura</h4>
           <div class='post-title'>
             <p>Vill du rekommendera <%= @invoice.profile_username %> till andra?</p>
           </div>
