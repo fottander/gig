@@ -1,7 +1,7 @@
-Feature: Activate job with post or email
+Feature: Activate invoice with post or email
   As a company user
   In order to receive my invoice in the proper way
-  I would like to be able to activate it and setting email or postway
+  I would like to be able to activate it by setting email or postway
 
   Background:
     Given the following companies exist
