@@ -35,23 +35,25 @@
     </div>
   </div>
 </div>
-<div class="card profile-card-action-icons">
-  <div class="card-section">
-      <div class="profile-card-header">
-        <div class="profile-card-author">
-          <h4 class="author-title">Jobbhistorik & feedback</h4>
-        </div>
-      </div>
-      <div class="profile-card-about-feed">
-        <% if @invoices.present? %>
-          <% @invoices.each do |invoice| %>
-          <div class='profile-card-about-title'>Jobb ID: <%= invoice.job_id %></div>
-          <div class="profile-card-about-feed-message">
-          <%= invoice.updated_at.strftime("%Y %B") %><br>
-          <%= invoice.feedback %>
+<% if @invoices.present? %>
+  <div class="card profile-card-action-icons">
+    <div class="card-section">
+        <div class="profile-card-header">
+          <div class="profile-card-author">
+            <h4 >Feedback & rekommendationer</h4>
           </div>
+        </div>
+        <div class="profile-card-about-feed">
+          <% @invoices.each do |invoice| %>
+            <% if invoice.feedback? %>
+              <div class='profile-card-about-title'>Jobb ID: <%= invoice.job_id %></div>
+              <div class="profile-card-about-feed-message">
+              <%= invoice.updated_at.strftime("%Y %B") %><br>
+              <%= invoice.feedback %>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+    </div>
   </div>
-</div>
+<% end %>

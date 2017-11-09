@@ -845,7 +845,6 @@
 .profile-card-action-icons .card-section .profile-card-about-feed {
   padding: 0.2rem 1rem;
   margin: 10px;
-  border-bottom: 1px solid #cacaca;
 }
 
 .profile-card-action-icons .card-section .profile-card-about-title {
@@ -868,7 +867,8 @@
   margin-top: 3px;
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #cacaca;
 }
 
 .profile-card-action-icons .card-section .profile-card-header {
