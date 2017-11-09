@@ -3,8 +3,8 @@
     <img class="card-profile-stats-intro-pic" src="https://vignette.wikia.nocookie.net/the-enigma-corporation/images/a/ae/Users-Group-icon.png/revision/latest/scale-to-width-down/480?cb=20140213102334" alt="profile-image" />
     <div class="card-profile-stats-intro-content">
       <h2><%= @profile.username %></h2>
-      <% if @invoice.present? %>
-        <p class='job-count'>Antal genomförda jobb: <%= @invoice.count %></p>
+      <% if @invoices.present? %>
+        <p class='job-count'>Antal genomförda jobb: <%= @invoices.count %></p>
       <% end %>
       <p><%= @profile.description %></p>
     </div>
@@ -33,5 +33,25 @@
       <span class="stat">Lön</span>
       <p><%= @profile.rate %></p>
     </div>
+  </div>
+</div>
+<div class="card profile-card-action-icons">
+  <div class="card-section">
+      <div class="profile-card-header">
+        <div class="profile-card-author">
+          <h4 class="author-title">Jobbhistorik & feedback</h4>
+        </div>
+      </div>
+      <div class="profile-card-about-feed">
+        <% if @invoices.present? %>
+          <% @invoices.each do |invoice| %>
+          <div class='profile-card-about-title'>Jobb ID: <%= invoice.job_id %></div>
+          <div class="profile-card-about-feed-message">
+          <%= invoice.updated_at.strftime("%Y %B") %><br>
+          <%= invoice.feedback %>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
   </div>
 </div>

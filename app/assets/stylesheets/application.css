@@ -842,6 +842,12 @@
   padding: 0.2rem 1rem;
 }
 
+.profile-card-action-icons .card-section .profile-card-about-feed {
+  padding: 0.2rem 1rem;
+  margin: 10px;
+  border-bottom: 1px solid #cacaca;
+}
+
 .profile-card-action-icons .card-section .profile-card-about-title {
   font-weight: 700;
   margin-left: 20px;
@@ -850,6 +856,15 @@
 
 .profile-card-action-icons .card-section .profile-card-about-message {
   color: #696868;
+  margin-top: 3px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
+.profile-card-action-icons .card-section .profile-card-about-feed-message {
+  color: #696868;
+  font-style: italic;
   margin-top: 3px;
   margin-left: 20px;
   margin-right: 20px;
