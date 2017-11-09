@@ -3,9 +3,12 @@
     <img class="card-profile-stats-intro-pic" src="https://vignette.wikia.nocookie.net/the-enigma-corporation/images/a/ae/Users-Group-icon.png/revision/latest/scale-to-width-down/480?cb=20140213102334" alt="profile-image" />
     <div class="card-profile-stats-intro-content">
       <h2><%= @profile.username %></h2>
-      <p><%= @profile.description %></small></p>
-    </div> <!-- /.card-profile-stats-intro-content -->
-  </div> <!-- /.card-profile-stats-intro -->
+      <% if @invoice.present? %>
+        <p class='job-count'>Antal genomförda jobb: <%= @invoice.count %></p>
+      <% end %>
+      <p><%= @profile.description %></p>
+    </div>
+  </div>
 
   <hr />
 
@@ -13,22 +16,22 @@
     <div class="card-profile-stats-statistic">
       <span class="stat">Titel</span>
       <p><%= @profile.title %></p>
-    </div> <!-- /.card-profile-stats-statistic -->
+    </div>
     <div class="card-profile-stats-statistic">
       <span class="stat">Färdigheter</span>
       <p><%= @profile.skill %></p>
-    </div> <!-- /.card-profile-stats-statistic -->
+    </div>
     <div class="card-profile-stats-statistic">
       <span class="stat">Stad</span>
       <p><%= @profile.city %></p>
-    </div> <!-- /.card-profile-stats-statistic -->
+    </div>
     <div class="card-profile-stats-statistic">
       <span class="stat">Kategorier</span>
       <p><%= @profile.category %></p>
-    </div> <!-- /.card-profile-stats-statistic -->
+    </div>
     <div class="card-profile-stats-statistic">
       <span class="stat">Lön</span>
       <p><%= @profile.rate %></p>
-    </div> <!-- /.card-profile-stats-statistic -->
-  </div> <!-- /.card-profile-stats-container -->
+    </div>
+  </div>
 </div>

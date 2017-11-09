@@ -82,6 +82,13 @@
     max-width: none;
   }
 
+ .job-count {
+   font-family: 'Montserrat', sans-serif;
+   color: #6D6D6D;
+   font-size: 14px;
+   margin-top: -10px;
+ }
+
  .list-item-line {
    margin-top: 0.5em;
    margin-bottom: 0.5em;
