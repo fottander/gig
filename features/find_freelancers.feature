@@ -30,7 +30,7 @@ Feature: Show freelancers
       Then I should see "göteborg"
       And I click "fisken"
       Then I should see "Antal genomförda jobb: 1"
-      And I should see "Feedback & rekommendationer"
+      And I should see "Feedback"
       And I should see "Bra snubbe"
       And I should see "2017 November"
       Then I should see "Jobb ID: 1"

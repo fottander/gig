@@ -62,6 +62,13 @@
     text-transform: capitalize;
   }
 
+  .feedback-title  {
+    color: #37a000;
+    margin-left: 30px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+  }
+
   h2 {
     color: #37a000;
     font-family: 'Montserrat', sans-serif;
