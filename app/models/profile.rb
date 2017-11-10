@@ -3,7 +3,10 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_many :applications, dependent: :destroy
   default_scope {order('created_at DESC')}
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :avatar,
+                      styles:
+                        { medium: "300x300>", thumb: "100x100>" },
+                          default_url: "/images/Default-avatar.png"
   validates_attachment :avatar,
                         content_type:
                           {content_type: %w(image/jpg image/jpeg image/png image/gif)}
