@@ -8,44 +8,46 @@
 </div>
 
 <% @profiles.each do |profile| %>
-<div class="card profile-card-action-icons">
-    <div class="card-section">
-        <div class="profile-card-header">
-            <div class="profile-card-avatar">
-                <img class="avatar-image" src="https://vignette.wikia.nocookie.net/the-enigma-corporation/images/a/ae/Users-Group-icon.png/revision/latest/scale-to-width-down/480?cb=20140213102334" alt="Harry Manchanda">
-            </div>
-            <div class="profile-card-author">
-                <h4 class="author-title"><%= link_to profile.username, profile_path(profile)%></h4>
-                Titel: <%= profile.title %>
-                <div class="small-12 medium-2 columns add-friend">
-                  <%= link_to 'Visa', profile_path(profile), class: 'reply-button' %>
-                </div>
-            </div>
-        </div>
-        <div class="profile-card-about">
-            <div class='profile-card-about-title'><%= profile.category %></div>
-            <div class="profile-card-about-message">
-              <% if profile.description.length > 100 %>
-                  <%= truncate(profile.description, length: 100) %>
-              <% else %>
-                  <%= profile.description %>
-              <% end %>
-              <div class='row'>
-                <div class='large-2 columns'>
-                    Stad: <%= profile.city %>
-                </div>
-                <div class='large-2 columns'>
-                    Färdigheter: <%= profile.skill %>
-                </div>
-                <div class='large-2 columns'>
-                    Lön: <%= profile.rate %>
-                </div>
-                <div class='columns'>
+<div class="profile-<%= profile.id %>">
+  <div class="card profile-card-action-icons">
+      <div class="card-section">
+          <div class="profile-card-header">
+              <div class="profile-card-avatar">
+                  <%= image_tag profile.avatar.url, class: "avatar-image" %>
+              </div>
+              <div class="profile-card-author">
+                  <h4 class="author-title"><%= link_to profile.username, profile_path(profile)%></h4>
+                  Titel: <%= profile.title %>
+                  <div class="small-12 medium-2 columns add-friend">
+                    <%= link_to 'Visa', profile_path(profile), class: 'reply-button' %>
+                  </div>
+              </div>
+          </div>
+          <div class="profile-card-about">
+              <div class='profile-card-about-title'><%= profile.category %></div>
+              <div class="profile-card-about-message">
+                <% if profile.description.length > 100 %>
+                    <%= truncate(profile.description, length: 100) %>
+                <% else %>
+                    <%= profile.description %>
+                <% end %>
+                <div class='row'>
+                  <div class='large-2 columns'>
+                      Stad: <%= profile.city %>
+                  </div>
+                  <div class='large-2 columns'>
+                      Färdigheter: <%= profile.skill %>
+                  </div>
+                  <div class='large-2 columns'>
+                      Lön: <%= profile.rate %>
+                  </div>
+                  <div class='columns'>
+                  </div>
                 </div>
               </div>
-            </div>
-        </div>
-    </div>
+          </div>
+      </div>
+  </div>
 </div>
 <% end %>
 

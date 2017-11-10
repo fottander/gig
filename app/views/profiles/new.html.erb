@@ -30,6 +30,8 @@
       <%= f.select :category, options_for_select(Profile.category), { include_blank: true } %>
       <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Profile.city), { include_blank: true } %>
+      <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+      <%= f.file_field :avatar %>
       <%= f.submit 'Skapa', class: 'reply-button' %>
       <% end %>
     </div>

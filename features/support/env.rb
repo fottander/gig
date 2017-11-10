@@ -19,3 +19,7 @@ end
 
 Warden.test_mode!
 World Warden::Test::Helpers
+
+Before do
+  Aws.config[:s3] = {stub_responses: true}
+end

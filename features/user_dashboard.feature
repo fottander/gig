@@ -30,5 +30,11 @@ Feature: User dashboard
       And I fill in "Lön" with ""
       And I select "Målare" from "Kategorier"
       And I select "Göteborg" from "Stad"
+      And I attach file
       And I click "Skapa"
       Then I should see "Ny profil skapad!"
+      And I click "HITTA FRILANSARE"
+      And I should see "Fisken"
+      Then I should see "Fisken" avatar name "Default-avatar.png"
+      And I click "Fisken"
+      Then I should see "Fisken" avatar name "Default-avatar.png"

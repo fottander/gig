@@ -12,6 +12,8 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-foundation'
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -22,6 +24,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 group :development do
