@@ -58,6 +58,17 @@
           Klicka för att få fakturan på posten(+40kr)<br>
           <%= submit_tag 'Godkänn', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
           <% end %>
+        <% else %>
+          <% if @invoice.paid == false %>
+          <p class="holy-grail-left-application" style='color: #f77d0e;'>
+            Fakturan ska betalas innan <%= @due_date.strftime("%F") %><br>
+            Om du har några frågor får ni gärna kontakta kundtjänsten.
+          </p>
+          <% else %>
+          <p class="holy-grail-left-application" style='color: #f77d0e;'>
+            Fakturan är betald!
+          </p>
+          <% end %>
         <% end %>
       </div>
     </div>
