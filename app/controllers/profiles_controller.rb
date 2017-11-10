@@ -14,6 +14,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @invoices = Invoice.where(profile_id: @profile.id)
   end
 
   def create

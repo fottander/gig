@@ -18,6 +18,7 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
+    @due_date = @invoice.updated_at+@invoice.terms.day 
   end
 
   def edit
@@ -72,6 +73,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_activate_params
-    params.permit(:active, :terms, :post)
+    params.permit(:active, :terms, :post, :feedback)
   end
 end

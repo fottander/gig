@@ -62,8 +62,22 @@
     text-transform: capitalize;
   }
 
+  .feedback-title  {
+    color: #37a000;
+    margin-left: 30px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+  }
+
   h2 {
     color: #37a000;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: capitalize;
+  }
+
+  h4 {
+    color: #37a000;
+    font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
@@ -74,6 +88,13 @@
     border-color: #0a0a0a;
     max-width: none;
   }
+
+ .job-count {
+   font-family: 'Montserrat', sans-serif;
+   color: #6D6D6D;
+   font-size: 14px;
+   margin-top: -10px;
+ }
 
  .list-item-line {
    margin-top: 0.5em;
@@ -828,6 +849,11 @@
   padding: 0.2rem 1rem;
 }
 
+.profile-card-action-icons .card-section .profile-card-about-feed {
+  padding: 0.2rem 1rem;
+  margin: 10px;
+}
+
 .profile-card-action-icons .card-section .profile-card-about-title {
   font-weight: 700;
   margin-left: 20px;
@@ -840,6 +866,16 @@
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 5px;
+}
+
+.profile-card-action-icons .card-section .profile-card-about-feed-message {
+  color: #696868;
+  font-style: italic;
+  margin-top: 3px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #cacaca;
 }
 
 .profile-card-action-icons .card-section .profile-card-header {
