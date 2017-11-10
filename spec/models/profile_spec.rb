@@ -20,7 +20,7 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of :city }
   end
 
-  describe 'File attachment' do
+  describe 'Avatar attachment' do
     it { is_expected.to have_attached_file(:avatar)}
   end
 
@@ -34,7 +34,7 @@ RSpec.describe Profile, type: :model do
     end
   end
 
-  it 'has a avatar url by default' do
+  it 'has an avatar url by default' do
     profile = create(:profile)
     expect(profile.avatar.url).to include 'Default-avatar.png'
   end

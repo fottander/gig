@@ -15,12 +15,24 @@
  *= require foundation_and_overrides
 
  */
+ input[type='file'] {
+ font-family: 'Montserrat', sans-serif;
+ color: #6D6D6D;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 1;
+}
+
  .alert {
-   font-family: 'Montserrat', sans-serif;
-   background-color: #f2dede ;
-   border-color: #eed3d7 ;
-   color: #b94a48 ;
-   text-align: left;
+ font-family: 'Montserrat', sans-serif;
+ background-color: #f2dede ;
+ border-color: #eed3d7 ;
+ color: #b94a48 ;
+ text-align: left;
 }
 
 .notice {
