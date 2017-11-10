@@ -15,6 +15,10 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Warden::Test::Helpers, :type => :request
   config.include Paperclip::Shoulda::Matchers
+
+  config.before(:each) do
+    Aws.config[:s3] = {stub_responses: true}
+  end
 end
 
 Shoulda::Matchers.configure do |config|
