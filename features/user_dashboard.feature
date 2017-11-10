@@ -36,3 +36,5 @@ Feature: User dashboard
       And I click "HITTA FRILANSARE"
       And I should see "Fisken"
       Then I should see "Fisken" avatar name "Default-avatar.png"
+      And I click "Fisken"
+      Then I should see "Fisken" avatar name "Default-avatar.png"

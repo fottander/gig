@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
                        storage: :s3,
                        s3_credentials: Proc.new{|a| a.instance.s3_credentials },
                        styles: { small: '60x60#', large: '300x300#' }, default_style: :large,
-                       default_url: "/images/Default-avatar.png"
+                       default_url: "/assets/Default-avatar.png"
 
   validates_attachment :avatar,
                         content_type:
