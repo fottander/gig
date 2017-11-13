@@ -71,10 +71,6 @@ ActiveRecord::Schema.define(version: 20171113130847) do
     t.datetime "updated_at", null: false
     t.string "contact"
     t.string "invoice_address"
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end

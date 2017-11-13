@@ -8,3 +8,10 @@ Then(/^I should see "([^"]*)" avatar name "([^"]*)"$/) do |profile_username, ava
     expect(page).to have_css "img[src*='#{profile.avatar.url}']"
   end
 end
+
+Then(/^I should see job "([^"]*)" avatar name "([^"]*)"$/) do |job_title, avatar_name|
+  job = Job.find_by(title: job_title)
+  within ".job-#{job.id}" do
+    expect(page).to have_css "img[src*='#{job.avatar.url}']"
+  end
+end
