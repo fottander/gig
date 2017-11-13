@@ -22,6 +22,7 @@ Feature: Show job ads
       And I should see "2018-10-10"
       And I should see "14 dagar"
       And I should see "45"
+      Then I should see job "målare" avatar name "Default-company.png"
 
     Scenario: I should not see ads where deadline is reached
       Given I am on the jobs page
