@@ -5,6 +5,7 @@ class Profile < ApplicationRecord
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
                        storage: :s3,
+                       s3_protocol: :https, #specify the protocol as https
                        s3_credentials: Proc.new{|a| a.instance.s3_credentials },
                        styles: { small: '60x60#', large: '300x300#' }, default_style: :small,
                        default_url: ->(attachment) { ActionController::Base.helpers.asset_path('Default-avatar1.png') },
