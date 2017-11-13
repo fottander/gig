@@ -32,9 +32,18 @@ RSpec.describe Job, type: :model do
     it { is_expected.to belong_to :company }
   end
 
+  describe 'Avatar attachment' do
+    it { is_expected.to have_attached_file(:avatar)}
+  end
+
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:job)).to be_valid
     end
+  end
+
+  it 'has an avatar url by default' do
+    job = create(:job)
+    expect(job.avatar.url).to include 'Default-company.png'
   end
 end
