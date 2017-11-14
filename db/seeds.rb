@@ -85,6 +85,7 @@ Job.create(
   duration: "2veckor",
   hour_week: "45",
   company_id: 99999,
+  company_username: "Greger",
   id: 99999
   )
 
@@ -99,6 +100,7 @@ Job.create(
     duration: "3 månader",
     hour_week: "45",
     company_id: 99999,
+    company_username: "Greger",
     id: 99998
     )
 
@@ -113,6 +115,7 @@ Job.create(
   duration: "2 månader",
   hour_week: "45",
   company_id: 99998,
+  company_username: "Anders P",
   id: 99997
   )
 
@@ -127,6 +130,7 @@ Job.create(
     duration: "3 veckor",
     hour_week: "50",
     company_id: 99998,
+    company_username: "Anders P",
     id: 99996
     )
 
