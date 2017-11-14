@@ -19,6 +19,8 @@ Feature: Activate invoice and adds feedback
       And I should see "abc"
       And I should see "Vill du rekommendera till andra"
       And I fill in "feedback" with "Väldigt bra snubbe"
+      And I check Terms check box
+      And I check Post check box
       And I click "Godkänn"
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
