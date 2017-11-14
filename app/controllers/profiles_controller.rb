@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   def index
     add_breadcrumb 'Start', :root_path
-    add_breadcrumb 'Hitta Frilansare', :profiles_path
+    add_breadcrumb 'Hitta Frilansare'
     @profiles = Profile.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @profiles = @profiles.public_send(key, value) if value.present?
@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     @invoices = Invoice.where(profile_id: @profile.id)
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Frilansare', :profiles_path
-    add_breadcrumb "#{@profile.username}", profile_path(@profile)
+    add_breadcrumb "#{@profile.username}"
   end
 
   def create
