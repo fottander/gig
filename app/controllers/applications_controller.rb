@@ -5,6 +5,10 @@ class ApplicationsController < ApplicationController
     @application = Application.new
     @job = Job.find(params[:job_id])
     @profile = Profile.find_by(user_id: current_user)
+    add_breadcrumb 'Start', :root_path
+    add_breadcrumb 'Hitta Jobb', :jobs_path
+    add_breadcrumb "#{@job.title}".truncate(24), job_path(@job)
+    add_breadcrumb 'Skapa Ansökan'
   end
 
   def show
@@ -12,6 +16,10 @@ class ApplicationsController < ApplicationController
     @job = Job.find(params[:job_id])
     @comments = Comment.where(application_id: @application)
     @profile = Profile.find_by(user_id: current_user)
+    add_breadcrumb 'Start', :root_path
+    add_breadcrumb 'Hitta Jobb', :jobs_path
+    add_breadcrumb "#{@job.title}".truncate(24), job_path(@job)
+    add_breadcrumb "ID #{@job.id}"
   end
 
   def create

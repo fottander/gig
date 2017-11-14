@@ -2,6 +2,8 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    add_breadcrumb 'Start', :root_path
+    add_breadcrumb 'Hitta Frilansare'
     @profiles = Profile.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @profiles = @profiles.public_send(key, value) if value.present?
@@ -15,6 +17,9 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @invoices = Invoice.where(profile_id: @profile.id)
+    add_breadcrumb 'Start', :root_path
+    add_breadcrumb 'Hitta Frilansare', :profiles_path
+    add_breadcrumb "#{@profile.username}"
   end
 
   def create

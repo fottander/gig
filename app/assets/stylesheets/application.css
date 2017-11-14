@@ -130,6 +130,50 @@
     margin-top: -10px;
   }
 
+ /* Breadcrumbs */
+
+ .breadcrumb-holder {
+   color: #B1B1B1;
+   font-size: 0.9rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   padding-left: 40px;
+   margin-top: -10px;
+ }
+
+ .breadcrumb-holder-small {
+   color: #B1B1B1;
+   font-size: 0.9rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   padding-left: 20px;
+   margin-top: -10px;
+ }
+
+ .breadcrumb-holder-smaller {
+   color: #B1B1B1;
+   font-size: 0.9rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   padding-left: 10px;
+   margin-top: -10px;
+ }
+
+ .breadcrumb-holder a {
+   color: #B1B1B1;
+   font-size: 0.9rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+ }
+
+ .breadcrumb-holder-small a {
+   color: #B1B1B1;
+   font-size: 0.9rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+ }
+
+ .breadcrumb-holder-smaller a {
+   color: #B1B1B1;
+   font-size: 0.9rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+ }
+
  /* Buttons */
 
  .button-green {

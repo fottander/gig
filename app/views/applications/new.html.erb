@@ -9,6 +9,9 @@
     </div>
   </div>
   <div class="holy-grail-middle">
+    <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
     <div class="simple-form">
       <div class='post-title'><h3>Skapa ansökan</h3></div>
       <% if @profile.present? %>

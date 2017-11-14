@@ -1,5 +1,8 @@
 <div class="profile-<%= @profile.id %>">
   <div class="card-profile-stats">
+    <div class='breadcrumb-holder-smaller'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
     <div class="card-profile-stats-intro">
       <%= image_tag @profile.avatar.url, class: 'card-profile-stats-intro-pic' %>
       <div class="card-profile-stats-intro-content">

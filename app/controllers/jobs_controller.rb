@@ -2,6 +2,8 @@ class JobsController < ApplicationController
   before_action :authenticate_company!, except: [:index, :show]
 
   def index
+    add_breadcrumb 'Start', :root_path
+    add_breadcrumb 'Hitta Jobb'
     @jobs = Job.where(nil).paginate(page: params[:page]).expired
     filtering_params(params).each do |key, value|
       @jobs = @jobs.public_send(key, value) if value.present?
@@ -11,6 +13,9 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @applications = @job.applications
+    add_breadcrumb 'Start', :root_path
+    add_breadcrumb 'Hitta Jobb', :jobs_path
+    add_breadcrumb "#{@job.title}"
   end
 
   def edit
@@ -31,6 +36,8 @@ class JobsController < ApplicationController
   end
 
   def new
+    add_breadcrumb 'Start', :root_path
+    add_breadcrumb 'Skapa Annons'
     @job = Job.new
   end
 
