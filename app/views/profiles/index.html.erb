@@ -1,4 +1,7 @@
 <h3>Alla frilansare</h3>
+<div class='breadcrumb-holder'>
+    <%= render_breadcrumbs separator: ' > ' %>
+</div>
 <div class="button-select-section">
     <%= link_to 'Alla kategorier', {controller: 'profiles'}, {class: 'button-select'} %>
     <%= link_to 'Målare', {controller: 'profiles', with_category: 'Målare'}, {class: 'button-select'} %>

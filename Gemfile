@@ -14,6 +14,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-foundation'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
+gem "breadcrumbs_on_rails"
 
 group :development, :test do
   gem 'pry-byebug'
