@@ -10,7 +10,7 @@ User.create(
   last_name: "Ottander",
   phone: "07328724334",
   password: "123456",
-  id: 1
+  id: 99999
   )
 
 User.create(
@@ -19,7 +19,7 @@ User.create(
   last_name: "Ottander",
   phone: "07328724334",
   password: "123456",
-  id: 2
+  id: 99998
   )
 
 Company.create(
@@ -33,7 +33,7 @@ Company.create(
   phone: "079347238723",
   password: "123456",
   contact: "Mikael",
-  id: 2
+  id: 99999
   )
 
 Company.create(
@@ -47,11 +47,11 @@ Company.create(
   phone: "079347238723",
   password: "123456",
   contact: "felix",
-  id: 1
+  id: 99998
   )
 
 Profile.create(
-  id: 1,
+  id: 99999,
   username: "Johan P",
   title: "Snickare sedan 5 år",
   description: "Jag har precis flyttat till göteborg från stockholm och söker arbete inom bygg och snickeri. Har tidigare arbetat på stora byggbolag och genomfört både mindre husyggen samt större projekt.",
@@ -59,11 +59,11 @@ Profile.create(
   rate: "Minst 160kr/timma",
   category: "Snickare",
   city: "Göteborg",
-  user_id: 1
+  user_id: 99999
   )
 
 Profile.create(
-  id: 2,
+  id: 99998,
   username: "Fisken",
   title: "Målare från gbg",
   description: "Målare på 29 år från gbg med lång erfarenhet inom måleri och snickeri. Har varit målare på ett antal större firmor under 5 år. Kan enklare snickeri samt plåtarbeten. Kan mestadels utomhusmåleri men även enklare inomhusjobb.",
@@ -71,7 +71,7 @@ Profile.create(
   rate: "runt 150kr/timma",
   category: "Målare",
   city: "Göteborg",
-  user_id: 2
+  user_id: 99998
   )
 
 Job.create(
@@ -84,8 +84,8 @@ Job.create(
   deadline: "2019-01-01",
   duration: "2veckor",
   hour_week: "45",
-  company_id: 1,
-  id: 1
+  company_id: 99999,
+  id: 99999
   )
 
   Job.create(
@@ -98,8 +98,8 @@ Job.create(
     deadline: "2019-01-01",
     duration: "3 månader",
     hour_week: "45",
-    company_id: 1,
-    id: 2
+    company_id: 99999,
+    id: 99998
     )
 
 Job.create(
@@ -112,8 +112,8 @@ Job.create(
   deadline: "2019-01-01",
   duration: "2 månader",
   hour_week: "45",
-  company_id: 2,
-  id: 3
+  company_id: 99998,
+  id: 99997
   )
 
   Job.create(
@@ -126,58 +126,58 @@ Job.create(
     deadline: "2019-01-01",
     duration: "3 veckor",
     hour_week: "50",
-    company_id: 2,
-    id: 4
+    company_id: 99998,
+    id: 99996
     )
 
 Application.create(
-  id: 1,
+  id: 99999,
   message: "Hello I want job please",
   hired: true,
   complete: true,
   created_at: "2017-11-09 09:58:53",
   updated_at: "2017-11-09 09:59:19",
-  job_id: 1,
-  profile_id: 2,
+  job_id: 99999,
+  profile_id: 99998,
   profile_username: "Fisken",
   job_title: "Målare sökes"
   )
 
   Application.create(
-    id: 2,
+    id: 99998,
     message: "Hej jag kan jobba bra!!",
     hired: true,
     complete: false,
     created_at: "2017-09-09 09:58:53",
     updated_at: "2017-09-19 09:59:19",
-    job_id: 1,
-    profile_id: 1,
+    job_id: 99999,
+    profile_id: 99999,
     profile_username: "Johan P",
     job_title: "Målare sökes"
     )
 
 Application.create(
-  id: 3,
+  id: 99997,
   message: "Hej jag tror jag passar för detta kan börja redan måndag",
   hired: true,
   complete: false,
   created_at: "2017-11-07 15:45:50",
   updated_at: "2017-11-07 15:46:24",
-  job_id: 2,
-  profile_id: 1,
+  job_id: 99998,
+  profile_id: 99999,
   profile_username: "Johan P",
   job_title: "Vi söker snickare för 3 månader"
   )
 
   Application.create(
-    id: 4,
+    id: 99996,
     message: "Hej ge mig jobbet nu!",
     hired: false,
     complete: false,
     created_at: "2017-09-07 15:45:50",
     updated_at: "2017-09-17 15:46:24",
-    job_id: 2,
-    profile_id: 2,
+    job_id: 99998,
+    profile_id: 99998,
     profile_username: "Fisken",
     job_title: "Vi söker snickare för 3 månader"
     )
