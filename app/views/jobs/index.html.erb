@@ -20,7 +20,7 @@
               </div>
               <div class="profile-card-author">
                   <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
-                    <%= job.company_username %> | Går ut: <%= job.deadline %>
+                    <%= job.company_username %>
                   <div class="small-12 medium-2 columns add-friend">
                     <%= link_to 'Ansök', job_path(job), class: 'reply-button' %>
                   </div>
@@ -37,6 +37,9 @@
                     <div class='row'>
                       <div class='large-2 columns'>
                         Skapad: <%= job.created_at.strftime("%Y-%m-%d") %>
+                      </div>
+                      <div class='large-2 columns'>
+                        Går ut: <%= job.deadline %>
                       </div>
                       <div class='large-2 columns'>
                         Stad: <%= job.city %>
