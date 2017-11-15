@@ -16,7 +16,7 @@ class Profile < ApplicationRecord
                         content_type:
                           {content_type: %w(image/jpg image/jpeg image/png image/gif)}
 
-  scope :with_category, -> (category) { where category: category }
+  scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
 
   def s3_credentials
    {
@@ -31,10 +31,6 @@ class Profile < ApplicationRecord
 
   def self.city
     ['Hela sverige', 'Göteborg', 'Malmö', 'Stockholm']
-  end
-
-  def self.category
-    ['Målare', 'Snickare', 'Plåtslagare', 'Lagerarbetare']
   end
 
   self.per_page = 5
