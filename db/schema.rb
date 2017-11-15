@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113130847) do
+ActiveRecord::Schema.define(version: 20171115163721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20171113130847) do
     t.index ["job_title"], name: "index_applications_on_job_title"
     t.index ["profile_id"], name: "index_applications_on_profile_id"
     t.index ["profile_username"], name: "index_applications_on_profile_username"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_profiles", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "profile_id", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -136,7 +147,6 @@ ActiveRecord::Schema.define(version: 20171113130847) do
     t.text "description"
     t.string "skill"
     t.string "rate"
-    t.string "category"
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

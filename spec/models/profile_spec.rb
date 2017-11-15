@@ -7,7 +7,6 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to have_db_column :description }
     it { is_expected.to have_db_column :skill }
     it { is_expected.to have_db_column :rate }
-    it { is_expected.to have_db_column :category }
     it { is_expected.to have_db_column :city }
     it { is_expected.to have_db_column :user_id }
   end
@@ -16,7 +15,6 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of :username }
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :description }
-    it { is_expected.to validate_presence_of :category }
     it { is_expected.to validate_presence_of :city }
   end
 
@@ -26,6 +24,7 @@ RSpec.describe Profile, type: :model do
 
   describe 'Associations' do
     it { is_expected.to belong_to :user }
+    it { should have_and_belong_to_many(:categories) }
   end
 
   describe 'Factory' do

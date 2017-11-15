@@ -57,7 +57,6 @@ Profile.create(
   description: "Jag har precis flyttat till göteborg från stockholm och söker arbete inom bygg och snickeri. Har tidigare arbetat på stora byggbolag och genomfört både mindre husyggen samt större projekt.",
   skill: "bygg, snickeri, tak, plåt ",
   rate: "Minst 160kr/timma",
-  category: "Snickare",
   city: "Göteborg",
   user_id: 99999
   )
@@ -69,7 +68,6 @@ Profile.create(
   description: "Målare på 29 år från gbg med lång erfarenhet inom måleri och snickeri. Har varit målare på ett antal större firmor under 5 år. Kan enklare snickeri samt plåtarbeten. Kan mestadels utomhusmåleri men även enklare inomhusjobb.",
   skill: "målning 5 år, snickeri 3 år. ",
   rate: "runt 150kr/timma",
-  category: "Målare",
   city: "Göteborg",
   user_id: 99998
   )

@@ -5,7 +5,6 @@ FactoryGirl.define do
     description "MyText"
     skill "MyString"
     rate "MyString"
-    category "MyString"
     city "MyString"
     avatar { File.new("#{Rails.root}/spec/images/Default-avatar.png") }
   end

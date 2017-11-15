@@ -26,8 +26,8 @@
       <%= f.text_field :skill, placeholder: 'Ex. utomhusmåleri, tapetsering, takläggning etc' %>
       <%= f.label :rate, 'Lön', class: 'form-text' %>
       <%= f.text_field :rate, placeholder: 'Minimumlön du kan tänka dig' %>
-      <%= f.label :category, 'Kategorier', class: 'form-text' %>
-      <%= f.select :category, options_for_select(Profile.category), { include_blank: true } %>
+      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
       <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Profile.city), { include_blank: true } %>
       <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
