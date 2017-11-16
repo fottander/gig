@@ -21,6 +21,10 @@ Then("I check Terms check box") do
   check 'terms'
 end
 
+Given("I check Category check box") do
+  check 'profile_category_ids_1'
+end
+
 Then("I uncheck Terms check box") do
   uncheck 'terms'
 end

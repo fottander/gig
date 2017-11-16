@@ -10,9 +10,14 @@ Feature: Apply to job
     Given the following users exist
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
+    Given the following categories exist
+      | name        | id |
+      | Målare      | 1  |
+      | Snickare    | 2  |
+      | Plåtslagare | 3  |
     Given the following profiles exist
-      | username | title        | description | category | city     | user_id |
-      | Fisken   | målare 29 år | målare gbg  | Målare   | Göteborg | 1       |
+      | username | title        | description | category_ids | city     | user_id |
+      | Fisken   | målare 29 år | målare gbg  | 1            | Göteborg | 1       |
 
     Scenario: I apply to a job
       Given I am logged in as user "felix@mail.com"

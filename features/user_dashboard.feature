@@ -7,6 +7,9 @@ Feature: User dashboard
     Given the following users exist
       | email          | password  | password_confirmation |
       | felix@mail.com | 12345678  | 12345678              |
+    Given the following categories exist
+      | name   | id |
+      | Målare | 1  |
 
     Scenario: I go to dashboard
       Given I am on the home page
@@ -28,7 +31,7 @@ Feature: User dashboard
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
       And I fill in "Färdigheter" with ""
       And I fill in "Lön" with ""
-      And I select "Målare" from "Kategorier"
+      And I check Category check box
       And I select "Göteborg" from "Stad"
       And I attach file
       And I click "Skapa"

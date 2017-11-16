@@ -13,9 +13,14 @@ Feature: Company control panel
     Given the following users exist
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
+    Given the following categories exist
+      | name        | id |
+      | Målare      | 1  |
+      | Snickare    | 2  |
+      | Plåtslagare | 3  |
     Given the following profiles exist
-      | username | title        | description | category | city     | user_id | id |
-      | Fisken   | 29 år målare | målare gbg  | Målare   | Göteborg | 1       | 1  |
+      | username | title        | description | category_ids | city     | user_id | id |
+      | Fisken   | 29 år målare | målare gbg  | 1            | Göteborg | 1       | 1  |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    |
       | I want job | 1      | Fisken           | 1          | målare sökes |

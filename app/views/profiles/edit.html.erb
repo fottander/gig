@@ -31,8 +31,8 @@
       <%= f.text_field :skill, value: @profile.skill %>
       <%= f.label :rate, 'Lön', class: 'form-text' %>
       <%= f.text_field :rate, value: @profile.rate %>
-      <%= f.label :category, 'Kategorier', class: 'form-text' %>
-      <%= f.select :category, options_for_select(Profile.category, selected: @profile.category), { include_blank: true } %>
+      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
       <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Profile.city, selected: @profile.city), { include_blank: true } %>
       <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>

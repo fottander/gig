@@ -4,6 +4,12 @@ Given("the following job ads exist") do |table|
   end
 end
 
+Given("the following categories exist") do |table|
+  table.hashes.each do |hash|
+    create(:category, hash)
+  end
+end
+
 Then("I should not see {string}") do |content|
   expect(page).not_to have_content content
 end

@@ -1,8 +1,29 @@
+Category.delete_all
 Application.delete_all
 Job.delete_all
 Profile.delete_all
 User.delete_all
 Company.delete_all
+
+Category.create(
+  name: "Målare",
+  id: 50
+  )
+
+Category.create(
+  name: "Snickare",
+  id: 51
+  )
+
+Category.create(
+  name: "Plåtslagare",
+  id: 52
+  )
+
+Category.create(
+  name: "Lagerarbetare",
+  id: 53
+  )
 
 User.create(
   email: "felix.ottander@yahoo.com",
@@ -58,6 +79,7 @@ Profile.create(
   skill: "bygg, snickeri, tak, plåt ",
   rate: "Minst 160kr/timma",
   city: "Göteborg",
+  category_ids: 51,
   user_id: 99999
   )
 
@@ -69,6 +91,7 @@ Profile.create(
   skill: "målning 5 år, snickeri 3 år. ",
   rate: "runt 150kr/timma",
   city: "Göteborg",
+  category_ids: 50,
   user_id: 99998
   )
 
@@ -184,6 +207,7 @@ Application.create(
     job_title: "Vi söker snickare för 3 månader"
     )
 
+puts "Created #{Category.count} category"
 puts "Created #{Company.count} company"
 puts "Created #{User.count} user"
 puts "Created #{Job.count} job"

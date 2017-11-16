@@ -36,7 +36,9 @@
             <%= link_to @profile.username, profile_path(@profile) %><br>
             Titel: <%= @profile.title %><br>
             Färdigheter: <%= @profile.skill %><br>
-            Kategorier: <%= @profile.category %><br>
+            <% @profile.categories.each do |category| %>
+            Kategorier: <%= category.name %>
+            <% end %><br>
             Stad: <%= @profile.city %><br>
             <%= link_to 'Redigera profil', edit_profile_path(@profile.id), class: 'button-green' %>
             <% else %>
