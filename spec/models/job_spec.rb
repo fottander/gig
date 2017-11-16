@@ -30,6 +30,7 @@ RSpec.describe Job, type: :model do
 
   describe 'Associations' do
     it { is_expected.to belong_to :company }
+    it { is_expected.to have_many :applications}
   end
 
   describe 'Avatar attachment' do
