@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  validates_presence_of :username, :title, :description, :city
+  validates_presence_of :username, :title, :description, :city, :category_ids
   belongs_to :user
   has_many :applications, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy

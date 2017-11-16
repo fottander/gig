@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
+
+  before(:all) do
+    Category.destroy_all
+    create(:category, name: 'Målare', id: 100)
+    create(:category, name: 'Snickare', id: 200)
+  end
+
   describe 'DB table' do
     it { is_expected.to have_db_column :username }
     it { is_expected.to have_db_column :title }
@@ -16,6 +23,7 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :city }
+    it { is_expected.to validate_presence_of :category_ids }
   end
 
   describe 'Avatar attachment' do
@@ -29,12 +37,12 @@ RSpec.describe Profile, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:profile)).to be_valid
+      expect(create(:profile, category_ids: '100')).to be_valid
     end
   end
 
   it 'has an avatar url by default' do
-    profile = create(:profile)
+    profile = create(:profile, category_ids: '200')
     expect(profile.avatar.url).to include 'Default-avatar.png'
   end
 end
