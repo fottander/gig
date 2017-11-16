@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @application = Application.find(params[:application_id])
+    @profile = Profile.find_by(id: @application.profile_id)
+    @user = User.find_by(id: @profile.user_id)
     @comment = Comment.new comment_params
     @job = Job.find(params[:job_id])
     if current_user.present?
@@ -15,6 +17,12 @@ class CommentsController < ApplicationController
     @comment.application_id = @application.id
     @comment.job_id = @job.id
     if @comment.save
+
+      if @company.present?
+        # Sends email to user when first comment by company is created.
+        NewCommentMailer.comment_email(@user, @application).deliver_now
+      end
+
       flash[:notice] = "Nytt svar skickat!"
       redirect_back(fallback_location: root_path)
     else
