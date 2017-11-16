@@ -24,6 +24,7 @@ class ApplicationsController < ApplicationController
 
   def create
     @job = Job.find(params[:job_id])
+    @company = Company.find_by(id: @job.company_id)
     @profile = Profile.find_by(user_id: current_user)
     @application = Application.new application_params
     @application.job_id = @job.id
@@ -32,6 +33,10 @@ class ApplicationsController < ApplicationController
     @application.job_title = @job.title
     respond_to do |format|
       if @application.save
+
+        # Sends email to company when application is created.
+        NewApplicationMailer.notice_email(@company, @job).deliver_now
+
         format.html { redirect_to dashboards_path, notice: 'Ny ansökan skickad!' }
         format.json { render :new, status: :created}
       else

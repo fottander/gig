@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hej <%= @company.username %></h1>
+    <h3>
+      Du har fått ett svar på din jobbannons: <%= @job.title %>
+    </h3>
+    <p>
+      Klicka nedanför för att se svar och börja anställa! <br>
+      <%= link_to 'Till Annons', job_url(@job, anchor: dom_id(@job)) %>
+    </p>
+  </body>
+</html>
