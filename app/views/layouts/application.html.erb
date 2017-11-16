@@ -30,15 +30,14 @@
     </div>
     <hr>
     <body>
-        <% if flash[:notice] %>
-        <div class='notice'>
-            <%= flash[:notice] %>
-        </div>
-        <% end %>
-        <% if flash[:alert] %>
-        <div class='alert'>
-            <%= flash[:alert] %>
-        </div>
+        <% if notice %>
+            <div id="notice-wrapper" >
+                <p class='notice'><%= notice %></p>
+            </div>
+        <% elsif alert %>
+            <div id='alert-wrapper' >
+                <p class='alert'> <%= alert %></p>
+            </div>
         <% end %>
         <%= yield %>
     </body>
