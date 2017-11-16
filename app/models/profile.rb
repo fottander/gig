@@ -1,7 +1,8 @@
 class Profile < ApplicationRecord
-  validates_presence_of :username, :title, :description, :category, :city
+  validates_presence_of :username, :title, :description, :city, :category_ids
   belongs_to :user
   has_many :applications, dependent: :destroy
+  has_and_belongs_to_many :categories, dependent: :destroy
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
                        storage: :s3,
@@ -15,7 +16,7 @@ class Profile < ApplicationRecord
                         content_type:
                           {content_type: %w(image/jpg image/jpeg image/png image/gif)}
 
-  scope :with_category, -> (category) { where category: category }
+  scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
 
   def s3_credentials
    {
@@ -30,10 +31,6 @@ class Profile < ApplicationRecord
 
   def self.city
     ['Hela sverige', 'Göteborg', 'Malmö', 'Stockholm']
-  end
-
-  def self.category
-    ['Målare', 'Snickare', 'Plåtslagare', 'Lagerarbetare']
   end
 
   self.per_page = 5

@@ -7,6 +7,9 @@ Feature: Edit profile
     Given the following users exist
       | email          | password  | password_confirmation |
       | felix@mail.com | 12345678  | 12345678              |
+    Given the following categories exist
+      | name        | id |
+      | Målare      | 1  |
 
     Scenario: I edit profile
       Given I am logged in as user "felix@mail.com"
@@ -18,7 +21,7 @@ Feature: Edit profile
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
       And I fill in "Färdigheter" with ""
       And I fill in "Lön" with ""
-      And I select "Målare" from "Kategorier"
+      And I check Category check box
       And I select "Göteborg" from "Stad"
       And I click "Skapa"
       Then I should see "Ny profil skapad!"
@@ -28,7 +31,7 @@ Feature: Edit profile
       And I fill in "Titel" with "målare"
       And I fill in "Beskrivning" with "målare från gbg"
       And I fill in "Färdigheter" with "målning och snickeri"
-      And I select "Målare" from "Kategorier"
+      And I check Category check box
       And I select "Göteborg" from "Stad"
       And I click "Spara"
       Then I should see "Profil redigerad!"

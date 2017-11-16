@@ -76,7 +76,7 @@ en:
         description: 'Beskrivning'
         skill: 'Färdigheter'
         rate: 'Lön'
-        category: 'Kategori'
+        category_ids: 'Kategori'
         city: 'Stad'
       application:
         message: 'Meddelande'
@@ -172,7 +172,7 @@ en:
               blank: "kan inte vara blankt!"
             description:
               blank: "kan inte vara blankt!"
-            category:
+            category_ids:
               blank: "kan inte vara blankt!"
             city:
               blank: "kan inte vara blankt!"
