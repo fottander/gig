@@ -7,9 +7,12 @@ Feature: Activate invoice with post or email
     Given the following companies exist
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
+    Given the following users exist
+      | email          | password  | password_confirmation | id |
+      | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | id | company_id | updated_at | paid |
-      | abc         | 120    | felix          | 30    | false  | 1  | 1          | 2017-11-01 | true |
+      | description | amount | user_reference | terms | active | id | company_id | updated_at | paid | user_id |
+      | abc         | 120    | felix          | 30    | false  | 1  | 1          | 2017-11-01 | true | 1       |
 
     Scenario: I activate invoice with post
       Given I am logged in as company "felix@mail.com"
