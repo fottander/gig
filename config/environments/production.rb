@@ -67,8 +67,9 @@ Rails.application.configure do
    :address              => "smtp.gmail.com",
    :port                 => 587,
    :user_name            => ENV['GMAIL_USERNAME'],
-   :password             => ENV['GMAIL_PASS'],
+   :password             => ENV['GMAIL_PASSWORD'],
    :authentication       => "plain",
+   :domain               => 'gigalot.herokuapp.com',
    :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { host: 'gigalot.herokuapp.com' }
