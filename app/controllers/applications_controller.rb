@@ -49,7 +49,13 @@ class ApplicationsController < ApplicationController
   def complete
     @application = Application.find(params[:id])
     @application.complete = true
+    @profile = Profile.find_by(id: @application.profile_id)
+    @user = User.find_by(id: @profile.user_id)
     if @application.save
+
+      # Sends email to user when job is completed.
+      CompletedJobMailer.notification_email(@user, @application).deliver_now
+
       flash[:notice] = "Grattis! Jobb genomfört."
       redirect_back(fallback_location: root_path)
     end
@@ -58,6 +64,8 @@ class ApplicationsController < ApplicationController
   def update
     @application = Application.find(params[:id])
     @application.hired = true
+    @profile = Profile.find_by(id: @application.profile_id)
+    @user = User.find_by(id: @profile.user_id)
     if @application.save
       flash[:notice] = "Grattis! Du har anlitat personen."
       redirect_back(fallback_location: root_path)
