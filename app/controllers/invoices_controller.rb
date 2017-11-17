@@ -48,6 +48,7 @@ class InvoicesController < ApplicationController
 
   def activate
     @invoice = Invoice.find(params[:id])
+    @user = User.find_by(id: @invoice.user_id)
     @invoice.active = true
     if @invoice.update invoice_activate_params
       if @invoice.post == true
@@ -56,6 +57,10 @@ class InvoicesController < ApplicationController
       if @invoice.terms == 60
         @invoice.update(amount: @invoice.amount + 40)
       end
+
+      # Sends email to user when invoice is activated.
+      ActivateInvoiceMailer.notice_email(@user, @invoice).deliver_now
+
       flash[:notice] = "Faktura godkänd och aktiverad"
       redirect_back(fallback_location: panels_path)
     end
