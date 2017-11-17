@@ -67,6 +67,10 @@ class ApplicationsController < ApplicationController
     @profile = Profile.find_by(id: @application.profile_id)
     @user = User.find_by(id: @profile.user_id)
     if @application.save
+
+      # Sends email to user when profile is hired.
+      HiredMailer.notification_email(@user, @application).deliver_now
+
       flash[:notice] = "Grattis! Du har anlitat personen."
       redirect_back(fallback_location: root_path)
     end
