@@ -4,10 +4,17 @@ class InvoicesController < ApplicationController
   def create
     @profile = Profile.find_by(user_id: current_user)
     @invoice = Invoice.new invoice_params
+    @application = Application.find(params[:application_id])
+    @job = Job.find_by(id: @application.job_id)
+    @company = Company.find_by(id: @job.company_id)
     @invoice.profile_id = @profile.id
     @invoice.profile_username = @profile.username
     @invoice.user_id = current_user.id
     if @invoice.save
+
+      # Sends email to company when invoice is created.
+      NewInvoiceMailer.notice_email(@company, @invoice).deliver_now
+
       flash[:notice] = "Faktura skapad"
       redirect_back(fallback_location: root_path)
     else
@@ -18,7 +25,7 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @due_date = @invoice.updated_at+@invoice.terms.day 
+    @due_date = @invoice.updated_at+@invoice.terms.day
   end
 
   def edit
