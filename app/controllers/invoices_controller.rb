@@ -13,7 +13,7 @@ class InvoicesController < ApplicationController
     if @invoice.save
 
       # Sends email to company when invoice is created.
-      NewInvoiceMailer.notice_email(@company, @invoice).deliver_now
+      NotificationMailer.new_invoice_email(@company, @invoice).deliver_now
 
       flash[:notice] = "Faktura skapad"
       redirect_back(fallback_location: root_path)
@@ -59,7 +59,7 @@ class InvoicesController < ApplicationController
       end
 
       # Sends email to user when invoice is activated.
-      ActivateInvoiceMailer.notice_email(@user, @invoice).deliver_now
+      NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
 
       flash[:notice] = "Faktura godkänd och aktiverad"
       redirect_back(fallback_location: panels_path)

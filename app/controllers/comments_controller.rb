@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
       if @company.present?
         # Sends email to user when first comment by company is created.
-        NewCommentMailer.comment_email(@user, @application).deliver_now
+        NotificationMailer.new_comment_email(@user, @application).deliver_now
       end
 
       flash[:notice] = "Nytt svar skickat!"

@@ -35,7 +35,7 @@ class ApplicationsController < ApplicationController
       if @application.save
 
         # Sends email to company when application is created.
-        NewApplicationMailer.notice_email(@company, @job).deliver_now
+        NotificationMailer.new_application_email(@company, @job).deliver_now
 
         format.html { redirect_to dashboards_path, notice: 'Ny ansökan skickad!' }
         format.json { render :new, status: :created}
@@ -54,7 +54,7 @@ class ApplicationsController < ApplicationController
     if @application.save
 
       # Sends email to user when job is completed.
-      CompletedJobMailer.notification_email(@user, @application).deliver_now
+      NotificationMailer.job_completed_email(@user, @application).deliver_now
 
       flash[:notice] = "Grattis! Jobb genomfört."
       redirect_back(fallback_location: root_path)
@@ -69,7 +69,7 @@ class ApplicationsController < ApplicationController
     if @application.save
 
       # Sends email to user when profile is hired.
-      HiredMailer.notification_email(@user, @application).deliver_now
+      NotificationMailer.hired_email(@user, @application).deliver_now
 
       flash[:notice] = "Grattis! Du har anlitat personen."
       redirect_back(fallback_location: root_path)
