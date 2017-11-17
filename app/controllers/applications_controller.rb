@@ -24,6 +24,7 @@ class ApplicationsController < ApplicationController
 
   def create
     @job = Job.find(params[:job_id])
+    @company = Company.find_by(id: @job.company_id)
     @profile = Profile.find_by(user_id: current_user)
     @application = Application.new application_params
     @application.job_id = @job.id
@@ -32,6 +33,10 @@ class ApplicationsController < ApplicationController
     @application.job_title = @job.title
     respond_to do |format|
       if @application.save
+
+        # Sends email to company when application is created.
+        NotificationMailer.new_application_email(@company, @job).deliver_now
+
         format.html { redirect_to dashboards_path, notice: 'Ny ansökan skickad!' }
         format.json { render :new, status: :created}
       else
@@ -44,7 +49,13 @@ class ApplicationsController < ApplicationController
   def complete
     @application = Application.find(params[:id])
     @application.complete = true
+    @profile = Profile.find_by(id: @application.profile_id)
+    @user = User.find_by(id: @profile.user_id)
     if @application.save
+
+      # Sends email to user when job is completed.
+      NotificationMailer.job_completed_email(@user, @application).deliver_now
+
       flash[:notice] = "Grattis! Jobb genomfört."
       redirect_back(fallback_location: root_path)
     end
@@ -53,7 +64,13 @@ class ApplicationsController < ApplicationController
   def update
     @application = Application.find(params[:id])
     @application.hired = true
+    @profile = Profile.find_by(id: @application.profile_id)
+    @user = User.find_by(id: @profile.user_id)
     if @application.save
+
+      # Sends email to user when profile is hired.
+      NotificationMailer.hired_email(@user, @application).deliver_now
+
       flash[:notice] = "Grattis! Du har anlitat personen."
       redirect_back(fallback_location: root_path)
     end

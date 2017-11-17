@@ -58,7 +58,7 @@ Company.create(
   )
 
 Company.create(
-  email: "info@buildingblockz.se",
+  email: "info@billnodix.se",
   name: "Billnodix",
   username: "Anders p",
   address: "Södra gatan 33",
