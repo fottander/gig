@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'payments/index'
-
   devise_for :companies, controllers: {
     registrations: 'companies/registrations'
   }
