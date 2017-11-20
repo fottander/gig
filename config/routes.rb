@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'payments/index'
-
   devise_for :companies, controllers: {
     registrations: 'companies/registrations'
   }
@@ -21,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   root controller: :index, action: :index
+
+  resources :invites, only: [:new, :create, :index]
 
   resources :panels, only: [:index]
 
