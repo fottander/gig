@@ -15,13 +15,13 @@
 
   <div class="holy-grail-middle">
     <div class="login-box">
+      <h3>Inbjudningar</h3>
       <div class="row collapse expanded">
         <div class="small-12 medium-6 column small-order-2 medium-order-1">
           <div class="login-box-form-section">
-            <h4>Inbjudningar</h4>
             <% @invites.each do |invite| %>
               <% if invite.present? %>
-                <div>
+                <div class= 'job-count'>
                   Jobb ID: <%= invite.job_id %><br>
                   <%= invite.message %><br>
                   <%= link_to 'Visa jobb', job_path(invite.job_id), class: 'button-green' %>
