@@ -6,13 +6,17 @@
             <%= render_breadcrumbs separator: ' > ' %>
         </div>
         <h2>Skicka inbjudan</h2>
+        <% if @jobs.present? %>
         Här kan du skicka en inbjudan till frilansaren för en av dina jobbannonser.<br>
         Det är viktigt att annonsen matchar frilansaren.<br>
-        <%= form_tag invites_path(@invite, company_id: current_company.id) do %>
-        <%= text_field_tag :message, nil, placeholder: 'Skriv ett kort meddelande' %>
-        <%= select_tag :job_title, options_for_select(@jobs.pluck(:title)), prompt: 'Välj ett jobb i listan' %>
-        <span>En länk till jobbet skickas med inbjudan</span><br>
-        <%= submit_tag 'Skicka inbjudan', class: 'reply-button' %>
+          <%= form_tag invites_path(@invite, company_id: current_company.id, profile_id: @profile.id) do %>
+          <%= text_field_tag :message, nil, placeholder: 'Skriv ett kort meddelande' %>
+          <%= select_tag :job_id, options_for_select(@jobs.pluck(:title, :id)), prompt: 'Välj ett jobb i listan' %>
+          <span>En länk till jobbet skickas med inbjudan</span><br>
+          <%= submit_tag 'Skicka inbjudan', class: 'reply-button' %>
+          <% end %>
+        <% else %>
+          <p>Skapa en annons innan du kan bjud in.</p>
         <% end %>
       </div>
     </div>

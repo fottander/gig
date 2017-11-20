@@ -1,6 +1,12 @@
 class InvitesController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:index]
   before_action :authenticate_company!, only: [:new, :create]
+
+  def index
+    @profile = Profile.find(params[:profile_id])
+    @invites = Invite.where(profile_id: @profile.id)
+  end
+
   def new
     @invite = Invite.new
     @profile = Profile.find(params[:profile_id])
@@ -24,6 +30,6 @@ class InvitesController < ApplicationController
 
   private
   def invite_params
-    params.permit(:message, :job_title, :company_id, :profile_id)
+    params.permit(:message, :job_id, :company_id, :profile_id)
   end
 end

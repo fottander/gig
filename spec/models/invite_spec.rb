@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Invite, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :message }
-    it { is_expected.to have_db_column :job_title }
+    it { is_expected.to have_db_column :job_id }
   end
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :message }
-    it { is_expected.to validate_presence_of :job_title }
+    it { is_expected.to validate_presence_of :job_id }
   end
 
   describe 'Associations' do

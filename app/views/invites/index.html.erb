@@ -15,8 +15,13 @@
 
   <div class="holy-grail-middle">
     <div class="simple-form">
-      <div class='post-title'><h3>Betalningsinformation</h3></div>
-
+      <div class='post-title'><h3>Inbjudningar</h3></div>
+      <% @invites.each do |invite| %>
+        <% if invite.present? %>
+          <%= invite.job_title %><br>
+          <%= invite.message %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

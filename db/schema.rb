@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20171117155213) do
 
   create_table "invites", force: :cascade do |t|
     t.string "message"
-    t.string "job_title"
+    t.string "job_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

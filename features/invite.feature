@@ -28,7 +28,7 @@ Feature: Invite feature
       And I click "Fisken"
       And I click "Bjud in till jobb"
       And I fill in "message" with "Hello"
-      And I select "målare sökes" from "job_title"
+      And I select "målare sökes" from "job_id"
       And I click "Skicka inbjudan"
       Then I should see "Ny inbjudan skickad!"
 
@@ -48,7 +48,7 @@ Feature: Invite feature
       And I click "HITTA FRILANSARE"
       And I click "Fisken"
       And I click "Bjud in till jobb"
-      And I select "målare sökes" from "job_title"
+      And I select "målare sökes" from "job_id"
       And I click "Skicka inbjudan"
       Then I should see "Fyll i alla fält korrekt!"
 
