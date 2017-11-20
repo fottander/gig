@@ -32,6 +32,26 @@ Feature: Invite feature
       And I click "Skicka inbjudan"
       Then I should see "Ny inbjudan skickad!"
 
+    Scenario: I invite an user without selecting job
+      Given I am logged in as company "felix@mail.com"
+      Given I am on the home page
+      And I click "HITTA FRILANSARE"
+      And I click "Fisken"
+      And I click "Bjud in till jobb"
+      And I fill in "message" with "Hello"
+      And I click "Skicka inbjudan"
+      Then I should see "Fyll i alla fält korrekt!"
+
+    Scenario: I invite an user without message
+      Given I am logged in as company "felix@mail.com"
+      Given I am on the home page
+      And I click "HITTA FRILANSARE"
+      And I click "Fisken"
+      And I click "Bjud in till jobb"
+      And I select "målare sökes" from "job_title"
+      And I click "Skicka inbjudan"
+      Then I should see "Fyll i alla fält korrekt!"
+
     Scenario: I try to invite to an expired job
       Given I am logged in as company "felix@mail.com"
       Given I am on the home page

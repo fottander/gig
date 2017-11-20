@@ -16,6 +16,9 @@ class InvitesController < ApplicationController
     if @invite.save
       flash[:notice] = "Ny inbjudan skickad!"
       redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = 'Fyll i alla fält korrekt!'
+      redirect_back(fallback_location: root_path)
     end
   end
 

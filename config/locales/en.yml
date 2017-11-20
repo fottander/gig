@@ -38,6 +38,9 @@ en:
 
   activerecord:
     attributes:
+      invite:
+        message: "Meddelande"
+        job_title: "Jobb"
       job:
         title: "Titel"
         description: 'Beskrivning'
@@ -187,6 +190,13 @@ en:
         comment:
           attributes:
             comment:
+              blank: 'kan inte vara blankt!'
+
+        invite:
+          attributes:
+            message:
+              blank: 'kan inte vara blankt!'
+            job_title:
               blank: 'kan inte vara blankt!'
 
         invoice:
