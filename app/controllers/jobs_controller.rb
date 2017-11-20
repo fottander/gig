@@ -13,9 +13,10 @@ class JobsController < ApplicationController
   def show
     @job = Job.find(params[:id])
     @applications = @job.applications
+    @invoices = Invoice.where(company_id: @job.company_id)
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Jobb', :jobs_path
-    add_breadcrumb "#{@job.title}"
+    add_breadcrumb @job.title
   end
 
   def edit

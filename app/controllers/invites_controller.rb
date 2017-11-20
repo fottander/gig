@@ -13,7 +13,7 @@ class InvitesController < ApplicationController
     @jobs = current_company.jobs.expired
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Frilansare', :profiles_path
-    add_breadcrumb "#{@profile.username}".truncate(24), profile_path(@profile)
+    add_breadcrumb @profile.username.truncate(24), profile_path(@profile)
     add_breadcrumb 'Skapa Inbjudan'
   end
 
