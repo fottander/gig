@@ -50,6 +50,7 @@
         <h3 class="portfolio-resume-header">Företagsinfo</h3>
         <h5><strong><%= @job.company_username %></strong></h5>
         <div class="portfolio-resume-contact-info">
+          Antal genomförda jobb: <%= @invoices.where(company_id: @job.company_id).count %>
           <p>Stad: <%= @job.company_city %></p>
         </div>
       </div>
@@ -64,8 +65,8 @@
             <% if @applications.present? %>
               <% @applications.each do |application| %>
               <h5><strong><%= application.profile_username %></strong></h5>
-              <%= link_to 'Visa', job_application_path(@job, application), class: 'reply-button' %>
-              <%= link_to 'Profil', profile_path(application.profile_id), class: 'profile-button' %>
+              <%= link_to 'Visa ansökan', job_application_path(@job, application), class: 'button-green' %>
+              <%= link_to 'Profil', profile_path(application.profile_id), class: 'button-orange' %>
               <hr>
               <% end %>
             <% else %>

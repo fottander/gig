@@ -13,6 +13,7 @@ Feature: Create invoice
     Given the following users exist
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
+      | filip@mail.com | 12345678  | 12345678              | 2  |
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
@@ -21,6 +22,7 @@ Feature: Create invoice
     Given the following profiles exist
       | username | title        | description | category_ids | city     | user_id | id |
       | Fisken   | 29 år målare | målare gbg  | 1            | Göteborg | 1       | 1  |
+      | Filip    | 29 år målare | målare gbg  | 1            | Göteborg | 2       | 2  |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    | hired | complete |
       | I want job | 1      | Fisken           | 1          | målare sökes | true  | true     |
@@ -40,3 +42,11 @@ Feature: Create invoice
       And I fill in "company_reference" with "Anders"
       And I click "Skapa faktura"
       Then I should see "Faktura skapad"
+      And I click "HITTA FRILANSARE"
+      And I should see "Genomförda jobb: 1" at "Fisken"
+      Then I should see "Genomförda jobb: 0" at "Filip"
+      And I click "Fisken"
+      Then I should see "Antal genomförda jobb: 1"
+      And I click "HITTA JOBB"
+      And I click "målare sökes"
+      Then I should see "Antal genomförda jobb: 1"
