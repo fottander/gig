@@ -27,8 +27,8 @@
               </div>
             </div>
             <div class="profile-card-about">
-                <div class='profile-card-about-title'><%= job.category %></div>
                 <div class="profile-card-about-message">
+                  <div class='profile-card-about-title'><%= job.category %></div>
                     <% if job.description.length > 100 %>
                         <%= truncate(job.description, length: 100) %>
                     <% else %>
