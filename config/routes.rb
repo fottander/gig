@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   root controller: :index, action: :index
 
+  resources :invites, only: [:new, :create]
+
   resources :panels, only: [:index]
 
   resources :payments, only: [:index]

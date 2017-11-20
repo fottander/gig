@@ -7,6 +7,9 @@
       <%= image_tag @profile.avatar.url, class: 'card-profile-stats-intro-pic' %>
       <div class="card-profile-stats-intro-content">
         <h2><%= @profile.username %></h2>
+        <% if current_company.present? %>
+          <%= link_to 'Bjud in till jobb', new_invite_path(profile_id: @profile.id), class: 'profile-button-small' %>
+        <% end %>
         <% if @invoices.present? %>
           <p class='job-count'>Antal genomförda jobb: <%= @invoices.count %></p>
         <% end %>

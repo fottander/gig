@@ -1,0 +1,20 @@
+<div class="login-box">
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1">
+      <div class="login-box-form-section">
+        <div class='breadcrumb-holder-smaller'>
+            <%= render_breadcrumbs separator: ' > ' %>
+        </div>
+        <h2>Skicka inbjudan</h2>
+        Här kan du skicka en inbjudan till frilansaren för en av dina jobbannonser.<br>
+        Det är viktigt att annonsen matchar frilansaren.<br>
+        <%= form_tag invites_path(@invite, company_id: current_company.id) do %>
+        <%= text_field_tag :message, nil, placeholder: 'Skriv ett kort meddelande' %>
+        <%= select_tag :job_title, options_for_select(@jobs.pluck(:title)), prompt: 'Välj ett jobb i listan' %>
+        <span>En länk till jobbet skickas med inbjudan</span><br>
+        <%= submit_tag 'Skicka inbjudan', class: 'reply-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
