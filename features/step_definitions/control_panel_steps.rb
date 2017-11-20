@@ -13,6 +13,12 @@ Given("the following applications exist") do |table|
   end
 end
 
+Given("the following invites exist") do |table|
+  table.hashes.each do |hash|
+    create(:invite, hash)
+  end
+end
+
 Given("I uncheck Active check box") do
   uncheck 'job_active'
 end
