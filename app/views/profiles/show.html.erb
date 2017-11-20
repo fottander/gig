@@ -34,9 +34,10 @@
       </div>
       <div class="card-profile-stats-statistic">
         <span class="stat">Kategorier</span>
-        <% @profile.categories.each do |category| %>
-        <p><%= category.name %></p>
+        <p>|<% @profile.categories.each do |category| %>
+        <%= category.name %> |
         <% end %>
+        </p>
       </div>
       <div class="card-profile-stats-statistic">
         <span class="stat">Lön</span>
