@@ -14,14 +14,26 @@
   </div>
 
   <div class="holy-grail-middle">
-    <div class="simple-form">
-      <div class='post-title'><h3>Inbjudningar</h3></div>
-      <% @invites.each do |invite| %>
-        <% if invite.present? %>
-          <%= invite.job_title %><br>
-          <%= invite.message %>
-        <% end %>
-      <% end %>
+    <div class="login-box">
+      <div class="row collapse expanded">
+        <div class="small-12 medium-6 column small-order-2 medium-order-1">
+          <div class="login-box-form-section">
+            <h4>Inbjudningar</h4>
+            <% @invites.each do |invite| %>
+              <% if invite.present? %>
+                <div>
+                  Jobb ID: <%= invite.job_id %><br>
+                  <%= invite.message %><br>
+                  <%= link_to 'Visa jobb', job_path(invite.job_id), class: 'button-green' %>
+                </div><br>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @invites, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
     </div>
   </div>
 </div>

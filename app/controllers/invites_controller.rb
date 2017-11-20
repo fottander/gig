@@ -4,7 +4,7 @@ class InvitesController < ApplicationController
 
   def index
     @profile = Profile.find(params[:profile_id])
-    @invites = Invite.where(profile_id: @profile.id)
+    @invites = Invite.where(profile_id: @profile.id).paginate(page: params[:page])
   end
 
   def new
