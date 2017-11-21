@@ -63,7 +63,7 @@ class ProfilesController < ApplicationController
   end
 
   def filtering_params(params)
-    params.slice(:with_category)
+    params.slice(:with_category, :with_city)
   end
 
 end
