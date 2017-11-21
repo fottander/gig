@@ -16,6 +16,7 @@ class Job < ApplicationRecord
                           {content_type: %w(image/jpg image/jpeg image/png image/gif)}
 
   scope :with_category, -> (category) { where category: category }
+  scope :with_city, -> (city) { where city: city }
   scope :expired, -> { where('deadline >= ?', Date.today) }
 
   def s3_credentials
