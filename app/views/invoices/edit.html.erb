@@ -16,28 +16,30 @@
     <div class="simple-form">
       <div class='post-title'><h3>Redigera faktura</h3></div>
       <%= form_for @invoice do |f| %>
-      <% if @invoice.errors.any? %>
-        <% @invoice.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <% if @invoice.errors.any? %>
+          <% @invoice.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= f.label :description, 'Beskrivning', class: 'form-text' %>
-      <%= f.text_area :description, value: @invoice.description %>
-      <%= f.label :quantity, 'Kvantitet(ex. antal timmar)', class: 'form-text' %>
-      <%= f.text_field :quantity, value: @invoice.quantity %>
-      <%= f.label :unit, 'Enhet(ex. 150kr/timma)', class: 'form-text' %>
-      <%= f.text_field :unit, value: @invoice.unit %>
-      <%= f.label :amount, 'Belopp(ex. totalsumma)', class: 'form-text' %>
-      <%= f.text_field :amount, value: @invoice.amount %>
-      <%= f.label :first_day, 'Första dag(ex. 2018-xx-xx)', class: 'form-text' %>
-      <%= f.text_field :first_day, value: @invoice.first_day %>
-      <%= f.label :last_day, 'Sista dag(ex. 2018-xx-xx)', class: 'form-text' %>
-      <%= f.text_field :last_day, value: @invoice.last_day %>
-      <%= f.label :user_reference, 'Referens(förnamn & efternamn)', class: 'form-text' %>
-      <%= f.text_field :user_reference, value: @invoice.user_reference %>
-      <%= f.label :company_reference, 'Företagsreferens', class: 'form-text' %>
-      <%= f.text_field :company_reference, value: @invoice.company_reference %>
-      <%= f.submit 'Spara', class: 'reply-button' %>
+        <% if @invoice.user_id == current_user.id %>
+          <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+          <%= f.text_area :description, value: @invoice.description %>
+          <%= f.label :quantity, 'Kvantitet(ex. antal timmar)', class: 'form-text' %>
+          <%= f.text_field :quantity, value: @invoice.quantity %>
+          <%= f.label :unit, 'Enhet(ex. 150kr/timma)', class: 'form-text' %>
+          <%= f.text_field :unit, value: @invoice.unit %>
+          <%= f.label :amount, 'Belopp(ex. totalsumma)', class: 'form-text' %>
+          <%= f.text_field :amount, value: @invoice.amount %>
+          <%= f.label :first_day, 'Första dag(ex. 2018-xx-xx)', class: 'form-text' %>
+          <%= f.text_field :first_day, value: @invoice.first_day %>
+          <%= f.label :last_day, 'Sista dag(ex. 2018-xx-xx)', class: 'form-text' %>
+          <%= f.text_field :last_day, value: @invoice.last_day %>
+          <%= f.label :user_reference, 'Referens(förnamn & efternamn)', class: 'form-text' %>
+          <%= f.text_field :user_reference, value: @invoice.user_reference %>
+          <%= f.label :company_reference, 'Företagsreferens', class: 'form-text' %>
+          <%= f.text_field :company_reference, value: @invoice.company_reference %>
+          <%= f.submit 'Spara', class: 'reply-button' %>
+        <% end %>
       <% end %>
     </div>
   </div>
