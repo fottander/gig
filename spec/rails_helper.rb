@@ -6,6 +6,8 @@ require 'spec_helper'
 require 'paperclip/matchers'
 ActiveRecord::Migration.maintain_test_schema!
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
@@ -15,6 +17,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.include Warden::Test::Helpers, :type => :request
   config.include Paperclip::Shoulda::Matchers
+  config.include ResponseJSON, type: :request
+  config.include DeviseRequestSpecHelpers, type: :request
 
   config.before(:each) do
     Aws.config[:s3] = {stub_responses: true}
