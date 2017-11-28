@@ -6,71 +6,72 @@
     <%= link_to 'Skapa jobb', new_job_path, class: 'button-menu' %>
     <%= link_to 'Hitta frilansare', profiles_path, class: 'button-menu' %>
   </div>
-
-  <div class="holy-grail-middle">
-    <div class='simple-form'>
-      <div class='post-title'><h3>Fakturadetaljer</h3></div>
-      <div class="large-6 columns">
-        <div class='invoice-details'>
-        Faktura ID: <%= @invoice.id %><br>
-        Jobb ID: <%= @invoice.job_id %><br>
-        Ansöknings ID: <%= @invoice.application_id %><br>
-        Profil: <%= @invoice.profile_username %><br>
-        Beskrivning: <%= @invoice.description %> <br>
-        Referens: <%= @invoice.user_reference %><br>
-        Er referens: <%= @invoice.company_reference %><br>
-        Startdag: <%= @invoice.first_day %> <br>
-        Sista dag: <%= @invoice.last_day %><br>
-        Antal timmar: <%= @invoice.quantity %> <br>
-        Enhet: <%= @invoice.unit %> <br>
-        Summa att betala: <%= @invoice.amount %> SEK<br>
-        Villkor: <%= @invoice.terms %> dagar<br>
-        <% if @invoice.post == false %>
-          Leveranssätt: Email <br>
-        <% else %>
-          Leveranssätt: Post <br>
-        <% end %>
-        <% if @invoice.active == false %>
-          <div style="color: red;">Status: Ej godkänd</div>
-        <% else %>
-          <div style="color: green;">Status: Godkänd & skickad</div>
-        <% end %>
-        <% if @invoice.paid == false %>
-          Betalningsstatus: <p style="color: red;">Ej betald</p>
-        <% else %>
-          Betalningsstatus: <p style="color: green;">Betald</p>
-        <% end %>
+  <% if @invoice.company_id == current_company.id %>
+    <div class="holy-grail-middle">
+      <div class='simple-form'>
+        <div class='post-title'><h3>Fakturadetaljer</h3></div>
+        <div class="large-6 columns">
+          <div class='invoice-details'>
+          Faktura ID: <%= @invoice.id %><br>
+          Jobb ID: <%= @invoice.job_id %><br>
+          Ansöknings ID: <%= @invoice.application_id %><br>
+          Profil: <%= @invoice.profile_username %><br>
+          Beskrivning: <%= @invoice.description %> <br>
+          Referens: <%= @invoice.user_reference %><br>
+          Er referens: <%= @invoice.company_reference %><br>
+          Startdag: <%= @invoice.first_day %> <br>
+          Sista dag: <%= @invoice.last_day %><br>
+          Antal timmar: <%= @invoice.quantity %> <br>
+          Enhet: <%= @invoice.unit %> <br>
+          Summa att betala: <%= @invoice.amount %> SEK<br>
+          Villkor: <%= @invoice.terms %> dagar<br>
+          <% if @invoice.post == false %>
+            Leveranssätt: Email <br>
+          <% else %>
+            Leveranssätt: Post <br>
+          <% end %>
+          <% if @invoice.active == false %>
+            <div style="color: red;">Status: Ej godkänd</div>
+          <% else %>
+            <div style="color: green;">Status: Godkänd & skickad</div>
+          <% end %>
+          <% if @invoice.paid == false %>
+            Betalningsstatus: <p style="color: red;">Ej betald</p>
+          <% else %>
+            Betalningsstatus: <p style="color: green;">Betald</p>
+          <% end %>
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <% if @invoice.active == false %>
+            <h4>Godkänn faktura</h4>
+            <div class='post-title'>
+              <p>Vill du rekommendera <%= @invoice.profile_username %> till andra?</p>
+            </div>
+            <%= form_tag activate_invoice_path(@invoice), method: :patch do %>
+            <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
+            <%= hidden_field_tag :terms, '30' %>
+            <%= check_box_tag :terms, checked = '60' %>
+            Klicka för 60 dagars fakturatid(+500kr)<br>
+            <%= hidden_field_tag :post, false %>
+            <%= check_box_tag :post, checked = true %>
+            Klicka för att få fakturan på posten(+40kr)<br>
+            <%= submit_tag 'Godkänn', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+            <% end %>
+          <% else %>
+            <% if @invoice.paid == false %>
+            <p class="holy-grail-left-application" style='color: #f77d0e;'>
+              Fakturan ska betalas innan <%= @due_date.strftime("%F") %><br>
+              Om du har några frågor får ni gärna kontakta kundtjänsten.
+            </p>
+            <% else %>
+            <p class="holy-grail-left-application" style='color: #f77d0e;'>
+              Fakturan är betald!
+            </p>
+            <% end %>
+          <% end %>
         </div>
       </div>
-      <div class="large-6 columns">
-        <% if @invoice.active == false %>
-          <h4>Godkänn faktura</h4>
-          <div class='post-title'>
-            <p>Vill du rekommendera <%= @invoice.profile_username %> till andra?</p>
-          </div>
-          <%= form_tag activate_invoice_path(@invoice), method: :patch do %>
-          <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
-          <%= hidden_field_tag :terms, '30' %>
-          <%= check_box_tag :terms, checked = '60' %>
-          Klicka för 60 dagars fakturatid(+500kr)<br>
-          <%= hidden_field_tag :post, false %>
-          <%= check_box_tag :post, checked = true %>
-          Klicka för att få fakturan på posten(+40kr)<br>
-          <%= submit_tag 'Godkänn', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-          <% end %>
-        <% else %>
-          <% if @invoice.paid == false %>
-          <p class="holy-grail-left-application" style='color: #f77d0e;'>
-            Fakturan ska betalas innan <%= @due_date.strftime("%F") %><br>
-            Om du har några frågor får ni gärna kontakta kundtjänsten.
-          </p>
-          <% else %>
-          <p class="holy-grail-left-application" style='color: #f77d0e;'>
-            Fakturan är betald!
-          </p>
-          <% end %>
-        <% end %>
-      </div>
     </div>
-  </div>
+  <% end %>
 </div>
