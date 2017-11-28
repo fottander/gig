@@ -13,4 +13,3 @@ json.company_id @job.company_id
 json.company_city @job.company_city
 json.created_at @job.created_at
 json.updated_at @job.updated_at
-json.avatar @job.avatar
