@@ -4,6 +4,13 @@ Job.delete_all
 Profile.delete_all
 User.delete_all
 Company.delete_all
+Admin.delete_all
+
+Admin.create(
+  email: "admin@yahoo.com",
+  password: "123456",
+  id: 99999
+  )
 
 Category.create(
   name: "Målare",
@@ -211,4 +218,5 @@ puts "Created #{Category.count} category"
 puts "Created #{Company.count} company"
 puts "Created #{User.count} user"
 puts "Created #{Job.count} job"
+puts "Created #{Admin.count} admin"
 puts "Created #{Application.count} application"
