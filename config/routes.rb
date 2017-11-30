@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+  
   devise_for :companies, controllers: {
     registrations: 'companies/registrations'
   }
@@ -46,5 +48,5 @@ Rails.application.routes.draw do
       patch :activate
     end
   end
-  
+
 end
