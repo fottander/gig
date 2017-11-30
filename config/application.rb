@@ -21,11 +21,5 @@ module Gig
       generate.routing_specs false
       generate.controller_specs false
     end
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', :headers => :any, :methods => [:get, :post, :options]
-      end
-    end
   end
 end
