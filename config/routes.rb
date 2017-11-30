@@ -46,18 +46,5 @@ Rails.application.routes.draw do
       patch :activate
     end
   end
-
-  namespace :api do
-    namespace :v1 do
-      resources :jobs, only: [:index, :show], defaults: { format: 'json'} do
-        resources :applications, only: [:show, :index]
-      end
-      resources :profiles, only: [:index, :show], defaults: { format: 'json'}
-      resources :users, only: [:index, :show], defaults: { format: 'json'}
-      resources :companies, only: [:index, :show], defaults: { format: 'json'}
-      resources :categories, only: [:index], defaults: { format: 'json'}
-      resources :invoices, only: [:index, :show], defaults: { format: 'json'}
-    end
-  end
-
+  
 end
