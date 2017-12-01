@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :admins
-  
+  devise_scope :admin do
+    authenticated :admin do
+      root to: 'administrations#index'
+    end
+  end
+
   devise_for :companies, controllers: {
     registrations: 'companies/registrations'
   }
