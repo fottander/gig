@@ -29,8 +29,6 @@ Feature: Admin find companies
       Given I am on the administrations page
       And I click "Företag"
       And I should see "Alla företag"
-      And I should see "felix@mail.com"
-      And I should see "johan@mail.com"
       And I fill in "with_name" with "brag"
       And I click "Sök"
       Then I should not see "felix@mail.com"
@@ -41,8 +39,6 @@ Feature: Admin find companies
       Given I am on the administrations page
       And I click "Företag"
       And I should see "Alla företag"
-      And I should see "felix@mail.com"
-      And I should see "johan@mail.com"
       And I fill in "with_id" with "9999"
       And I click "Sök"
       Then I should see "felix@mail.com"

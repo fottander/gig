@@ -29,8 +29,6 @@ Feature: Admin find users
       Given I am on the administrations page
       And I click "Användare"
       And I should see "Alla användare"
-      And I should see "felix@yahoo.com"
-      And I should see "johan@yahoo.com"
       And I fill in "with_id" with "9999"
       And I click "Sök"
       Then I should see "felix@yahoo.com"

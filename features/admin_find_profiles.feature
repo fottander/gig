@@ -36,8 +36,6 @@ Feature: Admin find profiles
       Given I am on the administrations page
       And I click "Frilansare"
       And I should see "Alla frilansare"
-      And I should see "Fisken"
-      And I should see "Greger"
       And I fill in "with_id" with "9999"
       And I click "Sök"
       Then I should see "Fisken"
