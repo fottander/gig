@@ -51,6 +51,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:create]
+
   resources :adminjobs, only: [:index, :show]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
