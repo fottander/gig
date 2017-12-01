@@ -39,6 +39,11 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Nya fakturor</h3>
           <p class="portfolio-resume-subheader">
+            <% @invoices.each do |invoice| %>
+              ID: <%= invoice.id %><br>
+              User ID: <%= invoice.user_id %><br>
+              Company ID: <%= invoice.company_id %><br><br>
+            <% end %>
           </p>
         </div>
       </div>
@@ -47,6 +52,11 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Nya Jobb</h3>
           <p class="portfolio-resume-subheader">
+            <% @jobs.each do |job| %>
+              <%= job.id %><br>
+              <%= job.title %><br>
+              <%= job.company_username %><br><br>
+            <% end %>
           </p>
         </div>
       </div>
