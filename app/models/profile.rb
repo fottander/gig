@@ -2,6 +2,7 @@ class Profile < ApplicationRecord
   validates_presence_of :username, :title, :description, :city, :category_ids
   belongs_to :user
   has_many :applications, dependent: :destroy
+  has_many :invites, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
