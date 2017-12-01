@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: [:create]
+  resources :categories, only: [:create, :destroy, :edit, :update]
 
   resources :adminjobs, only: [:index, :show]
 
