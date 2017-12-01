@@ -10,6 +10,6 @@ class UsersController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:with_email)
+    params.slice(:with_email, :with_id)
   end
 end

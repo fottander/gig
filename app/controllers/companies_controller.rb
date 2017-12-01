@@ -10,6 +10,6 @@ class CompaniesController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:with_email, :with_name)
+    params.slice(:with_email, :with_name, :with_id)
   end
 end

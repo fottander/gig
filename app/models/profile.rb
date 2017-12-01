@@ -19,6 +19,8 @@ class Profile < ApplicationRecord
 
   scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
   scope :with_city, -> (city) { where city: city }
+  scope :with_username, -> (username) { where username: username }
+  scope :with_id, -> (id) { where id: id }
 
   def s3_credentials
    {

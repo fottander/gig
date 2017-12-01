@@ -3,11 +3,10 @@
   <div class="holy-grail-left">
     <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
     <%= link_to 'Användare', users_path, class: 'button-menu' %>
-    <%= link_to 'Frilansare', profiles_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
     <%= link_to 'Företag', companies_path, class: 'button-menu' %>
     <%= link_to 'Jobb', jobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
-    <%= link_to 'Logga ut', destroy_admin_session_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -16,7 +15,8 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Alla användare</h3>
           <%= form_tag users_path, method: 'get' do %>
-              <%= text_field_tag :with_email, nil, placeholder: 'Sök email' %>
+              <%= text_field_tag :with_email, nil, placeholder: 'Sök efter email' %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter id' %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
           <% end %>
           <p class="portfolio-resume-subheader">

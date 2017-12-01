@@ -53,6 +53,8 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 
+  resources :adminprofiles, only: [:index]
+
   resources :invoices, only: [:create, :show, :edit, :update, :destroy, :index] do
     member do
       patch :update
