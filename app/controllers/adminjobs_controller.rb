@@ -7,6 +7,11 @@ class AdminjobsController < ApplicationController
     end
   end
 
+  def show
+    @job = Job.find(params[:id])
+    @applications = Application.where(job_id: @job.id)
+  end
+
   private
 
   def filtering_params(params)

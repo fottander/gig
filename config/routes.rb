@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :adminjobs, only: [:index]
+  resources :adminjobs, only: [:index, :show]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 

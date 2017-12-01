@@ -23,7 +23,7 @@
           <p class="portfolio-resume-subheader">
             <% @jobs.each do |job| %>
                 <span class='item-define'>ID:</span> <%= job.id %><br>
-                <span class='item-define'>Titel:</span> <%= job.title %><br>
+                <span class='item-define'>Titel:</span> <%= link_to job.title, adminjob_path(job) %><br>
                 <span class='item-define'>Beskrivning:</span> <%= job.description %><br>
                 <span class='item-define'>Krav:</span> <%= job.requirement %><br>
                 <span class='item-define'>Kategori:</span> <%= job.category %><br>
