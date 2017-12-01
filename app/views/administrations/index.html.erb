@@ -1,0 +1,66 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+
+      <div class="large-4 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Kategorier</h3>
+          <p class="portfolio-resume-subheader">
+            Skapa ny kategori
+            <p class="portfolio-resume-subheader">
+              <%= form_tag categories_path(@category) do %>
+              <%= text_field_tag :name, nil, placeholder: 'Namn' %>
+              <%= submit_tag 'Skapa kategori', class: 'profile-button-expand' %>
+              <% end %>
+            </p>
+            <% @categories.each do |category| %>
+              <div class='category-<%= category.id %>'>
+                <%= category.id %>
+                <%= category.name %><br>
+                <%= link_to 'Delete', category_path(category), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
+                <%= link_to 'Edit', edit_category_path(category), class: 'button-green' %><br><br>
+              </div>
+            <% end %>
+          </p>
+        </div>
+      </div>
+
+      <div class="large-4 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Nya fakturor</h3>
+          <p class="portfolio-resume-subheader">
+            <% @invoices.each do |invoice| %>
+              ID: <%= invoice.id %><br>
+              User ID: <%= invoice.user_id %><br>
+              Company ID: <%= invoice.company_id %><br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+
+      <div class="large-4 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Nya Jobb</h3>
+          <p class="portfolio-resume-subheader">
+            <% @jobs.each do |job| %>
+              <%= job.id %><br>
+              <%= job.title %><br>
+              <%= job.company_username %><br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

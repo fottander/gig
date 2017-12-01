@@ -34,6 +34,7 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to belong_to :user }
     it { should have_and_belong_to_many(:categories) }
     it { is_expected.to have_many :applications}
+    it { is_expected.to have_many :invites}
   end
 
   describe 'Factory' do

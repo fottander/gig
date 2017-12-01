@@ -1,0 +1,43 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Alla frilansare</h3>
+          <%= form_tag adminprofiles_path, method: 'get' do %>
+              <%= text_field_tag :with_username, nil, placeholder: 'Sök efter username' %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter id' %>
+              <%= submit_tag 'Sök', class: 'filter-button' %>
+          <% end %>
+          <p class="portfolio-resume-subheader">
+            <% @profiles.each do |profile| %>
+                <span class='item-define'>ID:</span> <%= profile.id %><br>
+                <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
+                <span class='item-define'>Titel:</span> <%= profile.title %> <br>
+                <span class='item-define'>Beskrivning:</span> <%= profile.description %> <br>
+                <span class='item-define'>Färdigheter:</span> <%= profile.skill %> <br>
+                <span class='item-define'>Lön:</span> <%= profile.rate %> <br>
+                <span class='item-define'>Stad:</span> <%= profile.city %> <br>
+                <span class='item-define'>Skapad:</span> <%= profile.created_at %> <br>
+                <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at %> <br>
+                <span class='item-define'>User ID:</span> <%= profile.user_id %> <br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @profiles, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
+  </div>
+</div>

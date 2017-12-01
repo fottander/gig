@@ -2,6 +2,7 @@ class Profile < ApplicationRecord
   validates_presence_of :username, :title, :description, :city, :category_ids
   belongs_to :user
   has_many :applications, dependent: :destroy
+  has_many :invites, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
@@ -18,6 +19,8 @@ class Profile < ApplicationRecord
 
   scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
   scope :with_city, -> (city) { where city: city }
+  scope :with_username, -> (username) { where username: username }
+  scope :with_id, -> (id) { where id: id }
 
   def s3_credentials
    {

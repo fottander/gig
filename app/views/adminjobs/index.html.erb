@@ -1,0 +1,50 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Alla jobb</h3>
+          <%= form_tag adminjobs_path, method: 'get' do %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter id' %>
+              <%= text_field_tag :with_company_username, nil, placeholder: 'Sök företags användarnamn' %>
+              <%= text_field_tag :with_company_id, nil, placeholder: 'Sök företags ID' %>
+              <%= submit_tag 'Sök', class: 'filter-button' %>
+          <% end %>
+          <p class="portfolio-resume-subheader">
+            <% @jobs.each do |job| %>
+                <span class='item-define'>ID:</span> <%= job.id %><br>
+                <span class='item-define'>Titel:</span> <%= link_to job.title, adminjob_path(job) %><br>
+                <span class='item-define'>Beskrivning:</span> <%= job.description %><br>
+                <span class='item-define'>Krav:</span> <%= job.requirement %><br>
+                <span class='item-define'>Kategori:</span> <%= job.category %><br>
+                <span class='item-define'>Stad:</span> <%= job.city %><br>
+                <span class='item-define'>Budget:</span> <%= job.budget %><br>
+                <span class='item-define'>Sista ansökningsdag:</span> <%= job.deadline %><br>
+                <span class='item-define'>Varaktighet:</span> <%= job.duration %><br>
+                <span class='item-define'>Timmar/vecka:</span> <%= job.hour_week %><br>
+                <span class='item-define'>Aktiv:</span> <%= job.active %><br>
+                <span class='item-define'>Företags ID:</span> <%= job.company_id %><br>
+                <span class='item-define'>Föratagsstad:</span> <%= job.company_city %><br>
+                <span class='item-define'>Företags användarnamn:</span> <%= job.company_username %><br>
+                <span class='item-define'>Skapad:</span> <%= job.created_at %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= job.updated_at %><br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @jobs, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
+  </div>
+</div>

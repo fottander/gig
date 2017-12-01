@@ -1,0 +1,31 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Edit kategori <%= @category.id %></h3>
+          <%= form_for @category do |f| %>
+            <% if @category.errors.any? %>
+              <% @category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            <% end %>
+              <%= f.label :name, 'Namn', class: 'form-text' %>
+              <%= f.text_field :name, value: @category.name %>
+              <%= f.submit 'Spara', class: 'reply-button' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

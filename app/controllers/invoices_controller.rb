@@ -1,6 +1,14 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
   before_action :authenticate_company!, only: [:show, :activate]
+  before_action :authenticate_admin!, only: [:index]
+  def index
+    @invoices = Invoice.where(nil).paginate(page: params[:page])
+    filtering_params(params).each do |key, value|
+      @invoices = @invoices.public_send(key, value) if value.present?
+    end
+  end
+
   def create
     @profile = Profile.find_by(user_id: current_user)
     @invoice = Invoice.new invoice_params
@@ -75,6 +83,10 @@ class InvoicesController < ApplicationController
   end
 
   private
+
+  def filtering_params(params)
+    params.slice(:with_id, :with_user_id, :with_company_id)
+  end
 
   def invoice_params
     params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)

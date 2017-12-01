@@ -1,0 +1,54 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Jobb <%= @job.id %></h3>
+          <p class="portfolio-resume-subheader">
+            <span class='item-define'>ID:</span> <%= @job.id %><br>
+            <span class='item-define'>Titel:</span> <%= @job.title %><br>
+            <span class='item-define'>Beskrivning:</span> <%= @job.description %><br>
+            <span class='item-define'>Krav:</span> <%= @job.requirement %><br>
+            <span class='item-define'>Kategori:</span> <%= @job.category %><br>
+            <span class='item-define'>Stad:</span> <%= @job.city %><br>
+            <span class='item-define'>Budget:</span> <%= @job.budget %><br>
+            <span class='item-define'>Sista ansökningsdag:</span> <%= @job.deadline %><br>
+            <span class='item-define'>Varaktighet:</span> <%= @job.duration %><br>
+            <span class='item-define'>Timmar/vecka:</span> <%= @job.hour_week %><br>
+            <span class='item-define'>Aktiv:</span> <%= @job.active %><br>
+            <span class='item-define'>Företags ID:</span> <%= @job.company_id %><br>
+            <span class='item-define'>Föratagsstad:</span> <%= @job.company_city %><br>
+            <span class='item-define'>Företags användarnamn:</span> <%= @job.company_username %><br>
+            <span class='item-define'>Skapad:</span> <%= @job.created_at %><br>
+            <span class='item-define'>Uppdaterad:</span> <%= @job.updated_at %><br><br>
+          </p>
+          Ansökningar:
+          <p class="portfolio-resume-subheader">
+            <% @applications.each do |application| %>
+              <span class='item-define'>ID:</span> <%= application.id %><br>
+              <span class='item-define'>Meddelande:</span> <%= application.message %><br>
+              <span class='item-define'>Hired:</span> <%= application.hired %><br>
+              <span class='item-define'>Complete:</span> <%= application.complete %><br>
+              <span class='item-define'>Jobb ID:</span> <%= application.job_id %><br>
+              <span class='item-define'>Frilansar ID:</span> <%= application.profile_id %><br>
+              <span class='item-define'>Frilansar användarnman:</span> <%= application.profile_username %><br>
+              <span class='item-define'>Jobb titel:</span> <%= application.job_id %><br>
+              <span class='item-define'>Skapad:</span> <%= application.created_at %><br>
+              <span class='item-define'>Uppdaterad:</span> <%= application.updated_at %><br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Alla användare</h3>
+          <%= form_tag users_path, method: 'get' do %>
+              <%= text_field_tag :with_email, nil, placeholder: 'Sök efter email' %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter id' %>
+              <%= submit_tag 'Sök', class: 'filter-button' %>
+          <% end %>
+          <p class="portfolio-resume-subheader">
+            <% @users.each do |user| %>
+                <span class='item-define'>ID:</span> <%= user.id %><br>
+                <span class='item-define'>Namn:</span> <%= user.first_name %> <%= user.last_name %> <br>
+                <span class='item-define'>Email:</span> <%= user.email %><br>
+                <span class='item-define'>Telefon:</span> <%= user.phone %><br>
+                <span class='item-define'>Bank:</span> <%= user.bank %><br>
+                <span class='item-define'>Clearingnummer:</span> <%= user.clear_nr %><br>
+                <span class='item-define'>Kontonummer:</span> <%= user.account_nr %><br>                <span class='item-define'>Kontonummer:</span> <%= user.account_nr %><br><br>
+                <span class='item-define'>Skapad:</span> <%= user.created_at %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= user.updated_at %><br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @users, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
+  </div>
+</div>
