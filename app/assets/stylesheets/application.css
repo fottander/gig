@@ -711,6 +711,13 @@
    text-align: center;
  }
 
+ .site-footer-title a {
+   color: #ffff;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 500;
+   font-size: 10px;
+ }
+
  /* DASHBOARD */
 
 .holy-grail-grid {

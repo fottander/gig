@@ -13,3 +13,9 @@ Given("the following companies exist") do |table|
     create(:company, hash)
   end
 end
+
+Given("the following admins exist") do |table|
+  table.hashes.each do |hash|
+    create(:admin, hash)
+  end
+end
