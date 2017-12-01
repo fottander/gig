@@ -12,3 +12,10 @@ Given("the following admins exist") do |table|
     create(:admin, hash)
   end
 end
+
+Given("I click button {string} in {string}") do |button, category_name|
+  category = Category.find_by(name: category_name)
+  within ".category-#{category.id}" do
+    click_link_or_button button
+  end
+end

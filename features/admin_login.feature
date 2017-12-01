@@ -16,6 +16,5 @@ Feature: Admin login
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       Then I should see "Välkommen! Du är inloggad."
-      And I should see "Admin sektion"
       And I click "LOGGA UT"
       Then I should see "Utloggad"
