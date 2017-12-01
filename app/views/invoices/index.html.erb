@@ -5,7 +5,7 @@
     <%= link_to 'Användare', users_path, class: 'button-menu' %>
     <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
     <%= link_to 'Företag', companies_path, class: 'button-menu' %>
-    <%= link_to 'Jobb', jobs_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
   </div>
 
@@ -43,7 +43,7 @@
                 <span class='item-define'>Post:</span> <%= invoice.post %><br>
                 <span class='item-define'>Feedback:</span> <%= invoice.feedback %><br>
                 <span class='item-define'>Skapad:</span> <%= invoice.created_at %><br>
-                <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at %><br><br>
             <% end %>
           </p>
         </div>
