@@ -20,6 +20,11 @@
  color: #6D6D6D;
 }
 
+.item-define {
+  color: black;
+  font-weight: 700;
+}
+
 #notice-wrapper {
   width: 100%;
   background: rgba(65, 218, 81, 0.85);

@@ -16,16 +16,25 @@
       <% if company_signed_in? %>
        <%= link_to "KONTROLLPANEL", panels_path %>
        <%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %>
+       <%= link_to "HITTA JOBB", jobs_path %>
+       <%= link_to "HITTA FRILANSARE", profiles_path %>
+       <%= link_to "SKAPA ANNONS", new_job_path %>
        <% elsif user_signed_in? %>
        <%= link_to "KONTROLLPANEL", dashboards_path %>
        <%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %>
+       <%= link_to "HITTA JOBB", jobs_path %>
+       <%= link_to "HITTA FRILANSARE", profiles_path %>
+       <%= link_to "SKAPA ANNONS", new_job_path %>
+       <% elsif admin_signed_in? %>
+       <%= link_to "ADMINISTRATION", administrations_path %>
+       <%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %>
        <% else %>
        <%= link_to "LOGGA IN", new_user_session_path %>
        <%= link_to "REGISTRERA", new_user_registration_path %>
+       <%= link_to "HITTA JOBB", jobs_path %>
+       <%= link_to "HITTA FRILANSARE", profiles_path %>
+       <%= link_to "SKAPA ANNONS", new_job_path %>
       <% end %>
-      <%= link_to "HITTA JOBB", jobs_path %>
-      <%= link_to "HITTA FRILANSARE", profiles_path %>
-      <%= link_to "SKAPA ANNONS", new_job_path %>
       <a href="javascript:void(0);" class="icon" onclick="myNav()">&#9776;</a>
     </div>
     <hr>

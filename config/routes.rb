@@ -27,6 +27,10 @@ Rails.application.routes.draw do
 
   root controller: :index, action: :index
 
+  resources :users, only: [:index]
+
+  resources :companies, only: [:index]
+
   resources :invites, only: [:new, :create, :index]
 
   resources :panels, only: [:index]
@@ -34,6 +38,8 @@ Rails.application.routes.draw do
   resources :payments, only: [:index]
 
   resources :dashboards, only: [:index]
+
+  resources :administrations, only: [:index]
 
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :applications, except: [:index] do
@@ -47,7 +53,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 
-  resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
+  resources :invoices, only: [:create, :show, :edit, :update, :destroy, :index] do
     member do
       patch :update
       patch :activate
