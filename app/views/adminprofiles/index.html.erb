@@ -29,8 +29,8 @@
                 <span class='item-define'>Färdigheter:</span> <%= profile.skill %> <br>
                 <span class='item-define'>Lön:</span> <%= profile.rate %> <br>
                 <span class='item-define'>Stad:</span> <%= profile.city %> <br>
-                <span class='item-define'>Skapad:</span> <%= profile.created_at %> <br>
-                <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at %> <br>
+                <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%D %R") %> <br>
+                <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%D %R") %> <br>
                 <span class='item-define'>User ID:</span> <%= profile.user_id %> <br><br>
             <% end %>
           </p>

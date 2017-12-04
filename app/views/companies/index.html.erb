@@ -33,8 +33,8 @@
                 <span class='item-define'>Telefon:</span> <%= company.phone %><br>
                 <span class='item-define'>Kontakt:</span> <%= company.contact %><br>
                 <span class='item-define'>Fakturaadress:</span> <%= company.invoice_address %><br>
-                <span class='item-define'>Skapad:</span> <%= company.created_at %><br>
-                <span class='item-define'>Uppdaterad:</span> <%= company.updated_at %><br><br>
+                <span class='item-define'>Skapad:</span> <%= company.created_at.strftime("%D %R") %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= company.updated_at.strftime("%D %R") %><br><br>
             <% end %>
           </p>
         </div>

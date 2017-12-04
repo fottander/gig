@@ -29,8 +29,8 @@
             <span class='item-define'>Företags ID:</span> <%= @job.company_id %><br>
             <span class='item-define'>Föratagsstad:</span> <%= @job.company_city %><br>
             <span class='item-define'>Företags användarnamn:</span> <%= @job.company_username %><br>
-            <span class='item-define'>Skapad:</span> <%= @job.created_at %><br>
-            <span class='item-define'>Uppdaterad:</span> <%= @job.updated_at %><br><br>
+            <span class='item-define'>Skapad:</span> <%= @job.created_at.strftime("%D %R") %><br>
+            <span class='item-define'>Uppdaterad:</span> <%= @job.updated_at.strftime("%D %R") %><br><br>
           </p>
           Ansökningar:
           <p class="portfolio-resume-subheader">
@@ -43,8 +43,8 @@
               <span class='item-define'>Frilansar ID:</span> <%= application.profile_id %><br>
               <span class='item-define'>Frilansar användarnman:</span> <%= application.profile_username %><br>
               <span class='item-define'>Jobb titel:</span> <%= application.job_id %><br>
-              <span class='item-define'>Skapad:</span> <%= application.created_at %><br>
-              <span class='item-define'>Uppdaterad:</span> <%= application.updated_at %><br><br>
+              <span class='item-define'>Skapad:</span> <%= application.created_at.strftime("%D %R") %><br>
+              <span class='item-define'>Uppdaterad:</span> <%= application.updated_at.strftime("%D %R") %><br><br>
             <% end %>
           </p>
         </div>
