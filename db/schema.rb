@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130163033) do
+ActiveRecord::Schema.define(version: 20171204134453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(version: 20171130163033) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_jobs", id: false, force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.bigint "job_id", null: false
   end
 
   create_table "categories_profiles", id: false, force: :cascade do |t|
@@ -148,7 +153,6 @@ ActiveRecord::Schema.define(version: 20171130163033) do
     t.string "title"
     t.text "description"
     t.string "requirement"
-    t.string "category"
     t.string "city"
     t.string "budget"
     t.date "deadline"

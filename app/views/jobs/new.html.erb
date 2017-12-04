@@ -25,8 +25,8 @@
       <%= f.text_area :description, placeholder: 'Vad ska frilansaren utföra? Var så utförlig som möjligt.' %>
       <%= f.label :requirement, 'Krav', class: 'form-text' %>
       <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
-      <%= f.label :category, 'Kategori', class: 'form-text' %>
-      <%= f.select :category, options_for_select(Job.category), { prompt: 'Välj kategori' }, { class: 'input-medium' } %>
+      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
       <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Job.city), { prompt: 'Välj stad' }, { class: 'input-medium' } %>
       <%= f.label :budget, 'Lön', class: 'form-text' %>

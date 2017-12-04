@@ -19,7 +19,7 @@
             <span class='item-define'>Titel:</span> <%= @job.title %><br>
             <span class='item-define'>Beskrivning:</span> <%= @job.description %><br>
             <span class='item-define'>Krav:</span> <%= @job.requirement %><br>
-            <span class='item-define'>Kategori:</span> <%= @job.category %><br>
+            <span class='item-define'>Kategori:</span> <%= @job.categories.pluck(:name) %><br>
             <span class='item-define'>Stad:</span> <%= @job.city %><br>
             <span class='item-define'>Budget:</span> <%= @job.budget %><br>
             <span class='item-define'>Sista ansökningsdag:</span> <%= @job.deadline %><br>

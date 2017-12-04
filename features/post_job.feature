@@ -7,6 +7,9 @@ Feature: Post job ad
     Given the following companies exist
       | email          | name | address | zip_code | city | org_number | phone | password  | password_confirmation |
       | felix@mail.com | bill | gatan 3 | 536      | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
+    Given the following categories exist
+      | name   | id |
+      | Målare | 2  |
 
     Scenario: Company tries to post without being logged in
       Given I am on the home page
@@ -21,7 +24,7 @@ Feature: Post job ad
       And I fill in "Titel" with "målare"
       And I fill in "Beskrivning" with "måla hus"
       And I fill in "Krav" with "inga"
-      And I select "Målare" from "Kategori"
+      And I check the Category check box
       And I select "Göteborg" from "Stad"
       And I fill in "Lön" with "130kr/timma"
       And I fill in "job_deadline" with "2018-02-01"
@@ -41,7 +44,7 @@ Feature: Post job ad
       And I fill in "Titel" with ""
       And I fill in "Beskrivning" with "måla hus"
       And I fill in "Krav" with "inga"
-      And I select "Målare" from "Kategori"
+      And I check the Category check box
       And I select "Göteborg" from "Stad"
       And I fill in "Lön" with "130kr/timma"
       And I fill in "job_deadline" with "2018-02-01"
