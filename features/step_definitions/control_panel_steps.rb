@@ -31,10 +31,6 @@ Given("I check Category check box") do
   check 'profile_category_ids_1'
 end
 
-Given("I check the Category check box") do
-  check 'job_category_ids_2'
-end
-
 Then("I uncheck Terms check box") do
   uncheck 'terms'
 end

@@ -26,7 +26,7 @@
       <%= f.label :requirement, 'Krav', class: 'form-text' %>
       <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
-      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
+      <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
       <%= f.label :city, 'Stad', class: 'form-text' %>
       <%= f.select :city, options_for_select(Job.city), { prompt: 'Välj stad' }, { class: 'input-medium' } %>
       <%= f.label :budget, 'Lön', class: 'form-text' %>

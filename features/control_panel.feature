@@ -50,7 +50,6 @@ Feature: Company control panel
       And I click "KONTROLLPANEL"
       And I click "Redigera jobb"
       And I should see "Redigera annons"
-      And I check the Category check box
       And I select "Göteborg" from "Stad"
       And I uncheck Active check box
       And I click "Spara"
