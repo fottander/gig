@@ -11,12 +11,17 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
-    @applications = @job.applications
-    @invoices = Invoice.where(company_id: @job.company_id)
-    add_breadcrumb 'Start', :root_path
-    add_breadcrumb 'Hitta Jobb', :jobs_path
-    add_breadcrumb @job.title
+    if current_user.profile.present?
+      @job = Job.find(params[:id])
+      @applications = @job.applications
+      @invoices = Invoice.where(company_id: @job.company_id)
+      add_breadcrumb 'Start', :root_path
+      add_breadcrumb 'Hitta Jobb', :jobs_path
+      add_breadcrumb @job.title
+    else
+      flash[:notice] = "Skapa en profil innan du kan söka jobb"
+      redirect_back(fallback_location: dashboards_path)
+    end
   end
 
   def edit
