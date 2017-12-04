@@ -54,7 +54,7 @@ Feature: Company control panel
       And I uncheck Active check box
       And I click "Spara"
       And I click "KONTROLLPANEL"
-      Then I should see "Inaktiv"
+      Then I should see "Inaktivt"
       Given I am on the jobs page
       Then I should not see "målare sökes"
 
