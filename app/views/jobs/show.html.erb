@@ -13,8 +13,8 @@
           </li>
           <li>
             Kategorier:
-            |<% @job.categories.each do |category| %>
-              <%= category.name %> |
+            <% @job.categories.each do |category| %>
+              <%= category.name %>
             <% end %>
           </li>
           <li>
