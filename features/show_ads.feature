@@ -4,12 +4,14 @@ Feature: Show job ads
   I would like to browse all the job ads
 
   Background:
+    Given the following categories exist
+      | name        | id |
+      | Målare      | 1  |
     Given the following job ads exist
-      | title        | description | requirement      | category | city | budget      | deadline   | duration | hour_week | active | company_username | created_at |
-      | målare       | måla hus    | 2 års erfarenhet | målare   | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders P         | 2018-01-01 |
-      | snickare     | måla hus    | 2 års erfarenhet | målare   | gbg  | 140kr/timma | 2016-10-10 | 14 dagar | 45        | true   | Greger           | 2018-01-15 |
-      | plåtslagare  | måla hus    | 2 års erfarenhet | målare   | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | false  | Anders P         | 2018-01-31 |
-
+      | title        | description | requirement      | category_ids | city | budget      | deadline   | duration | hour_week | active | company_username | created_at |
+      | målare       | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders P         | 2018-01-01 |
+      | snickare     | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2016-10-10 | 14 dagar | 45        | true   | Greger           | 2018-01-15 |
+      | plåtslagare  | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | false  | Anders P         | 2018-01-31 |
     Scenario: I see job ads
       Given I am on the home page
       And I click "HITTA JOBB"

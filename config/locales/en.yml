@@ -44,7 +44,7 @@ en:
       job:
         title: "Titel"
         description: 'Beskrivning'
-        category: 'Kategori'
+        ccategory_ids: 'Kategori'
         city: 'Stad'
         budget: 'Budget'
         deadline: 'Sista ansökningsdag'
@@ -156,7 +156,7 @@ en:
               blank: "kan inte vara blankt!"
             description:
               blank: "kan inte vara blankt!"
-            category:
+            category_ids:
               blank: "kan inte vara blankt!"
             city:
               blank: "kan inte vara blankt!"

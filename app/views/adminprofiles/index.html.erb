@@ -24,6 +24,7 @@
                 <span class='item-define'>ID:</span> <%= profile.id %><br>
                 <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
                 <span class='item-define'>Titel:</span> <%= profile.title %> <br>
+                <span class='item-define'>Kategori:</span> <%= profile.categories.pluck(:name) %><br>
                 <span class='item-define'>Beskrivning:</span> <%= profile.description %> <br>
                 <span class='item-define'>Färdigheter:</span> <%= profile.skill %> <br>
                 <span class='item-define'>Lön:</span> <%= profile.rate %> <br>

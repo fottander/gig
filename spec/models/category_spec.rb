@@ -11,6 +11,7 @@ RSpec.describe Category, type: :model do
 
     describe 'Associations' do
       it { should have_and_belong_to_many(:profiles) }
+      it { should have_and_belong_to_many(:jobs) }
     end
 
     describe 'Factory' do

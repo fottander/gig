@@ -4,20 +4,20 @@ Feature: Company control panel
   I would like to be able to have an account control panel
 
   Background:
-    Given the following companies exist
-      | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
-      | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
-    Given the following job ads exist
-      | title        | description | requirement      | category | city | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
-      | målare sökes | måla hus    | 2 års erfarenhet | målare   | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
-    Given the following users exist
-      | email          | password  | password_confirmation | id |
-      | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
       | Snickare    | 2  |
       | Plåtslagare | 3  |
+    Given the following companies exist
+      | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
+      | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
+    Given the following job ads exist
+      | title        | description | requirement      | category_ids | city | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
+      | målare sökes | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
+    Given the following users exist
+      | email          | password  | password_confirmation | id |
+      | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following profiles exist
       | username | title        | description | category_ids | city     | user_id | id |
       | Fisken   | 29 år målare | målare gbg  | 1            | Göteborg | 1       | 1  |
@@ -50,12 +50,11 @@ Feature: Company control panel
       And I click "KONTROLLPANEL"
       And I click "Redigera jobb"
       And I should see "Redigera annons"
-      And I select "Målare" from "Kategorier"
       And I select "Göteborg" from "Stad"
       And I uncheck Active check box
       And I click "Spara"
       And I click "KONTROLLPANEL"
-      Then I should see "Inaktiv"
+      Then I should see "Inaktivt"
       Given I am on the jobs page
       Then I should not see "målare sökes"
 

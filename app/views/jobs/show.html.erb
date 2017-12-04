@@ -12,7 +12,10 @@
             Stad: <%= @job.city %>
           </li>
           <li>
-            Kategorier: <%= @job.category %>
+            Kategorier:
+            <% @job.categories.each do |category| %>
+              <%= category.name %>
+            <% end %>
           </li>
           <li>
             Krav: <%= @job.requirement %>

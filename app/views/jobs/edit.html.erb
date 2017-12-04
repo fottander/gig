@@ -21,8 +21,8 @@
       <%= f.text_area :description, value: @job.description %>
       <%= f.label :requirement, 'Krav' %>
       <%= f.text_field :requirement, value: @job.requirement %>
-      <%= f.label :category, 'Kategorier' %>
-      <%= f.select :category, options_for_select(Job.category, selected: @job.category), { include_blank: true } %>
+      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+      <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
       <%= f.label :city, 'Stad' %>
       <%= f.select :city, options_for_select(Job.city, selected: @job.city), { include_blank: true } %>
       <%= f.label :budget, 'Lön' %>

@@ -1,7 +1,8 @@
 class Job < ApplicationRecord
-  validates_presence_of :title, :description, :category, :city, :budget, :deadline, :duration, :hour_week
+  validates_presence_of :title, :description, :category_ids, :city, :budget, :deadline, :duration, :hour_week
   belongs_to :company
   has_many :applications, dependent: :destroy
+  has_and_belongs_to_many :categories, dependent: :destroy
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
                        storage: :s3,
@@ -15,7 +16,7 @@ class Job < ApplicationRecord
                         content_type:
                           {content_type: %w(image/jpg image/jpeg image/png image/gif)}
 
-  scope :with_category, -> (category) { where category: category }
+  scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
   scope :with_city, -> (city) { where city: city }
   scope :with_id, -> (id) { where id: id }
   scope :expired, -> { where('deadline >= ?', Date.today) }
@@ -35,10 +36,6 @@ class Job < ApplicationRecord
 
   def self.city
     ['Hela sverige', 'Göteborg', 'Malmö', 'Stockholm']
-  end
-
-  def self.category
-    ['Målare', 'Snickare', 'Plåtslagare', 'Lagerarbetare']
   end
 
   self.per_page = 5
