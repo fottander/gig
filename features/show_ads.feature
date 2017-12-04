@@ -12,6 +12,7 @@ Feature: Show job ads
       | målare       | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders P         | 2018-01-01 |
       | snickare     | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2016-10-10 | 14 dagar | 45        | true   | Greger           | 2018-01-15 |
       | plåtslagare  | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | false  | Anders P         | 2018-01-31 |
+
     Scenario: I see job ads
       Given I am on the home page
       And I click "HITTA JOBB"
