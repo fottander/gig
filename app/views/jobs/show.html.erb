@@ -44,10 +44,12 @@
           Jobb ID: <%= @job.id %>
           <p><%= @job.description %></p>
         </div>
-        <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>
-          <span style='color: #f77d0e;'>Du har redan ansökt till detta jobbet!</span>
-        <% else %>
-          <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button' %>
+        <% if current_user.present? %>
+          <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>
+            <span style='color: #f77d0e;'>Du har redan ansökt till detta jobbet!</span>
+          <% else %>
+            <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button' %>
+          <% end %>
         <% end %>
       </div>
     </div>
