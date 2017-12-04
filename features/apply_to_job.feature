@@ -48,4 +48,5 @@ Feature: Apply to job
       Given I am on the jobs page
       And I should see "målare"
       And I click "Ansök"
-      Then I should see "Skapa en profil innan du kan söka jobb"
+      And I click "Ansök"
+      Then I should see "Var vänlig skapa en profil innan du ansöker till jobb"

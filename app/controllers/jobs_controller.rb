@@ -17,12 +17,6 @@ class JobsController < ApplicationController
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Jobb', :jobs_path
     add_breadcrumb @job.title
-    if current_user.present?
-      if current_user.profile.nil?
-        flash[:notice] = "Skapa en profil innan du kan söka jobb"
-        redirect_back(fallback_location: dashboards_path)
-      end
-    end
   end
 
   def edit
