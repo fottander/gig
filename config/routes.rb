@@ -43,6 +43,10 @@ Rails.application.routes.draw do
 
   resources :administrations, only: [:index]
 
+  get 'applications' => 'applications#index', as: :applications
+
+  resources :filter_applications, only: [:index]
+
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :applications, except: [:index] do
       member do

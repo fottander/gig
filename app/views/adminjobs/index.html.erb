@@ -7,6 +7,7 @@
     <%= link_to 'Företag', companies_path, class: 'button-menu' %>
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -15,7 +16,7 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Alla jobb</h3>
           <%= form_tag adminjobs_path, method: 'get' do %>
-              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter id' %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
               <%= text_field_tag :with_company_username, nil, placeholder: 'Sök företags användarnamn' %>
               <%= text_field_tag :with_company_id, nil, placeholder: 'Sök företags ID' %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
