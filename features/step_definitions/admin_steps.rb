@@ -19,3 +19,10 @@ Given("I click button {string} in {string}") do |button, category_name|
     click_link_or_button button
   end
 end
+
+Given("I click link {string} in {string}") do |button, invoice_description|
+  invoice = Invoice.find_by(description: invoice_description)
+  within ".invoice-#{invoice.id}" do
+    click_link_or_button button
+  end
+end

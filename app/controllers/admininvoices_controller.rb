@@ -1,5 +1,5 @@
 class AdmininvoicesController < ApplicationController
-  before_action :authenticate_admin!, only: [:index, :show]
+  before_action :authenticate_admin!
 
   def index
     @invoices = Invoice.where(nil).paginate(page: params[:page])

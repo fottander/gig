@@ -39,14 +39,14 @@
               <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%D %R") %><br>
               <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%D %R") %>
           </p>
-          <% if @invoice.active = true %>
-            <% if @invoice.paid = true %>
-              <span style='color: green;'>Fakturan har blivit betald</span>
-            <% else %>
-              <%= link_to 'Betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-            <% end %>
-          <% else %>
+          <% if @invoice.active == false %>
             Kan inte markeras som betald förrän fakturan är godkänd av kund
+          <% else %>
+            <% if @invoice.paid == false %>
+              <%= link_to 'Betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+            <% else %>
+              <span style='color: green;'>Fakturan har blivit betald</span>
+            <% end %>
           <% end %>
         </div>
       </div>
