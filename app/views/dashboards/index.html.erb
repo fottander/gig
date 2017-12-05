@@ -132,6 +132,9 @@
           <h3 class="portfolio-resume-header">Fakturor</h3>
           <% if @invoices.present? %>
             <% @invoices.each do |invoice| %>
+              <% @jobs.where(id: invoice.job_id).each do |job| %>
+                <%= link_to job.title, job_path(job.id) %><br>
+              <% end %>
               <p class="portfolio-resume-subheader">
               Faktura ID: <%= invoice.id %> <br>
               Jobb ID: <%= invoice.job_id %> <br>
