@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   scope :with_email, -> (email) { where email: email }
   scope :with_id, -> (id) { where id: id }
+  scope :without_profile, -> { left_outer_joins(:profile).where(profiles: { id: nil }) }
 
   self.per_page = 10
 end

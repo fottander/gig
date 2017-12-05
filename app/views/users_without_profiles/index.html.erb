@@ -13,15 +13,15 @@
     <div class="portfolio-resume row">
       <div class="large-12 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Alla användare</h3>
+          <h3 class="portfolio-resume-header">Alla användare utan profil</h3>
           <%= form_tag users_path, method: 'get' do %>
               <%= text_field_tag :with_email, nil, placeholder: 'Sök efter email' %>
               <%= text_field_tag :with_id, nil, placeholder: 'Sök efter id' %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
-              <%= link_to 'Utan profil', users_without_profiles_path, class: 'filter-button' %>
+              <%= link_to 'Tillbaka', users_path, class: 'filter-button' %>
           <% end %>
           <p class="portfolio-resume-subheader">
-            <% @users.each do |user| %>
+            <% @users.without_profile.each do |user| %>
                 <span class='item-define'>ID:</span> <%= user.id %><br>
                 <span class='item-define'>Namn:</span> <%= user.first_name %> <%= user.last_name %> <br>
                 <span class='item-define'>Email:</span> <%= user.email %><br>

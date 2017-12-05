@@ -7,12 +7,18 @@ Feature: Admin find users
     Given the following admins exist
       | email           | password  | password_confirmation |
       | admin@yahoo.com | 12345678  | 12345678              |
+    Given the following categories exist
+      | name        | id |
+      | Målare      | 1  |
     Given the following users exist
       | email           | password  | password_confirmation | id   |
       | felix@yahoo.com | 12345678  | 12345678              | 9999 |
       | johan@yahoo.com | 12345678  | 12345678              | 9998 |
+    Given the following profiles exist
+      | username | title        | description | category_ids | city     | user_id | id   |
+      | Fisken   | målare 29 år | målare gbg  | 1            | Göteborg | 9999    | 9999 |
 
-    Scenario: I see users
+    Scenario: I see users and search by email
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
       And I click "Användare"
@@ -33,3 +39,7 @@ Feature: Admin find users
       And I click "Sök"
       Then I should see "felix@yahoo.com"
       And I should not see "johan@yahoo.com"
+      And I click "Användare"
+      And I click "Utan profil"
+      Then I should see "johan@yahoo.com"
+      And I should not see "felix@yahoo.com"
