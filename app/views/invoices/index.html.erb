@@ -7,6 +7,7 @@
     <%= link_to 'Företag', companies_path, class: 'button-menu' %>
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -42,8 +43,8 @@
                 <span class='item-define'>Frilansar användarnamn:</span> <%= invoice.profile_username %><br>
                 <span class='item-define'>Post:</span> <%= invoice.post %><br>
                 <span class='item-define'>Feedback:</span> <%= invoice.feedback %><br>
-                <span class='item-define'>Skapad:</span> <%= invoice.created_at %><br>
-                <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at %><br><br>
+                <span class='item-define'>Skapad:</span> <%= invoice.created_at.strftime("%D %R") %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at.strftime("%D %R") %><br><br>
             <% end %>
           </p>
         </div>

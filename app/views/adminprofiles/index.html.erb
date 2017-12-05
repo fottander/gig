@@ -7,6 +7,7 @@
     <%= link_to 'Företag', companies_path, class: 'button-menu' %>
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -29,8 +30,8 @@
                 <span class='item-define'>Färdigheter:</span> <%= profile.skill %> <br>
                 <span class='item-define'>Lön:</span> <%= profile.rate %> <br>
                 <span class='item-define'>Stad:</span> <%= profile.city %> <br>
-                <span class='item-define'>Skapad:</span> <%= profile.created_at %> <br>
-                <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at %> <br>
+                <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%D %R") %> <br>
+                <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%D %R") %> <br>
                 <span class='item-define'>User ID:</span> <%= profile.user_id %> <br><br>
             <% end %>
           </p>

@@ -25,8 +25,9 @@ Feature: Admin find invoices
       | username | title        | description | category_ids | city     | user_id | id |
       | Fisken   | 29 år målare | målare gbg  | 1            | Göteborg | 1       | 1  |
     Given the following applications exist
-      | message    | job_id | profile_username | profile_id | job_title    |
-      | I want job | 9999   | Fisken           | 1          | målare sökes |
+      | message     | job_id | profile_username | profile_id | job_title    | updated_at | hired | complete |
+      | I want job  | 9999   | Fisken           | 1          | målare sökes | 2017-12-03 | true  | false    |
+      | Give me job | 9999   | Fisken           | 1          | målare sökes | 2017-09-03 | true  | false    |
 
     Scenario: I see jobs and search by title
       Given I am logged in as admin "admin@yahoo.com"
@@ -64,3 +65,9 @@ Feature: Admin find invoices
       And I should see "Alla jobb"
       And I click "målare sökes"
       Then I should see "I want job"
+      Given I am on the administrations page
+      And I click "Ansökningar"
+      And I should see "I want job"
+      And I click "Filtrera ej färdiga"
+      Then I should see "Give me job"
+      And I should not see "I want job"

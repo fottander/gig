@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index]
 
+  resources :users_without_profiles, only: [:index]
+
   resources :companies, only: [:index]
 
   resources :invites, only: [:new, :create, :index]
@@ -40,6 +42,10 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:index]
 
   resources :administrations, only: [:index]
+
+  get 'applications' => 'applications#index', as: :applications
+
+  resources :filter_applications, only: [:index]
 
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :applications, except: [:index] do

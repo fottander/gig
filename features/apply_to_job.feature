@@ -44,6 +44,11 @@ Feature: Apply to job
       Then I should see "Du har redan ansökt till detta jobbet!"
 
     Scenario: I apply to a job without a profile
+      Given I am on the jobs page
+      And I should see "målare"
+      And I click "Ansök"
+      And I click "Ansök"
+      Then I should see "Du måste logga in eller registrera dig innan du fortsätter."
       Given I am logged in as user "greger@mail.com"
       Given I am on the jobs page
       And I should see "målare"

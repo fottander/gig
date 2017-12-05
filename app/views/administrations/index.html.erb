@@ -7,6 +7,7 @@
     <%= link_to 'Företag', companies_path, class: 'button-menu' %>
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -42,7 +43,8 @@
             <% @invoices.each do |invoice| %>
               ID: <%= invoice.id %><br>
               User ID: <%= invoice.user_id %><br>
-              Company ID: <%= invoice.company_id %><br><br>
+              Company ID: <%= invoice.company_id %><br>
+              Skapad: <%= invoice.created_at.strftime("%D %R") %><br><br>
             <% end %>
           </p>
         </div>
@@ -53,9 +55,10 @@
           <h3 class="portfolio-resume-header">Nya Jobb</h3>
           <p class="portfolio-resume-subheader">
             <% @jobs.each do |job| %>
-              <%= job.id %><br>
-              <%= job.title %><br>
-              <%= job.company_username %><br><br>
+              ID: <%= job.id %><br>
+              Titel: <%= job.title %><br>
+              Username: <%= job.company_username %><br>
+              Skapad: <%= job.created_at.strftime("%D %R") %><br><br>
             <% end %>
           </p>
         </div>

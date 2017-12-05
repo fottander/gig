@@ -1,0 +1,46 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Alla ansökningar</h3>
+          <%= form_tag applications_path, method: 'get' do %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
+              <%= text_field_tag :with_job_id, nil, placeholder: 'Sök efter jobb ID' %>
+              <%= text_field_tag :with_profile_id, nil, placeholder: 'Sök efter profil ID' %>
+              <%= submit_tag 'Sök', class: 'filter-button' %>
+              <%= link_to 'Filtrera ej färdiga', filter_applications_path, class: 'filter-button' %>
+          <% end %>
+          <p class="portfolio-resume-subheader">
+            <% @applications.each do |application| %>
+                <span class='item-define'>ID:</span> <%= application.id %><br>
+                <span class='item-define'>Meddelande:</span> <%= application.message %><br>
+                <span class='item-define'>Hired:</span> <%= application.hired %><br>
+                <span class='item-define'>Complete:</span> <%= application.complete %><br>
+                <span class='item-define'>Jobb ID:</span> <%= application.job_id %><br>
+                <span class='item-define'>Jobb title:</span> <%= application.job_title %><br>
+                <span class='item-define'>Profil ID:</span> <%= application.profile_id %><br>
+                <span class='item-define'>Profile username:</span> <%= application.profile_username %><br>
+                <span class='item-define'>Skapad:</span> <%= application.created_at %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= application.updated_at %><br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @applications, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
+  </div>
+</div>
