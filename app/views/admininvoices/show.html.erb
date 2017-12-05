@@ -45,7 +45,7 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Till Företag</h3>
           <p class="portfolio-resume-subheader">
-            <% @companies.where(id: @invoice.company_id).each do |company| %>
+            <% @companies.each do |company| %>
               <span class='item-define'>ID:</span> <%= company.id %><br>
               <span class='item-define'>Email:</span> <%= company.email %><br>
               <span class='item-define'>Namn:</span> <%= company.name %><br>
@@ -67,7 +67,7 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Från Frilansare</h3>
           <p class="portfolio-resume-subheader">
-            <% @profiles.where(id: @invoice.profile_id).each do |profile| %>
+            <% @profiles.each do |profile| %>
               <span class='item-define'>ID:</span> <%= profile.id %><br>
               <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
               <span class='item-define'>Titel:</span> <%= profile.title %> <br>

@@ -10,8 +10,8 @@ class AdmininvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @companies = Company.all
-    @profiles = Profile.all
+    @companies = Company.where(id: @invoice.company_id)
+    @profiles = Profile.where(id: @invoice.profile_id)
   end
 
   private
