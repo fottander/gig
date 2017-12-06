@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do
+RSpec.describe City, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :name }
   end
@@ -16,7 +16,7 @@ RSpec.describe Category, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:category)).to be_valid
+      expect(create(:city)).to be_valid
     end
   end
 end

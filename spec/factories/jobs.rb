@@ -3,7 +3,6 @@ FactoryGirl.define do
     title "Mytitle"
     description "Mydesc"
     requirement "Myreq"
-    city "Mycity"
     budget "Mybudget"
     deadline "2017-10-11"
     duration "Mydur"

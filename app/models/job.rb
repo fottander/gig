@@ -1,8 +1,9 @@
 class Job < ApplicationRecord
-  validates_presence_of :title, :description, :category_ids, :city, :budget, :deadline, :duration, :hour_week
+  validates_presence_of :title, :description, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_week
   belongs_to :company
   has_many :applications, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
+  has_and_belongs_to_many :cities, dependent: :destroy
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
                        storage: :s3,
@@ -32,10 +33,6 @@ class Job < ApplicationRecord
      url: ':s3_domain_url',
      s3_host_name: 's3-eu-west-1.amazonaws.com'
    }
-  end
-
-  def self.city
-    ['Hela sverige', 'Göteborg', 'Malmö', 'Stockholm']
   end
 
   self.per_page = 5

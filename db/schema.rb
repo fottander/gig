@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204134453) do
+ActiveRecord::Schema.define(version: 20171206130413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,22 @@ ActiveRecord::Schema.define(version: 20171204134453) do
 
   create_table "categories_profiles", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
+    t.bigint "profile_id", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cities_jobs", id: false, force: :cascade do |t|
+    t.bigint "city_id", null: false
+    t.bigint "job_id", null: false
+  end
+
+  create_table "cities_profiles", id: false, force: :cascade do |t|
+    t.bigint "city_id", null: false
     t.bigint "profile_id", null: false
   end
 
@@ -153,7 +169,6 @@ ActiveRecord::Schema.define(version: 20171204134453) do
     t.string "title"
     t.text "description"
     t.string "requirement"
-    t.string "city"
     t.string "budget"
     t.date "deadline"
     t.string "duration"
@@ -179,7 +194,6 @@ ActiveRecord::Schema.define(version: 20171204134453) do
     t.text "description"
     t.string "skill"
     t.string "rate"
-    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
