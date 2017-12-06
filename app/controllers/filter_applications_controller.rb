@@ -1,5 +1,5 @@
 class FilterApplicationsController < ApplicationController
-  before_action :authenticate_admin!, only: [:index]
+  before_action :authenticate_admin!
 
   def index
     @applications = Application.where(nil).paginate(page: params[:page])

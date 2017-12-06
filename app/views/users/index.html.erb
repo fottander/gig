@@ -6,7 +6,7 @@
     <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
     <%= link_to 'Företag', companies_path, class: 'button-menu' %>
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
-    <%= link_to 'Fakturor', invoices_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
     <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
   </div>
 
@@ -17,7 +17,7 @@
           <h3 class="portfolio-resume-header">Alla användare</h3>
           <%= form_tag users_path, method: 'get' do %>
               <%= text_field_tag :with_email, nil, placeholder: 'Sök efter email' %>
-              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter id' %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
               <%= link_to 'Utan profil', users_without_profiles_path, class: 'filter-button' %>
           <% end %>

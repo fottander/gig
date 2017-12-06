@@ -65,7 +65,15 @@ Rails.application.routes.draw do
 
   resources :adminprofiles, only: [:index]
 
-  resources :invoices, only: [:create, :show, :edit, :update, :destroy, :index] do
+  resources :admininvoices, only: [:index, :show] do
+    member do
+      patch :pay
+    end
+  end
+
+  resources :filter_invoices, only: [:index, :new]
+
+  resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
     member do
       patch :update
       patch :activate
