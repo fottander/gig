@@ -14,10 +14,13 @@ Feature: Admin find profiles
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city     | user_id | id   |
-      | Fisken   | målare 29 år | målare gbg  | 1            | Göteborg | 9999    | 9999 |
-      | Greger   | målare 29 år | målare gbg  | 1            | Göteborg | 9998    | 9998 |
+      | username | title        | description | category_ids | city_ids | user_id | id   |
+      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
+      | Greger   | målare 29 år | målare gbg  | 1            | 1        | 9998    | 9998 |
 
     Scenario: I see profiles and search by username
       Given I am logged in as admin "admin@yahoo.com"

@@ -9,7 +9,7 @@
         <%= select_tag :with_category, options_for_select(Category.pluck(:name)), class: 'button-select', prompt: 'Välj Kategori' %>
       </div>
       <div class='large-4 columns'>
-        <%= select_tag :with_city, options_for_select(Job.city), class: 'button-select', prompt: 'Välj stad' %>
+        <%= select_tag :with_city, options_for_select(City.pluck(:name)), class: 'button-select', prompt: 'Välj Stad' %>
       </div>
       <div class='large-4 columns'>
         <%= submit_tag 'Filtrera', class: 'filter-button' %>
@@ -40,7 +40,8 @@
                   <div class='profile-card-about-title'>
                     <% job.categories.each do |category| %>
                       <span class='profile-card-about-title'><%= category.name %></span>
-                    <% end %><br></div>
+                    <% end %><br>
+                  </div>
                     <% if job.description.length > 100 %>
                         <%= truncate(job.description, length: 100) %>
                     <% else %>
@@ -54,7 +55,9 @@
                         Går ut: <%= job.deadline %>
                       </div>
                       <div class='large-2 columns'>
-                        Stad: <%= job.city %>
+                        <% job.cities.each do |city| %>
+                          Stad: <%= city.name %>
+                        <% end %>
                       </div>
                       <div class='large-2 columns'>
                         Krav: <%= job.requirement %>

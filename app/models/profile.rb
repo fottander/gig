@@ -1,9 +1,10 @@
 class Profile < ApplicationRecord
-  validates_presence_of :username, :title, :description, :city, :category_ids
+  validates_presence_of :username, :title, :description, :city_ids, :category_ids
   belongs_to :user
   has_many :applications, dependent: :destroy
   has_many :invites, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
+  has_and_belongs_to_many :cities, dependent: :destroy
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
                        storage: :s3,
@@ -18,7 +19,7 @@ class Profile < ApplicationRecord
                           {content_type: %w(image/jpg image/jpeg image/png image/gif)}
 
   scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
-  scope :with_city, -> (city) { where city: city }
+  scope :with_city,  ->(city) { joins(:cities).where(cities: { name: city }) }
   scope :with_username, -> (username) { where username: username }
   scope :with_id, -> (id) { where id: id }
 
@@ -31,10 +32,6 @@ class Profile < ApplicationRecord
      url: ':s3_domain_url',
      s3_host_name: 's3-eu-west-1.amazonaws.com'
    }
-  end
-
-  def self.city
-    ['Hela sverige', 'Göteborg', 'Malmö', 'Stockholm']
   end
 
   self.per_page = 5

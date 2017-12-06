@@ -9,6 +9,9 @@ Feature: Post job ad
       | Målare      | 1  |
       | Snickare    | 2  |
       | Plåtslagare | 3  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
     Given the following companies exist
       | email          | name | address | zip_code | city | org_number | phone | password  | password_confirmation |
       | felix@mail.com | bill | gatan 3 | 536      | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |

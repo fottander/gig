@@ -27,8 +27,8 @@
       <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
       <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
-      <%= f.label :city, 'Stad', class: 'form-text' %>
-      <%= f.select :city, options_for_select(Job.city), { prompt: 'Välj stad' }, { class: 'input-medium' } %>
+      <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+      <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
       <%= f.label :budget, 'Lön', class: 'form-text' %>
       <%= f.text_field :budget, placeholder: 'Antingen fast, per timma eller ungefärlig lön.' %>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>

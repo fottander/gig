@@ -10,6 +10,9 @@ Feature: User dashboard
     Given the following categories exist
       | name   | id |
       | Målare | 1  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
 
     Scenario: I go to dashboard
       Given I am on the home page

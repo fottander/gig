@@ -7,6 +7,11 @@ Feature: Invite index pagination feature
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
+      | Stockholm | 2  |
+      | Malmö     | 3  |
     Given the following companies exist
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
@@ -14,12 +19,12 @@ Feature: Invite index pagination feature
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following job ads exist
-      | title        | description | requirement      | category_ids | city | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
-      | målare sökes | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
-      | plåtis sökes | måla hus    | 2 års erfarenhet | 1            | gbg  | 140kr/timma | 2017-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 2  |
+      | title        | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
+      | målare sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
+      | plåtis sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2017-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 2  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city     | user_id | id |
-      | Fisken   | målare 29 år | målare gbg  | 1            | Göteborg | 1       | 1  |
+      | username | title        | description | category_ids | city_ids | user_id | id |
+      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 1       | 1  |
     Given the following invites exist
       | message  | profile_id | company_id | job_id |
       | Invite 1 | 1          | 1          | 1      |

@@ -34,8 +34,8 @@
       <%= f.text_field :rate, value: @profile.rate %>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
-      <%= f.label :city, 'Stad', class: 'form-text' %>
-      <%= f.select :city, options_for_select(Profile.city, selected: @profile.city), { include_blank: true } %>
+      <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+      <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @profile.city_ids }, { class: 'input-medium' }) %>
       <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
       <%= f.file_field :avatar %>
       <%= f.submit 'Spara', class: 'reply-button' %>

@@ -6,7 +6,6 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :skill
       t.string :rate
-      t.string :city
 
       t.timestamps
     end

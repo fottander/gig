@@ -17,3 +17,9 @@ end
 Given("I am on the jobs page") do
   visit jobs_path
 end
+
+Given("the following cities exist") do |table|
+  table.hashes.each do |hash|
+    create(:city, hash)
+  end
+end

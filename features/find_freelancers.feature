@@ -13,11 +13,16 @@ Feature: Show freelancers
       | Målare      | 1  |
       | Snickare    | 2  |
       | Plåtslagare | 3  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
+      | Stockholm | 2  |
+      | Malmö     | 3  |
     Given the following profiles exist
-      | username | title               | description                                      | skill                      | rate              | category_ids | city      | id | user_id |
-      | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 1            | Göteborg  | 1  | 1       |
-      | anders   | Erfaren snickare    | Erfaren snickare med 5 års erfarenhet            | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 2            | Stockholm | 2  | 2       |
-      | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 3            | Malmö     | 3  |         |
+      | username | title               | description                                      | skill                      | rate              | category_ids | city_ids | id | user_id |
+      | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 1            | 1        | 1  | 1       |
+      | anders   | Erfaren snickare    | Erfaren snickare med 5 års erfarenhet            | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 2            | 2        | 2  | 2       |
+      | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 3            | 3        | 3  |         |
     Given the following invoices exist
       | description | amount | user_reference | terms | active |id | user_id | profile_id | feedback   | job_id | updated_at  |
       | abc         | 120    | felix          | 30    | true   | 1 | 1       | 1          | Bra snubbe | 1      |  2017-11-11 |
@@ -43,9 +48,9 @@ Feature: Show freelancers
     Scenario: I filtrate on a city
       Given I am on the home page
       And I click "HITTA FRILANSARE"
-      And I select "Stockholm" from "with_city"
+      And I select "Malmö" from "with_city"
       And I click "Filtrera"
-      And I should see "Erfaren snickare"
+      And I should see "Erfaren plåtslagare"
       Then I should not see "Erfaren målare"
 
     Scenario: I filtrate on a category
