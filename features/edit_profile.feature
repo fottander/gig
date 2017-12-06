@@ -10,6 +10,9 @@ Feature: Edit profile
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
 
     Scenario: I edit profile
       Given I am logged in as user "felix@mail.com"
