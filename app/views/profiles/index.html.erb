@@ -9,7 +9,7 @@
         <%= select_tag :with_category, options_for_select(Category.pluck(:name)), class: 'button-select', prompt: 'Välj Kategori' %>
       </div>
       <div class='large-4 columns'>
-        <%= select_tag :with_city, options_for_select(Profile.city), class: 'button-select', prompt: 'Välj stad' %>
+        <%= select_tag :with_city, options_for_select(City.pluck(:name)), class: 'button-select', prompt: 'Välj Stad' %>
       </div>
       <div class='large-4 columns'>
         <%= submit_tag 'Filtrera', class: 'filter-button' %>
@@ -47,7 +47,9 @@
             <% end %>
             <div class='row'>
               <div class='large-2 columns'>
-                  Stad: <%= profile.city %>
+                <% profile.cities.each do |city| %>
+                  Stad: <%= city.name %>
+                <% end %>
               </div>
               <div class='large-2 columns'>
                   Färdigheter: <%= profile.skill %>

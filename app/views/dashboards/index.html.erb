@@ -40,7 +40,9 @@
             <% @profile.categories.each do |category| %>
             Kategorier: <%= category.name %>
             <% end %><br>
-            Stad: <%= @profile.city %><br>
+            <% @profile.cities.each do |city| %>
+              Stad: <%= city.name %>
+            <% end %><br>
             <%= link_to 'Redigera profil', edit_profile_path(@profile.id), class: 'button-green' %>
             <% else %>
             Skapa profil <br>

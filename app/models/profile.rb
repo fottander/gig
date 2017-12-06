@@ -19,7 +19,7 @@ class Profile < ApplicationRecord
                           {content_type: %w(image/jpg image/jpeg image/png image/gif)}
 
   scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
-  scope :with_city, -> (city) { where city: city }
+  scope :with_city,  ->(city) { joins(:cities).where(cities: { name: city }) }
   scope :with_username, -> (username) { where username: username }
   scope :with_id, -> (id) { where id: id }
 

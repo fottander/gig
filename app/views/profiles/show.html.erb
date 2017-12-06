@@ -30,7 +30,9 @@
       </div>
       <div class="card-profile-stats-statistic">
         <span class="stat">Stad</span>
-        <p><%= @profile.city %></p>
+        <% @profile.cities.each do |city| %>
+          <p><%= city.name %></p>
+        <% end %>
       </div>
       <div class="card-profile-stats-statistic">
         <span class="stat">Kategorier</span>
