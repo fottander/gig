@@ -26,7 +26,6 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :amount }
     it { is_expected.to validate_presence_of :user_reference }
-    it { is_expected.to validate_presence_of :ocr_number }
   end
 
   describe 'Associations' do
