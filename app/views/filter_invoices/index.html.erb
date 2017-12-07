@@ -24,6 +24,7 @@
           <p style='font-weight: 700;'>Fakturor som aktiverats av kund men inte markerats som betalda</p>
           <p class="portfolio-resume-subheader">
             <% @invoices.not_paid.each do |invoice| %>
+              <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice) %><br>
               <span class='item-define'>ID:</span> <%= invoice.id %><br>
               <span class='item-define'>Kvantitet:</span> <%= invoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= invoice.unit %><br>
@@ -43,6 +44,7 @@
               <span class='item-define'>Frilansar ID:</span> <%= invoice.profile_id %><br>
               <span class='item-define'>Frilansar användarnamn:</span> <%= invoice.profile_username %><br>
               <span class='item-define'>Post:</span> <%= invoice.post %><br>
+              <span class='item-define'>OCR:</span> <%= invoice.ocr_number %><br>
               <span class='item-define'>Feedback:</span> <%= invoice.feedback %><br>
               <span class='item-define'>Skapad:</span> <%= invoice.created_at.strftime("%D %R") %><br>
               <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at.strftime("%D %R") %><br><br>

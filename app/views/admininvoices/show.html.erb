@@ -35,6 +35,7 @@
               <span class='item-define'>Frilansar ID:</span> <%= @invoice.profile_id %><br>
               <span class='item-define'>Frilansar användarnamn:</span> <%= @invoice.profile_username %><br>
               <span class='item-define'>Post:</span> <%= @invoice.post %><br>
+              <span class='item-define'>OCR:</span> <%= @invoice.ocr_number %><br>
               <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br>
               <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%D %R") %><br>
               <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%D %R") %>
@@ -84,7 +85,7 @@
               <span class='item-define'>Beskrivning:</span> <%= profile.description %> <br>
               <span class='item-define'>Färdigheter:</span> <%= profile.skill %> <br>
               <span class='item-define'>Lön:</span> <%= profile.rate %> <br>
-              <span class='item-define'>Stad:</span> <%= profile.city %> <br>
+              <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name) %> <br>
               <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%D %R") %> <br>
               <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%D %R") %> <br>
               <span class='item-define'>User ID:</span> <%= profile.user_id %> <br>

@@ -7,6 +7,7 @@ class CreateInvoices < ActiveRecord::Migration[5.1]
       t.date :first_day
       t.date :last_day
       t.text :description
+      t.string :ocr_number
       t.string :user_reference
       t.string :company_reference
       t.integer :terms, default: 30

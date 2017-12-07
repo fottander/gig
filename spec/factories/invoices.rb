@@ -8,5 +8,6 @@ FactoryGirl.define do
     description "MyText"
     user_reference "MyString"
     company_reference "MyString"
+    ocr_number "MyString"
   end
 end
