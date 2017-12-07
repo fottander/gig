@@ -12,6 +12,15 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @companies = Company.where(id: @invoice.company_id)
     @profiles = Profile.where(id: @invoice.profile_id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = InvoicePdf.new(@invoice, @profiles, @companies)
+        send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
+                              type: 'application/pdf',
+                              disposition: 'inline'
+      end
+    end
   end
 
   def pay

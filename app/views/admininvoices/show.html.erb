@@ -49,6 +49,7 @@
               <span style='color: green;'>Fakturan har blivit betald</span>
             <% end %>
           <% end %>
+          <p><%= link_to 'Visa pdf', admininvoice_path(@invoice, format: 'pdf') %></p>
         </div>
       </div>
       <div class="large-4 columns">
