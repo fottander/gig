@@ -1,5 +1,6 @@
 class Invoice < ApplicationRecord
   before_create :generate_ocr
+  before_validation :generate_ocr, on: :create
   validates_presence_of :description, :amount, :user_reference
   validates :amount, numericality: { only_integer: true }
   belongs_to :user

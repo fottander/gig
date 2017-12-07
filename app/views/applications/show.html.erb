@@ -28,14 +28,14 @@
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
             <%= text_area_tag :description, nil, placeholder: '* Beskrivning' %>
             <%= text_field_tag :quantity, nil, placeholder: 'Antal(ex. antal timmar)' %>
-            <%= text_field_tag :unit, nil, placeholder: 'Enhet(ex.150kr/timma)' %>
+            <%= text_field_tag :unit, nil, placeholder: 'Enhet(ex. 150kr/timma)' %>
             <%= text_field_tag :amount, nil, placeholder: '* Belopp(endast siffror ex. 2000)' %>
             <%= label_tag :first_day, 'Startdag(ex. 2018-11-01)', class: 'invoice-details-date' %>
             <%= date_field_tag :first_day %>
             <%= label_tag :last_day, 'Sista dag(ex. 2018-12-30)', class: 'invoice-details-date' %>
             <%= date_field_tag :last_day %>
             <%= text_field_tag :user_reference, nil, placeholder: '* Referens(förnamn & efternamn)' %>
-            <%= text_field_tag :company_reference, nil, placeholder: 'Företagsreferens' %>
+            <%= text_field_tag :company_reference, nil, placeholder: 'Företagsreferens(namn)' %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
             <% end %>
           <% end %>
