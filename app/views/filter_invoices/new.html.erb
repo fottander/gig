@@ -23,6 +23,7 @@
           <% end %>
           <p class="portfolio-resume-subheader">
             <% @invoices.paid.each do |invoice| %>
+              <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice) %><br>
               <span class='item-define'>ID:</span> <%= invoice.id %><br>
               <span class='item-define'>Kvantitet:</span> <%= invoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= invoice.unit %><br>

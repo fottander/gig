@@ -1,5 +1,5 @@
 class Invoice < ApplicationRecord
-  validates_presence_of :description, :amount, :user_reference
+  validates_presence_of :description, :amount, :user_reference, :ocr_number
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company

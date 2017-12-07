@@ -142,6 +142,7 @@ ActiveRecord::Schema.define(version: 20171206130413) do
     t.date "first_day"
     t.date "last_day"
     t.text "description"
+    t.string "ocr_number"
     t.string "user_reference"
     t.string "company_reference"
     t.integer "terms", default: 30

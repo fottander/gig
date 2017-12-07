@@ -8,6 +8,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column :amount }
     it { is_expected.to have_db_column :first_day }
     it { is_expected.to have_db_column :last_day }
+    it { is_expected.to have_db_column :ocr_number }
     it { is_expected.to have_db_column :user_reference }
     it { is_expected.to have_db_column :company_reference }
     it { is_expected.to have_db_column :terms }
@@ -25,6 +26,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :amount }
     it { is_expected.to validate_presence_of :user_reference }
+    it { is_expected.to validate_presence_of :ocr_number }
   end
 
   describe 'Associations' do
