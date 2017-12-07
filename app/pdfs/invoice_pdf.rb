@@ -26,7 +26,7 @@ class InvoicePdf < Prawn::Document
     move_down 40
 
     @profiles.each do |profile|
-      image  "#{Rails.root}#{profile.avatar.url}", height: 60
+      image  "#{Rails.root}/app/assets/images/invoice-logo.jpg", width: 450
     end
 
     move_down 8
