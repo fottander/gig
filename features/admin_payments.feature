@@ -22,7 +22,7 @@ Feature: Admin payments
       | ghi         | 120    | felix          | 30    | true   | 9997  | 9998       | 2017-11-03 | true  | 9998       | false       |
       | jkl         | 120    | felix          | 30    | true   | 9996  | 9998       | 2017-11-01 | true  | 9998       | true        |
 
-    Scenario: I see invoices and search by id
+    Scenario: I see invoices and which has been payed and when to pay
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
       And I click "Betalningar"

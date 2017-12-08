@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   resources :payments, only: [:index]
 
-  resources :adminpayments, only: [:index]
+  resources :adminpayments, only: [:index, :new]
 
   resources :dashboards, only: [:index]
 
