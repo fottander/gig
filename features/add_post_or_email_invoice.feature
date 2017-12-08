@@ -25,8 +25,9 @@ Feature: Activate invoice with post or email
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
       And invoice "1" is sending by post
-      Then I should see "Leveranssätt: Post"
-      And I should see "Summa att betala: 620"
+      And I should see "Leveranssätt: Post"
+      And I should see "Summa ex moms: 620 SEK"
+      Then I should see "Summa att betala: 775 SEK"
 
     Scenario: I activate invoice with email
       Given I am logged in as company "felix@mail.com"
@@ -39,7 +40,7 @@ Feature: Activate invoice with post or email
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
       Then I should see "Leveranssätt: Email"
-      And I should see "Summa att betala: 120"
+      And I should see "Summa att betala: 150 SEK"
 
     Scenario: I activate invoice without specifying post or not
       Given I am logged in as company "felix@mail.com"
@@ -51,7 +52,7 @@ Feature: Activate invoice with post or email
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
       Then I should see "Leveranssätt: Email"
-      And I should see "Summa att betala: 120"
+      And I should see "Summa att betala: 150"
 
     Scenario: I activate invoice with 60 days terms and post delivery
       Given I am logged in as company "felix@mail.com"
@@ -66,5 +67,6 @@ Feature: Activate invoice with post or email
       And I should see "Status: Godkänd"
       And invoice "1" is sending by post
       Then I should see "Leveranssätt: Post"
-      And I should see "Summa att betala: 660"
+      And I should see "Summa ex moms: 660 SEK "
+      And I should see "Summa att betala: 825 SEK"
       Then I should see "Fakturan är betald"

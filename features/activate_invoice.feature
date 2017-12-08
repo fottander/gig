@@ -24,8 +24,9 @@ Feature: Activate job
       And I click "Godkänn"
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
-      Then I should see "Villkor: 30 dagar"
-      And I should see "Summa att betala: 120"
+      And I should see "Villkor: 30 dagar"
+      And I should see "Summa ex moms: 120 SEK"
+      Then I should see "Summa att betala: 150 SEK"
 
     Scenario: I activate invoice with 60 days
       Given I am logged in as company "felix@mail.com"
@@ -38,7 +39,7 @@ Feature: Activate job
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
       Then I should see "Villkor: 60 dagar"
-      And I should see "Summa att betala: 160"
+      And I should see "Summa att betala: 200 SEK"
 
     Scenario: I activate invoice with default terms
       Given I am logged in as company "felix@mail.com"
@@ -49,5 +50,5 @@ Feature: Activate job
       And I click "Godkänn"
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
-      Then I should see "Villkor: 30 dagar"
-      And I should see "Summa att betala: 120"
+      And I should see "Villkor: 30 dagar"
+      Then I should see "Summa att betala: 150 SEK"

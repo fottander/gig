@@ -44,7 +44,7 @@
               <span class='item-define'>Utbetald:</span> <%= @invoice.updated_at.strftime("%F %R") %><br>
               <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
-              <span class='item-define'>Summa:</span> <%= @invoice.amount %><br>
+              <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
               Vår avgift: -<%= @varavgift.round %> SEK <br>
               Sociala avgifter -<%= @socialaavgifter.round %> SEK <br>
               Bruttolön inkl sem. ers.	<%= @bruttolon.round %> SEK <br>

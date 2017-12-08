@@ -31,7 +31,8 @@
                 <span class='item-define'>ID:</span> <%= invoice.id %><br>
                 <span class='item-define'>Kvantitet:</span> <%= invoice.quantity %><br>
                 <span class='item-define'>Enhet:</span> <%= invoice.unit %><br>
-                <span class='item-define'>Summa:</span> <%= invoice.amount %><br>
+                <span class='item-define'>Summa ex. moms:</span> <%= invoice.amount %><br>
+                <span class='item-define'>Summa inkl. moms:</span> <%= invoice.inklmoms.round %><br>
                 <span class='item-define'>Startdag:</span> <%= invoice.first_day %><br>
                 <span class='item-define'>Sista dag:</span> <%= invoice.last_day %><br>
                 <span class='item-define'>Beskrivning:</span> <%= invoice.description %><br>

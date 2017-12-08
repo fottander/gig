@@ -19,6 +19,10 @@ class Invoice < ApplicationRecord
 
   self.per_page = 5
 
+  def inklmoms
+    self.amount * 1.25
+  end
+
   private
 
   def generate_ocr

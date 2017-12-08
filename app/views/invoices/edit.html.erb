@@ -28,7 +28,7 @@
           <%= f.text_field :quantity, value: @invoice.quantity %>
           <%= f.label :unit, 'Enhet(ex. 150kr/timma)', class: 'form-text' %>
           <%= f.text_field :unit, value: @invoice.unit %>
-          <%= f.label :amount, 'Belopp(ex. totalsumma)', class: 'form-text' %>
+          <%= f.label :amount, 'Belopp ex. moms(ex. totalsumma)', class: 'form-text' %>
           <%= f.text_field :amount, value: @invoice.amount %>
           <%= f.label :first_day, 'Första dag(ex. 2018-xx-xx)', class: 'form-text' %>
           <%= f.text_field :first_day, value: @invoice.first_day %>
