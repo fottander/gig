@@ -29,8 +29,6 @@ class AdmininvoicesController < ApplicationController
     @invoice.paid = true
     if @invoice.update invoice_pay_params
 
-      # Sends email to company when invoice is paid.
-
       flash[:notice] = "Faktura betald"
       redirect_back(fallback_location: administrations_path)
     end
