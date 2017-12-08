@@ -37,7 +37,7 @@ Rails.application.routes.draw do
 
   resources :panels, only: [:index]
 
-  resources :payments, only: [:index]
+  resources :payments, only: [:index, :show]
 
   resources :adminpayments, only: [:index, :new]
 

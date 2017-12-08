@@ -14,9 +14,27 @@
   </div>
 
   <div class="holy-grail-middle">
-    <div class="simple-form">
-      <div class='post-title'><h3>Betalningsinformation</h3></div>
-
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Utbetalningar</h3>
+          <p class="portfolio-resume-subheader">
+            <% if @invoices.present? %>
+              <% @invoices.salary_paid.each do |invoice| %>
+                <% if invoice.user_id == current_user.id %>
+                  <span class='item-define'>Faktura ID:</span> <%= invoice.id %><br>
+                  <%= link_to invoice.updated_at.strftime("%F %R"), payment_path(invoice), class: 'reply-button' %><br><br>
+                <% end %>
+              <% end %>
+            <% else %>
+              Inga ubetalningar registrerade
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @invoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
     </div>
   </div>
 </div>
