@@ -1,8 +1,9 @@
 class InvoicePdf < Prawn::Document
-  def initialize(invoice, profiles, companies)
+  def initialize(invoice, profiles, companies, due_date)
     @invoice = invoice
     @profiles = profiles
     @companies = companies
+    @due_date = due_date
 
     super(margin: 0)
 
@@ -63,21 +64,23 @@ class InvoicePdf < Prawn::Document
 
   def invoice_items
     move_down 20
-
+    @ex_moms = @invoice.amount * 0.8
+    @moms = @invoice.amount * 0.2
     data = [ ["Beskrivning", "Kvantitet", "Enhet", "Summa"],
-     [@invoice.description, @invoice.quantity, @invoice.unit, @invoice.amount],
-     ["", "", "", "Att betala: #{@invoice.amount}"],
-     ["", "", "", "Förfallodatum: #{@invoice.updated_at+@invoice.terms.day}"],
-     ["Exkl. moms #{@invoice.amount * 0.8}", "", "", "OCR: #{@invoice.ocr_number}"],
-     ["Moms(25%) #{@invoice.amount * 0.2}", "", "", "Bankgiro: 23929042932"]]
+     [@invoice.description, @invoice.quantity, @invoice.unit, @invoice.amount.round],
+     ["", "", "", "Att betala: #{@invoice.amount.round}.00"],
+     ["", "", "", "Förfallodatum: #{@due_date.strftime('%F')}"],
+     ["Exkl. moms #{@ex_moms.round}.00", "", "", "OCR: #{@invoice.ocr_number}"],
+     ["Moms(25%) #{@moms.round}.00", "", "", "Bankgiro: 23929042932"]]
 
-    table(data, cell_style: { size: 11 }) do
+    table(data, cell_style: { size: 10 }) do
      cells.padding = 12
      cells.borders = []
      row(0).borders = [:bottom]
      row(0).border_width = 2
      row(0).font_style = :bold
-     columns(0).width = 200
+     columns(0).width = 180
+     columns(3).width = 100
      columns(0).borders = [:left, :bottom]
      columns(1..2).borders = [:bottom]
      columns(3).borders = [:bottom, :right]

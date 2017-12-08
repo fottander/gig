@@ -37,7 +37,9 @@ Rails.application.routes.draw do
 
   resources :panels, only: [:index]
 
-  resources :payments, only: [:index]
+  resources :payments, only: [:index, :show]
+
+  resources :adminpayments, only: [:index, :new]
 
   resources :dashboards, only: [:index]
 
@@ -68,6 +70,7 @@ Rails.application.routes.draw do
   resources :admininvoices, only: [:index, :show] do
     member do
       patch :pay
+      patch :pay_salary
     end
   end
 

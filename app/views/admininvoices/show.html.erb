@@ -8,6 +8,7 @@
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
     <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -19,7 +20,8 @@
               <span class='item-define'>ID:</span> <%= @invoice.id %><br>
               <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
-              <span class='item-define'>Summa:</span> <%= @invoice.amount %><br>
+              <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
+              <span class='item-define'>Summa inkl. moms:</span> <%= @invoice.inklmoms.round %><br>
               <span class='item-define'>Startdag:</span> <%= @invoice.first_day %><br>
               <span class='item-define'>Sista dag:</span> <%= @invoice.last_day %><br>
               <span class='item-define'>Beskrivning:</span> <%= @invoice.description %><br>
@@ -28,23 +30,29 @@
               <span class='item-define'>Villkor:</span> <%= @invoice.terms %><br>
               <span style='color: red;'>Betald:</span> <%= @invoice.paid %><br>
               <span style='color: red;'>Aktiv:</span> <%= @invoice.active %><br>
+              <span style='color: red;'>Lön utbetald</span> <%= @invoice.salary_paid %><br>
               <span class='item-define'>User ID:</span> <%= @invoice.user_id %><br>
               <span class='item-define'>Företags ID:</span> <%= @invoice.company_id %><br>
               <span class='item-define'>Ansöknings ID:</span> <%= @invoice.application_id %><br>
               <span class='item-define'>Jobb ID:</span> <%= @invoice.job_id %><br>
               <span class='item-define'>Frilansar ID:</span> <%= @invoice.profile_id %><br>
               <span class='item-define'>Frilansar användarnamn:</span> <%= @invoice.profile_username %><br>
-              <span class='item-define'>Post:</span> <%= @invoice.post %><br>
+              <span style='color: red;'>Post:</span> <%= @invoice.post %><br>
               <span class='item-define'>OCR:</span> <%= @invoice.ocr_number %><br>
               <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br>
-              <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%D %R") %><br>
-              <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%D %R") %>
+              <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%F %R") %><br>
+              <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%F %R") %>
           </p>
           <% if @invoice.active == false %>
             Kan inte markeras som betald förrän fakturan är godkänd av kund
           <% else %>
+            <% if @invoice.salary_paid == false %>
+              <%= link_to 'Markera som lön utbetald', pay_salary_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'reply-button-expand' %>
+            <% else %>
+              <span style='color: green;'>Lön har blivit utbetald</span>
+            <% end %>
             <% if @invoice.paid == false %>
-              <%= link_to 'Betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+              <%= link_to 'Markera som betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
             <% else %>
               <span style='color: green;'>Fakturan har blivit betald</span>
             <% end %>
@@ -68,8 +76,8 @@
               <span class='item-define'>Telefon:</span> <%= company.phone %><br>
               <span class='item-define'>Kontakt:</span> <%= company.contact %><br>
               <span class='item-define'>Fakturaadress:</span> <%= company.invoice_address %><br>
-              <span class='item-define'>Skapad:</span> <%= company.created_at.strftime("%D %R") %><br>
-              <span class='item-define'>Uppdaterad:</span> <%= company.updated_at.strftime("%D %R") %><br>
+              <span class='item-define'>Skapad:</span> <%= company.created_at.strftime("%F %R") %><br>
+              <span class='item-define'>Uppdaterad:</span> <%= company.updated_at.strftime("%F %R") %><br>
             <% end %>
           </p>
         </div>
@@ -87,8 +95,8 @@
               <span class='item-define'>Färdigheter:</span> <%= profile.skill %> <br>
               <span class='item-define'>Lön:</span> <%= profile.rate %> <br>
               <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name) %> <br>
-              <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%D %R") %> <br>
-              <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%D %R") %> <br>
+              <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%F %R") %> <br>
+              <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%F %R") %> <br>
               <span class='item-define'>User ID:</span> <%= profile.user_id %> <br>
             <% end %>
           </p>

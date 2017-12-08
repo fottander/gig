@@ -23,7 +23,8 @@
           Sista dag: <%= @invoice.last_day %><br>
           Antal timmar: <%= @invoice.quantity %> <br>
           Enhet: <%= @invoice.unit %> <br>
-          Summa att betala: <%= @invoice.amount %> SEK<br>
+          Summa ex moms: <%= @invoice.amount %> SEK <br>
+          Summa att betala: <%= @invoice.inklmoms.round %> SEK<br>
           Villkor: <%= @invoice.terms %> dagar<br>
           OCR: <%= @invoice.ocr_number %><br>
           <% if @invoice.post == false %>

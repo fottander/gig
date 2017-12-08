@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20171206130413) do
     t.integer "terms", default: 30
     t.boolean "paid", default: false
     t.boolean "active", default: false
+    t.boolean "salary_paid", default: false
     t.bigint "user_id"
     t.bigint "company_id"
     t.datetime "created_at", null: false

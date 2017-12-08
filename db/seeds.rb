@@ -256,7 +256,8 @@ Invoice.create(
   job_id: 99999,
   profile_id: 99998,
   company_id: 99999,
-  profile_username: "Fisken"
+  profile_username: "Fisken",
+  user_id: 99998
   )
 
 Invoice.create(
@@ -278,7 +279,8 @@ Invoice.create(
   application_id: 99998,
   job_id: 99998,
   profile_id: 99998,
-  profile_username: "Fisken"
+  profile_username: "Fisken",
+  user_id: 99998
   )
 
 Invoice.create(
@@ -301,7 +303,8 @@ Invoice.create(
   job_id: 99997,
   profile_id: 99999,
   company_id: 99998,
-  profile_username: "Johan P"
+  profile_username: "Johan P",
+  user_id: 99999
   )
 
 Invoice.create(
@@ -323,7 +326,8 @@ Invoice.create(
   application_id: 99996,
   job_id: 99997,
   profile_id: 99999,
-  profile_username: "Johan P"
+  profile_username: "Johan P",
+  user_id: 99999
   )
 
 puts "Created #{Category.count} category"

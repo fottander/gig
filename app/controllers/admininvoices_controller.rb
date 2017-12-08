@@ -12,10 +12,11 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @companies = Company.where(id: @invoice.company_id)
     @profiles = Profile.where(id: @invoice.profile_id)
+    @due_date = @invoice.updated_at+@invoice.terms.day
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = InvoicePdf.new(@invoice, @profiles, @companies)
+        pdf = InvoicePdf.new(@invoice, @profiles, @companies, @due_date)
         send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
                               type: 'application/pdf',
                               disposition: 'inline'
@@ -27,10 +28,16 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @invoice.paid = true
     if @invoice.update invoice_pay_params
-
-      # Sends email to company when invoice is paid.
-
       flash[:notice] = "Faktura betald"
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
+  def pay_salary
+    @invoice = Invoice.find(params[:id])
+    @invoice.salary_paid = true
+    if @invoice.update invoice_pay_salary_params
+      flash[:notice] = "Lön har blivit utbetald"
       redirect_back(fallback_location: administrations_path)
     end
   end
@@ -39,6 +46,10 @@ class AdmininvoicesController < ApplicationController
 
   def invoice_pay_params
     params.permit(:paid)
+  end
+
+  def invoice_pay_salary_params
+    params.permit(:salary_paid)
   end
 
   def filtering_params(params)

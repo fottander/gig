@@ -8,6 +8,7 @@
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
     <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -35,8 +36,8 @@
                 <% else %>
                   Ingen profil skapad <br>
                 <% end %>
-                <span class='item-define'>Skapad:</span> <%= user.created_at.strftime("%D %R") %><br>
-                <span class='item-define'>Uppdaterad:</span> <%= user.updated_at.strftime("%D %R") %><br><br>
+                <span class='item-define'>Skapad:</span> <%= user.created_at.strftime("%F %R") %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= user.updated_at.strftime("%F %R") %><br><br>
             <% end %>
           </p>
         </div>

@@ -15,16 +15,15 @@
     <div class="portfolio-resume row">
       <div class="large-12 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Alla fakturor</h3>
-            <%= form_tag admininvoices_path, method: 'get' do %>
-              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
-              <%= text_field_tag :with_user_id, nil, placeholder: 'Sök efter user ID' %>
-              <%= text_field_tag :with_company_id, nil, placeholder: 'Sök efter företags ID' %>
+          <h3 class="portfolio-resume-header">Aktiverade fakturor som ska betalas</h3>
+            <%= form_tag adminpayments_path, method: 'get' do %>
+              <%= date_field_tag :pay_day, nil %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
-              <%= link_to 'Filtrera ej betalda', filter_invoices_path, class: 'filter-button' %>
-              <%= link_to 'Filtrera betalda', new_filter_invoice_path, class: 'filter-button' %>
+              <%= link_to 'Rensa', adminpayments_path, class: 'filter-button' %>
+              <%= link_to 'Visa utbetalda', new_adminpayment_path, class: 'filter-button' %>
             <% end %>
-            <% @invoices.each do |invoice| %>
+            <p>Fakturor som ska betalas ut idag aktiverades <%= Date.today - 30.days %></p>
+            <% @invoices.active.salary_not_paid.each do |invoice| %>
               <div class='invoice-<%= invoice.id %>'>
                 <p class="portfolio-resume-subheader">
                 <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice) %><br>
@@ -52,7 +51,7 @@
                 <span class='item-define'>OCR:</span> <%= invoice.ocr_number %><br>
                 <span class='item-define'>Feedback:</span> <%= invoice.feedback %><br>
                 <span class='item-define'>Skapad:</span> <%= invoice.created_at.strftime("%F %R") %><br>
-                <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at.strftime("%F %R") %><br><br>
+                <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at.strftime("%F") %><br><br>
                 </p>
               </div>
             <% end %>
