@@ -18,8 +18,8 @@ Feature: Admin payments
     Given the following invoices exist
       | description | amount | user_reference | terms | active | id    | company_id | updated_at | paid  | user_id    | salary_paid |
       | abc         | 120    | felix          | 30    | true   | 9999  | 9999       | 2017-11-01 | false | 9999       | false       |
-      | def         | 120    | felix          | 30    | true   | 9998  | 9998       | 2017-11-01 | false | 9998       | false       |
-      | ghi         | 120    | felix          | 30    | true   | 9997  | 9998       | 2017-11-01 | true  | 9998       | false       |
+      | def         | 120    | felix          | 30    | true   | 9998  | 9998       | 2017-11-02 | false | 9998       | false       |
+      | ghi         | 120    | felix          | 30    | true   | 9997  | 9998       | 2017-11-03 | true  | 9998       | false       |
       | jkl         | 120    | felix          | 30    | true   | 9996  | 9998       | 2017-11-01 | true  | 9998       | true        |
 
     Scenario: I see invoices and search by id
@@ -31,3 +31,6 @@ Feature: Admin payments
       And I should see "def"
       And I should see "ghi"
       And I should not see "jkl"
+      And I fill in "pay_day" with "207-11-01"
+      And I should see "abc"
+      And I should not see "def"
