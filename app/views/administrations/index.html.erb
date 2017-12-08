@@ -8,6 +8,7 @@
     <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
     <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
     <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
@@ -44,7 +45,7 @@
               ID: <%= invoice.id %><br>
               User ID: <%= invoice.user_id %><br>
               Company ID: <%= invoice.company_id %><br>
-              Skapad: <%= invoice.created_at.strftime("%D %R") %><br><br>
+              Skapad: <%= invoice.created_at.strftime("%F %R") %><br><br>
             <% end %>
           </p>
         </div>
@@ -58,7 +59,7 @@
               ID: <%= job.id %><br>
               Titel: <%= job.title %><br>
               Username: <%= job.company_username %><br>
-              Skapad: <%= job.created_at.strftime("%D %R") %><br><br>
+              Skapad: <%= job.created_at.strftime("%F %R") %><br><br>
             <% end %>
           </p>
         </div>

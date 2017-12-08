@@ -323,6 +323,22 @@
    border: none;
  }
 
+ .reply-button-expand {
+   background: #41DA51;
+   color: #fff;
+   display: inline-block;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 1;
+   width: 280px;
+   font-size: 1rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   font-weight: 700;
+   letter-spacing: 0.8px;
+   padding: 1rem 1.75rem 1rem;
+   border: none;
+ }
+
  .profile-button-small {
    background: #f77d0e;
    color: #fff;

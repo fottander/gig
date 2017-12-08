@@ -32,8 +32,8 @@
                 <span class='item-define'>Jobb title:</span> <%= application.job_title %><br>
                 <span class='item-define'>Profil ID:</span> <%= application.profile_id %><br>
                 <span class='item-define'>Profile username:</span> <%= application.profile_username %><br>
-                <span class='item-define'>Skapad:</span> <%= application.created_at %><br>
-                <span class='item-define'>Uppdaterad:</span> <%= application.updated_at %><br><br>
+                <span class='item-define'>Skapad:</span> <%= application.created_at.strftime("%F %R") %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= application.updated_at.strftime("%F %R") %><br><br>
             <% end %>
           </p>
         </div>
