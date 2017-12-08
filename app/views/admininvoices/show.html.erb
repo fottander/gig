@@ -95,8 +95,13 @@
             <% end %>
           </p>
           <hr>
-          <h3 class="portfolio-resume-header">Bankinfo</h3>
+          <h3 class="portfolio-resume-header">Betalinfo</h3>
           <p class="portfolio-resume-subheader">
+          Vår avgift: -<%= @invoice.varavgift.round %> SEK <br>
+          Sociala avgifter -<%= @invoice.socialaavgifter.round %> SEK <br>
+          Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
+          Skatt	-<%= @invoice.skatt.round %> SEK <br>
+          <span class='item-define'>Nettolön att utbetala</span> <%= @invoice.steg3.round %> SEK <br>
           <span class='item-define'>Bank:</span> <%= @user.bank %><br>
           <span class='item-define'>Clearingnummer:</span> <%= @user.clear_nr %><br>
           <span class='item-define'>Kontonummer:</span> <%= @user.account_nr %><br>

@@ -45,12 +45,12 @@
               <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
               <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
-              Vår avgift: -<%= @varavgift.round %> SEK <br>
-              Sociala avgifter -<%= @socialaavgifter.round %> SEK <br>
-              Bruttolön inkl sem. ers.	<%= @bruttolon.round %> SEK <br>
-              Skatt	-<%= @skatt.round %> SEK <br>
-              Nettolön (lön efter skatt) <%= @steg3.round %> SEK <br>
-              <span class='item-define'>Utbetald summa:</span> <%= @steg3.round %> SEK<br>
+              Vår avgift: -<%= @invoice.varavgift.round %> SEK <br>
+              Sociala avgifter -<%= @invoice.socialaavgifter.round %> SEK <br>
+              Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
+              Skatt	-<%= @invoice.skatt.round %> SEK <br>
+              Nettolön (lön efter skatt) <%= @invoice.steg3.round %> SEK <br>
+              <span class='item-define'>Utbetald summa:</span> <%= @invoice.steg3.round %> SEK<br>
             <% end %>
           </p>
         </div>

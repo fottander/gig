@@ -23,6 +23,46 @@ class Invoice < ApplicationRecord
     self.amount * 1.25
   end
 
+  def avgift
+    0.0598
+  end
+
+  def arbetsgivaravgift
+    0.2391
+  end
+
+  def inkomstskatt
+    0.3
+  end
+
+  def steg1
+    self.amount * (1-self.avgift)
+  end
+
+  def steg2
+    self.steg1 * (1-self.arbetsgivaravgift)
+  end
+
+  def steg3
+    self.steg2 * (1-self.inkomstskatt)
+  end
+
+  def varavgift
+    self.amount * self.avgift
+  end
+
+  def socialaavgifter
+    self.steg1 * self.arbetsgivaravgift
+  end
+
+  def bruttolon
+    self.steg1 - self.socialaavgifter
+  end
+
+  def skatt
+    self.bruttolon * self.inkomstskatt
+  end
+
   private
 
   def generate_ocr
