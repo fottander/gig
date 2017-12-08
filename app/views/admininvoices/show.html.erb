@@ -34,7 +34,7 @@
               <span class='item-define'>Jobb ID:</span> <%= @invoice.job_id %><br>
               <span class='item-define'>Frilansar ID:</span> <%= @invoice.profile_id %><br>
               <span class='item-define'>Frilansar användarnamn:</span> <%= @invoice.profile_username %><br>
-              <span class='item-define'>Post:</span> <%= @invoice.post %><br>
+              <span style='color: red;'>Post:</span> <%= @invoice.post %><br>
               <span class='item-define'>OCR:</span> <%= @invoice.ocr_number %><br>
               <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br>
               <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%D %R") %><br>
@@ -44,7 +44,7 @@
             Kan inte markeras som betald förrän fakturan är godkänd av kund
           <% else %>
             <% if @invoice.paid == false %>
-              <%= link_to 'Betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+              <%= link_to 'Markera som betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
             <% else %>
               <span style='color: green;'>Fakturan har blivit betald</span>
             <% end %>
