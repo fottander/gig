@@ -26,7 +26,7 @@ Feature: Admin payments
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
       And I click "Betalningar"
-      And I should see "Alla aktiverade fakturor"
+      And I should see "Aktiverade fakturor som ska betalas"
       And I should see "abc"
       And I should see "def"
       And I should see "ghi"
@@ -41,4 +41,12 @@ Feature: Admin payments
       Given I am on the administrations page
       And I click "Betalningar"
       Then I should see "def"
+      And I should not see "abc"
+
+    Scenario: I filter to the invoices where salary has been paid
+      Given I am logged in as admin "admin@yahoo.com"
+      Given I am on the administrations page
+      And I click "Betalningar"
+      And I click "Visa utbetalda"
+      And I should see "jkl"
       And I should not see "abc"

@@ -15,7 +15,7 @@
     <div class="portfolio-resume row">
       <div class="large-12 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Alla aktiverade fakturor</h3>
+          <h3 class="portfolio-resume-header">Aktiverade fakturor som ska betalas</h3>
             <%= form_tag adminpayments_path, method: 'get' do %>
               <%= date_field_tag :pay_day, nil %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
