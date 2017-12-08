@@ -12,6 +12,7 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @companies = Company.where(id: @invoice.company_id)
     @profiles = Profile.where(id: @invoice.profile_id)
+    @user = User.find_by(id: @invoice.user_id)
     @due_date = @invoice.updated_at+@invoice.terms.day
     respond_to do |format|
       format.html
