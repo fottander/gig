@@ -21,9 +21,9 @@
       <%= f.text_area :description, value: @job.description %>
       <%= f.label :requirement, 'Krav' %>
       <%= f.text_field :requirement, value: @job.requirement %>
-      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+      <%= f.label :category_ids, 'Kategorier' %>
       <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
-      <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+      <%= f.label :city_ids, 'Stad' %>
       <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @job.city_ids }, { class: 'input-medium' }) %>
       <%= f.label :budget, 'Lön' %>
       <%= f.text_field :budget, value: @job.budget %>

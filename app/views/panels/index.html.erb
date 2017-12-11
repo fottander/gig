@@ -10,7 +10,7 @@
   <div class="holy-grail-middle">
     <div class="portfolio-resume row">
 
-      <div class="large-4 columns">
+      <div class="large-6 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Konto</h3>
           <p class="portfolio-resume-subheader">
@@ -28,18 +28,9 @@
         </div>
       </div>
 
-      <div class="large-4 columns">
+      <div class="large-6 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Betalningar</h3>
-          <p class="portfolio-resume-subheader">
-            <%= link_to 'Betalningar', panels_path, class: 'button-green' %>
-          </p>
-        </div>
-      </div>
-
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Jobb</h3>
+          <h3 class="portfolio-resume-header">Aktiva annonser</h3>
           <% if @job.present? %>
             <% @job.each do |job| %>
               <p class="portfolio-resume-subheader">
@@ -67,7 +58,7 @@
     <div class="portfolio-resume row">
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Aktiva jobb</h3>
+          <h3 class="portfolio-resume-header">Aktiva anställningar</h3>
           <% if @application.present? %>
             <% @application.each do |application| %>
               <p class="portfolio-resume-subheader">
@@ -89,7 +80,7 @@
       </div>
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Färdiga jobb</h3>
+          <h3 class="portfolio-resume-header">Färdiga anställningar</h3>
           <% if @application.present? %>
             <% @application.each do |application| %>
               <p class="portfolio-resume-subheader">
