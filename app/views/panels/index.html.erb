@@ -36,7 +36,7 @@
               <p class="portfolio-resume-subheader">
               <%= link_to job.title, job_path(job) %><br>
               Jobb ID: <%= job.id %><br>
-              Skapat: <%= job.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
+              Skapat: <%= job.created_at.strftime("%F %R") %><br>
               Antal svar: <%= job.applications.count %><br>
               <% if job.active == true %>
                 <p class="dash-active", style="color: green;">Aktivt</p>
