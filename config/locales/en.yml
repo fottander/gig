@@ -44,8 +44,8 @@ en:
       job:
         title: "Titel"
         description: 'Beskrivning'
-        ccategory_ids: 'Kategori'
-        city: 'Stad'
+        category_ids: 'Kategori'
+        city_ids: 'Stad'
         budget: 'Budget'
         deadline: 'Sista ansökningsdag'
         duration: 'Varaktighet'
@@ -80,7 +80,7 @@ en:
         skill: 'Färdigheter'
         rate: 'Lön'
         category_ids: 'Kategori'
-        city: 'Stad'
+        city_ids: 'Stad'
       application:
         message: 'Meddelande'
       comment:
@@ -158,7 +158,7 @@ en:
               blank: "kan inte vara blankt!"
             category_ids:
               blank: "kan inte vara blankt!"
-            city:
+            city_ids:
               blank: "kan inte vara blankt!"
             budget:
               blank: "kan inte vara blankt!"
@@ -177,7 +177,7 @@ en:
               blank: "kan inte vara blankt!"
             category_ids:
               blank: "kan inte vara blankt!"
-            city:
+            city_ids:
               blank: "kan inte vara blankt!"
             title:
               blank: 'kan inte vara blankt!'
