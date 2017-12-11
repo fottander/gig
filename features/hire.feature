@@ -44,6 +44,6 @@ Feature: A company hires a person
       And I should see "Diskutera & chatta"
       And I should not see "Jobbet har blivit godkänt"
       And I should not see "Anställ"
-      And I should not see "Skapa faktura"
+      And I should not see "SKAPA FAKTURA"
       And I click "Godkänn jobbet"
       Then I should see "Grattis! Jobb genomfört."
