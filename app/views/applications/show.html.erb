@@ -56,6 +56,8 @@
      <% if @job.company_id == current_company.id %>
       <% if @application.hired == false %>
         <%= link_to 'Anställ', job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+      <% elsif @application.complete == false %>
+        <%= link_to 'Godkänn jobbet', complete_job_application_path(@application.job_id, @application.id), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
       <% end %>
      <% end %>
     <% end %>
