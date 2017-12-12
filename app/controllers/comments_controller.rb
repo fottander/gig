@@ -5,9 +5,11 @@ class CommentsController < ApplicationController
     @user = User.find_by(id: @profile.user_id)
     @comment = Comment.new comment_params
     @job = Job.find(params[:job_id])
+    @company = Company.find_by(id: @job.company_id)
     if current_user.present?
       @comment.profile_id = current_user.profile.id
       @comment.profile_username = current_user.profile.username
+      Notification.create(recipient: @company, actor: current_user.profile, action: 'började chatta', notifiable: @comment)
     else
       @comment.company_id = current_company.id
       @comment.company_username = current_company.username
