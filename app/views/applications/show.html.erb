@@ -1,20 +1,20 @@
 <h3>Ansökan för jobb ID <%= @application.job_id %></h3>
 <div class='breadcrumb-holder'>
-    <%= render_breadcrumbs separator: ' > ' %>
+  <%= render_breadcrumbs separator: ' > ' %>
 </div>
 
 <div class="card profile-card-action-icons">
-    <div class="card-section">
-        <div class="profile-card-header">
-            <div class="profile-card-author">
-              <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
-            </div>
-        </div>
-        <div class="profile-card-about-message">
-          Ansökan: <br>
-          <%= @application.message %>
-        </div>
+  <div class="card-section">
+    <div class="profile-card-header">
+      <div class="profile-card-author">
+        <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
+      </div>
     </div>
+    <div class="profile-card-about-message">
+      Ansökan: <br>
+      <%= @application.message %>
+    </div>
+  </div>
 </div>
 <div class="holy-grail-grid-show">
   <div class="holy-grail-left-application">
@@ -25,11 +25,12 @@
             <div class='portfolio-resume-subheader-title'>
               SKAPA FAKTURA
             </div>
+            <span style='color: #696868;'>Hjälp med att skapa faktura? Kolla in vår guide här.</span>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
             <%= text_area_tag :description, nil, placeholder: '* Beskrivning' %>
             <%= text_field_tag :quantity, nil, placeholder: 'Antal(ex. antal timmar)' %>
             <%= text_field_tag :unit, nil, placeholder: 'Enhet(ex. 150kr/timma)' %>
-            <%= text_field_tag :amount, nil, placeholder: '* Belopp ex. moms(endast siffror ex. 2000)' %>
+            <%= text_field_tag :amount, nil, placeholder: '* Belopp ex. moms(endast siffror)' %>
             <%= label_tag :first_day, 'Startdag(ex. 2018-11-01)', class: 'invoice-details-date' %>
             <%= date_field_tag :first_day %>
             <%= label_tag :last_day, 'Sista dag(ex. 2018-12-30)', class: 'invoice-details-date' %>
@@ -56,6 +57,8 @@
      <% if @job.company_id == current_company.id %>
       <% if @application.hired == false %>
         <%= link_to 'Anställ', job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+      <% elsif @application.complete == false %>
+        <%= link_to 'Godkänn jobbet', complete_job_application_path(@application.job_id, @application.id), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
       <% end %>
      <% end %>
     <% end %>
@@ -66,7 +69,7 @@
         <h4 style="color: #37a000">Svar</h4>
         <% @comments.each do |comment| %>
         <strong><%= comment.profile_username %></strong>
-        <strong><%= comment.company_username %></strong> | <%= comment.created_at.in_time_zone("Stockholm").strftime("%D %R") %> |<br>
+        <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
         <div class="comment-section-comment">
           <%= comment.comment %><br>
         </div>
@@ -76,9 +79,9 @@
         <p>Inga svar ännu</p>
       <% end %>
       <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-      <%= label_tag :comment, 'Svara på ansökan' %>
-      <%= text_area_tag :comment %>
-      <%= submit_tag 'Skicka', class: 'reply-button' %>
+        <%= label_tag :comment, 'Svara på ansökan' %>
+        <%= text_area_tag :comment %>
+        <%= submit_tag 'Skicka', class: 'reply-button' %>
       <% end %>
     </div>
   </div>

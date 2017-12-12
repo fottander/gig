@@ -10,7 +10,7 @@
   <div class="holy-grail-middle">
     <div class="portfolio-resume row">
 
-      <div class="large-4 columns">
+      <div class="large-6 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Konto</h3>
           <p class="portfolio-resume-subheader">
@@ -28,24 +28,15 @@
         </div>
       </div>
 
-      <div class="large-4 columns">
+      <div class="large-6 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Betalningar</h3>
-          <p class="portfolio-resume-subheader">
-            <%= link_to 'Betalningar', panels_path, class: 'button-green' %>
-          </p>
-        </div>
-      </div>
-
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Jobb</h3>
+          <h3 class="portfolio-resume-header">Aktiva annonser</h3>
           <% if @job.present? %>
             <% @job.each do |job| %>
               <p class="portfolio-resume-subheader">
               <%= link_to job.title, job_path(job) %><br>
               Jobb ID: <%= job.id %><br>
-              Skapat: <%= job.created_at.in_time_zone("Stockholm").strftime("%D %R") %><br>
+              Skapat: <%= job.created_at.strftime("%F %R") %><br>
               Antal svar: <%= job.applications.count %><br>
               <% if job.active == true %>
                 <p class="dash-active", style="color: green;">Aktivt</p>
@@ -67,7 +58,7 @@
     <div class="portfolio-resume row">
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Aktiva jobb</h3>
+          <h3 class="portfolio-resume-header">Aktiva anställningar</h3>
           <% if @application.present? %>
             <% @application.each do |application| %>
               <p class="portfolio-resume-subheader">
@@ -77,7 +68,7 @@
                   Ansöknings ID: <%= application.id %><br>
                   Jobb ID: <%= application.job_id %><br>
                   <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
-                  <%= link_to 'Godkänn', complete_job_application_path(application.job_id, application.id), method: :patch, data: { confirm: "Are you sure?" }, class: 'button-orange' %>
+                  <%= link_to 'Godkänn', complete_job_application_path(application.job_id, application.id), method: :patch, data: { confirm: "Är du säker?" }, class: 'button-orange' %>
                   </p>
                 <% end %>
               <% end %>
@@ -89,7 +80,7 @@
       </div>
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Färdiga jobb</h3>
+          <h3 class="portfolio-resume-header">Färdiga anställningar</h3>
           <% if @application.present? %>
             <% @application.each do |application| %>
               <p class="portfolio-resume-subheader">

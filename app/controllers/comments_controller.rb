@@ -6,20 +6,18 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_params
     @job = Job.find(params[:job_id])
     if current_user.present?
-      @profile = Profile.find_by(user_id: current_user)
-      @comment.profile_id = @profile.id
-      @comment.profile_username = @profile.username
+      @comment.profile_id = current_user.profile.id
+      @comment.profile_username = current_user.profile.username
     else
-      @company = current_company
-      @comment.company_id = @company.id
-      @comment.company_username = @company.username
+      @comment.company_id = current_company.id
+      @comment.company_username = current_company.username
     end
     @comment.application_id = @application.id
     @comment.job_id = @job.id
     if @comment.save
 
-      if @company.present?
-        # Sends email to user when first comment by company is created.
+      if current_company.present?
+        # Sends email to user when comment by company is created.
         NotificationMailer.new_comment_email(@user, @application).deliver_now
       end
 

@@ -33,11 +33,10 @@ class ApplicationsController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
     @company = Company.find_by(id: @job.company_id)
-    @profile = Profile.find_by(user_id: current_user)
     @application = Application.new application_params
     @application.job_id = @job.id
-    @application.profile_id = @profile.id
-    @application.profile_username = @profile.username
+    @application.profile_id = current_user.profile.id
+    @application.profile_username = current_user.profile.username
     @application.job_title = @job.title
     respond_to do |format|
       if @application.save

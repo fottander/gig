@@ -37,10 +37,10 @@
           <% else %>
             <div style="color: green;">Status: Godkänd & skickad</div>
           <% end %>
-          <% if @invoice.paid == false %>
-            Betalningsstatus: <p style="color: red;">Ej betald</p>
+          <% if @invoice.paid == true %>
+            Betalningsstatus: <p style="color: green;">Godkänd</p>
           <% else %>
-            Betalningsstatus: <p style="color: green;">Betald</p>
+            <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
           <% end %>
           </div>
         </div>
