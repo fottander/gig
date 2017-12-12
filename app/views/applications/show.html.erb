@@ -1,20 +1,20 @@
 <h3>Ansökan för jobb ID <%= @application.job_id %></h3>
 <div class='breadcrumb-holder'>
-    <%= render_breadcrumbs separator: ' > ' %>
+  <%= render_breadcrumbs separator: ' > ' %>
 </div>
 
 <div class="card profile-card-action-icons">
-    <div class="card-section">
-        <div class="profile-card-header">
-            <div class="profile-card-author">
-              <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
-            </div>
-        </div>
-        <div class="profile-card-about-message">
-          Ansökan: <br>
-          <%= @application.message %>
-        </div>
+  <div class="card-section">
+    <div class="profile-card-header">
+      <div class="profile-card-author">
+        <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
+      </div>
     </div>
+    <div class="profile-card-about-message">
+      Ansökan: <br>
+      <%= @application.message %>
+    </div>
+  </div>
 </div>
 <div class="holy-grail-grid-show">
   <div class="holy-grail-left-application">
@@ -47,10 +47,9 @@
         <% end %>
       <% else %>
       <div class='holy-grail-left-application-box'>
-      Diskutera & chatta.<br>
-      Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
-      Kontaktinformation ska ej avslöjas i ansökan.<br>
-      Här finns några exempel.<br>
+      Diskutera & chatta<br>
+      Kom ihåg att vara tydlig & ha ett bra bemötande<br>
+      Här finns några exempel<br>
       </div>
       <% end %>
     </p>
@@ -80,9 +79,9 @@
         <p>Inga svar ännu</p>
       <% end %>
       <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-      <%= label_tag :comment, 'Svara på ansökan' %>
-      <%= text_area_tag :comment %>
-      <%= submit_tag 'Skicka', class: 'reply-button' %>
+        <%= label_tag :comment, 'Svara på ansökan' %>
+        <%= text_area_tag :comment %>
+        <%= submit_tag 'Skicka', class: 'reply-button' %>
       <% end %>
     </div>
   </div>
