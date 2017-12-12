@@ -59,6 +59,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :notifications
+
   resources :categories, only: [:create, :destroy, :edit, :update]
 
   resources :adminjobs, only: [:index, :show]

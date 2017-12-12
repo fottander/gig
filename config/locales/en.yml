@@ -37,6 +37,8 @@ en:
     month_names: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"]
 
   activerecord:
+    models:
+      comment: 'Meddelande'
     attributes:
       invite:
         message: "Meddelande"

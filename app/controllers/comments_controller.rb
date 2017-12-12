@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
     if current_user.present?
       @comment.profile_id = current_user.profile.id
       @comment.profile_username = current_user.profile.username
-      Notification.create(recipient: @company, actor: current_user.profile, action: 'började chatta', notifiable: @comment)
+      Notification.create(recipient: @company, actor: current_user.profile, action: 'skrev ett', notifiable: @comment)
     else
       @comment.company_id = current_company.id
       @comment.company_username = current_company.username
