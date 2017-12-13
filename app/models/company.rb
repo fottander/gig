@@ -3,6 +3,7 @@ class Company < ApplicationRecord
   has_many :jobs, dependent: :destroy
   has_many :invoices
   has_many :invites, dependent: :destroy
+  has_many :notifications, foreign_key: :recipient_id
   default_scope {order('created_at DESC')}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

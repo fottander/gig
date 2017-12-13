@@ -3,6 +3,7 @@ class Application < ApplicationRecord
   belongs_to :profile
   belongs_to :job
   has_many :comments, dependent: :destroy
+  has_one :company, through: :comments
 
   scope :with_id, -> (id) { where id: id }
   scope :with_job_id, -> (job_id) { where job_id: job_id }
