@@ -38,7 +38,7 @@ en:
 
   activerecord:
     models:
-      comment: 'Meddelande'
+      comment: 'Svar'
     attributes:
       invite:
         message: "Meddelande"

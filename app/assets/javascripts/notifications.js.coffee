@@ -13,7 +13,7 @@ class Notifications
 
   handleSuccess: (data) =>
     items = $.map data, (notification) ->
-      "<a class='portfolio-resume-subheader-items' href='#{notification.url}'>#{notification.created_at}<br> #{notification.actor} #{notification.action} #{notification.notifiable.type}</a><br><br>"
+      "<a class='portfolio-resume-subheader-items' href='#{notification.url}'>#{notification.created_at}<br> #{notification.action} #{notification.notifiable.type} i chatten från #{notification.actor}</a><br><br>"
     $("[data-behavior='notification-items']").html(items)
 
 jQuery ->
