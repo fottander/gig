@@ -39,6 +39,7 @@ en:
   activerecord:
     models:
       comment: 'Svar'
+      invoice: 'Faktura'
     attributes:
       invite:
         message: "Meddelande"

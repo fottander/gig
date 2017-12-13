@@ -3,7 +3,7 @@ class InvoicesController < ApplicationController
   before_action :authenticate_company!, only: [:show, :activate]
 
   def create
-    @profile = Profile.find_by(user_id: current_user)
+    @profile = current_user.profile
     @invoice = Invoice.new invoice_params
     @application = Application.find(params[:application_id])
     @job = Job.find_by(id: @application.job_id)
@@ -11,6 +11,7 @@ class InvoicesController < ApplicationController
     @invoice.profile_id = @profile.id
     @invoice.profile_username = @profile.username
     @invoice.user_id = current_user.id
+    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @job.id)
     if @invoice.save
 
       # Sends email to company when invoice is created.
