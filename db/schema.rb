@@ -193,8 +193,8 @@ ActiveRecord::Schema.define(version: 20171212160008) do
   create_table "notifications", force: :cascade do |t|
     t.integer "recipient_id"
     t.integer "actor_id"
-    t.datetime "read_at"
     t.string "action"
+    t.integer "job_id"
     t.integer "notifiable_id"
     t.string "notifiable_type"
     t.datetime "created_at", null: false

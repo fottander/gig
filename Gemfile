@@ -17,6 +17,7 @@ gem 'aws-sdk'
 gem "breadcrumbs_on_rails"
 gem 'prawn'
 gem 'prawn-table'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'pry-byebug'
