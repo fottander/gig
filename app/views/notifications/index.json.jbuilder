@@ -7,5 +7,9 @@ json.array! @notifications do |notification|
   json.notifiable do
     json.type "#{notification.notifiable.class.model_name.human.downcase}"
   end
-  json.url job_application_path(notification.job_id, notification.application_id)
+  if notification.notifiable_type == "Invoice"
+    json.url panels_path(anchor: "1")
+  else
+    json.url job_application_path(notification.job_id, notification.application_id)
+  end
 end
