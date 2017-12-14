@@ -5,6 +5,7 @@ RSpec.describe Notification, type: :model do
     it { is_expected.to have_db_column :recipient_id }
     it { is_expected.to have_db_column :actor_id }
     it { is_expected.to have_db_column :job_id }
+    it { is_expected.to have_db_column :application_id }
     it { is_expected.to have_db_column :action }
     it { is_expected.to have_db_column :notifiable_id }
     it { is_expected.to have_db_column :notifiable_type }

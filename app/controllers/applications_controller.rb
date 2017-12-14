@@ -40,6 +40,7 @@ class ApplicationsController < ApplicationController
     @application.job_title = @job.title
     respond_to do |format|
       if @application.save
+        Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @application, job_id: @job.id, application_id: @application.id)
 
         # Sends email to company when application is created.
         NotificationMailer.new_application_email(@company, @job).deliver_now

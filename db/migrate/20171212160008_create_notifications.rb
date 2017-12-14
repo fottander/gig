@@ -5,6 +5,7 @@ class CreateNotifications < ActiveRecord::Migration[5.1]
       t.integer :actor_id
       t.string :action
       t.integer :job_id
+      t.integer :application_id
       t.integer :notifiable_id
       t.string :notifiable_type
 

@@ -3,6 +3,7 @@ FactoryGirl.define do
     recipient_id 1
     actor_id 1
     job_id 1
+    application_id 1
     action "MyString"
     notifiable_id 1
     notifiable_type "MyString"

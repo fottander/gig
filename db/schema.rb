@@ -195,6 +195,7 @@ ActiveRecord::Schema.define(version: 20171212160008) do
     t.integer "actor_id"
     t.string "action"
     t.integer "job_id"
+    t.integer "application_id"
     t.integer "notifiable_id"
     t.string "notifiable_type"
     t.datetime "created_at", null: false

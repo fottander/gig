@@ -11,7 +11,7 @@ class InvoicesController < ApplicationController
     @invoice.profile_id = @profile.id
     @invoice.profile_username = @profile.username
     @invoice.user_id = current_user.id
-    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @job.id)
+    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @job.id, application_id: @application.id)
     if @invoice.save
 
       # Sends email to company when invoice is created.
@@ -39,6 +39,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     respond_to do |format|
       if @invoice.update invoice_update_params
+        Notification.create(recipient: @company, actor: current_user.profile, action: 'Ändrad', notifiable: @invoice, job_id: @job.id, application_id: @application.id)
         format.html { redirect_to edit_invoice_path(@invoice), notice: 'Faktura ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else
