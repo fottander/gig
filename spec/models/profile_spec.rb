@@ -38,6 +38,8 @@ RSpec.describe Profile, type: :model do
     it { should have_and_belong_to_many(:cities) }
     it { is_expected.to have_many :applications}
     it { is_expected.to have_many :invites}
+    it { is_expected.to have_many :notifications}
+    it { is_expected.to have_many :notices}
   end
 
   describe 'Factory' do

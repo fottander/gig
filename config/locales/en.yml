@@ -38,7 +38,17 @@ en:
 
   activerecord:
     models:
-      comment: 'Meddelande'
+      comment: 'Svar'
+      invoice: 'Faktura'
+      job: 'Jobb'
+      company: 'Företag'
+      user: 'Användare'
+      profile: 'Frilansare'
+      application: 'Ansökan'
+      category: 'Kategori'
+      city: 'Stad'
+      invite: 'Inbjudan'
+      notification: 'Avisering'
     attributes:
       invite:
         message: "Meddelande"

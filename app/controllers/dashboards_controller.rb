@@ -4,6 +4,6 @@ class DashboardsController < ApplicationController
     @profile = Profile.find_by(user_id: current_user)
     @applications = Application.where(profile_id: current_user.profile)
     @invoices = Invoice.where(user_id: current_user)
-    @jobs = Job.all
+    @jobs = Job.where(id: @applications.pluck(:job_id))
   end
 end

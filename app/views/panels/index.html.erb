@@ -30,7 +30,7 @@
 
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Notifieringar</h3>
+          <h3 class="portfolio-resume-header">Aviseringar</h3>
           <div class="portfolio-resume-subheader" data-behavior="notifications">
             <a class="portfolio-resume-subheader-items" data-behavior="notification-items"></a>
           </div>
@@ -40,13 +40,13 @@
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Aktiva annonser</h3>
-          <% if @job.present? %>
-            <% @job.each do |job| %>
+          <% if @jobs.present? %>
+            <% @jobs.each do |job| %>
               <p class="portfolio-resume-subheader">
               <%= link_to job.title, job_path(job) %><br>
               Jobb ID: <%= job.id %><br>
               Skapat: <%= job.created_at.strftime("%F %R") %><br>
-              Antal svar: <%= job.applications.count %><br>
+              Antal ansökningar: <%= job.applications.count %><br>
               <% if job.active == true %>
                 <p class="dash-active", style="color: green;">Aktivt</p>
               <% else %>
@@ -54,7 +54,7 @@
               <% end %>
               </p>
               <%= link_to 'Redigera jobb', edit_job_path(job), class: 'button-green' %>
-              <%= link_to 'Radera', job_path(job), data: { confirm: "Är du säker? Detta kommer radera alla ansökningar & fakturor." }, method: :delete, class: 'button-orange' %>
+              <%= link_to 'Radera', job_path(job), data: { confirm: "Är du säker? Det kommer även radera alla ansökningar." }, method: :delete, class: 'button-orange' %>
             <% end %>
           <% else %>
             <h6><strong>Inga jobb ännu</strong></h6>
@@ -68,12 +68,13 @@
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Aktiva anställningar</h3>
-          <% if @application.present? %>
-            <% @application.each do |application| %>
+          <% if @applications.present? %>
+            <% @applications.each do |application| %>
               <p class="portfolio-resume-subheader">
               <% if application.hired == true %>
                 <% if application.complete == false %>
                   <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
+                  <%= application.job_title %><br>
                   Ansöknings ID: <%= application.id %><br>
                   Jobb ID: <%= application.job_id %><br>
                   <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
@@ -90,12 +91,13 @@
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Färdiga anställningar</h3>
-          <% if @application.present? %>
-            <% @application.each do |application| %>
+          <% if @applications.present? %>
+            <% @applications.each do |application| %>
               <p class="portfolio-resume-subheader">
               <% if application.hired == true %>
                 <% if application.complete == true %>
                   <%= link_to application.profile_username, profile_path(application.profile_id) %><br>
+                  <%= application.job_title %><br>
                   Ansöknings ID: <%= application.id %><br>
                   Jobb ID: <%= application.job_id %><br>
                   <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
@@ -111,12 +113,17 @@
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Fakturor</h3>
+            <span id="1"></span>
             <% if @invoices.present? %>
               <% @invoices.each do |invoice| %>
+                <% @jobs.where(id: invoice.job_id).each do |job| %>
+                  <%= link_to job.title, job_path(job.id) %><br>
+                <% end %>
                 <p class="portfolio-resume-subheader">
                 Faktura ID: <%= invoice.id %><br>
                 Jobb ID: <%= invoice.job_id %><br>
                 Ansöknings ID: <%= invoice.application_id %><br>
+                Frilansare: <%= invoice.profile_username %><br>
                 Skapad: <%= invoice.created_at.strftime("%Y-%m-%d") %><br>
                 <% if invoice.active == false %>
                   <p class="dash-active-inv", style="color: red;">Ej godkänd</p>

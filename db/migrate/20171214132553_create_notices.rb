@@ -1,6 +1,6 @@
-class CreateNotifications < ActiveRecord::Migration[5.1]
+class CreateNotices < ActiveRecord::Migration[5.1]
   def change
-    create_table :notifications do |t|
+    create_table :notices do |t|
       t.integer :recipient_id
       t.integer :actor_id
       t.string :action

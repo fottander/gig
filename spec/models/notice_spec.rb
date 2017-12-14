@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Notification, type: :model do
+RSpec.describe Notice, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :recipient_id }
     it { is_expected.to have_db_column :actor_id }
@@ -28,7 +28,7 @@ RSpec.describe Notification, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:notification)).to be_valid
+      expect(create(:notice)).to be_valid
     end
   end
 end

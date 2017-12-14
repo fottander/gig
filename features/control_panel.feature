@@ -44,7 +44,7 @@ Feature: Company control panel
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I should see "målare sökes"
-      And I should see "Antal svar: 1"
+      And I should see "Antal ansökningar: 1"
       Then I should see "Aktiv"
 
     Scenario: I inactivate a job ad
