@@ -55,7 +55,7 @@ class InvoicesController < ApplicationController
     @user = User.find_by(id: @invoice.user_id)
     @invoice.active = true
     if @invoice.update invoice_activate_params
-      Notice.create(recipient: @user.profile, actor: current_company, action: 'Faktura godkänd för', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
+      Notice.create(recipient: @user.profile, actor: current_company, action: 'Godkänd', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
       if @invoice.post == true
         @invoice.update(amount: @invoice.amount + 500)
       end
