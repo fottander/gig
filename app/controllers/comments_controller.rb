@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     else
       @comment.company_id = current_company.id
       @comment.company_username = current_company.username
+      Notice.create(recipient: @profile, actor: current_company, action: 'Nytt', notifiable: @comment, job_id: @job.id, application_id: @application.id)
     end
     @comment.application_id = @application.id
     @comment.job_id = @job.id

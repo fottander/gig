@@ -31,6 +31,7 @@ RSpec.describe Company, type: :model do
     it { is_expected.to have_many :jobs }
     it { is_expected.to have_many :invites }
     it { is_expected.to have_many :notifications}
+    it { is_expected.to have_many :notices}
   end
 
   describe 'Factory' do

@@ -6,6 +6,7 @@ class Profile < ApplicationRecord
   has_and_belongs_to_many :categories, dependent: :destroy
   has_and_belongs_to_many :cities, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id
+  has_many :notices, foreign_key: :recipient_id
   default_scope {order('created_at DESC')}
   has_attached_file :avatar,
                        storage: :s3,
