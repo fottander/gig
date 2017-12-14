@@ -59,6 +59,7 @@ class ApplicationsController < ApplicationController
     @application.complete = true
     @profile = Profile.find_by(id: @application.profile_id)
     @user = User.find_by(id: @profile.user_id)
+    Notice.create(recipient: @profile, actor: current_company, action: 'Jobb godkänt för', notifiable: @application, job_id: @application.job_id, application_id: @application.id)
     if @application.save
 
       # Sends email to user when job is completed.
@@ -74,6 +75,7 @@ class ApplicationsController < ApplicationController
     @application.hired = true
     @profile = Profile.find_by(id: @application.profile_id)
     @user = User.find_by(id: @profile.user_id)
+    Notice.create(recipient: @profile, actor: current_company, action: 'Ny anställning för', notifiable: @application, job_id: @application.job_id, application_id: @application.id)
     if @application.save
 
       # Sends email to user when profile is hired.

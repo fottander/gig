@@ -37,9 +37,10 @@ class InvoicesController < ApplicationController
 
   def update
     @invoice = Invoice.find(params[:id])
+    @company = Company.find_by(id: @invoice.company_id)
     respond_to do |format|
       if @invoice.update invoice_update_params
-        Notification.create(recipient: @company, actor: current_user.profile, action: 'Ändrad', notifiable: @invoice, job_id: @job.id, application_id: @application.id)
+        Notification.create(recipient: @company, actor: current_user.profile, action: 'Ändrad', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
         format.html { redirect_to edit_invoice_path(@invoice), notice: 'Faktura ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else
@@ -54,6 +55,7 @@ class InvoicesController < ApplicationController
     @user = User.find_by(id: @invoice.user_id)
     @invoice.active = true
     if @invoice.update invoice_activate_params
+      Notice.create(recipient: @user.profile, actor: current_company, action: 'Faktura godkänd för', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
       if @invoice.post == true
         @invoice.update(amount: @invoice.amount + 500)
       end
