@@ -7,6 +7,5 @@ FactoryGirl.define do
     deadline "2017-10-11"
     duration "Mydur"
     hour_week 1
-    avatar { File.new("#{Rails.root}/spec/images/Default-company.png") }
   end
 end

@@ -43,18 +43,9 @@ RSpec.describe Job, type: :model do
     it { should have_and_belong_to_many(:cities) }
   end
 
-  describe 'Avatar attachment' do
-    it { is_expected.to have_attached_file(:avatar)}
-  end
-
   describe 'Factory' do
     it 'should have valid Factory' do
       expect(create(:job, category_ids: '100', city_ids: '100')).to be_valid
     end
-  end
-
-  it 'has an avatar url by default' do
-    job = create(:job, category_ids: '200', city_ids: '200')
-    expect(job.avatar.url).to include 'Default-company.png'
   end
 end
