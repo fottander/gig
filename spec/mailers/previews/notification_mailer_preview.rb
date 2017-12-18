@@ -3,6 +3,9 @@ class NotificationMailerPreview < ActionMailer::Preview
   def activate_invoice_mail_preview
     NotificationMailer.activate_invoice_email(User.first, Invoice.first)
   end
+  def job_invite_mail_preview
+    NotificationMailer.job_invite_email(User.first, Invite.first)
+  end
   def new_invoice_mail_preview
     NotificationMailer.new_invoice_email(Company.first, Invoice.first)
   end
