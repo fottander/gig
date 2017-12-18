@@ -15,22 +15,22 @@ Admin.create(
   )
 
 Category.create(
-  name: "Målare",
+  name: "Måleri",
   id: 50
   )
 
 Category.create(
-  name: "Snickare",
+  name: "Bygg",
   id: 51
   )
 
 Category.create(
-  name: "Plåtslagare",
+  name: "Plåtslageri",
   id: 52
   )
 
 Category.create(
-  name: "Lagerarbetare",
+  name: "Lager",
   id: 53
   )
 
