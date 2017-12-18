@@ -31,7 +31,7 @@
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>
       <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
       <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
-      <%= f.file_field :avatar %>
+      <%= f.file_field :avatar, class: 'form-text' %>
       <%= f.submit 'Skapa', class: 'reply-button' %>
       <% end %>
     </div>

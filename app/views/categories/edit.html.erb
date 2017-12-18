@@ -24,6 +24,8 @@
             <% end %>
               <%= f.label :name, 'Namn', class: 'form-text' %>
               <%= f.text_field :name, value: @category.name %>
+              <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+              <%= f.file_field :avatar, class: 'form-text' %>
               <%= f.submit 'Spara', class: 'reply-button' %>
           <% end %>
         </div>

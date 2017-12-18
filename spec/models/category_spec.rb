@@ -8,7 +8,6 @@ RSpec.describe Category, type: :model do
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :name }
-    it { is_expected.to validate_presence_of :avatar_file_name }
   end
 
   describe 'Associations' do

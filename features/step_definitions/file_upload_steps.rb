@@ -11,7 +11,9 @@ end
 
 Then(/^I should see job "([^"]*)" avatar name "([^"]*)"$/) do |job_title, avatar_name|
   job = Job.find_by(title: job_title)
-  within ".job-#{job.id}" do
-    expect(page).to have_css "img[src*='#{job.avatar.url}']"
+  job.categories.each do |category|
+    within ".job-#{job.id}" do
+      expect(page).to have_css "img[src*='#{category.avatar.url}']"
+    end
   end
 end
