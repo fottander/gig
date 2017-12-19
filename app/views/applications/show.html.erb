@@ -6,13 +6,24 @@
 <div class="card profile-card-action-icons">
   <div class="card-section">
     <div class="profile-card-header">
+      <div class="profile-card-avatar">
+        <%= image_tag @application.profile.avatar.url, class: "avatar-image" %>
+      </div>
       <div class="profile-card-author">
         <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
+        <%= @application.profile.title %>
       </div>
     </div>
     <div class="profile-card-about-message">
-      Ansökan: <br>
-      <%= @application.message %>
+      <% if current_user.present? %>
+        <% if @application.profile_id == current_user.profile.id %>
+          Ansökan: <br>
+          <%= @application.message %>
+        <% end %>
+      <% elsif @job.company_id == current_company.id %>
+        Ansökan: <br>
+        <%= @application.message %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -65,23 +76,46 @@
   </div>
   <div class="holy-grail-middle">
     <div class="comment-section">
-      <% if @comments.present? %>
-        <h4 style="color: #37a000">Svar</h4>
-        <% @comments.each do |comment| %>
-        <strong><%= comment.profile_username %></strong>
-        <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
-        <div class="comment-section-comment">
-          <%= comment.comment %><br>
-        </div>
-        <hr>
+      <% if current_user.present? %>
+        <% if @application.profile_id == current_user.profile.id %>
+          <% if @comments.present? %>
+            <h4 style="color: #37a000">Svar</h4>
+            <% @comments.each do |comment| %>
+            <strong><%= comment.profile_username %></strong>
+            <strong style='color: #f77d0e;'><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
+            <div class="comment-section-comment">
+              <%= comment.comment %><br>
+            </div>
+            <hr>
+            <% end %>
+          <% else %>
+            <p>Inga svar ännu</p>
+          <% end %>
+          <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+            <%= label_tag :comment, 'Svara på ansökan' %>
+            <%= text_area_tag :comment %>
+            <%= submit_tag 'Skicka', class: 'reply-button' %>
+          <% end %>
         <% end %>
-      <% else %>
-        <p>Inga svar ännu</p>
-      <% end %>
-      <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-        <%= label_tag :comment, 'Svara på ansökan' %>
-        <%= text_area_tag :comment %>
-        <%= submit_tag 'Skicka', class: 'reply-button' %>
+      <% elsif @job.company_id == current_company.id %>
+        <% if @comments.present? %>
+          <h4 style="color: #37a000">Svar</h4>
+          <% @comments.each do |comment| %>
+          <strong style='color: #f77d0e;'><%= comment.profile_username %></strong>
+          <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
+          <div class="comment-section-comment">
+            <%= comment.comment %><br>
+          </div>
+          <hr>
+          <% end %>
+        <% else %>
+          <p>Inga svar ännu</p>
+        <% end %>
+        <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+          <%= label_tag :comment, 'Svara på ansökan' %>
+          <%= text_area_tag :comment %>
+          <%= submit_tag 'Skicka', class: 'reply-button' %>
+        <% end %>
       <% end %>
     </div>
   </div>
