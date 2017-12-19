@@ -46,6 +46,9 @@ Feature: Apply to job
       Then I should see "målare sökes"
       And I click "Visa ansökan"
       Then I should see "I want job"
+      And I fill in "Svara på ansökan" with "Hallå svara"
+      And I click "Skicka"
+      Then I should see "Hallå svara"
       Given I am on the jobs page
       And I click "målare"
       Then I should see "Du har redan ansökt till detta jobbet!"
