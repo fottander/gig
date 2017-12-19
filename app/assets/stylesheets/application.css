@@ -212,7 +212,7 @@
      font-family: 'Montserrat',Arial,sans-serif;
      font-weight: 700;
      letter-spacing: 0.5px;
-     padding: 0.5rem 1rem 0.5rem;
+     padding: 0.3rem 0.5rem 0.3rem;
      border: none;
  }
 
@@ -239,7 +239,7 @@
    font-family: 'Montserrat',Arial,sans-serif;
    font-weight: 700;
    letter-spacing: 0.5px;
-   padding: 0.5rem 1rem 0.5rem;
+   padding: 0.3rem 0.5rem 0.3rem;
    border: none;
  }
 
@@ -1081,11 +1081,21 @@
   margin-bottom: 1rem;
 }
 
+.portfolio-resume-subheader a {
+  color: #0a0a0a;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+}
+
 .portfolio-resume-subheader {
   color: #8a8a8a;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
-  line-height: 1.4;
+  line-height: 1.2;
+  margin-top: 3px;
 }
 
 .portfolio-resume-subheader-items {
@@ -1096,6 +1106,24 @@
   text-transform: none;
   padding-bottom: 10px;
   border-bottom: 1px solid #cacaca;
+}
+
+.portfolio-resume-notice {
+  color: #8a8a8a;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-top: 3px;
+}
+
+.portfolio-resume-notice-items {
+  color: #8a8a8a;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 0.1px;
+  text-transform: none;
+  border-bottom: 1px solid #cacaca;
+  line-height: 2;
 }
 
 .notification-link {
@@ -1120,10 +1148,12 @@
 }
 
 .dash-active {
-  margin: -15px;
+  margin: -18px;
+  font-size: 13px;
 }
 
 .dash-active-inv {
-  margin-top: -15px;
+  margin-top: -18px;
+  font-size: 13px;
   margin-bottom: 0px;
 }
