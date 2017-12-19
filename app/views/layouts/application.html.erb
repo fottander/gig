@@ -11,32 +11,42 @@
       <%= csrf_meta_tags %>
     </head>
 
-    <div class="topnav" id="myTopnav">
-      <a href="/" id="logo"></a>
-      <% if company_signed_in? %>
-       <%= link_to "KONTROLLPANEL", panels_path %>
-       <%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %>
-       <%= link_to "HITTA JOBB", jobs_path %>
-       <%= link_to "HITTA FRILANSARE", profiles_path %>
-       <%= link_to "SKAPA ANNONS", new_job_path %>
-       <% elsif user_signed_in? %>
-       <%= link_to "KONTROLLPANEL", dashboards_path %>
-       <%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %>
-       <%= link_to "HITTA JOBB", jobs_path %>
-       <%= link_to "HITTA FRILANSARE", profiles_path %>
-       <%= link_to "SKAPA ANNONS", new_job_path %>
-       <% elsif admin_signed_in? %>
-       <%= link_to "ADMINISTRATION", administrations_path %>
-       <%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %>
-       <% else %>
-       <%= link_to "LOGGA IN", new_user_session_path %>
-       <%= link_to "REGISTRERA", new_user_registration_path %>
-       <%= link_to "HITTA JOBB", jobs_path %>
-       <%= link_to "HITTA FRILANSARE", profiles_path %>
-       <%= link_to "SKAPA ANNONS", new_job_path %>
-      <% end %>
-      <a href="javascript:void(0);" class="icon" onclick="myNav()">&#9776;</a>
-    </div>
+    <nav class="top-bar topbar-responsive">
+      <div class="top-bar-title">
+        <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+          <button class="menu-icon" type="button" data-toggle></button>
+        </span>
+        <a class="topbar-responsive-logo" href="/" id="logo"></a>
+      </div>
+      <div id="topbar-responsive" class="topbar-responsive-links">
+        <div class="top-bar-right">
+          <ul class="menu simple vertical medium-horizontal">
+            <% if company_signed_in? %>
+              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
+              <li><%= link_to "HITTA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
+              <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
+              <li><%= link_to "KONTROLLPANEL", panels_path %></li>
+            <% elsif user_signed_in? %>
+              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
+              <li><%= link_to "HITTA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
+              <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
+              <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
+            <% elsif admin_signed_in? %>
+              <li><%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %></li>
+              <li><%= link_to "ADMINISTRATION", administrations_path %></li>
+            <% else %>
+              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
+              <li><%= link_to "HITTA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
+              <li><%= link_to "REGISTRERA", new_user_registration_path %></li>
+              <li><%= link_to "LOGGA IN", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <hr>
     <body>
         <% if notice %>
