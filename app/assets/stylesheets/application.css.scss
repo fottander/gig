@@ -464,14 +464,35 @@ input[type='file'] {
 .login-box-form-section,
 .login-box-social-section-inner {
   padding-top: 1.0rem;
-  padding-right: 2.5rem;
-  padding-left: 2.5rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
-.login-box-social-section {
-  background: url("https://images.pexels.com/photos/179124/pexels-photo-179124.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
+.login-box-social-section-company-register {
+  background-image: image-url('background-check-2739233_1280.jpg');
+  height: 800px;
+  padding-top: 1.0rem;
   background-size: cover;
   background-position: center;
+  box-shadow:inset 0 0 0 999em rgba(0,0,0,0.5);
+}
+
+.login-box-social-section-company-login {
+  background-image: image-url('background-check-2739233_1280.jpg');
+  height: 400px;
+  padding-top: 1.0rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow:inset 0 0 0 999em rgba(0,0,0,0.5);
+}
+
+.login-box-social-section-user-login {
+  background-image: image-url('laptop-2558666_640.jpg');
+  height: 450px;
+  padding-top: 1.0rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow:inset 0 0 0 999em rgba(0,0,0,0.5);
 }
 
 .login-box-input {
@@ -484,122 +505,24 @@ input[type='file'] {
 }
 
 .login-box-input:focus {
-  color: #1779ba;
   transition: 0.2s ease-in-out;
   box-shadow: none;
   border: 0;
-  border-bottom: 2px solid #1779ba;
-}
-
-.login-box-social-button-facebook {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0 1rem 0;
-  padding: 0.85em 1em;
-  -webkit-appearance: none;
-  border: 1px solid transparent;
-  border-radius: 0;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out;
-  font-size: 0.9rem;
-  line-height: 1;
-  text-align: center;
-  cursor: pointer;
-  background-color: #3b5998;
-  color: #fefefe;
-  display: block;
-  width: 100%;
-  margin-right: 0;
-  margin-left: 0;
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-}
-
-[data-whatinput='mouse'] .login-box-social-button-facebook {
-  outline: 0;
-}
-
-.login-box-social-button-facebook:hover, .login-box-social-button-facebook:focus {
-  background-color: #2f477a;
-  color: #fefefe;
-}
-
-.login-box-social-button-twitter {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0 1rem 0;
-  padding: 0.85em 1em;
-  -webkit-appearance: none;
-  border: 1px solid transparent;
-  border-radius: 0;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out;
-  font-size: 0.9rem;
-  line-height: 1;
-  text-align: center;
-  cursor: pointer;
-  background-color: #55acee;
-  color: #fefefe;
-  display: block;
-  width: 100%;
-  margin-right: 0;
-  margin-left: 0;
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-}
-
-[data-whatinput='mouse'] .login-box-social-button-twitter {
-  outline: 0;
-}
-
-.login-box-social-button-twitter:hover, .login-box-social-button-twitter:focus {
-  background-color: #1a8fe8;
-  color: #fefefe;
-}
-
-.login-box-social-button-google {
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 0 1rem 0;
-  padding: 0.85em 1em;
-  -webkit-appearance: none;
-  border: 1px solid transparent;
-  border-radius: 0;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out;
-  font-size: 0.9rem;
-  line-height: 1;
-  text-align: center;
-  cursor: pointer;
-  background-color: #dd4b39;
-  color: #fefefe;
-  display: block;
-  width: 100%;
-  margin-right: 0;
-  margin-left: 0;
-  font-weight: 500;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-}
-
-[data-whatinput='mouse'] .login-box-social-button-google {
-  outline: 0;
-}
-
-.login-box-social-button-google:hover, .login-box-social-button-google:focus {
-  background-color: #be3221;
-  color: #fefefe;
-}
-
-[class*="login-box-social-button-"]:hover,
-[class*="login-box-social-button-"]:focus {
-  box-shadow: 0 2px 4px rgba(10, 10, 10, 0.4);
 }
 
 .login-box-social-headline {
   display: block;
   margin-bottom: 2.5rem;
   font-size: 1.875rem;
-  color: #fefefe;
+  color: white;
+  text-align: center;
+}
+
+.login-box-social-content {
+  font-size: 25px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: white;
   text-align: center;
 }
 
