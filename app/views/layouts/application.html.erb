@@ -18,9 +18,9 @@
         </span>
         <a class="topbar-responsive-logo" href="/" id="logo"></a>
       </div>
-      <div id="topbar-responsive" class="topbar-responsive-links" data-dropdown data-close-on-click="true">
+      <div id="topbar-responsive" class="topbar-responsive-links"
         <div class="top-bar-right">
-          <ul class="menu simple vertical medium-horizontal">
+          <ul class="menu simple vertical medium-horizontal" data-close-on-click-inside="false" data-dropdown-menu>
             <% if company_signed_in? %>
               <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
               <li><%= link_to "HITTA FRILANSARE", profiles_path %></li>
