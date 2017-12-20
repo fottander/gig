@@ -606,7 +606,8 @@ input[type='file'] {
  /* HERO */
 
 .marketing-site-hero {
-  background: url("hero-image.jpg") top right no-repeat;
+  background-image: image-url('hero-image.jpg');
+  background-repeat: no-repeat;
   height: 65vh;
   background-size: cover;
   display: -webkit-flex;
