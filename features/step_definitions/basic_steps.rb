@@ -26,3 +26,15 @@ end
 Then(/^show me the page$/) do
  save_and_open_page
 end
+
+Given("I click {string} within section") do |link|
+  within ".marketing-site-content-section" do
+    click_link_or_button link
+  end
+end
+
+Given("I click {string} within hero") do |link|
+  within ".marketing-site-hero-content" do
+    click_link_or_button link
+  end
+end
