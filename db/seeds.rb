@@ -115,7 +115,7 @@ Profile.create(
 Profile.create(
   id: 99998,
   username: "Felix O",
-  title: "Målare från gbg",
+  title: "Erfaren målare från Göteborg",
   description: "Målare på 29 år från Göteborg med lång erfarenhet inom måleri och enklare snickeri. Jag har varit målare på ett antal större firmor under de senaste fem åren. Jag kan även enklare snickeri samt plåtarbeten. Inom måleri är min specialitet utomhusmålning, där jag lett ett antal projekt för de firmor jag varit anställd på. Det har varit många trähus som målats men också större putsfasader och putsrenoveringar. Lång erfarenhet av sprutmålning, både inomhus och utomhus. Jag gillar att jobba i större grupper av personer och trivs med samarbeten. Glad person med hög arbetsmoral.",
   skill: "Målning mer än 5 år, snickeri ca. 3 år. Sprutmålning, utomhusmålning, inomhusmålning.",
   rate: "Runt 170kr/timma",
@@ -193,7 +193,7 @@ Application.create(
   updated_at: "2017-11-09 09:59:19",
   job_id: 99999,
   profile_id: 99998,
-  profile_username: "Fisken",
+  profile_username: "Felix O",
   job_title: "Målare sökes"
   )
 
@@ -232,7 +232,7 @@ Application.create(
   updated_at: "2017-09-17 15:46:24",
   job_id: 99998,
   profile_id: 99998,
-  profile_username: "Fisken",
+  profile_username: "Felix O",
   job_title: "Vi söker snickare för 3 månader"
   )
 
@@ -244,7 +244,7 @@ Invoice.create(
   amount: 3000,
   first_day: "2017-09-17",
   last_day: "2017-09-27",
-  user_reference: "Fisken",
+  user_reference: "Felix",
   company_reference: "Greger",
   terms: 30,
   feedback: "Jättebra jobbat! Felix skötte de jobb vi gav honom perfekt. Vi kommer definitivt anställa honom igen.",
@@ -256,7 +256,7 @@ Invoice.create(
   job_id: 99999,
   profile_id: 99998,
   company_id: 99999,
-  profile_username: "Fisken",
+  profile_username: "Felix O",
   user_id: 99998
   )
 
@@ -279,7 +279,7 @@ Invoice.create(
   application_id: 99998,
   job_id: 99998,
   profile_id: 99998,
-  profile_username: "Fisken",
+  profile_username: "Felix O",
   user_id: 99998
   )
 

@@ -526,7 +526,7 @@ input[type='file'] {
   text-align: center;
 }
 
- /* HERO */
+ /* HERO & FRONT */
 
 .marketing-site-hero {
   background-image: image-url('hero-image.jpg');
@@ -1003,6 +1003,11 @@ input[type='file'] {
   -webkit-align-items: flex-start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+
+.marketing-site-content-section .columns {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 @media screen and (min-width: 40em) {
