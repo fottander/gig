@@ -114,11 +114,11 @@ Profile.create(
 
 Profile.create(
   id: 99998,
-  username: "Fisken",
+  username: "Felix O",
   title: "Målare från gbg",
-  description: "Målare på 29 år från gbg med lång erfarenhet inom måleri och snickeri. Har varit målare på ett antal större firmor under 5 år. Kan enklare snickeri samt plåtarbeten. Kan mestadels utomhusmåleri men även enklare inomhusjobb.",
-  skill: "målning 5 år, snickeri 3 år. ",
-  rate: "runt 150kr/timma",
+  description: "Målare på 29 år från Göteborg med lång erfarenhet inom måleri och enklare snickeri. Jag har varit målare på ett antal större firmor under de senaste fem åren. Jag kan även enklare snickeri samt plåtarbeten. Inom måleri är min specialitet utomhusmålning, där jag lett ett antal projekt för de firmor jag varit anställd på. Det har varit många trähus som målats men också större putsfasader och putsrenoveringar. Lång erfarenhet av sprutmålning, både inomhus och utomhus. Jag gillar att jobba i större grupper av personer och trivs med samarbeten. Glad person med hög arbetsmoral.",
+  skill: "Målning mer än 5 år, snickeri ca. 3 år. Sprutmålning, utomhusmålning, inomhusmålning.",
+  rate: "Runt 170kr/timma",
   city_ids: 50,
   category_ids: 50,
   user_id: 99998
@@ -247,7 +247,7 @@ Invoice.create(
   user_reference: "Fisken",
   company_reference: "Greger",
   terms: 30,
-  feedback: "Jättebra jobbat, vi kommer anställa dig igen.",
+  feedback: "Jättebra jobbat! Felix skötte de jobb vi gav honom perfekt. Vi kommer definitivt anställa honom igen.",
   paid: false,
   active: true,
   post: false,

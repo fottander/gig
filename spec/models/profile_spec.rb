@@ -26,6 +26,8 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :category_ids }
     it { is_expected.to validate_presence_of :city_ids }
+    it { should validate_length_of(:title).is_at_most(80) }
+    it { should validate_length_of(:rate).is_at_most(35) }
   end
 
   describe 'Avatar attachment' do

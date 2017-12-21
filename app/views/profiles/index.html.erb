@@ -52,7 +52,12 @@
                 <% end %>
               </div>
               <div class='large-2 columns'>
-                  Färdigheter: <%= profile.skill %>
+                Färdigheter:
+                <% if profile.skill.length > 40 %>
+                  <%= truncate(profile.skill, length: 40) %>
+                <% else %>
+                  <%= profile.skill %>
+                <% end %>
               </div>
               <div class='large-2 columns'>
                   Lön: <%= profile.rate %>
