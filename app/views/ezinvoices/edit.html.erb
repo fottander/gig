@@ -27,7 +27,7 @@
                     <li><%= message %></li>
                   <% end %>
                 <% end %>
-                <p>Mottagare</p>
+                <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
                 <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
                 <%= f.text_field :org_number, value: @ezinvoice.org_number %>
                 <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
@@ -42,7 +42,7 @@
                 <%= f.email_field :company_email, value: @ezinvoice.company_email  %>
                 <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
                 <%= f.text_field :company_reference, value: @ezinvoice.company_reference %>
-                <p>Detaljer</p>
+                <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
                 <%= f.label :description, '* Beskrivning', class: 'form-text' %>
                 <%= f.text_area :description, value: @ezinvoice.description %>
                 <%= f.label :quantity, 'Kvantitet', class: 'form-text' %>
