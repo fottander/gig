@@ -1,5 +1,10 @@
 class EzinvoicesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :index, :edit, :update, :destroy]
+
+  def index
+    @profile = current_user.profile
+    @ezinvoices = Ezinvoice.where(user_id: current_user.id)
+  end
 
   def new
     @profile = current_user.profile
@@ -23,7 +28,37 @@ class EzinvoicesController < ApplicationController
     end
   end
 
+  def edit
+    @profile = current_user.profile
+    @ezinvoice = Ezinvoice.find(params[:id])
+  end
+
+  def update
+    @ezinvoice = Ezinvoice.find(params[:id])
+    respond_to do |format|
+      if @ezinvoice.update ezinvoice_update_params
+        format.html { redirect_to edit_ezinvoice_path(@ezinvoice), notice: 'Faktura ändrad' }
+        format.json { render :edit, status: :ok, location: @ezinvoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @ezinvoice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @ezinvoice = Ezinvoice.find(params[:id])
+    if @ezinvoice.destroy
+      flash[:notice] = "Faktura raderad!"
+      redirect_back(fallback_location: dashboards_path)
+    end
+  end
+
   private
+
+  def ezinvoice_update_params
+    params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference)
+  end
 
   def ezinvoice_params
     params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference)

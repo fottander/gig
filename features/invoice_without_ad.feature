@@ -28,7 +28,8 @@ Feature: Create an invoice without an ad
   Scenario: I create an invoice without an ad
     Given I am logged in as user "felix@mail.com"
     Given I am on the dashboards page
-    And I click "Skapa faktura"
+    And I click "Snabbfaktura"
+    And I click "Skapa en faktura"
     Then I should see "Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons"
     And I fill in "* Organisationsnummer" with "324234"
     And I fill in "* Företagsnamn" with "Kul ab"
@@ -46,6 +47,7 @@ Feature: Create an invoice without an ad
   Scenario: I create an invoice without an ad but without a profile
     Given I am logged in as user "greger@mail.com"
     Given I am on the dashboards page
-    And I click "Skapa faktura"
+    And I click "Snabbfaktura"
+    And I click "Skapa en faktura"
     Then I should see "Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons"
     Then I should see "Skapa en profil innan du kan fakturera!"
