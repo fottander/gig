@@ -15,55 +15,51 @@
   </div>
 
   <div class="holy-grail-middle">
-    <div class="login-box">
-      <h3>Skapa faktura</h3>
-      <div class="row collapse expanded">
-        <div class="login-box-form-section">
-          <p>Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons.</p>
-          <% if @profile.present? %>
-            <%= form_for @ezinvoice do |f| %>
-              <% if @ezinvoice.errors.any? %>
-                <% @ezinvoice.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              <% end %>
-              <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
-              <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
-              <%= f.text_field :org_number, placeholder: 'ex. xxxxxx-xxxx' %>
-              <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
-              <%= f.text_field :company_name, placeholder: 'ex. Brabra Bygg AB' %>
-              <%= f.label :company_address, '* Företagets adress', class: 'form-text' %>
-              <%= f.text_field :company_address, placeholder: 'ex. Södra gatan 33' %>
-              <%= f.label :company_zip, '* Postnummer', class: 'form-text' %>
-              <%= f.text_field :company_zip, placeholder: 'ex. 412 22' %>
-              <%= f.label :company_city, '* Stad', class: 'form-text' %>
-              <%= f.text_field :company_city, placeholder: 'ex. Göteborg' %>
-              <%= f.label :company_email, '* Email', class: 'form-text' %>
-              <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
-              <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
-              <%= f.text_field :company_reference, placeholder: 'Referensen hos företaget' %>
-              <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
-              <%= f.label :description, '* Beskrivning', class: 'form-text' %>
-              <%= f.text_area :description, placeholder: 'Kort beskrivning på vad som utförts och vad som faktureras' %>
-              <%= f.label :quantity, 'Kvantitet', class: 'form-text' %>
-              <%= f.text_field :quantity, placeholder: 'Antal(ex. antal timmar)' %>
-              <%= f.label :unit, 'Enhet', class: 'form-text' %>
-              <%= f.text_field :unit, placeholder: 'Enhet(ex. 150kr/timma)' %>
-              <%= f.label :amount, '* Summa', class: 'form-text' %>
-              <%= f.text_field :amount, placeholder: 'Belopp exkl. moms(endast siffror)' %>
-              <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
-              <%= f.date_field :first_day %>
-              <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
-              <%= f.date_field :last_day %>
-              <%= f.label :user_reference, '* Referens', class: 'form-text' %>
-              <%= f.text_field :user_reference, placeholder: 'Ditt förnamn & efternamn' %>
-              <%= f.submit 'Skapa', class: 'reply-button' %>
+    <div class="simple-form">
+      <div class='post-title'><h3>Skapa faktura</h3></div>
+      <p>Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons.</p>
+      <% if @profile.present? %>
+        <%= form_for @ezinvoice do |f| %>
+          <% if @ezinvoice.errors.any? %>
+            <% @ezinvoice.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
             <% end %>
-          <% else %>
-            <p>Skapa en profil innan du kan fakturera!</p>
           <% end %>
-        </div>
-      </div>
+          <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
+          <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
+          <%= f.text_field :org_number, placeholder: 'ex. xxxxxx-xxxx' %>
+          <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
+          <%= f.text_field :company_name, placeholder: 'ex. Brabra Bygg AB' %>
+          <%= f.label :company_address, '* Företagets adress', class: 'form-text' %>
+          <%= f.text_field :company_address, placeholder: 'ex. Södra gatan 33' %>
+          <%= f.label :company_zip, '* Postnummer', class: 'form-text' %>
+          <%= f.text_field :company_zip, placeholder: 'ex. 412 22' %>
+          <%= f.label :company_city, '* Stad', class: 'form-text' %>
+          <%= f.text_field :company_city, placeholder: 'ex. Göteborg' %>
+          <%= f.label :company_email, '* Email', class: 'form-text' %>
+          <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
+          <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
+          <%= f.text_field :company_reference, placeholder: 'Referensen hos företaget' %>
+          <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
+          <%= f.label :description, '* Beskrivning', class: 'form-text' %>
+          <%= f.text_area :description, placeholder: 'Kort beskrivning på vad som utförts och vad som faktureras' %>
+          <%= f.label :quantity, 'Kvantitet', class: 'form-text' %>
+          <%= f.text_field :quantity, placeholder: 'Antal(ex. antal timmar)' %>
+          <%= f.label :unit, 'Enhet', class: 'form-text' %>
+          <%= f.text_field :unit, placeholder: 'Enhet(ex. 150kr/timma)' %>
+          <%= f.label :amount, '* Summa', class: 'form-text' %>
+          <%= f.text_field :amount, placeholder: 'Belopp exkl. moms(endast siffror)' %>
+          <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
+          <%= f.date_field :first_day %>
+          <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
+          <%= f.date_field :last_day %>
+          <%= f.label :user_reference, '* Referens', class: 'form-text' %>
+          <%= f.text_field :user_reference, placeholder: 'Ditt förnamn & efternamn' %>
+          <%= f.submit 'Skapa', class: 'reply-button' %>
+        <% end %>
+      <% else %>
+        <p>Skapa en profil innan du kan fakturera!</p>
+      <% end %>
     </div>
   </div>
 </div>
