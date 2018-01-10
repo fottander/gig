@@ -40,6 +40,7 @@ en:
     models:
       comment: 'Svar'
       invoice: 'Faktura'
+      ezinvoice: 'Faktura'
       job: 'Jobb'
       company: 'Företag'
       user: 'Användare'
@@ -107,6 +108,24 @@ en:
         last_day: 'Sista dag'
         company_reference: 'Företagsreferens'
         terms: 'Betalningsvillkor'
+      ezinvoice:
+        org_number: 'Organisationsnummer'
+        company_name: 'Företagsnamn'
+        company_address: 'Företagsadress'
+        company_zip: 'Postnummer'
+        company_city: 'Stad'
+        company_email: 'Email'
+        company_reference: 'Företagsreferens'
+        description: 'Beskrivning'
+        unit: 'Enhet'
+        quantity: 'Kvantitet'
+        amount: 'Summa'
+        first_day: 'Startdag'
+        last_day: 'Sista dag'
+        user_reference: 'Referens'
+        user_id: 'AnvändarID'
+        profile_id: 'ProfilID'
+        profile_username: 'Profilnamn'
 
     errors:
       models:
@@ -216,6 +235,29 @@ en:
             description:
               blank: 'kan inte vara blankt!'
             amount:
+              blank: 'kan inte vara blankt!'
+            user_reference:
+              blank: 'kan inte vara blankt!'
+
+        ezinvoice:
+          attributes:
+            org_number:
+              blank: 'kan inte vara blankt!'
+            company_name:
+              blank: 'kan inte vara blankt!'
+            company_address:
+              blank: 'kan inte vara blankt!'
+            company_zip:
+              blank: 'kan inte vara blankt!'
+            company_city:
+              blank: 'kan inte vara blankt!'
+            company_email:
+              blank: 'kan inte vara blankt!'
+            description:
+              blank: 'kan inte vara blankt!'
+            amount:
+              blank: 'kan inte vara blankt!'
+            company_reference:
               blank: 'kan inte vara blankt!'
             user_reference:
               blank: 'kan inte vara blankt!'

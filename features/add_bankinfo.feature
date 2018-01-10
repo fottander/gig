@@ -1,6 +1,6 @@
 Feature: Add bankinfo
   As a user
-  In order to get payed
+  In order to get paid
   I would like to be able to complete my account with bankinformation
 
   Background:
