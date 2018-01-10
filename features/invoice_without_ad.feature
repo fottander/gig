@@ -25,7 +25,7 @@ Feature: Create an invoice without an ad
       | username | title        | description | category_ids | city_ids | user_id | id |
       | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  |
 
-  Scenario: I create an invoice without an ad
+  Scenario: I create an invoice without an ad and edit it afterwards and then delete it
     Given I am logged in as user "felix@mail.com"
     Given I am on the dashboards page
     And I click "Snabbfaktura"
@@ -43,6 +43,15 @@ Feature: Create an invoice without an ad
     And I fill in "* Referens" with "Roger"
     And I click "Skapa"
     Then I should see "Ny faktura skapad!"
+    And I click "Snabbfaktura"
+    And I click "Visa/redigera faktura"
+    And I should see "Redigera faktura"
+    And I fill in "* Summa" with "10"
+    And I click "Spara"
+    And I click "Snabbfaktura"
+    Then I should see "10"
+    And I click "Radera"
+    Then I should see "Inga snabbfakturor ännu!"
 
   Scenario: I create an invoice without an ad but without a profile
     Given I am logged in as user "greger@mail.com"

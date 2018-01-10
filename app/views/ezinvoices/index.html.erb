@@ -23,15 +23,19 @@
           <%= link_to 'Skapa en faktura', new_ezinvoice_path, class: 'reply-button' %><br><br>
           <p>Nedanför listas alla dina snabbfakturor</p>
           <% if @profile.present? %>
-            <% @ezinvoices.each do |ezinvoice| %>
-              <span class="portfolio-resume-subheader">
-                ID: <%= ezinvoice.id %><br>
-                Företag: <%= ezinvoice.company_name %><br>
-                Skapad: <%= ezinvoice.created_at.strftime("%Y %R") %><br>
-                Summa: <%= ezinvoice.amount %><br>
-              </span>
-              <%= link_to 'Visa/redigera faktura', edit_ezinvoice_path(ezinvoice), class: 'button-green' %>
-              <%= link_to 'Radera', ezinvoice_path(ezinvoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %><br><br>
+            <% if @ezinvoices.present? %>
+              <% @ezinvoices.each do |ezinvoice| %>
+                <span class="portfolio-resume-subheader">
+                  ID: <%= ezinvoice.id %><br>
+                  Företag: <%= ezinvoice.company_name %><br>
+                  Skapad: <%= ezinvoice.created_at.strftime("%Y %R") %><br>
+                  Summa: <%= ezinvoice.amount %><br>
+                </span>
+                <%= link_to 'Visa/redigera faktura', edit_ezinvoice_path(ezinvoice), class: 'button-green' %>
+                <%= link_to 'Radera', ezinvoice_path(ezinvoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %><br><br>
+              <% end %>
+            <% else %>
+              <p>Inga snabbfakturor ännu!</p>
             <% end %>
           <% else %>
             <p>Skapa en profil innan du kan fakturera!</p>
