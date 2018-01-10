@@ -1,0 +1,68 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
+    <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
+    <% if @profile.present? %>
+      <%= link_to 'Profil', edit_profile_path(@profile.id), class: 'button-menu' %>
+      <%= link_to 'Inbjudningar', invites_path(profile_id: @profile.id), class: 'button-menu' %>
+      <% else %>
+      <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
+    <% end %><br>
+    <%= link_to 'Utbetalningar', payments_path, class: 'button-menu' %><br>
+    <%= link_to 'Snabbfaktura', ezinvoices_path, class: 'button-menu' %><br>
+    <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="simple-form">
+      <div class='post-title'><h3>Redigera faktura</h3></div>
+      <% if @profile.present? %>
+        <% if @profile.id == @ezinvoice.profile_id %>
+          <%= form_for @ezinvoice do |f| %>
+            <% if @ezinvoice.errors.any? %>
+              <% @ezinvoice.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            <% end %>
+            <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
+            <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
+            <%= f.text_field :org_number, value: @ezinvoice.org_number %>
+            <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
+            <%= f.text_field :company_name, value: @ezinvoice.company_name %>
+            <%= f.label :company_address, '* Företagets adress', class: 'form-text' %>
+            <%= f.text_field :company_address, value: @ezinvoice.company_address %>
+            <%= f.label :company_zip, '* Postnummer', class: 'form-text' %>
+            <%= f.text_field :company_zip, value: @ezinvoice.company_zip %>
+            <%= f.label :company_city, '* Stad', class: 'form-text' %>
+            <%= f.text_field :company_city, value: @ezinvoice.company_city %>
+            <%= f.label :company_email, '* Email', class: 'form-text' %>
+            <%= f.email_field :company_email, value: @ezinvoice.company_email  %>
+            <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
+            <%= f.text_field :company_reference, value: @ezinvoice.company_reference %>
+            <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
+            <%= f.label :description, '* Beskrivning', class: 'form-text' %>
+            <%= f.text_area :description, value: @ezinvoice.description %>
+            <%= f.label :quantity, 'Kvantitet', class: 'form-text' %>
+            <%= f.text_field :quantity, value: @ezinvoice.quantity %>
+            <%= f.label :unit, 'Enhet', class: 'form-text' %>
+            <%= f.text_field :unit, value: @ezinvoice.unit %>
+            <%= f.label :amount, '* Summa', class: 'form-text' %>
+            <%= f.text_field :amount, value: @ezinvoice.amount %>
+            <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
+            <%= f.date_field :first_day, value: @ezinvoice.first_day %>
+            <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
+            <%= f.date_field :last_day, value: @ezinvoice.last_day %>
+            <%= f.label :user_reference, '* Referens', class: 'form-text' %>
+            <%= f.text_field :user_reference, value: @ezinvoice.user_reference %>
+            <%= f.submit 'Spara', class: 'reply-button' %>
+          <% end %>
+        <% else %>
+          <p>Skapa en faktura för att redigera fakturor</p>
+        <% end %>
+      <% else %>
+        <p>Skapa en profil innan du kan fakturera!</p>
+      <% end %>
+    </div>
+  </div>
+</div>
