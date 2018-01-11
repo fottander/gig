@@ -8,10 +8,6 @@ class PaymentsController < ApplicationController
 
   def show
     @profile = Profile.find_by(user_id: current_user)
-    if @invoice.present?
-      @invoice = Invoice.find(params[:id])
-    else
-      @ezinvoice = Ezinvoice.find(params[:id])
-    end
+    @invoice = Invoice.find(params[:id])
   end
 end

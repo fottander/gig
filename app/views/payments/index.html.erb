@@ -41,7 +41,7 @@
               <% @ezinvoices.salary_paid.each do |ezinvoice| %>
                 <% if ezinvoice.user_id == current_user.id %>
                   <span class='item-define'>Faktura ID:</span> <%= ezinvoice.id %><br>
-                  <%= link_to ezinvoice.updated_at.strftime("%F %R"), payment_path(ezinvoice), class: 'reply-button' %><br><br>
+                  <%= link_to ezinvoice.updated_at.strftime("%F %R"), ezpayment_path(ezinvoice), class: 'reply-button' %><br><br>
                 <% end %>
               <% end %>
             <% else %>

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   resources :payments, only: [:index, :show]
 
+  resources :ezpayments, only: [:show]
+
   resources :adminpayments, only: [:index, :new]
 
   resources :howitworks, only: [:index]
