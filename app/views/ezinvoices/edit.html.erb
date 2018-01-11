@@ -55,6 +55,8 @@
             <%= f.date_field :last_day, value: @ezinvoice.last_day %>
             <%= f.label :user_reference, '* Referens', class: 'form-text' %>
             <%= f.text_field :user_reference, value: @ezinvoice.user_reference %>
+            <%= f.label :terms, 'Betalningsvillkor(30 dagar är standard)', class: 'form-text' %>
+            <%= f.text_field :terms, value: @ezinvoice.terms %>
             <%= f.submit 'Spara', class: 'reply-button' %>
           <% end %>
         <% else %>

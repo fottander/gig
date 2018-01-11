@@ -3,7 +3,7 @@ class EzinvoicesController < ApplicationController
 
   def index
     @profile = current_user.profile
-    @ezinvoices = Ezinvoice.where(user_id: current_user.id)
+    @ezinvoices = Ezinvoice.where(user_id: current_user.id).paginate(page: params[:page])
   end
 
   def new
@@ -17,6 +17,7 @@ class EzinvoicesController < ApplicationController
     @ezinvoice.user_id = current_user.id
     @ezinvoice.profile_id = @profile.id
     @ezinvoice.profile_username = @profile.username
+    @ezinvoice.active = true
     respond_to do |format|
       if @ezinvoice.save
         format.html { redirect_to new_ezinvoice_path, notice: 'Ny faktura skapad!' }
@@ -57,11 +58,11 @@ class EzinvoicesController < ApplicationController
   private
 
   def ezinvoice_update_params
-    params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference)
+    params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms)
   end
 
   def ezinvoice_params
-    params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference)
+    params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms)
   end
 
 end

@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
   def index
     @profile = Profile.find_by(user_id: current_user)
     @invoices = Invoice.where(profile_id: @profile.id).paginate(page: params[:page])
+    @ezinvoices = Ezinvoice.where(profile_id: @profile.id).paginate(page: params[:page])
   end
 
   def show

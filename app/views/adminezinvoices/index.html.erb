@@ -1,0 +1,63 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Alla snabbfakturor</h3>
+            <%= form_tag adminezinvoices_path, method: 'get' do %>
+              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
+              <%= text_field_tag :with_user_id, nil, placeholder: 'Sök efter user ID' %>
+              <%= submit_tag 'Sök', class: 'filter-button' %>
+              <%= link_to 'Filtrera ej betalda', filter_ezinvoices_path, class: 'filter-button' %>
+              <%= link_to 'Filtrera betalda', new_filter_ezinvoice_path, class: 'filter-button' %>
+            <% end %>
+            <% @ezinvoices.each do |ezinvoice| %>
+              <div class='ezinvoice-<%= ezinvoice.id %>'>
+                <p class="portfolio-resume-subheader">
+                <%= link_to 'Visa/godkänn faktura', adminezinvoice_path(ezinvoice) %><br>
+                <span class='item-define'>ID:</span> <%= ezinvoice.id %><br>
+                <span class='item-define'>Kvantitet:</span> <%= ezinvoice.quantity %><br>
+                <span class='item-define'>Enhet:</span> <%= ezinvoice.unit %><br>
+                <span class='item-define'>Summa ex. moms:</span> <%= ezinvoice.amount %><br>
+                <span class='item-define'>Summa inkl. moms:</span> <%= ezinvoice.inklmoms.round %><br>
+                <span class='item-define'>Startdag:</span> <%= ezinvoice.first_day %><br>
+                <span class='item-define'>Sista dag:</span> <%= ezinvoice.last_day %><br>
+                <span class='item-define'>Beskrivning:</span> <%= ezinvoice.description %><br>
+                <span class='item-define'>Referens:</span> <%= ezinvoice.user_reference %><br>
+                <span class='item-define'>Företagsreferens:</span> <%= ezinvoice.company_reference %><br>
+                <span class='item-define'>Villkor:</span> <%= ezinvoice.terms %><br>
+                <span class='item-define'>Betald:</span> <%= ezinvoice.paid %><br>
+                <span class='item-define'>Aktiv:</span> <%= ezinvoice.active %><br>
+                <span class='item-define'>Lön utbetald</span> <%= ezinvoice.salary_paid %><br>
+                <span class='item-define'>User ID:</span> <%= ezinvoice.user_id %><br>
+                <span class='item-define'>Frilansar ID:</span> <%= ezinvoice.profile_id %><br>
+                <span class='item-define'>Frilansar användarnamn:</span> <%= ezinvoice.profile_username %><br>
+                <span class='item-define'>Företagsnamn:</span> <%= ezinvoice.company_name %><br>
+                <span class='item-define'>Post:</span> <%= ezinvoice.post %><br>
+                <span class='item-define'>OCR:</span> <%= ezinvoice.ocr_number %><br>
+                <span class='item-define'>Skapad:</span> <%= ezinvoice.created_at.strftime("%F %R") %><br>
+                <span class='item-define'>Uppdaterad:</span> <%= ezinvoice.updated_at.strftime("%F %R") %><br><br>
+                </p>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @ezinvoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
+  </div>
+</div>

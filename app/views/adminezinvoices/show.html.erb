@@ -1,0 +1,102 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-4 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Faktura ID <%= @ezinvoice.id %></h3>
+          <p class="portfolio-resume-subheader">
+              <span class='item-define'>ID:</span> <%= @ezinvoice.id %><br>
+              <span class='item-define'>Kvantitet:</span> <%= @ezinvoice.quantity %><br>
+              <span class='item-define'>Enhet:</span> <%= @ezinvoice.unit %><br>
+              <span class='item-define'>Summa ex. moms:</span> <%= @ezinvoice.amount %><br>
+              <span class='item-define'>Summa inkl. moms:</span> <%= @ezinvoice.inklmoms.round %><br>
+              <span class='item-define'>Startdag:</span> <%= @ezinvoice.first_day %><br>
+              <span class='item-define'>Sista dag:</span> <%= @ezinvoice.last_day %><br>
+              <span class='item-define'>Beskrivning:</span> <%= @ezinvoice.description %><br>
+              <span class='item-define'>Referens:</span> <%= @ezinvoice.user_reference %><br>
+              <span class='item-define'>Företagsreferens:</span> <%= @ezinvoice.company_reference %><br>
+              <span class='item-define'>Villkor:</span> <%= @ezinvoice.terms %><br>
+              <span style='color: red;'>Betald:</span> <%= @ezinvoice.paid %><br>
+              <span style='color: red;'>Aktiv:</span> <%= @ezinvoice.active %><br>
+              <span style='color: red;'>Lön utbetald</span> <%= @ezinvoice.salary_paid %><br>
+              <span class='item-define'>User ID:</span> <%= @ezinvoice.user_id %><br>
+              <span class='item-define'>Frilansar ID:</span> <%= @ezinvoice.profile_id %><br>
+              <span class='item-define'>Frilansar användarnamn:</span> <%= @ezinvoice.profile_username %><br>
+              <span class='item-define'>Företagsnamn:</span> <%= @ezinvoice.company_name %><br>
+              <span style='color: red;'>Post:</span> <%= @ezinvoice.post %><br>
+              <span class='item-define'>OCR:</span> <%= @ezinvoice.ocr_number %><br>
+              <span class='item-define'>Skapad:</span> <%= @ezinvoice.created_at.strftime("%F %R") %><br>
+              <span class='item-define'>Uppdaterad:</span> <%= @ezinvoice.updated_at.strftime("%F %R") %>
+          </p>
+          <% if @ezinvoice.active == false %>
+            Kan inte markeras som betald förrän fakturan är godkänd av kund
+          <% else %>
+            <% if @ezinvoice.salary_paid == false %>
+              <%= link_to 'Markera som lön utbetald', pay_salary_adminezinvoice_path(@ezinvoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'reply-button-expand' %>
+            <% else %>
+              <span style='color: green;'>Lön har blivit utbetald</span>
+            <% end %>
+            <% if @ezinvoice.paid == false %>
+              <%= link_to 'Markera som betald', pay_adminezinvoice_path(@ezinvoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+            <% else %>
+              <span style='color: green;'>Fakturan har blivit betald</span>
+            <% end %>
+          <% end %>
+          <p><%= link_to 'Visa pdf', adminezinvoice_path(@ezinvoice, format: 'pdf') %></p>
+        </div>
+      </div>
+      <div class="large-4 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Till Företag</h3>
+          <p class="portfolio-resume-subheader">
+            <span class='item-define'>Företagsnamn:</span> <%= @ezinvoice.company_name %><br>
+            <span class='item-define'>Organisationsnummer:</span> <%= @ezinvoice.org_number %><br>
+            <span class='item-define'>Adress:</span> <%= @ezinvoice.company_address %><br>
+            <span class='item-define'>Postnummer:</span> <%= @ezinvoice.company_zip %><br>
+            <span class='item-define'>Stad:</span> <%= @ezinvoice.company_city %><br>
+            <span class='item-define'>Email:</span> <%= @ezinvoice.company_email %><br>
+          </p>
+        </div>
+      </div>
+      <div class="large-4 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Från Frilansare</h3>
+          <p class="portfolio-resume-subheader">
+            <% @profiles.each do |profile| %>
+              <span class='item-define'>ID:</span> <%= profile.id %><br>
+              <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
+              <span class='item-define'>Titel:</span> <%= profile.title %> <br>
+              <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name).join %> <br>
+              <span class='item-define'>User ID:</span> <%= profile.user_id %> <br>
+            <% end %>
+          </p>
+          <hr>
+          <h3 class="portfolio-resume-header">Betalinfo</h3>
+          <p class="portfolio-resume-subheader">
+          Vår avgift: -<%= @ezinvoice.varavgift.round %> SEK <br>
+          Sociala avgifter -<%= @ezinvoice.socialaavgifter.round %> SEK <br>
+          Bruttolön inkl sem. ers.	<%= @ezinvoice.bruttolon.round %> SEK <br>
+          Skatt	-<%= @ezinvoice.skatt.round %> SEK <br>
+          <span class='item-define'>Nettolön att utbetala</span> <%= @ezinvoice.steg3.round %> SEK <br>
+          <span class='item-define'>Bank:</span> <%= @user.bank %><br>
+          <span class='item-define'>Clearingnummer:</span> <%= @user.clear_nr %><br>
+          <span class='item-define'>Kontonummer:</span> <%= @user.account_nr %><br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

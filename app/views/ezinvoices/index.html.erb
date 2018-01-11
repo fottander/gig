@@ -39,5 +39,8 @@
         <p>Skapa en profil innan du kan fakturera!</p>
       <% end %>
     </div>
+    <div class="will-paginate">
+        <%= will_paginate @ezinvoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
   </div>
 </div>

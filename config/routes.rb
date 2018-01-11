@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   resources :payments, only: [:index, :show]
 
+  resources :ezpayments, only: [:show]
+
   resources :adminpayments, only: [:index, :new]
 
   resources :howitworks, only: [:index]
@@ -83,6 +85,15 @@ Rails.application.routes.draw do
   resources :filter_invoices, only: [:index, :new]
 
   resources :ezinvoices, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  resources :adminezinvoices, only: [:index, :show] do
+    member do
+      patch :pay
+      patch :pay_salary
+    end
+  end
+
+  resources :filter_ezinvoices, only: [:index, :new]
 
   resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
     member do
