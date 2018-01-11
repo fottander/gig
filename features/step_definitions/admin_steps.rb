@@ -26,3 +26,16 @@ Given("I click link {string} in {string}") do |button, invoice_description|
     click_link_or_button button
   end
 end
+
+Given("I click link {string} inside {string}") do |button, ezinvoice_description|
+  ezinvoice = Ezinvoice.find_by(description: ezinvoice_description)
+  within ".ezinvoice-#{ezinvoice.id}" do
+    click_link_or_button button
+  end
+end
+
+Given("the following ezinvoices exist") do |table|
+  table.hashes.each do |hash|
+    create(:ezinvoice, hash)
+  end
+end
