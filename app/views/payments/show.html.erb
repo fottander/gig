@@ -14,48 +14,92 @@
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
   </div>
 
-  <div class="holy-grail-middle">
-    <div class="portfolio-resume row">
-      <div class="large-6 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Utbetalning</h3>
-          <p class="portfolio-resume-subheader">
-            <% if @invoice.user_id == current_user.id %>
-              <span class='item-define'>Faktura ID:</span> <%= @invoice.id %><br>
-              <span class='item-define'>Startdag:</span> <%= @invoice.first_day %><br>
-              <span class='item-define'>Sista dag:</span> <%= @invoice.last_day %><br>
-              <span class='item-define'>Beskrivning:</span> <%= @invoice.description %><br>
-              <span class='item-define'>Referens:</span> <%= @invoice.user_reference %><br>
-              <span class='item-define'>Företagsreferens:</span> <%= @invoice.company_reference %><br>
-              <span class='item-define'>Företags ID:</span> <%= @invoice.company_id %><br>
-              <span class='item-define'>Ansöknings ID:</span> <%= @invoice.application_id %><br>
-              <span class='item-define'>Jobb ID:</span> <%= @invoice.job_id %><br>
-              <span class='item-define'>Frilansar ID:</span> <%= @invoice.profile_id %><br>
-              <span class='item-define'>Frilansar användarnamn:</span> <%= @invoice.profile_username %><br>
-              <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br><br>
-            <% end %>
-          </p>
+  <% if @invoice.present? %>
+    <div class="holy-grail-middle">
+      <div class="portfolio-resume row">
+        <div class="large-6 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Utbetalning</h3>
+            <p class="portfolio-resume-subheader">
+              <% if @invoice.user_id == current_user.id %>
+                <span class='item-define'>Faktura ID:</span> <%= @invoice.id %><br>
+                <span class='item-define'>Startdag:</span> <%= @invoice.first_day %><br>
+                <span class='item-define'>Sista dag:</span> <%= @invoice.last_day %><br>
+                <span class='item-define'>Beskrivning:</span> <%= @invoice.description %><br>
+                <span class='item-define'>Referens:</span> <%= @invoice.user_reference %><br>
+                <span class='item-define'>Företagsreferens:</span> <%= @invoice.company_reference %><br>
+                <span class='item-define'>Företags ID:</span> <%= @invoice.company_id %><br>
+                <span class='item-define'>Ansöknings ID:</span> <%= @invoice.application_id %><br>
+                <span class='item-define'>Jobb ID:</span> <%= @invoice.job_id %><br>
+                <span class='item-define'>Frilansar ID:</span> <%= @invoice.profile_id %><br>
+                <span class='item-define'>Frilansar användarnamn:</span> <%= @invoice.profile_username %><br>
+                <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br><br>
+              <% end %>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="large-6 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Detaljer</h3>
-          <p class="portfolio-resume-subheader">
-            <% if @invoice.user_id == current_user.id %>
-              <span class='item-define'>Utbetald:</span> <%= @invoice.updated_at.strftime("%F %R") %><br>
-              <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
-              <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
-              <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
-              Vår avgift: -<%= @invoice.varavgift.round %> SEK <br>
-              Sociala avgifter -<%= @invoice.socialaavgifter.round %> SEK <br>
-              Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
-              Skatt	-<%= @invoice.skatt.round %> SEK <br>
-              Nettolön (lön efter skatt) <%= @invoice.steg3.round %> SEK <br>
-              <span class='item-define'>Utbetald summa:</span> <%= @invoice.steg3.round %> SEK<br>
-            <% end %>
-          </p>
+        <div class="large-6 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Detaljer</h3>
+            <p class="portfolio-resume-subheader">
+              <% if @invoice.user_id == current_user.id %>
+                <span class='item-define'>Utbetald:</span> <%= @invoice.updated_at.strftime("%F %R") %><br>
+                <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
+                <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
+                <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
+                Vår avgift: -<%= @invoice.varavgift.round %> SEK <br>
+                Sociala avgifter -<%= @invoice.socialaavgifter.round %> SEK <br>
+                Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
+                Skatt	-<%= @invoice.skatt.round %> SEK <br>
+                Nettolön (lön efter skatt) <%= @invoice.steg3.round %> SEK <br>
+                <span class='item-define'>Utbetald summa:</span> <%= @invoice.steg3.round %> SEK<br>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="holy-grail-middle">
+      <div class="portfolio-resume row">
+        <div class="large-6 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Utbetalning</h3>
+            <p class="portfolio-resume-subheader">
+              <% if @ezinvoice.user_id == current_user.id %>
+                <span class='item-define'>Faktura ID:</span> <%= @ezinvoice.id %><br>
+                <span class='item-define'>Startdag:</span> <%= @ezinvoice.first_day %><br>
+                <span class='item-define'>Sista dag:</span> <%= @ezinvoice.last_day %><br>
+                <span class='item-define'>Beskrivning:</span> <%= @ezinvoice.description %><br>
+                <span class='item-define'>Referens:</span> <%= @ezinvoice.user_reference %><br>
+                <span class='item-define'>Företagsreferens:</span> <%= @ezinvoice.company_reference %><br>
+                <span class='item-define'>Företagsnamn:</span> <%= @ezinvoice.company_name %><br>
+                <span class='item-define'>Frilansar ID:</span> <%= @ezinvoice.profile_id %><br>
+                <span class='item-define'>Frilansar användarnamn:</span> <%= @ezinvoice.profile_username %><br><br>
+              <% end %>
+            </p>
+          </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Detaljer</h3>
+            <p class="portfolio-resume-subheader">
+              <% if @ezinvoice.user_id == current_user.id %>
+                <span class='item-define'>Utbetald:</span> <%= @ezinvoice.updated_at.strftime("%F %R") %><br>
+                <span class='item-define'>Kvantitet:</span> <%= @ezinvoice.quantity %><br>
+                <span class='item-define'>Enhet:</span> <%= @ezinvoice.unit %><br>
+                <span class='item-define'>Summa ex. moms:</span> <%= @ezinvoice.amount %><br>
+                Vår avgift: -<%= @ezinvoice.varavgift.round %> SEK <br>
+                Sociala avgifter -<%= @ezinvoice.socialaavgifter.round %> SEK <br>
+                Bruttolön inkl sem. ers.	<%= @ezinvoice.bruttolon.round %> SEK <br>
+                Skatt	-<%= @ezinvoice.skatt.round %> SEK <br>
+                Nettolön (lön efter skatt) <%= @ezinvoice.steg3.round %> SEK <br>
+                <span class='item-define'>Utbetald summa:</span> <%= @ezinvoice.steg3.round %> SEK<br>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

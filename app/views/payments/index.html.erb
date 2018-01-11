@@ -16,7 +16,7 @@
 
   <div class="holy-grail-middle">
     <div class="portfolio-resume row">
-      <div class="large-12 columns">
+      <div class="large-6 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Dina utbetalningar</h3>
           <p class="portfolio-resume-subheader">
@@ -25,6 +25,23 @@
                 <% if invoice.user_id == current_user.id %>
                   <span class='item-define'>Faktura ID:</span> <%= invoice.id %><br>
                   <%= link_to invoice.updated_at.strftime("%F %R"), payment_path(invoice), class: 'reply-button' %><br><br>
+                <% end %>
+              <% end %>
+            <% else %>
+              Inga ubetalningar registrerade
+            <% end %>
+          </p>
+        </div>
+      </div>
+      <div class="large-6 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Utbetalningar för snabbfakturor</h3>
+          <p class="portfolio-resume-subheader">
+            <% if @ezinvoices.present? %>
+              <% @ezinvoices.salary_paid.each do |ezinvoice| %>
+                <% if ezinvoice.user_id == current_user.id %>
+                  <span class='item-define'>Faktura ID:</span> <%= ezinvoice.id %><br>
+                  <%= link_to ezinvoice.updated_at.strftime("%F %R"), payment_path(ezinvoice), class: 'reply-button' %><br><br>
                 <% end %>
               <% end %>
             <% else %>

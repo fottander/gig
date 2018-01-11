@@ -84,6 +84,15 @@ Rails.application.routes.draw do
 
   resources :ezinvoices, only: [:index, :new, :create, :edit, :update, :destroy]
 
+  resources :adminezinvoices, only: [:index, :show] do
+    member do
+      patch :pay
+      patch :pay_salary
+    end
+  end
+
+  resources :filter_ezinvoices, only: [:index, :new]
+
   resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
     member do
       patch :update
