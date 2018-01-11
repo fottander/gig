@@ -31,6 +31,9 @@
               Inga ubetalningar registrerade
             <% end %>
           </p>
+          <div class="will-paginate">
+              <%= will_paginate @invoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+          </div>
         </div>
       </div>
       <div class="large-6 columns">
@@ -48,11 +51,11 @@
               Inga ubetalningar registrerade
             <% end %>
           </p>
+          <div class="will-paginate">
+              <%= will_paginate @ezinvoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="will-paginate">
-        <%= will_paginate @invoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
     </div>
   </div>
 </div>

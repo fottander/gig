@@ -3,7 +3,7 @@ class EzinvoicesController < ApplicationController
 
   def index
     @profile = current_user.profile
-    @ezinvoices = Ezinvoice.where(user_id: current_user.id)
+    @ezinvoices = Ezinvoice.where(user_id: current_user.id).paginate(page: params[:page])
   end
 
   def new
