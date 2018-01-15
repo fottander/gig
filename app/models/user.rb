@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :invoice
-  
+  validates_length_of :pers_num, minimum: 10, maximum: 10, allow_blank: true
+
   default_scope {order('created_at DESC')}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
