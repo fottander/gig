@@ -66,7 +66,7 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password, 'Nytt lösenord', class: 'form-text' %>
+          <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
           <% if @minimum_password_length %>
             <em><%= @minimum_password_length %> tecken minimum</em>
           <% end %>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text' %>
+          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
