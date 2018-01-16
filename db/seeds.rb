@@ -60,6 +60,7 @@ User.create(
   last_name: "Ottander",
   phone: "07328724334",
   password: "123456",
+  pers_num: "8888888888",
   id: 99999
   )
 

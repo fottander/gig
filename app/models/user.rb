@@ -4,6 +4,9 @@ class User < ApplicationRecord
   secret_key = ENV['PERSNUM_KEY']
   attr_encrypted :pers_num, key: secret_key
   validates_length_of :pers_num, minimum: 10, maximum: 10, allow_blank: true
+  before_save do
+    self.pers_num = self.pers_num
+  end
 
   default_scope {order('created_at DESC')}
   # Include default devise modules. Others available are:
