@@ -42,7 +42,7 @@
               <span class='item-define'>Uppdaterad:</span> <%= @ezinvoice.updated_at.strftime("%F %R") %>
           </p>
           <% if @ezinvoice.active == false %>
-            Kan inte markeras som betald förrän fakturan är godkänd av kund
+            Kan inte markeras som betald förrän fakturan är godkänd av kund.
           <% else %>
             <% if @ezinvoice.salary_paid == false %>
               <%= link_to 'Markera som lön utbetald', pay_salary_adminezinvoice_path(@ezinvoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'reply-button-expand' %>
