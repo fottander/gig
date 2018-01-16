@@ -12,7 +12,7 @@
         <div class='post-title'><h3>Fakturadetaljer</h3></div>
         <div class="large-6 columns">
           <div class='invoice-details'>
-          Faktura ID: <%= @invoice.id %><br>
+          Faktura ID: <%= @invoice.id.first(8) %><br>
           Jobb ID: <%= @invoice.job_id %><br>
           Ansöknings ID: <%= @invoice.application_id %><br>
           Profil: <%= @invoice.profile_username %><br>

@@ -18,7 +18,7 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Alla fakturor</h3>
             <%= form_tag admininvoices_path, method: 'get' do %>
-              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
+              <%= text_field_tag :with_ocr, nil, placeholder: 'Sök efter OCR' %>
               <%= text_field_tag :with_user_id, nil, placeholder: 'Sök efter user ID' %>
               <%= text_field_tag :with_company_id, nil, placeholder: 'Sök efter företags ID' %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
@@ -29,7 +29,7 @@
               <div class='invoice-<%= invoice.id %>'>
                 <p class="portfolio-resume-subheader">
                 <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice) %><br>
-                <span class='item-define'>ID:</span> <%= invoice.id %><br>
+                <span class='item-define'>ID:</span> <%= invoice.id.first(8) %><br>
                 <span class='item-define'>Kvantitet:</span> <%= invoice.quantity %><br>
                 <span class='item-define'>Enhet:</span> <%= invoice.unit %><br>
                 <span class='item-define'>Summa ex. moms:</span> <%= invoice.amount %><br>

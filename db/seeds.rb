@@ -238,7 +238,6 @@ Application.create(
   )
 
 Invoice.create(
-  id: 99999,
   description: "Målning 2 veckor",
   quantity: 40,
   unit: "140kr/timma",
@@ -262,7 +261,6 @@ Invoice.create(
   )
 
 Invoice.create(
-  id: 99998,
   description: "Målning 4 veckor",
   quantity: 40,
   unit: "140kr/timma",
@@ -285,7 +283,6 @@ Invoice.create(
   )
 
 Invoice.create(
-  id: 99997,
   description: "Snickeri 2 veckor",
   quantity: 40,
   unit: "140kr/timma",
@@ -309,7 +306,6 @@ Invoice.create(
   )
 
 Invoice.create(
-  id: 99996,
   description: "Snickeri 4 veckor",
   quantity: 40,
   unit: "140kr/timma",

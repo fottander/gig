@@ -16,9 +16,9 @@
     <div class="portfolio-resume row">
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Faktura ID <%= @invoice.id %></h3>
+          <h3 class="portfolio-resume-header">Faktura ID <%= @invoice.id.first(8) %></h3>
           <p class="portfolio-resume-subheader">
-              <span class='item-define'>ID:</span> <%= @invoice.id %><br>
+              <span class='item-define'>ID:</span> <%= @invoice.id.first(8) %><br>
               <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
               <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>

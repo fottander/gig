@@ -120,7 +120,7 @@
                   <% @jobs.where(id: invoice.job_id).each do |job| %>
                     <%= link_to job.title, job_path(job.id) %><br>
                   <% end %>
-                  Faktura ID: <%= invoice.id %><br>
+                  Faktura ID: <%= invoice.id.first(8) %><br>
                   Jobb ID: <%= invoice.job_id %><br>
                   Ansöknings ID: <%= invoice.application_id %><br>
                   Frilansare: <%= invoice.profile_username %><br>
