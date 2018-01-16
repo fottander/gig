@@ -16,9 +16,9 @@
     <div class="portfolio-resume row">
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Faktura ID <%= @ezinvoice.id %></h3>
+          <h3 class="portfolio-resume-header">Faktura ID <%= @ezinvoice.id.first(8) %></h3>
           <p class="portfolio-resume-subheader">
-              <span class='item-define'>ID:</span> <%= @ezinvoice.id %><br>
+              <span class='item-define'>ID:</span> <%= @ezinvoice.id.first(8) %><br>
               <span class='item-define'>Kvantitet:</span> <%= @ezinvoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= @ezinvoice.unit %><br>
               <span class='item-define'>Summa ex. moms:</span> <%= @ezinvoice.amount %><br>

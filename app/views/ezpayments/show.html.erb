@@ -21,7 +21,7 @@
           <h3 class="portfolio-resume-header">Utbetalning</h3>
           <p class="portfolio-resume-subheader">
             <% if @ezinvoice.user_id == current_user.id %>
-              <span class='item-define'>Faktura ID:</span> <%= @ezinvoice.id %><br>
+              <span class='item-define'>Faktura ID:</span> <%= @ezinvoice.id.first(8) %><br>
               <span class='item-define'>Startdag:</span> <%= @ezinvoice.first_day %><br>
               <span class='item-define'>Sista dag:</span> <%= @ezinvoice.last_day %><br>
               <span class='item-define'>Beskrivning:</span> <%= @ezinvoice.description %><br>

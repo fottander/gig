@@ -18,7 +18,7 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Alla snabbfakturor</h3>
             <%= form_tag adminezinvoices_path, method: 'get' do %>
-              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
+              <%= text_field_tag :with_ocr, nil, placeholder: 'Sök efter OCR' %>
               <%= text_field_tag :with_user_id, nil, placeholder: 'Sök efter user ID' %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
               <%= link_to 'Filtrera ej betalda', filter_ezinvoices_path, class: 'filter-button' %>
@@ -28,7 +28,7 @@
               <div class='ezinvoice-<%= ezinvoice.id %>'>
                 <p class="portfolio-resume-subheader">
                 <%= link_to 'Visa/godkänn faktura', adminezinvoice_path(ezinvoice) %><br>
-                <span class='item-define'>ID:</span> <%= ezinvoice.id %><br>
+                <span class='item-define'>ID:</span> <%= ezinvoice.id.first(8) %><br>
                 <span class='item-define'>Kvantitet:</span> <%= ezinvoice.quantity %><br>
                 <span class='item-define'>Enhet:</span> <%= ezinvoice.unit %><br>
                 <span class='item-define'>Summa ex. moms:</span> <%= ezinvoice.amount %><br>

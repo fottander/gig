@@ -6,7 +6,7 @@ class Ezinvoice < ApplicationRecord
   belongs_to :user
 
   default_scope {order('created_at DESC')}
-  scope :with_id, -> (id) { where id: id }
+  scope :with_ocr, -> (ocr) { where ocr_number: ocr }
   scope :with_user_id, -> (user_id) { where user_id: user_id }
   scope :not_paid, -> { where(active: true, paid: false) }
   scope :paid, -> { where(active: true, paid: true) }

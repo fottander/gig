@@ -23,7 +23,7 @@
             <% if @invoices.present? %>
               <% @invoices.salary_paid.each do |invoice| %>
                 <% if invoice.user_id == current_user.id %>
-                  <span class='item-define'>Faktura ID:</span> <%= invoice.id %><br>
+                  <span class='item-define'>Faktura ID:</span> <%= invoice.id.first(8) %><br>
                   <%= link_to invoice.updated_at.strftime("%F %R"), payment_path(invoice), class: 'reply-button' %><br><br>
                 <% end %>
               <% end %>
@@ -43,7 +43,7 @@
             <% if @ezinvoices.present? %>
               <% @ezinvoices.salary_paid.each do |ezinvoice| %>
                 <% if ezinvoice.user_id == current_user.id %>
-                  <span class='item-define'>Faktura ID:</span> <%= ezinvoice.id %><br>
+                  <span class='item-define'>Faktura ID:</span> <%= ezinvoice.id.first(8) %><br>
                   <%= link_to ezinvoice.updated_at.strftime("%F %R"), ezpayment_path(ezinvoice), class: 'reply-button' %><br><br>
                 <% end %>
               <% end %>

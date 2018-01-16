@@ -31,7 +31,7 @@ class InvoicePdf < Prawn::Document
     end
 
     move_down 8
-    text "<color rgb='a6a6a6'>Faktura ##{@invoice.id}</color>", inline_format: true
+    text "<color rgb='a6a6a6'>Fakturanummer: #{@invoice.id.first(8)}</color>", inline_format: true
     move_down 10
     text "Datum: #{@invoice.updated_at.strftime('%F')}"
     text "Referens: #{@invoice.user_reference}"

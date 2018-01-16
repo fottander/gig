@@ -54,7 +54,7 @@ class AdmininvoicesController < ApplicationController
   end
 
   def filtering_params(params)
-    params.slice(:with_id, :with_user_id, :with_company_id)
+    params.slice(:with_ocr, :with_user_id, :with_company_id)
   end
 
 end
