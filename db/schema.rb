@@ -273,6 +273,10 @@ ActiveRecord::Schema.define(version: 20180110101934) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
+    t.string "pers_num"
+    t.string "encrypted_pers_num"
+    t.string "encrypted_pers_num_iv"
+    t.string "encrypted_pers_num_salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "bank"

@@ -12,6 +12,7 @@ Feature: Add bankinfo
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
       And I click "Konto"
+      And I fill in "user_pers_num" with "8888883434"
       And I fill in "Bank" with "Nordea"
       And I fill in "Clearingnummer" with "1111"
       And I fill in "Kontonummer" with "123456"

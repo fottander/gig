@@ -60,11 +60,12 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %> <i>(lämna tomt om du inte vill ändra lösenord)</i>
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
           <% if @minimum_password_length %>
             <em><%= @minimum_password_length %> tecken minimum</em>
           <% end %>
+          <i>(lämna tomt om du inte vill ändra lösenord)</i>
+          <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
         <div class="field">

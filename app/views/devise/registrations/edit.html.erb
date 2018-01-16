@@ -42,6 +42,11 @@
         </div>
         <div style='color: #37a000;'>Betalningsinformation</div>
         <div class="field">
+          <%= f.label :pers_num, 'Personnummer(10 siffror, ex. 751212xxxx)', class: 'form-text' %>
+          <%= f.text_field :pers_num %>
+        </div>
+
+        <div class="field">
           <%= f.label :bank, 'Bank', class: 'form-text' %>
           <%= f.text_field :bank %>
         </div>
@@ -61,16 +66,16 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password, 'Nytt lösenord', class: 'form-text' %> <i>(lämna tomt om du inte vill ändra det)</i>
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
           <% if @minimum_password_length %>
-            <br />
             <em><%= @minimum_password_length %> tecken minimum</em>
           <% end %>
+          <i>(lämna tomt om du inte vill ändra det)</i>
+          <%= f.password_field :password, autocomplete: "off" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text' %>
+          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 

@@ -31,7 +31,6 @@ class ProfilesController < ApplicationController
         format.html { redirect_to dashboards_path, notice: 'Ny profil skapad!' }
         format.json { render :new, status: :created}
         @profile = Profile.find_by(user_id: current_user)
-        session[:current_profile_id] = @profile.id
       else
         format.html { render :new }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
