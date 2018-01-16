@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116115531) do
+ActiveRecord::Schema.define(version: 20180116130037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 20180116115531) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_ezinvoices_on_created_at"
     t.index ["user_id"], name: "index_ezinvoices_on_user_id"
   end
 
@@ -196,6 +197,7 @@ ActiveRecord::Schema.define(version: 20180116115531) do
     t.text "feedback"
     t.index ["application_id"], name: "index_invoices_on_application_id"
     t.index ["company_id"], name: "index_invoices_on_company_id"
+    t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["job_id"], name: "index_invoices_on_job_id"
     t.index ["profile_id"], name: "index_invoices_on_profile_id"
     t.index ["profile_username"], name: "index_invoices_on_profile_username"

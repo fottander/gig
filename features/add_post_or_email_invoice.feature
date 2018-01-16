@@ -11,20 +11,19 @@ Feature: Activate invoice with post or email
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | id | company_id | updated_at | paid | user_id |
-      | abc         | 120    | felix          | 30    | false  | 1  | 1          | 2017-11-01 | true | 1       |
+      | description | amount | user_reference | terms | active | company_id | updated_at | paid | user_id |
+      | abc         | 120    | felix          | 30    | false  | 1          | 2017-11-01 | true | 1       |
 
     Scenario: I activate invoice with post
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      Then I should see "Faktura ID: 1"
       And I click "Visa"
       And I should see "abc"
       And I check Post check box
       And I click "Godkänn"
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
-      And invoice "1" is sending by post
+      And invoice is sending by post
       And I should see "Leveranssätt: Post"
       And I should see "Summa ex moms: 620 SEK"
       Then I should see "Summa att betala: 775 SEK"
@@ -32,7 +31,6 @@ Feature: Activate invoice with post or email
     Scenario: I activate invoice with email
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      Then I should see "Faktura ID: 1"
       And I click "Visa"
       And I should see "abc"
       And I uncheck Post check box
@@ -45,7 +43,6 @@ Feature: Activate invoice with post or email
     Scenario: I activate invoice without specifying post or not
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      Then I should see "Faktura ID: 1"
       And I click "Visa"
       And I should see "abc"
       And I click "Godkänn"
@@ -57,7 +54,6 @@ Feature: Activate invoice with post or email
     Scenario: I activate invoice with 60 days terms and post delivery
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      Then I should see "Faktura ID: 1"
       And I click "Visa"
       And I should see "abc"
       And I check Terms check box
@@ -65,7 +61,7 @@ Feature: Activate invoice with post or email
       And I click "Godkänn"
       And I should see "Faktura godkänd och aktiverad"
       And I should see "Status: Godkänd"
-      And invoice "1" is sending by post
+      And invoice is sending by post
       Then I should see "Leveranssätt: Post"
       And I should see "Summa ex moms: 660 SEK "
       And I should see "Summa att betala: 825 SEK"

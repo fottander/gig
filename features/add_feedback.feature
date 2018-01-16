@@ -11,13 +11,12 @@ Feature: Activate invoice and adds feedback
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | id | company_id | user_id |
-      | abc         | 120    | felix          | 30    | false  | 1  | 1          | 1       |
+      | description | amount | user_reference | terms | active | company_id | user_id |
+      | abc         | 120    | felix          | 30    | false  | 1          | 1       |
 
     Scenario: I activate invoice and gives feedback
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      Then I should see "Faktura ID: 1"
       And I click "Visa"
       And I should see "abc"
       And I should see "Vill du rekommendera till andra"

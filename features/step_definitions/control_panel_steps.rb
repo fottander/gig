@@ -49,7 +49,7 @@ Given("the following invoices exist") do |table|
   end
 end
 
-Then("invoice {string} is sending by post") do |id|
-  invoice = Invoice.find_by(id: id)
+Then("invoice is sending by post") do
+  invoice = Invoice.first
   expect(invoice.post).to be true
 end
