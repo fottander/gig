@@ -18,6 +18,6 @@ class FilterInvoicesController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:with_id, :with_job_id, :with_profile_id)
+    params.slice(:with_ocr, :with_job_id, :with_profile_id)
   end
 end

@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20180116115531) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
-  create_table "ezinvoices", force: :cascade do |t|
+  create_table "ezinvoices", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string "org_number"
     t.string "company_name"
     t.string "company_address"

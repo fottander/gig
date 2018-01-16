@@ -1,7 +1,8 @@
 class AddUuidToInvoice < ActiveRecord::Migration[5.1]
   def up
     tables = [
-      "invoices"
+      "invoices",
+      "ezinvoices"
     ]
 
     tables.each do |table|

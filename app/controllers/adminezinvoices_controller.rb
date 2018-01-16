@@ -53,7 +53,7 @@ class AdminezinvoicesController < ApplicationController
   end
 
   def filtering_params(params)
-    params.slice(:with_id, :with_user_id)
+    params.slice(:with_ocr, :with_user_id)
   end
 
 end
