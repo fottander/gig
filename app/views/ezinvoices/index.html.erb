@@ -24,7 +24,7 @@
         <% if @ezinvoices.present? %>
           <% @ezinvoices.each do |ezinvoice| %>
             <span class="portfolio-resume-subheader">
-              ID: <%= ezinvoice.id %><br>
+              ID: <%= ezinvoice.id.first(8) %><br>
               Företag: <%= ezinvoice.company_name %><br>
               Skapad: <%= ezinvoice.created_at.strftime("%Y %R") %><br>
               Summa: <%= ezinvoice.amount %><br>
