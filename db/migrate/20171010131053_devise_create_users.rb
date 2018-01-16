@@ -33,6 +33,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :first_name
       t.string :last_name
       t.string :phone
+      t.string :pers_num
+      t.string :encrypted_pers_num
+      t.string :encrypted_pers_num_iv
+      t.string :encrypted_pers_num_salt
 
       t.timestamps null: false
     end

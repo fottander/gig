@@ -11,6 +11,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :clear_nr}
     it { is_expected.to have_db_column :account_nr}
     it { is_expected.to have_db_column :pers_num}
+    it { is_expected.to have_db_column :encrypted_pers_num}
+    it { is_expected.to have_db_column :encrypted_pers_num_iv}
   end
 
   describe 'Validations' do

@@ -273,12 +273,15 @@ ActiveRecord::Schema.define(version: 20180110101934) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
+    t.string "pers_num"
+    t.string "encrypted_pers_num"
+    t.string "encrypted_pers_num_iv"
+    t.string "encrypted_pers_num_salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "bank"
     t.string "clear_nr"
     t.string "account_nr"
-    t.string "pers_num"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
