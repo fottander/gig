@@ -10,6 +10,7 @@ class Job < ApplicationRecord
   scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
   scope :with_city,  ->(city) { joins(:cities).where(cities: { name: city }) }
   scope :with_id, -> (id) { where id: id }
+  scope :active, -> { where active: true }
   scope :expired, -> { where('deadline >= ?', Date.today) }
   scope :with_company_id, -> (company_id) { where company_id: company_id }
   scope :with_company_username, -> (company_username) { where company_username: company_username }

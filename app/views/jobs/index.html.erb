@@ -20,7 +20,6 @@
 </div>
 <% @jobs.each do |job| %>
   <div class='job-<%= job.id %>'>
-    <% if job.active == true %>
     <div class="card profile-card-action-icons">
       <div class="card-section">
         <% job.categories.each do |category| %>
@@ -79,7 +78,6 @@
       </div>
     </div>
   </div>
-<% end %>
 <% end %>
 <div class="will-paginate">
     <%= will_paginate @jobs, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
