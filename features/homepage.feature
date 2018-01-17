@@ -7,14 +7,14 @@ Feature: Homepage
     And I should see "HITTA FRILANSARE"
     And I should see "HITTA JOBB"
     Then I should see "REGISTRERA"
-    And I click "FÖRETAG" within section
+    And I click "FÖR FÖRETAG" within section
     Then I should see "Registrera företag"
     Given I am on the home page
-    And I click "FRILANSARE" within section
+    And I click "FÖR FRILANSARE" within section
     Then I should see "Registrera ny frilansare"
     Given I am on the home page
-    And I click "FÖRETAG" within hero
+    And I click "HITTA FRILANSARE" within hero
     Then I should see "Registrera företag"
     Given I am on the home page
-    And I click "FRILANSARE" within hero
+    And I click "HITTA JOBB" within hero
     Then I should see "Registrera ny frilansare"
