@@ -85,15 +85,15 @@
           <div class="portfolio-resume-spacing">
             <% if @applications.present? %>
               <% @applications.each do |application| %>
-              <h5><strong><%= application.profile_username %></strong></h5>
-              <p class='job-count'>
+              <strong><%= application.profile_username %></strong><br>
+              <span class='job-count'>
               <% if application.hired == true %>
                   Anställd!
                 <% if application.complete == true %>
                   & jobb genomfört!
                 <% end %>
-              <% end %>
-              </p>
+              <% end %><br>
+            </span>
               <%= link_to 'Visa ansökan', job_application_path(@job, application), class: 'button-green' %>
               <%= link_to 'Profil', profile_path(application.profile_id), class: 'button-orange' %>
               <hr>
