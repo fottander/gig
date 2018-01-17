@@ -1,14 +1,20 @@
-<div class="login-box">
-  <div class="row collapse expanded">
-    <div class="small-12 medium-6 column small-order-2 medium-order-1">
-      <div class="login-box-form-section">
-        <div class='breadcrumb-holder-smaller'>
-            <%= render_breadcrumbs separator: ' > ' %>
-        </div>
-        <h2>Skicka inbjudan</h2>
+<div class="holy-grail-grid">
+  <div class="holy-grail-left-application">
+    <div class='holy-grail-left-application-box'>
+      <div class='holy-grail-left-application-box-title'>
+        BJUD IN TILL JOBB
+      </div>
+      Här kan du skicka en inbjudan till frilansaren för en av dina jobbannonser.<br>
+      Det är viktigt att annonsen matchar frilansaren.<br>
+    </div>
+  </div>
+  <div class="holy-grail-middle">
+    <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+    <div class="simple-form">
+      <div class='post-title'><h3>Skicka inbjudan</h3></div>
         <% if @jobs.present? %>
-        Här kan du skicka en inbjudan till frilansaren för en av dina jobbannonser.<br>
-        Det är viktigt att annonsen matchar frilansaren.<br>
           <%= form_tag invites_path(@invite, company_id: current_company.id, profile_id: @profile.id) do %>
           <%= text_field_tag :message, nil, placeholder: 'Skriv ett kort meddelande' %>
           <%= select_tag :job_id, options_for_select(@jobs.pluck(:title, :id)), prompt: 'Välj ett jobb i listan' %>
@@ -18,7 +24,6 @@
         <% else %>
           <p>Skapa en annons innan du kan bjud in.</p>
         <% end %>
-      </div>
     </div>
   </div>
 </div>

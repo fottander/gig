@@ -1175,6 +1175,7 @@ input[type='file'] {
 
 .profile-card-action-icons .card-section .profile-card-header .profile-card-avatar {
   margin-right: 0.5rem;
+
 }
 
 .profile-card-action-icons .card-section .profile-card-header .profile-card-avatar .avatar-image {
@@ -1198,7 +1199,10 @@ input[type='file'] {
     }
   }
 
-.profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-title,
+.profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-title {
+  overflow: auto;
+  margin-bottom: 0;
+}
 .profile-card-action-icons .card-section .profile-card-header .profile-card-author .author-description {
   margin-bottom: 0;
 }

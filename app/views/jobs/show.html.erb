@@ -86,6 +86,14 @@
             <% if @applications.present? %>
               <% @applications.each do |application| %>
               <h5><strong><%= application.profile_username %></strong></h5>
+              <p class='job-count'>
+              <% if application.hired == true %>
+                  Anställd!
+                <% if application.complete == true %>
+                  & jobb genomfört!
+                <% end %>
+              <% end %>
+              </p>
               <%= link_to 'Visa ansökan', job_application_path(@job, application), class: 'button-green' %>
               <%= link_to 'Profil', profile_path(application.profile_id), class: 'button-orange' %>
               <hr>
