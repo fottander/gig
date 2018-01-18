@@ -49,11 +49,6 @@ City.create(
   id: 52
   )
 
-City.create(
-  name: "Hela Sverige",
-  id: 53
-  )
-
 User.create(
   email: "felix.ottander@yahoo.com",
   first_name: "Felix",
