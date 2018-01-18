@@ -36,7 +36,7 @@ Category.create(
 
 Category.create(
   name: "Övrigt",
-  id: 52
+  id: 54
   )
 
 City.create(
@@ -56,7 +56,7 @@ City.create(
 
 City.create(
   name: "Annat",
-  id: 52
+  id: 53
   )
 
 User.create(
