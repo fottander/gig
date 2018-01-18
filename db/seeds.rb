@@ -34,6 +34,11 @@ Category.create(
   id: 53
   )
 
+Category.create(
+  name: "Övrigt",
+  id: 52
+  )
+
 City.create(
   name: "Göteborg",
   id: 50
@@ -46,6 +51,11 @@ City.create(
 
 City.create(
   name: "Malmö",
+  id: 52
+  )
+
+City.create(
+  name: "Annat",
   id: 52
   )
 
