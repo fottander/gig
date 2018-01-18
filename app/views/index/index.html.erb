@@ -2,8 +2,8 @@
   <div class="marketing-site-hero-content">
     <h1>SÖK JOBB. SÖK ARBETSKRAFT. SNABBT. ENKELT. </h1>
     <p>Det flexibla sättet för att hitta jobb och anställa. Genom ett fåtal klick anställer företagaren en frilansare och får sedan en faktura när jobbet godkänts.</p>
-    <%= link_to "HITTA JOBB", new_user_registration_path, class: 'reply-button' %>
-    <%= link_to "HITTA FRILANSARE", new_company_registration_path, class: 'profile-button' %>
+    <%= link_to "HITTA JOBB", jobs_path, class: 'reply-button' %>
+    <%= link_to "HITTA FRILANSARE", profiles_path, class: 'profile-button' %>
   </div>
 </div>
 <p class='progress-indicator-headline'>SÅ FUNGERAR DET</p>
@@ -48,7 +48,7 @@
     <h3>HITTA FRILANSARE</h3>
     <p class="marketing-site-content-section-block-subheader subheader">Skapa en ansökan redan idag! Få svar från frilansare. Anställ personen, godkänn arbetet som blivit utfört. Få en faktura. Allt är helt gratis!</p>
     <p class="marketing-site-content-section-block-subheader subheader">Vi ser till att löner, skatter, försäkringar & sociala avgifter betalas. </p>
-    <%= link_to "FÖR FÖRETAG", new_company_registration_path, class: 'profile-button' %>
+    <%= link_to "REGISTRERA FÖRETAG", new_company_registration_path, class: 'profile-button' %>
   </div>
   <div class="marketing-site-content-section-block large-6 columns">
     <h3>HITTA JOBB</h3>
@@ -56,7 +56,7 @@
     <p class="marketing-site-content-section-block-subheader subheader">Vi ser till att fakturan blir betald. Vi ser till att du får betalt i tid.</p>
     <p class="marketing-site-content-section-block-subheader subheader">Vi betalar din försäkring, skatt och sociala avgifter och för detta tar vi en liten avgift.</p>
     <p class="marketing-site-content-section-block-subheader subheader">Din lön får du sedan utbetald direkt in på bankkontot.</p>
-    <%= link_to "FÖR FRILANSARE", new_user_registration_path, class: 'reply-button' %>
+    <%= link_to "REGISTRERA FRILANSARE", new_user_registration_path, class: 'reply-button' %>
   </div>
   <div class="marketing-site-content-section-img large-6 columns">
     <%= image_tag 'foretag-front.jpg' %>
