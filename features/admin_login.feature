@@ -10,7 +10,7 @@ Feature: Admin login
 
     Scenario: I login as an admin
       Given I am on the home page
-      And I click "ADMIN LOGIN"
+      And I click "Admin login"
       And I should see "Logga in som admin"
       And I fill in "Email" with "admin@yahoo.com"
       And I fill in "Lösenord" with "12345678"
