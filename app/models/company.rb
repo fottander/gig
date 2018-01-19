@@ -16,4 +16,8 @@ class Company < ApplicationRecord
   scope :with_id, -> (id) { where id: id }
 
   self.per_page = 10
+
+  def invoice_count
+    self.invoices.count
+  end
 end

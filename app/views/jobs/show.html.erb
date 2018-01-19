@@ -65,7 +65,7 @@
         <h3 class="portfolio-resume-header">Företagsinfo</h3>
         <h5><strong><%= @job.company_username %></strong></h5>
         <div class="portfolio-resume-contact-info">
-          Antal genomförda jobb: <%= @invoices.where(company_id: @job.company_id).count %>
+          Antal genomförda jobb: <%= @job.company.invoice_count %>
           <p>Stad: <%= @job.company.city %></p>
         </div>
       </div>
