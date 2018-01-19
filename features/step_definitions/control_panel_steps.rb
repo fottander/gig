@@ -13,6 +13,20 @@ Given("the following applications exist") do |table|
   end
 end
 
+Then("I should see {string} beside {string}") do |content, job_id|
+  job = Job.find_by(id: job_id)
+  within ".job-#{job.id}" do
+    expect(page).to have_content content
+  end
+end
+
+Then("I should not see {string} beside {string}") do |content, job_id|
+  job = Job.find_by(id: job_id)
+  within ".job-#{job.id}" do
+    expect(page).not_to have_content content
+  end
+end
+
 Given("the following invites exist") do |table|
   table.hashes.each do |hash|
     create(:invite, hash)

@@ -50,7 +50,7 @@
                   Antal ansökningar: <%= job.applications.count %><br>
                   <% if job.active == true %>
                     <p class="dash-active", style="color: green;">Aktivt</p>
-                    <% if job.deadline >= Date.today %>
+                    <% if job.deadline <= Date.today %>
                       <br>
                       <p class="dash-active", style="color: red; padding-top: 4px;">Sista ansökningsdag nådd</p>
                     <% end %>

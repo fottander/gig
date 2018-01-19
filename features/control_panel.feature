@@ -46,9 +46,10 @@ Feature: Company control panel
       Given I am on control panel page
       And I should see "1" jobs description "målare sökes"
       And I should see "Antal ansökningar: 1"
+      And I should not see "Sista ansökningsdag nådd" beside "1"
       Then I should see "Aktiv"
       And I should see "2" jobs description "snickare sökes"
-      Then I should see "Sista ansökningsdag nådd"
+      Then I should see "Sista ansökningsdag nådd" beside "2"
 
     Scenario: I inactivate a job ad
       Given I am logged in as company "felix@mail.com"
