@@ -246,7 +246,7 @@ Invoice.create(
   description: "Målning 2 veckor",
   quantity: 40,
   unit: "140kr/timma",
-  amount: 3000,
+  amount: 7000,
   first_day: "2017-09-17",
   last_day: "2017-09-27",
   user_reference: "Felix",
