@@ -9,19 +9,12 @@ FactoryGirl.define do
     description "MyText"
     quantity "MyString"
     unit "MyString"
-    amount 1
+    amount 12345
     first_day "2018-01-10"
     last_day "2018-01-10"
     ocr_number "MyString"
     user_reference "MyString"
     company_reference "MyString"
-    user_id 1
-    profile_id 1
     profile_username "MyString"
-    terms 1
-    paid false
-    active false
-    salary_paid false
-    post false
   end
 end

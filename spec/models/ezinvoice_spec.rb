@@ -37,9 +37,6 @@ RSpec.describe Ezinvoice, type: :model do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :amount }
     it { is_expected.to validate_presence_of :user_reference }
-    it { is_expected.to validate_presence_of :profile_id }
-    it { is_expected.to validate_presence_of :profile_username }
-    it { is_expected.to validate_presence_of :user_id }
   end
 
   describe 'Associations' do
@@ -48,7 +45,7 @@ RSpec.describe Ezinvoice, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:invoice)).to be_valid
+      expect(create(:ezinvoice)).to be_valid
     end
   end
 end

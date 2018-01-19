@@ -1,7 +1,7 @@
 class Ezinvoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
-  validates_presence_of :user_id, :profile_id, :profile_username, :description, :amount, :user_reference, :org_number, :company_reference, :company_name, :company_address, :company_zip, :company_city, :company_email
+  validates_presence_of :description, :amount, :user_reference, :org_number, :company_reference, :company_name, :company_address, :company_zip, :company_city, :company_email
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
 

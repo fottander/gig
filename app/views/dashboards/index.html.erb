@@ -139,8 +139,8 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Fakturor</h3>
           <p class="dash-active-inv">
-            Totalt fakturerat:
-            <%= (@invoices.sum('amount') * 1.25).round %> kr
+            Totalt fakturerat inkl. snabbfakturor: <br>
+            <%= (current_user.total_earnings * 1.25).round %> kr
           </p>
           <span id="2"></span>
           <% if @invoices.present? %>

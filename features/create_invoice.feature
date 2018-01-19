@@ -59,4 +59,4 @@ Feature: Create invoice
       And I click "målare sökes"
       Then I should see "Antal genomförda jobb: 1"
       And I click "KONTROLLPANEL"
-      Then I should see "Totalt fakturerat: 12500 kr"
+      Then I should see "Totalt fakturerat inkl. snabbfakturor: 12500 kr"

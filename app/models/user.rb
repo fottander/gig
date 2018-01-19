@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :profile, dependent: :destroy
-  has_many :invoice
+  has_many :invoices
+  has_many :ezinvoices
   secret_key = ENV['PERSNUM_KEY']
   attr_encrypted :pers_num, key: secret_key
   validates_length_of :pers_num, minimum: 10, maximum: 10, allow_blank: true
@@ -19,4 +20,8 @@ class User < ApplicationRecord
   scope :without_profile, -> { left_outer_joins(:profile).where(profiles: { id: nil }) }
 
   self.per_page = 10
+
+  def total_earnings
+    self.invoices.sum('amount') + self.ezinvoices.sum('amount')
+  end
 end
