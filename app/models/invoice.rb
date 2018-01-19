@@ -8,6 +8,7 @@ class Invoice < ApplicationRecord
 
   default_scope {order('created_at DESC')}
   scope :with_ocr, -> (ocr) { where ocr_number: ocr }
+  scope :with_profile_id, -> (profile_id) { where profile_id: profile_id }
   scope :with_user_id, -> (user_id) { where user_id: user_id }
   scope :with_company_id, -> (company_id) { where company_id: company_id }
   scope :not_paid, -> { where(active: true, paid: false) }
