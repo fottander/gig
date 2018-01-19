@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20180116130037) do
     t.integer "amount"
     t.date "first_day"
     t.date "last_day"
+    t.float "user_fee"
     t.string "ocr_number"
     t.string "user_reference"
     t.string "company_reference"
@@ -181,6 +182,7 @@ ActiveRecord::Schema.define(version: 20180116130037) do
     t.string "ocr_number"
     t.string "user_reference"
     t.string "company_reference"
+    t.float "user_fee"
     t.integer "terms", default: 30
     t.boolean "paid", default: false
     t.boolean "active", default: false

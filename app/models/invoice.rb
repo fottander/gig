@@ -24,10 +24,6 @@ class Invoice < ApplicationRecord
     self.amount * 1.25
   end
 
-  def avgift
-    0.0598
-  end
-
   def arbetsgivaravgift
     0.2391
   end
@@ -37,7 +33,7 @@ class Invoice < ApplicationRecord
   end
 
   def steg1
-    self.amount * (1-self.avgift)
+    self.amount * (1-self.user_fee)
   end
 
   def steg2
@@ -49,7 +45,7 @@ class Invoice < ApplicationRecord
   end
 
   def varavgift
-    self.amount * self.avgift
+    self.amount * self.user_fee
   end
 
   def socialaavgifter

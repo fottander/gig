@@ -11,6 +11,7 @@ class InvoicesController < ApplicationController
     @invoice.profile_id = @profile.id
     @invoice.profile_username = @profile.username
     @invoice.user_id = current_user.id
+    @invoice.user_fee = current_user.fee
     Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @job.id, application_id: @application.id)
     if @invoice.save
 

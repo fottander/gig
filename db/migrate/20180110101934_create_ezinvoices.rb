@@ -13,6 +13,7 @@ class CreateEzinvoices < ActiveRecord::Migration[5.1]
       t.integer :amount
       t.date :first_day
       t.date :last_day
+      t.float :user_fee
       t.string :ocr_number
       t.string :user_reference
       t.string :company_reference

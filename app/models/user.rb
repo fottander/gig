@@ -28,4 +28,20 @@ class User < ApplicationRecord
   def invoice_count
     self.invoices.count + self.ezinvoices.count
   end
+
+  def fee
+    if (self.total_earnings * 1.25) < 20000
+      0.09
+    elsif (20000..50000).include? (self.total_earnings * 1.25)
+      0.08
+    elsif (50001..100000).include? (self.total_earnings * 1.25)
+      0.07
+    elsif (100001..250000).include? (self.total_earnings * 1.25)
+      0.06
+    elsif (250001..500000).include? (self.total_earnings * 1.25)
+      0.04
+    elsif (self.total_earnings * 1.25) > 500000
+      0.03
+    end
+  end
 end

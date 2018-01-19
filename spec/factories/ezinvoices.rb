@@ -16,5 +16,6 @@ FactoryGirl.define do
     user_reference "MyString"
     company_reference "MyString"
     profile_username "MyString"
+    user_fee 0.09
   end
 end
