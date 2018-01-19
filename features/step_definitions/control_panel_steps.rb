@@ -53,3 +53,17 @@ Then("invoice is sending by post") do
   invoice = Invoice.first
   expect(invoice.post).to be true
 end
+
+Given("I should see {string} jobs description {string}") do |job_id, job_description|
+  job = Job.find_by(id: job_id)
+  within ".job-#{job.id}" do
+    expect(page).to have_content job_description
+  end
+end
+
+Given("I click job {string} button {string}") do |job_id, button|
+  job = Job.find_by(id: job_id)
+  within ".job-#{job.id}" do
+    click_link_or_button button
+  end
+end
