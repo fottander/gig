@@ -24,4 +24,8 @@ class User < ApplicationRecord
   def total_earnings
     self.invoices.sum('amount') + self.ezinvoices.sum('amount')
   end
+
+  def invoice_count
+    self.invoices.count + self.ezinvoices.count
+  end
 end

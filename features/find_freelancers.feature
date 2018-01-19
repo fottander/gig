@@ -8,6 +8,7 @@ Feature: Show freelancers
       | email           | password  | password_confirmation | id |
       | felix@mail.com  | 12345678  | 12345678              | 1  |
       | anders@mail.com | 12345678  | 12345678              | 2  |
+      | robert@mail.com | 12345678  | 12345678              | 3  |
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
@@ -22,7 +23,7 @@ Feature: Show freelancers
       | username | title               | description                                      | skill                      | rate              | category_ids | city_ids | id | user_id |
       | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 1            | 1        | 1  | 1       |
       | anders   | Erfaren snickare    | Erfaren snickare med 5 års erfarenhet            | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 2            | 2        | 2  | 2       |
-      | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 3            | 3        | 3  |         |
+      | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 3            | 3        | 3  | 3       |
     Given the following invoices exist
       | description | amount | user_reference | terms | active |id | user_id | profile_id | feedback   | job_id | updated_at  |
       | abc         | 120    | felix          | 30    | true   | 1 | 1       | 1          | Bra snubbe | 1      |  2017-11-11 |
@@ -73,5 +74,5 @@ Feature: Show freelancers
       And I should see "Snickare"
       Then I should see "Göteborg"
       And I click "anders"
-      And I should not see "Antal genomförda jobb: 0"
+      And I should see "Antal genomförda jobb: 0"
       Then I should not see "Jobb ID: 1"
