@@ -22,10 +22,9 @@
   <div class='job-<%= job.id %>'>
     <div class="card profile-card-action-icons">
       <div class="card-section">
-        <% job.categories.each do |category| %>
         <div class="profile-card-header">
           <div class="profile-card-avatar">
-            <%= image_tag category.avatar.url, class: "avatar-image" %>
+            <%= image_tag job.categories.first.avatar.url, class: "avatar-image" %>
           </div>
           <div class="profile-card-author">
             <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
@@ -38,8 +37,7 @@
         <div class="profile-card-about">
           <div class="profile-card-about-message">
             <div class='profile-card-about-title'>
-                <span class='profile-card-about-title'><%= category.name %></span>
-              <% end %><br>
+              <span class='profile-card-about-title'><%= job.categories.pluck(:name).flatten.join(' & ') %></span><br>
             </div>
               <% if job.description.length > 100 %>
                   <%= truncate(job.description, length: 100) %>
@@ -54,9 +52,7 @@
                 Går ut: <%= job.deadline %>
               </div>
               <div class='large-2 columns'>
-                <% job.cities.each do |city| %>
-                  Stad: <%= city.name %>
-                <% end %>
+                Stad: <%= job.cities.pluck(:name).flatten.join(' & ') %>
               </div>
               <div class='large-2 columns'>
                 Krav: <%= job.requirement %>

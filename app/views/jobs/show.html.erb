@@ -9,16 +9,10 @@
         <h3 class="portfolio-resume-header">Detaljer</h3>
         <ul >
           <li>
-            Stad:
-            <% @job.cities.each do |city| %>
-              <%= city.name %>
-            <% end %>
+            Stad: <%= @job.cities.pluck(:name).flatten.join(' & ') %>
           </li>
           <li>
-            Kategorier:
-            <% @job.categories.each do |category| %>
-              <%= category.name %>
-            <% end %>
+            Kategorier: <%= @job.categories.pluck(:name).flatten.join(' & ') %>
           </li>
           <li>
             Krav: <%= @job.requirement %>
