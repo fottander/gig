@@ -17,8 +17,9 @@ Feature: Company control panel
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following job ads exist
-      | title        | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
-      | målare sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
+      | title          | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
+      | målare sökes   | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
+      | snickare sökes | rita hus    | 2 års erfarenhet | 2            | 2        | 140kr/timma | 2017-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 2  |
     Given the following users exist
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
@@ -43,16 +44,18 @@ Feature: Company control panel
     Scenario: I see the job ad and applications answer count
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      And I should see "målare sökes"
+      And I should see "1" jobs description "målare sökes"
       And I should see "Antal ansökningar: 1"
       Then I should see "Aktiv"
+      And I should see "2" jobs description "snickare sökes"
+      Then I should see "Sista ansökningsdag nådd"
 
     Scenario: I inactivate a job ad
       Given I am logged in as company "felix@mail.com"
       Given I am on the jobs page
       And I should see "målare sökes"
       And I click "KONTROLLPANEL"
-      And I click "Redigera jobb"
+      And I click job "1" button "Redigera jobb"
       And I should see "Redigera annons"
       And I uncheck Active check box
       And I click "Spara"
