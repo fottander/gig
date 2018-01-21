@@ -44,4 +44,22 @@ class User < ApplicationRecord
       0.03
     end
   end
+
+  def current_earnings
+    if (self.total_earnings * 1.25).round < 10000
+      '0 - 10 000 kr'
+    elsif (10000..15000).include? (self.total_earnings * 1.25).round
+      '10 000 - 15 000 kr'
+    elsif (15001..25000).include? (self.total_earnings * 1.25).round
+      '15 000 - 25 000 kr'
+    elsif (25001..50000).include? (self.total_earnings * 1.25).round
+      '25 000 - 50 000 kr'
+    elsif (50001..100000).include? (self.total_earnings * 1.25).round
+      '50 000 - 100 000 kr'
+    elsif (100001..249999).include? (self.total_earnings * 1.25).round
+      '100 000 - 250 000 kr'
+    elsif (self.total_earnings * 1.25).round > 249999
+      'Mer än 250 000 kr'
+    end
+  end
 end

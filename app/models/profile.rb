@@ -39,4 +39,6 @@ class Profile < ApplicationRecord
   end
 
   self.per_page = 5
+
+
 end

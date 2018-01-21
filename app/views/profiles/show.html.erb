@@ -11,22 +11,8 @@
           <p><%= link_to 'Bjud in till jobb', new_invite_path(profile_id: @profile.id), class: 'profile-button-small' %></p>
         <% end %>
         <p class='job-count'>Antal genomförda jobb: <%= @profile.user.invoice_count %></p>
-        <p class='job-count' style='margin-top: -7px;'>Totalt fakturerat:
-          <% if (@profile.user.total_earnings * 1.25).round < 10000 %>
-            0 - 10 000 kr
-          <% elsif (10000..15000).include? (@profile.user.total_earnings * 1.25).round %>
-            10 000 - 15 000 kr
-          <% elsif (15001..25000).include? (@profile.user.total_earnings * 1.25).round %>
-            15 000 - 25 000 kr
-          <% elsif (25001..50000).include? (@profile.user.total_earnings * 1.25).round %>
-            25 000 - 50 000 kr
-          <% elsif (50001..100000).include? (@profile.user.total_earnings * 1.25).round %>
-            50 000 - 100 000 kr
-          <% elsif (100001..249999).include? (@profile.user.total_earnings * 1.25).round %>
-            100 000 - 250 000 kr
-          <% elsif (@profile.user.total_earnings * 1.25).round > 249999 %>
-            Mer än 250 000 kr
-          <% end %>
+        <p class='job-count' style='margin-top: -7px;'>
+          Totalt fakturerat: <%= @profile.user.current_earnings %>
         </p>
       </div>
       <p><%= @profile.description %></p>
