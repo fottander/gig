@@ -39,9 +39,9 @@ class User < ApplicationRecord
     elsif (100001..250000).include? (self.total_earnings * 1.25)
       0.06
     elsif (250001..500000).include? (self.total_earnings * 1.25)
-      0.04
+      0.05
     elsif (self.total_earnings * 1.25) > 500000
-      0.03
+      0.04
     end
   end
 
@@ -56,10 +56,12 @@ class User < ApplicationRecord
       '25 000 - 50 000 kr'
     elsif (50001..100000).include? (self.total_earnings * 1.25).round
       '50 000 - 100 000 kr'
-    elsif (100001..249999).include? (self.total_earnings * 1.25).round
+    elsif (100001..250000).include? (self.total_earnings * 1.25).round
       '100 000 - 250 000 kr'
-    elsif (self.total_earnings * 1.25).round > 249999
-      'Mer än 250 000 kr'
+    elsif (250001..499999).include? (self.total_earnings * 1.25).round
+      '250 000 - 500 000 kr'
+    elsif (self.total_earnings * 1.25).round > 499999
+      'Mer än 500 000 kr'
     end
   end
 end

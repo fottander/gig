@@ -58,9 +58,9 @@
           </p>
           <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Din nuvarande avgift är <span style='color: #37a000;'>
             <% if @profile.present? %>
-              <%= @profile.user.fee * 100 %>%.</span> Läs mer om <span style='color: #37a000;'>våra avgifter.</span>
+              <%= (@profile.user.fee * 100).round %>.0%.</span> Läs mer om <span style='color: #37a000;'>våra avgifter.</span>
             <% else %>
-              9% </span> Läs mer om <span style='color: #37a000;'>våra avgifter.</span>
+              9.0% </span> Läs mer om <span style='color: #37a000;'>våra avgifter.</span>
             <% end %>
           </p>
           <p style='font-size: 11px; color: #f77d0e;'>Ska du skapa faktura utan koppling till ett aktivt jobb, kolla "Snabbfaktura" i menyn.</p>

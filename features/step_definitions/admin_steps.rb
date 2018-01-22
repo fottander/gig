@@ -33,9 +33,3 @@ Given("I click link {string} inside {string}") do |button, ezinvoice_description
     click_link_or_button button
   end
 end
-
-Given("the following ezinvoices exist") do |table|
-  table.hashes.each do |hash|
-    create(:ezinvoice, hash)
-  end
-end

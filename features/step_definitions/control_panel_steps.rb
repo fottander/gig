@@ -57,17 +57,6 @@ Then("I uncheck Post check box") do
   uncheck 'post'
 end
 
-Given("the following invoices exist") do |table|
-  table.hashes.each do |hash|
-    create(:invoice, hash)
-  end
-end
-
-Then("invoice is sending by post") do
-  invoice = Invoice.first
-  expect(invoice.post).to be true
-end
-
 Given("I should see {string} jobs description {string}") do |job_id, job_description|
   job = Job.find_by(id: job_id)
   within ".job-#{job.id}" do
