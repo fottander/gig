@@ -38,3 +38,9 @@ Given("I click {string} within hero") do |link|
     click_link_or_button link
   end
 end
+
+Then("the latest created invoice is beeing activated") do
+  invoice = Invoice.first
+  invoice.active = true
+  invoice.save
+end

@@ -22,7 +22,7 @@ class User < ApplicationRecord
   self.per_page = 10
 
   def total_earnings
-    self.invoices.sum('amount') + self.ezinvoices.sum('amount')
+    self.invoices.active.sum('amount') + self.ezinvoices.active.sum('amount')
   end
 
   def invoice_count

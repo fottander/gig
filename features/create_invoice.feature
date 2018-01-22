@@ -47,6 +47,7 @@ Feature: Create invoice
       And I fill in "company_reference" with "Anders"
       And I click "Skapa faktura"
       Then I should see "Faktura skapad"
+      And the latest created invoice is beeing activated
       And I click "HITTA FRILANSARE"
       And I should see "Genomförda jobb: 1" at "Fisken"
       And I should see "Totalt fakturerat: 10 000 - 15 000 kr" at "Fisken"
@@ -59,4 +60,4 @@ Feature: Create invoice
       And I click "målare sökes"
       Then I should see "Antal genomförda jobb: 1"
       And I click "KONTROLLPANEL"
-      Then I should see "Totalt fakturerat inkl. snabbfakturor: 12500 kr"
+      Then I should see "Totalt fakturerat: 12500 kr"
