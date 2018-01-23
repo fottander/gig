@@ -13,7 +13,6 @@ class ApplicationsController < ApplicationController
   def new
     @application = Application.new
     @job = Job.find(params[:job_id])
-    @profile = Profile.find_by(user_id: current_user)
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Jobb', :jobs_path
     add_breadcrumb @job.title.truncate(24), job_path(@job)
@@ -32,7 +31,7 @@ class ApplicationsController < ApplicationController
 
   def create
     @job = Job.find(params[:job_id])
-    @company = Company.find_by(id: @job.company_id)
+    @company = @job.company
     @application = Application.new application_params
     @application.job_id = @job.id
     @application.profile_id = current_user.profile.id
@@ -67,9 +66,9 @@ class ApplicationsController < ApplicationController
 
   def update
     @application = Application.find(params[:id])
+    @profile = @application.profile
     @application.hired = true
-    @profile = Profile.find_by(id: @application.profile_id)
-    @user = User.find_by(id: @profile.user_id)
+    @user = @profile.user
     Notice.create(recipient: @profile, actor: current_company, action: 'Ny anställning för', notifiable: @application, job_id: @application.job_id, application_id: @application.id)
     if @application.save
 

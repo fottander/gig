@@ -30,7 +30,6 @@ class InvoicesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find_by(user_id: current_user)
     @invoice = Invoice.find(params[:id])
   end
 
@@ -51,7 +50,7 @@ class InvoicesController < ApplicationController
 
   def activate
     @invoice = Invoice.find(params[:id])
-    @user = User.find_by(id: @invoice.user_id)
+    @user = @invoice.user
     @invoice.active = true
     if @invoice.update invoice_activate_params
       Notice.create(recipient: @user.profile, actor: current_company, action: 'Godkänd', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)

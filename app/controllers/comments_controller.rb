@@ -1,11 +1,11 @@
 class CommentsController < ApplicationController
   def create
     @application = Application.find(params[:application_id])
-    @profile = Profile.find_by(id: @application.profile_id)
-    @user = User.find_by(id: @profile.user_id)
+    @profile = @application.profile
+    @user = @profile.user
     @comment = Comment.new comment_params
-    @job = Job.find(params[:job_id])
-    @company = Company.find_by(id: @job.company_id)
+    @job = @application.job
+    @company = @job.company
     if current_user.present?
       @comment.profile_id = current_user.profile.id
       @comment.profile_username = current_user.profile.username

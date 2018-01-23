@@ -75,13 +75,11 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Från Frilansare</h3>
           <p class="portfolio-resume-subheader">
-            <% @profiles.each do |profile| %>
-              <span class='item-define'>ID:</span> <%= profile.id %><br>
-              <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
-              <span class='item-define'>Titel:</span> <%= profile.title %> <br>
-              <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name).join %> <br>
-              <span class='item-define'>User ID:</span> <%= profile.user_id %> <br>
-            <% end %>
+            <span class='item-define'>ID:</span> <%= @profile.id %><br>
+            <span class='item-define'>Användarnamn:</span> <%= @profile.username %> <br>
+            <span class='item-define'>Titel:</span> <%= @profile.title %> <br>
+            <span class='item-define'>Stad:</span> <%= @profile.cities.pluck(:name).join %> <br>
+            <span class='item-define'>User ID:</span> <%= @profile.user_id %> <br>
           </p>
           <hr>
           <h3 class="portfolio-resume-header">Betalinfo</h3>
@@ -91,9 +89,9 @@
           Bruttolön inkl sem. ers.	<%= @ezinvoice.bruttolon.round %> SEK <br>
           Skatt	-<%= @ezinvoice.skatt.round %> SEK <br>
           <span class='item-define'>Nettolön att utbetala</span> <%= @ezinvoice.steg3.round %> SEK <br>
-          <span class='item-define'>Bank:</span> <%= @user.bank %><br>
-          <span class='item-define'>Clearingnummer:</span> <%= @user.clear_nr %><br>
-          <span class='item-define'>Kontonummer:</span> <%= @user.account_nr %><br>
+          <span class='item-define'>Bank:</span> <%= @profile.user.bank %><br>
+          <span class='item-define'>Clearingnummer:</span> <%= @profile.user.clear_nr %><br>
+          <span class='item-define'>Kontonummer:</span> <%= @profile.user.account_nr %><br>
           </p>
         </div>
       </div>

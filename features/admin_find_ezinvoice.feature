@@ -7,10 +7,20 @@ Feature: Admin find ezinvoices
     Given the following admins exist
       | email           | password  | password_confirmation |
       | admin@yahoo.com | 12345678  | 12345678              |
+    Given the following categories exist
+      | name        | id |
+      | Målare      | 1  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
     Given the following users exist
       | email           | password  | password_confirmation | id   |
       | felix@yahoo.com | 12345678  | 12345678              | 9999 |
       | johan@yahoo.com | 12345678  | 12345678              | 9998 |
+    Given the following profiles exist
+      | username | title        | description | category_ids | city_ids | user_id | id   |
+      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
+      | Greger   | målare 29 år | målare gbg  | 1            | 1        | 9998    | 9998 |
     Given the following ezinvoices exist
       | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | active | updated_at | paid  | user_id    |
       | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 30    | true   | 2017-11-01 | false | 9999       |

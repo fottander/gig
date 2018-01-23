@@ -1,6 +1,6 @@
 class AdmininvoicesController < ApplicationController
   before_action :authenticate_admin!
-
+ 
   def index
     @invoices = Invoice.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
@@ -10,14 +10,13 @@ class AdmininvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @companies = Company.where(id: @invoice.company_id)
-    @profiles = Profile.where(id: @invoice.profile_id)
-    @user = User.find_by(id: @invoice.user_id)
+    @company = @invoice.company
+    @profile = @invoice.user.profile
     @due_date = @invoice.updated_at+@invoice.terms.day
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = InvoicePdf.new(@invoice, @profiles, @companies, @due_date)
+        pdf = InvoicePdf.new(@invoice, @profile, @company, @due_date)
         send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
                               type: 'application/pdf',
                               disposition: 'inline'

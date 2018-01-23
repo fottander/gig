@@ -3,9 +3,9 @@
   <div class="holy-grail-left">
     <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
     <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
-    <% if @profile.present? %>
-      <%= link_to 'Profil', edit_profile_path(@profile.id), class: 'button-menu' %>
-      <%= link_to 'Inbjudningar', invites_path(profile_id: @profile.id), class: 'button-menu' %>
+    <% if current_user.profile.present? %>
+      <%= link_to 'Profil', edit_profile_path(current_user.profile.id), class: 'button-menu' %>
+      <%= link_to 'Inbjudningar', invites_path(profile_id: current_user.profile.id), class: 'button-menu' %>
       <% else %>
       <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>
@@ -29,16 +29,16 @@
         </div>
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header" style='margin-bottom: 0px; margin-top: 5px;'>Profil</h3>
-          <% if @profile.present? %>
+          <% if current_user.profile.present? %>
             <div class="portfolio-resume-subheader">
             Användarnamn: <br>
-            <%= link_to @profile.username, profile_path(@profile) %><br>
-            Titel: <%= @profile.title %><br>
-            Färdigheter: <%= @profile.skill %><br>
-            Kategorier: <%= @profile.categories.pluck(:name).flatten.join(' & ') %> <br>
-            Stad: <%= @profile.cities.pluck(:name).flatten.join(' & ') %>
+            <%= link_to current_user.profile.username, profile_path(current_user.profile) %><br>
+            Titel: <%= current_user.profile.title %><br>
+            Färdigheter: <%= current_user.profile.skill %><br>
+            Kategorier: <%= current_user.profile.categories.pluck(:name).flatten.join(' & ') %> <br>
+            Stad: <%= current_user.profile.cities.pluck(:name).flatten.join(' & ') %>
             </div>
-            <%= link_to 'Redigera profil', edit_profile_path(@profile.id), class: 'button-green' %>
+            <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>
           <% else %>
             <strong>Skapa en profil för att söka jobb!</strong>
             <%= link_to 'Skapa ny profil', new_profile_path, class: 'button-orange' %>
@@ -50,15 +50,15 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Aviseringar</h3>
           <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Totalt fakturerat: <span style='color: #37a000;'>
-            <% if @profile.present? %>
-              <%= (@profile.user.total_earnings * 1.25).round %> kr</span>
+            <% if current_user.profile.present? %>
+              <%= (current_user.total_earnings * 1.25).round %> kr</span>
             <% else %>
               0 - 10 000 kr
             <% end %>
           </p>
           <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Din nuvarande avgift är <span style='color: #37a000;'>
-            <% if @profile.present? %>
-              <%= (@profile.user.fee * 100).round %>.0%.</span> Läs mer om <span style='color: #37a000;'>våra avgifter.</span>
+            <% if current_user.profile.present? %>
+              <%= (current_user.fee * 100).round %>.0%.</span> Läs mer om <span style='color: #37a000;'>våra avgifter.</span>
             <% else %>
               9.0% </span> Läs mer om <span style='color: #37a000;'>våra avgifter.</span>
             <% end %>

@@ -10,13 +10,12 @@ class AdminezinvoicesController < ApplicationController
 
   def show
     @ezinvoice = Ezinvoice.find(params[:id])
-    @profiles = Profile.where(id: @ezinvoice.profile_id)
-    @user = User.find_by(id: @ezinvoice.user_id)
+    @profile = @ezinvoice.user.profile
     @due_date = @ezinvoice.updated_at+@ezinvoice.terms.day
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = EzinvoicePdf.new(@ezinvoice, @profiles, @due_date)
+        pdf = EzinvoicePdf.new(@ezinvoice, @profile, @due_date)
         send_data pdf.render, filename: "invoice_#{@ezinvoice.id}.pdf",
                               type: 'application/pdf',
                               disposition: 'inline'
