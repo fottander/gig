@@ -5,13 +5,12 @@ class InvoicesController < ApplicationController
   def create
     @invoice = Invoice.new invoice_params
     @application = Application.find(params[:application_id])
-    @job = Job.find_by(id: @application.job_id)
-    @company = Company.find_by(id: @job.company_id)
+    @company = @application.job.company
     @invoice.profile_id = current_user.profile.id
     @invoice.profile_username = current_user.profile.username
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
-    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @job.id, application_id: @application.id)
+    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @application.job.id, application_id: @application.id)
     if @invoice.save
 
       # Sends email to company when invoice is created.
