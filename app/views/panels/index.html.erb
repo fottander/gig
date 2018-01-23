@@ -85,7 +85,6 @@
                     Jobb ID: <%= application.job_id %>
                   </div>
                   <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
-                  <%= link_to 'Godkänn', complete_job_application_path(application.job_id, application.id), method: :patch, data: { confirm: "Är du säker?" }, class: 'button-orange' %>
                 <% end %>
               <% end %>
             <% end %>

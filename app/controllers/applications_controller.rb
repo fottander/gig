@@ -57,14 +57,9 @@ class ApplicationsController < ApplicationController
   def complete
     @application = Application.find(params[:id])
     @application.complete = true
-    @profile = Profile.find_by(id: @application.profile_id)
-    @user = User.find_by(id: @profile.user_id)
-    Notice.create(recipient: @profile, actor: current_company, action: 'Jobb godkänt för', notifiable: @application, job_id: @application.job_id, application_id: @application.id)
+    @company = @application.job.company
+    Notification.create(recipient: @company, actor: current_user.profile, action: 'Jobb godkänt för', notifiable: @application, job_id: @application.job_id, application_id: @application.id)
     if @application.save
-
-      # Sends email to user when job is completed.
-      NotificationMailer.job_completed_email(@user, @application).deliver_now
-
       flash[:notice] = "Grattis! Jobb genomfört."
       redirect_back(fallback_location: root_path)
     end

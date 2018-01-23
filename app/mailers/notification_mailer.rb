@@ -40,15 +40,7 @@ class NotificationMailer < ApplicationMailer
     subject: "Du har blivit anställd. Grattis!"
     )
   end
-  def job_completed_email(user, application)
-    @user = user
-    @application = application
 
-    mail(
-    to: @user.email,
-    subject: "Ditt jobb har blivit godkänt"
-    )
-  end
   def new_application_email(company, job)
     @company = company
     @job = job
@@ -58,6 +50,7 @@ class NotificationMailer < ApplicationMailer
     subject: "Nytt svar på #{job.title}"
     )
   end
+
   def new_comment_email(user, application)
     @user = user
     @application = application
@@ -67,5 +60,4 @@ class NotificationMailer < ApplicationMailer
     subject: "Nytt svar på ansökan nr: #{application.id}"
     )
   end
-
 end

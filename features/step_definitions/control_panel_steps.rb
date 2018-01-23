@@ -70,3 +70,9 @@ Given("I click job {string} button {string}") do |job_id, button|
     click_link_or_button button
   end
 end
+
+Then("the application gets marked as completed") do
+  @application = Application.last
+  @application.complete = true
+  @application.save
+end
