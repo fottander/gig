@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :complete, :destroy]
+  before_action :authenticate_company!, only: [:update]
   before_action :authenticate_admin!, only: [:index]
 
   def index
@@ -23,7 +24,6 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @job = Job.find(params[:job_id])
     @comments = Comment.where(application_id: @application)
-    @profile = Profile.find_by(user_id: current_user)
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Jobb', :jobs_path
     add_breadcrumb @job.title.truncate(24), job_path(@job)

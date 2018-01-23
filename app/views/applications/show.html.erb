@@ -67,7 +67,7 @@
       <% if current_user.present? %>
         <% if @application.profile_id == current_user.profile.id %>
           <% if @application.hired == true %>
-            <%= link_to 'Markera som avklarat', complete_job_application_path(@application.job_id, @application.id), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+            <%= link_to 'Markera som avklarat & börja fakturera', complete_job_application_path(@application.job_id, @application.id), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
           <% end %>
         <% end %>
       <% end %>
