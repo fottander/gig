@@ -23,6 +23,31 @@ class AdminezinvoicesController < ApplicationController
     end
   end
 
+  def edit
+    @ezinvoice = Ezinvoice.find(params[:id])
+  end
+
+  def update
+    @ezinvoice = Ezinvoice.find(params[:id])
+    respond_to do |format|
+      if @ezinvoice.update ezinvoice_update_params
+        format.html { redirect_to edit_adminezinvoice_path(@ezinvoice), notice: 'Faktura ändrad' }
+        format.json { render :edit, status: :ok, location: @ezinvoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @ezinvoice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @ezinvoice = Ezinvoice.find(params[:id])
+    if @ezinvoice.destroy
+      flash[:notice] = "Faktura raderad!"
+      redirect_to administrations_path
+    end
+  end
+
   def pay
     @ezinvoice = Ezinvoice.find(params[:id])
     @ezinvoice.paid = true
@@ -71,6 +96,10 @@ class AdminezinvoicesController < ApplicationController
 
   def ezinvoice_activate_params
     params.permit(:active)
+  end
+
+  def ezinvoice_update_params
+    params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms)
   end
 
 end
