@@ -24,6 +24,31 @@ class AdmininvoicesController < ApplicationController
     end
   end
 
+  def edit
+    @invoice = Invoice.find(params[:id])
+  end
+
+  def update
+    @invoice = Invoice.find(params[:id])
+    respond_to do |format|
+      if @invoice.update invoice_update_params
+        format.html { redirect_to edit_admininvoice_path(@invoice), notice: 'Faktura ändrad' }
+        format.json { render :edit, status: :ok, location: @invoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @invoice = Invoice.find(params[:id])
+    if @invoice.destroy
+      flash[:notice] = "Faktura raderad!"
+      redirect_to administrations_path
+    end
+  end
+
   def pay
     @invoice = Invoice.find(params[:id])
     @invoice.paid = true
@@ -72,6 +97,10 @@ class AdmininvoicesController < ApplicationController
 
   def invoice_activate_params
     params.permit(:active)
+  end
+
+  def invoice_update_params
+    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
   end
 
 end

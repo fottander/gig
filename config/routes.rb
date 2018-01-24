@@ -75,7 +75,7 @@ Rails.application.routes.draw do
 
   resources :adminprofiles, only: [:index]
 
-  resources :admininvoices, only: [:index, :show] do
+  resources :admininvoices, only: [:index, :show, :edit, :update, :destroy] do
     member do
       patch :pay
       patch :pay_salary
