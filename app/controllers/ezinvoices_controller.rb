@@ -14,7 +14,6 @@ class EzinvoicesController < ApplicationController
     @ezinvoice.user_id = current_user.id
     @ezinvoice.profile_id = current_user.profile.id
     @ezinvoice.profile_username = current_user.profile.username
-    @ezinvoice.active = true
     @ezinvoice.user_fee = current_user.fee
     respond_to do |format|
       if @ezinvoice.save

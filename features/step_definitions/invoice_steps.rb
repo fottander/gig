@@ -14,6 +14,12 @@ Then("the latest created invoice is beeing activated") do
   invoice.save
 end
 
+Then("the latest created ezinvoice is beeing activated") do
+  ezinvoice = Ezinvoice.first
+  ezinvoice.active = true
+  ezinvoice.save
+end
+
 Given("the following invoices exist") do |table|
   table.hashes.each do |hash|
     create(:invoice, hash)

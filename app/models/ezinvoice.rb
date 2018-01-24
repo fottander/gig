@@ -10,9 +10,10 @@ class Ezinvoice < ApplicationRecord
   scope :with_user_id, -> (user_id) { where user_id: user_id }
   scope :not_paid, -> { where(active: true, paid: false) }
   scope :paid, -> { where(active: true, paid: true) }
-  scope :active, -> { where(active: true)}
-  scope :salary_paid, -> { where(salary_paid: true)}
-  scope :salary_not_paid, -> { where(salary_paid: false)}
+  scope :active, -> { where(active: true) }
+  scope :not_active, -> { where(active: false) }
+  scope :salary_paid, -> { where(salary_paid: true) }
+  scope :salary_not_paid, -> { where(salary_paid: false) }
   scope :pay_day, -> (selected_day) { where(updated_at: selected_day.to_date.beginning_of_day..selected_day.to_date.end_of_day)}
 
   self.per_page = 5

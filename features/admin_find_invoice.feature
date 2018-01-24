@@ -34,6 +34,7 @@ Feature: Admin find invoices
     Scenario: I see invoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Fakturor"
       And I click "Filtrera ej betalda"
       And I should see "abc"
@@ -48,6 +49,7 @@ Feature: Admin find invoices
     Scenario: I see invoices and search by user id
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Fakturor"
       And I should see "Alla fakturor"
       And I fill in "with_user_id" with "9998"
@@ -65,6 +67,7 @@ Feature: Admin find invoices
     Scenario: I see invoices and mark it as paid
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Fakturor"
       And I click link "Visa/godkänn faktura" in "def"
       And I should see "Kan inte markeras som betald förrän fakturan är godkänd"

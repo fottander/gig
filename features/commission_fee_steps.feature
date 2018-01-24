@@ -74,6 +74,7 @@ Background:
     And I fill in "Referens" with "felix"
     And I click "Skapa"
     Then I should see "Ny faktura skapad!"
+    And the latest created ezinvoice is beeing activated
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 2"
     Then I should see "Totalt fakturerat: 10 000 - 15 000 kr"
