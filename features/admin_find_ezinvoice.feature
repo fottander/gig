@@ -30,6 +30,7 @@ Feature: Admin find ezinvoices
     Scenario: I see ezinvoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Snabbfakturor"
       And I click "Filtrera ej betalda"
       And I should see "abc fakt"
@@ -44,6 +45,7 @@ Feature: Admin find ezinvoices
     Scenario: I see ezinvoices and search by user id
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Snabbfakturor"
       And I should see "Alla snabbfakturor"
       And I fill in "with_user_id" with "9998"
@@ -54,9 +56,13 @@ Feature: Admin find ezinvoices
     Scenario: I see ezinvoices and mark it as paid
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Snabbfakturor"
       And I click link "Visa/godkänn faktura" inside "def fakt"
-      And I should see "Kan inte markeras som betald förrän fakturan är godkänd av kund"
+      And I should see "Kan inte markeras som betald förrän fakturan är godkänd"
+      And I click "Godkänn & aktivera"
+      And I should see "Faktura godkänd och aktiverad"
+      Then I should see "Aktiv: true"
       Given I am on the administrations page
       And I click "Snabbfakturor"
       And I click link "Visa/godkänn faktura" inside "abc fakt"

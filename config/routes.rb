@@ -91,6 +91,7 @@ Rails.application.routes.draw do
     member do
       patch :pay
       patch :pay_salary
+      patch :activate
     end
   end
 
