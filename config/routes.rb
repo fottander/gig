@@ -99,6 +99,7 @@ Rails.application.routes.draw do
     member do
       patch :update
       patch :activate
+      patch :extend
     end
   end
 

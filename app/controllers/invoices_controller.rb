@@ -1,6 +1,7 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
-  before_action :authenticate_company!, only: [:show, :activate]
+  before_action :authenticate_company!, only: [:show, :extend]
+  before_action :authenticate_admin!, only: [:activate]
 
   def create
     @invoice = Invoice.new invoice_params
@@ -48,6 +49,22 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def extend
+    @invoice = Invoice.find(params[:id])
+    @user = @invoice.user
+    if @invoice.update invoice_extend_params
+      Notice.create(recipient: @user.profile, actor: current_company, action: 'Feedback', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
+      if @invoice.post == true
+        @invoice.update(amount: @invoice.amount + 40)
+      end
+      if @invoice.terms == 60
+        @invoice.update(amount: @invoice.amount + 500)
+      end
+      flash[:notice] = "Sparat!"
+      redirect_back(fallback_location: panels_path)
+    end
+  end
+
   def activate
     @invoice = Invoice.find(params[:id])
     @user = @invoice.user
@@ -88,6 +105,10 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_activate_params
-    params.permit(:active, :terms, :post, :feedback)
+    params.permit(:active)
+  end
+
+  def invoice_extend_params
+    params.permit(:feedback, :terms, :post)
   end
 end

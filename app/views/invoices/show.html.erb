@@ -41,26 +41,33 @@
             Betalningsstatus: <p style="color: green;">Godkänd</p>
           <% else %>
             <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
-          <% end %>
+          <% end %><br><br>
           </div>
         </div>
         <div class="large-6 columns">
-          <% if @invoice.active == false %>
-            <h4>Godkänn faktura</h4>
-            <div class='post-title'>
-              <p>Vill du rekommendera <%= @invoice.profile_username %> till andra?</p>
-            </div>
-            <%= form_tag activate_invoice_path(@invoice), method: :patch do %>
-            <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
-            <%= hidden_field_tag :terms, '30' %>
-            <%= check_box_tag :terms, checked = '60' %>
-            Klicka för 60 dagars fakturatid(+500kr)<br>
-            <%= hidden_field_tag :post, false %>
-            <%= check_box_tag :post, checked = true %>
-            Klicka för att få fakturan på posten(+40kr)<br>
-            <%= submit_tag 'Godkänn', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+          <h4>Feedback & tillval</h4>
+          <div class='post-title'>
+            <p>Vill du rekommendera <%= @invoice.profile_username %> till andra?</p>
+          </div>
+          <%= form_tag extend_invoice_path(@invoice), method: :patch do %>
+          <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
+          <% if @invoice.terms == 30 %>
+            <% if @invoice.active == false %>
+              <%= hidden_field_tag :terms, '30' %>
+              <%= check_box_tag :terms, checked = '60' %>
+              Klicka för 60 dagars fakturatid(+500kr)<br>
             <% end %>
-          <% else %>
+          <% end %>
+          <% if @invoice.post == false %>
+            <% if @invoice.active == false %>
+              <%= hidden_field_tag :post, false %>
+              <%= check_box_tag :post, checked = true %>
+              Klicka för att få fakturan på posten(+40kr)<br>
+            <% end %>
+          <% end %>
+          <%= submit_tag 'Spara', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+          <% end %>
+          <% if @invoice.active == false %>
             <% if @invoice.paid == false %>
             <p class="holy-grail-left-application" style='color: #f77d0e;'>
               Fakturan ska betalas innan <%= @due_date.strftime("%F") %><br>
