@@ -63,3 +63,9 @@ Feature: Mark As complete and send invoice
       Then I should see "Antal genomförda jobb: 1"
       And I click "KONTROLLPANEL"
       Then I should see "Totalt fakturerat: 12500 kr"
+
+    Scenario: I mark an application as complete in dashboard
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
+      And I click "Markera som avklarat"
+      Then I should not see "Markera som avklarat"
