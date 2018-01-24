@@ -10,18 +10,42 @@ class AdmininvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @companies = Company.where(id: @invoice.company_id)
-    @profiles = Profile.where(id: @invoice.profile_id)
-    @user = User.find_by(id: @invoice.user_id)
+    @company = @invoice.company
+    @profile = @invoice.user.profile
     @due_date = @invoice.updated_at+@invoice.terms.day
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = InvoicePdf.new(@invoice, @profiles, @companies, @due_date)
+        pdf = InvoicePdf.new(@invoice, @profile, @company, @due_date)
         send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
                               type: 'application/pdf',
                               disposition: 'inline'
       end
+    end
+  end
+
+  def edit
+    @invoice = Invoice.find(params[:id])
+  end
+
+  def update
+    @invoice = Invoice.find(params[:id])
+    respond_to do |format|
+      if @invoice.update invoice_update_params
+        format.html { redirect_to edit_admininvoice_path(@invoice), notice: 'Faktura ändrad' }
+        format.json { render :edit, status: :ok, location: @invoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @invoice = Invoice.find(params[:id])
+    if @invoice.destroy
+      flash[:notice] = "Faktura raderad!"
+      redirect_to administrations_path
     end
   end
 
@@ -43,6 +67,20 @@ class AdmininvoicesController < ApplicationController
     end
   end
 
+  def activate
+    @invoice = Invoice.find(params[:id])
+    @user = @invoice.user
+    @invoice.active = true
+    if @invoice.update invoice_activate_params
+
+      # Sends email to user when invoice is activated.
+      NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
+
+      flash[:notice] = "Faktura godkänd och aktiverad"
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def invoice_pay_params
@@ -55,6 +93,14 @@ class AdmininvoicesController < ApplicationController
 
   def filtering_params(params)
     params.slice(:with_ocr, :with_user_id, :with_company_id)
+  end
+
+  def invoice_activate_params
+    params.permit(:active)
+  end
+
+  def invoice_update_params
+    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
   end
 
 end

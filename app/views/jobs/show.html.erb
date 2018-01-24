@@ -85,11 +85,11 @@
                   Anställd!
                 <% if application.complete == true %>
                   & jobb genomfört!
-                <% end %>
-              <% end %><br>
-            </span>
+                <% end %><br>
+              <% end %>
               <%= link_to 'Visa ansökan', job_application_path(@job, application), class: 'button-green' %>
               <%= link_to 'Profil', profile_path(application.profile_id), class: 'button-orange' %>
+              </span>
               <hr>
               <% end %>
             <% else %>

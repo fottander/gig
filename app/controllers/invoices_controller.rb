@@ -1,18 +1,16 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
-  before_action :authenticate_company!, only: [:show, :activate]
+  before_action :authenticate_company!, only: [:show, :extend]
 
   def create
-    @profile = current_user.profile
     @invoice = Invoice.new invoice_params
     @application = Application.find(params[:application_id])
-    @job = Job.find_by(id: @application.job_id)
-    @company = Company.find_by(id: @job.company_id)
-    @invoice.profile_id = @profile.id
-    @invoice.profile_username = @profile.username
+    @company = @application.job.company
+    @invoice.profile_id = current_user.profile.id
+    @invoice.profile_username = current_user.profile.username
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
-    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @job.id, application_id: @application.id)
+    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @application.job.id, application_id: @application.id)
     if @invoice.save
 
       # Sends email to company when invoice is created.
@@ -32,7 +30,6 @@ class InvoicesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find_by(user_id: current_user)
     @invoice = Invoice.find(params[:id])
   end
 
@@ -51,23 +48,18 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def activate
+  def extend
     @invoice = Invoice.find(params[:id])
-    @user = User.find_by(id: @invoice.user_id)
-    @invoice.active = true
-    if @invoice.update invoice_activate_params
-      Notice.create(recipient: @user.profile, actor: current_company, action: 'Godkänd', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
+    @user = @invoice.user
+    if @invoice.update invoice_extend_params
+      Notice.create(recipient: @user.profile, actor: current_company, action: 'Feedback', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
       if @invoice.post == true
-        @invoice.update(amount: @invoice.amount + 500)
-      end
-      if @invoice.terms == 60
         @invoice.update(amount: @invoice.amount + 40)
       end
-
-      # Sends email to user when invoice is activated.
-      NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
-
-      flash[:notice] = "Faktura godkänd och aktiverad"
+      if @invoice.terms == 60
+        @invoice.update(amount: @invoice.amount + 500)
+      end
+      flash[:notice] = "Sparat!"
       redirect_back(fallback_location: panels_path)
     end
   end
@@ -90,7 +82,7 @@ class InvoicesController < ApplicationController
     params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
   end
 
-  def invoice_activate_params
-    params.permit(:active, :terms, :post, :feedback)
+  def invoice_extend_params
+    params.permit(:feedback, :terms, :post)
   end
 end

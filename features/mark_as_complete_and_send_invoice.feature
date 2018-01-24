@@ -1,4 +1,4 @@
-Feature: Create invoice
+Feature: Mark As complete and send invoice
   As an user
   In order to get my money for the work done
   I would like to be able to send an invoice to the company
@@ -30,12 +30,14 @@ Feature: Create invoice
       | Filip    | 29 år målare | målare gbg  | 1            | 1        | 2       | 2  |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    | hired | complete |
-      | I want job | 1      | Fisken           | 1          | målare sökes | true  | true     |
+      | I want job | 1      | Fisken           | 1          | målare sökes | true  | false    |
 
     Scenario: I create an invoice and see completed jobs change in index
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
-      And I click "Visa ansökan/Skapa faktura"
+      And I click "Visa ansökan"
+      And I click "Markera som avklarat"
+      And I should see "Grattis! Jobb genomfört."
       And I should see "SKAPA FAKTURA"
       And I fill in "description" with "Hej"
       And I fill in "quantity" with "100"
@@ -61,3 +63,9 @@ Feature: Create invoice
       Then I should see "Antal genomförda jobb: 1"
       And I click "KONTROLLPANEL"
       Then I should see "Totalt fakturerat: 12500 kr"
+
+    Scenario: I mark an application as complete in dashboard
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
+      And I click "Markera som avklarat"
+      Then I should not see "Markera som avklarat"

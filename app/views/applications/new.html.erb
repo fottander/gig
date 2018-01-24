@@ -14,7 +14,7 @@
     </div>
     <div class="simple-form">
       <div class='post-title'><h3>Skapa ansökan</h3></div>
-      <% if @profile.present? %>
+      <% if current_user.profile.present? %>
         <%= form_for ([@job, @application]) do |f| %>
         <% if @application.errors.any? %>
           <% @application.errors.full_messages.each do |message| %>

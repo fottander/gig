@@ -10,7 +10,6 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit
-    @profile = Profile.find_by(user_id: current_user)
     super
   end
 

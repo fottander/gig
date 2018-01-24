@@ -20,7 +20,7 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new invite_params
     @profile = Profile.find(params[:profile_id])
-    @user = User.find_by(id: @profile.user_id)
+    @user = @profile.user
     if @invite.save
 
       # Sends email to user when invite is created.

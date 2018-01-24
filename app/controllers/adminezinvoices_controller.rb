@@ -10,17 +10,41 @@ class AdminezinvoicesController < ApplicationController
 
   def show
     @ezinvoice = Ezinvoice.find(params[:id])
-    @profiles = Profile.where(id: @ezinvoice.profile_id)
-    @user = User.find_by(id: @ezinvoice.user_id)
+    @profile = @ezinvoice.user.profile
     @due_date = @ezinvoice.updated_at+@ezinvoice.terms.day
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = EzinvoicePdf.new(@ezinvoice, @profiles, @due_date)
+        pdf = EzinvoicePdf.new(@ezinvoice, @profile, @due_date)
         send_data pdf.render, filename: "invoice_#{@ezinvoice.id}.pdf",
                               type: 'application/pdf',
                               disposition: 'inline'
       end
+    end
+  end
+
+  def edit
+    @ezinvoice = Ezinvoice.find(params[:id])
+  end
+
+  def update
+    @ezinvoice = Ezinvoice.find(params[:id])
+    respond_to do |format|
+      if @ezinvoice.update ezinvoice_update_params
+        format.html { redirect_to edit_adminezinvoice_path(@ezinvoice), notice: 'Faktura ändrad' }
+        format.json { render :edit, status: :ok, location: @ezinvoice }
+      else
+        format.html { render :edit }
+        format.json { render json: @ezinvoice.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @ezinvoice = Ezinvoice.find(params[:id])
+    if @ezinvoice.destroy
+      flash[:notice] = "Faktura raderad!"
+      redirect_to administrations_path
     end
   end
 
@@ -42,6 +66,20 @@ class AdminezinvoicesController < ApplicationController
     end
   end
 
+  def activate
+    @ezinvoice = Ezinvoice.find(params[:id])
+    @user = @ezinvoice.user
+    @ezinvoice.active = true
+    if @ezinvoice.update ezinvoice_activate_params
+      @invoice = @ezinvoice
+      # Sends email to user when invoice is activated.
+      NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
+
+      flash[:notice] = "Faktura godkänd och aktiverad"
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def ezinvoice_pay_params
@@ -54,6 +92,14 @@ class AdminezinvoicesController < ApplicationController
 
   def filtering_params(params)
     params.slice(:with_ocr, :with_user_id)
+  end
+
+  def ezinvoice_activate_params
+    params.permit(:active)
+  end
+
+  def ezinvoice_update_params
+    params.require(:ezinvoice).permit(:org_number, :company_name, :company_address, :company_zip, :company_city, :company_email, :description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms)
   end
 
 end

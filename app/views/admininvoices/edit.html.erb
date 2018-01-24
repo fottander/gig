@@ -1,0 +1,44 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="simple-form">
+      <h3 class="post-title">Redigera faktura <%= @invoice.id.first(8) %></h3>
+      <%= form_for @invoice, url: admininvoice_path(@invoice) do |f| %>
+        <% if @invoice.errors.any? %>
+          <% @invoice.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
+        <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+        <%= f.text_area :description, value: @invoice.description %>
+        <%= f.label :quantity, 'Kvantitet(ex. antal timmar)', class: 'form-text' %>
+        <%= f.text_field :quantity, value: @invoice.quantity %>
+        <%= f.label :unit, 'Enhet(ex. 150kr/timma)', class: 'form-text' %>
+        <%= f.text_field :unit, value: @invoice.unit %>
+        <%= f.label :amount, 'Belopp ex. moms(ex. totalsumma)', class: 'form-text' %>
+        <%= f.text_field :amount, value: @invoice.amount %>
+        <%= f.label :first_day, 'Första dag(ex. 2018-xx-xx)', class: 'form-text' %>
+        <%= f.text_field :first_day, value: @invoice.first_day %>
+        <%= f.label :last_day, 'Sista dag(ex. 2018-xx-xx)', class: 'form-text' %>
+        <%= f.text_field :last_day, value: @invoice.last_day %>
+        <%= f.label :user_reference, 'Referens(förnamn & efternamn)', class: 'form-text' %>
+        <%= f.text_field :user_reference, value: @invoice.user_reference %>
+        <%= f.label :company_reference, 'Företagsreferens', class: 'form-text' %>
+        <%= f.text_field :company_reference, value: @invoice.company_reference %>
+        <%= f.submit 'Spara', class: 'reply-button' %>
+      <% end %>
+    </div>
+  </div>
+</div>

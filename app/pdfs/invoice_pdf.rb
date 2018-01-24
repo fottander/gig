@@ -1,8 +1,8 @@
 class InvoicePdf < Prawn::Document
-  def initialize(invoice, profiles, companies, due_date)
+  def initialize(invoice, profile, company, due_date)
     @invoice = invoice
-    @profiles = profiles
-    @companies = companies
+    @profile = profile
+    @company = company
     @due_date = due_date
 
     super(margin: 0)
@@ -26,9 +26,7 @@ class InvoicePdf < Prawn::Document
   def header
     move_down 40
 
-    @profiles.each do |profile|
-      image  "#{Rails.root}/app/assets/images/invoice-logo.jpg", width: 450
-    end
+    image  "#{Rails.root}/app/assets/images/invoice-logo.jpg", width: 450
 
     move_down 8
     text "<color rgb='a6a6a6'>Fakturanummer: #{@invoice.id.first(8)}</color>", inline_format: true
@@ -36,17 +34,16 @@ class InvoicePdf < Prawn::Document
     text "Datum: #{@invoice.updated_at.strftime('%F')}"
     text "Referens: #{@invoice.user_reference}"
     text "Er referens: #{@invoice.company_reference}"
-    @companies.each do |company|
-      text "Kundnummer: #{company.id}"
-      text "#{company.name}"
-      if company.invoice_address.present?
-        text "#{company.invoice_address}"
-      else
-        text "#{company.address}"
-      end
-      text "#{company.zip_code}, #{company.city}"
-      text "Sverige"
+
+    text "Kundnummer: #{@company.id}"
+    text "#{@company.name}"
+    if @company.invoice_address.present?
+      text "#{@company.invoice_address}"
+    else
+      text "#{@company.address}"
     end
+    text "#{@company.zip_code}, #{@company.city}"
+    text "Sverige"
   end
 
   def profile_info

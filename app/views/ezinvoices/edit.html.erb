@@ -3,9 +3,9 @@
   <div class="holy-grail-left">
     <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
     <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
-    <% if @profile.present? %>
-      <%= link_to 'Profil', edit_profile_path(@profile.id), class: 'button-menu' %>
-      <%= link_to 'Inbjudningar', invites_path(profile_id: @profile.id), class: 'button-menu' %>
+    <% if current_user.profile.present? %>
+      <%= link_to 'Profil', edit_profile_path(current_user.profile.id), class: 'button-menu' %>
+      <%= link_to 'Inbjudningar', invites_path(profile_id: current_user.profile.id), class: 'button-menu' %>
       <% else %>
       <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>
@@ -17,8 +17,8 @@
   <div class="holy-grail-middle">
     <div class="simple-form">
       <div class='post-title'><h3>Redigera faktura</h3></div>
-      <% if @profile.present? %>
-        <% if @profile.id == @ezinvoice.profile_id %>
+      <% if current_user.profile.present? %>
+        <% if current_user.profile.id == @ezinvoice.profile_id %>
           <%= form_for @ezinvoice do |f| %>
             <% if @ezinvoice.errors.any? %>
               <% @ezinvoice.errors.full_messages.each do |message| %>

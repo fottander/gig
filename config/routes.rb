@@ -75,10 +75,11 @@ Rails.application.routes.draw do
 
   resources :adminprofiles, only: [:index]
 
-  resources :admininvoices, only: [:index, :show] do
+  resources :admininvoices, only: [:index, :show, :edit, :update, :destroy] do
     member do
       patch :pay
       patch :pay_salary
+      patch :activate
     end
   end
 
@@ -86,10 +87,11 @@ Rails.application.routes.draw do
 
   resources :ezinvoices, only: [:index, :new, :create, :edit, :update, :destroy]
 
-  resources :adminezinvoices, only: [:index, :show] do
+  resources :adminezinvoices, only: [:index, :show, :edit, :update, :destroy] do
     member do
       patch :pay
       patch :pay_salary
+      patch :activate
     end
   end
 
@@ -98,7 +100,7 @@ Rails.application.routes.draw do
   resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
     member do
       patch :update
-      patch :activate
+      patch :extend
     end
   end
 

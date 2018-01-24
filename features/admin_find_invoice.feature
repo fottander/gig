@@ -7,10 +7,20 @@ Feature: Admin find invoices
     Given the following admins exist
       | email           | password  | password_confirmation |
       | admin@yahoo.com | 12345678  | 12345678              |
+    Given the following categories exist
+      | name        | id |
+      | Målare      | 1  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
     Given the following users exist
       | email           | password  | password_confirmation | id   |
       | felix@yahoo.com | 12345678  | 12345678              | 9999 |
       | johan@yahoo.com | 12345678  | 12345678              | 9998 |
+    Given the following profiles exist
+      | username | title        | description | category_ids | city_ids | user_id | id   |
+      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
+      | Greger   | målare 29 år | målare gbg  | 1            | 1        | 9998    | 9998 |
     Given the following companies exist
       | email          | name | username | address | zip_code | city | org_number | phone | password  | password_confirmation | id   |
       | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9999 |
@@ -24,6 +34,7 @@ Feature: Admin find invoices
     Scenario: I see invoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Fakturor"
       And I click "Filtrera ej betalda"
       And I should see "abc"
@@ -38,6 +49,7 @@ Feature: Admin find invoices
     Scenario: I see invoices and search by user id
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Fakturor"
       And I should see "Alla fakturor"
       And I fill in "with_user_id" with "9998"
@@ -55,9 +67,13 @@ Feature: Admin find invoices
     Scenario: I see invoices and mark it as paid
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
+      And I should see "User ID: 9998"
       And I click "Fakturor"
       And I click link "Visa/godkänn faktura" in "def"
-      And I should see "Kan inte markeras som betald förrän fakturan är godkänd av kund"
+      And I should see "Kan inte markeras som betald förrän fakturan är godkänd"
+      And I click "Godkänn & aktivera"
+      And I should see "Faktura godkänd och aktiverad"
+      Then I should see "Aktiv: true"
       Given I am on the administrations page
       And I click "Fakturor"
       And I click link "Visa/godkänn faktura" in "abc"

@@ -35,7 +35,7 @@ Feature: Apply to job
       And I should see "Göteborg"
       And I click "Ansök"
       And I should not see "Anställ"
-      And I should not see "Godkänn jobbet"
+      And I should not see "Markera som avklarat"
       And I should not see "Diskutera & chatta"
       And I should not see "SKAPA FAKTURA"
       And I should see "Skapa ansökan"

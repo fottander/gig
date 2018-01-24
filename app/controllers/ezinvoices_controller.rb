@@ -2,22 +2,18 @@ class EzinvoicesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :index, :edit, :update, :destroy]
 
   def index
-    @profile = current_user.profile
     @ezinvoices = Ezinvoice.where(user_id: current_user.id).paginate(page: params[:page])
   end
 
   def new
-    @profile = current_user.profile
     @ezinvoice = Ezinvoice.new
   end
 
   def create
-    @profile = current_user.profile
     @ezinvoice = Ezinvoice.new ezinvoice_params
     @ezinvoice.user_id = current_user.id
-    @ezinvoice.profile_id = @profile.id
-    @ezinvoice.profile_username = @profile.username
-    @ezinvoice.active = true
+    @ezinvoice.profile_id = current_user.profile.id
+    @ezinvoice.profile_username = current_user.profile.username
     @ezinvoice.user_fee = current_user.fee
     respond_to do |format|
       if @ezinvoice.save
@@ -31,7 +27,6 @@ class EzinvoicesController < ApplicationController
   end
 
   def edit
-    @profile = current_user.profile
     @ezinvoice = Ezinvoice.find(params[:id])
   end
 

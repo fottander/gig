@@ -17,35 +17,37 @@
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Faktura ID <%= @invoice.id.first(8) %></h3>
+          <%= link_to 'Redigera', edit_admininvoice_path(@invoice), class: 'profile-button-expand' %>
           <p class="portfolio-resume-subheader">
-              <span class='item-define'>ID:</span> <%= @invoice.id.first(8) %><br>
-              <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
-              <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
-              <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
-              <span class='item-define'>Summa inkl. moms:</span> <%= @invoice.inklmoms.round %><br>
-              <span class='item-define'>Startdag:</span> <%= @invoice.first_day %><br>
-              <span class='item-define'>Sista dag:</span> <%= @invoice.last_day %><br>
-              <span class='item-define'>Beskrivning:</span> <%= @invoice.description %><br>
-              <span class='item-define'>Referens:</span> <%= @invoice.user_reference %><br>
-              <span class='item-define'>Företagsreferens:</span> <%= @invoice.company_reference %><br>
-              <span class='item-define'>Villkor:</span> <%= @invoice.terms %><br>
-              <span style='color: red;'>Betald:</span> <%= @invoice.paid %><br>
-              <span style='color: red;'>Aktiv:</span> <%= @invoice.active %><br>
-              <span style='color: red;'>Lön utbetald</span> <%= @invoice.salary_paid %><br>
-              <span class='item-define'>User ID:</span> <%= @invoice.user_id %><br>
-              <span class='item-define'>Företags ID:</span> <%= @invoice.company_id %><br>
-              <span class='item-define'>Ansöknings ID:</span> <%= @invoice.application_id %><br>
-              <span class='item-define'>Jobb ID:</span> <%= @invoice.job_id %><br>
-              <span class='item-define'>Frilansar ID:</span> <%= @invoice.profile_id %><br>
-              <span class='item-define'>Frilansar användarnamn:</span> <%= @invoice.profile_username %><br>
-              <span style='color: red;'>Post:</span> <%= @invoice.post %><br>
-              <span class='item-define'>OCR:</span> <%= @invoice.ocr_number %><br>
-              <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br>
-              <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%F %R") %><br>
-              <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%F %R") %>
+            <span class='item-define'>ID:</span> <%= @invoice.id.first(8) %><br>
+            <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
+            <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
+            <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
+            <span class='item-define'>Summa inkl. moms:</span> <%= @invoice.inklmoms.round %><br>
+            <span class='item-define'>Startdag:</span> <%= @invoice.first_day %><br>
+            <span class='item-define'>Sista dag:</span> <%= @invoice.last_day %><br>
+            <span class='item-define'>Beskrivning:</span> <%= @invoice.description %><br>
+            <span class='item-define'>Referens:</span> <%= @invoice.user_reference %><br>
+            <span class='item-define'>Företagsreferens:</span> <%= @invoice.company_reference %><br>
+            <span class='item-define'>Villkor:</span> <%= @invoice.terms %><br>
+            <span style='color: red;'>Betald:</span> <%= @invoice.paid %><br>
+            <span style='color: red;'>Aktiv:</span> <%= @invoice.active %><br>
+            <span style='color: red;'>Lön utbetald</span> <%= @invoice.salary_paid %><br>
+            <span class='item-define'>User ID:</span> <%= @invoice.user_id %><br>
+            <span class='item-define'>Företags ID:</span> <%= @invoice.company_id %><br>
+            <span class='item-define'>Ansöknings ID:</span> <%= @invoice.application_id %><br>
+            <span class='item-define'>Jobb ID:</span> <%= @invoice.job_id %><br>
+            <span class='item-define'>Frilansar ID:</span> <%= @invoice.profile_id %><br>
+            <span class='item-define'>Frilansar användarnamn:</span> <%= @invoice.profile_username %><br>
+            <span style='color: red;'>Post:</span> <%= @invoice.post %><br>
+            <span class='item-define'>OCR:</span> <%= @invoice.ocr_number %><br>
+            <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br>
+            <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%F %R") %><br>
+            <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%F %R") %>
           </p>
           <% if @invoice.active == false %>
-            Kan inte markeras som betald förrän fakturan är godkänd av kund
+            Kan inte markeras som betald förrän fakturan är godkänd
+            <%= link_to 'Godkänn & aktivera', activate_admininvoice_path(@invoice), method: :patch, data: { confirm: 'Är du säker?' }, class: 'reply-button-expand' %>
           <% else %>
             <% if @invoice.salary_paid == false %>
               <%= link_to 'Markera som lön utbetald', pay_salary_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'reply-button-expand' %>
@@ -59,26 +61,27 @@
             <% end %>
           <% end %>
           <p><%= link_to 'Visa pdf', admininvoice_path(@invoice, format: 'pdf') %></p>
+          <p><%= link_to 'Radera', admininvoice_path(@invoice), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></p>
         </div>
       </div>
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Till Företag</h3>
           <p class="portfolio-resume-subheader">
-            <% @companies.each do |company| %>
-              <span class='item-define'>ID:</span> <%= company.id %><br>
-              <span class='item-define'>Email:</span> <%= company.email %><br>
-              <span class='item-define'>Namn:</span> <%= company.name %><br>
-              <span class='item-define'>Användarnamn:</span> <%= company.username %><br>
-              <span class='item-define'>Adress:</span> <%= company.address %><br>
-              <span class='item-define'>Postnummer:</span> <%= company.zip_code %><br>
-              <span class='item-define'>Stad:</span> <%= company.city %><br>
-              <span class='item-define'>Org.nr:</span> <%= company.org_number %><br>
-              <span class='item-define'>Telefon:</span> <%= company.phone %><br>
-              <span class='item-define'>Kontakt:</span> <%= company.contact %><br>
-              <span class='item-define'>Fakturaadress:</span> <%= company.invoice_address %><br>
-              <span class='item-define'>Skapad:</span> <%= company.created_at.strftime("%F %R") %><br>
-              <span class='item-define'>Uppdaterad:</span> <%= company.updated_at.strftime("%F %R") %><br>
+            <% if @company.present? %>
+              <span class='item-define'>ID:</span> <%= @company.id %><br>
+              <span class='item-define'>Email:</span> <%= @company.email %><br>
+              <span class='item-define'>Namn:</span> <%= @company.name %><br>
+              <span class='item-define'>Användarnamn:</span> <%= @company.username %><br>
+              <span class='item-define'>Adress:</span> <%= @company.address %><br>
+              <span class='item-define'>Postnummer:</span> <%= @company.zip_code %><br>
+              <span class='item-define'>Stad:</span> <%= @company.city %><br>
+              <span class='item-define'>Org.nr:</span> <%= @company.org_number %><br>
+              <span class='item-define'>Telefon:</span> <%= @company.phone %><br>
+              <span class='item-define'>Kontakt:</span> <%= @company.contact %><br>
+              <span class='item-define'>Fakturaadress:</span> <%= @company.invoice_address %><br>
+              <span class='item-define'>Skapad:</span> <%= @company.created_at.strftime("%F %R") %><br>
+              <span class='item-define'>Uppdaterad:</span> <%= @company.updated_at.strftime("%F %R") %><br>
             <% end %>
           </p>
         </div>
@@ -87,13 +90,11 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Från Frilansare</h3>
           <p class="portfolio-resume-subheader">
-            <% @profiles.each do |profile| %>
-              <span class='item-define'>ID:</span> <%= profile.id %><br>
-              <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
-              <span class='item-define'>Titel:</span> <%= profile.title %> <br>
-              <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name).join %> <br>
-              <span class='item-define'>User ID:</span> <%= profile.user_id %> <br>
-            <% end %>
+            <span class='item-define'>ID:</span> <%= @profile.id %><br>
+            <span class='item-define'>Användarnamn:</span> <%= @profile.username %> <br>
+            <span class='item-define'>Titel:</span> <%= @profile.title %> <br>
+            <span class='item-define'>Stad:</span> <%= @profile.cities.pluck(:name).join %> <br>
+            <span class='item-define'>User ID:</span> <%= @profile.user_id %> <br>
           </p>
           <hr>
           <h3 class="portfolio-resume-header">Betalinfo</h3>
@@ -103,9 +104,9 @@
           Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
           Skatt	-<%= @invoice.skatt.round %> SEK <br>
           <span class='item-define'>Nettolön att utbetala</span> <%= @invoice.steg3.round %> SEK <br>
-          <span class='item-define'>Bank:</span> <%= @user.bank %><br>
-          <span class='item-define'>Clearingnummer:</span> <%= @user.clear_nr %><br>
-          <span class='item-define'>Kontonummer:</span> <%= @user.account_nr %><br>
+          <span class='item-define'>Bank:</span> <%= @profile.user.bank %><br>
+          <span class='item-define'>Clearingnummer:</span> <%= @profile.user.clear_nr %><br>
+          <span class='item-define'>Kontonummer:</span> <%= @profile.user.account_nr %><br>
           </p>
         </div>
       </div>

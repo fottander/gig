@@ -1,7 +1,7 @@
 class EzinvoicePdf < Prawn::Document
-  def initialize(ezinvoice, profiles, due_date)
+  def initialize(ezinvoice, profile, due_date)
     @ezinvoice = ezinvoice
-    @profiles = profiles
+    @profile = profile
     @due_date = due_date
 
     super(margin: 0)
@@ -25,9 +25,7 @@ class EzinvoicePdf < Prawn::Document
   def header
     move_down 40
 
-    @profiles.each do |profile|
-      image  "#{Rails.root}/app/assets/images/invoice-logo.jpg", width: 450
-    end
+    image  "#{Rails.root}/app/assets/images/invoice-logo.jpg", width: 450
 
     move_down 8
     text "<color rgb='a6a6a6'>Fakturanummer: #{@ezinvoice.id.first(8)}</color>", inline_format: true

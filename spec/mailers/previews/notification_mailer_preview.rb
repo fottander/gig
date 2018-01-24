@@ -12,9 +12,6 @@ class NotificationMailerPreview < ActionMailer::Preview
   def hired_mail_preview
     NotificationMailer.hired_email(User.first, Application.first)
   end
-  def job_completed_mail_preview
-    NotificationMailer.job_completed_email(User.first, Application.first)
-  end
   def new_application_mail_preview
     NotificationMailer.new_application_email(Company.first, Job.first)
   end
