@@ -45,7 +45,8 @@
             <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%F %R") %>
           </p>
           <% if @invoice.active == false %>
-            Kan inte markeras som betald förrän fakturan är godkänd av kund
+            Kan inte markeras som betald förrän fakturan är godkänd
+            <%= link_to 'Godkänn & aktivera', activate_admininvoice_path(@invoice), method: :patch, data: { confirm: 'Är du säker?' }, class: 'reply-button-expand' %>
           <% else %>
             <% if @invoice.salary_paid == false %>
               <%= link_to 'Markera som lön utbetald', pay_salary_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'reply-button-expand' %>

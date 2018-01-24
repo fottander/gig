@@ -1,7 +1,6 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
   before_action :authenticate_company!, only: [:show, :extend]
-  before_action :authenticate_admin!, only: [:activate]
 
   def create
     @invoice = Invoice.new invoice_params
@@ -65,27 +64,6 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def activate
-    @invoice = Invoice.find(params[:id])
-    @user = @invoice.user
-    @invoice.active = true
-    if @invoice.update invoice_activate_params
-      Notice.create(recipient: @user.profile, actor: current_company, action: 'Godkänd', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
-      if @invoice.post == true
-        @invoice.update(amount: @invoice.amount + 500)
-      end
-      if @invoice.terms == 60
-        @invoice.update(amount: @invoice.amount + 40)
-      end
-
-      # Sends email to user when invoice is activated.
-      NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
-
-      flash[:notice] = "Faktura godkänd och aktiverad"
-      redirect_back(fallback_location: panels_path)
-    end
-  end
-
   def destroy
     @invoice = Invoice.find(params[:id])
     if @invoice.destroy
@@ -102,10 +80,6 @@ class InvoicesController < ApplicationController
 
   def invoice_update_params
     params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
-  end
-
-  def invoice_activate_params
-    params.permit(:active)
   end
 
   def invoice_extend_params

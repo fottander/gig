@@ -67,7 +67,10 @@ Feature: Admin find invoices
       Given I am on the administrations page
       And I click "Fakturor"
       And I click link "Visa/godkänn faktura" in "def"
-      And I should see "Kan inte markeras som betald förrän fakturan är godkänd av kund"
+      And I should see "Kan inte markeras som betald förrän fakturan är godkänd"
+      And I click "Godkänn & aktivera"
+      And I should see "Faktura godkänd och aktiverad"
+      Then I should see "Aktiv: true"
       Given I am on the administrations page
       And I click "Fakturor"
       And I click link "Visa/godkänn faktura" in "abc"

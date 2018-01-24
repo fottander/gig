@@ -79,6 +79,7 @@ Rails.application.routes.draw do
     member do
       patch :pay
       patch :pay_salary
+      patch :activate
     end
   end
 
@@ -98,7 +99,6 @@ Rails.application.routes.draw do
   resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
     member do
       patch :update
-      patch :activate
       patch :extend
     end
   end

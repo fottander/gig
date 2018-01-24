@@ -7,7 +7,7 @@ class NotificationMailer < ApplicationMailer
 
     mail(
     to: @user.email,
-    subject: "Din faktura med id: #{invoice.id.first(8)} har blivit godkänd"
+    subject: "Din faktura med ocr nummer: #{invoice.ocr_number} har blivit godkänd"
     )
   end
 
@@ -17,7 +17,7 @@ class NotificationMailer < ApplicationMailer
 
     mail(
     to: @company.email,
-    subject: "Ny faktura har skickats till er med id: #{invoice.id.first(8)}"
+    subject: "Ny faktura har skickats till er med ocr nummer: #{invoice.ocr_number}"
     )
   end
 
