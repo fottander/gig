@@ -50,6 +50,13 @@ Feature: Mark As complete and send invoice
       And I click "KONTROLLPANEL"
       And I should not see "Visa ansökan/Skapa faktura"
       And the latest created invoice is beeing activated
+      And I click "KONTROLLPANEL"
+      And I click "Visa" in active invoices
+      Then I should see "Hej"
+      And I should see "10000"
+      And I should see "2018-01-01"
+      And I should see "Felix"
+      And I should see "Anders"
       And I click "HITTA FRILANSARE"
       And I should see "Genomförda jobb: 1" at "Fisken"
       And I should see "Totalt fakturerat: 10 000 - 15 000 kr" at "Fisken"

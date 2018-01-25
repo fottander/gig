@@ -167,6 +167,7 @@
                   <%= link_to 'Radera', invoice_path(invoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
                 <% else %>
                   <p class="dash-active-inv", style="color: green;">Godkänd</p>
+                  <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
                 <% end %>
               </p>
             <% end %>

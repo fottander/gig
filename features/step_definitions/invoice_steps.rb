@@ -30,3 +30,9 @@ Then("invoice is sending by post") do
   invoice = Invoice.first
   expect(invoice.post).to be true
 end
+
+Then("I click {string} in active invoices") do |button|
+  within "#active-invoices" do
+    click_link_or_button button
+  end
+end

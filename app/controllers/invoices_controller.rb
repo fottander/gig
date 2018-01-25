@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
-  before_action :authenticate_company!, only: [:show, :extend]
+  before_action :authenticate_company!, only: [:extend]
 
   def create
     @invoice = Invoice.new invoice_params
