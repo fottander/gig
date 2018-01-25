@@ -4,7 +4,6 @@ class Profile < ApplicationRecord
   validates_length_of :rate, maximum: 35
   belongs_to :user
   has_many :applications, dependent: :destroy
-  has_many :invites, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
   has_and_belongs_to_many :cities, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id

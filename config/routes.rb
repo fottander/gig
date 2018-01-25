@@ -33,8 +33,6 @@ Rails.application.routes.draw do
 
   resources :companies, only: [:index]
 
-  resources :invites, only: [:new, :create, :index]
-
   resources :panels, only: [:index]
 
   resources :payments, only: [:index, :show]

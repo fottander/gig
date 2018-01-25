@@ -2,7 +2,6 @@ class Company < ApplicationRecord
   validates_presence_of :name, :username, :email, :address, :zip_code, :city, :phone, :org_number, :contact
   has_many :jobs, dependent: :destroy
   has_many :invoices
-  has_many :invites, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id
   has_many :notices, foreign_key: :recipient_id
   default_scope {order('created_at DESC')}

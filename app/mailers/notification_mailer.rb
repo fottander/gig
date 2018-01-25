@@ -21,16 +21,6 @@ class NotificationMailer < ApplicationMailer
     )
   end
 
-  def job_invite_email(user, invite)
-    @user = user
-    @invite = invite
-
-    mail(
-    to: @user.email,
-    subject: "Ny inbjudan har skickats till er"
-    )
-  end
-
   def hired_email(user, application)
     @user = user
     @application = application
