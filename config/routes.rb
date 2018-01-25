@@ -57,7 +57,6 @@ Rails.application.routes.draw do
     resources :applications, except: [:index] do
       member do
         patch :update
-        patch :complete
       end
       resources :comments, only: [:create]
     end

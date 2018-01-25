@@ -35,7 +35,7 @@ Feature: Apply to job
       And I should see "Göteborg"
       And I click "Ansök"
       And I should not see "Anställ"
-      And I should not see "Markera som avklarat"
+      And I should not see "Jobbet har genomförts!"
       And I should not see "Diskutera & chatta"
       And I should not see "SKAPA FAKTURA"
       And I should see "Skapa ansökan"
@@ -46,12 +46,35 @@ Feature: Apply to job
       Then I should see "målare sökes"
       And I click "Visa ansökan"
       Then I should see "I want job"
+      And I should see "Diskutera & chatta"
       And I fill in "Svara på ansökan" with "Hallå svara"
       And I click "Skicka"
       Then I should see "Hallå svara"
       Given I am on the jobs page
       And I click "målare"
       Then I should see "Du har redan ansökt till detta jobbet!"
+      And I get hired
+      And I click "KONTROLLPANEL"
+      And I should see "målare sökes" in active applications
+      And I click "Visa ansökan/Skapa faktura"
+      And I should see "SKAPA FAKTURA"
+      And I should not see "Diskutera & chatta"
+      And I should not see "Anställ"
+      And I should not see "Jobbet har genomförts!"
+      And I fill in "description" with "Hej"
+      And I fill in "quantity" with "100"
+      And I fill in "unit" with "100"
+      And I fill in "amount" with "7000"
+      And I fill in "first_day" with "2018-01-01"
+      And I fill in "last_day" with "2018-12-12"
+      And I fill in "user_reference" with "Felix"
+      And I fill in "company_reference" with "Anders"
+      And I click "Skapa faktura"
+      And I should see "Jobbet har genomförts!"
+      And I click "KONTROLLPANEL"
+      And I should see "målare sökes" in done applications
+      And I should not see "målare säkes" in active applications
+      Then I should see "målare sökes" in active invoices
 
     Scenario: I apply to a job without a profile
       Given I am on the jobs page

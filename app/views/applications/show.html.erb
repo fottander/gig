@@ -30,7 +30,8 @@
 <div class="holy-grail-grid-show">
   <div class="holy-grail-left-application">
     <p class="portfolio-resume-subheader">
-      <% if @application.complete == true %>
+    <% if @application.hired == true %>
+      <% if @application.complete == false %>
         <% if current_user.present? %>
           <% if @application.profile_id == current_user.profile.id %>
             <div class='portfolio-resume-subheader-title'>
@@ -52,33 +53,32 @@
             <% end %>
           <% end %>
         <% else %>
-        <div class='holy-grail-left-application-box'>
-          Jobbet har genomförts! <br>
-          Invänta faktura från frilansare <br>
-          Nya fakturor hittas i din kontrollpanel
-        </div>
+          <div class='holy-grail-left-application-box'>
+            Frilansare har blivit anställd.<br>
+            Faktura skickas när jobb genomförts. <br>
+            Diskutera & chatta.<br>
+            Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
+          </div>
         <% end %>
       <% else %>
+        <div class='holy-grail-left-application-box'>
+          Jobbet har genomförts! <br>
+          Faktura har skickats. <br>
+          Nya fakturor hittas i din kontrollpanel.
+        </div>
+      <% end %>
+    <% else %>
       <div class='holy-grail-left-application-box'>
       Diskutera & chatta<br>
       Kom ihåg att vara tydlig & ha ett bra bemötande<br>
       Här finns några exempel<br>
       </div>
-      <% if current_user.present? %>
-        <% if @application.profile_id == current_user.profile.id %>
-          <% if @application.hired == true %>
-            <%= link_to 'Markera som avklarat & börja fakturera', complete_job_application_path(@application.job_id, @application.id), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-          <% end %>
+      </p>
+      <% if current_company.present? %>
+        <% if @job.company_id == current_company.id %>
+          <%= link_to 'Anställ', job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
         <% end %>
       <% end %>
-      <% end %>
-    </p>
-    <% if current_company.present? %>
-     <% if @job.company_id == current_company.id %>
-      <% if @application.hired == false %>
-        <%= link_to 'Anställ', job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-      <% end %>
-     <% end %>
     <% end %>
   </div>
   <div class="holy-grail-middle">

@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :complete, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :authenticate_company!, only: [:update]
   before_action :authenticate_admin!, only: [:index]
 
@@ -50,17 +50,6 @@ class ApplicationsController < ApplicationController
         format.html { render :new }
         format.json { render json: @application.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def complete
-    @application = Application.find(params[:id])
-    @application.complete = true
-    @company = @application.job.company
-    Notification.create(recipient: @company, actor: current_user.profile, action: 'Jobb godkänt för', notifiable: @application, job_id: @application.job_id, application_id: @application.id)
-    if @application.save
-      flash[:notice] = "Grattis! Jobb genomfört."
-      redirect_back(fallback_location: root_path)
     end
   end
 

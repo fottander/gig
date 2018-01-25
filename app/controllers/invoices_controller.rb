@@ -5,6 +5,7 @@ class InvoicesController < ApplicationController
   def create
     @invoice = Invoice.new invoice_params
     @application = Application.find(params[:application_id])
+    @application.update_attributes(complete: true)
     @company = @application.job.company
     @invoice.profile_id = current_user.profile.id
     @invoice.profile_username = current_user.profile.username

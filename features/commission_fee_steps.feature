@@ -24,7 +24,7 @@ Background:
     | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | Från 150 kr/timma | 1            | 1        | 1  | 1       |
   Given the following applications exist
     | message    | job_id | profile_username | profile_id | job_title    | hired | complete | id |
-    | I want job | 1      | fisken           | 1          | målare sökes | true  | true     | 1  |
+    | I want job | 1      | fisken           | 1          | målare sökes | true  | false    | 1  |
 
   Scenario: I create invioces and my fee lowers
     Given I am logged in as user "felix@mail.com"

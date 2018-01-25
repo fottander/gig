@@ -42,8 +42,11 @@ Feature: A company hires a person
       And I click "Anställ"
       And I should see "Grattis! Du har anlitat personen."
       Then I should see "Diskutera & chatta"
+      And I should not see "Anställ"
+      And I should not see "SKAPA FAKTURA"
+      And I should not see "Jobbet har genomförts!"
       And I click "KONTROLLPANEL"
-      Then I should see "Fisken"
+      Then I should see "Fisken" in active employments
       And I click "målare sökes"
       And I should see "Anställd!"
       And I click "Visa ansökan"
@@ -51,9 +54,9 @@ Feature: A company hires a person
       And I should not see "Jobbet har genomförts!"
       And I should not see "Anställ"
       And I should not see "SKAPA FAKTURA"
-      And I should not see "Godkänn jobbet"
       And the application gets marked as completed
       And I click "KONTROLLPANEL"
-      Then I should see "Fisken"
+      Then I should see "Fisken" in complete employments
+      And I should not see "Fisken" in active employments
       And I click "målare sökes"
       Then I should see "Anställd! & jobb genomfört!"

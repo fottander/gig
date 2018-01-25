@@ -23,3 +23,51 @@ Given("the following cities exist") do |table|
     create(:city, hash)
   end
 end
+
+Then("I get hired") do
+  application = Application.last
+  application.hired = true
+  application.save
+end
+
+Then("I should see {string} in active applications") do |content|
+  within "#active-applications" do
+    expect(page).to have_content content
+  end
+end
+
+Then("I should see {string} in active employments") do |content|
+  within "#active-employments" do
+    expect(page).to have_content content
+  end
+end
+
+Then("I should not see {string} in active employments") do |content|
+  within "#active-employments" do
+    expect(page).not_to have_content content
+  end
+end
+
+Then("I should see {string} in complete employments") do |content|
+  within "#complete-employments" do
+    expect(page).to have_content content
+  end
+end
+
+Then("I should not see {string} in active applications") do |content|
+  within "#active-applications" do
+    expect(page).not_to have_content content
+  end
+end
+
+Then("I should see {string} in done applications") do |content|
+  within "#done-applications" do
+    expect(page).to have_content content
+  end
+end
+
+Then("I should see {string} in active invoices") do |content|
+  within "#active-invoices" do
+    expect(page).to have_content content
+  end
+end

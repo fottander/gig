@@ -35,9 +35,7 @@ Feature: Mark As complete and send invoice
     Scenario: I create an invoice and see completed jobs change in index
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
-      And I click "Visa ansökan"
-      And I click "Markera som avklarat"
-      And I should see "Grattis! Jobb genomfört."
+      And I click "Visa ansökan/Skapa faktura"
       And I should see "SKAPA FAKTURA"
       And I fill in "description" with "Hej"
       And I fill in "quantity" with "100"
@@ -49,6 +47,8 @@ Feature: Mark As complete and send invoice
       And I fill in "company_reference" with "Anders"
       And I click "Skapa faktura"
       Then I should see "Faktura skapad"
+      And I click "KONTROLLPANEL"
+      And I should not see "Visa ansökan/Skapa faktura"
       And the latest created invoice is beeing activated
       And I click "HITTA FRILANSARE"
       And I should see "Genomförda jobb: 1" at "Fisken"
@@ -63,9 +63,3 @@ Feature: Mark As complete and send invoice
       Then I should see "Antal genomförda jobb: 1"
       And I click "KONTROLLPANEL"
       Then I should see "Totalt fakturerat: 12500 kr"
-
-    Scenario: I mark an application as complete in dashboard
-      Given I am logged in as user "felix@mail.com"
-      Given I am on the dashboards page
-      And I click "Markera som avklarat"
-      Then I should not see "Markera som avklarat"
