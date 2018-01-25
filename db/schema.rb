@@ -161,17 +161,6 @@ ActiveRecord::Schema.define(version: 20180116130037) do
     t.index ["user_id"], name: "index_ezinvoices_on_user_id"
   end
 
-  create_table "invites", force: :cascade do |t|
-    t.string "message"
-    t.string "job_id"
-    t.bigint "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "profile_id"
-    t.index ["company_id"], name: "index_invites_on_company_id"
-    t.index ["profile_id"], name: "index_invites_on_profile_id"
-  end
-
   create_table "invoices", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string "quantity"
     t.string "unit"
@@ -299,8 +288,6 @@ ActiveRecord::Schema.define(version: 20180116130037) do
   add_foreign_key "comments", "jobs"
   add_foreign_key "comments", "profiles"
   add_foreign_key "ezinvoices", "users"
-  add_foreign_key "invites", "companies"
-  add_foreign_key "invites", "profiles"
   add_foreign_key "invoices", "companies"
   add_foreign_key "invoices", "users"
   add_foreign_key "jobs", "companies"
