@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180116130037) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.string "ssyk_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "avatar_file_name"

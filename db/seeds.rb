@@ -16,26 +16,31 @@ Admin.create(
 
 Category.create(
   name: "Måleri",
+  ssyk_code: "1212",
   id: 50
   )
 
 Category.create(
   name: "Bygg",
+  ssyk_code: "1213",
   id: 51
   )
 
 Category.create(
   name: "Plåtslageri",
+  ssyk_code: "1214",
   id: 52
   )
 
 Category.create(
   name: "Lager",
+  ssyk_code: "1215",
   id: 53
   )
 
 Category.create(
   name: "Övrigt",
+  ssyk_code: "1216",
   id: 54
   )
 

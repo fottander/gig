@@ -23,6 +23,7 @@
             <p class="portfolio-resume-subheader">
               <%= form_tag categories_path(@category) do %>
               <%= text_field_tag :name, nil, placeholder: 'Namn' %>
+              <%= text_field_tag :ssyk_code, nil, placeholder: 'SSYK-kod' %>
               <%= label_tag :avatar, 'Kategoribild (.jpg .jpeg .png .gif)', class: 'form-text' %>
               <%= file_field_tag :avatar, class: 'form-text' %>
               <%= submit_tag 'Skapa kategori', class: 'profile-button-expand' %>
@@ -32,6 +33,7 @@
               <div class='category-<%= category.id %>'>
                 <div class="small-6 columns">
                   <%= category.id %>
+                  <%= category.ssyk_code %><br>
                   <%= category.name %><br>
                   <%= image_tag category.avatar.url, style: 'width: 30px;' %> <br>
                   <%= link_to 'Delete', category_path(category), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>

@@ -17,6 +17,7 @@ Feature: Admin create category
       And I click button "Edit" in "Målare"
       And I should see "Edit kategori"
       And I fill in "category_name" with "Snickare"
+      And I fill in "category_ssyk_code" with "1234"
       And I click "Spara"
       Then I should see "Kategori redigerad!"
       And I should see "Snickare"
@@ -26,5 +27,6 @@ Feature: Admin create category
       Given I am on the administrations page
       And I should see "Målare"
       And I fill in "name" with "Städare"
+      And I fill in "ssyk_code" with "1234"
       And I click "Skapa kategori"
       Then I should see "Kategori skapad"

@@ -4,10 +4,12 @@ RSpec.describe Category, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :name }
     it { is_expected.to have_db_column :avatar_file_name }
+    it { is_expected.to have_db_column :ssyk_code }
   end
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :name }
+    it { is_expected.to validate_presence_of :ssyk_code }
   end
 
   describe 'Associations' do

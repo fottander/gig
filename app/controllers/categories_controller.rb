@@ -40,11 +40,11 @@ class CategoriesController < ApplicationController
   private
 
   def category_update_params
-    params.require(:category).permit(:name, :avatar)
+    params.require(:category).permit(:name, :ssyk_code, :avatar)
   end
 
   def category_params
-    params.permit(:name, :avatar)
+    params.permit(:name, :ssyk_code, :avatar)
   end
 
 end
