@@ -234,30 +234,6 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.index ["company_username"], name: "index_jobs_on_company_username"
   end
 
-  create_table "notices", force: :cascade do |t|
-    t.integer "recipient_id"
-    t.integer "actor_id"
-    t.string "action"
-    t.integer "job_id"
-    t.integer "application_id"
-    t.integer "notifiable_id"
-    t.string "notifiable_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "notifications", force: :cascade do |t|
-    t.integer "recipient_id"
-    t.integer "actor_id"
-    t.string "action"
-    t.integer "job_id"
-    t.integer "application_id"
-    t.integer "notifiable_id"
-    t.string "notifiable_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string "username"
     t.string "title"
