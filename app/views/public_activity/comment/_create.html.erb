@@ -1,0 +1,6 @@
+skickade ett
+<% if activity.trackable.present? %>
+  <%= link_to 'svar', job_application_path(activity.trackable.application.job.id, activity.trackable.application.id) %>
+<% else %>
+  svar som sedan dess har tagits bort.
+<% end %>

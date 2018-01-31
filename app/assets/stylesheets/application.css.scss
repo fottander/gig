@@ -1327,8 +1327,15 @@ input[type='file'] {
   font-weight: normal;
   letter-spacing: 0.1px;
   text-transform: none;
-  border-bottom: 1px solid #cacaca;
   line-height: 2;
+}
+
+.portfolio-resume-notice-items a {
+  color: #37a000;
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 0.1px;
+  text-transform: none;
 }
 
 .notification-link {

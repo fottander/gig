@@ -32,6 +32,7 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     respond_to do |format|
       if @invoice.update invoice_update_params
+        @invoice.create_activity :update, owner: current_admin, recipient: @invoice.user.profile
         format.html { redirect_to edit_admininvoice_path(@invoice), notice: 'Faktura ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else
@@ -62,6 +63,7 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @invoice.salary_paid = true
     if @invoice.update invoice_pay_salary_params
+      @invoice.create_activity :pay_salary, owner: current_admin, recipient: @invoice.user.profile
       flash[:notice] = "Lön har blivit utbetald"
       redirect_back(fallback_location: administrations_path)
     end
@@ -72,7 +74,7 @@ class AdmininvoicesController < ApplicationController
     @user = @invoice.user
     @invoice.active = true
     if @invoice.update invoice_activate_params
-
+      @invoice.create_activity :activate, owner: current_admin, recipient: @invoice.company
       # Sends email to user when invoice is activated.
       NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
 
