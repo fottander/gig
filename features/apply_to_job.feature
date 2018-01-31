@@ -11,8 +11,8 @@ Feature: Apply to job
       | name     | id |
       | Göteborg | 1  |
     Given the following companies exist
-      | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
-      | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
+      | email           | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
+      | anders@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following job ads exist
       | title        | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id |
       | målare sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          |
@@ -50,10 +50,20 @@ Feature: Apply to job
       And I fill in "Svara på ansökan" with "Hallå svara"
       And I click "Skicka"
       Then I should see "Hallå svara"
+      And I click "LOGGA UT"
+      Given I am logged in as company "anders@mail.com"
+      Given I am on control panel page
+      And I should see "Fisken skapade en ansökan"
+      Then I should see "Fisken skickade ett svar"
+      And I click "målare sökes"
+      And I click "Visa ansökan"
+      And I click "Anställ"
+      And I should see "Grattis! Du har anlitat personen."
+      And I click "LOGGA UT"
+      Given I am logged in as user "felix@mail.com"
       Given I am on the jobs page
       And I click "målare"
       Then I should see "Du har redan ansökt till detta jobbet!"
-      And I get hired
       And I click "KONTROLLPANEL"
       And I should see "målare sökes" in active applications
       And I click "Visa ansökan/Skapa faktura"
@@ -73,8 +83,12 @@ Feature: Apply to job
       And I should see "Jobbet har genomförts!"
       And I click "KONTROLLPANEL"
       And I should see "målare sökes" in done applications
-      And I should not see "målare säkes" in active applications
+      And I should not see "målare sökes" in active applications
       Then I should see "målare sökes" in active invoices
+      And I click "LOGGA UT"
+      Given I am logged in as company "anders@mail.com"
+      Given I am on control panel page
+      Then I should see "Fisken skickade en ny faktura"
 
     Scenario: I apply to a job without a profile
       Given I am on the jobs page

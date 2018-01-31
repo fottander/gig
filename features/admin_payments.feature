@@ -52,6 +52,10 @@ Feature: Admin payments
       And I click "Betalningar"
       Then I should see "def"
       And I should not see "abc"
+      And I click "LOGGA UT"
+      Given I am logged in as user "felix@yahoo.com"
+      Given I am on the dashboards page
+      Then I should see "Admin gjorde en utbetalning till dig"
 
     Scenario: I filter to the invoices where salary has been paid
       Given I am logged in as admin "admin@yahoo.com"
