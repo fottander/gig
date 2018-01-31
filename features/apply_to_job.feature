@@ -73,7 +73,6 @@ Feature: Apply to job
       And I should not see "Jobbet har genomförts!"
       And I fill in "description" with "Hej"
       And I fill in "quantity" with "100"
-      And I fill in "unit" with "100"
       And I fill in "amount" with "7000"
       And I fill in "first_day" with "2018-01-01"
       And I fill in "last_day" with "2018-12-12"
@@ -82,12 +81,18 @@ Feature: Apply to job
       And I click "Skapa faktura"
       And I should see "Jobbet har genomförts!"
       And I click "KONTROLLPANEL"
+      And I click "Redigera"
+      And I fill in "Enhet" with "100"
+      And I click "Spara"
+      Then I should see "Faktura ändrad"
+      And I click "KONTROLLPANEL"
       And I should see "målare sökes" in done applications
       And I should not see "målare sökes" in active applications
       Then I should see "målare sökes" in active invoices
       And I click "LOGGA UT"
       Given I am logged in as company "anders@mail.com"
       Given I am on control panel page
+      And I should see "Fisken redigerade en faktura"
       Then I should see "Fisken skickade en ny faktura"
 
     Scenario: I apply to a job without a profile

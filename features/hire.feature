@@ -14,8 +14,8 @@ Feature: A company hires a person
       | Göteborg  | 1  |
       | Stockholm | 2  |
     Given the following companies exist
-      | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
-      | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
+      | email           | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
+      | greger@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following job ads exist
       | title        | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | hour_week | active | company_username | company_city | company_id | id |
       | målare sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | 45        | true   | Anders p         | Göteborg     | 1          | 1  |
@@ -30,7 +30,7 @@ Feature: A company hires a person
       | I want job | 1      | Fisken           | 1          | målare sökes |
 
     Scenario: I hire a profile
-      Given I am logged in as company "felix@mail.com"
+      Given I am logged in as company "greger@mail.com"
       Given I am on control panel page
       And I click "målare sökes"
       And I should see "Fisken"
@@ -60,3 +60,8 @@ Feature: A company hires a person
       And I should not see "Fisken" in active employments
       And I click "målare sökes"
       Then I should see "Anställd! & jobb genomfört!"
+      And I click "LOGGA UT"
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
+      And I should see "Anders p skickade ett svar"
+      Then I should see "Anders p anställde dig för ansökan"
