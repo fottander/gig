@@ -60,10 +60,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :notifications, only: [:index]
-
-  resources :notices, only: [:index]
-
   resources :categories, only: [:create, :destroy, :edit, :update]
 
   resources :adminjobs, only: [:index, :show]

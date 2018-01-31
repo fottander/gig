@@ -1,0 +1,6 @@
+skapade en
+<% if activity.trackable.present? %>
+  <%= link_to 'ansökan', job_application_path(activity.trackable.job.id, activity.trackable.id) %>
+<% else %>
+  ansökan som sedan dess har tagits bort
+<% end %>

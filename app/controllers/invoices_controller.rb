@@ -11,8 +11,8 @@ class InvoicesController < ApplicationController
     @invoice.profile_username = current_user.profile.username
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
-    Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @invoice, job_id: @application.job.id, application_id: @application.id)
     if @invoice.save
+      @invoice.create_activity :create, owner: current_user.profile, recipient: @company
 
       # Sends email to company when invoice is created.
       NotificationMailer.new_invoice_email(@company, @invoice).deliver_now
@@ -39,7 +39,7 @@ class InvoicesController < ApplicationController
     @company = Company.find_by(id: @invoice.company_id)
     respond_to do |format|
       if @invoice.update invoice_update_params
-        Notification.create(recipient: @company, actor: current_user.profile, action: 'Ändrad', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
+        @invoice.create_activity :update, owner: current_user.profile, recipient: @company
         format.html { redirect_to edit_invoice_path(@invoice), notice: 'Faktura ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else
@@ -53,7 +53,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @user = @invoice.user
     if @invoice.update invoice_extend_params
-      Notice.create(recipient: @user.profile, actor: current_company, action: 'Feedback', notifiable: @invoice, job_id: @invoice.job_id, application_id: @invoice.application_id)
+      @invoice.create_activity :extend, owner: current_company, recipient: @user.profile
       if @invoice.post == true
         @invoice.update(amount: @invoice.amount + 40)
       end

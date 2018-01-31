@@ -63,8 +63,20 @@
             <% end %>
           </p>
           <p style='font-size: 11px; color: #f77d0e;'>Ska du skapa faktura utan koppling till ett aktivt jobb, kolla "Snabbfaktura" i menyn.</p>
-          <div class="portfolio-resume-notice" data-behavior="notices">
-            <a class="portfolio-resume-notice-items" data-behavior="notice-items"></a>
+          <div class="portfolio-resume-notice">
+            <% @activities.each do |activity| %>
+              <div class="portfolio-resume-notice-items">
+                <% if activity.owner.present? %>
+                  <%= activity.created_at.strftime("%b %d %R") %>
+                  <% if activity.owner_type == 'Admin' %>
+                    Admin <%= render_activity activity %>
+                  <% else %>
+                    <%= link_to activity.owner.username, profile_path(activity.owner) %>
+                    <%= render_activity activity %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -39,7 +39,7 @@ class ApplicationsController < ApplicationController
     @application.job_title = @job.title
     respond_to do |format|
       if @application.save
-        Notification.create(recipient: @company, actor: current_user.profile, action: 'Ny', notifiable: @application, job_id: @job.id, application_id: @application.id)
+        @application.create_activity :create, owner: current_user.profile, recipient: @job.company
 
         # Sends email to company when application is created.
         NotificationMailer.new_application_email(@company, @job).deliver_now
@@ -58,8 +58,8 @@ class ApplicationsController < ApplicationController
     @profile = @application.profile
     @application.hired = true
     @user = @profile.user
-    Notice.create(recipient: @profile, actor: current_company, action: 'Ny anställning för', notifiable: @application, job_id: @application.job_id, application_id: @application.id)
     if @application.save
+      @application.create_activity :update, owner: current_company, recipient: @user.profile
 
       # Sends email to user when profile is hired.
       NotificationMailer.hired_email(@user, @application).deliver_now

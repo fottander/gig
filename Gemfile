@@ -20,6 +20,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'jquery-rails'
 gem 'attr_encrypted', '~> 3.0.0'
+gem 'public_activity'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -6,6 +6,8 @@ class Invoice < ApplicationRecord
   belongs_to :user
   belongs_to :company
 
+  include PublicActivity::Common
+
   default_scope {order('created_at DESC')}
   scope :with_ocr, -> (ocr) { where ocr_number: ocr }
   scope :with_profile_id, -> (profile_id) { where profile_id: profile_id }
