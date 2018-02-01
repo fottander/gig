@@ -1,0 +1,12 @@
+<% if params[:jobs] %>
+$("#partial-panels-jobs").html("<%= escape_javascript(render("panels_jobs")) %>");
+<% end %>
+<% if params[:hired] %>
+$("#partial-panels-applications-hired").html("<%= escape_javascript(render("panels_applications_hired")) %>");
+<% end %>
+<% if params[:complete] %>
+$("#partial-panels-applications-complete").html("<%= escape_javascript(render("panels_applications_complete")) %>");
+<% end %>
+<% if params[:invoices] %>
+$("#partial-panels-invoices").html("<%= escape_javascript(render("panels_invoices")) %>");
+<% end %>
