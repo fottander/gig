@@ -1,0 +1,12 @@
+<% if params[:hired] %>
+$("#partial-hired").html("<%= escape_javascript(render("applications_hired")) %>");
+<% end %>
+<% if params[:not_hired] %>
+$("#partial-not-hired").html("<%= escape_javascript(render("applications_not_hired")) %>");
+<% end %>
+<% if params[:complete] %>
+$("#partial-complete").html("<%= escape_javascript(render("applications_complete")) %>");
+<% end %>
+<% if params[:invoices] %>
+$("#partial-invoices").html("<%= escape_javascript(render("dash_invoices")) %>");
+<% end %>

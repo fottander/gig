@@ -18,63 +18,7 @@
     <% end %>
   </div>
 </div>
-<% @jobs.each do |job| %>
-  <div class='job-<%= job.id %>'>
-    <div class="card profile-card-action-icons">
-      <div class="card-section">
-        <div class="profile-card-header">
-          <div class="profile-card-avatar">
-            <%= image_tag job.categories.first.avatar.url, class: "avatar-image" %>
-          </div>
-          <div class="profile-card-author">
-            <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
-              <%= job.company_username %>
-            <div class="small-12 medium-2 columns add-friend">
-              <%= link_to 'Ansök', job_path(job), class: 'reply-button' %>
-            </div>
-          </div>
-        </div>
-        <div class="profile-card-about">
-          <div class="profile-card-about-message">
-            <div class='profile-card-about-title'>
-              <span class='profile-card-about-title'><%= job.categories.pluck(:name).flatten.join(' & ') %></span><br>
-            </div>
-              <% if job.description.length > 100 %>
-                  <%= truncate(job.description, length: 100) %>
-              <% else %>
-                  <%= job.description %>
-              <% end %>
-            <div class='row'>
-              <div class='large-2 columns'>
-                Skapad: <%= job.created_at.strftime("%Y-%m-%d") %>
-              </div>
-              <div class='large-2 columns'>
-                Går ut: <%= job.deadline %>
-              </div>
-              <div class='large-2 columns'>
-                Stad: <%= job.cities.pluck(:name).flatten.join(' & ') %>
-              </div>
-              <div class='large-2 columns'>
-                Krav: <%= job.requirement %>
-              </div>
-              <div class='large-2 columns'>
-                Varaktighet: <%= job.duration %>
-              </div>
-              <div class='large-2 columns'>
-                Timmar/vecka: <%= job.hour_week %>
-              </div>
-              <div class='large-2 columns'>
-                Lön: <%= job.budget %>
-              </div>
-              <div class='columns'>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-<div class="will-paginate">
-    <%= will_paginate @jobs, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+
+<div id="partial-jobs">
+  <%= render 'jobs' %>
 </div>

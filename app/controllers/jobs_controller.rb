@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   def index
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Jobb'
+    sleep 1
     @jobs = Job.where(nil).paginate(page: params[:page]).active.expired
     filtering_params(params).each do |key, value|
       @jobs = @jobs.public_send(key, value) if value.present?

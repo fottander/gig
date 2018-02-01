@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   def index
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Frilansare'
+    sleep 1
     @profiles = Profile.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @profiles = @profiles.public_send(key, value) if value.present?

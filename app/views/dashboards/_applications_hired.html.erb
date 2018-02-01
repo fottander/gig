@@ -1,0 +1,20 @@
+<span id='active-applications'>
+<% if @applications_hired.present? %>
+  <% @applications_hired.each do |application| %>
+    <div class="portfolio-resume-subheader">
+      <%= link_to application.job_title, job_path(application.job_id) %><br>
+      Ansöknings ID: <%= application.id %><br>
+      Jobb ID: <%= application.job_id %><br>
+      Skapad: <%= application.created_at.strftime("%F %R") %><br>
+      Antal svar: <%= application.comments.count %>
+    </div>
+    <%= link_to 'Visa ansökan/Skapa faktura', job_application_path(application.job_id, application.id), class: 'button-green' %>
+  <% end %>
+<% else %>
+  <strong>Inga ansökningar hittills</strong><br>
+  <%= link_to 'Ansök till jobb här!', jobs_path %>
+<% end %>
+</span>
+<div class="will-paginate">
+    <%= will_paginate @applications_hired, param_name: 'hired', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

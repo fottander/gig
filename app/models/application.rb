@@ -11,7 +11,9 @@ class Application < ApplicationRecord
   scope :with_job_id, -> (job_id) { where job_id: job_id }
   scope :with_profile_id, -> (profile_id) { where profile_id: profile_id }
   scope :expired, -> { where('updated_at <= ?', Date.today-60.days) }
-  scope :without_complete, -> { where(complete: false, hired: true) }
+  scope :hired, -> { where(complete: false, hired: true) }
+  scope :complete, -> { where(complete: true, hired: true) }
+  scope :not_hired, -> { where(hired: false) }
 
-  self.per_page = 10
+  self.per_page = 4
 end
