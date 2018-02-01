@@ -1,0 +1,9 @@
+<% if params[:invoices] %>
+$("#admin-new-invoices").html("<%= escape_javascript(render("admin_new_invoices")) %>");
+<% end %>
+<% if params[:ezinvoices] %>
+$("#admin-new-ezinvoices").html("<%= escape_javascript(render("admin_new_ezinvoices")) %>");
+<% end %>
+<% if params[:categories] %>
+$("#categories").html("<%= escape_javascript(render("categories")) %>");
+<% end %>
