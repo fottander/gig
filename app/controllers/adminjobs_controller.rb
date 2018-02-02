@@ -1,6 +1,7 @@
 class AdminjobsController < ApplicationController
   before_action :authenticate_admin!
   def index
+    sleep 1
     @jobs = Job.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @jobs = @jobs.public_send(key, value) if value.present?

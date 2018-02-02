@@ -18,33 +18,17 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Alla användare utan profil</h3>
           <%= form_tag users_without_profiles_path, method: 'get' do %>
-              <%= text_field_tag :with_email, nil, placeholder: 'Sök efter email' %>
-              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
-              <%= submit_tag 'Sök', class: 'filter-button' %>
+            <%= text_field_tag :with_email, nil, placeholder: 'Sök efter email' %>
+            <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
+            <%= submit_tag 'Sök', class: 'filter-button' %>
           <% end %>
-          <p class="portfolio-resume-subheader">
-            <% @users.without_profile.each do |user| %>
-                <span class='item-define'>ID:</span> <%= user.id %><br>
-                <span class='item-define'>Namn:</span> <%= user.first_name %> <%= user.last_name %> <br>
-                <span class='item-define'>Email:</span> <%= user.email %><br>
-                <span class='item-define'>Telefon:</span> <%= user.phone %><br>
-                <span class='item-define'>Bank:</span> <%= user.bank %><br>
-                <span class='item-define'>Clearingnummer:</span> <%= user.clear_nr %><br>
-                <span class='item-define'>Kontonummer:</span> <%= user.account_nr %><br>
-                <% if user.profile.present? %>
-                  <span class='item-define'>Profile ID:</span> <%= user.profile.id %><br>
-                <% else %>
-                  Ingen profil skapad <br>
-                <% end %>
-                <span class='item-define'>Skapad:</span> <%= user.created_at.strftime("%F %R") %><br>
-                <span class='item-define'>Uppdaterad:</span> <%= user.updated_at.strftime("%F %R") %><br><br>
-            <% end %>
-          </p>
+          <div id='pagination-js'>
+            <div id="users-without-profiles">
+              <%= render 'users_without_profiles' %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="will-paginate">
-        <%= will_paginate @users, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
     </div>
   </div>
 </div>

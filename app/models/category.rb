@@ -24,4 +24,6 @@ class Category < ApplicationRecord
    }
   end
 
+  self.per_page = 4
+
 end

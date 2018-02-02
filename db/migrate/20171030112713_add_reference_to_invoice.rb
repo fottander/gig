@@ -7,6 +7,5 @@ class AddReferenceToInvoice < ActiveRecord::Migration[5.1]
     add_index :invoices, :application_id
     add_index :invoices, :job_id
     add_index :invoices, :profile_id
-    add_index :invoices, :profile_username
   end
 end

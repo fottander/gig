@@ -63,10 +63,9 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.bigint "profile_id"
     t.string "profile_username"
     t.string "job_title"
+    t.integer "company_id"
     t.index ["job_id"], name: "index_applications_on_job_id"
-    t.index ["job_title"], name: "index_applications_on_job_title"
     t.index ["profile_id"], name: "index_applications_on_profile_id"
-    t.index ["profile_username"], name: "index_applications_on_profile_username"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -118,10 +117,8 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.bigint "job_id"
     t.index ["application_id"], name: "index_comments_on_application_id"
     t.index ["company_id"], name: "index_comments_on_company_id"
-    t.index ["company_username"], name: "index_comments_on_company_username"
     t.index ["job_id"], name: "index_comments_on_job_id"
     t.index ["profile_id"], name: "index_comments_on_profile_id"
-    t.index ["profile_username"], name: "index_comments_on_profile_username"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -211,7 +208,6 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["job_id"], name: "index_invoices_on_job_id"
     t.index ["profile_id"], name: "index_invoices_on_profile_id"
-    t.index ["profile_username"], name: "index_invoices_on_profile_username"
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
@@ -229,9 +225,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.bigint "company_id"
     t.string "company_city"
     t.string "company_username"
-    t.index ["company_city"], name: "index_jobs_on_company_city"
     t.index ["company_id"], name: "index_jobs_on_company_id"
-    t.index ["company_username"], name: "index_jobs_on_company_username"
   end
 
   create_table "profiles", force: :cascade do |t|

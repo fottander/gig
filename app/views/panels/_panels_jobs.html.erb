@@ -25,5 +25,5 @@
   <%= link_to 'Skapa jobb', new_job_path, class: 'button-green' %>
 <% end %>
 <div class="will-paginate">
-    <%= will_paginate @jobs, param_name: 'jobs', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    <%= will_paginate @jobs, param_name: 'active_jobs', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
 </div>

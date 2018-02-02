@@ -2,6 +2,7 @@ class FilterEzinvoicesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    sleep 1
     @ezinvoices = Ezinvoice.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @ezinvoices = @ezinvoices.public_send(key, value) if value.present?
@@ -9,6 +10,7 @@ class FilterEzinvoicesController < ApplicationController
   end
 
   def new
+    sleep 1
     @ezinvoices = Ezinvoice.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @ezinvoices = @ezinvoices.public_send(key, value) if value.present?

@@ -1,0 +1,33 @@
+<p class="portfolio-resume-subheader">
+  <% @invoices.paid.each do |invoice| %>
+    <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice) %><br>
+    <span class='item-define'>ID:</span> <%= invoice.id.first(8) %><br>
+    <span class='item-define'>Kvantitet:</span> <%= invoice.quantity %><br>
+    <span class='item-define'>Enhet:</span> <%= invoice.unit %><br>
+    <span class='item-define'>Summa ex. moms:</span> <%= invoice.amount %><br>
+    <span class='item-define'>Summa inkl. moms:</span> <%= invoice.inklmoms.round %><br>
+    <span class='item-define'>Startdag:</span> <%= invoice.first_day %><br>
+    <span class='item-define'>Sista dag:</span> <%= invoice.last_day %><br>
+    <span class='item-define'>Beskrivning:</span> <%= invoice.description %><br>
+    <span class='item-define'>Referens:</span> <%= invoice.user_reference %><br>
+    <span class='item-define'>Företagsreferens:</span> <%= invoice.company_reference %><br>
+    <span class='item-define'>Villkor:</span> <%= invoice.terms %><br>
+    <span class='item-define'>Betald:</span> <%= invoice.paid %><br>
+    <span class='item-define'>Aktiv:</span> <%= invoice.active %><br>
+    <span class='item-define'>Lön utbetald</span> <%= invoice.salary_paid %><br>
+    <span class='item-define'>User ID:</span> <%= invoice.user_id %><br>
+    <span class='item-define'>Företags ID:</span> <%= invoice.company_id %><br>
+    <span class='item-define'>Ansöknings ID:</span> <%= invoice.application_id %><br>
+    <span class='item-define'>Jobb ID:</span> <%= invoice.job_id %><br>
+    <span class='item-define'>Frilansar ID:</span> <%= invoice.profile_id %><br>
+    <span class='item-define'>Frilansar användarnamn:</span> <%= invoice.profile_username %><br>
+    <span class='item-define'>Post:</span> <%= invoice.post %><br>
+    <span class='item-define'>OCR:</span> <%= invoice.ocr_number %><br>
+    <span class='item-define'>Feedback:</span> <%= invoice.feedback %><br>
+    <span class='item-define'>Skapad:</span> <%= invoice.created_at.strftime("%F %R") %><br>
+    <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at.strftime("%F %R") %><br><br>
+  <% end %>
+</p>
+<div class="will-paginate">
+    <%= will_paginate @invoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>
