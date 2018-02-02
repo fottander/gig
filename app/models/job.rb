@@ -15,5 +15,5 @@ class Job < ApplicationRecord
   scope :with_company_id, -> (company_id) { where company_id: company_id }
   scope :with_company_username, -> (company_username) { where company_username: company_username }
 
-  self.per_page = 5
+  self.per_page = 10
 end

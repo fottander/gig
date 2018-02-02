@@ -16,7 +16,7 @@ class Ezinvoice < ApplicationRecord
   scope :salary_not_paid, -> { where(salary_paid: false) }
   scope :pay_day, -> (selected_day) { where(updated_at: selected_day.to_date.beginning_of_day..selected_day.to_date.end_of_day)}
 
-  self.per_page = 5
+  self.per_page = 4
 
   def inklmoms
     self.amount * 1.25

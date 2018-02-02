@@ -12,8 +12,9 @@ class JobsController < ApplicationController
   end
 
   def show
+    sleep 1
     @job = Job.find(params[:id])
-    @applications = @job.applications
+    @applications = @job.applications.paginate(page: params[:page])
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Jobb', :jobs_path
     add_breadcrumb @job.title

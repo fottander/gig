@@ -2,6 +2,7 @@ class FilterApplicationsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    sleep 1
     @applications = Application.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @applications = @applications.public_send(key, value) if value.present?

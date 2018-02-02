@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
-  $("body").on("click", ".pagination a", function() {
-    $(".pagination").html("Sidan laddas...")
+  $("#pagination-js").on("click", ".pagination a", function() {
+    $(".pagination").html("Laddar...")
     $.get(this.href, null, null, "script");
     return false;
   });

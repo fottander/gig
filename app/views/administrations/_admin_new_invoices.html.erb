@@ -1,0 +1,12 @@
+<p class="portfolio-resume-subheader">
+  <% @invoices.each do |invoice| %>
+    <%= link_to invoice.ocr_number, admininvoice_path(invoice) %><br>
+    ID: <%= invoice.id %><br>
+    User ID: <%= invoice.user_id %><br>
+    Company ID: <%= invoice.company_id %><br>
+    Skapad: <%= invoice.created_at.strftime("%F %R") %><br><br>
+  <% end %>
+</p>
+<div class="will-paginate">
+    <%= will_paginate @invoices, param_name: 'invoices', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

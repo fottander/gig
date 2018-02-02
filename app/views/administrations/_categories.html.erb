@@ -1,0 +1,15 @@
+<% @categories.each do |category| %>
+  <div class='category-<%= category.id %>'>
+    <div class="small-6 columns">
+      <%= category.id %>
+      <%= category.ssyk_code %><br>
+      <%= category.name %><br>
+      <%= image_tag category.avatar.url, style: 'width: 30px;' %> <br>
+      <%= link_to 'Delete', category_path(category), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
+      <%= link_to 'Edit', edit_category_path(category), class: 'button-green' %><br><br>
+    </div>
+  </div>
+<% end %>
+<div class="will-paginate">
+    <%= will_paginate @categories, param_name: 'categories', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

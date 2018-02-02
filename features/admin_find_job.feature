@@ -29,7 +29,7 @@ Feature: Admin find invoices
       | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  |
     Given the following applications exist
       | message     | job_id | profile_username | profile_id | job_title    | updated_at | hired | complete |
-      | I want job  | 9999   | Fisken           | 1          | målare sökes | 2017-12-03 | true  | false    |
+      | I want job  | 9999   | Fisken           | 1          | målare sökes | 2017-12-03 | true  | true     |
       | Give me job | 9999   | Fisken           | 1          | målare sökes | 2017-09-03 | true  | false    |
 
     Scenario: I see jobs and search by title

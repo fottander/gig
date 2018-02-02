@@ -1,0 +1,12 @@
+<p class="portfolio-resume-subheader">
+  <% @ezinvoices.each do |ezinvoice| %>
+    <%= link_to ezinvoice.ocr_number, adminezinvoice_path(ezinvoice) %><br>
+    ID: <%= ezinvoice.id %><br>
+    User ID: <%= ezinvoice.user_id %><br>
+    Company Name: <%= ezinvoice.company_name %><br>
+    Skapad: <%= ezinvoice.created_at.strftime("%F %R") %><br><br>
+  <% end %>
+</p>
+<div class="will-paginate">
+    <%= will_paginate @ezinvoices, param_name: 'ezinvoices', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

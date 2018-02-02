@@ -1,0 +1,16 @@
+<p class="portfolio-resume-subheader">
+  <% if @ezinvoices_salary_not_paid.present? %>
+    <% @ezinvoices_salary_not_paid.each do |ezinvoice| %>
+      <% if ezinvoice.user_id == current_user.id %>
+        <span class='item-define'>Faktura ID:</span> <%= ezinvoice.id.first(8) %><br>
+        Ocr.nr: <%= ezinvoice.ocr_number %> <br>
+        Skapad: <%= ezinvoice.updated_at.strftime("%F %R") %><br><br>
+      <% end %>
+    <% end %>
+  <% else %>
+    Inga fakturor registrerade
+  <% end %>
+</p>
+<div class="will-paginate">
+    <%= will_paginate @ezinvoices_salary_not_paid, param_name: 'ez_salary_not_paid', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

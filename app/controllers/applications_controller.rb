@@ -4,6 +4,7 @@ class ApplicationsController < ApplicationController
   before_action :authenticate_admin!, only: [:index]
 
   def index
+    sleep 1
     @applications = Application.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
       @applications = @applications.public_send(key, value) if value.present?
@@ -55,11 +56,11 @@ class ApplicationsController < ApplicationController
 
   def update
     @application = Application.find(params[:id])
-    @profile = @application.profile
+    @application.company_id = current_company.id
     @application.hired = true
-    @user = @profile.user
+    @user = @application.profile.user
     if @application.save
-      @application.create_activity :update, owner: current_company, recipient: @user.profile
+      @application.create_activity :update, owner: current_company, recipient: @application.profile
 
       # Sends email to user when profile is hired.
       NotificationMailer.hired_email(@user, @application).deliver_now

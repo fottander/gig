@@ -77,24 +77,11 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Ansökningar</h3>
           <div class="portfolio-resume-spacing">
-            <% if @applications.present? %>
-              <% @applications.each do |application| %>
-              <strong><%= application.profile_username %></strong><br>
-              <span class='job-count'>
-              <% if application.hired == true %>
-                  Anställd!
-                <% if application.complete == true %>
-                  & jobb genomfört!
-                <% end %><br>
-              <% end %>
-              <%= link_to 'Visa ansökan', job_application_path(@job, application), class: 'button-green' %>
-              <%= link_to 'Profil', profile_path(application.profile_id), class: 'button-orange' %>
-              </span>
-              <hr>
-              <% end %>
-            <% else %>
-              Inga ansökningar hittills
-            <% end %>
+            <div id="pagination-js">
+              <div id="job-applications">
+                <%= render 'job_applications' %>
+              </div>              
+            </div>
           </div>
         </div>
       </div>

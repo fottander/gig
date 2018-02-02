@@ -1,0 +1,20 @@
+<p class="portfolio-resume-subheader">
+  <% @companies.each do |company| %>
+    <span class='item-define'>ID:</span> <%= company.id %><br>
+    <span class='item-define'>Email:</span> <%= company.email %><br>
+    <span class='item-define'>Namn:</span> <%= company.name %><br>
+    <span class='item-define'>Användarnamn:</span> <%= company.username %><br>
+    <span class='item-define'>Adress:</span> <%= company.address %><br>
+    <span class='item-define'>Postnummer:</span> <%= company.zip_code %><br>
+    <span class='item-define'>Stad:</span> <%= company.city %><br>
+    <span class='item-define'>Org.nr:</span> <%= company.org_number %><br>
+    <span class='item-define'>Telefon:</span> <%= company.phone %><br>
+    <span class='item-define'>Kontakt:</span> <%= company.contact %><br>
+    <span class='item-define'>Fakturaadress:</span> <%= company.invoice_address %><br>
+    <span class='item-define'>Skapad:</span> <%= company.created_at.strftime("%F %R") %><br>
+    <span class='item-define'>Uppdaterad:</span> <%= company.updated_at.strftime("%F %R") %><br><br>
+  <% end %>
+</p>
+<div class="will-paginate">
+    <%= will_paginate @companies, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

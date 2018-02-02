@@ -1,0 +1,29 @@
+<% if @jobs.present? %>
+  <% @jobs.each do |job| %>
+    <div class='job-<%= job.id %>'>
+      <p class="portfolio-resume-subheader">
+        <%= link_to job.title, job_path(job) %><br>
+        Jobb ID: <%= job.id %><br>
+        Skapat: <%= job.created_at.strftime("%F %R") %><br>
+        Antal ansökningar: <%= job.applications.count %><br>
+        <% if job.active == true %>
+          <p class="dash-active", style="color: green;">Aktivt</p>
+          <% if job.deadline <= Date.today %>
+            <br>
+            <p class="dash-active", style="color: red; padding-top: 4px;">Sista ansökningsdag nådd</p>
+          <% end %>
+        <% else %>
+          <p class="dash-active", style="color: red;">Inaktivt</p>
+        <% end %>
+      </p>
+      <%= link_to 'Redigera jobb', edit_job_path(job), class: 'button-green' %>
+      <%= link_to 'Radera', job_path(job), data: { confirm: "Är du säker? Det kommer även radera alla ansökningar." }, method: :delete, class: 'button-orange' %>
+    </div>
+  <% end %>
+<% else %>
+  <h6><strong>Inga jobb ännu</strong></h6>
+  <%= link_to 'Skapa jobb', new_job_path, class: 'button-green' %>
+<% end %>
+<div class="will-paginate">
+    <%= will_paginate @jobs, param_name: 'active_jobs', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>
