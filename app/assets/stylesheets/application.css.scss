@@ -749,12 +749,10 @@ input[type='file'] {
 #logo{
 
 	float: left;
-	width: 200px;
+	width: 120px;
 	height: 40px;
-	background: url(https://highdesertdeals.com/wp-content/uploads/2017/08/logo.png)
-  no-repeat center;
 	display: block;
-
+  background-image: image-url('logo-joboy.png')
 }
 
 .topbar-responsive {
@@ -767,6 +765,7 @@ input[type='file'] {
 .topbar-responsive .topbar-responsive-logo {
   color: black;
   vertical-align: middle;
+  margin-left: 20px;
 }
 
 .topbar-responsive .menu {
