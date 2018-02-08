@@ -32,6 +32,9 @@ Feature: Admin find users
       And I click "Sök"
       Then I should see "felix@yahoo.com"
       And I should not see "johan@yahoo.com"
+      And I click "Radera"
+      And I should see "Användare raderad"
+      Then I should not see "felix@yahoo.com"
 
     Scenario: I see users by id
       Given I am logged in as admin "admin@yahoo.com"

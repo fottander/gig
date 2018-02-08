@@ -27,11 +27,11 @@ Rails.application.routes.draw do
 
   root controller: :index, action: :index
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :destroy]
 
   resources :users_without_profiles, only: [:index]
 
-  resources :companies, only: [:index]
+  resources :companies, only: [:index, :destroy]
 
   resources :panels, only: [:index]
 
@@ -62,11 +62,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:create, :destroy, :edit, :update]
 
-  resources :adminjobs, only: [:index, :show]
+  resources :adminjobs, only: [:index, :show, :destroy]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 
-  resources :adminprofiles, only: [:index]
+  resources :adminprofiles, only: [:index, :destroy]
 
   resources :admininvoices, only: [:index, :show, :edit, :update, :destroy] do
     member do

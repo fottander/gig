@@ -8,6 +8,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = "Användare raderad"
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def filtering_params(params)

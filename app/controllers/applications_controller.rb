@@ -1,5 +1,5 @@
 class ApplicationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :authenticate_company!, only: [:update]
   before_action :authenticate_admin!, only: [:index]
 

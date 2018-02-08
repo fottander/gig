@@ -23,6 +23,9 @@ Feature: Admin find companies
       And I click "Sök"
       Then I should see "felix@mail.com"
       And I should not see "johan@mail.com"
+      And I click "Radera"
+      And I should see "Företag raderat"
+      Then I should not see "felix@mail.com"
 
     Scenario: I see users and search by name
       Given I am logged in as admin "admin@yahoo.com"

@@ -1,6 +1,7 @@
 <p class="portfolio-resume-subheader">
     <% @profiles.each do |profile| %>
     <span class='item-define'>ID:</span> <%= profile.id %><br>
+    <span> <%= link_to 'Radera', adminprofile_path(profile), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
     <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
     <span class='item-define'>Titel:</span> <%= profile.title %> <br>
     <span class='item-define'>Kategori:</span> <%= profile.categories.pluck(:name) %><br>
