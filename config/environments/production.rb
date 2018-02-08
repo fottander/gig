@@ -64,7 +64,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'joboy.se' }
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :mailgun
 
   config.action_mailer.perform_deliveries = true
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -73,7 +73,7 @@ Rails.application.configure do
 
   config.action_mailer.default :charset => "utf-8"
 
-  config.action_mailer.smtp_settings = {
+  config.action_mailer.mailgun_settings = {
     address: "smtp.mailgun.org",
     port: 587,
     domain: ENV['domain'],
