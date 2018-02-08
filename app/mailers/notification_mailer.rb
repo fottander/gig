@@ -1,5 +1,4 @@
 class NotificationMailer < ApplicationMailer
-  require 'mailgun'
   default from: "info@joboy.se"
 
   def activate_invoice_email(user, invoice)
@@ -45,11 +44,10 @@ class NotificationMailer < ApplicationMailer
   def new_comment_email(user, application)
     @user = user
     @application = application
-    mg_client = Mailgun::Client.new ENV['api_key']
-    message_params = {:from => 'info@joboy.se',
-                      :to => @user.email,
-                      :subject => "Nytt svar på ansökan nr: #{application.id}",
-                      :html => (render_to_string(template: "../views/layouts/mailer")).to_str }
-    mg_client.send_message ENV['domain'], message_params
+
+    mail(
+    to: @user.email,
+    subject: "Nytt svar på ansökan nr: #{application.id}"
+    )
   end
 end
