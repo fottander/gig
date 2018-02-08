@@ -33,6 +33,9 @@ Feature: Admin find profiles
       And I click "Sök"
       Then I should see "Fisken"
       And I should not see "Greger"
+      And I click "Radera"
+      And I should see "Frilansare raderad"
+      Then I should not see "Fisken"
 
     Scenario: I see profiles and search by id
       Given I am logged in as admin "admin@yahoo.com"

@@ -1,6 +1,7 @@
 <p class="portfolio-resume-subheader">
   <% @users.each do |user| %>
       <span class='item-define'>ID:</span> <%= user.id %><br>
+      <span> <%= link_to 'Radera', user_path(user), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
       <span class='item-define'>Namn:</span> <%= user.first_name %> <%= user.last_name %> <br>
       <span class='item-define'>Email:</span> <%= user.email %><br>
       <span class='item-define'>Telefon:</span> <%= user.phone %><br>

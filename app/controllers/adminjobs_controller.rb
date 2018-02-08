@@ -13,6 +13,14 @@ class AdminjobsController < ApplicationController
     @applications = Application.where(job_id: @job.id)
   end
 
+  def destroy
+    @job = Job.find(params[:id])
+    if @job.destroy
+      flash[:notice] = "Jobb raderat"
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def filtering_params(params)

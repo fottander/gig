@@ -43,6 +43,9 @@ Feature: Admin find invoices
       And I click "Sök"
       Then I should see "målare sökes"
       And I should not see "snickare sökes"
+      And I click "Radera"
+      And I should see "Jobb raderat"
+      Then I should not see "målare sökes"
 
     Scenario: I see jobs and search by company username
       Given I am logged in as admin "admin@yahoo.com"

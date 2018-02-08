@@ -8,6 +8,14 @@ class AdminprofilesController < ApplicationController
     end
   end
 
+  def destroy
+    @profile = Profile.find(params[:id])
+    if @profile.destroy
+      flash[:notice] = "Frilansare raderad"
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def filtering_params(params)

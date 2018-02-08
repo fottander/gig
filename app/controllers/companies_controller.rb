@@ -8,6 +8,14 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def destroy
+    @company = Company.find(params[:id])
+    if @company.destroy
+      flash[:notice] = "Företag raderat"
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def filtering_params(params)
