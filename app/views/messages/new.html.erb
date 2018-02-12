@@ -1,0 +1,31 @@
+<div class="login-box">
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1">
+      <div class="login-box-form-section">
+        <%= form_for @message do |f| %>
+          <div class="login-box-input">
+            <%= f.text_field :name, placeholder: '* Namn' %>
+          </div>
+
+          <div class="login-box-input">
+            <%= f.email_field :email, placeholder: "* Email", autofocus: true %>
+          </div>
+
+          <div class="login-box-input">
+            <%= f.text_field :phone_number, placeholder: 'Telefonnummer' %>
+          </div>
+
+          <div class="login-box-input">
+            <%= f.text_area :body, placeholder: '* Meddelande' %>
+          </div>
+
+          <span>Fyll i fält markerade med *</span>
+
+          <div class="actions">
+            <%= f.submit 'Skicka', class: 'reply-button' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
