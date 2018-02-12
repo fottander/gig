@@ -49,6 +49,10 @@ Rails.application.routes.draw do
 
   get 'applications' => 'applications#index', as: :applications
 
+  get 'messages' => 'messages#new'
+
+  post 'messages' => 'messages#create'
+
   resources :filter_applications, only: [:index]
 
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
