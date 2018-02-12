@@ -1,17 +1,13 @@
 class MessageMailer < ApplicationMailer
-  require 'mailgun'
+  # use your own email address here
+  default to: 'info@anewbiz.se'
+  default sender: 'info@anewbiz.se'
+  default subject: 'Support'
+  default "Message-ID"=>"<#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@anewbiz.se>"
 
   def message_me(msg)
     @msg = msg
-    mg_client = Mailgun::Client.new ENV['mailgun_api']
-    message_params = {from: @msg.email,
-                      to: 'info@anewbiz.se',
-                      sender: 'info@anewbiz.se',
-                      subject: 'Support',
-                      message_id: "<#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@anewbiz.se>",
-                      name: @msg.name,
-                      phone_number: @msg.phone_number,
-                      text: @msg.body}
-    mg_client.send_message ENV['domain'], message_params
+
+    mail(from: @msg.email, name: @msg.name, phone_number: @msg.phone_number, body: @msg.body)
   end
 end
