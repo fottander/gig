@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: "info@joboy.se"
+  default from: "info@anewbiz.se"
 
   def activate_invoice_email(user, invoice)
     @user = user
