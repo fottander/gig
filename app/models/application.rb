@@ -1,7 +1,7 @@
 class Application < ApplicationRecord
   validates_presence_of :message
   belongs_to :profile
-  belongs_to :job
+  belongs_to :job, touch: true
   has_many :comments, dependent: :destroy
   has_one :company, through: :comments
 
