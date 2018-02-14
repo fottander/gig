@@ -42,11 +42,11 @@
             <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
             <%= f.label :description, '* Beskrivning', class: 'form-text' %>
             <%= f.text_area :description, value: @ezinvoice.description %>
-            <%= f.label :quantity, 'Kvantitet', class: 'form-text' %>
+            <%= f.label :quantity, 'Kvantitet(t.ex. 10)antal timmar', class: 'form-text' %>
             <%= f.text_field :quantity, value: @ezinvoice.quantity %>
-            <%= f.label :unit, 'Enhet', class: 'form-text' %>
+            <%= f.label :unit, 'Enhet(t.ex. 150)kr/timma', class: 'form-text' %>
             <%= f.text_field :unit, value: @ezinvoice.unit %>
-            <%= f.label :amount, '* Summa', class: 'form-text' %>
+            <%= f.label :amount, '* Belopp exkl. moms(t.ex. 1500)kr', class: 'form-text' %>
             <%= f.text_field :amount, value: @ezinvoice.amount %>
             <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
             <%= f.date_field :first_day, value: @ezinvoice.first_day %>

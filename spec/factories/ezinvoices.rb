@@ -7,8 +7,8 @@ FactoryGirl.define do
     company_city "MyString"
     company_email "MyString"
     description "MyText"
-    quantity "MyString"
-    unit "MyString"
+    quantity 123
+    unit 123
     amount 12345
     first_day "2018-01-10"
     last_day "2018-01-10"

@@ -70,7 +70,7 @@ Background:
     And I fill in "Email" with "felix@gmail.com"
     And I fill in "Företagsreferens" with "Greger"
     And I fill in "Beskrivning" with "målning"
-    And I fill in "Summa" with "3000"
+    And I fill in "* Belopp" with "3000"
     And I fill in "Referens" with "felix"
     And I click "Skapa"
     Then I should see "Ny faktura skapad!"

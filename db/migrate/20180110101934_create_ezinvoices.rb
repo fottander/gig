@@ -8,8 +8,8 @@ class CreateEzinvoices < ActiveRecord::Migration[5.1]
       t.string :company_city
       t.string :company_email
       t.text :description
-      t.string :quantity
-      t.string :unit
+      t.integer :quantity
+      t.integer :unit
       t.integer :amount
       t.date :first_day
       t.date :last_day
