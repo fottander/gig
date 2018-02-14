@@ -24,11 +24,11 @@
         <% if @invoice.user_id == current_user.id %>
           <%= f.label :description, 'Beskrivning', class: 'form-text' %>
           <%= f.text_area :description, value: @invoice.description %>
-          <%= f.label :quantity, 'Kvantitet(ex. antal timmar)', class: 'form-text' %>
+          <%= f.label :quantity, 'Kvantitet(t.ex. 10)antal timmar', class: 'form-text' %>
           <%= f.text_field :quantity, value: @invoice.quantity %>
-          <%= f.label :unit, 'Enhet(ex. 150kr/timma)', class: 'form-text' %>
+          <%= f.label :unit, 'Enhet(t.ex. 150)kr/timma', class: 'form-text' %>
           <%= f.text_field :unit, value: @invoice.unit %>
-          <%= f.label :amount, 'Belopp ex. moms(ex. totalsumma)', class: 'form-text' %>
+          <%= f.label :amount, 'Belopp exkl. moms(t.ex. 1500)kr', class: 'form-text' %>
           <%= f.text_field :amount, value: @invoice.amount %>
           <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
           <%= f.date_field :first_day, value: @invoice.first_day %>

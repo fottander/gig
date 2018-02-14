@@ -22,8 +22,8 @@
             Er referens: <%= @invoice.company_reference %><br>
             Startdag: <%= @invoice.first_day %> <br>
             Sista dag: <%= @invoice.last_day %><br>
-            Antal timmar: <%= @invoice.quantity %> <br>
-            Enhet: <%= @invoice.unit %> <br>
+            Kvantitet(t.ex. antal timmar): <%= @invoice.quantity %> <br>
+            Enhet(t.ex. kr/timma): <%= @invoice.unit %> <br>
             Summa ex moms: <%= @invoice.amount %> SEK <br>
             Summa att betala: <%= @invoice.inklmoms.round %> SEK<br>
             Villkor: <%= @invoice.terms %> dagar<br>
@@ -99,8 +99,8 @@
           Er referens: <%= @invoice.company_reference %><br>
           Startdag: <%= @invoice.first_day %> <br>
           Sista dag: <%= @invoice.last_day %><br>
-          Antal timmar: <%= @invoice.quantity %> <br>
-          Enhet: <%= @invoice.unit %> <br>
+          Kvantitet(t.ex. antal timmar): <%= @invoice.quantity %> <br>
+          Enhet(t.ex. kr/timma): <%= @invoice.unit %> <br>
           Summa ex moms: <%= @invoice.amount %> SEK <br>
           Summa att betala: <%= @invoice.inklmoms.round %> SEK<br>
           Villkor: <%= @invoice.terms %> dagar<br>

@@ -236,8 +236,13 @@ en:
               blank: 'kan inte vara blankt!'
             amount:
               blank: 'kan inte vara blankt!'
+              not_an_integer: 'måste vara en siffra!'
             user_reference:
               blank: 'kan inte vara blankt!'
+            unit:
+              not_an_integer: 'måste vara en siffra!'
+            quantity:
+              not_an_integer: 'måste vara en siffra!'
 
         ezinvoice:
           attributes:

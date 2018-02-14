@@ -253,7 +253,7 @@ Application.create(
 Invoice.create(
   description: "Målning 2 veckor",
   quantity: 40,
-  unit: "140kr/timma",
+  unit: 140,
   amount: 7000,
   first_day: "2017-09-17",
   last_day: "2017-09-27",
@@ -277,7 +277,7 @@ Invoice.create(
 Invoice.create(
   description: "Utomhusmålning 2 veckor",
   quantity: 40,
-  unit: "140kr/timma",
+  unit: 140,
   amount: 10000,
   first_day: "2017-10-17",
   last_day: "2017-11-27",
@@ -302,7 +302,7 @@ Invoice.create(
 Invoice.create(
   description: "Målning 4 veckor",
   quantity: 40,
-  unit: "140kr/timma",
+  unit: 140,
   amount: 3000,
   first_day: "2017-09-17",
   last_day: "2017-09-27",
@@ -326,7 +326,7 @@ Invoice.create(
 Invoice.create(
   description: "Snickeri 2 veckor",
   quantity: 40,
-  unit: "140kr/timma",
+  unit: 140,
   amount: 3000,
   first_day: "2017-09-17",
   last_day: "2017-09-27",
@@ -350,7 +350,7 @@ Invoice.create(
 Invoice.create(
   description: "Snickeri 4 veckor",
   quantity: 40,
-  unit: "140kr/timma",
+  unit: 140,
   amount: 3000,
   first_day: "2017-09-17",
   last_day: "2017-09-27",

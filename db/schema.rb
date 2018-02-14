@@ -179,8 +179,8 @@ ActiveRecord::Schema.define(version: 20180126172922) do
   end
 
   create_table "invoices", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.string "quantity"
-    t.string "unit"
+    t.integer "quantity"
+    t.integer "unit"
     t.integer "amount"
     t.date "first_day"
     t.date "last_day"

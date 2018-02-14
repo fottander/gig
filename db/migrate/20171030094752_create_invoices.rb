@@ -1,8 +1,8 @@
 class CreateInvoices < ActiveRecord::Migration[5.1]
   def change
     create_table :invoices do |t|
-      t.string :quantity
-      t.string :unit
+      t.integer :quantity
+      t.integer :unit
       t.integer :amount
       t.date :first_day
       t.date :last_day

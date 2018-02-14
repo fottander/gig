@@ -2,6 +2,8 @@ class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
   validates_presence_of :description, :amount, :user_reference
+  validates :quantity, numericality: { only_integer: true }, allow_blank: true
+  validates :unit, numericality: { only_integer: true }, allow_blank: true
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company

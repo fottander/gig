@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe Invoice, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :description }
-    it { is_expected.to have_db_column :quantity }
-    it { is_expected.to have_db_column :unit }
-    it { is_expected.to have_db_column :amount }
+    it { is_expected.to have_db_column(:unit).of_type(:integer) }
+    it { is_expected.to have_db_column(:quantity).of_type(:integer) }
+    it { is_expected.to have_db_column(:amount).of_type(:integer) }
     it { is_expected.to have_db_column :first_day }
     it { is_expected.to have_db_column :last_day }
     it { is_expected.to have_db_column :ocr_number }
