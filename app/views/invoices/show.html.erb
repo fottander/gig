@@ -1,10 +1,23 @@
 <div class="holy-grail-grid">
 
   <div class="holy-grail-left">
-    <%= link_to 'Kontrollpanel', panels_path, class: 'button-menu' %>
-    <%= link_to 'Konto', edit_company_registration_path, class: 'button-menu' %>
-    <%= link_to 'Skapa jobb', new_job_path, class: 'button-menu' %>
-    <%= link_to 'Hitta frilansare', profiles_path, class: 'button-menu' %>
+    <% if current_company.present? %>
+      <%= link_to 'Kontrollpanel', panels_path, class: 'button-menu' %>
+      <%= link_to 'Konto', edit_company_registration_path, class: 'button-menu' %>
+      <%= link_to 'Skapa annons', new_job_path, class: 'button-menu' %>
+      <%= link_to 'Hitta frilansare', profiles_path, class: 'button-menu' %>
+    <% elsif current_user.present? %>
+      <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
+      <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
+      <% if current_user.profile.present? %>
+        <%= link_to 'Profil', edit_profile_path(current_user.profile.id), class: 'button-menu' %>
+        <% else %>
+        <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
+      <% end %><br>
+      <%= link_to 'Utbetalningar', payments_path, class: 'button-menu' %><br>
+      <%= link_to 'Snabbfaktura', ezinvoices_path, class: 'button-menu' %><br>
+      <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
+    <% end %>
   </div>
   <% if current_company.present? %>
     <% if @invoice.company_id == current_company.id %>
@@ -84,7 +97,7 @@
         </div>
       </div>
     <% end %>
-  <% else %>
+  <% elsif current_user.present? %>
     <% if @invoice.user_id == current_user.id %>
       <div class="holy-grail-middle">
         <div class='simple-form'>
