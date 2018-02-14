@@ -37,21 +37,24 @@
             <div class='portfolio-resume-subheader-title'>
               SKAPA FAKTURA
             </div>
-            <span style='color: #696868;'>Hjälp med att skapa faktura? Kolla in vår guide här.</span>
+            <p style='color: #696868; line-height: 1.2;'>Hjälp med att skapa faktura? Kolla in vår guide här.</p>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, application_id: @application.id) do %>
-            <%= text_area_tag :description, nil, placeholder: '* Beskrivning'%>
-            <%= label_tag :quantity, 'Endast siffror utan decimaler', class: 'invoice-details-date' %>
-            <%= text_field_tag :quantity, nil, placeholder: 'Kvantitet(t.ex. 10)antal timmar' %>
-            <%= label_tag :unit, 'Endast siffror utan decimaler', class: 'invoice-details-date' %>
-            <%= text_field_tag :unit, nil, placeholder: 'Enhet(t.ex. 150)kr/timma' %>
-            <%= label_tag :amount, 'Endast siffror utan decimaler', class: 'invoice-details-date' %>
-            <%= text_field_tag :amount, nil, placeholder: '* Belopp exkl. moms(t.ex. 1500)kr' %>
+            <%= label_tag :description, '* Beskrivning', class: 'invoice-details-date' %>
+            <%= text_area_tag :description, nil, placeholder: 'Beskriv jobbet(t.ex. Målning)'%>
+            <%= label_tag :quantity, 'Kvantitet(t.ex. 10)antal timmar', class: 'invoice-details-date' %>
+            <%= text_field_tag :quantity, nil, placeholder: 'Endast siffror utan decimaler' %>
+            <%= label_tag :unit, 'Enhet(t.ex. 150)kr/timma', class: 'invoice-details-date' %>
+            <%= text_field_tag :unit, nil, placeholder: 'Endast siffror utan decimaler' %>
+            <%= label_tag :amount, '* Belopp exkl. moms(t.ex. 1500)kr', class: 'invoice-details-date' %>
+            <%= text_field_tag :amount, nil, placeholder: 'Endast siffror utan decimaler' %>
             <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
             <%= date_field_tag :first_day %>
             <%= label_tag :last_day, 'Sista dag(t.ex. 2018-12-30)', class: 'invoice-details-date' %>
             <%= date_field_tag :last_day %>
-            <%= text_field_tag :user_reference, nil, placeholder: '* Referens(förnamn & efternamn)' %>
-            <%= text_field_tag :company_reference, nil, placeholder: 'Företagsreferens(namn)' %>
+            <%= label_tag :user_reference, '* Referens', class: 'invoice-details-date' %>
+            <%= text_field_tag :user_reference, nil, placeholder: 'Ditt förnamn & efternamn' %>
+            <%= label_tag :company_reference, 'Företagsreferens', class: 'invoice-details-date' %>
+            <%= text_field_tag :company_reference, nil, placeholder: 'Kontaktperson på företaget' %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
             <% end %>
           <% end %>
