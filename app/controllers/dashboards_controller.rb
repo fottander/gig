@@ -7,6 +7,6 @@ class DashboardsController < ApplicationController
     @applications_complete = @applications.complete.paginate(page: params[:complete])
     @invoices = Invoice.where(user_id: current_user).paginate(page: params[:invoices])
     @jobs = Job.where(id: @applications.pluck(:job_id))
-    @activities = PublicActivity::Activity.order('created_at desc').where(recipient_id: current_user.id, recipient_type: 'Profile').last(10)
+    @activities = PublicActivity::Activity.order('created_at desc').where(recipient_id: current_user.id, recipient_type: 'Profile').includes(:owner, :trackable).last(10)
   end
 end
