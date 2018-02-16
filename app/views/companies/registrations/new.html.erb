@@ -6,50 +6,54 @@
         <div class="login-box-input"><%= link_to "Registrera frilansare >>", new_user_registration_path, class: 'switch-button' %></div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
-        <div class="login-box-input">
-          <%= f.email_field :email, placeholder: "Email", autofocus: true %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :name, placeholder: "Företagsnamn" %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :username, placeholder: "Användarnamn" %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :address, placeholder: "Adress" %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :zip_code, placeholder: "Postnummer" %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :city, placeholder: "Stad" %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :org_number, placeholder: "Organisationsnummer" %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :phone, placeholder: "Telefonnummer" %>
-        </div>
-        <div class="login-box-input">
-          <%= f.text_area :contact, placeholder: "Kontaktperson" %>
-        </div>
-        <div class="login-box-input">
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> tecken minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
-        </div>
-
-        <div class="login-box-input">
-          <br>
-          <%= f.password_field :password_confirmation, placeholder: "Bekräfta lösenord", autocomplete: "off" %>
-        </div>
-
-        <div class="actions">
-          <br>
-          <%= f.submit "Registrera", class: 'reply-button' %>
-          <p>eller <%= render "companies/shared/links" %></p>
-        </div>
+          <div class="login-box-input">
+            <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :name, placeholder: "Företagsnamn" %>
+          </div>
+          <div class="fieldContainer">
+            <div class="login-box-input">
+              <%= f.text_area :username, placeholder: "Användarnamn" %>
+            </div>
+            <div class="fieldInfo">
+              Tips <br>
+              Skriv inte ditt företagsnamn som användarnamn. Använd istället t.ex. ditt namn eller smeknamn(ex. Börje S, Greger etc).
+            </div>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :address, placeholder: "Adress" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :zip_code, placeholder: "Postnummer" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :city, placeholder: "Stad" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :org_number, placeholder: "Organisationsnummer" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :phone, placeholder: "Telefonnummer" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :contact, placeholder: "Kontaktperson" %>
+          </div>
+          <div class="login-box-input">
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> tecken minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
+          </div>
+          <div class="login-box-input">
+            <br>
+            <%= f.password_field :password_confirmation, placeholder: "Bekräfta lösenord", autocomplete: "off" %>
+          </div>
+          <div class="actions">
+            <br>
+            <%= f.submit "Registrera", class: 'reply-button' %>
+            <p>eller <%= render "companies/shared/links" %></p>
+          </div>
         <%end %>
       </div>
     </div>
