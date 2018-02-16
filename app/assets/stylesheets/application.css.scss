@@ -15,19 +15,6 @@
  *= require foundation_and_overrides
 
  */
-#popup {
-  height: auto;
-  width: auto;
-  text-align: center;
-  font: italic 14px/110% Georgia,'Times New Roman',serif;
-  z-index: 2;
-  vertical-align:middle;
-  background-color: #F8F8F8;
-  color: #5D5C5C;
-  display: none;
-  padding-top: 8px;
-  position: absolute;
-}
 
 .fieldInfo {
   display: none;
@@ -41,7 +28,6 @@
   vertical-align:middle;
   background-color: #F8F8F8;
   color: #5D5C5C;
-  position: absolute;
 }
 
 
