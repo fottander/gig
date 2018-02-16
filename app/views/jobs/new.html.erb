@@ -20,9 +20,19 @@
         <% end %>
       <% end %>
       <%= f.label :title, 'Titel', class: 'form-text' %>
-      <%= f.text_field :title, placeholder: 'Ge din annons en titel ex. "Erfaren målare sökes".' %>
+      <div class="fieldContainer">
+        <%= f.text_field :title, placeholder: 'Ge din annons en titel ex. "Erfaren målare sökes".' %>
+        <div class="fieldInfo">
+            <span>Info on checkbox 1</span>
+        </div>
+      </div>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
-      <%= f.text_area :description, placeholder: 'Vad ska frilansaren utföra? Var så utförlig som möjligt.' %>
+      <div class="fieldContainer">
+        <%= f.text_area :description, placeholder: 'Vad ska frilansaren utföra? Var så utförlig som möjligt.' %>
+        <div class="fieldInfo">
+          <span>Info for field 2</span>
+        </div>
+      </div>
       <%= f.label :requirement, 'Krav', class: 'form-text' %>
       <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>

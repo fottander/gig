@@ -11,7 +11,7 @@
     <%= link_to 'Radera', job_application_path(application.job_id, application.id), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
   <% end %>
 <% else %>
-  <strong>Inga ansökningar hittills</strong><br>
+  <strong>Inga aktiva ansökningar</strong><br>
   <%= link_to 'Ansök till jobb här!', jobs_path %>
 <% end %>
 <div class="will-paginate">

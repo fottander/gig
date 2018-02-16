@@ -11,7 +11,7 @@
     <%= link_to 'Visa ansökan/Skapa faktura', job_application_path(application.job_id, application.id), class: 'button-green' %>
   <% end %>
 <% else %>
-  <strong>Inga ansökningar hittills</strong><br>
+  <strong>Inga aktiva anställningar</strong><br>
   <%= link_to 'Ansök till jobb här!', jobs_path %>
 <% end %>
 </span>
