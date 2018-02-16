@@ -27,25 +27,25 @@
                 <% end %>
               <div class='row'>
                 <div class='large-2 columns'>
-                  Skapad: <%= job.created_at.strftime("%Y-%m-%d") %>
+                  <span style='font-weight: 550;'>Skapad:</span> <%= job.created_at.strftime("%Y-%m-%d") %>
                 </div>
                 <div class='large-2 columns'>
-                  Går ut: <%= job.deadline %>
+                  <span style='font-weight: 550;'>Går ut:</span> <%= job.deadline %>
                 </div>
                 <div class='large-2 columns'>
-                  Stad: <%= job.cities.pluck(:name).flatten.join(' & ') %>
+                  <span style='font-weight: 550;'>Stad:</span> <%= job.cities.pluck(:name).flatten.join(' & ') %>
                 </div>
                 <div class='large-2 columns'>
-                  Krav: <%= job.requirement %>
+                  <span style='font-weight: 550;'>Krav:</span> <%= job.requirement %>
                 </div>
                 <div class='large-2 columns'>
-                  Varaktighet: <%= job.duration %>
+                  <span style='font-weight: 550;'>Varaktighet:</span> <%= job.duration %>
                 </div>
                 <div class='large-2 columns'>
-                  Timmar/vecka: <%= job.hour_week %>
+                  <span style='font-weight: 550;'>Timmar/vecka:</span> <%= job.hour_week %>
                 </div>
                 <div class='large-2 columns'>
-                  Lön: <%= job.budget %>
+                  <span style='font-weight: 550;'>Lön:</span> <%= job.budget %>
                 </div>
                 <div class='columns'>
                 </div>

@@ -25,22 +25,22 @@
                     <%= profile.description %>
                 <% end %>
                 <div class='row'>
-                  <div class='large-2 columns'>
-                    Stad: <%= profile.cities.pluck(:name).flatten.join(' & ') %>
+                  <div class='large-3 columns'>
+                    <span style='font-weight: 550;'>Stad:</span> <%= profile.cities.pluck(:name).flatten.join(' & ') %>
                   </div>
-                  <div class='large-2 columns'>
-                    Färdigheter:
+                  <div class='large-3 columns'>
+                    <span style='font-weight: 550;'>Färdigheter:</span>
                     <% if profile.skill.length > 40 %>
                       <%= truncate(profile.skill, length: 40) %>
                     <% else %>
                       <%= profile.skill %>
                     <% end %>
                   </div>
-                  <div class='large-2 columns'>
-                    Genomförda jobb: <%= profile.user.invoice_count %>
+                  <div class='large-3 columns'>
+                    <span style='font-weight: 550;'>Genomförda jobb:</span> <%= profile.user.invoice_count %>
                   </div>
-                  <div class='large-2 columns'>
-                    Totalt fakturerat: <br>
+                  <div class='large-3 columns'>
+                    <span style='font-weight: 550;'>Totalt fakturerat:</span> <br>
                     <%= profile.user.current_earnings %>
                   </div>
                   <div class='columns'>
