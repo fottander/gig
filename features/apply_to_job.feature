@@ -39,7 +39,7 @@ Feature: Apply to job
       And I should not see "Diskutera & chatta"
       And I should not see "SKAPA FAKTURA"
       And I should see "Skapa ansökan"
-      And I fill in "Skriv ansökan" with "I want job"
+      And I fill in "Skriv en kort ansökan" with "I want job"
       And I click "Skapa"
       Then I should see "Ny ansökan skickad!"
       And I click "KONTROLLPANEL"

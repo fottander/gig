@@ -15,11 +15,12 @@
           <% end %><br />
           <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
         </div>
-        <div class="field">
+        <div class="field" style='margin-bottom: -10px;'>
           <br>
           <%= f.password_field :password_confirmation, placeholder: "Bekräfta lösenord", autocomplete: "off" %>
         </div>
         <div class="actions">
+          <span style='color: #6D6D6D; font-size: 14px;'>När du klickar på registrera du automatiskt</span> <%= link_to 'våra villkor.', root_path , style: 'font-size: 14px; text-transform: lowercase;'%><br>
           <%= f.submit "Registrera", class: 'reply-button' %>
           <p>eller <%= render "devise/shared/links" %></p>
         </div>
