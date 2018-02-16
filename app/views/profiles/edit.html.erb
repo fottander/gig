@@ -30,8 +30,6 @@
       <%= f.text_area :description, value: @profile.description %>
       <%= f.label :skill, 'Färdigheter', class: 'form-text' %>
       <%= f.text_field :skill, value: @profile.skill %>
-      <%= f.label :rate, 'Lön', class: 'form-text' %>
-      <%= f.text_field :rate, value: @profile.rate %>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>

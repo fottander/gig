@@ -18,11 +18,11 @@
     <hr />
 
     <div class="card-profile-stats-container">
-      <div class="large-2 columns card-profile-stats-statistic">
+      <div class="large-3 columns card-profile-stats-statistic">
         <span class="stat">Titel</span>
         <p><%= @profile.title %></p>
       </div>
-      <div class="large-3 columns card-profile-stats-statistic">
+      <div class="large-4 columns card-profile-stats-statistic">
         <span class="stat">Färdigheter</span>
         <p><%= @profile.skill %></p>
       </div>
@@ -33,10 +33,6 @@
       <div class="card-profile-stats-statistic">
         <span class="stat">Kategorier</span>
         <p><%= @profile.categories.pluck(:name).flatten.join(' & ') %></p>
-      </div>
-      <div class="card-profile-stats-statistic">
-        <span class="stat">Lön</span>
-        <p><%= @profile.rate %></p>
       </div>
     </div>
   </div>
