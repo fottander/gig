@@ -23,30 +23,59 @@
       <div class="fieldContainer">
         <%= f.text_field :title, placeholder: 'Ge din annons en titel ex. "Erfaren målare sökes".' %>
         <div class="fieldInfo">
-            <span>Info on checkbox 1</span>
+            <span>Tips <br>
+              Ha en kort lockande titel med max 140 tecken. Skriv inte ut företagsnamn eller annan liknande information.
+            </span>
         </div>
       </div>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_area :description, placeholder: 'Vad ska frilansaren utföra? Var så utförlig som möjligt.' %>
         <div class="fieldInfo">
-          <span>Info for field 2</span>
+          <span>
+            Tips <br>
+            Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Ju fler detaljer som nämns desto mindre frågor i senare skede. Vilka arbetstider? Vilken typ  av person ni söker? Med mera.
+          </span>
         </div>
       </div>
       <%= f.label :requirement, 'Krav', class: 'form-text' %>
-      <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
+      <div class="fieldContainer">
+        <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Krävs utbildning? Behövs körkort? Krävs tidigare erfarenhet i form av anställd x antal år eller liknande?
+        </div>
+      </div>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
       <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>
       <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
       <%= f.label :budget, 'Lön', class: 'form-text' %>
-      <%= f.text_field :budget, placeholder: 'Antingen fast, per timma eller ungefärlig lön.' %>
+      <div class="fieldContainer">
+        <%= f.text_field :budget, placeholder: 'Antingen fast, per timma eller ungefärlig lön.' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Vid projekt ange fast arvode eller mellan två spann. Vid timpenning ange vad personen tjänar per timma eller mellan två spann.
+        </div>
+      </div>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
       <%= f.date_field :deadline, class: 'input-mini'  %>
       <%= f.label :duration, 'Varaktighet', class: 'form-text' %>
-      <%= f.text_field :duration, placeholder: 'Hur många dagar/veckor behöver ni personen?' %>
+      <div class="fieldContainer">
+        <%= f.text_field :duration, placeholder: 'Hur många dagar/veckor behöver ni personen?' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Vid tillsvidare anställning krävs ingen varaktighet men ange helst ungefärlig period. Vid provanställning måste tidsspann anges i dagar, veckor eller månader(max 6 månader).
+        </div>
+      </div>
       <%= f.label :hour_week, 'Timmar', class: 'form-text' %>
-      <%= f.text_field :hour_week, placeholder: 'Hur många timmar per dag eller vecka?' %>
+      <div class="fieldContainer">
+        <%= f.text_field :hour_week, placeholder: 'Hur många timmar per dag eller vecka?' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Vid projekt kan detta fält lämnas blankt. Annars kan timmar per vecka eller timmar per dag anges.
+        </div>
+      </div>
       <%= f.submit 'Skapa annons', class: 'reply-button' %>
       <% end %>
     </div>
