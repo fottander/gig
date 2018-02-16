@@ -25,11 +25,29 @@
       <%= f.label :username, 'Användarnamn', class: 'form-text' %>
       <%= f.text_field :username, value: @profile.username %>
       <%= f.label :title, 'Titel', class: 'form-text' %>
-      <%= f.text_field :title, value: @profile.title %>
+      <div class="fieldContainer">
+        <%= f.text_field :title, value: @profile.title %>
+        <div class="fieldInfo">
+          Tips <br>
+          Skriv en kort slagkraftig titel som beskriver dig och de arbeten du kommer söka. Max 140 tecken.
+        </div>
+      </div>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
-      <%= f.text_area :description, value: @profile.description %>
+      <div class="fieldContainer">
+        <%= f.text_area :description, value: @profile.description %>
+        <div class="fieldInfo">
+          Tips <br>
+          Här finns mycket utrymme för att beskriva dig på bästa sätt som kommer öka dina chanser till att få jobb. Vilka är dina bästa egenskaper? Vilka typer av jobb har du haft innan? Vad har du för andra erfarenheter? Beskriv dig själv som person. Liknande ett CV.
+        </div>
+      </div>
       <%= f.label :skill, 'Färdigheter', class: 'form-text' %>
-      <%= f.text_field :skill, value: @profile.skill %>
+      <div class="fieldContainer">
+        <%= f.text_field :skill, value: @profile.skill %>
+        <div class="fieldInfo">
+          Tips <br>
+          Rada upp de främsta färdigheter du har. Separera med kommatecken.
+        </div>
+      </div>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>
