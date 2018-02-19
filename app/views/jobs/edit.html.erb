@@ -58,15 +58,15 @@
         <%= f.text_field :duration, value: @job.duration %>
         <div class="fieldInfo">
           Tips <br>
-          Vid tillsvidare anställning krävs ingen varaktighet men ange helst ungefärlig period. Vid provanställning måste tidsspann anges i dagar, veckor eller månader(max 6 månader).
+          Vid tillsvidare anställning krävs ingen varaktighet men ange ungefärlig period. Vid provanställning måste tidsspann anges i dagar, veckor eller månader(max 6 månader).
         </div>
       </div>
-      <%= f.label :hour_week, 'Timmar', class: 'form-text' %>
+      <%= f.label :hour_week, 'Timmar/dag', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :hour_week, value: @job.hour_week %>
         <div class="fieldInfo">
           Tips <br>
-          Vid projekt kan detta fält lämnas blankt. Annars kan timmar per vecka eller timmar per dag anges.
+          Vid projekt kan detta fält lämnas blankt. Annars anges jobbtimmar per dag.
         </div>
       </div>
       <%= f.check_box :active, value: true %>

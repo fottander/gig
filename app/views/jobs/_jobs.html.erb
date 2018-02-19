@@ -27,22 +27,34 @@
                 <% end %>
               <div class='row'>
                 <div class='large-2 columns'>
-                  <span style='font-weight: 550;'>Skapad:</span> <%= job.created_at.strftime("%Y-%m-%d") %>
-                </div>
-                <div class='large-2 columns'>
+                  <span style='font-weight: 550;'>Skapad:</span> <%= job.created_at.strftime("%Y-%m-%d") %><br>
                   <span style='font-weight: 550;'>Går ut:</span> <%= job.deadline %>
                 </div>
                 <div class='large-2 columns'>
                   <span style='font-weight: 550;'>Stad:</span> <%= job.cities.pluck(:name).flatten.join(' & ') %>
                 </div>
                 <div class='large-2 columns'>
-                  <span style='font-weight: 550;'>Krav:</span> <%= job.requirement %>
+                  <span style='font-weight: 550;'>
+                    Krav:
+                  </span>
+                  <% if job.requirement.length > 30 %>
+                    <%= truncate(job.requirement, length: 30) %>
+                  <% else %>
+                    <%= job.requirement %>
+                  <% end %>
                 </div>
                 <div class='large-2 columns'>
-                  <span style='font-weight: 550;'>Varaktighet:</span> <%= job.duration %>
+                  <span style='font-weight: 550;'>
+                    Varaktighet:
+                  </span>
+                  <% if job.duration.length > 30 %>
+                    <%= truncate(job.duration, length: 30) %>
+                  <% else %>
+                    <%= job.duration %>
+                  <% end %>
                 </div>
                 <div class='large-2 columns'>
-                  <span style='font-weight: 550;'>Timmar/vecka:</span> <%= job.hour_week %>
+                  <span style='font-weight: 550;'>Timmar/dag:</span> <%= job.hour_week %>
                 </div>
                 <div class='large-2 columns'>
                   <span style='font-weight: 550;'>Lön:</span> <%= job.budget %>

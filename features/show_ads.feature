@@ -27,7 +27,7 @@ Feature: Show job ads
       And I should see "Stad: Göteborg"
       And I should see "Lön: 140kr/timma"
       And I should see "Varaktighet: 14 dagar"
-      And I should see "Timmar/vecka: 45"
+      And I should see "Timmar/dag: 45"
       And I should see "Anders P"
       And I should see "Skapad: 2018-01-01"
       And I should see "Går ut: 2018-10-10"
