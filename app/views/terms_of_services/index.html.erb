@@ -1,0 +1,20 @@
+<div class="holy-grail-grid">
+  <div class="holy-grail-left-application" >
+    <div class='holy-grail-left-application-box' style='text-align: center; '>
+      <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Våra avgifter', our_rates_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box' %>
+    </div>
+  </div>
+  <div class="holy-grail-middle">
+    <div class='breadcrumb-holder-small'>
+      <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+    <h3 style='margin-left: 20px;'>Allmänna villkor</h3>
+    <div style="margin-left: 20px;">
+      <p>Här finner du våra allmänna villkor. Läs igenom dem noga innan du använder tjänsten.</p>
+      <p>Om du har några ytterligare frågor kan du kontakta oss.</p>
+    </div>
+  </div>
+</div>

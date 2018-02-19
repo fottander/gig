@@ -23,13 +23,13 @@
           <ul class="menu simple vertical medium-horizontal" data-close-on-click-inside="false" data-dropdown-menu>
             <% if company_signed_in? %>
               <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
-              <li><%= link_to "HITTA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "ALLA FRILANSARE", profiles_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
               <li><%= link_to "KONTROLLPANEL", panels_path %></li>
             <% elsif user_signed_in? %>
               <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
-              <li><%= link_to "HITTA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "ALLA FRILANSARE", profiles_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
               <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
@@ -38,7 +38,7 @@
               <li><%= link_to "ADMINISTRATION", administrations_path %></li>
             <% else %>
               <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
-              <li><%= link_to "HITTA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "ALLA FRILANSARE", profiles_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "REGISTRERA", new_user_registration_path %></li>
               <li><%= link_to "LOGGA IN", new_user_session_path %></li>
@@ -74,10 +74,10 @@
         <div class="medium-4 columns">
           <p class="site-footer-title"></p>
           <p class='site-footer-content'>
-            <%= link_to 'Om oss', root_path %><br>
-            <%= link_to 'Så fungerar det', howitworks_path %><br>
             <%= link_to 'Kontakta oss', messages_path %><br>
-            <%= link_to 'Användarvillkor', root_path %><br>
+            <%= link_to 'Så fungerar det', howitworks_path %><br>
+            <%= link_to 'Våra avgifter', our_rates_path %><br>
+            <%= link_to 'Användarvillkor', terms_of_services_path %><br>
             <%= link_to 'Admin login', new_admin_session_path %>
           </p>
         </div>

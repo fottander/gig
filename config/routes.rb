@@ -27,6 +27,10 @@ Rails.application.routes.draw do
 
   root controller: :index, action: :index
 
+  resources :our_rates, only: [:index]
+
+  resources :terms_of_services, only: [:index]
+
   resources :users, only: [:index, :destroy]
 
   resources :users_without_profiles, only: [:index]

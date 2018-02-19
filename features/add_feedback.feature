@@ -34,6 +34,6 @@ Feature: Extend invoice and add feedback
       And I check Post check box
       And I click "Spara"
       And I should see "Sparat!"
-      And I click "HITTA FRILANSARE"
+      And I click "ALLA FRILANSARE"
       And I click "Fisken"
       Then I should see "Väldigt bra snubbe"
