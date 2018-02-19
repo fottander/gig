@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   validates_presence_of :username, :title, :description, :city_ids, :category_ids
-  validates_length_of :title, maximum: 80
+  validates_length_of :title, maximum: 50
   belongs_to :user
   has_many :applications, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
