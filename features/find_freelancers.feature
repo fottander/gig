@@ -30,7 +30,7 @@ Feature: Show freelancers
 
     Scenario: I see freelancers
       Given I am on the home page
-      And I click nav "HITTA FRILANSARE"
+      And I click nav "ALLA FRILANSARE"
       And I should see "Alla frilansare"
       And I should see "fisken"
       And I should see "Erfaren målare"
@@ -47,7 +47,7 @@ Feature: Show freelancers
 
     Scenario: I filtrate on a city
       Given I am on the home page
-      And I click nav "HITTA FRILANSARE"
+      And I click nav "ALLA FRILANSARE"
       And I select "Malmö" from "with_city"
       And I click "Filtrera"
       And I should see "Erfaren plåtslagare"
@@ -55,7 +55,7 @@ Feature: Show freelancers
 
     Scenario: I filtrate on a category
       Given I am on the home page
-      And I click nav "HITTA FRILANSARE"
+      And I click nav "ALLA FRILANSARE"
       And I select "Plåtslagare" from "with_category"
       And I click "Filtrera"
       And I should see "Erfaren plåtslagare"
@@ -63,7 +63,7 @@ Feature: Show freelancers
 
     Scenario: I see freelancers
       Given I am on the home page
-      And I click nav "HITTA FRILANSARE"
+      And I click nav "ALLA FRILANSARE"
       And I should see "Alla frilansare"
       And I should see "anders"
       And I should see "Erfaren snickare"

@@ -38,7 +38,7 @@ Feature: User dashboard
       And I attach file
       And I click "Skapa"
       Then I should see "Ny profil skapad!"
-      And I click "HITTA FRILANSARE"
+      And I click "ALLA FRILANSARE"
       And I should see "Fisken"
       Then I should see "Fisken" avatar name "Default-avatar.png"
       And I click "Fisken"
