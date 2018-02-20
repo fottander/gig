@@ -18,13 +18,13 @@ Feature: Post job ad
 
     Scenario: Company tries to post without being logged in
       Given I am on the home page
-      And I click "SKAPA ANNONS"
+      And I click "SKAPA ANNONS" within hero
       Then I should see "Du måste logga in eller registrera dig innan du fortsätter."
 
     Scenario: Company posts an ad
       Given I am on the home page
       Given I am logged in as company "felix@mail.com"
-      And I click "SKAPA ANNONS"
+      And I click "SKAPA ANNONS" within hero
       And I should see "Skapa annons"
       And I fill in "Titel" with "målare"
       And I fill in "Beskrivning" with "måla hus"
@@ -44,7 +44,7 @@ Feature: Post job ad
     Scenario: I post an ad without title
       Given I am on the home page
       Given I am logged in as company "felix@mail.com"
-      And I click "SKAPA ANNONS"
+      And I click "SKAPA ANNONS" within hero
       And I should see "Skapa annons"
       And I fill in "Titel" with ""
       And I fill in "Beskrivning" with "måla hus"

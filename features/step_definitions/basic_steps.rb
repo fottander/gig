@@ -42,3 +42,9 @@ Given("I click {string} within hero") do |link|
     click_link_or_button link
   end
 end
+
+Then("I should see {string} within hero") do |content|
+  within ".marketing-site-hero-content" do
+    expect(page).to have_content content
+  end
+end

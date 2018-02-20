@@ -3,39 +3,41 @@
     <h1>SÖK JOBB. SÖK ARBETSKRAFT. SNABBT. ENKELT. </h1>
     <p>Det flexibla sättet för att hitta jobb och anställa. Genom ett fåtal klick anställer företagaren en frilansare och får sedan en faktura när jobbet godkänts.</p>
     <%= link_to "HITTA JOBB", jobs_path, class: 'reply-button' %>
-    <%= link_to "ALLA FRILANSARE", profiles_path, class: 'profile-button' %>
+    <%= link_to "SKAPA ANNONS", new_job_path, class: 'profile-button' %>
   </div>
 </div>
 <p class='progress-indicator-headline'>SÅ FUNGERAR DET</p>
 <div class="hero-divider">
   <ol class="progress-indicator">
     <li class="is-complete" data-step="1">
-    <span>Sök jobb</span>
+      <span style='margin-top: -60px;'>Frilansare</span>
+      <span>Sök jobb</span>
     </li>
     <li class="is-complete" data-step="2">
-    <span>Ansök</span>
+      <span>Ansök</span>
     </li>
     <li class="is-current" data-step="3">
-    <span>Utför jobb</span>
+      <span>Utför jobb</span>
     </li>
     <li class="is-current" data-step="4">
-    <span>Skapa faktura</span>
+      <span>Skapa faktura</span>
     </li>
   </ol>
 </div>
-<div class='hero-divider'>
+<div class='hero-divider' style='padding-top: 10px;'>
   <ol class="progress-indicator">
     <li class="is-complete-free" data-step="1">
-    <span>Skapa annons</span>
+      <span style='margin-top: -60px;'>Företag</span>
+      <span>Skapa annons</span>
     </li>
     <li class="is-complete-free" data-step="2">
-    <span>Få svar</span>
+      <span>Få svar</span>
     </li>
     <li class="is-current-free" data-step="3">
-    <span>Anställ</span>
+      <span>Anställ</span>
     </li>
     <li class="is-current-free" data-step="4">
-    <span>Få faktura</span>
+      <span>Få faktura</span>
     </li>
   </ol>
 </div>
@@ -45,18 +47,18 @@
     <%= image_tag 'frilansare-front.jpg' %>
   </div>
   <div class="large-6 columns marketing-site-content-section-block">
-    <h3>HITTA FRILANSARE</h3>
-    <p class="marketing-site-content-section-block-subheader subheader">Skapa en annons redan idag! Få svar från frilansare. Anställ den bästa kandidaten och få en faktura efter att jobbet blivit utfört. Allt är helt gratis!</p>
-    <p class="marketing-site-content-section-block-subheader subheader">Vi ser till att löner, skatter, försäkringar & sociala avgifter betalas. </p>
-    <%= link_to "REGISTRERA FÖRETAG", new_company_registration_path, class: 'profile-button' %>
-  </div>
-  <div class="marketing-site-content-section-block large-6 columns">
     <h3>HITTA JOBB</h3>
     <p class="marketing-site-content-section-block-subheader subheader">Skapa en profil med ett fåtal klick! Sök jobb som passar dig. Skapa en ansökan, chatta med arbetsgivaren. Utför jobbet. Skicka faktura i vårt system.</p>
     <p class="marketing-site-content-section-block-subheader subheader">Vi ser till att fakturan blir betald. Vi ser till att du får betalt i tid.</p>
     <p class="marketing-site-content-section-block-subheader subheader">Vi betalar din försäkring, skatt och sociala avgifter och för detta tar vi en liten avgift.</p>
     <p class="marketing-site-content-section-block-subheader subheader">Din lön får du sedan utbetald direkt in på bankkontot.</p>
     <%= link_to "REGISTRERA FRILANSARE", new_user_registration_path, class: 'reply-button' %>
+  </div>
+  <div class="marketing-site-content-section-block large-6 columns">
+    <h3>HITTA FRILANSARE</h3>
+    <p class="marketing-site-content-section-block-subheader subheader">Skapa en annons redan idag! Få svar från frilansare. Anställ den bästa kandidaten och få en faktura efter att jobbet blivit utfört. Allt är helt gratis!</p>
+    <p class="marketing-site-content-section-block-subheader subheader">Vi ser till att löner, skatter, försäkringar & sociala avgifter betalas. </p>
+    <%= link_to "REGISTRERA FÖRETAG", new_company_registration_path, class: 'profile-button' %>
   </div>
   <div class="marketing-site-content-section-img large-6 columns">
     <%= image_tag 'foretag-front.jpg' %>
