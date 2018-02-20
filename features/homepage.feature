@@ -2,7 +2,7 @@ Feature: Homepage
 
   Scenario: I see some content on homepage
     Given I am on the home page
-    Then I should see "SÖK JOBB. SÖK ARBETSKRAFT."
+    Then I should see "HITTA JOBB. HITTA ARBETSKRAFT."
     And I should see "SKAPA ANNONS" within hero
     And I should see "HITTA JOBB" within hero
     Then I should see "REGISTRERA"
