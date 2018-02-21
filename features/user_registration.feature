@@ -17,6 +17,18 @@ Feature: User registration
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
       Then I should see "Välkommen! Du har nu registrerat dig."
+      And I should see "Välkommen till A New Biz"
+      Then I should see "Nästa steg är att skapa en profil"
+      And I click "LOGGA UT"
+      Given I am on the home page
+      And I click "LOGGA IN"
+      And I should see "Logga in som frilansare"
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
+      Then I should see "Välkommen! Du är inloggad."
+      And I should not see "Välkommen till A New Biz"
+      Then I should not see "Nästa steg är att skapa en profil"
 
     Scenario: I login as a user
       Given I am on the home page
