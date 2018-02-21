@@ -30,9 +30,11 @@ class User < ApplicationRecord
   end
 
   def fee
-    if (self.total_earnings * 1.25) < 20000
+    if (self.total_earnings * 1.25) < 10000
+      0.1
+    elsif (10000..20000).include? (self.total_earnings * 1.25)
       0.09
-    elsif (20000..50000).include? (self.total_earnings * 1.25)
+    elsif (20001..50000).include? (self.total_earnings * 1.25)
       0.08
     elsif (50001..100000).include? (self.total_earnings * 1.25)
       0.07
@@ -48,12 +50,10 @@ class User < ApplicationRecord
   def current_earnings
     if (self.total_earnings * 1.25).round < 10000
       '0 - 10 000 kr'
-    elsif (10000..15000).include? (self.total_earnings * 1.25).round
-      '10 000 - 15 000 kr'
-    elsif (15001..25000).include? (self.total_earnings * 1.25).round
-      '15 000 - 25 000 kr'
-    elsif (25001..50000).include? (self.total_earnings * 1.25).round
-      '25 000 - 50 000 kr'
+    elsif (10000..20000).include? (self.total_earnings * 1.25).round
+      '10 000 - 20 000 kr'
+    elsif (20001..50000).include? (self.total_earnings * 1.25).round
+      '20 000 - 50 000 kr'
     elsif (50001..100000).include? (self.total_earnings * 1.25).round
       '50 000 - 100 000 kr'
     elsif (100001..250000).include? (self.total_earnings * 1.25).round
