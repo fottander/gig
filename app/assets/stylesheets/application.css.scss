@@ -44,7 +44,7 @@ input[type='file'] {
 
 #notice-wrapper {
   width: 100%;
-  background: rgba(65, 218, 81, 0.85);
+  background: rgba(61, 181, 230, 0.85);
 }
 #notice-wrapper .notice {
   text-align: center;
@@ -83,38 +83,38 @@ input[type='file'] {
   }
 
   a:hover, a:focus {
-    color: #37a000; }
+    color: black; }
 
   h3 {
     margin-left: 40px;
     margin-right: 40px;
-    color: #37a000;
+    color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   .post-title h3 {
-    color: #37a000;
+    color: #3db5e6;
     margin-left: 0px;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   .feedback-title  {
-    color: #37a000;
+    color: #3db5e6;
     margin-left: 30px;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   h2 {
-    color: #37a000;
+    color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   h4 {
-    color: #37a000;
+    color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -217,7 +217,7 @@ input[type='file'] {
  /* Buttons & filter*/
 
  .button-green {
-     background: #41DA51;
+     background: #3db5e6;
      color: #fff;
      display: inline-block;
      text-align: center;
@@ -295,7 +295,7 @@ input[type='file'] {
  }
 
  .reply-button {
-   background: #41DA51;
+   background: #3db5e6;
    color: #fff;
    display: inline-block;
    text-align: center;
@@ -341,7 +341,7 @@ input[type='file'] {
  }
 
  .reply-button-expand {
-   background: #41DA51;
+   background: #3db5e6;
    color: #fff;
    display: block;
    text-align: center;
@@ -370,7 +370,7 @@ input[type='file'] {
  }
 
  .filter-button {
-   background: #41DA51;
+   background: #3db5e6;
    color: #fff;
    text-align: center;
    text-transform: uppercase;
@@ -398,7 +398,7 @@ input[type='file'] {
 
  .pagination .current {
     padding: 0.1875rem 0.625rem;
-    background: #41DA51;
+    background: #3db5e6;
     border-radius: 1rem;
     color: #fefefe;
     cursor: default;
@@ -705,29 +705,29 @@ input[type='file'] {
 }
 
 .progress-indicator > li.is-complete {
-  color: #41DA51;
+  color: #3db5e6;
 }
 
 .progress-indicator > li.is-complete::before, .progress-indicator > li.is-complete::after {
   color: #fefefe;
-  background: #41DA51;
+  background: #3db5e6;
 }
 
 .progress-indicator > li.is-complete span {
-  color: #41DA51;
+  color: #3db5e6;
 }
 
 .progress-indicator > li.is-current {
-  color: #8ED996;
+  color: #91DFFF;
 }
 
 .progress-indicator > li.is-current::before {
   color: #fefefe;
-  background: #8ED996;
+  background: #91DFFF;
 }
 
 .progress-indicator > li.is-current span {
-  color: #8ED996;
+  color: #91DFFF;
 }
 
 .progress-indicator > li.is-complete-free {
@@ -759,29 +759,28 @@ input[type='file'] {
  /* NEW NAV BAR */
 
 #logo{
-
 	float: left;
-	width: 180px;
-	height: 43px;
+	width: 176px;
+	height: 37px;
 	display: block;
-  background-image: image-url('logo-anewbiz.png')
+  background-image: image-url('anewbiz-logo.png')
 }
 
 .topbar-responsive {
-  background: #ffff;
+  background: #3db5e6;
   padding-right: 1rem;
-  margin-bottom: -0.8rem;
-  margin-top: -0.5rem;
 }
 
 .topbar-responsive .topbar-responsive-logo {
-  color: black;
+  color: #fefefe;
   vertical-align: middle;
   margin-left: 20px;
+  margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 .topbar-responsive .menu {
-  background: #ffff;
+  background: #3db5e6;
 }
 
 .topbar-responsive .menu li:last-of-type {
@@ -789,13 +788,13 @@ input[type='file'] {
 }
 
 .topbar-responsive .menu a {
-  color: black;
+  color: #fefefe;
   transition: color 0.15s ease-in;
   margin-right: 15px;
 }
 
 .topbar-responsive .menu a:hover {
-  color: #37a000;
+  color: black;
 }
 
 @media screen and (max-width: 39.9375em) {
@@ -805,15 +804,15 @@ input[type='file'] {
 }
 
 .topbar-responsive .menu .topbar-responsive-button {
-  color: black;
-  border-color: black;
+  color: #fefefe;
+  border-color: #fefefe;
   border-radius: 5000px;
   transition: color 0.15s ease-in, border-color 0.15s ease-in;
 }
 
 .topbar-responsive .menu .topbar-responsive-button:hover {
-  color: #37a000;
-  border-color: #37a000;
+  color: black;
+  border-color: black;
 }
 
 @media screen and (max-width: 39.9375em) {
@@ -824,6 +823,12 @@ input[type='file'] {
 }
 
 @media screen and (max-width: 39.9375em) {
+  .topbar-responsive .topbar-responsive-logo {
+    margin-left: 25%;
+    margin-top: -5px;
+    margin-bottom: -5px;
+  }
+
   .topbar-responsive {
     padding: 0.75rem;
   }
@@ -834,7 +839,7 @@ input[type='file'] {
   .topbar-responsive .top-bar-title span {
     position: absolute;
     right: 0;
-    border: 1px solid black;
+    border: 1px solid #fefefe;
     border-radius: 5px;
     padding: 0.25rem 0.45rem;
     top: 50%;
@@ -844,7 +849,6 @@ input[type='file'] {
   }
   .topbar-responsive .top-bar-title span .menu-icon {
     margin-bottom: 2px;
-    background: black;
   }
 }
 
@@ -1284,7 +1288,7 @@ input[type='file'] {
 }
 
 .profile-card-action-icons .card-section .profile-card-about .profile-card-about-title {
-  color: #37a000;
+  color: #3db5e6;
 }
 
 /* SHOW JOB AD & APPLY & DASHBOARDS */
@@ -1343,7 +1347,7 @@ input[type='file'] {
 }
 
 .portfolio-resume-notice-items a {
-  color: #37a000;
+  color: #3db5e6;
   font-size: 11px;
   font-weight: normal;
   letter-spacing: 0.1px;
@@ -1351,7 +1355,7 @@ input[type='file'] {
 }
 
 .notification-link {
-  color: #37a000;
+  color: #3db5e6;
 }
 
 .portfolio-resume-subheader-sub {
@@ -1400,7 +1404,7 @@ input[type='file'] {
 }
 
 .timeline::before {
-  background: #41DA51;
+  background: #3db5e6;
   content: '';
   height: 100%;
   left: 50%;
@@ -1433,7 +1437,7 @@ input[type='file'] {
 }
 
 .timeline .timeline-item .timeline-icon {
-  background: #41DA51;
+  background: #3db5e6;
   border-radius: 50%;
   height: 60px;
   left: 50%;
