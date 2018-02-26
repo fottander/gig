@@ -9,15 +9,15 @@
         <%= f.hidden_field :reset_password_token %>
 
         <div class="field">
-          <%= f.label :password, "Nytt lösenord" %>
+          <%= f.label :password, "Nytt lösenord", class: 'form-text' %>
           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <em>(<%= @minimum_password_length %> tecken minimum)</em><br />
           <% end %>
           <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, "Bekräfta nytt lösenord" %>
+          <%= f.label :password_confirmation, "Bekräfta nytt lösenord", class: 'form-text' %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
