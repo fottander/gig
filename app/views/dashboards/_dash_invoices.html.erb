@@ -2,9 +2,7 @@
 <% if @invoices.present? %>
   <% @invoices.each do |invoice| %>
     <p class="portfolio-resume-subheader">
-      <% @jobs.where(id: invoice.job_id).each do |job| %>
-        <%= link_to job.title, job_path(job.id) %><br>
-      <% end %>
+      <%= link_to invoice.job_title, job_path(invoice.job_id) %><br>
       Faktura ID: <%= invoice.id.first(8) %> <br>
       Jobb ID: <%= invoice.job_id %> <br>
       Ansöknings ID: <%= invoice.application_id %> <br>

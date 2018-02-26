@@ -11,8 +11,8 @@ Feature: Extend invoice with post or email
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | company_id | updated_at | paid | user_id |
-      | abc         | 120    | felix          | 30    | false  | 1          | 2017-11-01 | false| 1       |
+      | description | amount | user_reference | terms | active |id | company_id | user_id | job_id | job_title    | updated_at | paid  |
+      | abc         | 120    | felix          | 30    | false  | 1 | 1          | 1       | 1      | Målare sökes | 2017-11-01 | false |
 
     Scenario: I extend invoice with post
       Given I am logged in as company "felix@mail.com"

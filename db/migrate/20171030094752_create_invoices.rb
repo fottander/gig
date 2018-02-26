@@ -10,6 +10,7 @@ class CreateInvoices < ActiveRecord::Migration[5.1]
       t.string :ocr_number
       t.string :user_reference
       t.string :company_reference
+      t.string :job_title
       t.float :user_fee
       t.integer :terms, default: 30
       t.boolean :paid, default: false

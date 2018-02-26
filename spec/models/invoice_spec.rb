@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Invoice, type: :model do
+
+  before(:all) do
+    Company.destroy_all
+    create(:company, name: 'bygg ab', id: 100)
+    User.destroy_all
+    create(:user, email: 'greger@greger.se', id: 100)
+  end
+
   describe 'DB table' do
     it { is_expected.to have_db_column :description }
     it { is_expected.to have_db_column(:unit).of_type(:integer) }
@@ -20,6 +28,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column(:post).of_type(:boolean) }
     it { is_expected.to have_db_column :application_id }
     it { is_expected.to have_db_column :job_id }
+    it { is_expected.to have_db_column :job_title }
     it { is_expected.to have_db_column :profile_id }
     it { is_expected.to have_db_column :profile_username }
   end
@@ -28,6 +37,14 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :amount }
     it { is_expected.to validate_presence_of :user_reference }
+    it { is_expected.to validate_presence_of :user_id }
+    it { is_expected.to validate_presence_of :job_id }
+    it { is_expected.to validate_presence_of :job_title }
+    it { is_expected.to validate_presence_of :company_id }
+    it { is_expected.to validate_presence_of :application_id }
+    it { is_expected.to validate_presence_of :user_fee }
+    it { is_expected.to validate_presence_of :profile_id }
+    it { is_expected.to validate_presence_of :profile_username }
   end
 
   describe 'Associations' do
@@ -37,7 +54,7 @@ RSpec.describe Invoice, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:invoice)).to be_valid
+      expect(create(:invoice, company_id: 100, user_id: 100)).to be_valid
     end
   end
 end

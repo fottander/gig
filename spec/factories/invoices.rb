@@ -9,6 +9,11 @@ FactoryGirl.define do
     user_reference "MyString"
     company_reference "MyString"
     ocr_number "MyString"
-    user_fee 0.09
+    user_fee 0.1
+    job_id 1
+    application_id 1
+    job_title "MyString"
+    profile_id 1
+    profile_username "MyString"
   end
 end

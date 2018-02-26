@@ -20,15 +20,15 @@ Feature: Extend invoice and add feedback
       | username | title        | description | category_ids | city_ids | user_id | id   |
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | company_id | user_id |
-      | abc         | 120    | felix          | 30    | false  | 1          | 9999    |
+      | description | amount | user_reference | terms | active |id | company_id | user_id | profile_id | job_id | job_title    |
+      | abc         | 120    | felix          | 30    | false  | 1 | 1          | 9999    | 9999       | 1      | Målare sökes |
 
     Scenario: I give feedback
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I click "Visa"
       And I should see "abc"
-      And I should see "Vill du rekommendera till andra"
+      And I should see "Vill du rekommendera"
       And I fill in "feedback" with "Väldigt bra snubbe"
       And I check Terms check box
       And I check Post check box

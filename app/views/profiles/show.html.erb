@@ -46,7 +46,7 @@
         <div class="profile-card-about-feed">
           <% @profile.user.invoices.each do |invoice| %>
             <% if invoice.feedback? %>
-              <div class='profile-card-about-title-message'>Jobb ID: <%= invoice.job_id %></div>
+              <div class='profile-card-about-title-message'><%= invoice.job_title %></div>
               <div class="profile-card-about-feed-message">
               <%= invoice.updated_at.strftime("%Y %B") %><br>
               <%= invoice.feedback %>

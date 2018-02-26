@@ -188,6 +188,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "ocr_number"
     t.string "user_reference"
     t.string "company_reference"
+    t.string "job_title"
     t.float "user_fee"
     t.integer "terms", default: 30
     t.boolean "paid", default: false
@@ -203,11 +204,8 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "profile_username"
     t.boolean "post", default: false
     t.text "feedback"
-    t.index ["application_id"], name: "index_invoices_on_application_id"
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
-    t.index ["job_id"], name: "index_invoices_on_job_id"
-    t.index ["profile_id"], name: "index_invoices_on_profile_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 

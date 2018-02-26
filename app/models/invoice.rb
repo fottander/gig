@@ -1,7 +1,7 @@
 class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
-  validates_presence_of :description, :amount, :user_reference
+  validates_presence_of :description, :amount, :user_reference, :user_id, :user_fee, :company_id, :job_id, :job_title, :profile_id, :profile_username, :application_id
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
   validates :amount, numericality: { only_integer: true }
