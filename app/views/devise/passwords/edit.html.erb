@@ -2,14 +2,14 @@
   <div class="row collapse expanded">
     <div class="small-12 medium-6 column small-order-2 medium-order-1">
       <div class="login-box-form-section">
-      <h2>Ändra ditt lösenord?</h2>
+      <h2>Ändra lösenord?</h2>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
         <%= f.hidden_field :reset_password_token %>
 
         <div class="field">
-          <%= f.label :password, "New password" %><br />
+          <%= f.label :password, "Nytt lösenord" %>
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em><br />
           <% end %>
@@ -17,12 +17,12 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, "Confirm new password" %><br />
+          <%= f.label :password_confirmation, "Bekräfta nytt lösenord" %>
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Change my password" %>
+          <%= f.submit "Ändra mitt lösenord", class: 'reply-button' %>
         </div>
       <% end %>
 
