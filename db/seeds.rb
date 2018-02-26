@@ -142,7 +142,7 @@ Job.create(
   budget: "150kr/timma",
   deadline: "2019-01-01",
   duration: "2veckor",
-  hour_week: "45",
+  hour_week: "8",
   company_id: 99999,
   company_username: "Greger",
   id: 99999
@@ -157,7 +157,7 @@ Job.create(
   budget: "Ej specificerat",
   deadline: "2019-01-01",
   duration: "3 månader",
-  hour_week: "45",
+  hour_week: "5",
   company_id: 99999,
   company_username: "Greger",
   id: 99998
@@ -172,7 +172,7 @@ Job.create(
   budget: "150kr/timma",
   deadline: "2019-01-01",
   duration: "2 månader",
-  hour_week: "45",
+  hour_week: "8",
   company_id: 99998,
   company_username: "Anders P",
   id: 99997
@@ -187,7 +187,7 @@ Job.create(
   budget: "Ej specificerat",
   deadline: "2019-01-01",
   duration: "3 veckor",
-  hour_week: "50",
+  hour_week: 9,
   company_id: 99998,
   company_username: "Anders P",
   id: 99996

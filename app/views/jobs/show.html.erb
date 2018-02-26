@@ -15,19 +15,19 @@
             Kategorier: <%= @job.categories.pluck(:name).flatten.join(' & ') %>
           </li>
           <li>
+            Sista ansökningsdag: <%= @job.deadline%>
+          </li>
+          <li>
             Krav: <%= @job.requirement %>
           </li>
           <li>
-            Varaktighet: <%= @job.duration %>
+            Dagar/veckor/månader: <%= @job.duration %>
+          </li>
+          <li>
+            Timmar per dag: <%= @job.hour_week %>
           </li>
           <li>
             Lön: <%= @job.budget %>
-          </li>
-          <li>
-            Timmar/dag: <%= @job.hour_week %>
-          </li>
-          <li>
-            Sista ansökningsdag: <%= @job.deadline%>
           </li>
         </ul>
       </div>

@@ -53,7 +53,7 @@
       </div>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
       <%= f.text_field :deadline, value: @job.deadline %>
-      <%= f.label :duration, 'Varaktighet', class: 'form-text' %>
+      <%= f.label :duration, 'Dagar/veckor/månader', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :duration, value: @job.duration %>
         <div class="fieldInfo">
@@ -61,7 +61,7 @@
           Vid tillsvidare anställning krävs ingen varaktighet men ange ungefärlig period. Vid provanställning måste tidsspann anges i dagar, veckor eller månader(max 6 månader).
         </div>
       </div>
-      <%= f.label :hour_week, 'Timmar/dag', class: 'form-text' %>
+      <%= f.label :hour_week, 'Timmar per dag', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :hour_week, value: @job.hour_week %>
         <div class="fieldInfo">

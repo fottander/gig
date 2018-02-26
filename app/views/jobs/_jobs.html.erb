@@ -45,7 +45,7 @@
                 </div>
                 <div class='large-2 columns'>
                   <span style='font-weight: 550;'>
-                    Varaktighet:
+                    Dagar/veckor/månader:
                   </span>
                   <% if job.duration.length > 30 %>
                     <%= truncate(job.duration, length: 30) %>
@@ -54,7 +54,7 @@
                   <% end %>
                 </div>
                 <div class='large-2 columns'>
-                  <span style='font-weight: 550;'>Timmar/dag:</span> <%= job.hour_week %>
+                  <span style='font-weight: 550;'>Timmar per dag:</span> <%= job.hour_week %>
                 </div>
                 <div class='large-2 columns'>
                   <span style='font-weight: 550;'>Lön:</span> <%= job.budget %>
