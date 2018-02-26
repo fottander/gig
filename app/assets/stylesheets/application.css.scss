@@ -16,8 +16,6 @@
 
  */
 
- /* more green #37a000 */
-
 @import 'foundation-icons';
 
 .fieldInfo {
@@ -91,33 +89,33 @@ input[type='file'] {
   h3 {
     margin-left: 40px;
     margin-right: 40px;
-    color: #41DA51;
+    color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   .post-title h3 {
-    color: #41DA51;
+    color: #3db5e6;
     margin-left: 0px;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   .feedback-title  {
-    color: #41DA51;
+    color: #3db5e6;
     margin-left: 30px;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   h2 {
-    color: #41DA51;
+    color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
     text-transform: capitalize;
   }
 
   h4 {
-    color: #41DA51;
+    color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
   }
 
@@ -220,7 +218,7 @@ input[type='file'] {
  /* Buttons & filter*/
 
  .button-green {
-     background: #41DA51;
+     background: #3db5e6;
      color: #fff;
      display: inline-block;
      text-align: center;
@@ -298,7 +296,7 @@ input[type='file'] {
  }
 
  .reply-button {
-   background: #41DA51;
+   background: #3db5e6;
    color: #fff;
    display: inline-block;
    text-align: center;
@@ -344,7 +342,7 @@ input[type='file'] {
  }
 
  .reply-button-expand {
-   background: #41DA51;
+   background: #3db5e6;
    color: #fff;
    display: block;
    text-align: center;
@@ -373,7 +371,7 @@ input[type='file'] {
  }
 
  .filter-button {
-   background: #41DA51;
+   background: #3db5e6;
    color: #fff;
    text-align: center;
    text-transform: uppercase;
@@ -401,7 +399,7 @@ input[type='file'] {
 
  .pagination .current {
     padding: 0.1875rem 0.625rem;
-    background: #41DA51;
+    background: #3db5e6;
     border-radius: 1rem;
     color: #fefefe;
     cursor: default;
@@ -708,29 +706,29 @@ input[type='file'] {
 }
 
 .progress-indicator > li.is-complete {
-  color: #41DA51;
+  color: #3db5e6;
 }
 
 .progress-indicator > li.is-complete::before, .progress-indicator > li.is-complete::after {
   color: #fefefe;
-  background: #41DA51;
+  background: #3db5e6;
 }
 
 .progress-indicator > li.is-complete span {
-  color: #41DA51;
+  color: #3db5e6;
 }
 
 .progress-indicator > li.is-current {
-  color: #8ED996;
+  color: #91DFFF;
 }
 
 .progress-indicator > li.is-current::before {
   color: #fefefe;
-  background: #8ED996;
+  background: #91DFFF;
 }
 
 .progress-indicator > li.is-current span {
-  color: #8ED996;
+  color: #91DFFF;
 }
 
 .progress-indicator > li.is-complete-free {
@@ -770,7 +768,7 @@ input[type='file'] {
 }
 
 .topbar-responsive {
-  background: #41DA51;
+  background: #3db5e6;
   padding-right: 1rem;
 }
 
@@ -783,7 +781,7 @@ input[type='file'] {
 }
 
 .topbar-responsive .menu {
-  background: #41DA51;
+  background: #3db5e6;
 }
 
 .topbar-responsive .menu li:last-of-type {
@@ -1292,7 +1290,7 @@ input[type='file'] {
 }
 
 .profile-card-action-icons .card-section .profile-card-about .profile-card-about-title {
-  color: #41DA51;
+  color: #3db5e6;
 }
 
 /* SHOW JOB AD & APPLY & DASHBOARDS */
@@ -1351,7 +1349,7 @@ input[type='file'] {
 }
 
 .portfolio-resume-notice-items a {
-  color: #41DA51;
+  color: #3db5e6;
   font-size: 11px;
   font-weight: normal;
   letter-spacing: 0.1px;
@@ -1359,7 +1357,7 @@ input[type='file'] {
 }
 
 .notification-link {
-  color: #41DA51;
+  color: #3db5e6;
 }
 
 .portfolio-resume-subheader-sub {
@@ -1408,7 +1406,7 @@ input[type='file'] {
 }
 
 .timeline::before {
-  background: #41DA51;
+  background: #3db5e6;
   content: '';
   height: 100%;
   left: 50%;
@@ -1441,7 +1439,7 @@ input[type='file'] {
 }
 
 .timeline .timeline-item .timeline-icon {
-  background: #41DA51;
+  background: #3db5e6;
   border-radius: 50%;
   height: 60px;
   left: 50%;
