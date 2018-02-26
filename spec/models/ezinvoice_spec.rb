@@ -29,6 +29,8 @@ RSpec.describe Ezinvoice, type: :model do
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :org_number }
+    it { is_expected.to validate_presence_of :user_fee }
+    it { is_expected.to validate_presence_of :terms }
     it { is_expected.to validate_presence_of :company_name }
     it { is_expected.to validate_presence_of :company_address }
     it { is_expected.to validate_presence_of :company_zip }

@@ -37,12 +37,11 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :amount }
     it { is_expected.to validate_presence_of :user_reference }
-    it { is_expected.to validate_presence_of :user_id }
     it { is_expected.to validate_presence_of :job_id }
     it { is_expected.to validate_presence_of :job_title }
-    it { is_expected.to validate_presence_of :company_id }
     it { is_expected.to validate_presence_of :application_id }
     it { is_expected.to validate_presence_of :user_fee }
+    it { is_expected.to validate_presence_of :terms }
     it { is_expected.to validate_presence_of :profile_id }
     it { is_expected.to validate_presence_of :profile_username }
   end
