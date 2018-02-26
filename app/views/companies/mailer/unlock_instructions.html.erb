@@ -1,0 +1,7 @@
+<p>Hej <%= @resource.email %>!</p>
+
+<p>Ditt konto har blivit låst på grund av för många försök att logga in.</p>
+
+<p>Klicka på länken nedanför för att låsa upp ditt konto:</p>
+
+<p><%= link_to 'Lås upp mitt konto', unlock_url(@resource, unlock_token: @token) %></p>
