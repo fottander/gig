@@ -50,6 +50,12 @@ Feature: Apply to job
       And I fill in "Svara på ansökan" with "Hallå svara"
       And I click "Skicka"
       Then I should see "Hallå svara"
+      And I click "KONTROLLPANEL"
+      And I click "Redigera"
+      And I should see "Ändra ansökan"
+      And I fill in "Skriv en kort ansökan" with "Hello give me job"
+      And I click "Ändra"
+      Then I should see "Hello give me job"
       And I click "LOGGA UT"
       Given I am logged in as company "anders@mail.com"
       Given I am on control panel page
@@ -57,6 +63,8 @@ Feature: Apply to job
       Then I should see "Fisken skickade ett svar"
       And I click "målare sökes"
       And I click "Visa ansökan"
+      And I should see "Hello give me job"
+      And I should see "Hallå svara"
       And I click "Anställ"
       And I should see "Grattis! Du har anlitat personen."
       And I click "LOGGA UT"
@@ -94,6 +102,30 @@ Feature: Apply to job
       Given I am on control panel page
       And I should see "Fisken redigerade en faktura"
       Then I should see "Fisken skickade en ny faktura"
+
+    Scenario: I apply to job and delete the application
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the jobs page
+      And I should see "målare"
+      And I click "Ansök"
+      And I should see "Jobbdetaljer"
+      And I should see "målare sökes"
+      And I should see "Anders p"
+      And I should see "Göteborg"
+      And I click "Ansök"
+      And I should not see "Anställ"
+      And I should not see "Jobbet har genomförts!"
+      And I should not see "Diskutera & chatta"
+      And I should not see "SKAPA FAKTURA"
+      And I should see "Skapa ansökan"
+      And I fill in "Skriv en kort ansökan" with "I want job"
+      And I click "Skapa"
+      Then I should see "Ny ansökan skickad!"
+      And I click "KONTROLLPANEL"
+      Then I should see "målare sökes"
+      And I click "Redigera"
+      And I click "Radera ansökan"
+      Then I should not see "målare sökes"
 
     Scenario: I apply to a job without a profile
       Given I am on the jobs page

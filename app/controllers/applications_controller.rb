@@ -71,16 +71,16 @@ class ApplicationsController < ApplicationController
   end
 
   def edit
-    @job = Job.find(params[:id])
     @application = Application.find(params[:id])
+    @job = @application.job
   end
 
   def update
-    @job = Job.find(params[:id])
     @application = Application.find(params[:id])
+    @job = @application.job
     respond_to do |format|
       if @application.update application_update_params
-        format.html { redirect_to edit_job_application_path(@job, @application), notice: 'Ansökan ändrad' }
+        format.html { redirect_to edit_job_application_path(@application.job, @application), notice: 'Ansökan ändrad' }
         format.json { render :edit, status: :ok, location: @application }
       else
         format.html { render :edit }
@@ -94,7 +94,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     if @application.destroy
       flash[:notice] = "Ansökan raderad!"
-      redirect_back(fallback_location: dashboards_path)
+      redirect_to dashboards_path
     end
   end
 
