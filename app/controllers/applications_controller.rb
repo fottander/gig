@@ -54,7 +54,7 @@ class ApplicationsController < ApplicationController
     end
   end
 
-  def update
+  def hire
     @application = Application.find(params[:id])
     @application.company_id = current_company.id
     @application.hired = true

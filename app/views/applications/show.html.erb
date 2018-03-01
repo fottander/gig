@@ -82,7 +82,7 @@
       </p>
       <% if current_company.present? %>
         <% if @job.company_id == current_company.id %>
-          <%= link_to 'Anställ', job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+          <%= link_to 'Anställ', hire_job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
         <% end %>
       <% end %>
     <% end %>
