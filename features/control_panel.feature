@@ -56,7 +56,7 @@ Feature: Company control panel
       Given I am on the jobs page
       And I should see "målare sökes"
       And I click "KONTROLLPANEL"
-      And I click job "1" button "Redigera jobb"
+      And I click job "1" button "Redigera"
       And I should see "Redigera annons"
       And I uncheck Active check box
       And I click "Spara"

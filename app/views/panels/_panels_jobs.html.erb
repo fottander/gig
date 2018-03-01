@@ -16,8 +16,8 @@
           <p class="dash-active", style="color: red;">Inaktivt</p>
         <% end %>
       </p>
-      <%= link_to 'Redigera jobb', edit_job_path(job), class: 'button-green' %>
-      <%= link_to 'Radera', job_path(job), data: { confirm: "Är du säker? Det kommer även radera alla ansökningar." }, method: :delete, class: 'button-orange' %>
+      <%= link_to 'Visa annons', job_path(job), class: 'button-green' %>
+      <%= link_to 'Redigera', edit_job_path(job), class: 'button-orange' %>
     </div>
   <% end %>
 <% else %>

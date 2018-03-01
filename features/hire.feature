@@ -32,7 +32,7 @@ Feature: A company hires a person
     Scenario: I hire a profile
       Given I am logged in as company "greger@mail.com"
       Given I am on control panel page
-      And I click "målare sökes"
+      And I click "Visa annons"
       And I should see "Fisken"
       And I click "Visa"
       And I should see "I want job"
