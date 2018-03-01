@@ -84,7 +84,8 @@ input[type='file'] {
   }
 
   a:hover, a:focus {
-    color: black; }
+    color: black;
+  }
 
   h3 {
     margin-left: 40px;
@@ -276,7 +277,6 @@ input[type='file'] {
    padding-right: 30px;
    padding-top: 5px;
    padding-bottom: 10px;
-
  }
 
  .empty-filter {
@@ -295,6 +295,10 @@ input[type='file'] {
    transition: color .3s,border .3s;
  }
 
+ .empty-filter:hover {
+   color: black;
+ }
+
  .reply-button {
    background: #3db5e6;
    color: #fff;
@@ -310,6 +314,10 @@ input[type='file'] {
    border: none;
  }
 
+ .reply-button:hover {
+   color: black;
+ }
+
  .profile-button {
    background: #f77d0e;
    color: #fff;
@@ -323,6 +331,10 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 1rem 1.75rem 1rem;
    border: none;
+ }
+
+ .profile-button:hover {
+   color: black;
  }
 
  .profile-button-expand {
@@ -382,6 +394,10 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 0.7rem 1.5rem 0.7rem;
    border: none;
+ }
+
+ .filter-button:hover {
+   color: black;
  }
 
  /* PAGINATE */

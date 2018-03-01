@@ -29,7 +29,8 @@
               I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför en ansökan baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
             </div>
           </div>
-          <%= f.submit 'Spara', class: 'reply-button' %>
+          <%= f.submit 'Ändra', class: 'reply-button' %>
+          <%= link_to 'Radera ansökan', job_application_path(@job, @application), data: { confirm: "Är du säker?" }, method: :delete, class: 'profile-button' %>
           <% end %>
         <% end %>
       <% end %>
