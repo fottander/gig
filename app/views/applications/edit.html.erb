@@ -1,0 +1,39 @@
+<div class="holy-grail-grid">
+  <div class="holy-grail-left-application">
+    <div class='holy-grail-left-application-box'>
+      <div class='holy-grail-left-application-box-title'>
+        TIPS FÖR EN BRA ANSÖKAN <br>
+      </div>
+      Hur utförlig din ansökan skrivs och hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
+      Kontaktinformation ska ej finnas med i ansökan.
+    </div>
+  </div>
+  <div class="holy-grail-middle">
+    <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+    <div class="simple-form">
+      <div class='post-title'><h3>Ändra ansökan</h3></div>
+      <% if current_user.profile.present? %>
+        <% if current_user.profile == @application.profile %>
+          <%= form_for ([@job, @application]) do |f| %>
+          <% if @application.errors.any? %>
+            <% @application.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          <% end %>
+          <div class="fieldContainer">
+            <%= f.text_area :message, placeholder: 'Skriv en kort ansökan' %>
+            <div class="fieldInfo">
+              Tips <br>
+              I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför en ansökan baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+            </div>
+          </div>
+          <%= f.submit 'Ändra', class: 'reply-button' %>
+          <%= link_to 'Radera ansökan', job_application_path(@job, @application), data: { confirm: "Är du säker?" }, method: :delete, class: 'profile-button' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

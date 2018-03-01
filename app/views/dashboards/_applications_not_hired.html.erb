@@ -8,7 +8,7 @@
       <span style='color: green;'>Antal svar: <%= application.comments.count %></span>
     </div>
     <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
-    <%= link_to 'Radera', job_application_path(application.job_id, application.id), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
+    <%= link_to 'Redigera', edit_job_application_path(application.job_id, application.id), class: 'button-orange' %>
   <% end %>
 <% else %>
   <strong>Inga aktiva ansökningar</strong><br>

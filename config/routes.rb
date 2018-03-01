@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update] do
     resources :applications, except: [:index] do
       member do
-        patch :update
+        patch :hire
       end
       resources :comments, only: [:create]
     end
