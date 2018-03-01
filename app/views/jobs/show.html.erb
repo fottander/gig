@@ -68,9 +68,9 @@
           Antal genomförda jobb: <%= @job.company.invoice_count %>
           <p>Stad: <%= @job.company.city %></p>
         </div>
+        <%= image_tag @job.categories.first.avatar.url, class: "avatar-image", style: 'height: 100px;' %>
       </div>
     </div>
-
     <% if current_company.present? %>
       <% if @job.company_id == current_company.id %>
       <div class="large-3 columns">
