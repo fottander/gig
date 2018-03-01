@@ -59,7 +59,7 @@ Rails.application.routes.draw do
 
   resources :filter_applications, only: [:index]
 
-  resources :jobs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+  resources :jobs, only: [:index, :new, :create, :show, :edit, :update] do
     resources :applications, except: [:index] do
       member do
         patch :update

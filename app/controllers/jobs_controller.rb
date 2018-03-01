@@ -59,14 +59,6 @@ class JobsController < ApplicationController
     end
   end
 
-  def destroy
-    @job = Job.find(params[:id])
-    if @job.destroy
-      flash[:notice] = "Jobb raderat!"
-      redirect_back(fallback_location: panels_path)
-    end
-  end
-
   private
 
   def job_params
