@@ -18,11 +18,33 @@
       <% if current_user.present? %>
         <% if @application.profile_id == current_user.profile.id %>
           Ansökan: <br>
-          <%= @application.message %>
+          <% if @application.message.length > 200 %>
+            <span class='truncated-paragraph-<%= @application.id %>'>
+              <%= truncate(@application.message, length: 200) %>
+              <%= link_to '..visa mer', '', class: "read-more-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
+            </span>
+            <span class='normal-paragraph-<%= @application.id %>' style="display: none;">
+              <%= @application.message %>
+              <%= link_to '..dölj', '', class: "read-less-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
+            </span>
+          <% else %>
+            <%= @application.message %>
+          <% end %>
         <% end %>
       <% elsif @job.company_id == current_company.id %>
         Ansökan: <br>
-        <%= @application.message %>
+        <% if @application.message.length > 200 %>
+          <span class='truncated-paragraph-<%= @application.id %>'>
+            <%= truncate(@application.message, length: 200) %>
+            <%= link_to '..visa mer', '', class: "read-more-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
+          </span>
+          <span class='normal-paragraph-<%= @application.id %>' style="display: none;">
+            <%= @application.message %>
+            <%= link_to '..dölj', '', class: "read-less-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
+          </span>
+        <% else %>
+          <%= @application.message %>
+        <% end %>
       <% end %>
     </div>
   </div>
