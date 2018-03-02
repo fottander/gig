@@ -50,8 +50,12 @@
           <h3 class="portfolio-resume-header">Aviseringar</h3>
           <% if current_user.sign_in_count == 1 %>
             <span style='font-size: 16px; color: #f77d0e;'>Välkommen till A New Biz!</span><br>
-            <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
-            <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
+            <% if current_user.profile.present? %>
+              <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att söka jobb</span>
+            <% else %>
+              <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
+              <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
+            <% end %>
           <% end %>
           <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Totalt fakturerat: <span style='color: #3db5e6;'>
             <% if current_user.profile.present? %>
