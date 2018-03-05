@@ -7,17 +7,22 @@
   <div class="card-section">
     <div class="profile-card-header">
       <div class="profile-card-avatar">
-        <%= image_tag @application.profile.avatar.url, class: "avatar-image" %>
+        <%= link_to image_tag(@application.profile.avatar.url, class: "avatar-image"), profile_path(@application.profile_id) %>
       </div>
       <div class="profile-card-author">
         <h5 class="author-title"><%= link_to @application.profile_username, profile_path(@application.profile_id) %></h5>
-        <%= @application.profile.title %>
+        <%= @application.profile.title %><br>
+        <% if @application.hired == true %>
+          <% if @application.complete == false %>
+            <%= link_to 'Tidrapportera', root_path, class: 'button-orange', style:'padding-bottom: 2px;' %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="profile-card-about-message-2">
       <% if current_user.present? %>
         <% if @application.profile_id == current_user.profile.id %>
-          Ansökan: <br>
+          Ansökan:<br>
           <% if @application.message.length > 170 %>
             <span class='truncated-paragraph-<%= @application.id %>'>
               <%= truncate(@application.message, length: 170) %>
@@ -32,7 +37,9 @@
           <% end %>
         <% end %>
       <% elsif @job.company_id == current_company.id %>
-        Ansökan: <br>
+        <div style="background-color: #3db5e6; padding: 5px; margin-left: -10px; margin-right: -10px; margin-top: -3px; text-align: center;">
+          <span style='color: white; font-weight: 700;'>Ansökan</span><br>
+        </div>
         <% if @application.message.length > 170 %>
           <span class='truncated-paragraph-<%= @application.id %>'>
             <%= truncate(@application.message, length: 170) %>
@@ -124,7 +131,7 @@
             <hr>
             <% end %>
           <% else %>
-            <p>Inga svar ännu</p>
+            <span>Inga svar ännu</span>
           <% end %>
           <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
             <%= label_tag :comment, 'Svara på ansökan' %>
