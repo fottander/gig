@@ -18,7 +18,7 @@
       <div class='application-title'>
         <span style='color: white; font-weight: 700;'>Ansökan</span><br>
       </div>
-      <div style='text-align: center;'>
+      <div style='text-align: center; margin-top: 10px;'>
         <% if current_user.present? %>
           <% if @application.profile_id == current_user.profile.id %>
             <% if @application.message.length > 160 %>
