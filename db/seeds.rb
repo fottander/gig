@@ -200,6 +200,8 @@ Job.create(
 Application.create(
   id: 99999,
   message: "Hello I want job please",
+  first_day: "2017-09-17",
+  last_day: "2017-09-27",
   hired: true,
   complete: true,
   created_at: "2017-11-09 09:58:53",
@@ -214,6 +216,8 @@ Application.create(
 Application.create(
   id: 99998,
   message: "Hej jag kan jobba bra!!",
+  first_day: "2017-09-17",
+  last_day: "2017-09-27",
   hired: true,
   complete: false,
   created_at: "2017-09-09 09:58:53",
@@ -228,6 +232,8 @@ Application.create(
 Application.create(
 id: 99997,
 message: "Hej jag tror jag passar för detta kan börja redan måndag",
+first_day: "2017-09-17",
+last_day: "2017-09-27",
 hired: true,
 complete: false,
 created_at: "2017-11-07 15:45:50",
@@ -242,6 +248,8 @@ job_title: "Vi söker snickare för 3 månader"
 Application.create(
   id: 99996,
   message: "Hej ge mig jobbet nu!",
+  first_day: "2017-09-17",
+  last_day: "2017-09-27",
   hired: false,
   complete: false,
   created_at: "2017-09-07 15:45:50",
