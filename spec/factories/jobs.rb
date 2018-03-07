@@ -1,11 +1,12 @@
 FactoryGirl.define do
   factory :job do
-    title "Mytitle"
-    description "Mydesc"
-    requirement "Myreq"
-    budget "Mybudget"
+    title "MyString"
+    description "MyString"
+    requirement "MyString"
+    budget "MyString"
     deadline "2017-10-11"
-    duration "Mydur"
-    hour_week 1
+    duration "MyString"
+    when_in_time "MyString"
+    hour_day 1
   end
 end

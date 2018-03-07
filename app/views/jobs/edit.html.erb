@@ -53,6 +53,14 @@
       </div>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
       <%= f.text_field :deadline, value: @job.deadline %>
+      <%= f.label :when_in_time, 'När', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :when_in_time, value: @job.when_in_time %>
+          <div class="fieldInfo">
+            Tips <br>
+            Ange "så fort som möjligt" eller datum.
+          </div>
+        </div>
       <%= f.label :duration, 'Dagar/veckor/månader', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :duration, value: @job.duration %>
@@ -63,7 +71,7 @@
       </div>
       <%= f.label :hour_week, 'Timmar per dag', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_field :hour_week, value: @job.hour_week %>
+        <%= f.text_field :hour_week, value: @job.hour_day %>
         <div class="fieldInfo">
           Tips <br>
           Vid projekt kan detta fält lämnas blankt. Annars anges jobbtimmar per dag.

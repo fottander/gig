@@ -60,17 +60,25 @@
       </div>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
       <%= f.date_field :deadline, class: 'input-mini'  %>
+      <%= f.label :when_in_time, 'När', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :when_in_time, placeholder: 'När ska den anställde arbeta?' %>
+          <div class="fieldInfo">
+            Tips <br>
+            Ange "så fort som möjligt" eller datum.
+          </div>
+        </div>
       <%= f.label :duration, 'Dagar/veckor/månader', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_field :duration, placeholder: 'Antal dagar/veckor/månader ni behöver personen?' %>
+        <%= f.text_field :duration, placeholder: 'Antal dagar/veckor/månader ni behöver personen.' %>
         <div class="fieldInfo">
           Tips <br>
-          Vid tillsvidare anställning krävs ingen varaktighet men ange ungefärlig period. Vid provanställning måste tidsspann anges i dagar, veckor eller månader(max 6 månader).
+          Ange ungefärlig längd för jobbet i dagar/veckor eller månader.
         </div>
       </div>
-      <%= f.label :hour_week, 'Timmar per dag', class: 'form-text' %>
+      <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_field :hour_week, placeholder: 'Hur många jobbtimmar per dag?' %>
+        <%= f.text_field :hour_day, placeholder: 'Hur många jobbtimmar per dag?' %>
         <div class="fieldInfo">
           Tips <br>
           Vid projekt kan detta fält lämnas blankt. Annars anges hur många jobbtimmar per dag.

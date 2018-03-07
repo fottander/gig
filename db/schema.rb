@@ -215,8 +215,9 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "requirement"
     t.string "budget"
     t.date "deadline"
+    t.string "when_in_time"
     t.string "duration"
-    t.integer "hour_week"
+    t.integer "hour_day"
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

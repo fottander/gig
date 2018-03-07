@@ -141,8 +141,9 @@ Job.create(
   city_ids: 50,
   budget: "150kr/timma",
   deadline: "2019-01-01",
+  when_in_time: "Asap",
   duration: "2veckor",
-  hour_week: "8",
+  hour_day: 8,
   company_id: 99999,
   company_username: "Greger",
   id: 99999
@@ -156,8 +157,9 @@ Job.create(
   city_ids: 50,
   budget: "Ej specificerat",
   deadline: "2019-01-01",
+  when_in_time: "Asap",
   duration: "3 månader",
-  hour_week: "5",
+  hour_day: 5,
   company_id: 99999,
   company_username: "Greger",
   id: 99998
@@ -171,8 +173,9 @@ Job.create(
   city_ids: 50,
   budget: "150kr/timma",
   deadline: "2019-01-01",
+  when_in_time: "Asap",
   duration: "2 månader",
-  hour_week: "8",
+  hour_day: 8,
   company_id: 99998,
   company_username: "Anders P",
   id: 99997
@@ -186,8 +189,9 @@ Job.create(
   city_ids: 50,
   budget: "Ej specificerat",
   deadline: "2019-01-01",
+  when_in_time: "Asap",
   duration: "3 veckor",
-  hour_week: 9,
+  hour_day: 9,
   company_id: 99998,
   company_username: "Anders P",
   id: 99996
