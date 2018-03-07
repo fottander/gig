@@ -1,5 +1,5 @@
 class Job < ApplicationRecord
-  validates_presence_of :title, :description, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_week
+  validates_presence_of :title, :description, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time
   validates_length_of :title, maximum: 50
   belongs_to :company
   has_many :applications, dependent: :destroy

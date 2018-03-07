@@ -18,7 +18,8 @@ RSpec.describe Job, type: :model do
     it { is_expected.to have_db_column :budget }
     it { is_expected.to have_db_column :deadline }
     it { is_expected.to have_db_column :duration }
-    it { is_expected.to have_db_column :hour_week }
+    it { is_expected.to have_db_column :when_in_time }
+    it { is_expected.to have_db_column :hour_day }
     it { is_expected.to have_db_column(:active).of_type(:boolean) }
     it { is_expected.to have_db_column :company_id }
     it { is_expected.to have_db_column :company_city }
@@ -31,7 +32,8 @@ RSpec.describe Job, type: :model do
     it { is_expected.to validate_presence_of :budget }
     it { is_expected.to validate_presence_of :deadline }
     it { is_expected.to validate_presence_of :duration }
-    it { is_expected.to validate_presence_of :hour_week }
+    it { is_expected.to validate_presence_of :when_in_time }
+    it { is_expected.to validate_presence_of :hour_day }
     it { is_expected.to validate_presence_of :category_ids }
     it { is_expected.to validate_presence_of :city_ids }
     it { should validate_length_of(:title).is_at_most(50) }

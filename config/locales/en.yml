@@ -61,8 +61,9 @@ en:
         city_ids: 'Stad'
         budget: 'Budget'
         deadline: 'Sista ansökningsdag'
+        when_in_time: 'När'
         duration: 'Varaktighet'
-        hour_week: 'Timmar'
+        hour_day: 'Timmar'
         requirement: 'Krav'
       user:
         current_password: 'Nuvarande lösenord'
@@ -195,9 +196,11 @@ en:
               blank: "kan inte vara blankt!"
             deadline:
               blank: "kan inte vara blankt!"
+            when_in_time:
+              blank: "kan inte vara blankt!"
             duration:
               blank: "kan inte vara blankt!"
-            hour_week:
+            hour_day:
               blank: "kan inte vara blankt!"
 
         profile:
