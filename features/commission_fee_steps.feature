@@ -5,8 +5,8 @@ Feature: Commission fee steps
 
 Background:
   Given the following users exist
-    | email           | password  | password_confirmation | id |
-    | felix@mail.com  | 12345678  | 12345678              | 1  |
+    | email           | password  | password_confirmation | id | first_name | last_name |
+    | felix@mail.com  | 12345678  | 12345678              | 1  | felix      | ottander  |
   Given the following categories exist
     | name        | id |
     | Målare      | 1  |
@@ -39,15 +39,11 @@ Background:
     Then I should see "Din nuvarande avgift är 10.0%. Läs mer om våra avgifter."
     Given I am on the dashboards page
     And I click "Visa ansökan/Skapa faktura"
-    And I should see "SKAPA FAKTURA"
+    And I should see "Skapa faktura baserad på jobbet"
     And I fill in "description" with "Hej"
     And I fill in "quantity" with "100"
     And I fill in "unit" with "100"
     And I fill in "amount" with "7000"
-    And I fill in "first_day" with "2018-01-01"
-    And I fill in "last_day" with "2018-12-12"
-    And I fill in "user_reference" with "Felix"
-    And I fill in "company_reference" with "Anders"
     And I click "Skapa faktura"
     Then I should see "Faktura skapad"
     And the latest created invoice is beeing activated

@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Application, type: :model do
   describe 'DB table' do
     it { is_expected.to have_db_column :message }
+    it { is_expected.to have_db_column :first_day }
+    it { is_expected.to have_db_column :last_day }
     it { is_expected.to have_db_column :job_id }
     it { is_expected.to have_db_column :profile_id }
     it { is_expected.to have_db_column :profile_username }

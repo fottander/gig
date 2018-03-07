@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20180126172922) do
 
   create_table "applications", force: :cascade do |t|
     t.string "message"
+    t.date "first_day"
+    t.date "last_day"
     t.boolean "hired", default: false
     t.boolean "complete", default: false
     t.datetime "created_at", null: false

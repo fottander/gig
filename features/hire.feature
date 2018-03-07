@@ -20,8 +20,8 @@ Feature: A company hires a person
       | title        | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | when_in_time | hour_day | active | company_username | company_city | company_id | id |
       | målare sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | soon         | 8        | true   | Anders p         | Göteborg     | 1          | 1  |
     Given the following users exist
-      | email          | password  | password_confirmation | id |
-      | felix@mail.com | 12345678  | 12345678              | 1  |
+      | email          | password  | password_confirmation | id | first_name | last_name |
+      | felix@mail.com | 12345678  | 12345678              | 1  | felix      | ottander  |
     Given the following profiles exist
       | username | title        | description | category_ids | city_ids | user_id | id |
       | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  |
@@ -39,11 +39,13 @@ Feature: A company hires a person
       And I fill in "Svara på ansökan" with "Bra då kör vi"
       And I click "Skicka"
       Then I should see "Bra då kör vi"
+      And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
+      And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-02-01"
       And I click "Anställ"
       And I should see "Grattis! Du har anlitat personen."
       Then I should see "Diskutera & chatta"
       And I should not see "Anställ"
-      And I should not see "SKAPA FAKTURA"
+      And I should not see "Skapa faktura baserad på jobbet"
       And I should not see "Jobbet har genomförts!"
       And I click "KONTROLLPANEL"
       Then I should see "Fisken" in active employments
@@ -53,7 +55,7 @@ Feature: A company hires a person
       And I should see "Diskutera & chatta"
       And I should not see "Jobbet har genomförts!"
       And I should not see "Anställ"
-      And I should not see "SKAPA FAKTURA"
+      And I should not see "Skapa faktura baserad på jobbet"
       And the application gets marked as completed
       And I click "KONTROLLPANEL"
       Then I should see "Fisken" in complete employments
@@ -65,3 +67,13 @@ Feature: A company hires a person
       Given I am on the dashboards page
       And I should see "Anders p skickade ett svar"
       Then I should see "Anders p anställde dig för ansökan"
+
+    Scenario: I hire without adding first dat or last day
+      Given I am logged in as company "greger@mail.com"
+      Given I am on control panel page
+      And I click "Visa annons"
+      And I should see "Fisken"
+      And I click "Visa"
+      And I click "Anställ"
+      And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
+      Then I should see "Sista dag måste fyllas i"

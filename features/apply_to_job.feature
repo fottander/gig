@@ -17,9 +17,9 @@ Feature: Apply to job
       | title        | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | when_in_time | hour_day | active | company_username | company_city | company_id |
       | målare sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | soon         | 8        | true   | Anders p         | Göteborg     | 1          |
     Given the following users exist
-      | email           | password  | password_confirmation | id |
-      | felix@mail.com  | 12345678  | 12345678              | 1  |
-      | greger@mail.com | 12345678  | 12345678              | 2  |
+      | email           | password  | password_confirmation | id | first_name | last_name |
+      | felix@mail.com  | 12345678  | 12345678              | 1  | felix      | ottander  |
+      | greger@mail.com | 12345678  | 12345678              | 2  | greger     | nilsson   |
     Given the following profiles exist
       | username | title        | description | category_ids | city_ids | user_id |
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 1       |
@@ -37,7 +37,7 @@ Feature: Apply to job
       And I should not see "Anställ"
       And I should not see "Jobbet har genomförts!"
       And I should not see "Diskutera & chatta"
-      And I should not see "SKAPA FAKTURA"
+      And I should not see "Skapa faktura baserad på jobbet"
       And I should see "Skapa ansökan"
       And I fill in "Skriv en kort ansökan" with "I want job"
       And I click "Skapa"
@@ -65,6 +65,8 @@ Feature: Apply to job
       And I click "Visa ansökan"
       And I should see "Hello give me job"
       And I should see "Hallå svara"
+      And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
+      And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-02-01"
       And I click "Anställ"
       And I should see "Grattis! Du har anlitat personen."
       And I click "LOGGA UT"
@@ -75,17 +77,13 @@ Feature: Apply to job
       And I click "KONTROLLPANEL"
       And I should see "målare sökes" in active applications
       And I click "Visa ansökan/Skapa faktura"
-      And I should see "SKAPA FAKTURA"
+      And I should see "Skapa faktura baserad på jobbet"
       And I should not see "Diskutera & chatta"
       And I should not see "Anställ"
       And I should not see "Jobbet har genomförts!"
       And I fill in "description" with "Hej"
       And I fill in "quantity" with "100"
       And I fill in "amount" with "7000"
-      And I fill in "first_day" with "2018-01-01"
-      And I fill in "last_day" with "2018-12-12"
-      And I fill in "user_reference" with "Felix"
-      And I fill in "company_reference" with "Anders"
       And I click "Skapa faktura"
       And I should see "Jobbet har genomförts!"
       And I click "KONTROLLPANEL"

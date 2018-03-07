@@ -59,8 +59,8 @@
       <% if @application.complete == false %>
         <% if current_user.present? %>
           <% if @application.profile_id == current_user.profile.id %>
-            <div class='portfolio-resume-subheader-title'>
-              SKAPA FAKTURA
+            <div class='invoice-title'>
+              <span style='color: white; font-weight: 700;'>Skapa faktura baserad på jobbet</span>
             </div>
             <p style='color: #696868; line-height: 1.2;'>Hjälp med att skapa faktura? Kolla in vår guide här.</p>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, job_title: @job.title, application_id: @application.id) do %>
@@ -72,14 +72,10 @@
             <%= text_field_tag :unit, nil, placeholder: 'Endast siffror utan decimaler' %>
             <%= label_tag :amount, '* Belopp exkl. moms(t.ex. 1500)kr', class: 'invoice-details-date' %>
             <%= text_field_tag :amount, nil, placeholder: 'Endast siffror utan decimaler' %>
-            <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
-            <%= date_field_tag :first_day %>
-            <%= label_tag :last_day, 'Sista dag(t.ex. 2018-12-30)', class: 'invoice-details-date' %>
-            <%= date_field_tag :last_day %>
-            <%= label_tag :user_reference, '* Referens', class: 'invoice-details-date' %>
-            <%= text_field_tag :user_reference, nil, placeholder: 'Ditt förnamn & efternamn' %>
-            <%= label_tag :company_reference, 'Företagsreferens', class: 'invoice-details-date' %>
-            <%= text_field_tag :company_reference, nil, placeholder: 'Kontaktperson på företaget' %>
+            <%= hidden_field_tag :first_day, @application.first_day %>
+            <%= hidden_field_tag :last_day, @application.last_day %>
+            <%= hidden_field_tag :user_reference, "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
+            <%= hidden_field_tag :company_reference, @job.company_username %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
             <% end %>
           <% end %>
@@ -107,7 +103,14 @@
       </p>
       <% if current_company.present? %>
         <% if @job.company_id == current_company.id %>
-          <%= link_to 'Anställ', hire_job_application_path, method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+          <%= form_tag hire_job_application_path(@job, @application), method: :patch do %>
+            <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
+            <%= date_field_tag :first_day, required: true %>
+            <%= label_tag :last_day, 'Sista dag(t.ex. 2018-12-30)', class: 'invoice-details-date' %>
+            <%= date_field_tag :last_day %>
+            <%= hidden_field_tag 'hired', true %>
+            <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
