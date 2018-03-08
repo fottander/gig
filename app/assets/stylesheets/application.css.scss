@@ -1014,6 +1014,12 @@ input[type='file'] {
    padding: 1.0rem 0 0;
  }
 
+  @media screen and (max-width: 39.9375em) {
+   .site-footer-top {
+    display: none;
+   }
+ }
+
  .site-footer-title {
    color: #fefefe;
    font-family: 'Montserrat', sans-serif;
@@ -1050,13 +1056,12 @@ input[type='file'] {
    .site-footer-content {
      color: #fefefe;
      font-family: 'Montserrat', sans-serif;
-     font-size: 0.7rem;
+     font-size: 0.6rem;
      letter-spacing: 1.0px;
      text-align: center;
-     line-height: 1.1;
-     margin-top: -12px;
-     margin-left: 15px;
-     margin-right: 15px;
+     line-height: 1.2;
+     margin-top: -20px;
+
    }
  }
 
