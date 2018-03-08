@@ -1,16 +1,24 @@
-<div class="marketing-site-hero">
+<div class="marketing-freelancer large-6 columns">
   <div class="marketing-site-hero-content">
-    <h1>HITTA JOBB. HITTA ARBETSKRAFT. SNABBT. ENKELT. </h1>
-    <p>Det flexibla sättet för att hitta jobb och anställa arbetskraft. Genom ett fåtal klick anställer företagaren en frilansare och får sedan en faktura när jobbet utförts.</p>
-    <%= link_to "HITTA JOBB", jobs_path, class: 'reply-button' %>
-    <%= link_to "HITTA ARBETSKRAFT", new_company_registration_path, class: 'profile-button' %>
+    <h2 style='color: white;'>Jag är en</h2>
+    <h1 style='color: white; font-size: 50px; font-weight: 700;'>Arbetsökande</h1>
+    <h2 style='color: white;'>som letar efter jobb</h2><br><br>
+    <%= link_to "Hitta Jobb", jobs_path, class: 'profile-button-expand', style:'color: black; font-size: 28px; text-transform: none;' %>
+  </div>
+</div>
+<div class="marketing-company large-6 columns">
+  <div class="marketing-site-hero-content">
+    <h2 style='color: black;'>Jag är ett</h2>
+    <h1 style='font-size: 50px; font-weight: 700;'>Företag</h1>
+    <h2 style='color: black;'>som behöver hjälp</h2><br><br>
+    <%= link_to "Hitta Arbetskraft", new_company_registration_path, class: 'reply-button-expand', style:'color: black; font-size: 28px; text-transform: none;' %>
   </div>
 </div>
 <p class='progress-indicator-headline'>SÅ FUNGERAR DET</p>
 <div class="hero-divider">
   <ol class="progress-indicator">
     <li class="is-complete" data-step="1">
-      <span style='margin-top: -60px;'>Frilansare</span>
+      <span style='margin-top: -60px;'>Arbetsökande</span>
       <span>Sök jobb</span>
     </li>
     <li class="is-complete" data-step="2">
@@ -20,7 +28,7 @@
       <span>Utför jobb</span>
     </li>
     <li class="is-current" data-step="4">
-      <span>Skapa faktura</span>
+      <span>Faktura skapas</span>
     </li>
   </ol>
 </div>
@@ -47,18 +55,22 @@
     <%= image_tag 'frilansare-front.jpg' %>
   </div>
   <div class="large-6 columns marketing-site-content-section-block">
-    <h3>HITTA JOBB</h3>
-    <p class="marketing-site-content-section-block-subheader subheader">Skapa en profil. Sök jobb. Skapa en ansökan, chatta med arbetsgivaren. Utför jobbet. Skicka faktura.</p>
-    <p class="marketing-site-content-section-block-subheader subheader">Vi betalar din försäkring, skatt och sociala avgifter och för detta tar vi en liten avgift.</p>
-    <p class="marketing-site-content-section-block-subheader subheader">Din lön får du sedan utbetald direkt in på bankkontot.</p>
-    <%= link_to "REGISTRERA FRILANSARE", new_user_registration_path, class: 'reply-button' %>
+    <span class="marketing-site-content-section-block-subheader subheader">
+      <h3>HITTA JOBB</h3>
+      Skapa en profil. Sök jobb. Skapa en ansökan, chatta med arbetsgivaren. Utför jobbet. Skicka faktura.<br>
+      Vi betalar din försäkring, skatt och sociala avgifter och för detta tar vi en liten avgift.<br>
+      Din lön får du sedan utbetald direkt in på bankkontot.<br><br>
+      <%= link_to "REGISTRERA FRILANSARE", new_user_registration_path, class: 'reply-button' %>
+    </span>
   </div>
   <div class="marketing-site-content-section-block large-6 columns">
-    <h3>HITTA ARBETSKRAFT</h3>
-    <p class="marketing-site-content-section-block-subheader subheader">Skapa en annons. Få svar från frilansare. Anställ. Få jobbet utfört. Få faktura.</p>
-    <p class="marketing-site-content-section-block-subheader subheader">Vi ser till att löner, skatter, försäkringar & sociala avgifter betalas. </p>
-    <p class="marketing-site-content-section-block-subheader subheader">Allt är helt gratis! </p>
-    <%= link_to "REGISTRERA FÖRETAG", new_company_registration_path, class: 'profile-button' %>
+    <span class="marketing-site-content-section-block-subheader subheader">
+      <h3>HITTA ARBETSKRAFT</h3>
+      Skapa en annons. Få svar från frilansare. Anställ. Få jobbet utfört. Få faktura.<br>
+      Vi ser till att löner, skatter, försäkringar & sociala avgifter betalas. <br>
+      Allt är helt gratis!<br><br>
+      <%= link_to "REGISTRERA FÖRETAG", new_company_registration_path, class: 'profile-button' %>
+    </span>
   </div>
   <div class="marketing-site-content-section-img large-6 columns">
     <%= image_tag 'foretag-front.jpg' %>

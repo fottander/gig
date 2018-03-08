@@ -37,14 +37,26 @@ Given("I click {string} within section") do |link|
   end
 end
 
-Given("I click {string} within hero") do |link|
-  within ".marketing-site-hero-content" do
+Given("I click {string} within freelancer") do |link|
+  within ".marketing-freelancer" do
     click_link_or_button link
   end
 end
 
-Then("I should see {string} within hero") do |content|
-  within ".marketing-site-hero-content" do
+Given("I click {string} within company") do |link|
+  within ".marketing-company" do
+    click_link_or_button link
+  end
+end
+
+Then("I should see {string} within freelancer") do |content|
+  within ".marketing-freelancer" do
+    expect(page).to have_content content
+  end
+end
+
+Then("I should see {string} within company") do |content|
+  within ".marketing-company" do
     expect(page).to have_content content
   end
 end
