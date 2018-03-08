@@ -39,7 +39,7 @@
             </div>
             <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>
           <% else %>
-            <strong>Skapa en profil för att söka jobb!</strong>
+            <strong>Skapa en profil för att söka jobb!</strong><br>
             <%= link_to 'Skapa ny profil', new_profile_path, class: 'button-orange' %>
           <% end %>
         </div>
