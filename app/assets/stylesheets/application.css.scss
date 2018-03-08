@@ -624,7 +624,8 @@ input[type='file'] {
 }
 
 .marketing-site-hero-content h1 {
-  font-size: 28px;
+  font-size: 50px;
+  font-weight: 700;
   text-align: center;
   line-height: 1;
   letter-spacing: 0.5;
@@ -643,9 +644,9 @@ input[type='file'] {
   text-transform: none;
 }
 
-@media screen and (min-width: 40em) {
-  .marketing-site-hero-content {
-    padding-left: 0%;
+@media screen and (max-width: 25em) {
+  .marketing-site-hero-content h1 {
+    font-size: 45px;
   }
 }
 
