@@ -174,6 +174,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.boolean "salary_paid", default: false
     t.boolean "post", default: false
     t.bigint "user_id"
+    t.string "ssyk_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_ezinvoices_on_created_at"
@@ -198,6 +199,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.boolean "salary_paid", default: false
     t.bigint "user_id"
     t.bigint "company_id"
+    t.string "ssyk_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "application_id"

@@ -13,6 +13,7 @@ FactoryGirl.define do
     job_id 1
     application_id 1
     job_title "MyString"
+    ssyk_code "MyString"
     profile_id 1
     profile_username "MyString"
   end

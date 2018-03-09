@@ -19,6 +19,7 @@ RSpec.describe Ezinvoice, type: :model do
     it { is_expected.to have_db_column :user_reference }
     it { is_expected.to have_db_column :company_reference }
     it { is_expected.to have_db_column :terms }
+    it { is_expected.to have_db_column :ssyk_code }
     it { is_expected.to have_db_column :profile_id }
     it { is_expected.to have_db_column :profile_username }
     it { is_expected.to have_db_column(:paid).of_type(:boolean) }

@@ -5,8 +5,8 @@ Feature: Apply to job
 
   Background:
     Given the following categories exist
-      | name   | id |
-      | Målare | 1  |
+      | name   | id | ssyk_code |
+      | Målare | 1  | 12010     |
     Given the following cities exist
       | name     | id |
       | Göteborg | 1  |
@@ -96,6 +96,7 @@ Feature: Apply to job
       And I click "Visa"
       Then I should see "2018-01-01"
       And I should see "2018-02-01"
+      And the latest created invoice should have ssyk code "12010"
       Then I click "KONTROLLPANEL"
       And I should see "målare sökes" in done applications
       And I should not see "målare sökes" in active applications

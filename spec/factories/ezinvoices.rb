@@ -13,6 +13,7 @@ FactoryGirl.define do
     first_day "2018-01-10"
     last_day "2018-01-10"
     ocr_number "MyString"
+    ssyk_code "MyString"
     user_reference "MyString"
     company_reference "MyString"
     profile_username "MyString"

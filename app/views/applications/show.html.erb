@@ -76,6 +76,7 @@
             <%= hidden_field_tag :last_day, @application.last_day %>
             <%= hidden_field_tag :user_reference, "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %>
             <%= hidden_field_tag :company_reference, @job.company_username %>
+            <%= hidden_field_tag :ssyk_code, @job.categories.pluck(:ssyk_code) %>
             <%= submit_tag 'Skapa faktura', class: 'profile-button-expand' %>
             <% end %>
           <% end %>

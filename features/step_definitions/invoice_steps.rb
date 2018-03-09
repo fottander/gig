@@ -36,3 +36,8 @@ Then("I click {string} in active invoices") do |button|
     click_link_or_button button
   end
 end
+
+Then("the latest created invoice should have ssyk code {string}") do |content|
+  invoice = Invoice.first
+  expect(invoice.ssyk_code).to have_content content
+end

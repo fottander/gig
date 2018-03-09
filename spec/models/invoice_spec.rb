@@ -28,6 +28,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column(:post).of_type(:boolean) }
     it { is_expected.to have_db_column :application_id }
     it { is_expected.to have_db_column :job_id }
+    it { is_expected.to have_db_column :ssyk_code }
     it { is_expected.to have_db_column :job_title }
     it { is_expected.to have_db_column :profile_id }
     it { is_expected.to have_db_column :profile_username }

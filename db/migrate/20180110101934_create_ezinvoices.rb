@@ -25,6 +25,7 @@ class CreateEzinvoices < ActiveRecord::Migration[5.1]
       t.boolean :salary_paid, default: false
       t.boolean :post, default: false
       t.references :user, foreign_key: true
+      t.string :ssyk_code
 
       t.timestamps
     end
