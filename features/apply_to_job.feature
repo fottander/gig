@@ -91,7 +91,12 @@ Feature: Apply to job
       And I fill in "Enhet" with "100"
       And I click "Spara"
       Then I should see "Faktura ändrad"
+      And the latest created invoice is beeing activated
       And I click "KONTROLLPANEL"
+      And I click "Visa"
+      Then I should see "2018-01-01"
+      And I should see "2018-02-01"
+      Then I click "KONTROLLPANEL"
       And I should see "målare sökes" in done applications
       And I should not see "målare sökes" in active applications
       Then I should see "målare sökes" in active invoices
