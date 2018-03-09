@@ -49,11 +49,11 @@ class InvoicePdf < Prawn::Document
   def profile_info
     move_down 20
 
-    data = [ ["Frilansare", "ID", "Jobb ID", "Startdag", "Sista dag"],
-     ["#{@invoice.profile_username}", "#{@invoice.profile_id}", "#{@invoice.job_id}", "#{@invoice.first_day}", "#{@invoice.last_day}"]]
+    data = [ ["Frilansare", "ID", "Jobb ID", "Startdag", "Sista dag", "ssyk-kod"],
+     ["#{@invoice.profile_username}", "#{@invoice.profile_id}", "#{@invoice.job_id}", "#{@invoice.first_day}", "#{@invoice.last_day}", "#{@invoice.ssyk_code}"]]
 
     table(data, cell_style: { size: 10 }) do
-     cells.padding = 5
+     cells.padding = 6
      cells.borders = []
      row(0).font_style = :bold
     end
