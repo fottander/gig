@@ -52,6 +52,8 @@
           <%= f.date_field :first_day %>
           <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
           <%= f.date_field :last_day %>
+          <%= f.label :ssyk_code, 'Kategorier', class: 'form-text' %>
+          <%= f.collection_select(:ssyk_code, Category.all, :ssyk_code, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
           <%= f.label :user_reference, '* Referens', class: 'form-text' %>
           <%= f.text_field :user_reference, placeholder: 'Ditt förnamn & efternamn' %>
           <%= f.label :terms, 'Betalningsvillkor(30 dagar är standard)', class: 'form-text' %>

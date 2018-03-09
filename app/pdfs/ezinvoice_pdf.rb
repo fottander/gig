@@ -43,8 +43,8 @@ class EzinvoicePdf < Prawn::Document
   def profile_info
     move_down 20
 
-    data = [ ["Frilansare", "ID", "Startdag", "Sista dag"],
-     ["#{@ezinvoice.profile_username}", "#{@ezinvoice.profile_id}", "#{@ezinvoice.first_day}", "#{@ezinvoice.last_day}"]]
+    data = [ ["Frilansare", "ID", "Startdag", "Sista dag", "ssyk-kod"],
+     ["#{@ezinvoice.profile_username}", "#{@ezinvoice.profile_id}", "#{@ezinvoice.first_day}", "#{@ezinvoice.last_day}", "#{@ezinvoice.ssyk_code}"]]
 
     table(data, cell_style: { size: 10 }) do
      cells.padding = 5
