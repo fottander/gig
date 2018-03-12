@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :authenticate_company!, only: [:hire]
+  before_action :authenticate_company!, only: [:hire, :extend]
   before_action :authenticate_admin!, only: [:index]
 
   def index
@@ -98,6 +98,20 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def extend
+    @application = Application.find(params[:id])
+    @job = @application.job
+    if @application.update application_extend_params
+      @application.create_activity :extend, owner: current_company, recipient: @application.profile
+
+      # Sends email to user when profile is hired.
+      NotificationMailer.extend_email(@application.profile.user, @application).deliver_now
+
+      flash[:notice] = "Ansökan förlängd!"
+      redirect_to panels_path
+    end
+  end
+
   def destroy
     @job = Job.find(params[:job_id])
     @application = Application.find(params[:id])
@@ -111,6 +125,10 @@ class ApplicationsController < ApplicationController
 
   def application_update_params
     params.require(:application).permit(:message)
+  end
+
+  def application_extend_params
+    params.permit(:last_day)
   end
 
   def application_hire_params

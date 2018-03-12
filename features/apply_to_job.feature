@@ -76,6 +76,8 @@ Feature: Apply to job
       Then I should see "Du har redan ansökt till detta jobbet!"
       And I click "KONTROLLPANEL"
       And I should see "målare sökes" in active applications
+      And I should see "Första jobbdag: 2018-01-01" in active applications
+      And I should see "Sista jobbdag: 2018-02-01" in active applications
       And I click "Visa ansökan/Skapa faktura"
       And I should see "Skapa faktura baserad på jobbet"
       And I should not see "Diskutera & chatta"

@@ -5,7 +5,8 @@
       <%= link_to application.job_title, job_path(application.job_id) %><br>
       Ansöknings ID: <%= application.id %><br>
       Jobb ID: <%= application.job_id %><br>
-      Skapad: <%= application.created_at.strftime("%F %R") %><br>
+      Första jobbdag: <%= application.first_day %><br>
+      Sista jobbdag: <%= application.last_day %><br>
       Antal svar: <%= application.comments.count %>
     </div>
     <%= link_to 'Visa ansökan/Skapa faktura', job_application_path(application.job_id, application.id), class: 'button-green' %>

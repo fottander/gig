@@ -17,20 +17,20 @@
       <% if current_user.profile.present? %>
         <% if current_user.profile == @application.profile %>
           <%= form_for ([@job, @application]) do |f| %>
-          <% if @application.errors.any? %>
-            <% @application.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+            <% if @application.errors.any? %>
+              <% @application.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
             <% end %>
-          <% end %>
-          <div class="fieldContainer">
-            <%= f.text_area :message, placeholder: 'Skriv en kort ansökan' %>
-            <div class="fieldInfo">
-              Tips <br>
-              I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför en ansökan baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+            <div class="fieldContainer">
+              <%= f.text_area :message, placeholder: 'Skriv en kort ansökan' %>
+              <div class="fieldInfo">
+                Tips <br>
+                I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför en ansökan baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+              </div>
             </div>
-          </div>
-          <%= f.submit 'Ändra', class: 'reply-button' %>
-          <%= link_to 'Radera ansökan', job_application_path(@job, @application), data: { confirm: "Är du säker?" }, method: :delete, class: 'profile-button' %>
+            <%= f.submit 'Ändra', class: 'reply-button' %>
+            <%= link_to 'Radera ansökan', job_application_path(@job, @application), data: { confirm: "Är du säker?" }, method: :delete, class: 'profile-button' %>
           <% end %>
         <% end %>
       <% end %>

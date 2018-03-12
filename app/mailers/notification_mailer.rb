@@ -31,6 +31,16 @@ class NotificationMailer < ApplicationMailer
     )
   end
 
+  def extend_email(user, application)
+    @user = user
+    @application = application
+
+    mail(
+    to: @user.email,
+    subject: "Din anställning har blivit förlängd"
+    )
+  end
+
   def new_application_email(company, job)
     @company = company
     @job = job
