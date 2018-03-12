@@ -9,7 +9,7 @@ Background:
     | felix@mail.com  | 12345678  | 12345678              | 1  | felix      | ottander  |
   Given the following categories exist
     | name        | id |
-    | Målare      | 1  |
+    | Måleri      | 1  |
   Given the following cities exist
     | name      | id |
     | Göteborg  | 1  |
@@ -40,7 +40,6 @@ Background:
     Given I am on the dashboards page
     And I click "Visa ansökan/Skapa faktura"
     And I should see "Skapa faktura baserad på jobbet"
-    And I fill in "description" with "Hej"
     And I fill in "quantity" with "100"
     And I fill in "unit" with "100"
     And I fill in "amount" with "7000"

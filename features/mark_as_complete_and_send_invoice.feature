@@ -9,9 +9,9 @@ Feature: Mark As complete and send invoice
       | admin@yahoo.com | 12345678  | 12345678              |
     Given the following categories exist
       | name        | id |
-      | Målare      | 1  |
-      | Snickare    | 2  |
-      | Plåtslagare | 3  |
+      | Måleri      | 1  |
+      | Snickeri    | 2  |
+      | Plåtslageri | 3  |
     Given the following cities exist
       | name      | id |
       | Göteborg  | 1  |
@@ -40,7 +40,6 @@ Feature: Mark As complete and send invoice
       Given I am on the dashboards page
       And I click "Visa ansökan/Skapa faktura"
       And I should see "Skapa faktura baserad på jobbet"
-      And I fill in "description" with "Hej"
       And I fill in "quantity" with "100"
       And I fill in "amount" with "10000"
       And I click "Skapa faktura"
@@ -65,7 +64,7 @@ Feature: Mark As complete and send invoice
       And the latest created invoice is beeing activated
       And I click "KONTROLLPANEL"
       And I click "Visa" in active invoices
-      Then I should see "Hej"
+      Then I should see "Beskrivning: Måleri"
       And I should see "10000"
       And I should see "2018-01-01"
       And I should see "Felix"

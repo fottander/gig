@@ -6,7 +6,7 @@ Feature: Apply to job
   Background:
     Given the following categories exist
       | name   | id | ssyk_code |
-      | Målare | 1  | 12010     |
+      | Måleri | 1  | 12010     |
     Given the following cities exist
       | name     | id |
       | Göteborg | 1  |
@@ -81,7 +81,6 @@ Feature: Apply to job
       And I should not see "Diskutera & chatta"
       And I should not see "Anställ"
       And I should not see "Jobbet har genomförts!"
-      And I fill in "description" with "Hej"
       And I fill in "quantity" with "100"
       And I fill in "amount" with "7000"
       And I click "Skapa faktura"
@@ -94,6 +93,7 @@ Feature: Apply to job
       And the latest created invoice is beeing activated
       And I click "KONTROLLPANEL"
       And I click "Visa"
+      And I should see "Beskrivning: Måleri"
       Then I should see "2018-01-01"
       And I should see "2018-02-01"
       And the latest created invoice should have ssyk code "12010"
