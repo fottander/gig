@@ -17,7 +17,7 @@
       <%= form_tag extend_job_application_path(application.job, application), method: :patch do %>
         <div class="fieldContainer">
           <%= label_tag :last_day, 'Nytt slutdatum', class: 'form-text' %>
-          <%= date_field_tag :last_day, nil, value: application.last_day, style: 'width: 100%;' %>
+          <%= date_field_tag :last_day, nil, value: application.last_day, style: 'width: 180px; margin-left: 20%;' %>
           <div class="fieldInfo">
             Tips <br>
             Innan du förlänger, kom ihåg att komma överens med den anställde om slutdatumet.
