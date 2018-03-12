@@ -11,7 +11,7 @@
     </div>
     <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
     <span class='truncated-paragraph-<%= application.id %>'>
-      <%= link_to 'Förläng', '', class: "read-more-#{application.id}", style: 'font-weight: 700; font-size: 14px; color: #f77d0e;' %>
+      <%= link_to 'Förläng', '', class: "read-more-#{application.id}", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem; border: none;' %>
     </span>
     <span class='normal-paragraph-<%= application.id %>' style="display: none;">
       <%= form_tag extend_job_application_path(application.job, application), method: :patch do %>
