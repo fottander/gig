@@ -92,27 +92,23 @@ input[type='file'] {
     margin-right: 40px;
     color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
-    text-transform: capitalize;
   }
 
   .post-title h3 {
     color: #3db5e6;
     margin-left: 0px;
     font-family: 'Montserrat', sans-serif;
-    text-transform: capitalize;
   }
 
   .feedback-title  {
     color: #3db5e6;
     margin-left: 30px;
     font-family: 'Montserrat', sans-serif;
-    text-transform: capitalize;
   }
 
   h2 {
     color: #3db5e6;
     font-family: 'Montserrat', sans-serif;
-    text-transform: capitalize;
   }
 
   h4 {
@@ -353,6 +349,10 @@ input[type='file'] {
    max-width: 100%;
  }
 
+ .profile-button-expand:hover {
+   color: black;
+ }
+
  .reply-button-expand {
    background: #3db5e6;
    color: #fff;
@@ -367,6 +367,10 @@ input[type='file'] {
    padding: 1rem 1.75rem 1rem;
    border: none;
    max-width: 100%;
+ }
+
+ .profile-button-expand:hover {
+   color: black;
  }
 
  .profile-button-small {

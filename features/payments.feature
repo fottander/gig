@@ -32,7 +32,7 @@ Feature: Payments
     Given I am logged in as user "felix@yahoo.com"
     Given I am on the dashboards page
     And I click "Utbetalningar"
-    And I should see "Dina utbetalningar"
+    And I should see "Utbetalningar"
     And I should see "2017-11-01"
     And I should not see "Skapad: 2017-11-01"
     And I should see "Skapad: 2017-11-02"
