@@ -4,7 +4,7 @@
       <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box' %><br>
       <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
       <div style='background-color: #f77d0e; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
-        <%= link_to 'Våra avgifter', our_rates_path, class: 'holy-grail-left-application-box', style:'color: white;' %><br>
+        <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'holy-grail-left-application-box', style:'color: white;' %><br>
       </div>
       <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box' %>
     </div>
@@ -13,8 +13,99 @@
     <div class='breadcrumb-holder-small'>
       <%= render_breadcrumbs separator: ' > ' %>
     </div>
-    <h3 style='margin-left: 20px;'>Våra avgifter</h3>
-    <div style="margin-left: 20px;">
+    <h3 style='margin-left: 20px;'>Fakturering, lön & avgifter</h3>
+    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här förklarar vi i detalj hur det går till efter att du utfört ett jobb genom vår tjänst. Från att skapa faktura i systemet, till hur det fungerar med skatter, avgifter och din lön. Klicka på det steg du vill läsa mer om.</p>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-a1'>
+        <%= link_to '#', class: "read-more-a1" do %>
+          <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'FAKTURERING', '', class: "read-more-a1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+      <span class='normal-paragraph-a1' style="display: none;">
+        <%= link_to '#', class: "read-less-a1" do %>
+          <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'FAKTURERING', '', class: "read-less-a1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
     </div>
+    <span class='normal-paragraph-a1' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <span style='color: #3db5e6; font-weight: 700;'>FRILANSARE</span><br>
+        <span>När du utfört det jobb som företagaren bett om i sin annons, kommer du skapa en faktura i vårt system. Ta det lugnt det är inte så komplicerat som det låter.</span><br>
+        <span>Om du får timlön är det helt enkelt så att du skriver in antal timmar och det timpris du och företaget kommit överens om. Sedan räknas beloppet ut automatiskt, klicka på skapa faktura, sen är allt klart!</span><br>
+        <span>Om du istället har ett fast pris för det jobb du utfört, fyller du helt enkelt i summan exklusive moms i fältet belopp och det räcker. När fakturan skapats kommer vi inom fem dagar kontrollera att fakturan stämmer och godkänna den. Om du har frågor får du självklart kontakta vår kundtjänst.</span><br><br>
+        <span style='color: #3db5e6; font-weight: 700;'>FÖRETAG</span><br>
+        <span>När frilansaren utfört det jobb ni kommit överens om i annonsen, skickas en faktura från dem i vårt system.</span><br>
+        <span>Inom fem dagar kommer vi kontrollera att fakturan ser korrekt ut. Ni har också möjlighet att se fakturan i kontrollpanelen för att begära eventuella ändringar inom denna tiden. Ni kan även begära att fakturan skickas med vanlig post eller om ni önskar längre betaltid.</span><br>
+        <span>Från att fakturan skickats har ni 15 dagar på er att betala i normala fall. Om ni har några frågor får ni självklart kontakta vår kundtjänst.</span><br>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-a2'>
+        <%= link_to '#', class: "read-more-a2" do %>
+          <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'AVGIFTER & SKATTER', '', class: "read-more-a2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+      <span class='normal-paragraph-a2' style="display: none;">
+        <%= link_to '#', class: "read-less-a2" do %>
+          <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'AVGIFTER & SKATTER', '', class: "read-less-a2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-a2' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <span>När en faktura har skapats och en frilansare ska få en lön måste skatter och sociala avgifter betalas. I vanliga fall gör företaget som anställer personen detta och om du är egenföretagare är du själv ansvarig för att detta ska betalas in till skatteverket.</span><br>
+        <span>Genom vår tjänst står vi för allt ansvar med försäkring, skatter och sociala avgifter. Du kan känna dig trygg och säker att allt sköts ordentligt.</span><br>
+        <br>
+        <span>För denna tjänst tar vi en liten avgift. Avgiften varierar beroende på hur mycket du totalt har tjänat/fakturerat genom vår tjänst. Ju mer du fakturerat desto mindre avgift betalar du till oss.</span><br>
+        <span>När det kommer till skatter och sociala avgifter kan de också variera något beroende på var du bor och hur gammal du är. Vi räknar dock alltid med 30% skatt men vanligtvis blir det något lägre. De sociala avgifterna är alltid samma under 65 års ålder men något lägre om du är över 65 år.</span><br>
+        <span>För företag är vår tjänst helt gratis.</span><br>
+        <br>
+        <span>Här ser du hur mycket du behöver tjäna/fakturera för att nå de olika nivåerna.</span><br>
+        <span style='font-weight: 550;'>Nivå 1: 0 - 10 000 kr = 10% avgift</span><br>
+        <span style='font-weight: 550;'>Nivå 2: 10 000 - 20 000 kr = 9% avgift</span><br>
+        <span style='font-weight: 550;'>Nivå 3: 20 000 - 50 000 kr = 8% avgift</span><br>
+        <span style='font-weight: 550;'>Nivå 4: 50 000 - 100 000 kr = 7% avgift</span><br>
+        <span style='font-weight: 550;'>Nivå 5: 250 000 - 500 000 kr = 6% avgift</span><br>
+        <span style='font-weight: 550;'>Nivå 6: Mer än 500 000 kr = 5% avgift</span><br>
+        <span>Alla belopp är inklusive moms samt det ihopräknade totala beloppet du tjänar under tiden du är registrerad hos oss.</span><br>
+        <span>Det räcker alltså med att jobba 50 timmar och få 160 kr i timman för att nå nivå 2. 101 timmar för nivå 3 etc.</span><br>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-a3'>
+        <%= link_to '#', class: "read-more-a3" do %>
+          <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'LÖN', '', class: "read-more-a3", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+      <span class='normal-paragraph-a3' style="display: none;">
+        <%= link_to '#', class: "read-less-a3" do %>
+          <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'LÖN', '', class: "read-less-a3", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-a3' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <span>Hur mycket får man då i lön när man jobbar?</span><br>
+        <span>Här kan du se ett räkneexempel.</span><br>
+        <span>35 år gammal snickare har jobbat en vecka för ett byggbolag och skapar en faktura.</span><br>
+        <span>Snickaren har diskuterat med företaget och han får en timlön på 180kr/timma. Under veckan arbetade han 50 timmar.</span><br>
+        <span>180kr gånger antal timmar 50 = 9000kr</span><br>
+        <span>Fakturabeloppet 9000kr minus vår avgift 10% = 8100kr</span><br>
+        <span>Sociala avgifter på 8100kr = 1937kr</span><br>
+        <span>Bruttolön inkl. semesterersättning = 6163kr</span><br>
+        <span>Skatt 30% på 6163kr = 1849kr</span><br>
+        <span>Lön efter skatt och avgifter = 4314kr</span><br>
+        <br>
+        <span>Om samma snickare sedan skulle fortsätta jobba i samma takt nästa vecka så betalar han endast 9% i avgift.</span><br>
+        <span>Och säg att han skulle arbetat en månad skulle han få ut en månadslön efter skatt på 17 496kr</span><br>
+        <span>Den månadslönen höjs senare om han fortsätter fakturera genom vår tjänst med tanke på att vår avgift sänks i de steg du kan läsa om i tidigare avsnitt.</span>
+      </div>
+    </span>
   </div>
 </div>
