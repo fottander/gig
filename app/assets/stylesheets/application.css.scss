@@ -432,6 +432,19 @@ input[type='file'] {
    margin-right: 5px;
  }
 
+ .comment-section .application-title {
+   background-color: #3db5e6;
+   padding: 5px;
+   margin-top: -15px;
+   text-align: center;
+ }
+
+ @media screen and (max-width: 59.9375em) {
+   .comment-section .application-title {
+    margin-top: 0px;
+   }
+ }
+
  .comment-section .comment-section-comment {
    color: #696868;
  }
