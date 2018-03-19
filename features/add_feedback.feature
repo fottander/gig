@@ -30,7 +30,6 @@ Feature: Extend invoice and add feedback
       And I should see "abc"
       And I should see "Vill du rekommendera"
       And I fill in "feedback" with "Väldigt bra snubbe"
-      And I check Terms check box
       And I check Post check box
       And I click "Spara"
       And I should see "Sparat!"

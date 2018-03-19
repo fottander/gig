@@ -65,13 +65,6 @@
             </div>
             <%= form_tag extend_invoice_path(@invoice), method: :patch do %>
             <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
-            <% if @invoice.terms == 30 %>
-              <% if @invoice.active == false %>
-                <%= hidden_field_tag :terms, '30' %>
-                <%= check_box_tag :terms, checked = '60' %>
-                Klicka för 60 dagars fakturatid(+500kr)<br>
-              <% end %>
-            <% end %>
             <% if @invoice.post == false %>
               <% if @invoice.active == false %>
                 <%= hidden_field_tag :post, false %>
