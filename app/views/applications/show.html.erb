@@ -138,12 +138,10 @@
           <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
             <div class="fieldContainer" style='margin-top: 10px;'>
               <%= text_area_tag :comment, nil, placeholder: 'Svara på ansökan' %>
-              <% if @application.hired == true %>
-                <% if @application.complete == false %>
-                  <div class="fieldInfo">
-                    Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
-                  </div>
-                <% end %>
+              <% if @application.hired == false %>
+                <div class="fieldInfo">
+                  Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
+                </div>
               <% end %>
             </div>
             <%= submit_tag 'Skicka', class: 'reply-button' %>
@@ -165,12 +163,10 @@
         <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
           <div class="fieldContainer" style='margin-top: 10px;'>
             <%= text_area_tag :comment, nil, placeholder: 'Svara på ansökan' %>
-            <% if @application.hired == true %>
-              <% if @application.complete == false %>
-                <div class="fieldInfo">
-                  Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
-                </div>
-              <% end %>
+            <% if @application.hired == false %>
+              <div class="fieldInfo">
+                Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
+              </div>
             <% end %>
           </div>
           <%= submit_tag 'Skicka', class: 'reply-button' %>
