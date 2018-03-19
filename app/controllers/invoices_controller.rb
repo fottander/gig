@@ -57,9 +57,6 @@ class InvoicesController < ApplicationController
       if @invoice.post == true
         @invoice.update(amount: @invoice.amount + 40)
       end
-      if @invoice.terms == 60
-        @invoice.update(amount: @invoice.amount + 500)
-      end
       flash[:notice] = "Sparat!"
       redirect_back(fallback_location: panels_path)
     end
@@ -84,6 +81,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_extend_params
-    params.permit(:feedback, :terms, :post)
+    params.permit(:feedback, :post)
   end
 end
