@@ -44,7 +44,10 @@ input[type='file'] {
 }
 
 #notice-wrapper {
+  position: absolute;
+  top: inherit;
   width: 100%;
+  z-index: 999;
   background: rgba(61, 181, 230, 0.85);
 }
 #notice-wrapper .notice {
@@ -57,8 +60,18 @@ input[type='file'] {
   letter-spacing: 1px;
 }
 
+@media screen and (max-width: 39.9375em) {
+  #notice-wrapper .notice {
+    font-size: 1rem;
+  }
+}
+
+
 #alert-wrapper {
+  position: absolute;
+  top: inherit;
   width: 100%;
+  z-index: 999;
   background: rgba(247, 125, 14, 0.85);
 }
 #alert-wrapper .alert {
@@ -69,6 +82,12 @@ input[type='file'] {
   font-weight: 700;
   color: #FEFEFE;
   letter-spacing: 1px;
+}
+
+@media screen and (max-width: 39.9375em) {
+  #alert-wrapper .alert {
+    font-size: 1rem;
+  }
 }
 
   body {
