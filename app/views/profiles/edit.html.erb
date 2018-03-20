@@ -4,7 +4,7 @@
     <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
     <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
     <% if current_user.profile.present? %>
-      <%= link_to 'Profil', edit_profile_path(current_user.profile.id), class: 'button-menu' %>
+      <%= link_to 'Profil', edit_profile_path(current_user.profile.id), class: 'button-menu', style: 'background-color: #f77d0e;' %>
       <% else %>
       <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>

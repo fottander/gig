@@ -28,7 +28,6 @@
               <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
               <li><%= link_to "KONTROLLPANEL", panels_path %></li>
             <% elsif user_signed_in? %>
-              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
               <li><%= link_to "ALLA FRILANSARE", profiles_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
