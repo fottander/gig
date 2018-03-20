@@ -76,12 +76,12 @@
             <% end %>
             <% if @invoice.active == false %>
               <% if @invoice.paid == false %>
-              <p class="holy-grail-left-application" style='color: #f77d0e;'>
+              <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
                 Fakturan ska betalas innan <%= @due_date.strftime("%F") %><br>
                 Om du har några frågor får ni gärna kontakta kundtjänsten.
               </p>
               <% else %>
-              <p class="holy-grail-left-application" style='color: #f77d0e;'>
+              <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
                 Fakturan är betald!
               </p>
               <% end %>

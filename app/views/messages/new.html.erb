@@ -1,27 +1,21 @@
 <div class="holy-grail-grid">
   <div class="holy-grail-left-application" >
-    <div class='holy-grail-left-application-box' style='text-align: center; margin-bottom: 40px;'>
-      <div class='contact-title'>
-        <span style='color: white; font-weight: 700;'>Kontakt</span>
+    <div class='holy-grail-left-application-box' style='text-align: center; '>
+      <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
+      <div style='background-color: #f77d0e; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
+        <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box', style:'color: white;' %><br>
       </div>
-      <p>Här kan du kontakta oss om du har några frågor om tjänsten eller behöver hjälp.</p>
-      <p>Vi vill alltid ha nöjda kunder och därför är det viktigt för oss att du får hjälp med stora som små frågor.</p>
-      <p>Anewbiz AB</p>
-      <p>
-        <i class='fi-home size-15'></i> Södra tandåsgatan 33 <br>
-        41267 Göteborg <br>
-        <i class='fi-telephone size-15'></i> 0707301078 <br>
-        <i class='fi-mail size-15'></i> info@anewbiz.se <br>
-        Org.nr: 559013-3699
-      </p>
+      <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box' %>
     </div>
   </div>
   <div class="holy-grail-middle">
     <div class='breadcrumb-holder-small'>
         <%= render_breadcrumbs separator: ' > ' %>
     </div>
-    <div class="simple-form">
-      <div class='post-title'><h3>Kontakt</h3></div>
+    <h3 style='text-align: center;'>Kontakta oss</h3>
+    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här kan du kontakta oss om du har några frågor om tjänsten eller behöver hjälp. Vi vill alltid ha nöjda kunder och därför är det viktigt för oss att du får hjälp med stora som små frågor.</p>
+    <div class="simple-form" style='text-align: center;'>
       <%= form_for @message do |f| %>
         <div class="login-box-input">
           <%= f.text_field :name, placeholder: '* Namn' %>
@@ -42,9 +36,18 @@
         <span>Fyll i fält markerade med *</span>
 
         <div class="actions" style='margin-bottom: 15px;'>
-          <%= f.submit 'Skicka', class: 'reply-button' %>
+          <%= f.submit 'Skicka', class: 'reply-button', style:'width: 50%;' %>
         </div>
       <% end %>
     </div>
+    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 400; color: #696868;'>
+      <span style='font-weight: 550;'>ANewBiz</span><br>
+      <i class='fi-home size-15'></i> Södra tandåsgatan 33 <br>
+      41267 Göteborg <br>
+      <i class='fi-telephone size-15'></i> 0707301078 <br>
+      <i class='fi-mail size-15'></i> info@anewbiz.se <br>
+      Org.nr: 559013-3699
+    </p>
+
   </div>
 </div>

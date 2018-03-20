@@ -60,3 +60,9 @@ Then("I should see {string} within company") do |content|
     expect(page).to have_content content
   end
 end
+
+Then("I click {string} in left menu") do |link|
+  within ".holy-grail-left-application" do
+    click_link_or_button link
+  end
+end

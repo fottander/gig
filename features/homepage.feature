@@ -9,6 +9,16 @@ Feature: Homepage
     Then I should see "REGISTRERA"
     And I click "REGISTRERA FÖRETAG" within section
     Then I should see "Registrera företag"
+    And I click "Läs mer om hur det fungerar"
+    And I should see "Hur går det till"
+    And I click "Kontakta oss"
+    And I should see "Här kan du kontakta oss"
+    And I click "Faktura, avgifter & lön" in left menu
+    And I should see "Här förklarar vi i detalj"
+    And I click "Användarvillkor" in left menu
+    And I should see "Här finner du våra allmänna villkor"
+    And I click "Kontakta" in left menu
+    Then I should see "Här kan du kontakta oss"
     Given I am on the home page
     And I click "REGISTRERA FRILANSARE" within section
     Then I should see "Registrera ny frilansare"
