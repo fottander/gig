@@ -530,9 +530,34 @@ input[type='file'] {
 
 .login-box-form-section,
 .login-box-social-section-inner {
-  padding-top: 1.0rem;
+  text-align: center;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+}
+
+@media screen and (min-width: 39.9375em) {
+  .login-box-form-section, .login-box-social-section-inner {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+.login-box-form-section .login-title {
+  background-color: #f77d0e;
+  font-weight: 800;
+  font: normal 18px Montserrat,Arial,sans-serif;
+  padding: 10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+@media screen and (min-width: 39.9375em) {
+  .login-box-form-section .login-title {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
 }
 
 .login-box-social-section-company-register {

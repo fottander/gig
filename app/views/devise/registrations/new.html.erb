@@ -2,7 +2,9 @@
   <div class="row collapse expanded">
     <div class="small-12 medium-6 column small-order-2 medium-order-1">
       <div class="login-box-form-section">
-        <div class='post-title'><h3>Registrera ny frilansare</h3></div>
+        <div class='login-title'>
+          <span style='color: white; font-weight: 700;'>Registrera ny frilansare</span>
+        </div>
         <div class="login-box-input"><%= link_to "Registrera företag >>", new_company_registration_path, class: 'switch-button' %></div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
@@ -21,7 +23,7 @@
         </div>
         <div class="actions">
           <span style='color: #6D6D6D; font-size: 14px;'>När du klickar på registrera godkänner du automatiskt</span> <%= link_to 'våra villkor.', terms_of_services_path , style: 'font-size: 14px; text-transform: lowercase;'%><br>
-          <%= f.submit "Registrera", class: 'reply-button' %>
+          <%= f.submit "Registrera", class: 'reply-button', style:'width: 50%;' %>
           <p>eller <%= render "devise/shared/links" %></p>
         </div>
         <%end %>
