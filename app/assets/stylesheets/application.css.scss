@@ -1078,11 +1078,12 @@ input[type='file'] {
    padding: 0.8rem 0 0;
  }
 
-  @media screen and (max-width: 39.9375em) {
+/*  @media screen and (max-width: 39.9375em) {
    .site-footer-top {
     display: none;
    }
  }
+ */
 
  .site-footer-title {
    color: #fefefe;
@@ -1093,6 +1094,7 @@ input[type='file'] {
    text-align: center;
  }
 
+/*
  @media screen and (max-width: 39.9375em) {
    .site-footer-title {
      color: #fefefe;
@@ -1103,6 +1105,7 @@ input[type='file'] {
      text-align: center;
    }
  }
+ */
 
  .site-footer-content {
    color: #fefefe;
@@ -1115,6 +1118,7 @@ input[type='file'] {
 
  }
 
+/*
  @media screen and (max-width: 39.9375em) {
    .site-footer-content {
      color: #fefefe;
@@ -1127,6 +1131,7 @@ input[type='file'] {
 
    }
  }
+ */
 
 
  .site-footer-content a {
