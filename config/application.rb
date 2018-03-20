@@ -14,9 +14,6 @@ Bundler.require(*Rails.groups)
 module Gig
   class Application < Rails::Application
     config.time_zone = "Stockholm"
-    config.action_dispatch.default_headers.merge!(
-      'Cache-Control' => 'no-store, no-cache'
-    )
     config.generators do |generate|
       generate.helper false
       generate.assets false
