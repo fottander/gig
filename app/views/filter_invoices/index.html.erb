@@ -23,7 +23,7 @@
             <%= text_field_tag :with_company_id, nil, placeholder: 'Sök efter företags ID' %>
             <%= submit_tag 'Sök', class: 'filter-button' %>
           <% end %>
-          <p style='font-weight: 700;'>Fakturor som aktiverats av kund men inte markerats som betalda</p>
+          <p style='font-weight: 700;'>Fakturor som aktiverats men inte markerats som betalda</p>
           <div id='pagination-js'>
             <div id="filter-invoices">
               <%= render 'filter_invoices' %>

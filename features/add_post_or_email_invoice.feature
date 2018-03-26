@@ -11,8 +11,8 @@ Feature: Extend invoice with post or email
       | email          | password  | password_confirmation | id |
       | felix@mail.com | 12345678  | 12345678              | 1  |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active |id | company_id | user_id | job_id | job_title    | updated_at | paid  |
-      | abc         | 120    | felix          | 30    | false  | 1 | 1          | 1       | 1      | Målare sökes | 2017-11-01 | false |
+      | description | amount | user_reference | terms | active |id | company_id | user_id | job_id | job_title    | created_at | paid  |
+      | abc         | 120    | felix          | 15    | false  | 1 | 1          | 1       | 1      | Målare sökes | 2018-01-01 | false |
 
     Scenario: I extend invoice with post
       Given I am logged in as company "felix@mail.com"
@@ -48,3 +48,21 @@ Feature: Extend invoice with post or email
       And I should see "Sparat!"
       Then I should see "Leveranssätt: Email"
       And I should see "Summa att betala: 150"
+
+    Scenario: I extend invoice with 30 days terms and post delivery
+      Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
+      And I click "Visa"
+      And I should see "abc"
+      And I should see "Fakturan ska betalas innan 2018-01-16"
+      And I check Terms check box
+      And I check Post check box
+      And I click "Spara"
+      And I should see "Sparat!"
+      And invoice is sending by post
+      Then I should see "Leveranssätt: Post"
+      And I should see "Summa ex moms: 660 SEK "
+      And I should see "Summa att betala: 825 SEK"
+      And I should see "Fakturan ska betalas innan 2018-01-31"
+      And I should not see "Klicka för att få fakturan på posten(+40kr)"
+      Then I should not see "Klicka för 30 dagars fakturatid(+500kr)"

@@ -27,7 +27,7 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @due_date = @invoice.updated_at+@invoice.terms.day
+    @due_date = @invoice.created_at+@invoice.terms.day
   end
 
   def edit
@@ -57,6 +57,9 @@ class InvoicesController < ApplicationController
       if @invoice.post == true
         @invoice.update(amount: @invoice.amount + 40)
       end
+      if @invoice.terms == 30
+        @invoice.update(amount: @invoice.amount + 500)
+      end
       flash[:notice] = "Sparat!"
       redirect_back(fallback_location: panels_path)
     end
@@ -81,6 +84,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_extend_params
-    params.permit(:feedback, :post)
+    params.permit(:feedback, :terms, :post)
   end
 end

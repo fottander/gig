@@ -168,7 +168,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "company_reference"
     t.integer "profile_id"
     t.string "profile_username"
-    t.integer "terms", default: 30
+    t.integer "terms", default: 15
     t.boolean "paid", default: false
     t.boolean "active", default: false
     t.boolean "salary_paid", default: false
@@ -193,7 +193,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "company_reference"
     t.string "job_title"
     t.float "user_fee"
-    t.integer "terms", default: 30
+    t.integer "terms", default: 15
     t.boolean "paid", default: false
     t.boolean "active", default: false
     t.boolean "salary_paid", default: false

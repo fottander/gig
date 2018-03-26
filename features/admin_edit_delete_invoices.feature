@@ -27,10 +27,10 @@ Feature: Admin edit and delete invoices
       | johan@mail.com | brag | johans p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9998 |
     Given the following ezinvoices exist
       | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | active | updated_at | paid  | user_id    |
-      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 30    | true   | 2017-11-01 | false | 9999       |
+      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 15    | true   | 2017-11-01 | false | 9999       |
     Given the following invoices exist
       | description | amount | user_reference | terms | active | id    | company_id | updated_at | paid  | user_id    |
-      | abc         | 120    | felix          | 30    | true   | 9999  | 9999       | 2017-11-01 | false | 9999       |
+      | abc         | 120    | felix          | 15    | true   | 9999  | 9999       | 2017-11-01 | false | 9999       |
 
     Scenario: I see ezinvoices and search by id
       Given I am logged in as admin "admin@yahoo.com"

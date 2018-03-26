@@ -21,7 +21,7 @@ Feature: Extend invoice and add feedback
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
     Given the following invoices exist
       | description | amount | user_reference | terms | active |id | company_id | user_id | profile_id | job_id | job_title    |
-      | abc         | 120    | felix          | 30    | false  | 1 | 1          | 9999    | 9999       | 1      | Målare sökes |
+      | abc         | 120    | felix          | 15    | false  | 1 | 1          | 9999    | 9999       | 1      | Målare sökes |
 
     Scenario: I give feedback
       Given I am logged in as company "felix@mail.com"
@@ -30,6 +30,7 @@ Feature: Extend invoice and add feedback
       And I should see "abc"
       And I should see "Vill du rekommendera"
       And I fill in "feedback" with "Väldigt bra snubbe"
+      And I check Terms check box
       And I check Post check box
       And I click "Spara"
       And I should see "Sparat!"

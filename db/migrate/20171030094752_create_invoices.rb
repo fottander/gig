@@ -12,7 +12,7 @@ class CreateInvoices < ActiveRecord::Migration[5.1]
       t.string :company_reference
       t.string :job_title
       t.float :user_fee
-      t.integer :terms, default: 30
+      t.integer :terms, default: 15
       t.boolean :paid, default: false
       t.boolean :active, default: false
       t.boolean :salary_paid, default: false

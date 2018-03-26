@@ -29,7 +29,7 @@ Feature: Show freelancers
       | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | måleri 5 år, snicker 3 år. | 3            | 3        | 3  | 3       |
     Given the following invoices exist
       | description | amount | user_reference | terms | active |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id |
-      | abc         | 120    | felix          | 30    | true   | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
+      | abc         | 120    | felix          | 15    | true   | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
 
     Scenario: I see freelancers
       Given I am on the home page
