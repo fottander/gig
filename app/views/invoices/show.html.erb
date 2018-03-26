@@ -65,18 +65,20 @@
             </div>
             <%= form_tag extend_invoice_path(@invoice), method: :patch do %>
             <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
-            <% if @invoice.terms == 15 %>
-              <% if @invoice.active == false %>
-                <%= hidden_field_tag :terms, '15' %>
-                <%= check_box_tag :terms, checked = '30' %>
-                Klicka för 30 dagars fakturatid(+500kr)<br>
-              <% end %>
-            <% end %>
             <% if @invoice.post == false %>
               <% if @invoice.active == false %>
                 <%= hidden_field_tag :post, false %>
                 <%= check_box_tag :post, checked = true %>
                 Klicka för att få fakturan på posten(+40kr)<br>
+              <% end %>
+            <% end %>
+            <% if current_company.invoices.count > 3 %>
+              <% if @invoice.terms == 15 %>
+                <% if @invoice.active == false %>
+                  <%= hidden_field_tag :terms, '15' %>
+                  <%= check_box_tag :terms, checked = '30' %>
+                  Klicka för 30 dagars fakturatid(+500kr)<br>
+                <% end %>
               <% end %>
             <% end %>
             <%= submit_tag 'Spara', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
@@ -91,6 +93,14 @@
               <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
                 Fakturan är betald!
               </p>
+              <% end %>
+            <% end %>
+            <% if @invoice.active == false %>
+              <% if current_company.invoices.count < 4 %>
+                <del>Klicka för 30 dagars fakturatid(+500kr)</del><br>
+                <span style='color: #f77d0e; font-size: 12px;'>
+                  När du mottagit tre tidigare fakturor får du möjligheten att förlänga dina betalningsvillkor.
+                </span>
               <% end %>
             <% end %>
           </div>

@@ -20,6 +20,11 @@ Then("the latest created ezinvoice is beeing activated") do
   ezinvoice.save
 end
 
+Given("the first invoice is being deleted") do
+  invoice = Invoice.last
+  invoice.destroy
+end
+
 Given("the following invoices exist") do |table|
   table.hashes.each do |hash|
     create(:invoice, hash)

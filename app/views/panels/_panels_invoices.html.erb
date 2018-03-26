@@ -9,8 +9,8 @@
       Frilansare: <%= invoice.profile_username %><br>
       Skapad: <%= invoice.created_at.strftime("%Y-%m-%d") %><br>
       <% if invoice.active == false %>
-        <p class="dash-active-inv", style="color: red;">Ej godkänd</p>
-        <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
+        <p class="dash-active-inv", style="color: red;">Inväntar godkännande</p>
+        <%= link_to 'Visa/Kontrollera', invoice_path(invoice), class: 'button-green' %>
       <% else %>
         <p class="dash-active-inv", style="color: green;">Godkänd <%= invoice.updated_at.strftime("%Y-%m-%d")%></p>
         <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
