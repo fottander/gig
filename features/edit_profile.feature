@@ -22,7 +22,7 @@ Feature: Edit profile
       And I fill in "Användarnamn" with "Fisken"
       And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
-      And I fill in "Färdigheter" with ""
+      And I fill in "Kompetenser" with ""
       And I check Category check box
       And I select "Göteborg" from "Stad"
       And I click "Skapa"
@@ -32,7 +32,7 @@ Feature: Edit profile
       And I fill in "Användarnamn" with "fisken"
       And I fill in "Titel" with "målare"
       And I fill in "Beskrivning" with "målare från gbg"
-      And I fill in "Färdigheter" with "målning och snickeri"
+      And I fill in "Kompetenser" with "målning och snickeri"
       And I check Category check box
       And I select "Göteborg" from "Stad"
       And I click "Spara"

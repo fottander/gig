@@ -91,7 +91,7 @@ en:
         username: 'Användarnamn'
         title: 'Titel'
         description: 'Beskrivning'
-        skill: 'Färdigheter'
+        skill: 'Kompetenser'
         rate: 'Lön'
         category_ids: 'Kategori'
         city_ids: 'Stad'

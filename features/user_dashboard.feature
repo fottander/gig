@@ -32,7 +32,7 @@ Feature: User dashboard
       And I fill in "Användarnamn" with "Fisken"
       And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
-      And I fill in "Färdigheter" with ""
+      And I fill in "Kompetenser" with ""
       And I check Category check box
       And I select "Göteborg" from "Stad"
       And I attach file

@@ -33,7 +33,7 @@
             Användarnamn: <br>
             <%= link_to current_user.profile.username, profile_path(current_user.profile) %><br>
             Titel: <%= current_user.profile.title %><br>
-            Färdigheter: <%= current_user.profile.skill %><br>
+            Kompetenser: <%= current_user.profile.skill %><br>
             Kategorier: <%= current_user.profile.categories.pluck(:name).flatten.join(' & ') %> <br>
             Stad: <%= current_user.profile.cities.pluck(:name).flatten.join(' & ') %>
             </div>

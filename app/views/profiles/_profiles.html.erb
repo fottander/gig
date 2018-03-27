@@ -29,7 +29,7 @@
                     <span style='font-weight: 550;'>Stad:</span> <%= profile.cities.pluck(:name).flatten.join(' & ') %>
                   </div>
                   <div class='large-3 columns'>
-                    <span style='font-weight: 550;'>Färdigheter:</span>
+                    <span style='font-weight: 550;'>Kompetenser:</span>
                     <% if profile.skill.length > 40 %>
                       <%= truncate(profile.skill, length: 40) %>
                     <% else %>

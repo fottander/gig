@@ -38,7 +38,7 @@ Feature: Show freelancers
       And I should see "fisken"
       And I should see "Erfaren målare"
       And I should see "Erfaren målare och snickare med 5 års erfarenhet"
-      And I should see "Färdigheter: måleri 5 år, snicker 3 år."
+      And I should see "Kompetenser: måleri 5 år, snicker 3 år."
       And I should see "Målare"
       Then I should see "Stad: Göteborg"
       And I click "fisken"
