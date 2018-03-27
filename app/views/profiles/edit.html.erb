@@ -16,6 +16,7 @@
   <div class="holy-grail-middle">
     <div class="simple-form">
       <div class='post-title'><h3>Redigera profil</h3></div>
+      <p><%= link_to "Till din profil >>", profile_path(@profile), class: 'switch-button' %></p>
       <%= form_for @profile do |f| %>
       <% if @profile.errors.any? %>
         <% @profile.errors.full_messages.each do |message| %>
@@ -52,7 +53,11 @@
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>
       <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @profile.city_ids }, { class: 'input-medium' }) %>
+      <div style='color: #f77d0e; font-weight: 600;'>Extra</div>
       <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+      <% if @profile.avatar_file_name.present? %>
+      <span style='font-size: 10px;'><%= @profile.avatar_file_name %></span>
+      <% end %>
       <%= f.file_field :avatar, class: 'form-text' %>
       <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
       <%= f.submit 'Spara', class: 'reply-button' %>
