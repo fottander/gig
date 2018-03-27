@@ -1463,7 +1463,14 @@ input[type='file'] {
 }
 
 /* INDEX PROFILE */
-@media screen and (max-width: 39.9375em) {
+@media screen and (max-width: 31.9374em) {
+  .browse-holder {
+    margin-left: -7%;
+    margin-right: -7%;
+  }
+}
+
+@media screen and (min-width: 31.9375) and (max-width: 39.9375em) {
   .browse-holder {
     margin-left: -5%;
     margin-right: -5%;
@@ -1487,6 +1494,12 @@ input[type='file'] {
 .profile-card-action-icons .card-section .profile-card-header,
 .profile-card-action-icons .card-section .profile-card-about {
   padding: 0.2rem 1rem;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .profile-card-action-icons .card-section .profile-card-header {
+    padding: 0.1rem 0.5rem;
+  }
 }
 
 .profile-card-action-icons .card-section .profile-card-about-feed {
