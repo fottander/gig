@@ -4,9 +4,10 @@
     <div class='portfolio-card'>
       <div class='portfolio-card-header'><%= link_to invoice.job_title, job_path(invoice.job_id) %></div>
       <p class="portfolio-resume-subheader">
-        Faktura ID: <%= invoice.id.first(8) %> <br>
-        Jobb ID: <%= invoice.job_id %> <br>
         Ansöknings ID: <%= invoice.application_id %><br>
+        Jobb ID: <%= invoice.job_id %> <br>
+        Faktura ID: <%= invoice.id.first(8) %> <br>
+        Skapad: <%= invoice.created_at.strftime("%F %R") %>
       </p>
       <% if invoice.active == false %>
         <p class="dash-active-inv", style="color: red;">Inväntar godkännande</p>

@@ -16,51 +16,101 @@
   <div class="holy-grail-middle">
     <div class="simple-form">
       <div class='post-title'><h3>Redigera profil</h3></div>
-      <p><%= link_to "Till din profil >>", profile_path(@profile), class: 'switch-button' %></p>
-      <%= form_for @profile do |f| %>
-      <% if @profile.errors.any? %>
-        <% @profile.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      <% end %>
-      <%= f.label :username, 'Användarnamn', class: 'form-text' %>
-      <%= f.text_field :username, value: @profile.username %>
-      <%= f.label :title, 'Titel', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :title, value: @profile.title %>
-        <div class="fieldInfo">
-          Tips <br>
-          Skriv en kort slagkraftig titel som beskriver dig och de arbeten du kommer söka. Max 140 tecken.
-        </div>
-      </div>
-      <%= f.label :description, 'Beskrivning', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_area :description, value: @profile.description %>
-        <div class="fieldInfo">
-          Tips <br>
-          Här finns mycket utrymme för att beskriva dig på bästa sätt som kommer öka dina chanser till att få jobb. Vilka är dina bästa egenskaper? Vilka typer av jobb passar dig? Vad har du för andra erfarenheter? Beskriv dig själv som person. Liknande ett CV.
-        </div>
-      </div>
-      <%= f.label :skill, 'Kompetenser', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :skill, value: @profile.skill %>
-        <div class="fieldInfo">
-          Tips <br>
-          Rada upp de främsta kompetenser du har. Separera med kommatecken.
-        </div>
-      </div>
-      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
-      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
-      <%= f.label :city_ids, 'Stad', class: 'form-text' %>
-      <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @profile.city_ids }, { class: 'input-medium' }) %>
-      <div style='color: #f77d0e; font-weight: 600;'>Extra</div>
-      <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+      <p><%= link_to "Visa din profil >>", profile_path(@profile), class: 'switch-button' %></p>
       <% if @profile.avatar_file_name.present? %>
-      <span style='font-size: 10px;'><%= @profile.avatar_file_name %></span>
+      <% else %>
+        <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till profilbild!</span><br>
       <% end %>
-      <%= f.file_field :avatar, class: 'form-text' %>
-      <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
-      <%= f.submit 'Spara', class: 'reply-button' %>
+      <% if @profile.education.present? %>
+      <% else %>
+        <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till utbildning!</span><br>
+      <% end %>
+      <% if @profile.prev_work.present? %>
+      <% else %>
+        <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till arbetsplatser!</span>
+      <% end %>
+      <%= form_for @profile do |f| %>
+        <% if @profile.errors.any? %>
+          <% @profile.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
+        <%= f.label :username, 'Användarnamn', class: 'form-text' %>
+        <%= f.text_field :username, value: @profile.username %>
+        <%= f.label :title, 'Titel', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :title, value: @profile.title %>
+          <div class="fieldInfo">
+            Tips <br>
+            Skriv en kort slagkraftig titel som beskriver dig och de arbeten du kommer söka. Max 140 tecken.
+          </div>
+        </div>
+        <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_area :description, value: @profile.description %>
+          <div class="fieldInfo">
+            Tips <br>
+            Här finns mycket utrymme för att beskriva dig på bästa sätt som kommer öka dina chanser till att få jobb. Vilka är dina bästa egenskaper? Vilka typer av jobb passar dig? Vad har du för andra erfarenheter? Beskriv dig själv som person. Liknande ett CV.
+          </div>
+        </div>
+        <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
+        <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+        <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @profile.city_ids }, { class: 'input-medium' }) %>
+        <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
+        <div class="classic">
+          <%= f.submit 'Spara', class: 'reply-button' %>
+        </div>
+        <div style='color: #f77d0e; font-weight: 600; margin-top: 15px;'>Extra information</div>
+        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+        <% if @profile.avatar_file_name.present? %>
+        <span style='font-size: 10px;'><%= @profile.avatar_file_name %></span>
+        <% end %>
+        <%= f.file_field :avatar, class: 'form-text', style:'margin-bottom: -10px;' %>
+        <%= f.submit 'Lägg till', class: 'button-blue', style: 'margin-top: 5px;' %>
+        <%= f.label :language, 'Språk (Ex. Svenska flytande, engelska grundläggande)', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.text_field :language, value: @profile.language, style:'margin-bottom: 0px;' %>
+        <div class="language">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :license, 'Körkort (Ex. B-körkort, truckkörkort)', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.text_field :license, value: @profile.license, style:'margin-bottom: 0px;' %>
+        <div class="license">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :education, 'Utbildning', class: 'form-text', style:'margin-top: 5px;' %>
+        <div class="fieldContainer">
+          <%= f.text_area :education, value: @profile.education, style:'margin-bottom: 0px;' %>
+          <div class="fieldInfo" style='margin-top: 0px;'>
+            Tips <br>
+            Skriv om dina utbildningar du genomgått under åren och på vilken skola eller företag.
+          </div>
+        </div>
+        <div class="education">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :prev_work, 'Tidigare arbetsplatser', class: 'form-text', style:'margin-top: 5px;' %>
+        <div class="fieldContainer">
+          <%= f.text_area :prev_work, value: @profile.prev_work, style:'margin-bottom: 0px;' %>
+          <div class="fieldInfo" style='margin-top: 0px;'>
+            Tips <br>
+            Skriv om de olika arbeten du utfört och på vilket företag.
+          </div>
+        </div>
+        <div class="prev-work">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :skill, 'Kompetenser (Ex. Städning, vikarie, målning)', class: 'form-text', style:'margin-top: 5px;' %>
+        <div class="fieldContainer">
+          <%= f.text_field :skill, value: @profile.skill, style:'margin-bottom: 0px;' %>
+          <div class="fieldInfo" style='margin-top: 0px;'>
+            Tips <br>
+            Rada upp de främsta områden du är kunnig inom. Separera med kommatecken.
+          </div>
+        </div>
+        <div class="skill">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
       <% end %>
     </div>
   </div>

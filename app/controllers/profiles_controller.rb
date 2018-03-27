@@ -56,7 +56,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:username, :title, {category_ids:[]}, :avatar, :description, :skill, :rate, :category, :city_ids)
+    params.require(:profile).permit(:username, :title, {category_ids:[]}, :avatar, :description, :skill, :category, :city_ids, :language, :license, :education, :prev_work)
   end
 
   def filtering_params(params)

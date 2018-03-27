@@ -236,6 +236,10 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "title"
     t.text "description"
     t.string "skill"
+    t.string "language"
+    t.string "license"
+    t.text "education"
+    t.text "prev_work"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

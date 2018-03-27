@@ -66,3 +66,39 @@ Then("I click {string} in left menu") do |link|
     click_link_or_button link
   end
 end
+
+Then("I click {string} in classic") do |link|
+  within ".classic" do
+    click_link_or_button link
+  end
+end
+
+Then("I click {string} in language") do |link|
+  within ".language" do
+    click_link_or_button link
+  end
+end
+
+Then("I click {string} in license") do |link|
+  within ".license" do
+    click_link_or_button link
+  end
+end
+
+Then("I click {string} in education") do |link|
+  within ".education" do
+    click_link_or_button link
+  end
+end
+
+Then("I click {string} in prev-work") do |link|
+  within ".prev-work" do
+    click_link_or_button link
+  end
+end
+
+Then("I click {string} in skill") do |link|
+  within ".skill" do
+    click_link_or_button link
+  end
+end

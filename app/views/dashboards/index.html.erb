@@ -35,7 +35,19 @@
             Titel: <%= current_user.profile.title %><br>
             Kompetenser: <%= current_user.profile.skill %><br>
             Kategorier: <%= current_user.profile.categories.pluck(:name).flatten.join(' & ') %> <br>
-            Stad: <%= current_user.profile.cities.pluck(:name).flatten.join(' & ') %>
+            Stad: <%= current_user.profile.cities.pluck(:name).flatten.join(' & ') %><br>
+            <% if current_user.profile.avatar_file_name.present? %>
+            <% else %>
+              <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till profilbild!</span><br>
+            <% end %>
+            <% if current_user.profile.education.present? %>
+            <% else %>
+              <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till utbildning!</span><br>
+            <% end %>
+            <% if current_user.profile.prev_work.present? %>
+            <% else %>
+              <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till arbetsplatser!</span>
+            <% end %>
             </div>
             <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>
           <% else %>

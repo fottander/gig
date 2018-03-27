@@ -16,6 +16,10 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to have_db_column :title }
     it { is_expected.to have_db_column :description }
     it { is_expected.to have_db_column :skill }
+    it { is_expected.to have_db_column :language }
+    it { is_expected.to have_db_column :license }
+    it { is_expected.to have_db_column :education }
+    it { is_expected.to have_db_column :prev_work }
     it { is_expected.to have_db_column :user_id }
   end
 
