@@ -1,14 +1,16 @@
 <% if @applications_not_hired.present? %>
   <% @applications_not_hired.each do |application| %>
-    <div class="portfolio-resume-subheader">
-      <%= link_to application.job_title, job_path(application.job_id) %><br>
-      Ansöknings ID: <%= application.id %><br>
-      Jobb ID: <%= application.job_id %><br>
-      Skapad: <%= application.created_at.strftime("%F %R") %><br>
-      <span style='color: green;'>Antal svar: <%= application.comments.count %></span>
+    <div class='portfolio-card'>
+      <div class='portfolio-card-header'><%= link_to application.job_title, job_path(application.job_id) %></div>
+      <div class="portfolio-resume-subheader">
+        Ansöknings ID: <%= application.id %><br>
+        Jobb ID: <%= application.job_id %><br>
+        Skapad: <%= application.created_at.strftime("%F %R") %><br>
+        <span style='color: green;'>Antal svar: <%= application.comments.count %></span>
+      </div>
+      <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
+      <%= link_to 'Redigera', edit_job_application_path(application.job_id, application.id), class: 'button-orange' %>
     </div>
-    <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
-    <%= link_to 'Redigera', edit_job_application_path(application.job_id, application.id), class: 'button-orange' %>
   <% end %>
 <% else %>
   <strong>Inga aktiva ansökningar</strong><br>

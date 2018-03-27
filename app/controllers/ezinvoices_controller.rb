@@ -17,7 +17,7 @@ class EzinvoicesController < ApplicationController
     @ezinvoice.user_fee = current_user.fee
     respond_to do |format|
       if @ezinvoice.save
-        format.html { redirect_to new_ezinvoice_path, notice: 'Ny faktura skapad!' }
+        format.html { redirect_to ezinvoices_path, notice: 'Ny faktura skapad!' }
         format.json { render :new, status: :created}
       else
         format.html { render :new }

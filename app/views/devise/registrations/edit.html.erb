@@ -39,7 +39,7 @@
           <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
           <%= f.text_field :phone %>
         </div>
-        <div style='color: #f77d0e;'>Betalningsinformation</div>
+        <div style='color: #f77d0e; font-weight: 600;'>Betalningsinformation</div>
         <div class="field">
           <%= f.label :pers_num, 'Personnummer(10 siffror, ex. 751212xxxx)', class: 'form-text' %>
           <%= f.text_field :pers_num %>
@@ -63,7 +63,7 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-
+        <div style='color: #f77d0e; font-weight: 600;'>Lösenord</div>
         <div class="field">
           <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
           <i>(lämna tomt om du inte vill ändra lösenord)</i>
@@ -84,6 +84,7 @@
         </div>
 
         <div class="actions">
+          <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
           <%= f.submit "Spara", class: 'reply-button' %>
         </div>
       <% end %>

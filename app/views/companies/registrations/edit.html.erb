@@ -42,6 +42,7 @@
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
+        <div style='color: #f77d0e; font-weight: 600;'>Lösenord</div>
         <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
         <i>(lämna tomt om du inte vill ändra lösenord)</i>
         <% if @minimum_password_length %>
@@ -52,6 +53,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
         <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
         <%= f.password_field :current_password, autocomplete: "off" %>
+        <%= link_to 'Avbryt', panels_path, class: 'cancel-button' %>
         <%= f.submit "Spara", class: 'reply-button' %>
       <% end %>
     </div>

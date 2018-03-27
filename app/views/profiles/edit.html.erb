@@ -54,6 +54,7 @@
       <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @profile.city_ids }, { class: 'input-medium' }) %>
       <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
       <%= f.file_field :avatar, class: 'form-text' %>
+      <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
       <%= f.submit 'Spara', class: 'reply-button' %>
       <% end %>
     </div>

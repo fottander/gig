@@ -1,11 +1,13 @@
 <span id="active-invoices">
 <% if @invoices.present? %>
   <% @invoices.each do |invoice| %>
-    <p class="portfolio-resume-subheader">
-      <%= link_to invoice.job_title, job_path(invoice.job_id) %><br>
-      Faktura ID: <%= invoice.id.first(8) %> <br>
-      Jobb ID: <%= invoice.job_id %> <br>
-      Ansöknings ID: <%= invoice.application_id %> <br>
+    <div class='portfolio-card'>
+      <div class='portfolio-card-header'><%= link_to invoice.job_title, job_path(invoice.job_id) %></div>
+      <p class="portfolio-resume-subheader">
+        Faktura ID: <%= invoice.id.first(8) %> <br>
+        Jobb ID: <%= invoice.job_id %> <br>
+        Ansöknings ID: <%= invoice.application_id %><br>
+      </p>
       <% if invoice.active == false %>
         <p class="dash-active-inv", style="color: red;">Inväntar godkännande</p>
         <%= link_to 'Redigera', edit_invoice_path(invoice), class: 'button-green' %>
@@ -14,7 +16,7 @@
         <p class="dash-active-inv", style="color: green;">Godkänd</p>
         <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
       <% end %>
-    </p>
+    </div>
   <% end %>
 <% end %>
 </span>

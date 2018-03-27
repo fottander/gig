@@ -79,6 +79,7 @@
       </div>
       <%= f.check_box :active, value: true %>
       Aktivera/Inaktivera för att låta personer se din annons eller inte.<br>
+      <%= link_to 'Avbryt', panels_path, class: 'cancel-button' %>
       <%= f.submit 'Spara', class: 'reply-button' %>
       <% end %>
     </div>

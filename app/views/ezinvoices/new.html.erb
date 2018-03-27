@@ -58,6 +58,7 @@
           <%= f.text_field :user_reference, placeholder: 'Ditt förnamn & efternamn' %>
           <%= f.label :terms, 'Betalningsvillkor(15 dagar är standard)', class: 'form-text' %>
           <%= f.text_field :terms %>
+          <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
           <%= f.submit 'Skapa', class: 'reply-button' %>
         <% end %>
       <% else %>

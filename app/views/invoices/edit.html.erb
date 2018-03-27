@@ -38,6 +38,7 @@
           <%= f.text_field :user_reference, value: @invoice.user_reference %>
           <%= f.label :company_reference, 'Företagsreferens', class: 'form-text' %>
           <%= f.text_field :company_reference, value: @invoice.company_reference %>
+          <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
           <%= f.submit 'Spara', class: 'reply-button' %>
         <% end %>
       <% end %>

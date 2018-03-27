@@ -58,6 +58,7 @@
             <%= f.text_field :user_reference, value: @ezinvoice.user_reference %>
             <%= f.label :terms, 'Betalningsvillkor(15 dagar är standard)', class: 'form-text' %>
             <%= f.text_field :terms, value: @ezinvoice.terms %>
+            <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
             <%= f.submit 'Spara', class: 'reply-button' %>
           <% end %>
         <% else %>

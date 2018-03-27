@@ -232,6 +232,21 @@ input[type='file'] {
 
  /* Buttons & filter*/
 
+ .cancel-button {
+   border: 1px solid #ddd;
+   color: #525252;
+   background-color: #fefefe;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 1;
+   font-size: 1rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   font-weight: 700;
+   letter-spacing: 0.8px;
+   padding: 0.9rem 1.75rem 0.9rem;
+   margin-right: 10px;
+ }
+
  .button-green {
      background: #3db5e6;
      color: #fff;
@@ -330,6 +345,27 @@ input[type='file'] {
 
  .reply-button:hover {
    color: black;
+ }
+
+ .reply-button-media {
+   background: #3db5e6;
+   color: #fff;
+   display: inline-block;
+   text-align: center;
+   text-transform: uppercase;
+   line-height: 1;
+   font-size: 1rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   font-weight: 700;
+   letter-spacing: 0.8px;
+   padding: 1rem 1.75rem 1rem;
+   border: none;
+ }
+
+ @media screen and (max-width: 39.9375em) {
+   .reply-button-media {
+     width: 100%;
+   }
  }
 
  .profile-button {
@@ -1525,6 +1561,12 @@ input[type='file'] {
   padding-bottom: 0;
 }
 
+@media screen and (max-width: 39.9375em) {
+  .profile-card-action-icons .card-section .profile-card-header .profile-card-author {
+    text-align: center;
+  }
+}
+
   @media screen and (max-width: 39.9375em) {
     .profile-card-action-icons .card-section .profile-card-header .profile-card-author .add-friend {
       -webkit-justify-content: flex-start;
@@ -1551,6 +1593,29 @@ input[type='file'] {
 }
 
 /* SHOW JOB AD & APPLY & DASHBOARDS */
+
+.portfolio-card {
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 34.9375em) and (max-width: 63.9375em) {
+  .portfolio-card {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+.portfolio-card .portfolio-card-header {
+  color: #fefefe;
+  background-color: #615D5D;
+  padding: 0.1rem 0.8rem 0.1rem;
+}
+
+.portfolio-card .portfolio-card-header a {
+  color: #fefefe;
+  font-size: 12px;
+}
 
 .portfolio-resume-wrapper {
   text-align: center;
