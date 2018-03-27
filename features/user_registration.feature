@@ -18,6 +18,10 @@ Feature: User registration
       And I click "Registrera"
       Then I should see "Välkommen! Du har nu registrerat dig."
       And I should see "Välkommen till A New Biz"
+      And I should see "Inga aktiva ansökningar"
+      And I should see "Inga aktiva jobb"
+      And I should see "Inga färdiga jobb"
+      And I should see "Inga fakturor"
       Then I should see "Nästa steg är att skapa en profil"
       And I click "LOGGA UT"
       Given I am on the home page

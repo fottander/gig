@@ -40,7 +40,7 @@ Feature: Post job ad
       Then I should see "Ny annons skapad!"
       Given I click "KONTROLLPANEL"
       And I should see "målare"
-      Then I should not see "Inga jobb hittills"
+      Then I should not see "Inga annonser ännu"
 
     Scenario: I post an ad without title
       Given I am on the home page

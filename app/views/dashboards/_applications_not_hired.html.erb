@@ -13,8 +13,10 @@
     </div>
   <% end %>
 <% else %>
-  <strong>Inga aktiva ansökningar</strong><br>
-  <%= link_to 'Ansök till jobb här!', jobs_path %>
+  <div class='portfolio-card'>
+    <div class='portfolio-card-header'><strong>Inga aktiva ansökningar</strong></div>
+    <%= link_to 'Ansök till jobb här!', jobs_path %>
+  </div>
 <% end %>
 <div class="will-paginate">
     <%= will_paginate @applications_not_hired, param_name: 'not_hired', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>

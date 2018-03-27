@@ -19,6 +19,10 @@
       <% end %>
     </div>
   <% end %>
+<% else %>
+  <div class='portfolio-card'>
+    <div class='portfolio-card-header'><strong>Inga fakturor</strong></div>
+  </div>
 <% end %>
 <div class="will-paginate">
     <%= will_paginate @invoices, param_name: 'invoices', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>

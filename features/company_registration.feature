@@ -28,6 +28,10 @@ Feature: Company registration
       Then I should see "Välkommen! Du har nu registrerat dig."
       And I should see "Välkommen till A New Biz"
       Then I should see "Nästa steg är att skapa en annons"
+      And I should see "Inga annonser ännu"
+      And I should see "Inga aktiva anställningar"
+      And I should see "Inga färdiga anställningar"
+      And I should see "Inga fakturor"
       And I click "LOGGA UT"
       Given I am on the home page
       And I click "LOGGA IN"

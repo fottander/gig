@@ -14,8 +14,9 @@
     </div>
   <% end %>
 <% else %>
-  <strong>Inga aktiva anställningar</strong><br>
-  <%= link_to 'Ansök till jobb här!', jobs_path %>
+  <div class='portfolio-card'>
+    <div class='portfolio-card-header'><strong>Inga aktiva jobb</strong></div>
+  </div>
 <% end %>
 </span>
 <div class="will-paginate">

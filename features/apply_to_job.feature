@@ -131,7 +131,8 @@ Feature: Apply to job
       Then I should see "målare sökes"
       And I click "Redigera"
       And I click "Radera ansökan"
-      Then I should not see "målare sökes"
+      And I should not see "målare sökes"
+      Then I should see "Inga aktiva ansökningar"
 
     Scenario: I apply to a job without a profile
       Given I am on the jobs page
