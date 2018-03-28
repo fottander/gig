@@ -6,7 +6,6 @@
     <span class='item-define'>Titel:</span> <%= profile.title %> <br>
     <span class='item-define'>Kategori:</span> <%= profile.categories.pluck(:name) %><br>
     <span class='item-define'>Beskrivning:</span> <%= profile.description %> <br>
-    <span class='item-define'>Färdigheter:</span> <%= profile.skill %> <br>
     <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name) %> <br>
     <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%F %R") %> <br>
     <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%F %R") %> <br>
