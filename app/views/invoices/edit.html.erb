@@ -5,10 +5,10 @@
     <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
     <% if current_user.profile.present? %>
       <%= link_to 'Profil', edit_profile_path(current_user.profile.id), class: 'button-menu' %>
+      <%= link_to 'Utbetalningar', payments_path, class: 'button-menu' %>
       <% else %>
       <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>
-    <%= link_to 'Utbetalningar', payments_path, class: 'button-menu' %><br>
     <%= link_to 'Snabbfaktura', ezinvoices_path, class: 'button-menu' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
   </div>

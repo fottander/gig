@@ -10,43 +10,35 @@
             <div class="profile-card-author">
               <h4 class="author-title"><%= link_to profile.username, profile_path(profile)%></h4>
               <%= profile.title %>
-              <div class="small-12 medium-2 columns add-friend">
-                <%= link_to 'Visa', profile_path(profile), class: 'reply-button-media' %>
+            </div>
+          </div>
+          <div class="large-9 columns profile-card-about">
+            <div class="profile-card-about-message">
+              <span class='profile-card-about-title'><%= profile.categories.pluck(:name).flatten.join(' & ') %></span>
+              <br>
+              <% if profile.description.length > 100 %>
+                  <%= truncate(profile.description, length: 100) %>
+              <% else %>
+                  <%= profile.description %>
+              <% end %>
+              <div class='row'>
+                <div class='large-3 columns'>
+                  <span style='font-weight: 550;'>Stad:</span> <%= profile.cities.pluck(:name).flatten.join(' & ') %>
+                </div>
+                <div class='large-3 columns'>
+                  <span style='font-weight: 550;'>Genomförda jobb:</span> <%= profile.user.invoice_count %>
+                </div>
+                <div class='large-3 columns'>
+                  <span style='font-weight: 550;'>Totalt fakturerat:</span> <br>
+                  <%= profile.user.current_earnings %>
+                </div>
+                <div class='columns'>
+                </div>
               </div>
             </div>
           </div>
-          <div class="profile-card-about">
-              <div class="profile-card-about-message">
-                <span class='profile-card-about-title'><%= profile.categories.pluck(:name).flatten.join(' & ') %></span>
-                <br>
-                <% if profile.description.length > 100 %>
-                    <%= truncate(profile.description, length: 100) %>
-                <% else %>
-                    <%= profile.description %>
-                <% end %>
-                <div class='row'>
-                  <div class='large-3 columns'>
-                    <span style='font-weight: 550;'>Stad:</span> <%= profile.cities.pluck(:name).flatten.join(' & ') %>
-                  </div>
-                  <div class='large-3 columns'>
-                    <span style='font-weight: 550;'>Färdigheter:</span>
-                    <% if profile.skill.length > 40 %>
-                      <%= truncate(profile.skill, length: 40) %>
-                    <% else %>
-                      <%= profile.skill %>
-                    <% end %>
-                  </div>
-                  <div class='large-3 columns'>
-                    <span style='font-weight: 550;'>Genomförda jobb:</span> <%= profile.user.invoice_count %>
-                  </div>
-                  <div class='large-3 columns'>
-                    <span style='font-weight: 550;'>Totalt fakturerat:</span> <br>
-                    <%= profile.user.current_earnings %>
-                  </div>
-                  <div class='columns'>
-                  </div>
-                </div>
-              </div>
+          <div class="large-3 columns profile-card-about">
+            <%= link_to 'Visa profil', profile_path(profile), class: 'reply-button-expand' %>
           </div>
         </div>
       </div>

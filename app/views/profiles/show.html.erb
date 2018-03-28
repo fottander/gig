@@ -18,34 +18,50 @@
     <hr />
 
     <div class="card-profile-stats-container">
-      <div class="large-3 columns card-profile-stats-statistic">
+      <div class="card-profile-stats-statistic">
         <span class="stat">Titel</span>
-        <p><%= @profile.title %></p>
-      </div>
-      <div class="large-4 columns card-profile-stats-statistic">
-        <span class="stat">Färdigheter</span>
-        <p><%= @profile.skill %></p>
+        <p class='job-count'><%= @profile.title %></p>
       </div>
       <div class="card-profile-stats-statistic">
         <span class="stat">Stad</span>
-          <p><%= @profile.cities.pluck(:name).flatten.join(' & ') %></p>
+          <p class='job-count'><%= @profile.cities.pluck(:name).flatten.join(' & ') %></p>
       </div>
       <div class="card-profile-stats-statistic">
         <span class="stat">Kategorier</span>
-        <p><%= @profile.categories.pluck(:name).flatten.join(' & ') %></p>
+        <p class='job-count'><%= @profile.categories.pluck(:name).flatten.join(' & ') %></p>
+      </div>
+      <% if @profile.skill.present? %>
+      <div class="card-profile-stats-statistic">
+        <span class="stat">Kompetenser</span>
+        <p class='job-count'><%= @profile.skill %></p>
+      </div>
+      <% end %>
+      <% if @profile.language.present? %>
+      <div class="card-profile-stats-statistic">
+        <span class="stat">Språk</span>
+        <p class='job-count'><%= @profile.language %></p>
+      </div>
+      <% end %>
+      <% if @profile.license.present? %>
+      <div class="card-profile-stats-statistic">
+        <span class="stat">Körkort</span>
+        <p class='job-count'><%= @profile.license %></p>
+      </div>
+      <% end %>
+      <div class="card-profile-stats-statistic">
       </div>
     </div>
   </div>
 </div>
-<% if @profile.user.invoices.present? %>
+
   <div class="card profile-card-action-icons">
     <div class="card-section">
         <div class="profile-card-header">
           <h4 class='feedback-title'>Feedback</h4>
         </div>
         <div class="profile-card-about-feed">
-          <% @profile.user.invoices.each do |invoice| %>
-            <% if invoice.feedback? %>
+          <% if @invoices.present? %>
+            <% @invoices.each do |invoice| %>
               <div class='profile-card-about-title-message'><%= invoice.job_title %></div>
               <div class="profile-card-about-feed-message">
               <%= invoice.updated_at.strftime("%Y %B") %><br>
@@ -53,6 +69,37 @@
               </div>
             <% end %>
           <% end %>
+        </div>
+    </div>
+    <div class="will-paginate">
+        <%= will_paginate @invoices, param_name: 'with_feedback', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
+  </div>
+
+<% if @profile.prev_work.present? %>
+  <div class="card profile-card-action-icons">
+    <div class="card-section">
+        <div class="profile-card-header">
+          <h4 class='feedback-title'>Tidigare arbetsplatser</h4>
+        </div>
+        <div class="profile-card-about-feed">
+          <div class="profile-card-about-feed-message">
+            <%= @profile.prev_work %>
+          </div>
+        </div>
+    </div>
+  </div>
+<% end %>
+<% if @profile.education.present? %>
+  <div class="card profile-card-action-icons">
+    <div class="card-section">
+        <div class="profile-card-header">
+          <h4 class='feedback-title'>Utbildning</h4>
+        </div>
+        <div class="profile-card-about-feed">
+          <div class="profile-card-about-feed-message">
+            <%= @profile.education %>
+          </div>
         </div>
     </div>
   </div>

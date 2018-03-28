@@ -4,6 +4,7 @@
     <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
     <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
     <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
+    <%= link_to 'Snabbfaktura', ezinvoices_path, class: 'button-menu' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %><br>
   </div>
 
@@ -16,9 +17,9 @@
           <li><%= message %></li>
         <% end %>
       <% end %>
-      <%= f.label :username, 'Användarnamn', class: 'form-text' %>
+      <%= f.label :username, '* Användarnamn', class: 'form-text' %>
       <%= f.text_field :username, placeholder: 'Kommer visas i dina jobbansökningar' %>
-      <%= f.label :title, 'Titel', class: 'form-text' %>
+      <%= f.label :title, '* Titel', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :title, placeholder: 'Ex. Målare med lång erfarenhet' %>
         <div class="fieldInfo">
@@ -26,28 +27,19 @@
           Skriv en kort slagkraftig titel som beskriver dig och de arbeten du kommer söka. Max 50 tecken.
         </div>
       </div>
-      <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+      <%= f.label :description, '* Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_area :description, placeholder: 'En bra beskrivning ökar dina chanser i ansökan' %>
         <div class="fieldInfo">
           Tips <br>
-          Här finns mycket utrymme för att beskriva dig på bästa sätt som kommer öka dina chanser till att få jobb. Vilka är dina bästa egenskaper? Vilka typer av jobb har du haft innan? Vad har du för andra erfarenheter? Beskriv dig själv som person. Liknande ett CV.
+          Här finns mycket utrymme för att beskriva dig på bästa sätt som kommer öka dina chanser till att få jobb. Vilka är dina bästa egenskaper? Vilka typer av jobb passar dig? Vad har du för andra erfarenheter? Beskriv dig själv som person. Liknande ett CV.
         </div>
       </div>
-      <%= f.label :skill, 'Färdigheter', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :skill, placeholder: 'Ex. utomhusmåleri, tapetsering, takläggning etc' %>
-        <div class="fieldInfo">
-          Tips <br>
-          Rada upp de främsta färdigheter du har. Separera med kommatecken.
-        </div>
-      </div>
-      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+      <%= f.label :category_ids, '* Kategorier', class: 'form-text' %>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
-      <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+      <%= f.label :city_ids, '* Stad', class: 'form-text' %>
       <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
-      <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
-      <%= f.file_field :avatar, class: 'form-text' %>
+      <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
       <%= f.submit 'Skapa', class: 'reply-button' %>
       <% end %>
     </div>

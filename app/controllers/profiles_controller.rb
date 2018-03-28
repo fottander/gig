@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @invoices = @profile.user.invoices.with_feedback.paginate(page: params[:with_feedback])
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Alla Frilansare', :profiles_path
     add_breadcrumb @profile.username
@@ -56,7 +57,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:username, :title, {category_ids:[]}, :avatar, :description, :skill, :rate, :category, :city_ids)
+    params.require(:profile).permit(:username, :title, {category_ids:[]}, :avatar, :description, :skill, :category, :city_ids, :language, :license, :education, :prev_work)
   end
 
   def filtering_params(params)
