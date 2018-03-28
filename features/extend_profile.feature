@@ -62,3 +62,7 @@ Feature: Extend profile
       And I click "KONTROLLPANEL"
       And I should not see "Förbättra dina chanser genom att lägga till utbildning!"
       And I should not see "Förbättra dina chanser genom att lägga till arbetsplatser!"
+      And I click "Profil"
+      And I click "Visa din profil"
+      And I should see "Svenska och engelska"
+      Then I should see "fisken" avatar name "anewbiz-logo.png"
