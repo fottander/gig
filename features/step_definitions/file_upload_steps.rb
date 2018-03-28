@@ -1,5 +1,5 @@
 Then(/^I attach file$/) do
-  attach_file('profile[avatar]', "#{Rails.root}/spec/images/Default-avatar.png", visible: false)
+  attach_file('profile[avatar]', "#{Rails.root}/spec/images/anewbiz-logo.png", visible: false)
 end
 
 Then(/^I should see "([^"]*)" avatar name "([^"]*)"$/) do |profile_username, avatar_name|

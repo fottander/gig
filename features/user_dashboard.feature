@@ -32,14 +32,11 @@ Feature: User dashboard
       And I fill in "Användarnamn" with "Fisken"
       And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
-      And I fill in "Kompetenser" with ""
       And I check Category check box
       And I select "Göteborg" from "Stad"
-      And I attach file
       And I click "Skapa"
       Then I should see "Ny profil skapad!"
       And I click "ALLA FRILANSARE"
       And I should see "Fisken"
-      Then I should see "Fisken" avatar name "Default-avatar.png"
-      And I click "Fisken"
-      Then I should see "Fisken" avatar name "Default-avatar.png"
+      And I should see "Målare, snickare med lång erfarenhet"
+      Then I should see "Jag är en 29 årig målare och snickare från gbg"

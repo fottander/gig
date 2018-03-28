@@ -5,20 +5,20 @@
     <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
     <% if current_user.profile.present? %>
       <%= link_to 'Profil', edit_profile_path(current_user.profile.id), class: 'button-menu' %>
+      <%= link_to 'Utbetalningar', payments_path, class: 'button-menu' %>
       <% else %>
       <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>
-    <%= link_to 'Utbetalningar', payments_path, class: 'button-menu' %><br>
     <%= link_to 'Snabbfaktura', ezinvoices_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
-    <h3 style='margin-left: 10px;'>Snabbfakturor</h3>
     <div class="login-box-form-section" style='text-align: left;'>
-      <p>Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons.</p>
+      <div class='post-title'><h3>Snabbfakturor</h3></div>
+      <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons.</p>
       <%= link_to 'Skapa en faktura', new_ezinvoice_path, class: 'reply-button' %><br><br>
-      <p>Nedanför listas alla dina snabbfakturor</p>
+      <p style='font-weight: 550; color: #696868;'>Nedanför listas alla dina snabbfakturor</p>
       <% if current_user.profile.present? %>
         <% if @ezinvoices.present? %>
           <% @ezinvoices.each do |ezinvoice| %>
@@ -32,10 +32,10 @@
             <%= link_to 'Radera', ezinvoice_path(ezinvoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %><br><br>
           <% end %>
         <% else %>
-          <p>Inga snabbfakturor ännu!</p>
+          <p style='font-weight: 550; color: #696868;'>Inga snabbfakturor ännu!</p>
         <% end %>
       <% else %>
-        <p>Skapa en profil innan du kan fakturera!</p>
+        <p style='font-weight: 550; color: #696868;'>Skapa en profil innan du kan fakturera!</p>
       <% end %>
     </div>
     <div class="will-paginate">

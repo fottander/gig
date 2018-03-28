@@ -40,7 +40,12 @@ Feature: Extend invoice and add feedback
       And I click "ALLA FRILANSARE"
       And I click "Fisken"
       Then I should see "Väldigt bra snubbe"
-
+      And I click "KONTROLLPANEL"
+      And I click "Visa/Kontrollera"
+      And I should not see "Vill du rekommendera"
+      And I should not see "Klicka för att få fakturan på posten"
+      And I should not see "Klicka för 30 dagars fakturatid"
+      
     Scenario: I give feedback with extended post
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page

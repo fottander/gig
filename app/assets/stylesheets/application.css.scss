@@ -262,6 +262,25 @@ input[type='file'] {
      border: none;
  }
 
+ .button-blue {
+     background: #3db5e6;
+     color: #fff;
+     display: inline-block;
+     text-align: center;
+     text-transform: uppercase;
+     line-height: 1;
+     font-size: 0.8rem;
+     font-family: 'Montserrat',Arial,sans-serif;
+     font-weight: 700;
+     letter-spacing: 0.5px;
+     padding: 0.5rem 0.8rem 0.5rem;
+     border: none;
+ }
+
+ .button-blue:hover {
+   color: black;
+ }
+
  .switch-button {
    padding: 0.4rem 1rem;
    color: #8a8a8a;
@@ -1425,7 +1444,18 @@ input[type='file'] {
 }
 
 .card-profile-stats .card-profile-stats-container .card-profile-stats-statistic {
-  margin: 0 0 1.25rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+@media print, screen and (min-width: 64em) {
+  .card-profile-stats .card-profile-stats-container .card-profile-stats-statistic {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}
+
+.card-profile-stats .card-profile-stats-container .card-profile-stats-statistic .stat {
+  font-size: 24px;
 }
 
 .card-profile-stats .card-profile-stats-container .card-profile-stats-statistic p:last-child {
