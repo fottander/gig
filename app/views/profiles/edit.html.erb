@@ -57,8 +57,8 @@
         <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
         <%= f.label :city_ids, 'Stad', class: 'form-text' %>
         <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @profile.city_ids }, { class: 'input-medium' }) %>
-        <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
         <div class="classic">
+          <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
           <%= f.submit 'Spara', class: 'reply-button' %>
         </div>
         <div style='color: #f77d0e; font-weight: 600; margin-top: 15px;'>Extra information</div>

@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @invoices = @profile.user.invoices.with_feedback.paginate(page: params[:with_feedback])
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Alla Frilansare', :profiles_path
     add_breadcrumb @profile.username

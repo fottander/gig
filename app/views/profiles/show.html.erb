@@ -53,15 +53,15 @@
     </div>
   </div>
 </div>
-<% if @profile.user.invoices.present? %>
+
   <div class="card profile-card-action-icons">
     <div class="card-section">
         <div class="profile-card-header">
           <h4 class='feedback-title'>Feedback</h4>
         </div>
         <div class="profile-card-about-feed">
-          <% @profile.user.invoices.each do |invoice| %>
-            <% if invoice.feedback? %>
+          <% if @invoices.present? %>
+            <% @invoices.each do |invoice| %>
               <div class='profile-card-about-title-message'><%= invoice.job_title %></div>
               <div class="profile-card-about-feed-message">
               <%= invoice.updated_at.strftime("%Y %B") %><br>
@@ -71,8 +71,11 @@
           <% end %>
         </div>
     </div>
+    <div class="will-paginate">
+        <%= will_paginate @invoices, param_name: 'with_feedback', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+    </div>
   </div>
-<% end %>
+
 <% if @profile.prev_work.present? %>
   <div class="card profile-card-action-icons">
     <div class="card-section">
