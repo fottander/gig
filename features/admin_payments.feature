@@ -26,7 +26,7 @@ Feature: Admin payments
       | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9999 |
       | johan@mail.com | brag | johans p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9998 |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | id    | company_id | updated_at | paid  | user_id    | salary_paid | job_id | job_title |
+      | description | amount | user_reference | terms | active | id    | company_id | created_at | paid  | user_id    | salary_paid | job_id | job_title |
       | abc         | 120    | felix          | 15    | true   | 9999  | 9999       | 2017-11-01 | false | 9999       | false       | 1      | heyheyhey |
       | def         | 120    | felix          | 15    | true   | 9998  | 9998       | 2017-11-02 | false | 9998       | false       | 2      | heyhethey |
       | ghi         | 120    | felix          | 15    | true   | 9997  | 9998       | 2017-11-03 | true  | 9998       | false       | 3      | heyheihey |
