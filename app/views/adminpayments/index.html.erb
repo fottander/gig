@@ -23,7 +23,7 @@
             <%= link_to 'Rensa', adminpayments_path, class: 'filter-button' %>
             <%= link_to 'Visa utbetalda', new_adminpayment_path, class: 'filter-button' %>
           <% end %>
-          <p>Fakturor som ska betalas ut idag aktiverades <%= Date.today - 30.days %></p>
+          <p>Fakturor som ska betalas ut idag aktiverades <%= Date.today - 15.days %></p>
           <div id='pagination-js'>
             <div id="admin-payments">
               <%= render 'admin_payments' %>
