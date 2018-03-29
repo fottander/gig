@@ -34,7 +34,10 @@
           <div class="portfolio-resume-notice">
             <% if current_company.sign_in_count == 1 %>
               <p style='font-size: 16px; color: #f77d0e;'>Välkommen till A New Biz!</p>
+              <% if current_company.jobs.present? %>
+              <% else %>
               <p style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en annons</p>
+              <% end %>
               <%= link_to 'Skapa annons', new_job_path, class: 'button-orange' %>
             <% end %>
             <% @activities.each do |activity| %>
