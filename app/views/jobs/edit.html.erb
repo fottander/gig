@@ -43,12 +43,12 @@
       <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>
       <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @job.city_ids }, { class: 'input-medium' }) %>
-      <%= f.label :budget, 'Lön', class: 'form-text' %>
+      <%= f.label :budget, 'Föreslagen lön', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :budget, value: @job.budget %>
         <div class="fieldInfo">
           Tips <br>
-          Vid projekt ange fast arvode eller mellan två spann. Vid timpenning ange vad personen tjänar per timma eller mellan två spann.
+          Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
         </div>
       </div>
       <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>

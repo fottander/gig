@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
-  validates_presence_of :title, :description, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time
+  before_save :set_budget
+  validates_presence_of :title, :description, :category_ids, :city_ids, :deadline, :duration, :hour_day, :when_in_time
   validates_length_of :title, maximum: 50
   belongs_to :company
   has_many :applications, dependent: :destroy
@@ -16,4 +17,10 @@ class Job < ApplicationRecord
   scope :with_company_username, -> (company_username) { where company_username: company_username }
 
   self.per_page = 10
+
+  private
+
+  def set_budget
+    self.budget = "Ej specificerat" if self.budget.blank?
+  end
 end

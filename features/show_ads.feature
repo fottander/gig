@@ -45,7 +45,7 @@ Feature: Show job ads
       And I should see "Timmar per dag: 8"
       And I should see "Anders P"
       And I should see "Sista ansökningsdag: 2018-10-10"
-      And I should see "Lön: 140kr/timma"
+      And I should see "Föreslagen lön: 140kr/timma"
       And I should see "När: asap"
       And I should see "Företagsinfo"
       And I should see "Anders P"
