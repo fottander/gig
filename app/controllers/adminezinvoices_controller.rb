@@ -12,7 +12,6 @@ class AdminezinvoicesController < ApplicationController
   def show
     @ezinvoice = Ezinvoice.find(params[:id])
     @profile = @ezinvoice.user.profile
-    @due_date = @ezinvoice.created_at+@ezinvoice.terms.day
     respond_to do |format|
       format.html
       format.pdf do

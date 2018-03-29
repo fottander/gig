@@ -13,7 +13,6 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @company = @invoice.company
     @profile = @invoice.user.profile
-    @due_date = @invoice.created_at+@invoice.terms.day
     respond_to do |format|
       format.html
       format.pdf do

@@ -16,14 +16,15 @@
     <div class="portfolio-resume row">
       <div class="large-12 columns">
         <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Aktiverade fakturor som ska betalas</h3>
+          <h3 class="portfolio-resume-header">Aktiverade fakturor som inte betalats ut</h3>
           <%= form_tag adminpayments_path, method: 'get' do %>
-            <%= date_field_tag :pay_day, nil %>
+            <%= text_field_tag :with_ocr, nil, placeholder: 'Sök efter OCR' %>
+            <%= text_field_tag :with_user_id, nil, placeholder: 'Sök efter user ID' %>
+            <%= text_field_tag :with_company_id, nil, placeholder: 'Sök efter företags ID' %>
             <%= submit_tag 'Sök', class: 'filter-button' %>
             <%= link_to 'Rensa', adminpayments_path, class: 'filter-button' %>
             <%= link_to 'Visa utbetalda', new_adminpayment_path, class: 'filter-button' %>
           <% end %>
-          <p>Fakturor som ska betalas ut idag aktiverades <%= Date.today - 15.days %></p>
           <div id='pagination-js'>
             <div id="admin-payments">
               <%= render 'admin_payments' %>

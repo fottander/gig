@@ -18,11 +18,11 @@
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Alla utbetalda fakturor</h3>
             <%= form_tag new_adminpayment_path, method: 'get' do %>
-              <%= date_field_tag :pay_day, nil %>
-              <%= text_field_tag :with_id, nil, placeholder: 'Sök efter ID' %>
+              <%= text_field_tag :with_ocr, nil, placeholder: 'Sök efter OCR' %>
               <%= text_field_tag :with_user_id, nil, placeholder: 'Sök efter User ID' %>
+              <%= text_field_tag :with_company_id, nil, placeholder: 'Sök efter företags ID' %>
               <%= submit_tag 'Sök', class: 'filter-button' %>
-              <%= link_to 'Rensa', adminpayments_path, class: 'filter-button' %>
+              <%= link_to 'Rensa', new_adminpayment_path, class: 'filter-button' %>
             <% end %>
             <% @invoices.active.salary_paid.each do |invoice| %>
               <div class='invoice-<%= invoice.id %>'>

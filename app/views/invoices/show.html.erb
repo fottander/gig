@@ -39,6 +39,7 @@
             Enhet(t.ex. kr/timma): <%= @invoice.unit %> <br>
             Summa ex moms: <%= @invoice.amount %> SEK <br>
             Summa att betala: <%= @invoice.inklmoms.round %> SEK<br>
+            Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
             Villkor: <%= @invoice.terms %> dagar<br>
             OCR: <%= @invoice.ocr_number %><br>
             <% if @invoice.post == false %>
@@ -88,7 +89,7 @@
             <% end %>
             <% if @invoice.paid == false %>
               <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
-                Fakturan ska betalas innan <%= @due_date.strftime("%F") %><br>
+                Fakturan ska betalas innan <%= @invoice.due_date.strftime("%F") %><br>
                 Om du har några frågor får ni gärna kontakta kundtjänsten.
               </p>
             <% else %>
@@ -127,6 +128,8 @@
           Enhet(t.ex. kr/timma): <%= @invoice.unit %> <br>
           Summa ex moms: <%= @invoice.amount %> SEK <br>
           Summa att betala: <%= @invoice.inklmoms.round %> SEK<br>
+          Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
+          Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
           Villkor: <%= @invoice.terms %> dagar<br>
           OCR: <%= @invoice.ocr_number %><br>
           <% if @invoice.post == false %>

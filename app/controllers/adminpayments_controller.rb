@@ -19,6 +19,6 @@ class AdminpaymentsController < ApplicationController
   private
 
   def filtering_params(params)
-    params.slice(:pay_day)
+    params.slice(:with_ocr, :with_user_id, :with_company_id)
   end
 end

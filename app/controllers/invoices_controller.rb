@@ -27,7 +27,6 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
-    @due_date = @invoice.created_at+@invoice.terms.day
   end
 
   def edit
