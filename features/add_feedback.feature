@@ -21,10 +21,10 @@ Feature: Extend invoice and add feedback
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
     Given the following invoices exist
       | description | amount | user_reference | terms | active |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
-      | ref         | 120    | felix          | 15    | true   | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
-      | fer         | 120    | felix          | 15    | true   | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
-      | tyr         | 120    | felix          | 15    | true   | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 10     |
-      | abc         | 120    | felix          | 15    | false  | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
+      | ref         | 1200   | felix          | 15    | true   | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
+      | fer         | 1200   | felix          | 15    | true   | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
+      | tyr         | 1200   | felix          | 15    | true   | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 10     |
+      | abc         | 1200   | felix          | 15    | false  | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
 
     Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as company "felix@mail.com"
