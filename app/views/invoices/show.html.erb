@@ -69,6 +69,10 @@
                 </div>
                 <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
               <% end %>
+              <% if @invoice.rating.present? %>
+              <% else %>
+                <%= select_tag :rating, options_for_select(Invoice::RATING_OPTIONS), prompt: 'Välj betyg' %>
+              <% end %>
               <% if @invoice.post == false %>
                 <% if @invoice.active == false %>
                   <%= hidden_field_tag :post, false %>

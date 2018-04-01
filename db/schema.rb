@@ -193,6 +193,8 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "company_reference"
     t.string "job_title"
     t.float "user_fee"
+    t.text "feedback"
+    t.float "rating"
     t.integer "terms", default: 15
     t.boolean "paid", default: false
     t.boolean "active", default: false
@@ -207,7 +209,6 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.integer "profile_id"
     t.string "profile_username"
     t.boolean "post", default: false
-    t.text "feedback"
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["user_id"], name: "index_invoices_on_user_id"

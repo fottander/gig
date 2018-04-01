@@ -83,6 +83,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_extend_params
-    params.permit(:feedback, :terms, :post)
+    params.permit(:feedback, :terms, :post, :rating)
   end
 end
