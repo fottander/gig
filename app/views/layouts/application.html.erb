@@ -50,6 +50,11 @@
         <% if notice %>
             <div id="notice-wrapper" >
                 <p class='notice'><%= notice %></p>
+                <% if current_company.present? %>
+                  <% if current_company.sign_in_count == 1 %>
+                    <p class='notice-first-time'>Bekräfta att du fått vårt "Välkommen email". Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto.<br><%= link_to 'STÄNG', root_path, style:'border: 1px solid; padding: 0.2rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  <% end %>
+                <% end %>
             </div>
         <% elsif alert %>
             <div id='alert-wrapper' >

@@ -3,6 +3,9 @@ class Companies::RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    if @company.persisted?
+      NotificationMailer.company_registration_email(@company).deliver_now
+    end
   end
 
   def update

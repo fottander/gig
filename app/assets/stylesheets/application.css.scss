@@ -60,6 +60,25 @@ input[type='file'] {
   letter-spacing: 1px;
 }
 
+#notice-wrapper .notice-first-time {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #FEFEFE;
+  margin-bottom: 0;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+@media screen and (max-width: 39.9375em) {
+  #notice-wrapper .notice-first-time {
+    margin-left: 7%;
+    margin-right: 7%;
+    font-size: 1rem;
+  }
+}
+
 @media screen and (max-width: 39.9375em) {
   #notice-wrapper .notice {
     font-size: 1.2rem;

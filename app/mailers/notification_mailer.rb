@@ -21,6 +21,15 @@ class NotificationMailer < ApplicationMailer
     )
   end
 
+  def company_registration_email(company)
+    @company = company
+
+    mail(
+    to: @company.email,
+    subject: "Välkommen till A New Biz"
+    )
+  end
+
   def hired_email(user, application)
     @user = user
     @application = application
