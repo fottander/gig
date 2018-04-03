@@ -4,6 +4,7 @@ class Invoice < ApplicationRecord
   validates_presence_of :description, :amount, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :profile_username, :application_id, :terms
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
+  validates :rating, numericality: { only_integer: true }, allow_blank: true
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company
@@ -23,6 +24,9 @@ class Invoice < ApplicationRecord
   scope :salary_not_paid, -> { where(salary_paid: false) }
   scope :pay_day_reached, -> (selected_day) { where('"created_at" < ?', selected_day)}
   scope :with_feedback, -> { where.not(feedback: nil )}
+  scope :with_rating, -> { where.not(rating: nil )}
+
+  RATING_OPTIONS = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ]
 
   self.per_page = 4
 

@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   self.per_page = 10
 
+  def rating_average
+    self.invoices.with_rating.sum('rating')/self.invoices.with_rating.count
+  end
+
   def total_earnings
     self.invoices.active.sum('amount') + self.ezinvoices.active.sum('amount')
   end

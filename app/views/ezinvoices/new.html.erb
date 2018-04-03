@@ -56,7 +56,7 @@
           <%= f.collection_select(:ssyk_code, Category.all, :ssyk_code, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
           <%= f.label :user_reference, '* Referens', class: 'form-text' %>
           <%= f.text_field :user_reference, placeholder: 'Ditt förnamn & efternamn' %>
-          <%= f.label :terms, 'Betalningsvillkor(15 dagar är standard)', class: 'form-text' %>
+          <%= f.label :terms, 'Betalningsvillkor(15 dagar om inget annat avtalats)', class: 'form-text' %>
           <%= f.text_field :terms %>
           <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
           <%= f.submit 'Skapa', class: 'reply-button' %>

@@ -20,19 +20,21 @@ Feature: Extend invoice and add feedback
       | username | title        | description | category_ids | city_ids | user_id | id   |
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active |id | company_id | user_id | profile_id | job_id | job_title    | paid  |
-      | ref         | 120    | felix          | 15    | true   | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |
-      | fer         | 120    | felix          | 15    | true   | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |
-      | tyr         | 120    | felix          | 15    | true   | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |
-      | abc         | 120    | felix          | 15    | false  | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |
+      | description | amount | user_reference | terms | active |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
+      | ref         | 1200   | felix          | 15    | true   | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
+      | fer         | 1200   | felix          | 15    | true   | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
+      | tyr         | 1200   | felix          | 15    | true   | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 10     |
+      | abc         | 1200   | felix          | 15    | false  | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
 
-    Scenario: I give feedback with extended post and terms
+    Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
       And I should see "Vill du rekommendera"
+      And I should see "Välj betyg"
       And I fill in "feedback" with "Väldigt bra snubbe"
+      And I select "9" from "rating"
       And I check Terms check box
       And I check Post check box
       And I click "Spara"
@@ -43,9 +45,10 @@ Feature: Extend invoice and add feedback
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
       And I should not see "Vill du rekommendera"
+      And I should not see "Välj betyg"
       And I should not see "Klicka för att få fakturan på posten"
       And I should not see "Klicka för 30 dagars fakturatid"
-      
+
     Scenario: I give feedback with extended post
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
@@ -73,6 +76,22 @@ Feature: Extend invoice and add feedback
       And I click "ALLA FRILANSARE"
       And I click "Fisken"
       Then I should see "Väldigt bra snubbe"
+
+    Scenario: I give feedback with rating
+      Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
+      And I click "Visa/Kontrollera"
+      And I should see "abc"
+      And I should see "Vill du rekommendera"
+      And I fill in "feedback" with "Väldigt bra snubbe"
+      And I select "5" from "rating"
+      And I click "Spara"
+      And I should see "Sparat!"
+      And I click "ALLA FRILANSARE"
+      And I click "Fisken"
+      Then I should see "Väldigt bra snubbe"
+      And I should see "5/10"
+      And I should see "Betyg 6.7/10"
 
     Scenario: I give feedback with no extended options
       Given I am logged in as company "felix@mail.com"
