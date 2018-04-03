@@ -109,6 +109,7 @@ en:
         last_day: 'Sista dag'
         company_reference: 'Företagsreferens'
         terms: 'Betalningsvillkor'
+        rating: 'Betyg'
       ezinvoice:
         org_number: 'Organisationsnummer'
         company_name: 'Företagsnamn'
@@ -151,6 +152,7 @@ en:
               blank: 'är inte ifyllt'
             username:
               blank: 'är inte ifyllt'
+              taken: 'används redan'
             address:
               blank: 'är inte ifyllt'
             zip_code:
@@ -207,6 +209,7 @@ en:
           attributes:
             username:
               blank: "kan inte vara blankt!"
+              taken: 'används redan'
             description:
               blank: "kan inte vara blankt!"
             category_ids:

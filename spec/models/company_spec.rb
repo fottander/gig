@@ -19,6 +19,7 @@ RSpec.describe Company, type: :model do
     it { is_expected.to validate_presence_of :email }
     it { is_expected.to validate_presence_of :name }
     it { is_expected.to validate_presence_of :username }
+    it { should validate_uniqueness_of(:username) }
     it { is_expected.to validate_presence_of :address }
     it { is_expected.to validate_presence_of :zip_code }
     it { is_expected.to validate_presence_of :city }

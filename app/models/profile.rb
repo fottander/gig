@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
-  validates_presence_of :username, :title, :description, :city_ids, :category_ids
+  validates_presence_of :title, :description, :city_ids, :category_ids
+  validates :username, presence: true, uniqueness: true
   validates_length_of :title, maximum: 50
   belongs_to :user
   has_many :applications, dependent: :destroy

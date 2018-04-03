@@ -52,7 +52,6 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @user = @invoice.user
     if @invoice.update invoice_extend_params
-      @invoice.create_activity :extend, owner: current_company, recipient: @user.profile
       if @invoice.post == true
         @invoice.update(amount: @invoice.amount + 40)
       end
