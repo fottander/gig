@@ -3,7 +3,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hej <%= @user.first_name %></h1>
+    <h1>Hej <%= @user.profile.username %></h1>
     <h3>
       Din anställning med id: <%= @application.job_id %> har registrerat nytt slutdatum
     </h3>
