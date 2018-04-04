@@ -43,8 +43,7 @@ Feature: Company registration
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
-      Then I should see "Välkommen! Du är inloggad."
-      And I should not see "Välkommen till A New Biz"
+      And I should see "Välkommen! Du är inloggad."
       Then I should not see "Nästa steg är att skapa en annons"
 
     Scenario: I log in as a company
