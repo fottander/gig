@@ -9,8 +9,7 @@ Feature: Admin login
       | admin@yahoo.com | 12345678  | 12345678              |
 
     Scenario: I login as an admin
-      Given I am on the home page
-      And I click "Admin login"
+      Given I am on the admin login page
       And I should see "Logga in som admin"
       And I fill in "Email" with "admin@yahoo.com"
       And I fill in "Lösenord" with "12345678"
