@@ -2,7 +2,7 @@ Feature: Homepage
 
   Scenario: I see some content on homepage
     Given I am on the home page
-    Then I should see "Jag är en Arbetsökande som letar efter jobb"
+    Then I should see "Jag är en Arbetssökande som letar efter jobb"
     Then I should see "Jag är ett Företag som behöver hjälp"
     And I should see "Hitta Jobb" within freelancer
     And I should see "Hitta Arbetskraft" within company
