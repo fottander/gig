@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :companies, controllers: {
-    registrations: 'companies/registrations'
+    registrations: 'companies/registrations',
+    sessions: 'companies/sessions'
   }
   devise_scope :company do
     authenticated :company do
@@ -17,7 +18,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, controllers: {
-    registrations: 'user/registrations'
+    registrations: 'user/registrations',
+    sessions: 'user/sessions'
   }
   devise_scope :user do
     authenticated :user do

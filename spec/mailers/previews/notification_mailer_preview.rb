@@ -21,4 +21,7 @@ class NotificationMailerPreview < ActionMailer::Preview
   def company_registration_mail_preview
     NotificationMailer.company_registration_email(Company.first)
   end
+  def user_registration_mail_preview
+    NotificationMailer.user_registration_email(User.first)
+  end
 end
