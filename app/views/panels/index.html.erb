@@ -34,10 +34,10 @@
           <div class="portfolio-resume-notice">
             <% if current_company.sign_in_count == 1 %>
               <p style='font-size: 16px; color: #f77d0e;'>Välkommen till A New Biz!</p>
-              <p style='color: #f77d0e;'>Dubbelkolla att du fått vårt "Välkommen email". Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto.</p>
+              <span style='color: #f77d0e;'>Dubbelkolla att du fått vårt "Välkommen email". Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto.</span>
               <% if current_company.jobs.present? %>
               <% else %>
-              <p style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en annons</p>
+              <p style='font-size: 16px; color: #f77d0e; margin-bottom: 5px;'>Nästa steg är att skapa en annons</p>
               <% end %>
               <%= link_to 'Skapa annons', new_job_path, class: 'button-orange' %>
             <% end %>
