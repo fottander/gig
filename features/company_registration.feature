@@ -28,6 +28,7 @@ Feature: Company registration
       Then I should see "Du är registrerad! Bekräfta att du fått"
       And I should see "Välkommen till A New Biz"
       And I click "STÄNG"
+      Then I should not see "Du är registrerad! Bekräfta att du fått"
       And I should see "Dubbelkolla att du fått vårt"
       Then I should see "Nästa steg är att skapa en annons"
       And I should see "Inga annonser ännu"
