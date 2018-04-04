@@ -14,50 +14,55 @@
   </div>
 
   <div class="holy-grail-middle">
-    <% if current_user.account_nr.present? %>
-      <% if current_user.pers_num.present? %>
-        <div class="portfolio-resume row">
-          <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
-              <h3 class="portfolio-resume-header">Utbetalningar</h3>
-              <div id="payments-salary-paid">
-                <%= render 'payments_salary_paid' %>
+    <% if current_user.first_name.present? %>
+      <% if current_user.account_nr.present? %>
+        <% if current_user.pers_num.present? %>
+          <div class="portfolio-resume row">
+            <div class="large-6 columns">
+              <div class="portfolio-resume-wrapper">
+                <h3 class="portfolio-resume-header">Utbetalningar</h3>
+                <div id="payments-salary-paid">
+                  <%= render 'payments_salary_paid' %>
+                </div>
+              </div>
+            </div>
+            <div class="large-6 columns">
+              <div class="portfolio-resume-wrapper">
+                <h3 class="portfolio-resume-header">Fakturor som ej betalats ut</h3>
+                <div id="payments-salary-not-paid">
+                  <%= render 'payments_salary_not_paid' %>
+                </div>
               </div>
             </div>
           </div>
-          <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
-              <h3 class="portfolio-resume-header">Fakturor som ej betalats ut</h3>
-              <div id="payments-salary-not-paid">
-                <%= render 'payments_salary_not_paid' %>
+          <div class="portfolio-resume row">
+            <div class="large-6 columns">
+              <div class="portfolio-resume-wrapper">
+                <h3 class="portfolio-resume-header">Utbetalningar för snabbfakturor</h3>
+                <div id="ezpayments-salary-paid">
+                  <%= render 'ezpayments_salary_paid' %>
+                </div>
+              </div>
+            </div>
+            <div class="large-6 columns">
+              <div class="portfolio-resume-wrapper">
+                <h3 class="portfolio-resume-header">Snabbfakturor som ej betalats ut</h3>
+                <div id="ezpayments-salary-not-paid">
+                  <%= render 'ezpayments_salary_not_paid' %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="portfolio-resume row">
-          <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
-              <h3 class="portfolio-resume-header">Utbetalningar för snabbfakturor</h3>
-              <div id="ezpayments-salary-paid">
-                <%= render 'ezpayments_salary_paid' %>
-              </div>
-            </div>
-          </div>
-          <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
-              <h3 class="portfolio-resume-header">Snabbfakturor som ej betalats ut</h3>
-              <div id="ezpayments-salary-not-paid">
-                <%= render 'ezpayments_salary_not_paid' %>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% else %>
+          <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vi behöver för- och efternamn, personnummer och bankuppgifter för att kunna betala ut din lön och visa utbetalningar.</p>
+          <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vänligen <%= link_to 'klicka här', edit_user_registration_path %> för att färdigställa dina kontouppgifter.</p>
+        <% end %>
       <% else %>
-        <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vi behöver personnummer och bankuppgifter för att kunna betala ut din lön och visa utbetalningar.</p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vi behöver för- och efternamn, personnummer och bankuppgifter för att kunna betala ut din lön och visa utbetalningar.</p>
         <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vänligen <%= link_to 'klicka här', edit_user_registration_path %> för att färdigställa dina kontouppgifter.</p>
       <% end %>
     <% else %>
-      <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vi behöver personnummer och bankuppgifter för att kunna betala ut din lön och visa utbetalningar.</p>
+      <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vi behöver för- och efternamn, personnummer och bankuppgifter för att kunna betala ut din lön och visa utbetalningar.</p>
       <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vänligen <%= link_to 'klicka här', edit_user_registration_path %> för att färdigställa dina kontouppgifter.</p>
     <% end %>
   </div>
