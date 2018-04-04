@@ -18,7 +18,7 @@ Feature: User registration
       And I click "Registrera"
       Then I should see "Du är registrerad! Bekräfta att du fått"
       And I should see "Välkommen till A New Biz"
-      And I click "STÄNG"
+      And I click "DÖLJ"
       Then I should not see "Du är registrerad! Bekräfta att du fått"
       And I should see "Inga aktiva ansökningar"
       And I should see "Inga aktiva jobb"

@@ -51,7 +51,7 @@
             <% if current_user.present? %>
                 <% if current_user.sign_in_count == 1 %>
                     <div id="notice-wrapper" >
-                        <p class='notice-first-time'><%= notice %><br><%= link_to 'STÄNG', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                        <p class='notice-first-time'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
                     </div>
                 <% else %>
                     <div id="notice-wrapper" >
@@ -61,7 +61,7 @@
             <% elsif current_company.present? %>
                 <% if current_company.sign_in_count == 1 %>
                     <div id="notice-wrapper" >
-                        <p class='notice-first-time'><%= notice %><br><%= link_to 'STÄNG', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                        <p class='notice-first-time'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
                     </div>
                 <% else %>
                     <div id="notice-wrapper" >
