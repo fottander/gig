@@ -25,7 +25,7 @@ class EzinvoicePdf < Prawn::Document
   def header
     move_down 40
 
-    image  "#{Rails.root}/app/assets/images/anewbizz.png", width: 200
+    image  "#{Rails.root}/app/assets/images/anewbiz-logo-2.png", width: 194
 
     move_down 8
     text "<color rgb='a6a6a6'>Fakturanummer: #{@ezinvoice.id.first(8)}</color>", inline_format: true
