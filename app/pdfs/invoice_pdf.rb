@@ -26,7 +26,7 @@ class InvoicePdf < Prawn::Document
   def header
     move_down 40
 
-    image  "#{Rails.root}/app/assets/images/invoice-logo.jpg", width: 450
+    image  "#{Rails.root}/app/assets/images/anewbizz.png", width: 200
 
     move_down 8
     text "<color rgb='a6a6a6'>Fakturanummer: #{@invoice.id.first(8)}</color>", inline_format: true
