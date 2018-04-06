@@ -28,8 +28,8 @@ class Ezinvoice < ApplicationRecord
     self.amount * 1.25
   end
 
-  def arbetsgivaravgift
-    0.2391
+  def a_g_avgift
+    1.3142
   end
 
   def inkomstskatt
@@ -41,7 +41,7 @@ class Ezinvoice < ApplicationRecord
   end
 
   def steg2
-    self.steg1 * (1-self.arbetsgivaravgift)
+    self.steg1 / self.a_g_avgift
   end
 
   def steg3
@@ -52,12 +52,12 @@ class Ezinvoice < ApplicationRecord
     self.amount * self.user_fee
   end
 
-  def socialaavgifter
-    self.steg1 * self.arbetsgivaravgift
+  def arbetsgivaravgifter
+    self.steg1 - (self.steg1 / self.a_g_avgift)
   end
 
   def bruttolon
-    self.steg1 - self.socialaavgifter
+    self.steg1 - self.arbetsgivaravgifter
   end
 
   def skatt

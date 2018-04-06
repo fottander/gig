@@ -39,12 +39,17 @@
           <h3 class="portfolio-resume-header">Detaljer</h3>
           <p class="portfolio-resume-subheader">
             <% if @ezinvoice.user_id == current_user.id %>
-              <span class='item-define'>Utbetald:</span> <%= @ezinvoice.updated_at.strftime("%F %R") %><br>
+              <span class='item-define'>Utbetald:</span>
+              <% if @ezinvoice.salary_paid == true %>
+                <%= @ezinvoice.updated_at.strftime("%F %R") %><br>
+              <% else %>
+                ej utbetald <br>
+              <% end %>
               <span class='item-define'>Kvantitet:</span> <%= @ezinvoice.quantity %><br>
               <span class='item-define'>Enhet:</span> <%= @ezinvoice.unit %><br>
               <span class='item-define'>Summa ex. moms:</span> <%= @ezinvoice.amount %><br>
               Vår avgift: -<%= @ezinvoice.varavgift.round %> SEK <br>
-              Sociala avgifter -<%= @ezinvoice.socialaavgifter.round %> SEK <br>
+              Arbetsgivaravgifter -<%= @ezinvoice.arbetsgivaravgifter.round %> SEK <br>
               Bruttolön inkl sem. ers.	<%= @ezinvoice.bruttolon.round %> SEK <br>
               Skatt	-<%= @ezinvoice.skatt.round %> SEK <br>
               Nettolön (lön efter skatt) <%= @ezinvoice.steg3.round %> SEK <br>

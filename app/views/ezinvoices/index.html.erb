@@ -27,9 +27,18 @@
               Företag: <%= ezinvoice.company_name %><br>
               Skapad: <%= ezinvoice.created_at.strftime("%Y %R") %><br>
               Summa: <%= ezinvoice.amount %><br>
+              <% if ezinvoice.paid == true %>
+                Fakturan är betald <br>
+              <% else %>
+                Fakturan ej betald <br>
+              <% end %>
             </span>
-            <%= link_to 'Visa/redigera faktura', edit_ezinvoice_path(ezinvoice), class: 'button-green' %>
-            <%= link_to 'Radera', ezinvoice_path(ezinvoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %><br><br>
+            <% if ezinvoice.paid == false %>
+              <%= link_to 'Visa/redigera faktura', edit_ezinvoice_path(ezinvoice), class: 'button-green' %>
+              <%= link_to 'Radera', ezinvoice_path(ezinvoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %><br><br>
+            <% else %>
+              <%= link_to 'Visa utbetalningsinfo', ezpayment_path(ezinvoice), class: 'button-green' %>
+            <% end %>
           <% end %>
         <% else %>
           <p style='font-weight: 550; color: #696868;'>Inga snabbfakturor ännu!</p>

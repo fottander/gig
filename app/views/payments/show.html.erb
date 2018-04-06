@@ -46,7 +46,7 @@
               <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
               <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
               Vår avgift: -<%= @invoice.varavgift.round %> SEK <br>
-              Sociala avgifter -<%= @invoice.socialaavgifter.round %> SEK <br>
+              Arbetsgivaravgifter -<%= @invoice.arbetsgivaravgifter.round %> SEK <br>
               Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
               Skatt	-<%= @invoice.skatt.round %> SEK <br>
               Nettolön (lön efter skatt) <%= @invoice.steg3.round %> SEK <br>

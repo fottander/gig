@@ -4,6 +4,9 @@ Feature: Create an invoice without an ad
   I would like to be able to create an invoice without being connected to an ad
 
   Background:
+    Given the following admins exist
+      | email           | password  | password_confirmation |
+      | admin@yahoo.com | 12345678  | 12345678              |
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
@@ -49,9 +52,29 @@ Feature: Create an invoice without an ad
     And I fill in "* Belopp" with "10"
     And I click "Spara"
     And I click "Snabbfaktura"
+    And I should see "Fakturan ej betald"
     Then I should see "10"
-    And I click "Radera"
-    Then I should see "Inga snabbfakturor ännu!"
+    And I click "LOGGA UT"
+    Given I am on the admin login page
+    And I should see "Logga in som admin"
+    And I fill in "Email" with "admin@yahoo.com"
+    And I fill in "Lösenord" with "12345678"
+    And I click "Logga in"
+    Then I should see "Välkommen! Du är inloggad."
+    And I click "Snabbfakturor"
+    And I should see "Summa ex. moms: 10"
+    And I click "Visa/godkänn faktura"
+    And I click "Godkänn & aktivera"
+    And I click "Markera som betald"
+    And I click "Markera som lön utbetald"
+    And I click "LOGGA UT"
+    Given I am logged in as user "felix@mail.com"
+    Given I am on the dashboards page
+    And I click "Snabbfaktura"
+    Then I should see "Fakturan är betald"
+    And I click "Visa utbetalningsinfo"
+    And I should see "Summa ex. moms: 10"
+    Then I should not see "ej utbetald"
 
   Scenario: I create an invoice without an ad but without a profile
     Given I am logged in as user "greger@mail.com"
