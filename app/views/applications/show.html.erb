@@ -27,11 +27,11 @@
                 <%= link_to '..visa mer', '', class: "read-more-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
               </span>
               <span class='normal-paragraph-<%= @application.id %>' style="display: none;">
-                <%= @application.message %>
+                <%= simple_format @application.message %>
                 <%= link_to '..dölj', '', class: "read-less-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
               </span>
             <% else %>
-              <%= @application.message %>
+              <%= simple_format @application.message %>
             <% end %>
           <% end %>
         <% elsif @job.company_id == current_company.id %>
@@ -41,11 +41,11 @@
               <%= link_to '..visa mer', '', class: "read-more-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
             </span>
             <span class='normal-paragraph-<%= @application.id %>' style="display: none;">
-              <%= @application.message %>
+              <%= simple_format @application.message %>
               <%= link_to '..dölj', '', class: "read-less-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
             </span>
           <% else %>
-            <%= @application.message %>
+            <%= simple_format @application.message %>
           <% end %>
         <% end %>
       </div>
@@ -128,9 +128,9 @@
             <strong><%= comment.profile_username %></strong>
             <strong style='color: #f77d0e;'><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
             <div class="comment-section-comment">
-              <%= comment.comment %><br>
+              <%= simple_format comment.comment %>
             </div>
-            <hr>
+            <hr style='margin-bottom: 10px; margin-top: -10px;'>
             <% end %>
           <% else %>
             <span>Inga svar ännu</span>
@@ -153,7 +153,7 @@
           <strong style='color: #f77d0e;'><%= comment.profile_username %></strong>
           <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
           <div class="comment-section-comment">
-            <%= comment.comment %><br>
+            <%= simple_format comment.comment %>
           </div>
           <hr>
           <% end %>
