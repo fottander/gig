@@ -48,6 +48,9 @@ class AdmininvoicesController < ApplicationController
     if @invoice.destroy
       flash[:notice] = "Faktura raderad!"
       redirect_to administrations_path
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_to administrations_path
     end
   end
 
@@ -56,6 +59,9 @@ class AdmininvoicesController < ApplicationController
     @invoice.paid = true
     if @invoice.update invoice_pay_params
       flash[:notice] = "Faktura betald"
+      redirect_back(fallback_location: administrations_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
       redirect_back(fallback_location: administrations_path)
     end
   end
@@ -66,6 +72,9 @@ class AdmininvoicesController < ApplicationController
     if @invoice.update invoice_pay_salary_params
       @invoice.create_activity :pay_salary, owner: current_admin, recipient: @invoice.user.profile
       flash[:notice] = "Lön har blivit utbetald"
+      redirect_back(fallback_location: administrations_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
       redirect_back(fallback_location: administrations_path)
     end
   end
@@ -80,6 +89,9 @@ class AdmininvoicesController < ApplicationController
       NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
 
       flash[:notice] = "Faktura godkänd och aktiverad"
+      redirect_back(fallback_location: administrations_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
       redirect_back(fallback_location: administrations_path)
     end
   end

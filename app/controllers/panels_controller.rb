@@ -8,4 +8,4 @@ class PanelsController < ApplicationController
     @invoices = Invoice.where(company_id: current_company.id).paginate(page: params[:invoices])
     @activities = PublicActivity::Activity.order('created_at desc').where(recipient_id: current_company.id, recipient_type: 'Company').includes(:owner, :trackable).last(10)
   end
-end 
+end

@@ -34,6 +34,9 @@ class CategoriesController < ApplicationController
     if @category.destroy
       flash[:notice] = "Kategori raderad!"
       redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: root_path)
     end
   end
 

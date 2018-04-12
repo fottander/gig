@@ -60,6 +60,9 @@ class InvoicesController < ApplicationController
       end
       flash[:notice] = "Sparat!"
       redirect_back(fallback_location: panels_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: panels_path)
     end
   end
 
@@ -67,6 +70,9 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     if @invoice.destroy
       flash[:notice] = "Faktura raderad!"
+      redirect_back(fallback_location: dashboards_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
       redirect_back(fallback_location: dashboards_path)
     end
   end

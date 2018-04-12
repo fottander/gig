@@ -109,6 +109,9 @@ class ApplicationsController < ApplicationController
 
       flash[:notice] = "Ansökan förlängd!"
       redirect_to panels_path
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_to panels_path
     end
   end
 
@@ -117,6 +120,9 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     if @application.destroy
       flash[:notice] = "Ansökan raderad!"
+      redirect_to dashboards_path
+    else
+      flash[:alert] = 'Något gick fel'
       redirect_to dashboards_path
     end
   end

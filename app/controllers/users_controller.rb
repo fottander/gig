@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     if @user.destroy
       flash[:notice] = "Användare raderad"
       redirect_back(fallback_location: administrations_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: administrations_path)
     end
   end
 

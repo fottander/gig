@@ -48,6 +48,9 @@ class EzinvoicesController < ApplicationController
     if @ezinvoice.destroy
       flash[:notice] = "Faktura raderad!"
       redirect_back(fallback_location: dashboards_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: dashboards_path)
     end
   end
 
