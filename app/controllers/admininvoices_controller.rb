@@ -79,23 +79,6 @@ class AdmininvoicesController < ApplicationController
     end
   end
 
-  def activate
-    @invoice = Invoice.find(params[:id])
-    @user = @invoice.user
-    @invoice.active = true
-    if @invoice.update invoice_activate_params
-      @invoice.create_activity :activate, owner: current_admin, recipient: @invoice.company
-      # Sends email to user when invoice is activated.
-      NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
-
-      flash[:notice] = "Faktura godkänd och aktiverad"
-      redirect_back(fallback_location: administrations_path)
-    else
-      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
-      redirect_back(fallback_location: administrations_path)
-    end
-  end
-
   private
 
   def invoice_pay_params
@@ -108,10 +91,6 @@ class AdmininvoicesController < ApplicationController
 
   def filtering_params(params)
     params.slice(:with_ocr, :with_user_id, :with_company_id)
-  end
-
-  def invoice_activate_params
-    params.permit(:active)
   end
 
   def invoice_update_params

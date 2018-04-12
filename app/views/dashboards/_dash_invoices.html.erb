@@ -3,18 +3,20 @@
   <% @invoices.each do |invoice| %>
     <div class='portfolio-card'>
       <div class='portfolio-card-header'><%= link_to invoice.job_title, job_path(invoice.job_id) %></div>
-      <p class="portfolio-resume-subheader">
+      <div class="portfolio-resume-subheader">
         Ansöknings ID: <%= invoice.application_id %><br>
         Jobb ID: <%= invoice.job_id %> <br>
         Faktura ID: <%= invoice.id.first(8) %> <br>
         Skapad: <%= invoice.created_at.strftime("%F %R") %>
-      </p>
-      <% if invoice.active == false %>
-        <p class="dash-active-inv", style="color: red;">Inväntar godkännande</p>
-        <%= link_to 'Redigera', edit_invoice_path(invoice), class: 'button-green' %>
-        <%= link_to 'Radera', invoice_path(invoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
+      </div>
+      <% if invoice.paid == false %>
+        <% if invoice.created_at > 7.days.ago %>
+          <%= link_to 'Redigera', edit_invoice_path(invoice), class: 'button-green' %>
+          <%= link_to 'Radera', invoice_path(invoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
+        <% else %>
+          <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
+        <% end %>
       <% else %>
-        <p class="dash-active-inv", style="color: green;">Godkänd</p>
         <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
       <% end %>
     </div>

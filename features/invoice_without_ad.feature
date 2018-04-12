@@ -64,7 +64,6 @@ Feature: Create an invoice without an ad
     And I click "Snabbfakturor"
     And I should see "Summa ex. moms: 10"
     And I click "Visa/godkänn faktura"
-    And I click "Godkänn & aktivera"
     And I click "Markera som betald"
     And I click "Markera som lön utbetald"
     And I click "LOGGA UT"

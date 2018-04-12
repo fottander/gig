@@ -8,16 +8,10 @@ Given("the following ezinvoices exist") do |table|
   end
 end
 
-Then("the latest created invoice is beeing activated") do
+Then("the latest created invoice is being paid") do
   invoice = Invoice.first
-  invoice.active = true
+  invoice.paid = true
   invoice.save
-end
-
-Then("the latest created ezinvoice is beeing activated") do
-  ezinvoice = Ezinvoice.first
-  ezinvoice.active = true
-  ezinvoice.save
 end
 
 Given("the first invoice is being deleted") do

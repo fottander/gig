@@ -10,6 +10,7 @@ class InvoicesController < ApplicationController
     @invoice.profile_username = current_user.profile.username
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
+    @invoice.active = true
     if @invoice.save
       @application.update_attributes(complete: true)
       @invoice.create_activity :create, owner: current_user.profile, recipient: @company

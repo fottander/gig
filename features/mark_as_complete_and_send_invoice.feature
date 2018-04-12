@@ -52,16 +52,15 @@ Feature: Mark As complete and send invoice
       And I click "Redigera"
       And I fill in "Enhet" with "100"
       And I click "Spara"
-      And I click "Fakturor"
-      And I click "Visa/godkänn faktura"
-      And I click "Godkänn & aktivera"
-      Then I should see "Faktura godkänd och aktiverad"
       And I click "LOGGA UT"
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
       Then I should see "Admin redigerade en faktura"
       And I should not see "Visa ansökan/Skapa faktura"
-      And the latest created invoice is beeing activated
+      And I click "KONTROLLPANEL"
+      And I should see "Redigera"
+      And I should see "Radera"
+      And the latest created invoice is being paid
       And I click "KONTROLLPANEL"
       And I click "Visa" in active invoices
       Then I should see "Beskrivning: Måleri"

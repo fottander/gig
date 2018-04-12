@@ -45,7 +45,6 @@ Background:
     And I fill in "amount" with "7000"
     And I click "Skapa faktura"
     Then I should see "Faktura skapad"
-    And the latest created invoice is beeing activated
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 1"
     Then I should see "Totalt fakturerat: 0 - 10 000 kr"
@@ -69,7 +68,6 @@ Background:
     And I fill in "Referens" with "felix"
     And I click "Skapa"
     Then I should see "Ny faktura skapad!"
-    And the latest created ezinvoice is beeing activated
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 2"
     Then I should see "Totalt fakturerat: 10 000 - 20 000 kr"

@@ -58,13 +58,6 @@ Feature: Admin find ezinvoices
       Given I am on the administrations page
       And I should see "User ID: 9998"
       And I click "Snabbfakturor"
-      And I click link "Visa/godkänn faktura" inside "def fakt"
-      And I should see "Kan inte markeras som betald förrän fakturan är godkänd"
-      And I click "Godkänn & aktivera"
-      And I should see "Faktura godkänd och aktiverad"
-      Then I should see "Aktiv: true"
-      Given I am on the administrations page
-      And I click "Snabbfakturor"
       And I click link "Visa/godkänn faktura" inside "abc fakt"
       And I click "Markera som betald"
       And I should see "Faktura betald"

@@ -45,20 +45,15 @@
             <span class='item-define'>Skapad:</span> <%= @invoice.created_at.strftime("%F %R") %><br>
             <span class='item-define'>Uppdaterad:</span> <%= @invoice.updated_at.strftime("%F %R") %>
           </p>
-          <% if @invoice.active == false %>
-            Kan inte markeras som betald förrän fakturan är godkänd
-            <%= link_to 'Godkänn & aktivera', activate_admininvoice_path(@invoice), method: :patch, data: { confirm: 'Är du säker?' }, class: 'reply-button-expand' %>
+          <% if @invoice.salary_paid == false %>
+            <%= link_to 'Markera som lön utbetald', pay_salary_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'reply-button-expand' %>
           <% else %>
-            <% if @invoice.salary_paid == false %>
-              <%= link_to 'Markera som lön utbetald', pay_salary_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'reply-button-expand' %>
-            <% else %>
-              <span style='color: green;'>Lön har blivit utbetald</span>
-            <% end %>
-            <% if @invoice.paid == false %>
-              <%= link_to 'Markera som betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-            <% else %>
-              <span style='color: green;'>Fakturan har blivit betald</span>
-            <% end %>
+            <span style='color: green;'>Lön har blivit utbetald</span>
+          <% end %>
+          <% if @invoice.paid == false %>
+            <%= link_to 'Markera som betald', pay_admininvoice_path(@invoice), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+          <% else %>
+            <span style='color: green;'>Fakturan har blivit betald</span>
           <% end %>
           <p><%= link_to 'Visa pdf', admininvoice_path(@invoice, format: 'pdf') %></p>
           <p><%= link_to 'Radera', admininvoice_path(@invoice), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></p>

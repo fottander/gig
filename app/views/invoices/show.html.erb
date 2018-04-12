@@ -99,11 +99,6 @@
             <% else %>
               Leveranssätt: Post <br>
             <% end %>
-            <% if @invoice.active == false %>
-              <div style="color: red;">Status: Ej godkänd</div>
-            <% else %>
-              <div style="color: green;">Status: Godkänd & skickad</div>
-            <% end %>
             <% if @invoice.paid == true %>
               Betalningsstatus: <p style="color: green;">Godkänd</p>
             <% else %>
@@ -141,11 +136,6 @@
             Leveranssätt: Email <br>
           <% else %>
             Leveranssätt: Post <br>
-          <% end %>
-          <% if @invoice.active == false %>
-            <div style="color: red;">Status: Ej godkänd</div>
-          <% else %>
-            <div style="color: green;">Status: Godkänd & skickad</div>
           <% end %>
           <% if @invoice.paid == true %>
             Betalningsstatus: <p style="color: green;">Godkänd</p>

@@ -1,8 +1,5 @@
 # Preview all emails at http://localhost:3000/rails/mailers/notification_mailer
 class NotificationMailerPreview < ActionMailer::Preview
-  def activate_invoice_mail_preview
-    NotificationMailer.activate_invoice_email(User.first, Invoice.first)
-  end
   def new_invoice_mail_preview
     NotificationMailer.new_invoice_email(Company.first, Invoice.first)
   end

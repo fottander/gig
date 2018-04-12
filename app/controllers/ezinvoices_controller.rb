@@ -15,6 +15,7 @@ class EzinvoicesController < ApplicationController
     @ezinvoice.profile_id = current_user.profile.id
     @ezinvoice.profile_username = current_user.profile.username
     @ezinvoice.user_fee = current_user.fee
+    @ezinvoice.active = true
     respond_to do |format|
       if @ezinvoice.save
         format.html { redirect_to ezinvoices_path, notice: 'Ny faktura skapad!' }
