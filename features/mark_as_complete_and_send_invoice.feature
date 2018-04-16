@@ -80,7 +80,7 @@ Feature: Mark As complete and send invoice
       And I click "målare sökes"
       Then I should see "Antal genomförda jobb: 1"
       And I click "KONTROLLPANEL"
-      Then I should see "Totalt fakturerat: 12500 kr"
+      Then I should see "Totalt fakturerat: 10000 kr"
       And I click "LOGGA UT"
       Given I am logged in as company "greger@mail.com"
       Given I am on control panel page
