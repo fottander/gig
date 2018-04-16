@@ -10,10 +10,8 @@ class Ezinvoice < ApplicationRecord
   default_scope {order('created_at DESC')}
   scope :with_ocr, -> (ocr) { where ocr_number: ocr }
   scope :with_user_id, -> (user_id) { where user_id: user_id }
-  scope :not_paid, -> { where(active: true, paid: false) }
-  scope :paid, -> { where(active: true, paid: true) }
-  scope :active, -> { where(active: true) }
-  scope :not_active, -> { where(active: false) }
+  scope :not_paid, -> { where(paid: false) }
+  scope :paid, -> { where(paid: true) }
   scope :salary_paid, -> { where(salary_paid: true) }
   scope :salary_not_paid, -> { where(salary_paid: false) }
   scope :pay_day_reached, -> (selected_day) { where('"created_at" < ?', selected_day)}

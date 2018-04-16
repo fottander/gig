@@ -20,88 +20,89 @@ Feature: Extend invoice and add feedback
       | username | title        | description | category_ids | city_ids | user_id | id   |
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
-      | ref         | 1200   | felix          | 15    | true   | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
-      | fer         | 1200   | felix          | 15    | true   | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
-      | tyr         | 1200   | felix          | 15    | true   | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 10     |
-      | abc         | 1200   | felix          | 15    | false  | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
+      | description | amount | user_reference | terms |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
+      | ref         | 1200   | felix          | 15    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
+      | fer         | 1200   | felix          | 15    | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
+      | tyr         | 1200   | felix          | 15    | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 10     |
+      | abc         | 1200   | felix          | 15    | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
 
     Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as company "felix@mail.com"
+      Given I am on the home page
+      And I click "ALLA FRILANSARE"
+      And I click "Fisken"
+      And I should not see "Betyg"
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
-      And I should see "Vill du rekommendera"
-      And I should see "Välj betyg"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: 0 SEK"
+      And I should see "Totalsumma inkl moms: 1500 SEK"
+      And I should see "Rekommendera MyString till andra"
+      And I should see "Ge betyg till MyString"
       And I fill in "feedback" with "Väldigt bra snubbe"
+      And I click "Skicka feedback"
+      And I should see "Sparat!"
       And I select "9" from "rating"
-      And I check Terms check box
-      And I check Post check box
-      And I click "Spara"
+      And I click "Skicka betyg"
       And I should see "Sparat!"
       And I click "ALLA FRILANSARE"
       And I click "Fisken"
+      And I should see "Betyg 9/10"
+      And I should see "Betyg 8.0/10"
       Then I should see "Väldigt bra snubbe"
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
-      And I should not see "Vill du rekommendera"
-      And I should not see "Välj betyg"
-      And I should not see "Klicka för att få fakturan på posten"
-      And I should not see "Klicka för 30 dagars fakturatid"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: -100 SEK"
+      And I should see "Totalsumma inkl moms: 1375 SEK"
+      And I should not see "Rekommendera MyString till andra"
+      And I should not see "Ge betyg till MyString"
+      And I click "Lägg till" terms button
+      And I should not see "Klicka för 30 dagars fakturatid(+500kr)"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: 400 SEK"
+      And I should see "Totalsumma inkl moms: 2000 SEK"
+      And I click "Lägg till" post button
+      And I should not see "Klicka för att få fakturan på posten(+40kr)"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: 440 SEK"
+      And I should see "Totalsumma inkl moms: 2050 SEK"
 
-    Scenario: I give feedback with extended post
+    Scenario: I give feedback with extended post, terms and rating in a different order
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
-      And I should see "Vill du rekommendera"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: 0 SEK"
+      And I should see "Totalsumma inkl moms: 1500 SEK"
+      And I should see "Rekommendera MyString till andra"
+      And I should see "Ge betyg till MyString"
+      And I click "Lägg till" terms button
+      And I should not see "Klicka för 30 dagars fakturatid(+500kr)"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: 500 SEK"
+      And I should see "Totalsumma inkl moms: 2125 SEK"
+      And I click "Lägg till" post button
+      And I should not see "Klicka för att få fakturan på posten(+40kr)"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: 540 SEK"
+      And I should see "Totalsumma inkl moms: 2175 SEK"
+      And I select "9" from "rating"
+      And I click "Skicka betyg"
+      And I should see "Sparat!"
       And I fill in "feedback" with "Väldigt bra snubbe"
-      And I check Post check box
-      And I click "Spara"
+      And I click "Skicka feedback"
       And I should see "Sparat!"
       And I click "ALLA FRILANSARE"
       And I click "Fisken"
+      And I should see "9/10"
       Then I should see "Väldigt bra snubbe"
-
-    Scenario: I give feedback with extended terms
-      Given I am logged in as company "felix@mail.com"
-      Given I am on control panel page
+      And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
-      And I should see "abc"
-      And I should see "Vill du rekommendera"
-      And I fill in "feedback" with "Väldigt bra snubbe"
-      And I check Terms check box
-      And I click "Spara"
-      And I should see "Sparat!"
-      And I click "ALLA FRILANSARE"
-      And I click "Fisken"
-      Then I should see "Väldigt bra snubbe"
-
-    Scenario: I give feedback with rating
-      Given I am logged in as company "felix@mail.com"
-      Given I am on control panel page
-      And I click "Visa/Kontrollera"
-      And I should see "abc"
-      And I should see "Vill du rekommendera"
-      And I fill in "feedback" with "Väldigt bra snubbe"
-      And I select "5" from "rating"
-      And I click "Spara"
-      And I should see "Sparat!"
-      And I click "ALLA FRILANSARE"
-      And I click "Fisken"
-      Then I should see "Väldigt bra snubbe"
-      And I should see "5/10"
-      And I should see "Betyg 6.7/10"
-
-    Scenario: I give feedback with no extended options
-      Given I am logged in as company "felix@mail.com"
-      Given I am on control panel page
-      And I click "Visa/Kontrollera"
-      And I should see "abc"
-      And I should see "Vill du rekommendera"
-      And I fill in "feedback" with "Väldigt bra snubbe"
-      And I click "Spara"
-      And I should see "Sparat!"
-      And I click "ALLA FRILANSARE"
-      And I click "Fisken"
-      Then I should see "Väldigt bra snubbe"
+      And I should see "Summa ex moms: 1200 SEK"
+      And I should see "Fakturaavgift ex moms: 440 SEK"
+      And I should see "Totalsumma inkl moms: 2050 SEK"
+      And I should not see "Rekommendera MyString till andra"
+      And I should not see "Ge betyg till MyString"

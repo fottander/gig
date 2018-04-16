@@ -5,7 +5,9 @@
     <span class='item-define'>Kvantitet:</span> <%= invoice.quantity %><br>
     <span class='item-define'>Enhet:</span> <%= invoice.unit %><br>
     <span class='item-define'>Summa ex. moms:</span> <%= invoice.amount %><br>
-    <span class='item-define'>Summa inkl. moms:</span> <%= invoice.inklmoms.round %><br>
+    <span class='item-define'>Summa inkl. moms:</span> <%= invoice.inklmoms_amount.round %><br>
+    <span class='item-define'>Fakturaavgifter:</span> <%= invoice.invoice_fees %><br>
+    <span class='item-define'>Totalsumma inkl. moms:</span> <%= invoice.inklmoms_total_amount.round %><br>
     <span class='item-define'>Startdag:</span> <%= invoice.first_day %><br>
     <span class='item-define'>Sista dag:</span> <%= invoice.last_day %><br>
     <span class='item-define'>Beskrivning:</span> <%= invoice.description %><br>
@@ -13,7 +15,6 @@
     <span class='item-define'>Företagsreferens:</span> <%= invoice.company_reference %><br>
     <span class='item-define'>Villkor:</span> <%= invoice.terms %><br>
     <span class='item-define'>Betald:</span> <%= invoice.paid %><br>
-    <span class='item-define'>Aktiv:</span> <%= invoice.active %><br>
     <span class='item-define'>Lön utbetald</span> <%= invoice.salary_paid %><br>
     <span class='item-define'>User ID:</span> <%= invoice.user_id %><br>
     <span class='item-define'>Företags ID:</span> <%= invoice.company_id %><br>

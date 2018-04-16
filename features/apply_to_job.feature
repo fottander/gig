@@ -92,7 +92,10 @@ Feature: Apply to job
       And I fill in "Enhet" with "100"
       And I click "Spara"
       Then I should see "Faktura ändrad"
-      And the latest created invoice is beeing activated
+      And I click "KONTROLLPANEL"
+      And I should see "Redigera"
+      And I should see "Radera"
+      And the latest created invoice is being paid
       And I click "KONTROLLPANEL"
       And I click "Visa"
       And I should see "Beskrivning: Måleri"

@@ -76,23 +76,6 @@ class AdminezinvoicesController < ApplicationController
     end
   end
 
-  def activate
-    @ezinvoice = Ezinvoice.find(params[:id])
-    @user = @ezinvoice.user
-    @ezinvoice.active = true
-    if @ezinvoice.update ezinvoice_activate_params
-      @invoice = @ezinvoice
-      # Sends email to user when invoice is activated.
-      NotificationMailer.activate_invoice_email(@user, @invoice).deliver_now
-
-      flash[:notice] = "Faktura godkänd och aktiverad"
-      redirect_back(fallback_location: administrations_path)
-    else
-      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
-      redirect_back(fallback_location: administrations_path)
-    end
-  end
-
   private
 
   def ezinvoice_pay_params
@@ -105,10 +88,6 @@ class AdminezinvoicesController < ApplicationController
 
   def filtering_params(params)
     params.slice(:with_ocr, :with_user_id)
-  end
-
-  def ezinvoice_activate_params
-    params.permit(:active)
   end
 
   def ezinvoice_update_params

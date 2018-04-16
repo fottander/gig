@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
-  before_action :authenticate_company!, only: [:extend]
+  before_action :authenticate_company!, only: [:extend, :feedback, :rating, :postal]
 
   def create
     @invoice = Invoice.new invoice_params
@@ -48,15 +48,54 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def feedback
+    @invoice = Invoice.find(params[:id])
+    @user = @invoice.user
+    if @invoice.update invoice_feedback_params
+      @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
+      flash[:notice] = "Sparat!"
+      redirect_back(fallback_location: panels_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: panels_path)
+    end
+  end
+
+  def rating
+    @invoice = Invoice.find(params[:id])
+    @user = @invoice.user
+    if @invoice.update invoice_rating_params
+      @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
+      flash[:notice] = "Sparat!"
+      redirect_back(fallback_location: panels_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: panels_path)
+    end
+  end
+
+
   def extend
     @invoice = Invoice.find(params[:id])
     @user = @invoice.user
     if @invoice.update invoice_extend_params
-      if @invoice.post == true
-        @invoice.update(amount: @invoice.amount + 40)
-      end
       if @invoice.terms == 30
-        @invoice.update(amount: @invoice.amount + 500)
+        @invoice.update(invoice_fees: @invoice.invoice_fees + 500)
+      end
+      flash[:notice] = "Sparat!"
+      redirect_back(fallback_location: panels_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: panels_path)
+    end
+  end
+
+  def postal
+    @invoice = Invoice.find(params[:id])
+    @user = @invoice.user
+    if @invoice.update invoice_postal_params
+      if @invoice.post == true
+        @invoice.update(invoice_fees: @invoice.invoice_fees + 40)
       end
       flash[:notice] = "Sparat!"
       redirect_back(fallback_location: panels_path)
@@ -80,14 +119,26 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username, :ssyk_code)
+    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username, :ssyk_code)
   end
 
   def invoice_update_params
-    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username)
+    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username)
+  end
+
+  def invoice_feedback_params
+    params.permit(:feedback)
+  end
+
+  def invoice_rating_params
+    params.permit(:rating)
   end
 
   def invoice_extend_params
-    params.permit(:feedback, :terms, :post, :rating)
+    params.permit(:terms)
+  end
+
+  def invoice_postal_params
+    params.permit(:post)
   end
 end

@@ -4,6 +4,7 @@ class CreateInvoices < ActiveRecord::Migration[5.1]
       t.integer :quantity
       t.integer :unit
       t.integer :amount
+      t.integer :invoice_fees, default: 0
       t.date :first_day
       t.date :last_day
       t.text :description
@@ -15,8 +16,8 @@ class CreateInvoices < ActiveRecord::Migration[5.1]
       t.text :feedback
       t.float :rating
       t.integer :terms, default: 15
+      t.boolean :post, default: false
       t.boolean :paid, default: false
-      t.boolean :active, default: false
       t.boolean :salary_paid, default: false
       t.references :user, foreign_key: true
       t.references :company, foreign_key: true

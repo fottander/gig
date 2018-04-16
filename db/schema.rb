@@ -170,7 +170,6 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "profile_username"
     t.integer "terms", default: 15
     t.boolean "paid", default: false
-    t.boolean "active", default: false
     t.boolean "salary_paid", default: false
     t.boolean "post", default: false
     t.bigint "user_id"
@@ -185,6 +184,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.integer "quantity"
     t.integer "unit"
     t.integer "amount"
+    t.integer "invoice_fees", default: 0
     t.date "first_day"
     t.date "last_day"
     t.text "description"
@@ -196,8 +196,8 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.text "feedback"
     t.float "rating"
     t.integer "terms", default: 15
+    t.boolean "post", default: false
     t.boolean "paid", default: false
-    t.boolean "active", default: false
     t.boolean "salary_paid", default: false
     t.bigint "user_id"
     t.bigint "company_id"
@@ -208,7 +208,6 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.integer "job_id"
     t.integer "profile_id"
     t.string "profile_username"
-    t.boolean "post", default: false
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["user_id"], name: "index_invoices_on_user_id"

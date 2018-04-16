@@ -26,10 +26,10 @@ Feature: Admin find invoices
       | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9999 |
       | johan@mail.com | brag | johans p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9998 |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | id    | company_id | updated_at | paid  | user_id    |
-      | abc         | 120    | felix          | 15    | true   | 9999  | 9999       | 2017-11-01 | false | 9999       |
-      | def         | 120    | felix          | 15    | false  | 9998  | 9998       | 2017-11-01 | false | 9998       |
-      | ghi         | 120    | felix          | 15    | true   | 9997  | 9998       | 2017-11-01 | true  | 9998       |
+      | description | amount | user_reference | terms | id    | company_id | paid  | user_id    |
+      | abc         | 120    | felix          | 15    | 9999  | 9999       | false | 9999       |
+      | def         | 120    | felix          | 15    | 9998  | 9998       | false | 9998       |
+      | ghi         | 120    | felix          | 15    | 9997  | 9998       | true  | 9998       |
 
     Scenario: I see invoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
@@ -38,7 +38,7 @@ Feature: Admin find invoices
       And I click "Fakturor"
       And I click "Filtrera ej betalda"
       And I should see "abc"
-      And I should not see "def"
+      And I should see "def"
       And I should not see "ghi"
       And I click "Fakturor"
       And I click "Filtrera betalda"
@@ -68,13 +68,6 @@ Feature: Admin find invoices
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
       And I should see "User ID: 9998"
-      And I click "Fakturor"
-      And I click link "Visa/godkänn faktura" in "def"
-      And I should see "Kan inte markeras som betald förrän fakturan är godkänd"
-      And I click "Godkänn & aktivera"
-      And I should see "Faktura godkänd och aktiverad"
-      Then I should see "Aktiv: true"
-      Given I am on the administrations page
       And I click "Fakturor"
       And I click link "Visa/godkänn faktura" in "abc"
       And I click "Markera som betald"

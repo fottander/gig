@@ -13,8 +13,8 @@ Feature: Post job ad
       | name      | id |
       | Göteborg  | 1  |
     Given the following companies exist
-      | email          | name | address | zip_code | city | org_number | phone | password  | password_confirmation |
-      | felix@mail.com | bill | gatan 3 | 536      | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
+      | email          | username | name | address | zip_code | city | org_number | phone | password  | password_confirmation |
+      | felix@mail.com | hello ab | bill | gatan 3 | 536      | gbgb | 3453324533 | 98789 | 12345678  | 12345678              |
 
     Scenario: Company tries to post without being logged in
       Given I am on the home page
@@ -41,6 +41,21 @@ Feature: Post job ad
       Given I click "KONTROLLPANEL"
       And I should see "målare"
       Then I should not see "Inga annonser ännu"
+      And I click "Visa annons"
+      And I should see "målare"
+      And I should see "måla hus"
+      And I should see "Krav: inga"
+      And I should see "Kategorier: Plåtslagare"
+      And I should see "Stad: Göteborg"
+      And I should see "Föreslagen lön: 130kr/timma"
+      And I should see "När: Så snart som möjligt"
+      And I should see "Dagar/veckor/månader: 5 dagar"
+      And I should see "Timmar per dag: 8"
+      And I should see "hello ab"
+      And I should see "Antal genomförda jobb: 0"
+      And I should see "Stad: gbgb"
+      And I should see "Inga ansökningar hittills"
+      And I should see "Som företag kan du inte ansöka till detta jobbet"
 
     Scenario: I post an ad without title and succeed without filling budget
       Given I am on the home page

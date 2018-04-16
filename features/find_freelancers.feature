@@ -28,8 +28,8 @@ Feature: Show freelancers
       | anders   | Erfaren snickare    | Erfaren snickare med 5 års erfarenhet            | 2            | 2        | 2  | 2       |
       | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | 3            | 3        | 3  | 3       |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id |
-      | abc         | 120    | felix          | 15    | true   | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
+      | description | amount | user_reference | terms |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id |
+      | abc         | 120    | felix          | 15    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
 
     Scenario: I see freelancers
       Given I am on the home page

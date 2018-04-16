@@ -26,11 +26,11 @@ Feature: Admin edit and delete invoices
       | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9999 |
       | johan@mail.com | brag | johans p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9998 |
     Given the following ezinvoices exist
-      | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | active | updated_at | paid  | user_id    |
-      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 15    | true   | 2017-11-01 | false | 9999       |
+      | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | updated_at | paid  | user_id    |
+      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 15    | 2017-11-01 | false | 9999       |
     Given the following invoices exist
-      | description | amount | user_reference | terms | active | id    | company_id | updated_at | paid  | user_id    |
-      | abc         | 120    | felix          | 15    | true   | 9999  | 9999       | 2017-11-01 | false | 9999       |
+      | description | amount | user_reference | terms | id    | company_id | updated_at | paid  | user_id    |
+      | abc         | 120    | felix          | 15    | 9999  | 9999       | 2017-11-01 | false | 9999       |
 
     Scenario: I see ezinvoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
@@ -40,10 +40,27 @@ Feature: Admin edit and delete invoices
       And I should see "abc"
       And I click "Redigera"
       And I fill in "Beskrivning" with "Målarjobb hos greger"
+      And I fill in "Kvantitet(ex. antal timmar)" with "100"
+      And I fill in "Enhet(ex. 150kr/timma)" with "100"
+      And I fill in "Belopp ex. moms(ex. totalsumma)" with "1000"
+      And I fill in "Fakturaavgifter exkl moms" with "100"
+      And I fill in "Första dag(ex. 2018-xx-xx)" with "2018-01-01"
+      And I fill in "Sista dag(ex. 2018-xx-xx)" with "2018-10-01"
+      And I fill in "Referens(förnamn & efternamn)" with "Fisken"
+      And I fill in "Företagsreferens" with "Tjoho"
       And I click "Spara"
       And I should see "Faktura ändrad"
       And I click "Fakturor"
       Then I should see "Målarjobb hos greger"
+      And I should see "Kvantitet: 100"
+      And I should see "Enhet: 100"
+      And I should see "Summa ex. moms: 1000"
+      And I should see "Fakturaavgifter: 100"
+      And I should see "Totalsumma inkl. moms: 1375"
+      And I should see "Startdag: 2018-01-01"
+      And I should see "Sista dag: 2018-10-01"
+      And I should see "Referens: Fisken"
+      And I should see "Företagsreferens: Tjoho"
       And I click "Visa/godkänn faktura"
       And I click "Radera"
       Then I should see "Faktura raderad"
