@@ -52,7 +52,7 @@ Background:
     And I should see "Antal genomförda jobb: 1"
     Then I should see "Totalt fakturerat: 0 - 10 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 8750 kr"
+    And I should see "Totalt fakturerat: 7000 kr"
     Then I should see "Din nuvarande avgift är 10.0%. Läs mer om våra avgifter."
     And I click "Snabbfaktura"
     And I click "Skapa en faktura"
@@ -75,7 +75,7 @@ Background:
     And I should see "Antal genomförda jobb: 2"
     Then I should see "Totalt fakturerat: 10 000 - 20 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 12500 kr"
+    And I should see "Totalt fakturerat: 10000 kr"
     Then I should see "Din nuvarande avgift är 9.0%. Läs mer om våra avgifter."
     And an invoice with amount "4000" is created
     Given I am on the profiles_path
@@ -85,7 +85,7 @@ Background:
     And I should see "Antal genomförda jobb: 3"
     Then I should see "Totalt fakturerat: 10 000 - 20 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 17500 kr"
+    And I should see "Totalt fakturerat: 14000 kr"
     Then I should see "Din nuvarande avgift är 9.0%. Läs mer om våra avgifter."
     And an invoice with amount "8000" is created
     Given I am on the profiles_path
@@ -95,7 +95,7 @@ Background:
     And I should see "Antal genomförda jobb: 4"
     Then I should see "Totalt fakturerat: 20 000 - 50 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 27500 kr"
+    And I should see "Totalt fakturerat: 22000 kr"
     Then I should see "Din nuvarande avgift är 8.0%. Läs mer om våra avgifter."
     And an invoice with amount "40000" is created
     Given I am on the profiles_path
@@ -105,7 +105,7 @@ Background:
     And I should see "Antal genomförda jobb: 5"
     Then I should see "Totalt fakturerat: 50 000 - 100 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 77500 kr"
+    And I should see "Totalt fakturerat: 62000 kr"
     Then I should see "Din nuvarande avgift är 7.0%. Läs mer om våra avgifter."
     And an invoice with amount "40000" is created
     Given I am on the profiles_path
@@ -115,7 +115,7 @@ Background:
     And I should see "Antal genomförda jobb: 6"
     Then I should see "Totalt fakturerat: 100 000 - 250 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 127500 kr"
+    And I should see "Totalt fakturerat: 102000 kr"
     Then I should see "Din nuvarande avgift är 6.0%. Läs mer om våra avgifter."
     And an invoice with amount "160000" is created
     Given I am on the profiles_path
@@ -125,9 +125,9 @@ Background:
     And I should see "Antal genomförda jobb: 7"
     Then I should see "Totalt fakturerat: 250 000 - 500 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 327500 kr"
+    And I should see "Totalt fakturerat: 262000 kr"
     Then I should see "Din nuvarande avgift är 5.0%. Läs mer om våra avgifter."
-    And an invoice with amount "160000" is created
+    And an invoice with amount "250000" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 8"
     Then I should see "Totalt fakturerat: Mer än 500 000 kr"
@@ -135,5 +135,5 @@ Background:
     And I should see "Antal genomförda jobb: 8"
     Then I should see "Totalt fakturerat: Mer än 500 000 kr"
     And I click "KONTROLLPANEL"
-    And I should see "Totalt fakturerat: 527500 kr"
+    And I should see "Totalt fakturerat: 512000 kr"
     Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."

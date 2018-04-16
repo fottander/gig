@@ -34,37 +34,37 @@ class User < ApplicationRecord
   end
 
   def fee
-    if (self.total_earnings * 1.25) < 10000
+    if self.total_earnings < 10000
       0.1
-    elsif (10000..20000).include? (self.total_earnings * 1.25)
+    elsif (10000..20000).include? self.total_earnings
       0.09
-    elsif (20001..50000).include? (self.total_earnings * 1.25)
+    elsif (20001..50000).include? self.total_earnings
       0.08
-    elsif (50001..100000).include? (self.total_earnings * 1.25)
+    elsif (50001..100000).include? self.total_earnings
       0.07
-    elsif (100001..250000).include? (self.total_earnings * 1.25)
+    elsif (100001..250000).include? self.total_earnings
       0.06
-    elsif (250001..500000).include? (self.total_earnings * 1.25)
+    elsif (250001..500000).include? self.total_earnings
       0.05
-    elsif (self.total_earnings * 1.25) > 500000
+    elsif self.total_earnings > 500000
       0.04
     end
   end
 
   def current_earnings
-    if (self.total_earnings * 1.25).round < 10000
+    if self.total_earnings < 10000
       '0 - 10 000 kr'
-    elsif (10000..20000).include? (self.total_earnings * 1.25).round
+    elsif (10000..20000).include? self.total_earnings
       '10 000 - 20 000 kr'
-    elsif (20001..50000).include? (self.total_earnings * 1.25).round
+    elsif (20001..50000).include? self.total_earnings
       '20 000 - 50 000 kr'
-    elsif (50001..100000).include? (self.total_earnings * 1.25).round
+    elsif (50001..100000).include? self.total_earnings
       '50 000 - 100 000 kr'
-    elsif (100001..250000).include? (self.total_earnings * 1.25).round
+    elsif (100001..250000).include? self.total_earnings
       '100 000 - 250 000 kr'
-    elsif (250001..499999).include? (self.total_earnings * 1.25).round
+    elsif (250001..499999).include? self.total_earnings
       '250 000 - 500 000 kr'
-    elsif (self.total_earnings * 1.25).round > 499999
+    elsif self.total_earnings > 499999
       'Mer än 500 000 kr'
     end
   end
