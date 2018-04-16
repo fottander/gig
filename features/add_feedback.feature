@@ -28,6 +28,10 @@ Feature: Extend invoice and add feedback
 
     Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as company "felix@mail.com"
+      Given I am on the home page
+      And I click "ALLA FRILANSARE"
+      And I click "Fisken"
+      And I should not see "Betyg"
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
@@ -44,7 +48,8 @@ Feature: Extend invoice and add feedback
       And I should see "Sparat!"
       And I click "ALLA FRILANSARE"
       And I click "Fisken"
-      And I should see "9/10"
+      And I should see "Betyg 9/10"
+      And I should see "Betyg 8.0/10"
       Then I should see "Väldigt bra snubbe"
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"

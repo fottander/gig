@@ -21,6 +21,7 @@ Feature: Admin create category
       And I click "Spara"
       Then I should see "Kategori redigerad!"
       And I should see "Snickare"
+      And I should see "1234"
 
     Scenario: I see categories and create one
       Given I am logged in as admin "admin@yahoo.com"
