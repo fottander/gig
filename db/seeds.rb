@@ -372,7 +372,7 @@ Invoice.create(
   first_day: "2017-09-17",
   last_day: "2017-09-27",
   user_reference: "Johan P",
-  company_reference: "Greger",
+  company_reference: "Anders P",
   terms: 15,
   paid: false,
   post: false,

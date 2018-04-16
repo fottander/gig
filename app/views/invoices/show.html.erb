@@ -59,6 +59,7 @@
                 <% end %>
               <% end %>
             <% end %>
+
             <%= form_tag postal_invoice_path(@invoice), method: :patch do %>
               <% if @invoice.post == false %>
                 <% if @invoice.created_at > 7.days.ago %>
@@ -144,7 +145,7 @@
           Kvantitet(t.ex. antal timmar): <%= @invoice.quantity %> <br>
           Enhet(t.ex. kr/timma): <%= @invoice.unit %> <br>
           Summa ex moms: <%= @invoice.amount %> SEK <br>
-          Summa att betala: <%= @invoice.inklmoms_amount.round %> SEK<br>
+          Totalsumma inkl moms: <%= @invoice.inklmoms_amount.round %> SEK<br>
           Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
           Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
           Villkor: <%= @invoice.terms %> dagar<br>
