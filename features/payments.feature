@@ -20,13 +20,13 @@ Feature: Payments
       | email          | name | username | address | zip_code | city | org_number | phone | password  | password_confirmation | id   |
       | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9999 |
     Given the following invoices exist
-      | description | amount  | user_reference | terms | active | company_id | updated_at | paid  | user_id    | profile_id | salary_paid | user_fee | job_id | job_title |
-      | abc         | 3000    | felix          | 15    | true   | 9999       | 2017-11-01 | false | 9999       | 9999       | true        | 0.09     | 1      | heyhey    |
-      | def         | 3000    | felix          | 15    | true   | 9999       | 2017-11-02 | false | 9999       | 9999       | false       | 0.09     | 2      | hey hurhr |
+      | description | amount  | user_reference | terms | company_id | updated_at | paid  | user_id    | profile_id | salary_paid | user_fee | job_id | job_title |
+      | abc         | 3000    | felix          | 15    | 9999       | 2017-11-01 | false | 9999       | 9999       | true        | 0.09     | 1      | heyhey    |
+      | def         | 3000    | felix          | 15    | 9999       | 2017-11-02 | false | 9999       | 9999       | false       | 0.09     | 2      | hey hurhr |
     Given the following ezinvoices exist
-      | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | active | updated_at | paid  | user_id | profile_id | salary_paid | user_fee |
-      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | ezabc       | 3000   | felix          | 15    | true   | 2017-12-01 | false | 9999    | 9999       | true        | 0.09     |
-      | 1235       | greger bb    | södra 2         | 413         | gbg          | b@mail.com    | ezdef       | 3000   | felix          | 15    | true   | 2017-12-02 | false | 9999    | 9999       | false       | 0.09     |
+      | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | updated_at | paid  | user_id | profile_id | salary_paid | user_fee |
+      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | ezabc       | 3000   | felix          | 15    | 2017-12-01 | false | 9999    | 9999       | true        | 0.09     |
+      | 1235       | greger bb    | södra 2         | 413         | gbg          | b@mail.com    | ezdef       | 3000   | felix          | 15    | 2017-12-02 | false | 9999    | 9999       | false       | 0.09     |
 
   Scenario: I see the payments
     Given I am logged in as user "felix@yahoo.com"

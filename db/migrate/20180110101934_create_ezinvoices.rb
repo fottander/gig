@@ -21,7 +21,6 @@ class CreateEzinvoices < ActiveRecord::Migration[5.1]
       t.string :profile_username
       t.integer :terms, default: 15
       t.boolean :paid, default: false
-      t.boolean :active, default: false
       t.boolean :salary_paid, default: false
       t.boolean :post, default: false
       t.references :user, foreign_key: true

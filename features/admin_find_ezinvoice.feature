@@ -22,10 +22,10 @@ Feature: Admin find ezinvoices
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
       | Greger   | målare 29 år | målare gbg  | 1            | 1        | 9998    | 9998 |
     Given the following ezinvoices exist
-      | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | active | updated_at | paid  | user_id    |
-      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 15    | true   | 2017-11-01 | false | 9999       |
-      | 1235       | greger bb    | södra 2         | 413         | gbg          | b@mail.com    | def fakt    | 120    | felix          | 15    | false  | 2017-11-01 | false | 9998       |
-      | 1233       | greger cc    | södra 3         | 414         | gbg          | c@mail.com    | ghi fakt    | 120    | felix          | 15    | true   | 2017-11-01 | true  | 9998       |
+      | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | paid  | user_id    |
+      | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 15    | false | 9999       |
+      | 1235       | greger bb    | södra 2         | 413         | gbg          | b@mail.com    | def fakt    | 120    | felix          | 15    | false | 9998       |
+      | 1233       | greger cc    | södra 3         | 414         | gbg          | c@mail.com    | ghi fakt    | 120    | felix          | 15    | true  | 9998       |
 
     Scenario: I see ezinvoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
@@ -34,7 +34,7 @@ Feature: Admin find ezinvoices
       And I click "Snabbfakturor"
       And I click "Filtrera ej betalda"
       And I should see "abc fakt"
-      And I should not see "def fakt"
+      And I should see "def fakt"
       And I should not see "ghi fakt"
       And I click "Snabbfakturor"
       And I click "Filtrera betalda"

@@ -1,10 +1,10 @@
 class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
-  validates_presence_of :description, :amount, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :profile_username, :application_id, :terms
+  validates_presence_of :description, :amount, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
-  validates :rating, numericality: { only_integer: true }, allow_blank: true
+  validates :rating, numericality: { only_float: true }, allow_blank: true
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company
@@ -16,10 +16,8 @@ class Invoice < ApplicationRecord
   scope :with_profile_id, -> (profile_id) { where profile_id: profile_id }
   scope :with_user_id, -> (user_id) { where user_id: user_id }
   scope :with_company_id, -> (company_id) { where company_id: company_id }
-  scope :not_paid, -> { where(active: true, paid: false) }
-  scope :paid, -> { where(active: true, paid: true) }
-  scope :active, -> { where(active: true) }
-  scope :not_active, -> { where(active: false) }
+  scope :not_paid, -> { where(paid: false) }
+  scope :paid, -> { where(paid: true) }
   scope :salary_paid, -> { where(salary_paid: true) }
   scope :salary_not_paid, -> { where(salary_paid: false) }
   scope :pay_day_reached, -> (selected_day) { where('"created_at" < ?', selected_day)}
@@ -30,12 +28,20 @@ class Invoice < ApplicationRecord
 
   self.per_page = 4
 
+  def total_amount
+    self.amount + self.invoice_fees
+  end
+
   def due_date
     self.created_at+self.terms.day
   end
 
-  def inklmoms
+  def inklmoms_amount
     self.amount * 1.25
+  end
+
+  def inklmoms_total_amount
+    self.total_amount * 1.25
   end
 
   def a_g_avgift

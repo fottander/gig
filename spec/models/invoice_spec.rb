@@ -22,9 +22,9 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column :terms }
     it { is_expected.to have_db_column :user_fee }
     it { is_expected.to have_db_column :feedback }
+    it { is_expected.to have_db_column :invoice_fees }
     it { is_expected.to have_db_column(:rating).of_type(:float) }
     it { is_expected.to have_db_column(:paid).of_type(:boolean) }
-    it { is_expected.to have_db_column(:active).of_type(:boolean) }
     it { is_expected.to have_db_column(:salary_paid).of_type(:boolean) }
     it { is_expected.to have_db_column(:post).of_type(:boolean) }
     it { is_expected.to have_db_column :application_id }
@@ -41,6 +41,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to validate_presence_of :user_reference }
     it { is_expected.to validate_presence_of :job_id }
     it { is_expected.to validate_presence_of :job_title }
+    it { is_expected.to validate_presence_of :invoice_fees }
     it { is_expected.to validate_presence_of :application_id }
     it { is_expected.to validate_presence_of :user_fee }
     it { is_expected.to validate_presence_of :terms }

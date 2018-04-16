@@ -94,7 +94,7 @@ class AdmininvoicesController < ApplicationController
   end
 
   def invoice_update_params
-    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
+    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :invoice_fees, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :active, :company_id, :application_id, :job_id, :profile_id, :profile_username)
   end
 
 end

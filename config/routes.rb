@@ -103,8 +103,10 @@ Rails.application.routes.draw do
 
   resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
     member do
-      patch :update
       patch :extend
+      patch :feedback
+      patch :postal
+      patch :rating
     end
   end
 
