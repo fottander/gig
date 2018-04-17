@@ -26,25 +26,31 @@
           <h3 style='margin-left: 0;'>Faktura <%= @invoice.id.first(8) %></h3>
           <div class="large-6 columns">
             <div class='post-title'><h4>Feedback & tillval</h4></div>
-            <%= form_tag feedback_invoice_path(@invoice), method: :patch do %>
               <% if @invoice.feedback.present? %>
               <% else %>
-                <div class='post-title'>
-                  Rekommendera <%= @invoice.profile_username %> till andra(spara 50kr)
-                </div>
-                <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
-                <%= submit_tag 'Skicka feedback', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-              <% end %>
-            <% end %><br>
+                <%= form_tag feedback_invoice_path(@invoice), method: :patch do %>
+                  <div class='post-title'>
+                    Rekommendera <%= @invoice.profile_username %> till andra
+                    <% if @invoice.paid == false %>
+                      (spara 50kr)
+                    <% end %>
+                  </div>
+                  <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
+                  <%= submit_tag 'Skicka feedback', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+                <% end %>
+              <% end %><br>
 
-            <%= form_tag rating_invoice_path(@invoice), method: :patch do %>
               <% if @invoice.rating.present? %>
               <% else %>
-                Ge betyg till <%= @invoice.profile_username %>(spara 50kr)
-                <%= select_tag :rating, options_for_select(Invoice::RATING_OPTIONS), prompt: 'Välj betyg' %>
-                <%= submit_tag 'Skicka betyg', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-              <% end %>
-            <% end %><br>
+                <%= form_tag rating_invoice_path(@invoice), method: :patch do %>
+                  Ge betyg till <%= @invoice.profile_username %>
+                  <% if @invoice.paid == false %>
+                    (spara 50kr)
+                  <% end %>
+                  <%= select_tag :rating, options_for_select(Invoice::RATING_OPTIONS), prompt: 'Välj betyg' %>
+                  <%= submit_tag 'Skicka betyg', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+                <% end %>
+              <% end %><br>
 
             <%= form_tag extend_invoice_path(@invoice), method: :patch do %>
               <% if current_company.invoices.count > 3 %>
@@ -60,28 +66,28 @@
               <% end %>
             <% end %>
 
-            <%= form_tag postal_invoice_path(@invoice), method: :patch do %>
-              <% if @invoice.post == false %>
-                <% if @invoice.created_at > 7.days.ago %>
-                  <%= hidden_field_tag :post, true %>
-                  <p id="invoice_post_button">
-                    <%= submit_tag 'Lägg till', data: { confirm: "Är du säker?" }, class: 'button-blue' %>
-                    Klicka för att få fakturan på posten(+40kr)<br>
-                  </p>
+            <% if @invoice.paid == false %>
+              <%= form_tag postal_invoice_path(@invoice), method: :patch do %>
+                <% if @invoice.post == false %>
+                  <% if @invoice.created_at > 7.days.ago %>
+                    <%= hidden_field_tag :post, true %>
+                    <p id="invoice_post_button">
+                      <%= submit_tag 'Lägg till', data: { confirm: "Är du säker?" }, class: 'button-blue' %>
+                      Klicka för att få fakturan på posten(+40kr)<br>
+                    </p>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% end %>
 
-            <% if @invoice.created_at > 7.days.ago %>
-              <% if current_company.invoices.count < 4 %>
-                <del>Klicka för 30 dagars fakturatid(+500kr)</del><br>
-                <span style='color: #f77d0e; font-size: 12px;'>
-                  När du mottagit tre tidigare fakturor får du möjligheten att förlänga dina betalningsvillkor.
-                </span>
+              <% if @invoice.created_at > 7.days.ago %>
+                <% if current_company.invoices.count < 4 %>
+                  <del>Klicka för 30 dagars fakturatid(+500kr)</del><br>
+                  <span style='color: #f77d0e; font-size: 12px;'>
+                    När du mottagit tre tidigare fakturor får du möjligheten att förlänga dina betalningsvillkor.
+                  </span>
+                <% end %>
               <% end %>
-            <% end %>
 
-            <% if @invoice.paid == false %>
               <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
                 Fakturan ska betalas innan <%= @invoice.due_date.strftime("%F") %><br>
                 Om du har några frågor får ni gärna kontakta kundtjänsten.

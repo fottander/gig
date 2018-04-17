@@ -52,9 +52,14 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @user = @invoice.user
     if @invoice.update invoice_feedback_params
-      @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
-      flash[:notice] = "Sparat!"
-      redirect_back(fallback_location: panels_path)
+      if @invoice.paid == false
+        @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
+        flash[:notice] = "Sparat!"
+        redirect_back(fallback_location: panels_path)
+      else
+        flash[:notice] = "Sparat!"
+        redirect_back(fallback_location: panels_path)
+      end
     else
       flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
       redirect_back(fallback_location: panels_path)
@@ -65,9 +70,14 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @user = @invoice.user
     if @invoice.update invoice_rating_params
-      @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
-      flash[:notice] = "Sparat!"
-      redirect_back(fallback_location: panels_path)
+      if @invoice.paid == false
+        @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
+        flash[:notice] = "Sparat!"
+        redirect_back(fallback_location: panels_path)
+      else
+        flash[:notice] = "Sparat!"
+        redirect_back(fallback_location: panels_path)
+      end
     else
       flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
       redirect_back(fallback_location: panels_path)
