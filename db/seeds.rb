@@ -9,8 +9,8 @@ Admin.delete_all
 Invoice.delete_all
 
 Admin.create(
-  email: "info@anewbiz.se",
-  password: "Gr8big88",
+  email: "info@admin.se",
+  password: "123456",
   id: 99999
   )
 
