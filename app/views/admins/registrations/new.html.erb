@@ -1,0 +1,43 @@
+<div class="login-box">
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1">
+      <div class="login-box-form-section">
+        <div class='login-title'>
+          <span style='color: white; font-weight: 700;'>Registrera ny frilansare</span>
+        </div>
+        <div class="login-box-input"><%= link_to "Registrera företag >>", new_admin_registration_path, class: 'switch-button' %></div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+        <div class="login-box-input">
+          <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+        </div>
+        <div class="login-box-input">
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> tecken minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
+        </div>
+        <div class="field" style='margin-bottom: -10px;'>
+          <br>
+          <%= f.password_field :password_confirmation, placeholder: "Bekräfta lösenord", autocomplete: "off" %>
+        </div>
+        <div class="actions">
+          <span style='color: #6D6D6D; font-size: 14px;'>När du klickar på registrera godkänner du automatiskt</span> <%= link_to 'våra villkor.', terms_of_services_path , style: 'font-size: 14px; text-transform: lowercase;'%><br>
+          <%= f.submit "Registrera", class: 'reply-button', style:'width: 60%;' %>
+          <p>eller <%= render "devise/shared/links" %></p>
+        </div>
+        <%end %>
+      </div>
+    </div>
+    <div class="small-12 medium-6 column small-order-1 medium-order-2 login-box-social-section">
+      <div class="login-box-social-section-user-login">
+        <span class="login-box-social-headline">Fördelar med vår tjänst</span>
+        <p class="login-box-social-content">Enkelt att nytt hitta jobb</p>
+        <p class="login-box-social-content">Mer flexibla arbetstider</p>
+        <div class="login-box-social-content">Jobba var du vill & för vem du vill <br><br>
+          <%= link_to 'Läs mer om hur det fungerar', howitworks_path, class: 'profile-button' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

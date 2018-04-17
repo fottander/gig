@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
+  devise_for :admins, controllers: {
+    registrations: 'admins/registrations'
+  }
   devise_scope :admin do
     authenticated :admin do
       root to: 'administrations#index'
