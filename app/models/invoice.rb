@@ -24,7 +24,7 @@ class Invoice < ApplicationRecord
   scope :with_feedback, -> { where.not(feedback: nil )}
   scope :with_rating, -> { where.not(rating: nil )}
 
-  RATING_OPTIONS = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" ]
+  RATING_OPTIONS = [ "1", "2", "3", "4", "5" ]
 
   self.per_page = 4
 

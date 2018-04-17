@@ -11,7 +11,7 @@
         <p class='job-count' style='margin-top: -7px;'>
           Totalt fakturerat: <%= @profile.user.current_earnings %><br>
           <% if @profile.user.invoices.with_rating.count > 2 %>
-            <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/10</span></p>
+            <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
           <% end %>
         </p>
       </div>
@@ -68,7 +68,7 @@
               <div class='profile-card-about-title-message'>
                 <%= invoice.job_title %>
                 <% if invoice.rating.present? %><br>
-                  <span style='color: #f77d0e;'>Betyg <%= invoice.rating.round(0) %>/10</span>
+                  <span style='color: #f77d0e;'>Betyg <%= invoice.rating.round(0) %>/5</span>
                 <% end %>
               </div>
               <div class="profile-card-about-feed-message">

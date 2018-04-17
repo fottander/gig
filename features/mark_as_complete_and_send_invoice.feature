@@ -93,7 +93,7 @@ Feature: Mark As complete and send invoice
       And I should see "Sparat!"
       And I should see "Fakturaavgift ex moms: 0 SEK"
       Then I should not see "Rekommendera MyString till andra"
-      And I select "9" from "rating"
+      And I select "4" from "rating"
       And I click "Skicka betyg"
       And I should see "Sparat!"
       And I should see "Fakturaavgift ex moms: 0 SEK"

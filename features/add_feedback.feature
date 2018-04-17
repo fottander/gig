@@ -23,7 +23,7 @@ Feature: Extend invoice and add feedback
       | description | amount | user_reference | terms |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
       | ref         | 1200   | felix          | 15    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
       | fer         | 1200   | felix          | 15    | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
-      | tyr         | 1200   | felix          | 15    | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 10     |
+      | tyr         | 1200   | felix          | 15    | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 3      |
       | abc         | 1200   | felix          | 15    | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
 
     Scenario: I give feedback with extended post, terms and rating
@@ -43,13 +43,13 @@ Feature: Extend invoice and add feedback
       And I fill in "feedback" with "Väldigt bra snubbe"
       And I click "Skicka feedback"
       And I should see "Sparat!"
-      And I select "9" from "rating"
+      And I select "5" from "rating"
       And I click "Skicka betyg"
       And I should see "Sparat!"
       And I click "ALLA FRILANSARE"
       And I click "Fisken"
-      And I should see "Betyg 9/10"
-      And I should see "Betyg 8.0/10"
+      And I should see "Betyg 5/5"
+      And I should see "Betyg 4.3/5"
       Then I should see "Väldigt bra snubbe"
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
@@ -89,7 +89,7 @@ Feature: Extend invoice and add feedback
       And I should see "Summa ex moms: 1200 SEK"
       And I should see "Fakturaavgift ex moms: 540 SEK"
       And I should see "Totalsumma inkl moms: 2175 SEK"
-      And I select "9" from "rating"
+      And I select "5" from "rating"
       And I click "Skicka betyg"
       And I should see "Sparat!"
       And I fill in "feedback" with "Väldigt bra snubbe"
@@ -97,7 +97,7 @@ Feature: Extend invoice and add feedback
       And I should see "Sparat!"
       And I click "ALLA FRILANSARE"
       And I click "Fisken"
-      And I should see "9/10"
+      And I should see "5/5"
       Then I should see "Väldigt bra snubbe"
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
