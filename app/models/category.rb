@@ -2,6 +2,7 @@ class Category < ApplicationRecord
   validates_presence_of :name, :ssyk_code
   has_and_belongs_to_many :profiles, dependent: :destroy
   has_and_belongs_to_many :jobs, dependent: :destroy
+  default_scope {order('name ASC')}
   has_attached_file :avatar,
                        storage: :s3,
                        s3_protocol: :https, #specify the protocol as https
