@@ -22,7 +22,9 @@
             Skapa ny kategori
             <p class="portfolio-resume-subheader">
               <%= form_tag categories_path(@category) do %>
-              <%= text_field_tag :name, nil, placeholder: 'Namn' %>
+              <span id='category-name'>
+                <%= text_field_tag :name, nil, placeholder: 'Namn' %>
+              </span>
               <%= text_field_tag :ssyk_code, nil, placeholder: 'SSYK-kod' %>
               <%= label_tag :avatar, 'Kategoribild (.jpg .jpeg .png .gif)', class: 'form-text' %>
               <%= file_field_tag :avatar, class: 'form-text' %>
@@ -43,7 +45,9 @@
             Skapa ny stad
             <p class="portfolio-resume-subheader">
               <%= form_tag cities_path(@city) do %>
-              <%= text_field_tag :name, nil, placeholder: 'Namn' %>
+              <span id="city-name">
+                <%= text_field_tag :name, nil, placeholder: 'Namn' %>
+              </span>
               <%= submit_tag 'Skapa stad', class: 'profile-button-expand' %>
               <% end %>
             </p>

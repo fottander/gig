@@ -7,3 +7,6 @@ $("#admin-new-ezinvoices").html("<%= escape_javascript(render("admin_new_ezinvoi
 <% if params[:categories] %>
 $("#categories").html("<%= escape_javascript(render("categories")) %>");
 <% end %>
+<% if params[:cities] %>
+$("#cities").html("<%= escape_javascript(render("cities")) %>");
+<% end %>
