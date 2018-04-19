@@ -44,3 +44,13 @@ Feature: User registration
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       Then I should see "Välkommen! Du är inloggad."
+
+    Scenario: I register already taken user
+      Given I am on the home page
+      And I click "REGISTRERA"
+      And I should see "Registrera ny frilansare"
+      And I fill in "Email" with "felix@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I fill in "Bekräfta lösenord" with "12345678"
+      And I click "Registrera"
+      Then I should see "Email redan tagen"
