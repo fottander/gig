@@ -3,7 +3,7 @@
     <div class="small-6 columns">
       <%= city.id %>
       <%= city.name %><br>
-      <%= link_to 'Delete', city_path(city), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
+      <%= link_to 'Delete', city_path(city), data: { confirm: "Är du säker? Om det finns annonser med denna kategorin kraschar det." }, method: :delete, class: 'button-orange' %>
       <%= link_to 'Edit', edit_city_path(city), class: 'button-green' %><br><br>
     </div>
   </div>
