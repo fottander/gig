@@ -33,17 +33,6 @@
             Föreslagen lön: <%= @job.budget %>
           </li>
         </ul>
-      </div>
-    </div>
-
-    <div class="large-3 columns">
-      <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Beskrivning</h3>
-        <div class="portfolio-resume-spacing">
-          <h5><strong><%= @job.title %></strong></h5>
-          Jobb ID: <%= @job.id %>
-          <p><%= simple_format @job.description %></p>
-        </div>
         <% if current_company.present? %>
           <p style='color: #f77d0e;'>Som företag kan du inte ansöka till detta jobbet</p>
         <% end %>
@@ -60,6 +49,17 @@
         <% else %>
           <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button', style: 'margin-bottom: 10px;' %>
         <% end %>
+      </div>
+    </div>
+
+    <div class="large-3 columns">
+      <div class="portfolio-resume-wrapper">
+        <h3 class="portfolio-resume-header">Beskrivning</h3>
+        <div class="portfolio-resume-spacing">
+          <h5><strong><%= @job.title %></strong></h5>
+          Jobb ID: <%= @job.id %>
+          <p><%= simple_format @job.description %></p>
+        </div>
       </div>
     </div>
 
