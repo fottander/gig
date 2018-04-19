@@ -1,0 +1,13 @@
+<% @cities.each do |city| %>
+  <div class='city-<%= city.id %>'>
+    <div class="small-6 columns">
+      <%= city.id %>
+      <%= city.name %><br>
+      <%= link_to 'Delete', city_path(city), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
+      <%= link_to 'Edit', edit_city_path(city), class: 'button-green' %><br><br>
+    </div>
+  </div>
+<% end %>
+<div class="will-paginate">
+    <%= will_paginate @cities, param_name: 'cities', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+</div>

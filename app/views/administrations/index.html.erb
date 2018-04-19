@@ -15,7 +15,7 @@
   <div class="holy-grail-middle">
     <div class="portfolio-resume row">
 
-      <div class="large-4 columns">
+      <div class="large-3 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Kategorier</h3>
           <p class="portfolio-resume-subheader">
@@ -36,7 +36,25 @@
         </div>
       </div>
 
-      <div class="large-4 columns">
+      <div class="large-3 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Städer</h3>
+          <p class="portfolio-resume-subheader">
+            Skapa ny stad
+            <p class="portfolio-resume-subheader">
+              <%= form_tag cities_path(@city) do %>
+              <%= text_field_tag :name, nil, placeholder: 'Namn' %>
+              <%= submit_tag 'Skapa stad', class: 'profile-button-expand' %>
+              <% end %>
+            </p>
+            <div id="cities">
+              <%= render 'cities' %>
+            </div>
+          </p>
+        </div>
+      </div>
+
+      <div class="large-3 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Nya fakturor</h3>
           <div id="admin-new-invoices">
@@ -45,7 +63,7 @@
         </div>
       </div>
 
-      <div class="large-4 columns">
+      <div class="large-3 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Nya snabbfakturor</h3>
           <div id="admin-new-ezinvoices">

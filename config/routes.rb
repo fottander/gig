@@ -73,6 +73,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:create, :destroy, :edit, :update]
 
+  resources :cities, only: [:create, :destroy, :edit, :update]
+
   resources :adminjobs, only: [:index, :show, :destroy]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
