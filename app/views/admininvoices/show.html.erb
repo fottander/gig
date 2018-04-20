@@ -20,12 +20,13 @@
           <%= link_to 'Redigera', edit_admininvoice_path(@invoice), class: 'profile-button-expand' %>
           <p class="portfolio-resume-subheader">
             <span class='item-define'>ID:</span> <%= @invoice.id.first(8) %><br>
-            <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
-            <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
-            <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
-            <span class='item-define'>Summa inkl. moms:</span> <%= @invoice.inklmoms_amount.round %><br>
+            <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
+            <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
+            <span class='item-define'>Summa ex. moms:</span> <%= @invoice.fakturabelopp %><br>
+            <span class='item-define'>Summa inkl. moms:</span> <%= @invoice.fakturabelopp_inklmoms %><br>
             <span class='item-define'>Fakturaavgifter:</span> <%= @invoice.invoice_fees %><br>
-            <span class='item-define'>Totalsumma inkl. moms:</span> <%= @invoice.inklmoms_total_amount.round %><br>
+            <span class='item-define'>Totalsumma exkl. moms:</span> <%= @invoice.totalbelopp %><br>
+            <span class='item-define'>Totalsumma inkl. moms:</span> <%= @invoice.totalbelopp_inklmoms %><br>
             <span class='item-define'>Startdag:</span> <%= @invoice.first_day %><br>
             <span class='item-define'>Sista dag:</span> <%= @invoice.last_day %><br>
             <span class='item-define'>Beskrivning:</span> <%= @invoice.description %><br>
@@ -95,14 +96,16 @@
           <hr>
           <h3 class="portfolio-resume-header">Betalinfo</h3>
           <p class="portfolio-resume-subheader">
-          Vår avgift: -<%= @invoice.varavgift.round %> SEK <br>
-          Arbetsgivaravgifter -<%= @invoice.arbetsgivaravgifter.round %> SEK <br>
-          Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
-          Skatt	-<%= @invoice.skatt.round %> SEK <br>
-          <span class='item-define'>Nettolön att utbetala</span> <%= @invoice.steg3.round %> SEK <br>
-          <span class='item-define'>Bank:</span> <%= @profile.user.bank %><br>
-          <span class='item-define'>Clearingnummer:</span> <%= @profile.user.clear_nr %><br>
-          <span class='item-define'>Kontonummer:</span> <%= @profile.user.account_nr %><br>
+            User fee: <%= @invoice.user_fee %><br>
+            Fakturabelopp exkl moms: <%= @invoice.fakturabelopp %><br>
+            Vår avgift: -<%= @invoice.varavgift %> SEK <br>
+            Arbetsgivaravgifter -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK <br>
+            Bruttolön inkl sem. ers.	<%= @invoice.bruttolon_ef_avg %> SEK <br>
+            Skatt	-<%= @invoice.loneskatt %> SEK <br>
+            <span class='item-define'>Nettolön att utbetala</span> <%= @invoice.nettolon %> SEK <br>
+            <span class='item-define'>Bank:</span> <%= @profile.user.bank %><br>
+            <span class='item-define'>Clearingnummer:</span> <%= @profile.user.clear_nr %><br>
+            <span class='item-define'>Kontonummer:</span> <%= @profile.user.account_nr %><br>
           </p>
         </div>
       </div>

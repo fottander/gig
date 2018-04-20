@@ -1,7 +1,7 @@
 class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
-  validates_presence_of :description, :amount, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
+  validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
   validates :rating, numericality: { only_float: true }, allow_blank: true
@@ -28,56 +28,64 @@ class Invoice < ApplicationRecord
 
   self.per_page = 4
 
-  def total_amount
-    self.amount + self.invoice_fees
+  def nettolon
+    (self.bruttolon_ef_avg - self.loneskatt).round
   end
 
-  def due_date
-    self.created_at+self.terms.day
+  def loneskatt
+    (self.bruttolon_ef_avg * self.inkomstskatt).round
   end
 
-  def inklmoms_amount
-    self.amount * 1.25
+  def bruttolon
+    (self.amount + (self.amount * self.semester_ers)).round
   end
 
-  def inklmoms_total_amount
-    self.total_amount * 1.25
+  def arbetsgivaravgifter
+    (self.bruttolon * self.a_g_avgift).round
   end
 
   def a_g_avgift
-    1.3142
+    0.3142
+  end
+
+  def fakturabelopp
+    (self.bruttolon + self.arbetsgivaravgifter).round
+  end
+
+  def varavgift
+    (self.fakturabelopp * self.user_fee).round
+  end
+
+  def bruttolon_ef_avg
+    ((self.fakturabelopp - self.varavgift) / (1 + self.a_g_avgift)).round
+  end
+
+  def arbetsgivaravgifter_ef_avg
+    (self.bruttolon_ef_avg * self.a_g_avgift).round
+  end
+
+  def semester_ers
+    0.12
+  end
+
+  def fakturabelopp_inklmoms
+    (self.fakturabelopp * 1.25).round
+  end
+
+  def totalbelopp
+    (self.fakturabelopp + self.invoice_fees).round
+  end
+
+  def totalbelopp_inklmoms
+    (self.totalbelopp * 1.25).round
+  end
+
+  def due_date
+    self.created_at + self.terms.day
   end
 
   def inkomstskatt
     0.3
-  end
-
-  def steg1
-    self.amount * (1-self.user_fee)
-  end
-
-  def steg2
-    self.steg1 / self.a_g_avgift
-  end
-
-  def steg3
-    self.steg2 * (1-self.inkomstskatt)
-  end
-
-  def varavgift
-    self.amount * self.user_fee
-  end
-
-  def arbetsgivaravgifter
-    self.steg1 - (self.steg1 / self.a_g_avgift)
-  end
-
-  def bruttolon
-    self.steg1 - self.arbetsgivaravgifter
-  end
-
-  def skatt
-    self.bruttolon * self.inkomstskatt
   end
 
   private

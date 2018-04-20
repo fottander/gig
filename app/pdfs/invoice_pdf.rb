@@ -61,14 +61,13 @@ class InvoicePdf < Prawn::Document
 
   def invoice_items
     move_down 20
-    @ex_moms = @invoice.amount * 0.8
-    @moms = @invoice.amount * 0.2
-    data = [ ["Beskrivning", "Kvantitet", "Enhet", "Summa"],
-     [@invoice.description, @invoice.quantity, @invoice.unit, @invoice.amount.round],
-     ["", "", "", "Att betala: #{@invoice.amount.round}.00"],
+    @moms = @invoice.totalbelopp_inklmoms * 0.2
+    data = [ ["Beskrivning", "Antal timmar", "Timlön", "Fakturaavgifter"],
+     [@invoice.description, @invoice.quantity, @invoice.unit, @invoice.invoice_fees],
      ["", "", "", "Förfallodatum: #{@due_date.strftime('%F')}"],
-     ["Exkl. moms #{@ex_moms.round}.00", "", "", "OCR: #{@invoice.ocr_number}"],
-     ["Moms(25%) #{@moms.round}.00", "", "", "Bankgiro: 23929042932"]]
+     ["", "", "", "OCR: #{@invoice.ocr_number}"],
+     ["", "", "", "Bankgiro: 23929042932"],
+     ["Exkl. moms #{@invoice.totalbelopp}.00", "Moms(25%) #{@moms.round}.00", "", "Att betala: #{@invoice.totalbelopp_inklmoms}.00"]]
 
     table(data, cell_style: { size: 10 }) do
      cells.padding = 12

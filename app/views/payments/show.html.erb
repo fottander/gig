@@ -42,15 +42,14 @@
           <p class="portfolio-resume-subheader">
             <% if @invoice.user_id == current_user.id %>
               <span class='item-define'>Utbetald:</span> <%= @invoice.updated_at.strftime("%F %R") %><br>
-              <span class='item-define'>Kvantitet:</span> <%= @invoice.quantity %><br>
-              <span class='item-define'>Enhet:</span> <%= @invoice.unit %><br>
-              <span class='item-define'>Summa ex. moms:</span> <%= @invoice.amount %><br>
-              Vår avgift: -<%= @invoice.varavgift.round %> SEK <br>
-              Arbetsgivaravgifter -<%= @invoice.arbetsgivaravgifter.round %> SEK <br>
-              Bruttolön inkl sem. ers.	<%= @invoice.bruttolon.round %> SEK <br>
-              Skatt	-<%= @invoice.skatt.round %> SEK <br>
-              Nettolön (lön efter skatt) <%= @invoice.steg3.round %> SEK <br>
-              <span class='item-define'>Utbetald summa:</span> <%= @invoice.steg3.round %> SEK<br>
+              <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
+              <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
+              Vår avgift: -<%= @invoice.varavgift %> SEK <br>
+              Arbetsgivaravgifter: -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK <br>
+              Bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
+              Skatt:	-<%= @invoice.loneskatt %> SEK <br>
+              Nettolön (lön efter skatt): <%= @invoice.nettolon %> SEK <br>
+              <span class='item-define'>Utbetald summa: </span> <%= @invoice.nettolon %> SEK<br>
             <% end %>
           </p>
         </div>

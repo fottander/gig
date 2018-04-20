@@ -20,11 +20,11 @@ Feature: Extend invoice and add feedback
       | username | title        | description | category_ids | city_ids | user_id | id   |
       | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
     Given the following invoices exist
-      | description | amount | user_reference | terms |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
-      | ref         | 1200   | felix          | 15    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
-      | fer         | 1200   | felix          | 15    | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
-      | tyr         | 1200   | felix          | 15    | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 3      |
-      | abc         | 1200   | felix          | 15    | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
+      | description | quantity | unit| amount | user_reference | terms |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
+      | ref         | 100      | 12  | 1200   | felix          | 15    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
+      | fer         | 100      | 12  | 1200   | felix          | 15    | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
+      | tyr         | 100      | 12  | 1200   | felix          | 15    | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 3      |
+      | abc         | 100      | 12  | 1200   | felix          | 15    | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
 
     Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as company "felix@mail.com"
@@ -35,9 +35,16 @@ Feature: Extend invoice and add feedback
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: 0 SEK"
-      And I should see "Totalsumma inkl moms: 1500 SEK"
+      And I should see "Antal timmar(st): 100"
+      And I should see "Timlön(kr/timma): 12"
+      And I should see "Bruttolön: 1200"
+      And I should see "Bruttolön inkl semesterersättning(12%): 1344"
+      And I should see "Arbetsgivaravgifter: 422"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: 0"
+      And I should see "Totalsumma exkl. moms: 1766"
+      And I should see "Totalsumma inkl. moms: 2208"
       And I should see "Rekommendera MyString till andra"
       And I should see "Ge betyg till MyString"
       And I fill in "feedback" with "Väldigt bra snubbe"
@@ -53,42 +60,54 @@ Feature: Extend invoice and add feedback
       Then I should see "Väldigt bra snubbe"
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: -100 SEK"
-      And I should see "Totalsumma inkl moms: 1375 SEK"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: -100"
+      And I should see "Totalsumma exkl. moms: 1666"
+      And I should see "Totalsumma inkl. moms: 2083"
       And I should not see "Rekommendera MyString till andra"
       And I should not see "Ge betyg till MyString"
       And I click "Lägg till" terms button
       And I should not see "Klicka för 30 dagars fakturatid(+500kr)"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: 400 SEK"
-      And I should see "Totalsumma inkl moms: 2000 SEK"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: 400"
+      And I should see "Totalsumma exkl. moms: 2166"
+      And I should see "Totalsumma inkl. moms: 2708"
       And I click "Lägg till" post button
       And I should not see "Klicka för att få fakturan på posten(+40kr)"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: 440 SEK"
-      And I should see "Totalsumma inkl moms: 2050 SEK"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: 440"
+      And I should see "Totalsumma exkl. moms: 2206"
+      And I should see "Totalsumma inkl. moms: 2758"
 
     Scenario: I give feedback with extended post, terms and rating in a different order
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: 0 SEK"
-      And I should see "Totalsumma inkl moms: 1500 SEK"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: 0"
+      And I should see "Totalsumma exkl. moms: 1766"
+      And I should see "Totalsumma inkl. moms: 2208"
       And I should see "Rekommendera MyString till andra"
       And I should see "Ge betyg till MyString"
       And I click "Lägg till" terms button
       And I should not see "Klicka för 30 dagars fakturatid(+500kr)"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: 500 SEK"
-      And I should see "Totalsumma inkl moms: 2125 SEK"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: 500"
+      And I should see "Totalsumma exkl. moms: 2266"
+      And I should see "Totalsumma inkl. moms: 2833"
       And I click "Lägg till" post button
       And I should not see "Klicka för att få fakturan på posten(+40kr)"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: 540 SEK"
-      And I should see "Totalsumma inkl moms: 2175 SEK"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: 540"
+      And I should see "Totalsumma exkl. moms: 2306"
+      And I should see "Totalsumma inkl. moms: 2883"
       And I select "5" from "rating"
       And I click "Skicka betyg"
       And I should see "Sparat!"
@@ -101,8 +120,10 @@ Feature: Extend invoice and add feedback
       Then I should see "Väldigt bra snubbe"
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
-      And I should see "Summa ex moms: 1200 SEK"
-      And I should see "Fakturaavgift ex moms: 440 SEK"
-      And I should see "Totalsumma inkl moms: 2050 SEK"
+      And I should see "Belopp ex. moms: 1766"
+      And I should see "Belopp inkl. moms: 2208"
+      And I should see "Fakturaavgifter: 440"
+      And I should see "Totalsumma exkl. moms: 2206"
+      And I should see "Totalsumma inkl. moms: 2758"
       And I should not see "Rekommendera MyString till andra"
       And I should not see "Ge betyg till MyString"

@@ -2,12 +2,13 @@
   <% @invoices.not_paid.each do |invoice| %>
     <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice) %><br>
     <span class='item-define'>ID:</span> <%= invoice.id.first(8) %><br>
-    <span class='item-define'>Kvantitet:</span> <%= invoice.quantity %><br>
-    <span class='item-define'>Enhet:</span> <%= invoice.unit %><br>
-    <span class='item-define'>Summa ex. moms:</span> <%= invoice.amount %><br>
-    <span class='item-define'>Summa inkl. moms:</span> <%= invoice.inklmoms_amount.round %><br>
+    <span class='item-define'>Antal timmar:</span> <%= invoice.quantity %>st<br>
+    <span class='item-define'>Timlön:</span> <%= invoice.unit %>kr/timma<br>
+    <span class='item-define'>Summa ex. moms:</span> <%= invoice.fakturabelopp %><br>
+    <span class='item-define'>Summa inkl. moms:</span> <%= invoice.fakturabelopp_inklmoms %><br>
     <span class='item-define'>Fakturaavgifter:</span> <%= invoice.invoice_fees %><br>
-    <span class='item-define'>Totalsumma inkl. moms:</span> <%= invoice.inklmoms_total_amount.round %><br>
+    <span class='item-define'>Totalsumma exkl. moms:</span> <%= invoice.totalbelopp %><br>
+    <span class='item-define'>Totalsumma inkl. moms:</span> <%= invoice.totalbelopp_inklmoms %><br>
     <span class='item-define'>Startdag:</span> <%= invoice.first_day %><br>
     <span class='item-define'>Sista dag:</span> <%= invoice.last_day %><br>
     <span class='item-define'>Beskrivning:</span> <%= invoice.description %><br>

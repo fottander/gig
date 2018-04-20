@@ -38,6 +38,8 @@ RSpec.describe Ezinvoice, type: :model do
     it { is_expected.to validate_presence_of :company_email }
     it { is_expected.to validate_presence_of :company_reference }
     it { is_expected.to validate_presence_of :description }
+    it { is_expected.to validate_presence_of :quantity }
+    it { is_expected.to validate_presence_of :unit }
     it { is_expected.to validate_presence_of :amount }
     it { is_expected.to validate_presence_of :user_reference }
   end

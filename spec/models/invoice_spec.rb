@@ -38,6 +38,8 @@ RSpec.describe Invoice, type: :model do
   describe 'Validations' do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :amount }
+    it { is_expected.to validate_presence_of :quantity }
+    it { is_expected.to validate_presence_of :unit }
     it { is_expected.to validate_presence_of :user_reference }
     it { is_expected.to validate_presence_of :job_id }
     it { is_expected.to validate_presence_of :job_title }

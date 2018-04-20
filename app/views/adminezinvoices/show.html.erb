@@ -20,10 +20,10 @@
           <%= link_to 'Redigera', edit_adminezinvoice_path(@ezinvoice), class: 'profile-button-expand' %>
           <p class="portfolio-resume-subheader">
             <span class='item-define'>ID:</span> <%= @ezinvoice.id.first(8) %><br>
-            <span class='item-define'>Kvantitet:</span> <%= @ezinvoice.quantity %><br>
-            <span class='item-define'>Enhet:</span> <%= @ezinvoice.unit %><br>
-            <span class='item-define'>Summa ex. moms:</span> <%= @ezinvoice.amount %><br>
-            <span class='item-define'>Summa inkl. moms:</span> <%= @ezinvoice.inklmoms.round %><br>
+            <span class='item-define'>Antal timmar:</span> <%= @ezinvoice.quantity %>st<br>
+            <span class='item-define'>Timlön:</span> <%= @ezinvoice.unit %>kr/timma<br>
+            <span class='item-define'>Summa ex. moms:</span> <%= @ezinvoice.fakturabelopp %><br>
+            <span class='item-define'>Summa inkl. moms:</span> <%= @ezinvoice.fakturabelopp_inklmoms %><br>
             <span class='item-define'>Startdag:</span> <%= @ezinvoice.first_day %><br>
             <span class='item-define'>Sista dag:</span> <%= @ezinvoice.last_day %><br>
             <span class='item-define'>Beskrivning:</span> <%= @ezinvoice.description %><br>
@@ -81,14 +81,16 @@
           <hr>
           <h3 class="portfolio-resume-header">Betalinfo</h3>
           <p class="portfolio-resume-subheader">
-          Vår avgift: -<%= @ezinvoice.varavgift.round %> SEK <br>
-          Arbetsgivaravgifter -<%= @ezinvoice.arbetsgivaravgifter.round %> SEK <br>
-          Bruttolön inkl sem. ers.	<%= @ezinvoice.bruttolon.round %> SEK <br>
-          Skatt	-<%= @ezinvoice.skatt.round %> SEK <br>
-          <span class='item-define'>Nettolön att utbetala</span> <%= @ezinvoice.steg3.round %> SEK <br>
-          <span class='item-define'>Bank:</span> <%= @profile.user.bank %><br>
-          <span class='item-define'>Clearingnummer:</span> <%= @profile.user.clear_nr %><br>
-          <span class='item-define'>Kontonummer:</span> <%= @profile.user.account_nr %><br>
+            User fee: <%= @ezinvoice.user_fee %><br>
+            Fakturabelopp exkl moms: <%= @ezinvoice.fakturabelopp %><br>
+            Vår avgift: -<%= @ezinvoice.varavgift %> SEK <br>
+            Arbetsgivaravgifter -<%= @ezinvoice.arbetsgivaravgifter_ef_avg %> SEK <br>
+            Bruttolön inkl sem. ers.	<%= @ezinvoice.bruttolon_ef_avg %> SEK <br>
+            Skatt	-<%= @ezinvoice.loneskatt %> SEK <br>
+            <span class='item-define'>Nettolön att utbetala</span> <%= @ezinvoice.nettolon %> SEK <br>
+            <span class='item-define'>Bank:</span> <%= @profile.user.bank %><br>
+            <span class='item-define'>Clearingnummer:</span> <%= @profile.user.clear_nr %><br>
+            <span class='item-define'>Kontonummer:</span> <%= @profile.user.account_nr %><br>
           </p>
         </div>
       </div>

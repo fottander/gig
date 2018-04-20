@@ -101,33 +101,38 @@
           <div class="large-6 columns">
             <div class='post-title'><h4>Fakturadetaljer</h4></div>
             <div class='invoice-details'>
-            Faktura ID: <%= @invoice.id.first(8) %><br>
-            Jobb ID: <%= @invoice.job_id %><br>
-            Ansöknings ID: <%= @invoice.application_id %><br>
-            Profil: <%= @invoice.profile_username %><br>
-            Beskrivning: <%= @invoice.description %> <br>
-            Referens: <%= @invoice.user_reference %><br>
-            Er referens: <%= @invoice.company_reference %><br>
-            Startdag: <%= @invoice.first_day %> <br>
-            Sista dag: <%= @invoice.last_day %><br>
-            Kvantitet(t.ex. antal timmar): <%= @invoice.quantity %> <br>
-            Enhet(t.ex. kr/timma): <%= @invoice.unit %> <br>
-            Summa ex moms: <%= @invoice.amount %> SEK<br>
-            Fakturaavgift ex moms: <%= @invoice.invoice_fees %> SEK<br>
-            Totalsumma inkl moms: <%= @invoice.inklmoms_total_amount.round %> SEK<br>
-            Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
-            Villkor: <%= @invoice.terms %> dagar<br>
-            OCR: <%= @invoice.ocr_number %><br>
-            <% if @invoice.post == false %>
-              Leveranssätt: Email <br>
-            <% else %>
-              Leveranssätt: Post <br>
-            <% end %>
-            <% if @invoice.paid == true %>
-              Betalningsstatus: <p style="color: green;">Godkänd</p>
-            <% else %>
-              <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
-            <% end %><br><br>
+              Faktura ID: <%= @invoice.id.first(8) %><br>
+              Jobb ID: <%= @invoice.job_id %><br>
+              Ansöknings ID: <%= @invoice.application_id %><br>
+              Profil: <%= @invoice.profile_username %><br>
+              Beskrivning: <%= @invoice.description %> <br>
+              Referens: <%= @invoice.user_reference %><br>
+              Er referens: <%= @invoice.company_reference %><br>
+              Startdag: <%= @invoice.first_day %> <br>
+              Sista dag: <%= @invoice.last_day %><br>
+              Antal timmar(st): <%= @invoice.quantity %> <br>
+              Timlön(kr/timma): <%= @invoice.unit %> <br>
+              Bruttolön: <%= @invoice.amount %><br>
+              Bruttolön inkl semesterersättning(12%): <%= @invoice.bruttolon %><br>
+              Arbetsgivaravgifter: <%= @invoice.arbetsgivaravgifter %><br>
+              Belopp ex. moms: <%= @invoice.fakturabelopp %><br>
+              Belopp inkl. moms: <%= @invoice.fakturabelopp_inklmoms %><br>
+              Fakturaavgifter: <%= @invoice.invoice_fees %><br>
+              Totalsumma exkl. moms: <%= @invoice.totalbelopp %><br>
+              Totalsumma inkl. moms: <%= @invoice.totalbelopp_inklmoms %><br>
+              Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
+              Villkor: <%= @invoice.terms %> dagar<br>
+              OCR: <%= @invoice.ocr_number %><br>
+              <% if @invoice.post == false %>
+                Leveranssätt: Email <br>
+              <% else %>
+                Leveranssätt: Post <br>
+              <% end %>
+              <% if @invoice.paid == true %>
+                Betalningsstatus: <p style="color: green;">Godkänd</p>
+              <% else %>
+                <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
+              <% end %><br><br>
             </div>
           </div>
         </div>
@@ -139,33 +144,32 @@
         <div class='simple-form'>
           <div class='post-title'><h3>Fakturadetaljer</h3></div>
           <div class='invoice-details'>
-          Faktura ID: <%= @invoice.id.first(8) %><br>
-          Jobb ID: <%= @invoice.job_id %><br>
-          Ansöknings ID: <%= @invoice.application_id %><br>
-          Profil: <%= @invoice.profile_username %><br>
-          Beskrivning: <%= @invoice.description %> <br>
-          Referens: <%= @invoice.user_reference %><br>
-          Er referens: <%= @invoice.company_reference %><br>
-          Startdag: <%= @invoice.first_day %> <br>
-          Sista dag: <%= @invoice.last_day %><br>
-          Kvantitet(t.ex. antal timmar): <%= @invoice.quantity %> <br>
-          Enhet(t.ex. kr/timma): <%= @invoice.unit %> <br>
-          Summa ex moms: <%= @invoice.amount %> SEK <br>
-          Totalsumma inkl moms: <%= @invoice.inklmoms_amount.round %> SEK<br>
-          Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
-          Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
-          Villkor: <%= @invoice.terms %> dagar<br>
-          OCR: <%= @invoice.ocr_number %><br>
-          <% if @invoice.post == false %>
-            Leveranssätt: Email <br>
-          <% else %>
-            Leveranssätt: Post <br>
-          <% end %>
-          <% if @invoice.paid == true %>
-            Betalningsstatus: <p style="color: green;">Godkänd</p>
-          <% else %>
-            <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
-          <% end %>
+            Faktura ID: <%= @invoice.id.first(8) %><br>
+            Jobb ID: <%= @invoice.job_id %><br>
+            Ansöknings ID: <%= @invoice.application_id %><br>
+            Profil: <%= @invoice.profile_username %><br>
+            Beskrivning: <%= @invoice.description %> <br>
+            Referens: <%= @invoice.user_reference %><br>
+            Er referens: <%= @invoice.company_reference %><br>
+            Startdag: <%= @invoice.first_day %> <br>
+            Sista dag: <%= @invoice.last_day %><br>
+            Antal timmar: <%= @invoice.quantity %>st <br>
+            Timlön: <%= @invoice.unit %>kr/timma <br>
+            Lön som betalas ut: <%= @invoice.nettolon %> SEK <br>
+            Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
+            Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
+            Villkor: <%= @invoice.terms %> dagar<br>
+            OCR: <%= @invoice.ocr_number %><br>
+            <% if @invoice.post == false %>
+              Leveranssätt: Email <br>
+            <% else %>
+              Leveranssätt: Post <br>
+            <% end %>
+            <% if @invoice.paid == true %>
+              Betalningsstatus: <p style="color: green;">Godkänd</p>
+            <% else %>
+              <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
+            <% end %>
           </div>
         </div>
       </div>

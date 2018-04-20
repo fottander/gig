@@ -23,11 +23,11 @@
         <% end %>
         <%= f.label :description, 'Beskrivning', class: 'form-text' %>
         <%= f.text_area :description, value: @invoice.description %>
-        <%= f.label :quantity, 'Kvantitet(ex. antal timmar)', class: 'form-text' %>
+        <%= f.label :quantity, 'Antal timmar', class: 'form-text' %>
         <%= f.text_field :quantity, value: @invoice.quantity %>
-        <%= f.label :unit, 'Enhet(ex. 150kr/timma)', class: 'form-text' %>
+        <%= f.label :unit, 'Timlön', class: 'form-text' %>
         <%= f.text_field :unit, value: @invoice.unit %>
-        <%= f.label :amount, 'Belopp ex. moms(ex. totalsumma)', class: 'form-text' %>
+        <%= f.label :amount, 'Summa', class: 'form-text' %>
         <%= f.text_field :amount, value: @invoice.amount %>
         <%= f.label :invoice_fees, 'Fakturaavgifter exkl moms', class: 'form-text' %>
         <%= f.text_field :invoice_fees, value: @invoice.invoice_fees %>

@@ -55,14 +55,13 @@ class EzinvoicePdf < Prawn::Document
 
   def ezinvoice_items
     move_down 20
-    @ex_moms = @ezinvoice.amount * 0.8
-    @moms = @ezinvoice.amount * 0.2
-    data = [ ["Beskrivning", "Kvantitet", "Enhet", "Summa"],
-     [@ezinvoice.description, @ezinvoice.quantity, @ezinvoice.unit, @ezinvoice.amount.round],
-     ["", "", "", "Att betala: #{@ezinvoice.amount.round}.00"],
+    @moms = @ezinvoice.fakturabelopp_inklmoms * 0.2
+    data = [ ["Beskrivning", "Antal timmar", "", "Timlön"],
+     [@ezinvoice.description, @ezinvoice.quantity, "", @ezinvoice.unit],
      ["", "", "", "Förfallodatum: #{@due_date.strftime('%F')}"],
-     ["Exkl. moms #{@ex_moms.round}.00", "", "", "OCR: #{@ezinvoice.ocr_number}"],
-     ["Moms(25%) #{@moms.round}.00", "", "", "Bankgiro: 23929042932"]]
+     ["", "", "", "OCR: #{@ezinvoice.ocr_number}"],
+     ["", "", "", "Bankgiro: 23929042932"],
+     ["Exkl. moms #{@ezinvoice.fakturabelopp}.00", "Moms(25%) #{@moms.round}.00", "", "Att betala: #{@ezinvoice.fakturabelopp_inklmoms}.00"]]
 
     table(data, cell_style: { size: 10 }) do
      cells.padding = 12
