@@ -44,9 +44,11 @@
               <span class='item-define'>Utbetald:</span> <%= @invoice.updated_at.strftime("%F %R") %><br>
               <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
               <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
-              Vår avgift: -<%= @invoice.varavgift %> SEK <br>
-              Arbetsgivaravgifter: -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK <br>
-              Bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
+              Bruttolön: <%= @invoice.amount %> <br>
+              Bruttolön inkl. semesterersättning(12%): <%= @invoice.bruttolon %> <br>
+              Din avgiftsnivå vid skapandet av fakturan: <%= (@invoice.user_fee * 100).round %>%<br>
+              Vår avgift: <%= (@invoice.bruttolon * @invoice.user_fee).round %> <br>
+              Ny bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
               Skatt:	-<%= @invoice.loneskatt %> SEK <br>
               Nettolön (lön efter skatt): <%= @invoice.nettolon %> SEK <br>
               <span class='item-define'>Utbetald summa: </span> <%= @invoice.nettolon %> SEK<br>
