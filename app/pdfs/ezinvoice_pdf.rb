@@ -60,7 +60,7 @@ class EzinvoicePdf < Prawn::Document
      [@ezinvoice.description, @ezinvoice.quantity, "", @ezinvoice.unit],
      ["", "", "", "Förfallodatum: #{@due_date.strftime('%F')}"],
      ["", "", "", "OCR: #{@ezinvoice.ocr_number}"],
-     ["", "", "", "Bankgiro: 23929042932"],
+     ["", "", "", "Plusgiro: 86 40 62-5"],
      ["Exkl. moms #{@ezinvoice.fakturabelopp}.00", "Moms(25%) #{@moms.round}.00", "", "Att betala: #{@ezinvoice.fakturabelopp_inklmoms}.00"]]
 
     table(data, cell_style: { size: 10 }) do
@@ -89,10 +89,10 @@ class EzinvoicePdf < Prawn::Document
     move_down 20
 
     data = [ ["Adress", "Telefon", "Säte", "Momsreg.nr"],
-     ["Göteborgs Villa och husmåleri Ab", "0707301078", "Göteborg", "SE559013369901"],
-     ["Södra tandåsgatan 33", "0735304864", "Org.nr", ""],
-     ["41267, Göteborg", "Epost", "5590133699"," "],
-     ["", "gbghusmaleri@gmail.com", "Godkänd för F-skatt", ""]]
+     ["FeltCap AB", "0707301078", "Göteborg", "SE559129609901"],
+     ["Storgatan 41, lgh 1101", "0735304864", "Org.nr", ""],
+     ["41138, Göteborg", "Epost", "559129-6099"," "],
+     ["", "info@anewbiz.se", "Godkänd för F-skatt", ""]]
 
     table(data, cell_style: { size: 9 }) do
      cells.padding = 5
