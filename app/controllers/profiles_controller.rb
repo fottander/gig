@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to dashboards_path, notice: 'Ny profil skapad!' }
+        format.html { redirect_to dashboards_path, notice: 'Ny profil skapad! Lägg gärna till mer info för att förbättra dina chanser.' }
         format.json { render :new, status: :created}
       else
         format.html { render :new }
