@@ -71,3 +71,9 @@ Then("I should see {string} in active invoices") do |content|
     expect(page).to have_content content
   end
 end
+
+Then("I should see deadline one year ahead") do
+  job = Job.first
+  date = (Date.today + 365.days).strftime("%F")
+  expect(job.deadline.strftime("%F")).to eq date
+end

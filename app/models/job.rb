@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
-  before_save :set_budget
-  validates_presence_of :title, :description, :category_ids, :city_ids, :deadline, :duration, :hour_day, :when_in_time
+  before_save :set_budget, :set_requirement, :set_deadline
+  validates_presence_of :title, :description, :category_ids, :city_ids, :duration, :hour_day, :when_in_time
   validates_length_of :title, maximum: 50
   belongs_to :company
   has_many :applications, dependent: :destroy
@@ -22,5 +22,11 @@ class Job < ApplicationRecord
 
   def set_budget
     self.budget = "Ej specificerat" if self.budget.blank?
+  end
+  def set_requirement
+    self.requirement = "Inga krav" if self.requirement.blank?
+  end
+  def set_deadline
+    self.deadline = Date.today + 365.days if self.deadline.blank?
   end
 end

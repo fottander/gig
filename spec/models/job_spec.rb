@@ -29,7 +29,6 @@ RSpec.describe Job, type: :model do
   describe 'Validations' do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :description }
-    it { is_expected.to validate_presence_of :deadline }
     it { is_expected.to validate_presence_of :duration }
     it { is_expected.to validate_presence_of :when_in_time }
     it { is_expected.to validate_presence_of :hour_day }

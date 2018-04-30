@@ -38,7 +38,7 @@
           </span>
         </div>
       </div>
-      <%= f.label :requirement, 'Krav', class: 'form-text' %>
+      <%= f.label :requirement, 'Krav (kan lämnas blankt)', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
         <div class="fieldInfo">
@@ -58,7 +58,7 @@
           Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
         </div>
       </div>
-      <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
+      <%= f.label :deadline, 'Sista ansökningsdag (lämnas tom för löpande annons)', class: 'form-text' %>
       <%= f.date_field :deadline, class: 'input-mini'  %>
       <%= f.label :when_in_time, 'När', class: 'form-text' %>
         <div class="fieldContainer">

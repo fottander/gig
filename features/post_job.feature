@@ -57,29 +57,25 @@ Feature: Post job ad
       And I should see "Inga ansökningar hittills"
       And I should see "Som företag kan du inte ansöka till detta jobbet"
 
-    Scenario: I post an ad without title and succeed without filling budget
+    Scenario: I post an ad without title and succeed without filling budget or deadline or requirement
       Given I am on the home page
       Given I am logged in as company "felix@mail.com"
       And I click "SKAPA ANNONS"
       And I should see "Skapa annons"
       And I fill in "Titel" with ""
       And I fill in "Beskrivning" with "måla hus"
-      And I fill in "Krav" with "inga"
       And I select "Plåtslagare" from "job_category_ids"
       And I select "Göteborg" from "Stad"
       And I fill in "job_when_in_time" with "Så snart som möjligt"
-      And I fill in "job_deadline" with "2019-02-01"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
       And I click "Skapa annons"
       Then I should see "Titel kan inte vara blankt!"
       And I fill in "Titel" with "Målare"
       And I fill in "Beskrivning" with "måla hus"
-      And I fill in "Krav" with "inga"
       And I select "Plåtslagare" from "job_category_ids"
       And I select "Göteborg" from "Stad"
       And I fill in "job_when_in_time" with "Så snart som möjligt"
-      And I fill in "job_deadline" with "2019-02-01"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
       And I click "Skapa annons"
@@ -87,3 +83,5 @@ Feature: Post job ad
       And I click "HITTA JOBB"
       And I click "Ansök"
       And I should see "Föreslagen lön: Ej specificerat"
+      And I should see "Krav: Inga krav"
+      And I should see deadline one year ahead
