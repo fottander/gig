@@ -69,8 +69,7 @@
             <%= hidden_field_tag :description, @job.categories.pluck(:name) %>
             <%= label_tag :quantity, 'Antal timmar(t.ex. 10)st', class: 'invoice-details-date' %>
             <%= text_field_tag :quantity, nil, placeholder: 'Endast siffror utan decimaler' %>
-            <%= label_tag :unit, 'Timlön(t.ex. 150)kr/timma', class: 'invoice-details-date' %>
-            <%= text_field_tag :unit, nil, placeholder: 'Endast siffror utan decimaler' %>
+            <%= hidden_field_tag :unit, @application.salary, placeholder: 'Endast siffror utan decimaler' %>
             <%= hidden_field_tag :amount, nil, placeholder: 'Endast siffror utan decimaler' %>
             <%= hidden_field_tag :first_day, @application.first_day %>
             <%= hidden_field_tag :last_day, @application.last_day %>
@@ -107,7 +106,14 @@
             <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
             <%= date_field_tag :first_day, required: true %>
             <%= label_tag :last_day, 'Sista dag(t.ex. 2018-12-30)', class: 'invoice-details-date' %>
-            <%= date_field_tag :last_day %>
+            <%= date_field_tag :last_day, required: true %>
+            <%= label_tag :salary, 'Bruttolön(t.ex. 150)kr/timma', class: 'invoice-details-date' %>
+            <div class="fieldContainer">
+              <%= text_field_tag :salary, nil, placeholder: 'Endast siffror utan decimaler' %>
+              <div class="fieldInfo">
+                Ange bruttolön exkl. semesterersättning
+              </div>
+            </div>
             <%= hidden_field_tag 'hired', true %>
             <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
           <% end %>

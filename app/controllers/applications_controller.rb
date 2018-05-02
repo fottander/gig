@@ -60,13 +60,18 @@ class ApplicationsController < ApplicationController
     @user = @application.profile.user
     if params[:first_day].present?
       if params[:last_day].present?
-        if @application.update application_hire_params
-          @application.create_activity :update, owner: current_company, recipient: @application.profile
+        if params[:salary].present?
+          if @application.update application_hire_params
+            @application.create_activity :update, owner: current_company, recipient: @application.profile
 
-          # Sends email to user when profile is hired.
-          NotificationMailer.hired_email(@user, @application).deliver_now
+            # Sends email to user when profile is hired.
+            NotificationMailer.hired_email(@user, @application).deliver_now
 
-          flash[:notice] = "Grattis! Du har anlitat personen."
+            flash[:notice] = "Grattis! Du har anlitat personen."
+            redirect_back(fallback_location: root_path)
+          end
+        else
+          flash[:alert] = "Lön måste fyllas i"
           redirect_back(fallback_location: root_path)
         end
       else
@@ -138,7 +143,7 @@ class ApplicationsController < ApplicationController
   end
 
   def application_hire_params
-    params.permit(:first_day, :last_day, :hired)
+    params.permit(:first_day, :last_day, :hired, :salary)
   end
 
   def application_params
