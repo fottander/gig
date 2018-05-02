@@ -40,8 +40,8 @@ Feature: Mark As complete and send invoice
       Given I am on the dashboards page
       And I click "Visa ansökan/Skapa faktura"
       And I should see "Skapa faktura baserad på jobbet"
-      And I fill in "quantity" with "100"
-      And I fill in "unit" with "120"
+      And I fill in "quantity" with "120"
+      And I fill hidden field unit and fill "100"
       And I fill hidden field amount and fill "12000"
       And I click "Skapa faktura"
       And I should see "Jobbet har genomförts!"
@@ -52,7 +52,7 @@ Feature: Mark As complete and send invoice
       And I click "Fakturor"
       And I click "Visa/godkänn faktura"
       And I click "Redigera"
-      And I fill in "Timlön" with "100"
+      And I fill in "Antal timmar" with "100"
       And I edit hidden field amount and fill "10000"
       And I click "Spara"
       And I click "LOGGA UT"
@@ -67,7 +67,7 @@ Feature: Mark As complete and send invoice
       And I click "KONTROLLPANEL"
       And I click "Visa" in active invoices
       And I should see "Beskrivning: Måleri"
-      And I should see "Antal timmar: 100"
+      And I should see "Antal timmar: "
       And I should see "Timlön: 100"
       And I should see "Lön som betalas ut: 7056 SEK"
       And I should see "2018-01-01"

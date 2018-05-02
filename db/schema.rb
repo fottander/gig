@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126172922) do
+ActiveRecord::Schema.define(version: 20180502082732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20180126172922) do
     t.string "profile_username"
     t.string "job_title"
     t.integer "company_id"
+    t.integer "salary"
     t.index ["job_id"], name: "index_applications_on_job_id"
     t.index ["profile_id"], name: "index_applications_on_profile_id"
   end

@@ -26,8 +26,7 @@
           <%= f.text_area :description, value: @invoice.description %>
           <%= f.label :quantity, 'Antal timmar(t.ex. 10)st', class: 'form-text' %>
           <%= f.text_field :quantity, value: @invoice.quantity %>
-          <%= f.label :unit, 'Timlön(t.ex. 150)kr/timma', class: 'form-text' %>
-          <%= f.text_field :unit, value: @invoice.unit %>
+          <%= f.hidden_field :unit, value: @invoice.unit %>
           <%= f.hidden_field :amount, value: @invoice.amount %>
           <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
           <%= f.date_field :first_day, value: @invoice.first_day %>

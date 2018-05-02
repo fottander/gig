@@ -64,3 +64,19 @@ Given("I should see invoice new due date") do
   date = (Date.today + 30.days).strftime("%F")
   expect(invoice.due_date.strftime("%F")).to eq date
 end
+
+Given("I fill hidden field amount and fill {string}") do |content|
+  find("#amount", visible: false).set content
+end
+
+Given("I fill hidden field unit and fill {string}") do |content|
+  find("#unit", visible: false).set content
+end
+
+Given("I edit hidden field amount and fill {string}") do |content|
+  find("#invoice_amount", visible: false).set content
+end
+
+Given("I fill hidden field ez amount and fill {string}") do |content|
+  find("#ezinvoice_amount", visible: false).set content
+end

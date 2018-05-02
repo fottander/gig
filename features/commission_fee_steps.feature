@@ -41,7 +41,7 @@ Background:
     And I click "Visa ansökan/Skapa faktura"
     And I should see "Skapa faktura baserad på jobbet"
     And I fill in "quantity" with "100"
-    And I fill in "unit" with "70"
+    And I fill hidden field unit and fill "70"
     And I fill hidden field amount and fill "7000"
     And I click "Skapa faktura"
     Then I should see "Faktura skapad"
