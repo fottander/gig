@@ -128,6 +128,17 @@
       </div>
       <% if current_user.present? %>
         <% if @application.profile_id == current_user.profile.id %>
+          <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+            <div class="fieldContainer" style='margin-top: 10px;'>
+              <%= text_area_tag :comment, nil, placeholder: "Skriv till #{@job.company_username}" %>
+              <% if @application.hired == false %>
+                <div class="fieldInfo">
+                  Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
+                </div>
+              <% end %>
+            </div>
+            <%= submit_tag 'Skicka', class: 'reply-button' %>
+          <% end %>
           <% if @comments.present? %>
             <% @comments.each do |comment| %>
             <strong><%= comment.profile_username %></strong>
@@ -140,19 +151,19 @@
           <% else %>
             <span>Inga svar ännu</span>
           <% end %>
-          <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-            <div class="fieldContainer" style='margin-top: 10px;'>
-              <%= text_area_tag :comment, nil, placeholder: 'Svara på ansökan' %>
-              <% if @application.hired == false %>
-                <div class="fieldInfo">
-                  Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
-                </div>
-              <% end %>
-            </div>
-            <%= submit_tag 'Skicka', class: 'reply-button' %>
-          <% end %>
         <% end %>
       <% elsif @job.company_id == current_company.id %>
+        <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+          <div class="fieldContainer" style='margin-top: 10px;'>
+            <%= text_area_tag :comment, nil, placeholder: "Skriv till #{@application.profile_username}" %>
+            <% if @application.hired == false %>
+              <div class="fieldInfo">
+                Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
+              </div>
+            <% end %>
+          </div>
+          <%= submit_tag 'Skicka', class: 'reply-button' %>
+        <% end %>
         <% if @comments.present? %>
           <% @comments.each do |comment| %>
           <strong style='color: #f77d0e;'><%= comment.profile_username %></strong>
@@ -164,17 +175,6 @@
           <% end %>
         <% else %>
           <p>Inga svar ännu</p>
-        <% end %>
-        <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-          <div class="fieldContainer" style='margin-top: 10px;'>
-            <%= text_area_tag :comment, nil, placeholder: 'Svara på ansökan' %>
-            <% if @application.hired == false %>
-              <div class="fieldInfo">
-                Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
-              </div>
-            <% end %>
-          </div>
-          <%= submit_tag 'Skicka', class: 'reply-button' %>
         <% end %>
       <% end %>
     </div>

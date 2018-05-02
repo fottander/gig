@@ -47,7 +47,7 @@ Feature: Apply to job
       And I click "Visa ansökan"
       Then I should see "I want job"
       And I should see "Diskutera & chatta"
-      And I fill in "Svara på ansökan" with "Hallå svara"
+      And I fill in "Skriv till Anders p" with "Hallå svara"
       And I click "Skicka"
       Then I should see "Hallå svara"
       And I click "KONTROLLPANEL"

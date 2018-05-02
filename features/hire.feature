@@ -36,7 +36,7 @@ Feature: A company hires a person
       And I should see "Fisken"
       And I click "Visa"
       And I should see "I want job"
-      And I fill in "Svara på ansökan" with "Bra då kör vi"
+      And I fill in "Skriv till Fisken" with "Bra då kör vi"
       And I click "Skicka"
       Then I should see "Bra då kör vi"
       And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
