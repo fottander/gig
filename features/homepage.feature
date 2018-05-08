@@ -19,6 +19,8 @@ Feature: Homepage
     And I should see "Här finner du våra allmänna villkor"
     And I click "Kontakta" in left menu
     Then I should see "Här kan du kontakta oss"
+    And I click "Varför frilansare?" in left menu
+    Then I should see "Mer frihet genom frilans"
     Given I am on the home page
     And I click "REGISTRERA FRILANSARE" within section
     Then I should see "Registrera ny frilansare"

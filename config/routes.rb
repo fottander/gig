@@ -49,6 +49,8 @@ Rails.application.routes.draw do
 
   resources :howitworks, only: [:index]
 
+  resources :why_freelances, only: [:index]
+
   resources :dashboards, only: [:index]
 
   resources :administrations, only: [:index]
