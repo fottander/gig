@@ -40,7 +40,12 @@ Feature: A company hires a person
       And I click "Skicka"
       Then I should see "Bra då kör vi"
       And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
-      And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-02-01"
+      And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-02-20"
+      And I fill in "Bruttolön(t.ex. 150)kr/timma" with "100"
+      And I click "Anställ"
+      Then I should see "Något gick fel. Försök igen eller kontakta kundtjänst."
+      And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
+      And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-01-20"
       And I fill in "Bruttolön(t.ex. 150)kr/timma" with "100"
       And I click "Anställ"
       And I should see "Grattis! Du har anlitat personen."
@@ -51,7 +56,7 @@ Feature: A company hires a person
       And I click "KONTROLLPANEL"
       Then I should see "Fisken" in active employments
       And I should see "Första jobbdag: 2018-01-01" in active employments
-      And I should see "Sista jobbdag: 2018-02-01" in active employments
+      And I should see "Sista jobbdag: 2018-01-20" in active employments
       And I click "målare sökes"
       And I should see "Anställd!"
       And I click "Visa ansökan"

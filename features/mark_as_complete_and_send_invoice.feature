@@ -33,7 +33,7 @@ Feature: Mark As complete and send invoice
       | Filip    | 29 år målare | målare gbg  | 1            | 1        | 2       | 2  |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    | hired | complete | first_day  | last_day   |
-      | I want job | 1      | Fisken           | 1          | målare sökes | true  | false    | 2018-01-01 | 2018-02-01 |
+      | I want job | 1      | Fisken           | 1          | målare sökes | true  | false    | 2018-01-01 | 2018-01-20 |
 
     Scenario: I create an invoice and see completed jobs change in index
       Given I am logged in as user "felix@mail.com"
