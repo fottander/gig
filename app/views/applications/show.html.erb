@@ -95,13 +95,30 @@
         </div>
       <% end %>
     <% else %>
-      <div class='holy-grail-left-application-box'>
-      Diskutera & chatta<br>
-      Kom ihåg att vara tydlig & ha ett bra bemötande<br>
-      </div>
+      <% if current_user.present? %>
+        <div class='holy-grail-left-application-box'>
+          Diskutera & chatta.<br>
+          Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
+        </div>
+      <% end %>
       </p>
       <% if current_company.present? %>
         <% if @job.company_id == current_company.id %>
+        <div class='application-title'>
+          <span style='color: white; font-weight: 700;'>Anställ <%= @application.profile_username %></span><br>
+        </div>
+        <div class='holy-grail-left-application-box-small'>
+          Dags att anställa? <br>
+          Anställningen får högst vara 30 dagar. <br>
+          Lönen anges som bruttolön exkl. semesterersättning.
+          <div class="fieldContainerHire">
+            <span style='color: #f77d0e;'>Läs mer om att anställa här.</span>
+            <div class="fieldInfoHire">
+              När du anställer är det viktigt att du och den anställde diskuterat startdag och sista dag för anställningen. Ni ska också komma överens om lön. Lönen anges som bruttolön exklusive semesterersättning. <br>
+              En anställning kan inte vara längre än 30 dagar. Om ni skulle vilja anställa en person längre tid kan en ny anställning skapas efter att den första slutförts.
+            </div>
+          </div>
+        </div>
           <%= form_tag hire_job_application_path(@job, @application), method: :patch do %>
             <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
             <%= date_field_tag :first_day, required: true %>
@@ -137,7 +154,7 @@
                 </div>
               <% end %>
             </div>
-            <%= submit_tag 'Skicka', class: 'reply-button' %>
+            <%= submit_tag 'Skicka', class: 'reply-button', style: 'min-width: 200px;' %>
           <% end %>
           <% if @comments.present? %>
             <% @comments.each do |comment| %>
@@ -162,7 +179,7 @@
               </div>
             <% end %>
           </div>
-          <%= submit_tag 'Skicka', class: 'reply-button' %>
+          <%= submit_tag 'Skicka', class: 'reply-button', style: 'min-width: 200px;' %>
         <% end %>
         <% if @comments.present? %>
           <% @comments.each do |comment| %>

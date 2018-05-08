@@ -69,6 +69,9 @@ class ApplicationsController < ApplicationController
 
             flash[:notice] = "Grattis! Du har anlitat personen."
             redirect_back(fallback_location: root_path)
+          else
+            flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+            redirect_back(fallback_location: root_path)
           end
         else
           flash[:alert] = "Lön måste fyllas i"

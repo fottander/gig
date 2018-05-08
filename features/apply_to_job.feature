@@ -66,7 +66,7 @@ Feature: Apply to job
       And I should see "Hello give me job"
       And I should see "Hallå svara"
       And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
-      And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-02-01"
+      And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-01-20"
       And I fill in "Bruttolön(t.ex. 150)kr/timma" with "150"
       And I click "Anställ"
       And I should see "Grattis! Du har anlitat personen."
@@ -78,7 +78,7 @@ Feature: Apply to job
       And I click "KONTROLLPANEL"
       And I should see "målare sökes" in active applications
       And I should see "Första jobbdag: 2018-01-01" in active applications
-      And I should see "Sista jobbdag: 2018-02-01" in active applications
+      And I should see "Sista jobbdag: 2018-01-20" in active applications
       And I click "Visa ansökan/Skapa faktura"
       And I should see "Skapa faktura baserad på jobbet"
       And I should not see "Diskutera & chatta"
@@ -106,7 +106,7 @@ Feature: Apply to job
       And I click "Visa"
       And I should see "Beskrivning: Måleri"
       Then I should see "2018-01-01"
-      And I should see "2018-02-01"
+      And I should see "2018-01-20"
       And the latest created invoice should have ssyk code "12010"
       Then I click "KONTROLLPANEL"
       And I should see "målare sökes" in done applications

@@ -32,6 +32,18 @@
   color: #5D5C5C;
 }
 
+.fieldInfoHire {
+  display: none;
+  padding: 5px;
+  height: auto;
+  width: auto;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 2;
+  vertical-align:middle;
+  background-color: white;
+  color: #5D5C5C;
+}
 
 input[type='file'] {
  font-family: 'Montserrat', sans-serif;
@@ -1279,11 +1291,26 @@ input[type='file'] {
   min-height: 100vh;
 }
 
+.holy-grail-left-application .application-title {
+  background-color: #f77d0e;
+  padding: 5px;
+  margin: -24px -8px 8px -8px;
+  text-align: center;
+}
+
 .holy-grail-left-application-box {
   font: italic 18px/140% Georgia,'Times New Roman',serif;
   z-index: 2;
   color: #5D5C5C;
   text-align: center;
+}
+
+.holy-grail-left-application-box-small {
+  font: italic 13px/140% Georgia,'Times New Roman',serif;
+  z-index: 2;
+  color: #5D5C5C;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .holy-grail-left-application-box .contact-title {
