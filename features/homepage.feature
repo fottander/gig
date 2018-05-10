@@ -11,6 +11,8 @@ Feature: Homepage
     Then I should see "Registrera företag"
     And I click "Läs mer om hur det fungerar"
     And I should see "Hur går det till"
+    And I click "Vi kallar er frilansare! Läs mer om varför här."
+    Then I should see "Mer frihet genom frilans"
     And I click "Kontakta oss"
     And I should see "Här kan du kontakta oss"
     And I click "Faktura, avgifter & lön" in left menu
