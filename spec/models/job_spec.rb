@@ -35,7 +35,6 @@ RSpec.describe Job, type: :model do
     it { is_expected.to validate_presence_of :hour_day }
     it { is_expected.to validate_presence_of :category_ids }
     it { is_expected.to validate_presence_of :city_ids }
-    it { is_expected.to validate_presence_of :kollektivavtal }
     it { should validate_length_of(:title).is_at_most(50) }
   end
 

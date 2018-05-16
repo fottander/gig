@@ -71,7 +71,7 @@ Feature: Post job ad
       And I fill in "job_when_in_time" with "Så snart som möjligt"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
-      And I select true from dropdown kollektivavtal
+      And I select false from dropdown kollektivavtal
       And I click "Skapa annons"
       Then I should see "Titel kan inte vara blankt!"
       And I fill in "Titel" with "Målare"

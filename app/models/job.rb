@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
   before_save :set_budget, :set_requirement, :set_deadline
-  validates_presence_of :title, :description, :category_ids, :city_ids, :duration, :hour_day, :when_in_time, :kollektivavtal
+  validates_presence_of :title, :description, :category_ids, :city_ids, :duration, :hour_day, :when_in_time
   validates_length_of :title, maximum: 50
   belongs_to :company
   has_many :applications, dependent: :destroy
