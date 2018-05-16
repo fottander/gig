@@ -85,3 +85,7 @@ end
 Given("I select false from dropdown kollektivavtal") do
   find('#job_kollektivavtal').find(:xpath, 'option[3]').select_option
 end
+
+Given("I select false from edit dropdown kollektivavtal") do
+  find('#job_kollektivavtal').find(:xpath, 'option[2]').select_option
+end
