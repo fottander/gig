@@ -32,6 +32,14 @@
           <li>
             Föreslagen lön: <%= @job.budget %>
           </li>
+          <li>
+            Kollektivavtal:
+            <% if @job.kollektivavtal == false %>
+              Nej
+            <% else %>
+              Ja
+            <% end %>
+          </li>
         </ul>
         <% if current_company.present? %>
           <p style='color: #f77d0e;'>Som företag kan du inte ansöka till detta jobbet</p>

@@ -77,3 +77,7 @@ Then("I should see deadline one year ahead") do
   date = (Date.today + 365.days).strftime("%F")
   expect(job.deadline.strftime("%F")).to eq date
 end
+
+Given("I select true from dropdown kollektivavtal") do
+  find('#job_kollektivavtal').find(:xpath, 'option[2]').select_option
+end
