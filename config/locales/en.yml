@@ -65,6 +65,7 @@ en:
         duration: 'Varaktighet'
         hour_day: 'Timmar'
         requirement: 'Krav'
+        kollektivavtal: 'Kollektivavtal'
       user:
         current_password: 'Nuvarande lösenord'
         password: 'Lösenord'
@@ -203,6 +204,8 @@ en:
             duration:
               blank: "kan inte vara blankt!"
             hour_day:
+              blank: "kan inte vara blankt!"
+            kollektivavtal:
               blank: "kan inte vara blankt!"
 
         profile:

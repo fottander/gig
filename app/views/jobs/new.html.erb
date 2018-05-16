@@ -73,7 +73,7 @@
         <%= f.text_field :duration, placeholder: 'Antal dagar/veckor/månader ni behöver personen.' %>
         <div class="fieldInfo">
           Tips <br>
-          Ange ungefärlig längd för jobbet i dagar/veckor eller månader.
+          Ange ungefärlig längd för jobbet i dagar eller veckor. Max är 4 veckor per anställningstillfälle.
         </div>
       </div>
       <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
@@ -82,6 +82,13 @@
         <div class="fieldInfo">
           Tips <br>
           Vid projekt kan detta fält lämnas blankt. Annars anges hur många jobbtimmar per dag.
+        </div>
+      </div>
+      <%= f.label :kollektivavtal, 'Ska anställningen omfattas av ert eventuella kollektivavtal?', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.select(:kollektivavtal, options_for_select([['Ja', true], ['Nej', false]]), prompt: 'Välj') %>
+        <div class="fieldInfo">
+          Har ni kollektivavtal? Och ska i sådant fall personerna som anställs omfattas av detta så lägger vi på eventuella försäkringar och pensioner enligt de kollektivavtalen.
         </div>
       </div>
       <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
