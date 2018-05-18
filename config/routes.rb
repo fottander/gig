@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 
   resources :why_freelances, only: [:index]
 
+  resources :kollektivavtals, only: [:index]
+
   resources :dashboards, only: [:index]
 
   resources :administrations, only: [:index]

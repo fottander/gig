@@ -1,0 +1,73 @@
+<div class="holy-grail-grid">
+  <div class="holy-grail-left-application" >
+    <div class='holy-grail-left-application-box' style='text-align: center; '>
+      <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Varför frilansare?', why_freelances_path, class: 'holy-grail-left-application-box' %><br>
+      <div style='background-color: #f77d0e; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
+        <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box', style:'color: white;' %>
+      </div>
+      <div style='background-color: #F9B87D; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
+        <%= link_to 'Kollektivavtal', kollektivavtals_path, class: 'holy-grail-left-application-box', style:'color: white;' %>
+      </div>
+    </div>
+  </div>
+  <div class="holy-grail-middle">
+    <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+    <h3 style='text-align: center;'>Hur fungerar det med kollektivavtal?</h3>
+    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>
+      Vårt system stödjer alla typer av kollektivavtal.<br>
+      Allt sker automatiskt i systemet så du slipper onödigt krångel.
+    </p>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b1'>
+        <%= link_to '#', class: "read-more-b1" do %>
+          <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'INFO ARBETSSÖKANDE', '', class: "read-more-b1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+      <span class='normal-paragraph-b1' style="display: none;">
+        <%= link_to '#', class: "read-less-b1" do %>
+          <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'INFO ARBETSSÖKANDE', '', class: "read-less-b1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b1' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <span style='color: #3db5e6; font-weight: 700;'>Alla företag har inte kollektivavtal</span><br>
+        <p>Alla företag har inte kollektivavtal. De flesta företag har schysta arbetsvillkor men med ett kollektivavtal finns det bestämmelser som reglerar minimilöner, pensioner, försäkringar med mera. Allt beroende på vilket kollektivavtal företaget är anslutet till.</p>
+        <p>Genom vår tjänst kan du däremot alltid vara säker på att du täcks av en försäkring, du får godkänd minimilön och din allmänna pension betalas in.</p>
+        <p>Om ett företag har kollektivavtal betyder det att du får ökad försäkring, högre tjänstepension med mera. Allt detta sköts automatiskt i vårt system.</p>
+        <p>Har du fler frågor får du gärna kontakta oss.</p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b2'>
+        <%= link_to '#', class: "read-more-b2" do %>
+          <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'INFO FÖR FÖRETAG', '', class: "read-more-b2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+      <span class='normal-paragraph-b2' style="display: none;">
+        <%= link_to '#', class: "read-less-b2" do %>
+          <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
+        <% end %>
+        <%= link_to 'INFO FÖR FÖRETAG', '', class: "read-less-b2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b2' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <span style='color: #3db5e6; font-weight: 700;'>Har ni kollektivavtal? Inga problem!</span><br>
+          <p>I den annons ni skapar genom vår plattform kommer ni få valet att välja om ni vill att den ni anställer genom oss ska omfattas av ert kollektivavtal.</p>
+          <p>Om ni väljer Ja, kommer vi matcha detta med den typ av annons ni skickar in.</p>
+          <p>- Om ni söker arbetare kommer den anställde få extra AFA-försäkringar och tjänstepension som tillhandahålls av Fora. De kostnaderna kommer läggas på fakturorna från oss helt utan extra avgifter från vår sida.</p>
+          <p>- Om ni söker tjänstemän kommer den anställde få extra AFA-försäkringar och tjänstepension som tillhandahålls av Collectum. De kostnaderna kommer läggas på fakturorna från oss helt utan extra avgifter från vår sida.</p>
+          <p>Har du fler frågor får du gärna kontakta oss.</p>
+      </div>
+    </span>
+  </div>
+</div>

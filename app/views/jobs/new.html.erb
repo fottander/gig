@@ -28,6 +28,17 @@
             </span>
         </div>
       </div>
+      <div class="fieldContainer">
+        <span class='form-text'>Ska anställningen omfattas av ert kollektivavtal? <span style='color: #f77d0e;'>Läs mer</span></span>
+        <%= f.select(:kollektivavtal, options_for_select([['Ja', true], ['Nej', false]]), { include_blank: '-- Välj --' }, required: true) %>
+        <div class="fieldInfo">
+          Har ni kollektivavtal? Och ska i sådant fall personerna som anställs omfattas av detta så lägger vi på försäkringar och pensioner enligt det kollektivavtalet. <%= link_to 'Mer info om kollektivavtal', kollektivavtals_path, style:'color: #f77d0e; letter-spacing: inherit; font-size: inherit;' %>
+        </div>
+      </div>
+      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+      <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
+      <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+      <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_area :description, placeholder: 'Vad ska frilansaren utföra? Var så utförlig som möjligt.' %>
@@ -46,10 +57,6 @@
           Krävs utbildning? Behövs körkort? Krävs tidigare erfarenhet i form av anställd x antal år eller liknande?
         </div>
       </div>
-      <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
-      <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
-      <%= f.label :city_ids, 'Stad', class: 'form-text' %>
-      <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
       <%= f.label :budget, 'Föreslagen lön (kan lämnas blankt)', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :budget, value: '', placeholder: 'Antingen fast eller per timma' %>
@@ -58,37 +65,30 @@
           Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
         </div>
       </div>
-      <%= f.label :deadline, 'Sista ansökningsdag (lämnas tom för löpande annons)', class: 'form-text' %>
-      <%= f.date_field :deadline, class: 'input-mini'  %>
-      <%= f.label :when_in_time, 'När', class: 'form-text' %>
-        <div class="fieldContainer">
-          <%= f.text_field :when_in_time, placeholder: 'När ska den anställde arbeta?' %>
-          <div class="fieldInfo">
-            Tips <br>
-            Ange "så fort som möjligt", mellan datum eller tidsperiod.
-          </div>
-        </div>
-      <%= f.label :duration, 'Dagar/veckor/månader', class: 'form-text' %>
+      <%= f.label :duration, 'Jobbets längd', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_field :duration, placeholder: 'Antal dagar/veckor/månader ni behöver personen.' %>
+        <%= f.text_field :duration, placeholder: 'Antal dagar/veckor ni behöver personen.' %>
         <div class="fieldInfo">
           Tips <br>
           Ange ungefärlig längd för jobbet i dagar eller veckor. Max är 4 veckor per anställningstillfälle.
         </div>
       </div>
+      <%= f.label :when_in_time, 'När ska jobbet utföras', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.text_field :when_in_time, placeholder: 'När ska den anställde arbeta?' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Ange "så fort som möjligt", mellan datum eller tidsperiod.
+        </div>
+      </div>
+      <%= f.label :deadline, 'Sista ansökningsdag (lämnas tom för löpande annons)', class: 'form-text' %>
+      <%= f.date_field :deadline, class: 'input-mini'  %>
       <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :hour_day, placeholder: 'Hur många jobbtimmar per dag?' %>
         <div class="fieldInfo">
           Tips <br>
           Vid projekt kan detta fält lämnas blankt. Annars anges hur många jobbtimmar per dag.
-        </div>
-      </div>
-      <%= f.label :kollektivavtal, 'Ska anställningen omfattas av ert eventuella kollektivavtal?', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.select(:kollektivavtal, options_for_select([['Ja', true], ['Nej', false]]), { include_blank: '-- Välj --' }, required: true) %>
-        <div class="fieldInfo">
-          Har ni kollektivavtal? Och ska i sådant fall personerna som anställs omfattas av detta så lägger vi på eventuella försäkringar och pensioner enligt de kollektivavtalen.
         </div>
       </div>
       <%= link_to 'Avbryt', :back, class: 'cancel-button' %>

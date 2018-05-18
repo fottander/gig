@@ -57,14 +57,6 @@ Feature: Company control panel
       And I should see "målare sökes"
       And I click "KONTROLLPANEL"
       And I click job "1" button "Redigera"
-      And I should see "Redigera annons"
-      And I select false from edit dropdown kollektivavtal
-      And I click "Spara"
-      Given I am on the jobs page
-      And I click "målare sökes"
-      Then I should see "Kollektivavtal: Nej"
-      And I click "KONTROLLPANEL"
-      And I click job "1" button "Redigera"
       And I uncheck Active check box
       And I click "Spara"
       And I click "KONTROLLPANEL"
