@@ -27,6 +27,6 @@ class Job < ApplicationRecord
     self.requirement = "Inga krav" if self.requirement.blank?
   end
   def set_deadline
-    self.deadline = Date.today + 365.days if self.deadline.blank?
+    self.deadline = Date.today + 730.days if self.deadline.blank?
   end
 end

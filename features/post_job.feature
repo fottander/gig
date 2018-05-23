@@ -87,4 +87,4 @@ Feature: Post job ad
       And I click "Ansök"
       And I should see "Föreslagen lön: Ej specificerat"
       And I should see "Krav: Inga krav"
-      And I should see deadline one year ahead
+      And I should see deadline two years ahead
