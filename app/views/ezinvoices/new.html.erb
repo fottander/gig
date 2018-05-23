@@ -26,6 +26,8 @@
             <% end %>
           <% end %>
           <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
+          <%= f.label :company_email, '* Email', class: 'form-text' %>
+          <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
           <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
           <%= f.text_field :org_number, placeholder: 'ex. xxxxxx-xxxx' %>
           <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
@@ -36,8 +38,6 @@
           <%= f.text_field :company_zip, placeholder: 'ex. 412 22' %>
           <%= f.label :company_city, '* Stad', class: 'form-text' %>
           <%= f.text_field :company_city, placeholder: 'ex. Göteborg' %>
-          <%= f.label :company_email, '* Email', class: 'form-text' %>
-          <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
           <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
           <%= f.text_field :company_reference, placeholder: 'Referensen hos företaget' %>
           <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
