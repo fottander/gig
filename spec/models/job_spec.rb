@@ -20,7 +20,7 @@ RSpec.describe Job, type: :model do
     it { is_expected.to have_db_column :duration }
     it { is_expected.to have_db_column :when_in_time }
     it { is_expected.to have_db_column :hour_day }
-    it { is_expected.to have_db_column(:kollektivavtal).of_type(:boolean) }
+    it { is_expected.to have_db_column :kollektivavtal }
     it { is_expected.to have_db_column(:active).of_type(:boolean) }
     it { is_expected.to have_db_column :company_id }
     it { is_expected.to have_db_column :company_city }

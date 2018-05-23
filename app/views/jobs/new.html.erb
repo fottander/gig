@@ -30,7 +30,7 @@
       </div>
       <div class="fieldContainer">
         <span class='form-text'>Ska anställningen omfattas av ert kollektivavtal? <span style='color: #f77d0e;'>Läs mer</span></span>
-        <%= f.select(:kollektivavtal, options_for_select([['Ja', true], ['Nej', false]]), { include_blank: '-- Välj --' }, required: true) %>
+        <%= f.select(:kollektivavtal, options_for_select(Job::KOLLEKTIVAVTAL_OPTIONS), { include_blank: '-- Välj --' }, required: true) %>
         <div class="fieldInfo">
           Har ni kollektivavtal? Och ska i sådant fall personerna som anställs omfattas av detta så lägger vi på försäkringar och pensioner enligt det kollektivavtalet. <%= link_to 'Mer info om kollektivavtal', kollektivavtals_path, style:'color: #f77d0e; letter-spacing: inherit; font-size: inherit;' %>
         </div>
