@@ -5,10 +5,10 @@ Feature: Show freelancers
 
   Background:
     Given the following users exist
-      | email           | password  | password_confirmation | id |
-      | felix@mail.com  | 12345678  | 12345678              | 1  |
-      | anders@mail.com | 12345678  | 12345678              | 2  |
-      | robert@mail.com | 12345678  | 12345678              | 3  |
+      | email           | first_name | last_name | password  | password_confirmation | id |
+      | felix@mail.com  | felix      | ottander  | 12345678  | 12345678              | 1  |
+      | anders@mail.com | anders     | persson   | 12345678  | 12345678              | 2  |
+      | robert@mail.com | robert     | robertson | 12345678  | 12345678              | 3  |
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
@@ -23,10 +23,10 @@ Feature: Show freelancers
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following profiles exist
-      | username | title               | description                                      | category_ids | city_ids | id | user_id |
-      | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       |
-      | anders   | Erfaren snickare    | Erfaren snickare med 5 års erfarenhet            | 2            | 2        | 2  | 2       |
-      | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | 3            | 3        | 3  | 3       |
+      | username | title               | description                                      | category_ids | city_ids | id | user_id | age        |
+      | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       | 1988-09-14 |
+      | anders   | Erfaren snickare    | Erfaren snickare med 5 års erfarenhet            | 2            | 2        | 2  | 2       | 1988-09-14 |
+      | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | 3            | 3        | 3  | 3       | 1988-09-14 |
     Given the following invoices exist
       | description | amount | user_reference | terms |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id |
       | abc         | 120    | felix          | 15    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
@@ -42,7 +42,7 @@ Feature: Show freelancers
       Then I should see "Stad: Göteborg"
       And I click "fisken"
       Then I should see "Antal genomförda jobb: 1"
-      And I should see "Ålder: 23"
+      And I should see "Ålder: 29"
       And I should see "Feedback"
       And I should see "Bra snubbe"
       And I should see "2017 November"

@@ -8,8 +8,8 @@ Feature: Extend invoice with post or email
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following users exist
-      | email          | password  | password_confirmation | id |
-      | felix@mail.com | 12345678  | 12345678              | 1  |
+      | email          | first_name | last_name | password  | password_confirmation | id |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
     Given the following invoices exist
       | description | amount | user_reference | terms |id | company_id | user_id | job_id | job_title    | paid  |
       | ref         | 120    | felix          | 15    | 1 | 1          | 1       | 1      | Målare sökes | true  |

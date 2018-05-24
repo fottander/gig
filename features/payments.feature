@@ -11,11 +11,11 @@ Feature: Payments
       | name      | id |
       | Göteborg  | 1  |
     Given the following users exist
-      | email           | password  | password_confirmation | id   |
-      | felix@yahoo.com | 12345678  | 12345678              | 9999 |
+      | email          | first_name | last_name | password  | password_confirmation | id   |
+      | felix@yahoo.com | felix      | ottander  | 12345678  | 12345678              | 9999 |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id   |
-      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
+      | username | title        | description | category_ids | city_ids | user_id | id   | age        |
+      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
     Given the following companies exist
       | email          | name | username | address | zip_code | city | org_number | phone | password  | password_confirmation | id   |
       | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9999 |
@@ -33,7 +33,7 @@ Feature: Payments
     Given I am on the dashboards page
     And I click "Utbetalningar"
     And I should see "Utbetalningar"
-    And I should see "Vi behöver för- och efternamn, personnummer och bankuppgifter"
+    And I should see "Vi behöver personnummer och bankuppgifter"
     And I should not see "2017-11-01"
     And I click "klicka här"
     And I fill in "user_pers_num" with "8809144444"
@@ -41,16 +41,9 @@ Feature: Payments
     And I click "Spara"
     Then I should see "Ditt konto har uppdaterats utan problem."
     And I click "Utbetalningar"
-    And I should see "Vi behöver för- och efternamn, personnummer och bankuppgifter"
+    And I should see "Vi behöver personnummer och bankuppgifter"
     And I click "klicka här"
     And I fill in "Kontonummer" with "2384753453"
-    And I fill in "Nuvarande lösenord" with "12345678"
-    And I click "Spara"
-    Then I should see "Ditt konto har uppdaterats utan problem."
-    And I click "Utbetalningar"
-    And I should see "Vi behöver för- och efternamn, personnummer och bankuppgifter"
-    And I click "klicka här"
-    And I fill in "Förnamn" with "Felix"
     And I fill in "Nuvarande lösenord" with "12345678"
     And I click "Spara"
     Then I should see "Ditt konto har uppdaterats utan problem."
@@ -63,7 +56,7 @@ Feature: Payments
     And I should see "Skapad: 2017-12-02"
     And I click "2017-11-01 00:00"
     And I should see "Utbetalning"
-    And I should see "Bruttolön: 3000 "
+    And I should see "Bruttolön: 3000"
     And I should see "Bruttolön inkl. semesterersättning(12%): 3360"
     And I should see "Din avgiftsnivå vid skapandet av fakturan: 9%"
     And I should see "Vår avgift: 302"

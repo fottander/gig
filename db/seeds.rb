@@ -65,9 +65,9 @@ City.create(
   )
 
 User.create(
-  email: "felix.ottander@yahoo.com",
-  first_name: "Felix",
-  last_name: "Ottander",
+  email: "johan@yahoo.com",
+  first_name: "Johan",
+  last_name: "Persson",
   phone: "07328724334",
   password: "123456",
   pers_num: "8888888888",
@@ -129,6 +129,7 @@ Profile.create(
 Profile.create(
   id: 99998,
   username: "Felix O",
+  age: "1988-09-14",
   title: "Erfaren målare från Göteborg",
   description: "Målare på 29 år från Göteborg med lång erfarenhet inom måleri och enklare snickeri. Jag har varit målare på ett antal större firmor under de senaste fem åren. Jag kan även enklare snickeri samt plåtarbeten. Inom måleri är min specialitet utomhusmålning, där jag lett ett antal projekt för de firmor jag varit anställd på. Det har varit många trähus som målats men också större putsfasader och putsrenoveringar. Lång erfarenhet av sprutmålning, både inomhus och utomhus. Jag gillar att jobba i större grupper av personer och trivs med samarbeten. Glad person med hög arbetsmoral.",
   skill: "Målning mer än 5 år, snickeri ca. 3 år. Sprutmålning, utomhusmålning, inomhusmålning.",

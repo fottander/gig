@@ -20,8 +20,8 @@ Background:
     | title        | description | requirement      | category_ids | city_ids | budget      | deadline   | duration | when_in_time | hour_day | active | company_username | company_city | company_id | id |
     | målare sökes | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | soon         | 8        | true   | Anders p         | Göteborg     | 1          | 1  |
   Given the following profiles exist
-    | username | title               | description                                      | skill                      | category_ids | city_ids | id | user_id |
-    | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 1  | 1       |
+    | username | title               | description                                      | skill                      | category_ids | city_ids | id | user_id | age        |
+    | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 1  | 1       | 1988-09-14 |
   Given the following applications exist
     | message    | job_id | profile_username | profile_id | job_title    | hired | complete | id |
     | I want job | 1      | fisken           | 1          | målare sökes | true  | false    | 1  |

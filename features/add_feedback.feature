@@ -14,11 +14,11 @@ Feature: Extend invoice and add feedback
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following users exist
-      | email          | password  | password_confirmation | id   |
-      | felix@mail.com | 12345678  | 12345678              | 9999 |
+      | email          | first_name | last_name | password  | password_confirmation | id   |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 9999 |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id   |
-      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 |
+      | username | title        | description | category_ids | city_ids | user_id | id   | age        |
+      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
     Given the following invoices exist
       | description | quantity | unit| amount | user_reference | terms |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
       | ref         | 100      | 12  | 1200   | felix          | 15    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |

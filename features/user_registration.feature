@@ -5,14 +5,16 @@ Feature: User registration
 
   Background:
     Given the following users exist
-      | email          | password  | password_confirmation |
-      | felix@mail.com | 12345678  | 12345678              |
+      | email          | first_name | last_name | password  | password_confirmation |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              |
 
     Scenario: I register as a user
       Given I am on the home page
       And I click "REGISTRERA"
       And I should see "Registrera ny frilansare"
       And I fill in "Email" with "mail@mail.com"
+      And I fill in "Förnamn" with "felix"
+      And I fill in "Efternamn" with "ottander"
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
@@ -35,6 +37,17 @@ Feature: User registration
       Then I should see "Välkommen! Du är inloggad."
       And I should not see "Välkommen till A New Biz"
       Then I should not see "Nästa steg är att skapa en profil"
+
+    Scenario: I register without first name or last name
+      Given I am on the home page
+      And I click "REGISTRERA"
+      And I should see "Registrera ny frilansare"
+      And I fill in "Email" with "greger@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I fill in "Bekräfta lösenord" with "12345678"
+      And I click "Registrera"
+      And I should see "Förnamn är inte ifyllt"
+      Then I should see "Efternamn är inte ifyllt"
 
     Scenario: I login as a user
       Given I am on the home page

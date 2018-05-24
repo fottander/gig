@@ -5,8 +5,8 @@ Feature: Extend profile
 
   Background:
     Given the following users exist
-      | email           | password  | password_confirmation | id |
-      | felix@mail.com  | 12345678  | 12345678              | 1  |
+      | email          | first_name | last_name | password  | password_confirmation | id |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
@@ -14,8 +14,8 @@ Feature: Extend profile
       | name      | id |
       | Göteborg  | 1  |
     Given the following profiles exist
-      | username | title          | description                                      | category_ids | city_ids | id | user_id |
-      | fisken   | Erfaren målare | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       |
+      | username | title          | description                                      | category_ids | city_ids | id | user_id | age        |
+      | fisken   | Erfaren målare | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       | 1988-09-14 |
 
     Scenario: I go to dashboard
       Given I am on the home page

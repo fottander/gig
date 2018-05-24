@@ -250,7 +250,7 @@ ActiveRecord::Schema.define(version: 20180523201840) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.date "age", default: "1995-05-05"
+    t.date "age"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

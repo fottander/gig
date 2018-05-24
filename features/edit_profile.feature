@@ -5,8 +5,8 @@ Feature: Edit profile
 
   Background:
     Given the following users exist
-      | email          | password  | password_confirmation |
-      | felix@mail.com | 12345678  | 12345678              |
+      | email          | first_name | last_name | password  | password_confirmation | id |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
     Given the following categories exist
       | name        | id |
       | Målare      | 1  |
@@ -19,7 +19,6 @@ Feature: Edit profile
       Given I am on the dashboards page
       And I click "Skapa profil"
       And I should see "Skapa profil"
-      And I fill in "Användarnamn" with "Fisken"
       And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
       And I fill in "Födelsedatum" with "1989-09-14"
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
@@ -36,4 +35,6 @@ Feature: Edit profile
       And I check Category check box
       And I select "Göteborg" from "Stad"
       And I click "Spara" in classic
-      Then I should see "Profil redigerad!"
+      And I should see "Profil redigerad!"
+      And I click "Kontrollpanel"
+      Then I should see "fisken"
