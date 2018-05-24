@@ -21,6 +21,7 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to have_db_column :education }
     it { is_expected.to have_db_column :prev_work }
     it { is_expected.to have_db_column :user_id }
+    it { is_expected.to have_db_column :age }
   end
 
   describe 'Validations' do
@@ -30,6 +31,7 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to validate_presence_of :description }
     it { is_expected.to validate_presence_of :category_ids }
     it { is_expected.to validate_presence_of :city_ids }
+    it { is_expected.to validate_presence_of :age }
     it { should validate_length_of(:title).is_at_most(50) }
   end
 

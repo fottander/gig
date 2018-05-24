@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  validates_presence_of :title, :description, :city_ids, :category_ids
+  validates_presence_of :title, :description, :city_ids, :category_ids, :age
   validates :username, presence: true, uniqueness: true
   validates_length_of :title, maximum: 50
   belongs_to :user
@@ -33,6 +33,10 @@ class Profile < ApplicationRecord
      url: ':s3_domain_url',
      s3_host_name: 's3-eu-west-1.amazonaws.com'
    }
+  end
+
+  def years_old
+    ((Time.zone.now - self.age.to_time) / 1.year.seconds).floor 
   end
 
   self.per_page = 10
