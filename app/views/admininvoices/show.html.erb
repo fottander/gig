@@ -22,6 +22,11 @@
             <span class='item-define'>ID:</span> <%= @invoice.id.first(8) %><br>
             <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
             <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
+            <span class='item-define'>Summa:</span> <%= @invoice.amount %> SEK<br>
+            <span class='item-define'>Bruttolön inkl semesterersättning:</span> <%= @invoice.bruttolon %> SEK<br>
+            <span class='item-define'>Arbetsgivaravgifter:</span> <%= @invoice.arbetsgivaravgifter %> SEK<br>
+            <span class='item-define'>Sociala avgifter(<%= @invoice.soc_avgift_procent %>%):</span> <%= @invoice.sociala_avgifter %> SEK<br>
+            <span class='item-define'>Löneskatt på pensionskostnader:</span> <%= @invoice.pension_loneskatt %> SEK<br>
             <span class='item-define'>Summa ex. moms:</span> <%= @invoice.fakturabelopp %><br>
             <span class='item-define'>Summa inkl. moms:</span> <%= @invoice.fakturabelopp_inklmoms %><br>
             <span class='item-define'>Fakturaavgifter:</span> <%= @invoice.invoice_fees %><br>
@@ -99,7 +104,7 @@
             User fee: <%= @invoice.user_fee %><br>
             Fakturabelopp exkl moms: <%= @invoice.fakturabelopp %><br>
             Vår avgift: -<%= @invoice.varavgift %> SEK <br>
-            Arbetsgivaravgifter -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK <br>
+            Arbetsgivaravgifter(31,42%) -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK <br>
             Bruttolön inkl sem. ers.	<%= @invoice.bruttolon_ef_avg %> SEK <br>
             Skatt	-<%= @invoice.loneskatt %> SEK <br>
             <span class='item-define'>Nettolön att utbetala</span> <%= @invoice.nettolon %> SEK <br>

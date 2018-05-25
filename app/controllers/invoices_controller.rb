@@ -11,6 +11,7 @@ class InvoicesController < ApplicationController
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
     @invoice.soc_avgift = @application.job.soc_avgift
+    @invoice.age = @invoice.user.profile.years_old
     if @invoice.save
       @application.update_attributes(complete: true)
       @invoice.create_activity :create, owner: current_user.profile, recipient: @company

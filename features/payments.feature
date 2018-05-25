@@ -61,8 +61,8 @@ Feature: Payments
     And I should see "Din avgiftsnivå vid skapandet av fakturan: 9%"
     And I should see "Vår avgift: 302"
     And I should see "Ny bruttolön inkl sem. ers: 3058 SEK"
-    And I should see "Skatt:	-917 SEK"
-    Then I should see "Nettolön (lön efter skatt): 2141 SEK"
+    And I should see "Skatt: -917 SEK"
+    Then I should see "Nettolön(lön efter skatt): 2141 SEK"
     And I should see "Utbetald summa: 2141 SEK"
     Given I am on the dashboards page
     And I click "Utbetalningar"
@@ -73,5 +73,5 @@ Feature: Payments
     And I should see "Din avgiftsnivå vid skapandet av fakturan: 9%"
     And I should see "Vår avgift: 302"
     And I should see "Ny bruttolön inkl sem. ers: 3058 SEK"
-    And I should see "Skatt:	-917 SEK"
+    And I should see "Skatt: -917 SEK"
     Then I should see "Nettolön (lön efter skatt): 2141 SEK"

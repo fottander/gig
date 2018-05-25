@@ -50,8 +50,11 @@
               Vår avgift: <%= (@invoice.bruttolon * @invoice.user_fee).round %> <br>
               Ny bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
               Skatt:	-<%= @invoice.loneskatt %> SEK <br>
-              Nettolön (lön efter skatt): <%= @invoice.nettolon %> SEK <br>
+              Nettolön(lön efter skatt): <%= @invoice.nettolon %> SEK <br>
               <span class='item-define'>Utbetald summa: </span> <%= @invoice.nettolon %> SEK<br>
+              <% if (25..64).include? @invoice.age %>
+                Pensionsinbetalning: <%= (@invoice.bruttolon * 0.043).round %> SEK<br>
+              <% end %>
             <% end %>
           </p>
         </div>

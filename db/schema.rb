@@ -209,7 +209,8 @@ ActiveRecord::Schema.define(version: 20180523201840) do
     t.integer "job_id"
     t.integer "profile_id"
     t.string "profile_username"
-    t.float "soc_avgift", default: 0.0456
+    t.float "soc_avgift", default: 0.046
+    t.integer "age"
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["user_id"], name: "index_invoices_on_user_id"
