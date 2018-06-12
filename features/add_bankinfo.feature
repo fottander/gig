@@ -5,8 +5,9 @@ Feature: Add bankinfo
 
   Background:
     Given the following users exist
-      | email          | password  | password_confirmation | id |
-      | felix@mail.com | 12345678  | 12345678              | 1  |
+      | email          | first_name | last_name | password  | password_confirmation | id |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
+
 
     Scenario: I add bankinformation
       Given I am logged in as user "felix@mail.com"

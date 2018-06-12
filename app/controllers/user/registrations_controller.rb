@@ -1,5 +1,6 @@
 class User::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
+  before_action :sign_up_params, only: [:create]
 
   def new
     super
@@ -33,6 +34,10 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   def configure_account_update_params
    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :pers_num, :bank, :clear_nr, :account_nr])
+  end
+
+  def sign_up_params
+    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
   end
 
 end

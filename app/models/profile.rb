@@ -1,6 +1,7 @@
 class Profile < ApplicationRecord
+  before_create :set_username
+  before_validation :set_username, on: :create
   validates_presence_of :title, :description, :city_ids, :category_ids
-  validates :username, presence: true, uniqueness: true
   validates_length_of :title, maximum: 50
   belongs_to :user
   has_many :applications, dependent: :destroy
@@ -35,6 +36,16 @@ class Profile < ApplicationRecord
    }
   end
 
+  def years_old
+    ((Time.zone.now - self.age.to_time) / 1.year.seconds).floor
+  end
+
   self.per_page = 10
+
+  private
+
+  def set_username
+    self.username = "#{self.user.first_name.capitalize} #{self.user.last_name.first(1).capitalize}" if self.username.blank?
+  end
 
 end

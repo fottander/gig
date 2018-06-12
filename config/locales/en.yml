@@ -65,6 +65,7 @@ en:
         duration: 'Varaktighet'
         hour_day: 'Timmar'
         requirement: 'Krav'
+        kollektivavtal: 'Kollektivavtal'
       user:
         current_password: 'Nuvarande lösenord'
         password: 'Lösenord'
@@ -90,6 +91,7 @@ en:
       profile:
         username: 'Användarnamn'
         title: 'Titel'
+        age: 'Ålder'
         description: 'Beskrivning'
         skill: 'Kompetenser'
         rate: 'Lön'
@@ -172,6 +174,10 @@ en:
               blank: "är inte ifyllt"
               taken: "redan tagen"
               invalid: "Var snäll och fyll i korrekt email"
+            first_name:
+              blank: 'är inte ifyllt'
+            last_name:
+              blank: 'är inte ifyllt'
             password:
               blank: "är inte ifyllt"
               confirmation: "& lösenord matchar inte"
@@ -204,6 +210,8 @@ en:
               blank: "kan inte vara blankt!"
             hour_day:
               blank: "kan inte vara blankt!"
+            kollektivavtal:
+              blank: "kan inte vara blankt!"
 
         profile:
           attributes:
@@ -217,6 +225,8 @@ en:
             city_ids:
               blank: "kan inte vara blankt!"
             title:
+              blank: 'kan inte vara blankt!'
+            age:
               blank: 'kan inte vara blankt!'
 
         application:

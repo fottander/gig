@@ -48,16 +48,48 @@ class Invoice < ApplicationRecord
     0.3142
   end
 
+  def sociala_avgifter
+    (self.bruttolon * self.soc_avgift_m_age).round
+  end
+
+  def soc_avgift_procent
+    (self.soc_avgift_m_age * 100).round(2)
+  end
+ 
+  def soc_avgift_m_age
+    if self.age < 25
+      (self.soc_avgift - 0.043).round(5)
+    elsif (25..64).include? self.age
+      self.soc_avgift
+    elsif self.age > 64
+      (self.soc_avgift - 0.043).round(5)
+    end
+  end
+
+  def pension_loneskatt
+    if self.age < 25
+      0
+    elsif (25..64).include? self.age
+      (0.2426 * (self.bruttolon * 0.043)).round
+    elsif self.age > 64
+      0
+    end
+  end
+
   def fakturabelopp
+    (self.bruttolon + self.arbetsgivaravgifter + self.sociala_avgifter + self.pension_loneskatt).round
+  end
+
+  def fakturabelopp_frilansare
     (self.bruttolon + self.arbetsgivaravgifter).round
   end
 
   def varavgift
-    (self.fakturabelopp * self.user_fee).round
+    (self.fakturabelopp_frilansare * self.user_fee).round
   end
 
   def bruttolon_ef_avg
-    ((self.fakturabelopp - self.varavgift) / (1 + self.a_g_avgift)).round
+    ((self.fakturabelopp_frilansare - self.varavgift) / (1 + self.a_g_avgift)).round
   end
 
   def arbetsgivaravgifter_ef_avg

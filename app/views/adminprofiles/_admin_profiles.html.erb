@@ -1,16 +1,16 @@
 <p class="portfolio-resume-subheader">
-    <% @profiles.each do |profile| %>
+  <% @profiles.each do |profile| %>
     <span class='item-define'>ID:</span> <%= profile.id %><br>
     <span> <%= link_to 'Radera', adminprofile_path(profile), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
+    <%= link_to 'Redigera', edit_adminprofile_path(profile), class: 'button-green' %><br>
     <span class='item-define'>Användarnamn:</span> <%= profile.username %> <br>
     <span class='item-define'>Titel:</span> <%= profile.title %> <br>
     <span class='item-define'>Kategori:</span> <%= profile.categories.pluck(:name) %><br>
-    <span class='item-define'>Beskrivning:</span> <%= profile.description %> <br>
     <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name) %> <br>
     <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%F %R") %> <br>
     <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%F %R") %> <br>
-    <span class='item-define'>User ID:</span> <%= profile.user_id %> <br><br>
-<% end %>
+    <span class='item-define'>User ID:</span> <%= profile.user_id %><br><br>
+  <% end %>
 </p>
 <div class="will-paginate">
     <%= will_paginate @profiles, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>

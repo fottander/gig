@@ -8,6 +8,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update user_params
+        format.html { redirect_to edit_user_path(@user), notice: 'User redigerad!' }
+        format.json { render :edit, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
@@ -20,6 +37,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:email, :first_name, :last_name, :phone, :pers_num, :bank, :clear_nr, :account_nr)
+  end
 
   def filtering_params(params)
     params.slice(:with_email, :with_id)

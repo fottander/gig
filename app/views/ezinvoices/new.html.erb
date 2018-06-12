@@ -17,7 +17,7 @@
     <div class="simple-form">
       <div class='post-title'><h3>Skapa faktura</h3></div>
       <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons.</p>
-      <p style='font-weight: 550; color: #696868;'>Kom ihåg att skicka in en beskrivning av det arbete du ska utföra och för vilket företag innan du påbörjar anställningen. Kontakta kundtjänst vid frågor.</p>
+      <p style='font-weight: 550; color: #696868;'>Kom ihåg att skicka in en beskrivning till oss av det arbete du ska utföra och för vilket företag innan du påbörjar anställningen. Kontakta kundtjänst vid frågor.</p>
       <% if current_user.profile.present? %>
         <%= form_for @ezinvoice do |f| %>
           <% if @ezinvoice.errors.any? %>
@@ -26,6 +26,8 @@
             <% end %>
           <% end %>
           <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
+          <%= f.label :company_email, '* Email', class: 'form-text' %>
+          <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
           <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
           <%= f.text_field :org_number, placeholder: 'ex. xxxxxx-xxxx' %>
           <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
@@ -36,10 +38,8 @@
           <%= f.text_field :company_zip, placeholder: 'ex. 412 22' %>
           <%= f.label :company_city, '* Stad', class: 'form-text' %>
           <%= f.text_field :company_city, placeholder: 'ex. Göteborg' %>
-          <%= f.label :company_email, '* Email', class: 'form-text' %>
-          <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
           <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
-          <%= f.text_field :company_reference, placeholder: 'Referensen hos företaget' %>
+          <%= f.text_field :company_reference, placeholder: 'Din kontaktperson på företaget' %>
           <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
           <%= f.label :description, '* Beskrivning', class: 'form-text' %>
           <%= f.text_area :description, placeholder: 'Kort beskrivning på vad som utförts och vad som faktureras' %>

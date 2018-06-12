@@ -21,12 +21,12 @@ Feature: Create an invoice without an ad
       | email           | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | greger@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following users exist
-      | email          | password  | password_confirmation | id |
-      | felix@mail.com | 12345678  | 12345678              | 1  |
-      | greger@mail.com| 12345678  | 12345678              | 2  |
+      | email          | first_name | last_name | password  | password_confirmation | id |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
+      | greger@mail.com| greger     | stjärtis  | 12345678  | 12345678              | 2  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id |
-      | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  |
+      | username | title        | description | category_ids | city_ids | user_id | id | age        |
+      | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
 
   Scenario: I create an invoice without an ad and edit it afterwards and then delete it
     Given I am logged in as user "felix@mail.com"

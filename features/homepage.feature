@@ -19,6 +19,8 @@ Feature: Homepage
     And I should see "Här förklarar vi i detalj"
     And I click "Användarvillkor" in left menu
     And I should see "Här finner du våra allmänna villkor"
+    And I click "KOLLEKTIVAVTAL"
+    Then I should see "Hur fungerar det med kollektivavtal?"
     And I click "Kontakta" in left menu
     Then I should see "Här kan du kontakta oss"
     And I click "Varför frilansare?" in left menu

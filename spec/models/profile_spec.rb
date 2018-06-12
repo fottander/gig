@@ -9,6 +9,8 @@ RSpec.describe Profile, type: :model do
     City.destroy_all
     create(:city, name: 'Göteborg', id: 100)
     create(:city, name: 'Stockholm', id: 200)
+    User.destroy_all
+    create(:user, email: 'greger@greger.se', first_name: 'felix', last_name: 'ottander', id: 100)
   end
 
   describe 'DB table' do
@@ -21,16 +23,16 @@ RSpec.describe Profile, type: :model do
     it { is_expected.to have_db_column :education }
     it { is_expected.to have_db_column :prev_work }
     it { is_expected.to have_db_column :user_id }
+    it { is_expected.to have_db_column :age }
   end
 
   describe 'Validations' do
-    it { is_expected.to validate_presence_of :username }
-    it { should validate_uniqueness_of(:username) }
-    it { is_expected.to validate_presence_of :title }
-    it { is_expected.to validate_presence_of :description }
-    it { is_expected.to validate_presence_of :category_ids }
-    it { is_expected.to validate_presence_of :city_ids }
-    it { should validate_length_of(:title).is_at_most(50) }
+    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100').username).to eq("Felix O")}
+    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :title }
+    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :description }
+    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :category_ids }
+    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :city_ids }
+    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_length_of(:title).is_at_most(50) }
   end
 
   describe 'Avatar attachment' do
@@ -46,12 +48,12 @@ RSpec.describe Profile, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:profile, category_ids: '100', city_ids: '100')).to be_valid
+      expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to be_valid
     end
   end
 
   it 'has an avatar url by default' do
-    profile = create(:profile, category_ids: '200', city_ids: '200')
+    profile = create(:profile, user_id: 100, category_ids: '200', city_ids: '200')
     expect(profile.avatar.url).to include 'Default-avatar.png'
   end
 end

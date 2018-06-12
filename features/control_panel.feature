@@ -21,11 +21,11 @@ Feature: Company control panel
       | målare sökes   | måla hus    | 2 års erfarenhet | 1            | 1        | 140kr/timma | 2018-10-10 | 14 dagar | soon         | 8        | true   | Anders p         | Göteborg     | 1          | 1  |
       | snickare sökes | rita hus    | 2 års erfarenhet | 2            | 2        | 140kr/timma | 2017-10-10 | 14 dagar | soon         | 8        | true   | Anders p         | Göteborg     | 1          | 2  |
     Given the following users exist
-      | email          | password  | password_confirmation | id |
-      | felix@mail.com | 12345678  | 12345678              | 1  |
+      | email          | first_name | last_name | password  | password_confirmation | id |
+      | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id |
-      | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  |
+      | username | title        | description | category_ids | city_ids | user_id | id | age        |
+      | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    |
       | I want job | 1      | Fisken           | 1          | målare sökes |
@@ -51,13 +51,12 @@ Feature: Company control panel
       And I should see "2" jobs description "snickare sökes"
       Then I should see "Sista ansökningsdag nådd" beside "2"
 
-    Scenario: I inactivate a job ad
+    Scenario: I edit job kollektivavtal and inactivate a job ad
       Given I am logged in as company "felix@mail.com"
       Given I am on the jobs page
       And I should see "målare sökes"
       And I click "KONTROLLPANEL"
       And I click job "1" button "Redigera"
-      And I should see "Redigera annons"
       And I uncheck Active check box
       And I click "Spara"
       And I click "KONTROLLPANEL"

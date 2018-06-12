@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502082732) do
+ActiveRecord::Schema.define(version: 20180523201840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -209,6 +209,8 @@ ActiveRecord::Schema.define(version: 20180502082732) do
     t.integer "job_id"
     t.integer "profile_id"
     t.string "profile_username"
+    t.float "soc_avgift", default: 0.046
+    t.integer "age"
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["user_id"], name: "index_invoices_on_user_id"
@@ -229,6 +231,7 @@ ActiveRecord::Schema.define(version: 20180502082732) do
     t.bigint "company_id"
     t.string "company_city"
     t.string "company_username"
+    t.string "kollektivavtal", default: "Nej"
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
@@ -248,6 +251,7 @@ ActiveRecord::Schema.define(version: 20180502082732) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.date "age"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

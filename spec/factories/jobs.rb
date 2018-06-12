@@ -7,6 +7,7 @@ FactoryGirl.define do
     deadline "2017-10-11"
     duration "MyString"
     when_in_time "MyString"
+    kollektivavtal "Nej"
     hour_day 1
   end
 end

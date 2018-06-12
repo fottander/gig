@@ -110,11 +110,15 @@
               Er referens: <%= @invoice.company_reference %><br>
               Startdag: <%= @invoice.first_day %> <br>
               Sista dag: <%= @invoice.last_day %><br>
-              Antal timmar(st): <%= @invoice.quantity %> <br>
-              Timlön(kr/timma): <%= @invoice.unit %> <br>
+              Antal timmar: <%= @invoice.quantity %>st<br>
+              Timlön: <%= @invoice.unit %>kr/timma<br>
               Bruttolön: <%= @invoice.amount %><br>
               Bruttolön inkl semesterersättning(12%): <%= @invoice.bruttolon %><br>
-              Arbetsgivaravgifter: <%= @invoice.arbetsgivaravgifter %><br>
+              Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter %><br>
+              Sociala avgifter(<%= @invoice.soc_avgift_procent %>%): <%= @invoice.sociala_avgifter %><br>
+              <% if (25..64).include? @invoice.age %>
+                Löneskatt på pensionskostnader: <%= @invoice.pension_loneskatt %><br>
+              <% end %>
               Belopp ex. moms: <%= @invoice.fakturabelopp %><br>
               Belopp inkl. moms: <%= @invoice.fakturabelopp_inklmoms %><br>
               Fakturaavgifter: <%= @invoice.invoice_fees %><br>
@@ -150,12 +154,15 @@
             Profil: <%= @invoice.profile_username %><br>
             Beskrivning: <%= @invoice.description %> <br>
             Referens: <%= @invoice.user_reference %><br>
-            Er referens: <%= @invoice.company_reference %><br>
+            Företagsreferens: <%= @invoice.company_reference %><br>
             Startdag: <%= @invoice.first_day %> <br>
             Sista dag: <%= @invoice.last_day %><br>
             Antal timmar: <%= @invoice.quantity %>st <br>
             Timlön: <%= @invoice.unit %>kr/timma <br>
             Lön som betalas ut: <%= @invoice.nettolon %> SEK <br>
+            <% if (25..64).include? @invoice.age %>
+              Pensionsinbetalning: <%= (@invoice.bruttolon * 0.043).round %> SEK<br>
+            <% end %>
             Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
             Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
             Villkor: <%= @invoice.terms %> dagar<br>

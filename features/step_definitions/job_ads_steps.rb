@@ -72,8 +72,20 @@ Then("I should see {string} in active invoices") do |content|
   end
 end
 
-Then("I should see deadline one year ahead") do
+Then("I should see deadline two years ahead") do
   job = Job.first
-  date = (Date.today + 365.days).strftime("%F")
+  date = (Date.today + 730.days).strftime("%F")
   expect(job.deadline.strftime("%F")).to eq date
+end
+
+Given("I select true from dropdown kollektivavtal") do
+  find('#job_kollektivavtal').find(:xpath, 'option[2]').select_option
+end
+
+Given("I select false from dropdown kollektivavtal") do
+  find('#job_kollektivavtal').find(:xpath, 'option[3]').select_option
+end
+
+Given("I select false from edit dropdown kollektivavtal") do
+  find('#job_kollektivavtal').find(:xpath, 'option[2]').select_option
 end

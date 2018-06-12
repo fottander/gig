@@ -17,6 +17,8 @@ RSpec.describe User, type: :model do
 
   describe 'Validations' do
     it { is_expected.to validate_presence_of :email }
+    it { is_expected.to validate_presence_of :first_name }
+    it { is_expected.to validate_presence_of :last_name }
   end
 
   describe 'Associations' do
@@ -27,7 +29,7 @@ RSpec.describe User, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:user)).to be_valid
+      expect(create(:user, first_name: 'felix', last_name: 'ottander')).to be_valid
     end
   end
 end

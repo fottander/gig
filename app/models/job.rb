@@ -18,15 +18,31 @@ class Job < ApplicationRecord
 
   self.per_page = 10
 
+  KOLLEKTIVAVTAL_OPTIONS = [ "Nej", "Ja - Medlemsföretag i Svenskt Näringsliv", "Ja - Medlemsföretag i annat arbetsgivareförbund", "Ja - Företag med hängavtal" ]
+
+  def soc_avgift
+    if self.kollektivavtal == "Nej"
+      0.046
+    elsif self.kollektivavtal == "Ja - Medlemsföretag i Svenskt Näringsliv"
+      0.0471
+    elsif self.kollektivavtal == "Ja - Medlemsföretag i annat arbetsgivareförbund"
+      0.0491
+    elsif self.kollektivavtal == "Ja - Företag med hängavtal"
+      0.0501
+    end
+  end
+
   private
 
   def set_budget
     self.budget = "Ej specificerat" if self.budget.blank?
   end
+
   def set_requirement
     self.requirement = "Inga krav" if self.requirement.blank?
   end
+
   def set_deadline
-    self.deadline = Date.today + 365.days if self.deadline.blank?
+    self.deadline = Date.today + 730.days if self.deadline.blank?
   end
 end

@@ -17,8 +17,6 @@
           <li><%= message %></li>
         <% end %>
       <% end %>
-      <%= f.label :username, '* Användarnamn', class: 'form-text' %>
-      <%= f.text_field :username, placeholder: 'Kommer visas i dina jobbansökningar' %>
       <%= f.label :title, '* Titel', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :title, placeholder: 'Ex. Målare med lång erfarenhet' %>
@@ -27,6 +25,8 @@
           Skriv en kort slagkraftig titel som beskriver dig och de arbeten du kommer söka. Max 50 tecken.
         </div>
       </div>
+      <%= f.label :age, '* Födelsedatum', class: 'form-text' %>
+      <%= f.date_field :age, class: 'input-mini' %>
       <%= f.label :description, '* Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_area :description, placeholder: 'En bra beskrivning ökar dina chanser i ansökan' %>

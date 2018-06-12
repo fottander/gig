@@ -21,8 +21,8 @@ Feature: Apply to job
       | felix@mail.com  | 12345678  | 12345678              | 1  | felix      | ottander  |
       | greger@mail.com | 12345678  | 12345678              | 2  | greger     | nilsson   |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id |
-      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 1       |
+      | username | title        | description | category_ids | city_ids | user_id | age        |
+      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 1       | 1988-09-14 |
 
     Scenario: I apply to a job
       Given I am logged in as user "felix@mail.com"

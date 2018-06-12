@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
+  validates_presence_of :first_name, :last_name
   has_one :profile, dependent: :destroy
   has_many :invoices
   has_many :ezinvoices

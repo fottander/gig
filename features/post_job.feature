@@ -36,6 +36,7 @@ Feature: Post job ad
       And I fill in "job_when_in_time" with "Så snart som möjligt"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
+      And I select true from dropdown kollektivavtal
       And I click "Skapa annons"
       Then I should see "Ny annons skapad!"
       Given I click "KONTROLLPANEL"
@@ -48,8 +49,8 @@ Feature: Post job ad
       And I should see "Kategorier: Plåtslagare"
       And I should see "Stad: Göteborg"
       And I should see "Föreslagen lön: 130kr/timma"
-      And I should see "När: Så snart som möjligt"
-      And I should see "Dagar/veckor/månader: 5 dagar"
+      And I should see "När ska jobbet utföras: Så snart som möjligt"
+      And I should see "Jobbets längd: 5 dagar"
       And I should see "Timmar per dag: 8"
       And I should see "hello ab"
       And I should see "Antal genomförda jobb: 0"
@@ -69,6 +70,7 @@ Feature: Post job ad
       And I fill in "job_when_in_time" with "Så snart som möjligt"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
+      And I select false from dropdown kollektivavtal
       And I click "Skapa annons"
       Then I should see "Titel kan inte vara blankt!"
       And I fill in "Titel" with "Målare"
@@ -78,10 +80,11 @@ Feature: Post job ad
       And I fill in "job_when_in_time" with "Så snart som möjligt"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
+      And I select false from dropdown kollektivavtal
       And I click "Skapa annons"
       Then I should see "Ny annons skapad!"
       And I click "HITTA JOBB"
       And I click "Ansök"
       And I should see "Föreslagen lön: Ej specificerat"
       And I should see "Krav: Inga krav"
-      And I should see deadline one year ahead
+      And I should see deadline two years ahead
