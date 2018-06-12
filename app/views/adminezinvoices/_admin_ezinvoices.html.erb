@@ -2,7 +2,7 @@
   <div class='ezinvoice-<%= ezinvoice.id %>'>
     <p class="portfolio-resume-subheader">
       <%= link_to 'Visa/godkänn faktura', adminezinvoice_path(ezinvoice), class: 'button-green' %><br>
-      <%= link_to 'Redigera', edit_adminezinvoice_path(invoice), class: 'button-orange' %><br>
+      <%= link_to 'Redigera', edit_adminezinvoice_path(ezinvoice), class: 'button-orange' %><br>
       <span class='item-define'>ID:</span> <%= ezinvoice.id.first(8) %><br>
       <span class='item-define'>OCR:</span> <%= ezinvoice.ocr_number %><br>
       <span class='item-define'>User ID:</span> <%= ezinvoice.user_id %><br>
