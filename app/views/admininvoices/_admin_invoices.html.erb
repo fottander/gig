@@ -1,7 +1,8 @@
 <% @invoices.each do |invoice| %>
   <div class='invoice-<%= invoice.id %>'>
     <p class="portfolio-resume-subheader">
-      <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice) %><br>
+      <%= link_to 'Visa/godkänn faktura', admininvoice_path(invoice), class: 'button-green' %><br>
+      <%= link_to 'Redigera', edit_admininvoice_path(invoice), class: 'button-orange' %><br>
       <span class='item-define'>ID:</span> <%= invoice.id.first(8) %><br>
       <span class='item-define'>OCR:</span> <%= invoice.ocr_number %><br>
       <span class='item-define'>User ID:</span> <%= invoice.user_id %><br>
