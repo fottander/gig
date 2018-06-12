@@ -2,24 +2,16 @@
   <% @ezinvoices.paid.each do |ezinvoice| %>
     <%= link_to 'Visa/godkänn faktura', adminezinvoice_path(ezinvoice) %><br>
     <span class='item-define'>ID:</span> <%= ezinvoice.id.first(8) %><br>
-    <span class='item-define'>Antal timmar:</span> <%= ezinvoice.quantity %>st<br>
-    <span class='item-define'>Timlön:</span> <%= ezinvoice.unit %>kr/timma<br>
-    <span class='item-define'>Summa ex. moms:</span> <%= ezinvoice.fakturabelopp %><br>
-    <span class='item-define'>Summa inkl. moms:</span> <%= ezinvoice.fakturabelopp_inklmoms %><br>
-    <span class='item-define'>Startdag:</span> <%= ezinvoice.first_day %><br>
-    <span class='item-define'>Sista dag:</span> <%= ezinvoice.last_day %><br>
-    <span class='item-define'>Beskrivning:</span> <%= ezinvoice.description %><br>
-    <span class='item-define'>Referens:</span> <%= ezinvoice.user_reference %><br>
-    <span class='item-define'>Företagsreferens:</span> <%= ezinvoice.company_reference %><br>
-    <span class='item-define'>Villkor:</span> <%= ezinvoice.terms %><br>
-    <span class='item-define'>Betald:</span> <%= ezinvoice.paid %><br>
-    <span class='item-define'>Lön utbetald</span> <%= ezinvoice.salary_paid %><br>
+    <span class='item-define'>OCR:</span> <%= ezinvoice.ocr_number %><br>
     <span class='item-define'>User ID:</span> <%= ezinvoice.user_id %><br>
     <span class='item-define'>Frilansar ID:</span> <%= ezinvoice.profile_id %><br>
     <span class='item-define'>Frilansar användarnamn:</span> <%= ezinvoice.profile_username %><br>
     <span class='item-define'>Företagsnamn:</span> <%= ezinvoice.company_name %><br>
+    <span class='item-define'>Betald:</span> <%= ezinvoice.paid %><br>
+    <span class='item-define'>Lön utbetald</span> <%= ezinvoice.salary_paid %><br>
     <span class='item-define'>Post:</span> <%= ezinvoice.post %><br>
-    <span class='item-define'>OCR:</span> <%= ezinvoice.ocr_number %><br>
+    <span class='item-define'>Villkor:</span> <%= ezinvoice.terms %><br>
+    <span class='item-define'>Beskrivning:</span> <%= ezinvoice.description %><br>
     <span class='item-define'>Skapad:</span> <%= ezinvoice.created_at.strftime("%F %R") %><br>
     <span class='item-define'>Uppdaterad:</span> <%= ezinvoice.updated_at.strftime("%F %R") %><br><br>
   <% end %>
