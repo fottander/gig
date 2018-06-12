@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :terms_of_services, only: [:index]
 
-  resources :users, only: [:index, :destroy]
+  resources :users, only: [:index, :edit, :update, :destroy]
 
   resources :users_without_profiles, only: [:index]
 
@@ -83,7 +83,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 
-  resources :adminprofiles, only: [:index, :destroy]
+  resources :adminprofiles, only: [:index, :destroy, :edit, :update]
 
   resources :admininvoices, only: [:index, :show, :edit, :update, :destroy] do
     member do

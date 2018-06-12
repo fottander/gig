@@ -8,6 +8,23 @@ class AdminprofilesController < ApplicationController
     end
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+    respond_to do |format|
+      if @profile.update profile_params
+        format.html { redirect_to edit_adminprofile_path(@profile), notice: 'Profil redigerad!' }
+        format.json { render :edit, status: :ok, location: @profile }
+      else
+        format.html { render :edit }
+        format.json { render json: @profile.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @profile = Profile.find(params[:id])
     if @profile.destroy
@@ -20,6 +37,10 @@ class AdminprofilesController < ApplicationController
   end
 
   private
+
+  def profile_params
+    params.require(:profile).permit(:username, :title, :age, {category_ids:[]}, :avatar, :description, :skill, :category, :city_ids, :language, :license, :education, :prev_work)
+  end
 
   def filtering_params(params)
     params.slice(:with_username, :with_id)

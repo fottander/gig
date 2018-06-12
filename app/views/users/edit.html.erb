@@ -1,0 +1,73 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class='simple-form'>
+      <div class='post-title'><h3>Redigera konto</h3></div>
+      <%= form_for @user, url: user_path(@user) do |f| %>
+        <% if @user.errors.any? %>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
+
+        <div class="field">
+          <%= f.label :email, class: 'form-text' %>
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :first_name, 'Förnamn', class: 'form-text' %>
+          <%= f.text_field :first_name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :last_name, 'Efternamn', class: 'form-text' %>
+          <%= f.text_field :last_name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
+          <%= f.text_field :phone %>
+        </div>
+        <div style='color: #f77d0e; font-weight: 600;'>Betalningsinformation</div>
+        <div class="field">
+          <%= f.label :pers_num, 'Personnummer(10 siffror, ex. 751212xxxx)', class: 'form-text' %>
+          <%= f.text_field :pers_num %>
+        </div>
+
+        <div class="field">
+          <%= f.label :bank, 'Bank', class: 'form-text' %>
+          <%= f.text_field :bank %>
+        </div>
+
+        <div class="field">
+          <%= f.label :clear_nr, 'Clearingnummer', class: 'form-text' %>
+          <%= f.text_field :clear_nr %>
+        </div>
+
+        <div class="field">
+          <%= f.label :account_nr, 'Kontonummer', class: 'form-text' %>
+          <%= f.text_field :account_nr %>
+        </div>
+
+        <div class="actions">
+          <%= link_to 'Avbryt', administrations_path, class: 'cancel-button' %>
+          <%= f.submit "Spara", class: 'reply-button' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

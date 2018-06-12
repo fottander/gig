@@ -1,0 +1,73 @@
+<div class="holy-grail-grid">
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="simple-form">
+      <div class='post-title'><h3>Redigera profil</h3></div>
+      <p><%= link_to "Visa profilen >>", profile_path(@profile), class: 'switch-button' %></p>
+      <%= form_for @profile, url: adminprofile_path(@profile) do |f| %>
+        <% if @profile.errors.any? %>
+          <% @profile.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
+        <%= f.label :username, 'Användarnamn', class: 'form-text' %>
+        <%= f.text_field :username, value: @profile.username %>
+        <%= f.label :title, 'Titel', class: 'form-text' %>
+        <%= f.text_field :title, value: @profile.title %>
+        <%= f.label :age, 'Födelsedatum', class: 'form-text' %>
+        <%= f.date_field :age, class: 'input-mini' %>
+        <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+        <%= f.text_area :description, value: @profile.description %>
+        <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
+        <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+        <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @profile.city_ids }, { class: 'input-medium' }) %>
+        <%= link_to 'Avbryt', administrations_path, class: 'cancel-button' %>
+        <%= f.submit 'Spara', class: 'reply-button' %>
+        <div style='color: #f77d0e; font-weight: 600; margin-top: 15px;'>Extra information</div>
+        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+        <% if @profile.avatar_file_name.present? %>
+        <span style='font-size: 10px;'><%= @profile.avatar_file_name %></span>
+        <% end %>
+        <%= f.file_field :avatar, class: 'form-text', style:'margin-bottom: -10px;' %>
+        <%= f.submit 'Lägg till', class: 'button-blue', style: 'margin-top: 5px;' %>
+        <%= f.label :language, 'Språk (Ex. Svenska flytande, engelska grundläggande)', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.text_field :language, value: @profile.language, style:'margin-bottom: 0px;' %>
+        <div class="language">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :license, 'Körkort (Ex. B-körkort, truckkörkort)', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.text_field :license, value: @profile.license, style:'margin-bottom: 0px;' %>
+        <div class="license">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :education, 'Utbildning', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.text_area :education, value: @profile.education, style:'margin-bottom: 0px;' %>
+        <div class="education">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :prev_work, 'Tidigare arbetsplatser', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.text_area :prev_work, value: @profile.prev_work, style:'margin-bottom: 0px;' %>
+        <div class="prev-work">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+        <%= f.label :skill, 'Kompetenser (Ex. Städning, vikarie, målning)', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.text_field :skill, value: @profile.skill, style:'margin-bottom: 0px;' %>
+        <div class="skill">
+          <%= f.submit 'Spara', class: 'button-blue' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
