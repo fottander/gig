@@ -100,6 +100,7 @@
           </div>
           <div class="large-6 columns">
             <div class='post-title'><h4>Fakturadetaljer</h4></div>
+            <p><%= link_to 'Visa/Skriv ut pdf', invoice_path(@invoice, format: 'pdf'), class: 'profile-button-expand' %></p>
             <div class='invoice-details'>
               Faktura ID: <%= @invoice.id.first(8) %><br>
               Jobb ID: <%= @invoice.job_id %><br>

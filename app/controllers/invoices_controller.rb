@@ -29,7 +29,20 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
+    @company = @invoice.company
+    @profile = @invoice.user.profile
+    @due_date = @invoice.due_date
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = InvoicePdf.new(@invoice, @profile, @company, @due_date)
+        send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
+                              type: 'application/pdf',
+                              disposition: 'inline'
+      end
+    end
   end
+
 
   def edit
     @invoice = Invoice.find(params[:id])
