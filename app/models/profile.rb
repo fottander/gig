@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   before_create :set_username
   before_validation :set_username, on: :create
-  validates_presence_of :title, :description, :city_ids, :category_ids
+  validates_presence_of :title, :age, :description, :city_ids, :category_ids
   validates_length_of :title, maximum: 50
   belongs_to :user
   has_many :applications, dependent: :destroy

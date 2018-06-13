@@ -34,10 +34,12 @@ Feature: User dashboard
       And I click "Skapa profil"
       And I should see "Skapa profil"
       And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
-      And I fill in "Födelsedatum" with "1988-09-14"
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
       And I check Category check box
       And I select "Göteborg" from "Stad"
+      And I click "Skapa"
+      And I should see "Ålder kan inte vara blankt!"
+      And I fill in "Födelsedatum" with "1988-09-14"
       And I click "Skapa"
       Then I should see "Ny profil skapad!"
       And I click "ALLA FRILANSARE"
