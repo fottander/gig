@@ -11,5 +11,17 @@ class PaymentsController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
+    @company = @invoice.company
+    @user = @invoice.user
+    @profile = @user.profile
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PaymentPdf.new(@invoice, @user, @profile, @company)
+        send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
+                              type: 'application/pdf',
+                              disposition: 'inline'
+      end
+    end
   end
 end

@@ -161,8 +161,10 @@
             Antal timmar: <%= @invoice.quantity %>st <br>
             Timlön: <%= @invoice.unit %>kr/timma <br>
             Lön som betalas ut: <%= @invoice.nettolon %> SEK <br>
+            Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
+            Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
             <% if (25..64).include? @invoice.age %>
-              Pensionsinbetalning: <%= (@invoice.bruttolon * 0.043).round %> SEK<br>
+              Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
             <% end %>
             Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
             Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
@@ -175,6 +177,7 @@
             <% end %>
             <% if @invoice.paid == true %>
               Betalningsstatus: <p style="color: green;">Godkänd</p>
+              <%= link_to 'Visa mer utbetalningsinfo', payment_path(@invoice), class: 'button-orange' %><br>
             <% else %>
               <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
             <% end %>

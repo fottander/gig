@@ -55,7 +55,7 @@ class Invoice < ApplicationRecord
   def soc_avgift_procent
     (self.soc_avgift_m_age * 100).round(2)
   end
- 
+
   def soc_avgift_m_age
     if self.age < 25
       (self.soc_avgift - 0.043).round(5)
@@ -94,6 +94,10 @@ class Invoice < ApplicationRecord
 
   def arbetsgivaravgifter_ef_avg
     (self.bruttolon_ef_avg * self.a_g_avgift).round
+  end
+
+  def sociala_avgifter_ef_avg
+    (self.bruttolon_ef_avg * self.soc_avgift_m_age).round
   end
 
   def semester_ers

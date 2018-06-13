@@ -20,6 +20,7 @@
           <h3 class="portfolio-resume-header">Utbetalning</h3>
           <p class="portfolio-resume-subheader">
             <% if @invoice.user_id == current_user.id %>
+              <%= link_to 'Visa Lönebesked', payment_path(@invoice, format: 'pdf'), class: 'profile-button-expand' %><br>
               <span class='item-define'>Faktura ID:</span> <%= @invoice.id.first(8) %><br>
               <span class='item-define'>Startdag:</span> <%= @invoice.first_day %><br>
               <span class='item-define'>Sista dag:</span> <%= @invoice.last_day %><br>
@@ -47,13 +48,15 @@
               Bruttolön: <%= @invoice.amount %> <br>
               Bruttolön inkl. semesterersättning(12%): <%= @invoice.bruttolon %> <br>
               Din avgiftsnivå vid skapandet av fakturan: <%= (@invoice.user_fee * 100).round %>%<br>
-              Vår avgift: <%= (@invoice.bruttolon * @invoice.user_fee).round %> <br>
+              Vår avgift: -<%= (@invoice.bruttolon * @invoice.user_fee).round %> <br>
               Ny bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
               Skatt:	-<%= @invoice.loneskatt %> SEK <br>
               Nettolön(lön efter skatt): <%= @invoice.nettolon %> SEK <br>
               <span class='item-define'>Utbetald summa: </span> <%= @invoice.nettolon %> SEK<br>
+              Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
+              Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
               <% if (25..64).include? @invoice.age %>
-                Pensionsinbetalning: <%= (@invoice.bruttolon * 0.043).round %> SEK<br>
+                Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
               <% end %>
             <% end %>
           </p>

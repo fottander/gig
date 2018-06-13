@@ -104,10 +104,14 @@
             User fee: <%= @invoice.user_fee %><br>
             Fakturabelopp exkl moms: <%= @invoice.fakturabelopp %><br>
             Vår avgift: -<%= @invoice.varavgift %> SEK <br>
-            Arbetsgivaravgifter(31,42%) -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK <br>
-            Bruttolön inkl sem. ers.	<%= @invoice.bruttolon_ef_avg %> SEK <br>
-            Skatt	-<%= @invoice.loneskatt %> SEK <br>
-            <span class='item-define'>Nettolön att utbetala</span> <%= @invoice.nettolon %> SEK <br>
+            Arbetsgivaravgifter(31,42%): -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
+            Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): -<%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
+            <% if (25..64).include? @invoice.age %>
+              Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
+            <% end %>
+            Bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
+            Skatt:	-<%= @invoice.loneskatt %> SEK <br>
+            <span class='item-define'>Nettolön att utbetala:</span> <%= @invoice.nettolon %> SEK <br>
             <span class='item-define'>Bank:</span> <%= @profile.user.bank %><br>
             <span class='item-define'>Clearingnummer:</span> <%= @profile.user.clear_nr %><br>
             <span class='item-define'>Kontonummer:</span> <%= @profile.user.account_nr %><br>
