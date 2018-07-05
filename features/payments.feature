@@ -59,7 +59,7 @@ Feature: Payments
     And I should see "Bruttolön: 3000"
     And I should see "Bruttolön inkl. semesterersättning(12%): 3360"
     And I should see "Din avgiftsnivå vid skapandet av fakturan: 9%"
-    And I should see "Vår avgift: 302"
+    And I should see "Vår avgift: -302"
     And I should see "Ny bruttolön inkl sem. ers: 3058 SEK"
     And I should see "Skatt: -917 SEK"
     Then I should see "Nettolön(lön efter skatt): 2141 SEK"
