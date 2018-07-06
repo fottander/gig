@@ -23,13 +23,6 @@
           Ha en kort lockande titel med max 140 tecken. Skriv inte ut företagsnamn eller annan liknande information.
         </div>
       </div>
-      <div class="fieldContainer">
-        <span class='form-text'>Ska anställningen omfattas av ert kollektivavtal? <span style='color: #f77d0e;'>Läs mer</span></span>
-        <%= f.select(:kollektivavtal, options_for_select(Job::KOLLEKTIVAVTAL_OPTIONS, { selected: @job.kollektivavtal })) %>
-        <div class="fieldInfo">
-          Har ni kollektivavtal? Och ska i sådant fall personerna som anställs omfattas av detta så lägger vi på försäkringar och pensioner enligt det kollektivavtalet.
-        </div>
-      </div>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
       <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>

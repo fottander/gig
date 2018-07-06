@@ -28,13 +28,6 @@
             </span>
         </div>
       </div>
-      <div class="fieldContainer">
-        <span class='form-text'>Ska anställningen omfattas av ert kollektivavtal? <span style='color: #f77d0e;'>Läs mer</span></span>
-        <%= f.select(:kollektivavtal, options_for_select(Job::KOLLEKTIVAVTAL_OPTIONS), { include_blank: '-- Välj --' }, required: true) %>
-        <div class="fieldInfo">
-          Har ni kollektivavtal? Och ska i sådant fall personerna som anställs omfattas av detta så lägger vi på försäkringar och pensioner enligt det kollektivavtalet.
-        </div>
-      </div>
       <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
       <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
       <%= f.label :city_ids, 'Stad', class: 'form-text' %>
@@ -47,22 +40,6 @@
             Tips <br>
             Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Skriv inte ut företagsnamn eller annan liknande info. Vilka arbetstider? Vilken typ  av person ni söker? Med mera.
           </span>
-        </div>
-      </div>
-      <%= f.label :requirement, 'Krav (kan lämnas blankt)', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
-        <div class="fieldInfo">
-          Tips <br>
-          Krävs utbildning? Behövs körkort? Krävs tidigare erfarenhet i form av anställd x antal år eller liknande?
-        </div>
-      </div>
-      <%= f.label :budget, 'Föreslagen lön (kan lämnas blankt)', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :budget, value: '', placeholder: 'Antingen fast eller per timma' %>
-        <div class="fieldInfo">
-          Tips <br>
-          Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
         </div>
       </div>
       <%= f.label :duration, 'Jobbets längd', class: 'form-text' %>
@@ -89,6 +66,22 @@
         <div class="fieldInfo">
           Tips <br>
           Vid projekt kan detta fält lämnas blankt. Annars anges hur många jobbtimmar per dag.
+        </div>
+      </div>
+      <%= f.label :requirement, 'Krav (kan lämnas blankt)', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Krävs utbildning? Behövs körkort? Krävs tidigare erfarenhet i form av anställd x antal år eller liknande?
+        </div>
+      </div>
+      <%= f.label :budget, 'Föreslagen lön (kan lämnas blankt)', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.text_field :budget, value: '', placeholder: 'Antingen fast eller per timma' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
         </div>
       </div>
       <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
