@@ -15,6 +15,8 @@ RSpec.describe Ezinvoice, type: :model do
     it { is_expected.to have_db_column :first_day }
     it { is_expected.to have_db_column :last_day }
     it { is_expected.to have_db_column :ocr_number }
+    it { is_expected.to have_db_column(:soc_avgift).of_type(:float) }
+    it { is_expected.to have_db_column(:age).of_type(:integer) }
     it { is_expected.to have_db_column :user_fee }
     it { is_expected.to have_db_column :user_reference }
     it { is_expected.to have_db_column :company_reference }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523201840) do
+ActiveRecord::Schema.define(version: 20180706080303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,6 +177,8 @@ ActiveRecord::Schema.define(version: 20180523201840) do
     t.string "ssyk_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "soc_avgift", default: 0.046
+    t.integer "age"
     t.index ["created_at"], name: "index_ezinvoices_on_created_at"
     t.index ["user_id"], name: "index_ezinvoices_on_user_id"
   end
@@ -231,7 +233,6 @@ ActiveRecord::Schema.define(version: 20180523201840) do
     t.bigint "company_id"
     t.string "company_city"
     t.string "company_username"
-    t.string "kollektivavtal", default: "Nej"
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 

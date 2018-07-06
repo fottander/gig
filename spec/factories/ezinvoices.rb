@@ -10,6 +10,7 @@ FactoryGirl.define do
     quantity 123
     unit 123
     amount 12345
+    age 20
     first_day "2018-01-10"
     last_day "2018-01-10"
     ocr_number "MyString"

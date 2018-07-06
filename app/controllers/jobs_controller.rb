@@ -62,7 +62,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :active, :requirement, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar, :kollektivavtal)
+    params.require(:job).permit(:title, :description, :active, :requirement, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar)
   end
 
   def filtering_params(params)

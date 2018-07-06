@@ -22,8 +22,13 @@
             <span class='item-define'>ID:</span> <%= @ezinvoice.id.first(8) %><br>
             <span class='item-define'>Antal timmar:</span> <%= @ezinvoice.quantity %>st<br>
             <span class='item-define'>Timlön:</span> <%= @ezinvoice.unit %>kr/timma<br>
-            <span class='item-define'>Summa ex. moms:</span> <%= @ezinvoice.fakturabelopp %><br>
-            <span class='item-define'>Summa inkl. moms:</span> <%= @ezinvoice.fakturabelopp_inklmoms %><br>
+            <span class='item-define'>Summa:</span> <%= @ezinvoice.amount %> SEK<br>
+            <span class='item-define'>Bruttolön inkl semesterersättning:</span> <%= @ezinvoice.bruttolon %> SEK<br>
+            <span class='item-define'>Arbetsgivaravgifter:</span> <%= @ezinvoice.arbetsgivaravgifter %> SEK<br>
+            <span class='item-define'>Sociala avgifter(<%= @ezinvoice.soc_avgift_procent %>%):</span> <%= @ezinvoice.sociala_avgifter %> SEK<br>
+            <span class='item-define'>Löneskatt på pensionskostnader:</span> <%= @ezinvoice.pension_loneskatt %> SEK<br>
+            <span class='item-define'>Totalsumma ex. moms:</span> <%= @ezinvoice.fakturabelopp %><br>
+            <span class='item-define'>Totalsumma inkl. moms:</span> <%= @ezinvoice.fakturabelopp_inklmoms %><br>
             <span class='item-define'>Startdag:</span> <%= @ezinvoice.first_day %><br>
             <span class='item-define'>Sista dag:</span> <%= @ezinvoice.last_day %><br>
             <span class='item-define'>Beskrivning:</span> <%= @ezinvoice.description %><br>
