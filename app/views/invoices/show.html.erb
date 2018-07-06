@@ -103,28 +103,28 @@
             <p><%= link_to 'Visa/Skriv ut pdf', invoice_path(@invoice, format: 'pdf'), class: 'profile-button-expand' %></p>
             <div class='invoice-details'>
               Faktura ID: <%= @invoice.id.first(8) %><br>
+              <strong>Antal timmar:</strong> <%= @invoice.quantity %>st<br>
+              <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma<br>
+              <strong>Bruttolön:</strong> <%= @invoice.amount %><br>
+              <strong>Bruttolön inkl semesterersättning(12%):</strong> <%= @invoice.bruttolon %><br>
+              <strong>Arbetsgivaravgifter(31,42%):</strong> <%= @invoice.arbetsgivaravgifter %><br>
+              <strong>Sociala avgifter(<%= @invoice.soc_avgift_procent %>%):</strong> <%= @invoice.sociala_avgifter %><br>
+              <% if (25..64).include? @invoice.age %>
+                <strong>Löneskatt på pensionskostnader:</strong> <%= @invoice.pension_loneskatt %><br>
+              <% end %>
+              <strong>Belopp ex. moms:</strong> <%= @invoice.fakturabelopp %><br>
+              <strong>Belopp inkl. moms:</strong> <%= @invoice.fakturabelopp_inklmoms %><br>
+              <strong>Fakturaavgifter:</strong> <%= @invoice.invoice_fees %><br>
+              <strong>Totalsumma exkl. moms:</strong> <%= @invoice.totalbelopp %><br>
+              <strong>Totalsumma inkl. moms:</strong> <%= @invoice.totalbelopp_inklmoms %><br>
+              Startdag: <%= @invoice.first_day %> <br>
+              Sista dag: <%= @invoice.last_day %><br>
               Jobb ID: <%= @invoice.job_id %><br>
               Ansöknings ID: <%= @invoice.application_id %><br>
               Profil: <%= @invoice.profile_username %><br>
               Beskrivning: <%= @invoice.description %> <br>
               Referens: <%= @invoice.user_reference %><br>
               Er referens: <%= @invoice.company_reference %><br>
-              Startdag: <%= @invoice.first_day %> <br>
-              Sista dag: <%= @invoice.last_day %><br>
-              Antal timmar: <%= @invoice.quantity %>st<br>
-              Timlön: <%= @invoice.unit %>kr/timma<br>
-              Bruttolön: <%= @invoice.amount %><br>
-              Bruttolön inkl semesterersättning(12%): <%= @invoice.bruttolon %><br>
-              Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter %><br>
-              Sociala avgifter(<%= @invoice.soc_avgift_procent %>%): <%= @invoice.sociala_avgifter %><br>
-              <% if (25..64).include? @invoice.age %>
-                Löneskatt på pensionskostnader: <%= @invoice.pension_loneskatt %><br>
-              <% end %>
-              Belopp ex. moms: <%= @invoice.fakturabelopp %><br>
-              Belopp inkl. moms: <%= @invoice.fakturabelopp_inklmoms %><br>
-              Fakturaavgifter: <%= @invoice.invoice_fees %><br>
-              Totalsumma exkl. moms: <%= @invoice.totalbelopp %><br>
-              Totalsumma inkl. moms: <%= @invoice.totalbelopp_inklmoms %><br>
               Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
               Villkor: <%= @invoice.terms %> dagar<br>
               OCR: <%= @invoice.ocr_number %><br>
@@ -150,22 +150,22 @@
           <div class='post-title'><h3>Fakturadetaljer</h3></div>
           <div class='invoice-details'>
             Faktura ID: <%= @invoice.id.first(8) %><br>
+            <strong>Antal timmar:</strong> <%= @invoice.quantity %>st <br>
+            <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma <br>
+            <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
+            Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
+            Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
+            <% if (25..64).include? @invoice.age %>
+              Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
+            <% end %>
+            Startdag: <%= @invoice.first_day %> <br>
+            Sista dag: <%= @invoice.last_day %><br>
             Jobb ID: <%= @invoice.job_id %><br>
             Ansöknings ID: <%= @invoice.application_id %><br>
             Profil: <%= @invoice.profile_username %><br>
             Beskrivning: <%= @invoice.description %> <br>
             Referens: <%= @invoice.user_reference %><br>
             Företagsreferens: <%= @invoice.company_reference %><br>
-            Startdag: <%= @invoice.first_day %> <br>
-            Sista dag: <%= @invoice.last_day %><br>
-            Antal timmar: <%= @invoice.quantity %>st <br>
-            Timlön: <%= @invoice.unit %>kr/timma <br>
-            Lön som betalas ut: <%= @invoice.nettolon %> SEK <br>
-            Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
-            Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
-            <% if (25..64).include? @invoice.age %>
-              Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
-            <% end %>
             Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
             Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
             Villkor: <%= @invoice.terms %> dagar<br>
