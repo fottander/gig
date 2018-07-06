@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   resources :terms_of_services, only: [:index]
 
+  resources :integritypolicies, only: [:index]
+
   resources :users, only: [:index, :edit, :update, :destroy]
 
   resources :users_without_profiles, only: [:index]
