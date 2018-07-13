@@ -1,0 +1,132 @@
+<div class="holy-grail-grid">
+  <div class="holy-grail-left-application" >
+    <div class='holy-grail-left-application-box' style='text-align: center; '>
+      <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'holy-grail-left-application-box' %><br>
+      <div style='background-color: #f77d0e; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
+        <%= link_to 'Varför A New Biz?', why_us_path, class: 'holy-grail-left-application-box', style:'color: white;' %><br>
+      </div>
+      <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box' %>
+    </div>
+  </div>
+  <div class="holy-grail-middle">
+    <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+    <h3 style='text-align: center;'>Varför ANewBiz?</h3>
+    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här kan du läsa lite mer om fördelarna med vår tjänst och hur det fungerar. Om du har några ytterligare frågor kan du kontakta oss.</p>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b1'>
+        <%= link_to '#', class: "read-more-b1" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'VARFÖR SKAFFA JOBB GENOM ANewBiz?', '', class: "read-more-b1", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b1' style="display: none;">
+        <%= link_to '#', class: "read-less-b1" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'VARFÖR SKAFFA JOBB GENOM ANewBiz?', '', class: "read-less-b1", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b1' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h3 style='text-align: center;'>Varför skaffa jobb genom ANewBiz?</h3>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>
+          När du lägger upp en profil på ANewBiz och söker jobb gör du det som frilansare. <br>
+          Varför kallas du frilansare och vad innebär det för dig?
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Mer frihet genom frilans</span> <br>
+          Vi har valt att kalla er frilansare för vi vill ge dig som arbetssökande mer frihet. Vi vill att du ska kunna jobba när, var och för vem du vill.<br> Vi kallar dig inte något töntigt som looper, gigster eller napster, hos oss är det du som har makten över ditt arbetsliv. Gör ett bra jobb och du får fler och bättre jobb samt kan begära mer i lön.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Stor chans att hitta ditt drömjobb</span> <br>
+          Vi vill ge dig som arbetssökande ett verktyg för att hitta din drömarbetsplats. Genom ANewBiz får du en snabb väg ut till massor av spännande företag. Om du gör ett bra jobb och arbetsgivaren lägger märke till dig, då öppnar det upp för vidare anställning.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Vad skiljer frilans från andra anställningar?</span> <br>
+          Skillnaden är att du söker de jobb du är intresserad av på vår plattform. Företagen söker inte upp dig utan du har full kontroll över vilka jobb du söker och anställs för. Det betyder att du har mer ansvar men också mer frihet.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Superenkelt</span> <br>
+          Vi har förenklat hela processen från att du söker ett jobb till att du får betalt. Det enda du behöver fokusera på är att göra ett bra jobb.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Jag är intresserad! Hur gör jag?</span> <br>
+          <div class="hero-divider-2" style='margin-top: -5px;'>
+            <ol class="progress-indicator">
+              <li class="is-complete" data-step="1">
+                <span>Registrera dig & skapa en profil</span>
+              </li>
+              <li class="is-complete" data-step="2">
+                <span>Hitta jobb som passar & skapa en ansökan</span>
+              </li>
+              <li class="is-current" data-step="3">
+                <span>Bli anställd & utför jobbet</span>
+              </li>
+              <li class="is-current" data-step="4">
+                <span>Ange dina timmar & få betalt</span>
+              </li>
+            </ol>
+          </div>
+        </p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b2'>
+        <%= link_to '#', class: "read-more-b2" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'SKAFFA PERSONAL GENOM ANewBiz?', '', class: "read-more-b2", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b2' style="display: none;">
+        <%= link_to '#', class: "read-less-b2" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'SKAFFA PERSONAL GENOM ANewBiz?', '', class: "read-less-b2", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b2' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h3 style='text-align: center;'>Varför skaffa personal genom ANewBiz?</h3>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>
+          Vi vill göra det så enkelt som möjligt för dig som företagare att skaffa personal. Vi som startat ANewBiz har själva drivit personalintensiva företag under många år. Vi vet hur tidskrävande det är med avtal, försäkringar, löner och skatter.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Hitta rätt personal</span> <br>
+          Vi har samlat massor av personer som är sugna på att jobba. När du får svar på en annons kan du enkelt se vem personen som sökt jobbet är. De har betyg från tidigare anställningar de genomfört på plattformen samt skriver utförligt vem de är som person.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Precis som vanligt</span> <br>
+          Precis som vanligt är det du som företagare som bestämmer vem du anställer. Du kan chatta med personen i vår plattform eller ringa dem om det känns bättre. <br>
+          Du diskuterar och bestämmer lön för den specifika personen utifrån dina preferenser och vilka tidigare erfarenheter personen har. Precis som i vanliga fall.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Som en underentrepenör</span> <br>
+          Vi brukar förklara det som att anlita ett enmansbolag som underentrepenör. Du granskar underentrepenören och förklarar vad som ska göras och när jobbet är gjort får du en faktura. Du behöver inte oroa dig för försäkringar, skatter, löner eller avgifter.
+        </p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          <span style='color: #3db5e6; font-weight: 700;'>- Jag är intresserad! Hur gör jag?</span> <br>
+          <div class="hero-divider-2" style='margin-top: -5px;'>
+            <ol class="progress-indicator">
+              <li class="is-complete" data-step="1">
+                <span>Registrera dig & skapa en annons</span>
+              </li>
+              <li class="is-complete" data-step="2">
+                <span>Få svar på din annons</span>
+              </li>
+              <li class="is-current" data-step="3">
+                <span>Granska & acceptera personer som sökt</span>
+              </li>
+              <li class="is-current" data-step="4">
+                <span>Få jobbet gjort & få faktura</span>
+              </li>
+            </ol>
+          </div>
+        </p>
+      </div>
+    </span>
+  </div>
+</div>

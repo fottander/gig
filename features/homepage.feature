@@ -17,8 +17,8 @@ Feature: Homepage
     And I click "faktureringen."
     And I should see "Här förklarar vi i detalj"
     And I click "Så fungerar det" in left menu
-    And I click "Vi kallar er frilansare! Läs mer om varför här."
-    Then I should see "Mer frihet genom frilans"
+    And I click "Varför ska du använda ANewBiz? Läs mer här."
+    Then I should see "Varför ANewBiz?"
     And I click "Kontakta oss"
     And I should see "Här kan du kontakta oss"
     And I click "Faktura, avgifter & lön" in left menu
@@ -27,8 +27,8 @@ Feature: Homepage
     And I should see "Här finner du våra allmänna villkor"
     And I click "Kontakta" in left menu
     Then I should see "Här kan du kontakta oss"
-    And I click "Varför frilansare?" in left menu
-    Then I should see "Mer frihet genom frilans"
+    And I click "Varför A New Biz?" in left menu
+    Then I should see "Varför ANewBiz?"
     Given I am on the home page
     And I click "REGISTRERA KONTO" within section
     Then I should see "Registrera nytt konto som jobbsökande"

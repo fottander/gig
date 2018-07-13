@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   resources :howitworks, only: [:index]
 
-  resources :why_freelances, only: [:index]
+  resources :why_us, only: [:index]
 
   resources :dashboards, only: [:index]
 
