@@ -34,11 +34,11 @@
       <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_area :description, placeholder: 'Vad ska frilansaren utföra? Var så utförlig som möjligt.' %>
+        <%= f.text_area :description, placeholder: 'Vad går jobbet ut på? Var så utförlig som möjligt.' %>
         <div class="fieldInfo">
           <span>
             Tips <br>
-            Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Skriv inte ut företagsnamn eller annan liknande info. Vilka arbetstider? Vilken typ  av person ni söker? Med mera.
+            Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Vilka arbetsuppgifter? Vilken typ av person ni söker med mera. Skriv inte ut företagsnamn eller annan liknande info.
           </span>
         </div>
       </div>
@@ -47,7 +47,7 @@
         <%= f.text_field :duration, placeholder: 'Antal dagar/veckor ni behöver personen.' %>
         <div class="fieldInfo">
           Tips <br>
-          Ange ungefärlig längd för jobbet i dagar eller veckor. Max är 4 veckor per anställningstillfälle.
+          Ange ungefärlig längd för jobbet i dagar eller veckor. En anställning kan inte vara längre än 30 dagar. Skulle ni vilja anställa en person längre tid kan en ny anställning skapas efter att den första slutförts.
         </div>
       </div>
       <%= f.label :when_in_time, 'När ska jobbet utföras', class: 'form-text' %>

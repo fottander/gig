@@ -42,7 +42,7 @@ class PaymentPdf < Prawn::Document
   def profile_info
     move_down 10
 
-    data = [ ["Frilansare", "ID", "Jobb ID", "Företagsreferens", "Företag", "ssyk-kod"],
+    data = [ ["Profil", "ID", "Jobb ID", "Företagsreferens", "Företag", "ssyk-kod"],
      ["#{@invoice.profile_username}", "#{@invoice.profile_id}", "#{@invoice.job_id}", "#{@invoice.company_reference}", "#{@company.name}", "#{@invoice.ssyk_code}"]]
 
     table(data, cell_style: { size: 10 }) do

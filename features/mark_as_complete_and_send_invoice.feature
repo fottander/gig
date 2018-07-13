@@ -73,7 +73,7 @@ Feature: Mark As complete and send invoice
       And I should see "2018-01-01"
       And I should see "Fisken"
       And I should see "Anders"
-      And I click "ALLA FRILANSARE"
+      And I click "ALLA JOBBSÖKARE"
       And I should see "Genomförda jobb: 1" at "Fisken"
       And I should see "Totalt fakturerat: 10 000 - 20 000 kr" at "Fisken"
       Then I should see "Genomförda jobb: 0" at "Filip"

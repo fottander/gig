@@ -5,7 +5,6 @@
       <%= link_to 'Kontrollpanel', panels_path, class: 'button-menu' %>
       <%= link_to 'Konto', edit_company_registration_path, class: 'button-menu' %>
       <%= link_to 'Skapa annons', new_job_path, class: 'button-menu' %>
-      <%= link_to 'Alla frilansare', profiles_path, class: 'button-menu' %>
     <% elsif current_user.present? %>
       <%= link_to 'Kontrollpanel', dashboards_path, class: 'button-menu' %><br>
       <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>

@@ -23,12 +23,12 @@
           <ul class="menu simple vertical medium-horizontal" data-close-on-click-inside="false" data-dropdown-menu>
             <% if company_signed_in? %>
               <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
-              <li><%= link_to "ALLA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
               <li><%= link_to "KONTROLLPANEL", panels_path %></li>
             <% elsif user_signed_in? %>
-              <li><%= link_to "ALLA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
               <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
@@ -37,7 +37,7 @@
               <li><%= link_to "ADMINISTRATION", administrations_path %></li>
             <% else %>
               <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
-              <li><%= link_to "ALLA FRILANSARE", profiles_path %></li>
+              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "REGISTRERA", new_user_registration_path %></li>
               <li><%= link_to "LOGGA IN", new_user_session_path %></li>
@@ -87,8 +87,8 @@
           <div class="site-footer-top">
               <p class="site-footer-title">Om ANewBiz</p>
               <p class="site-footer-content">
-                Vi är en marknadsplats för frilansjobb och egenanställning.
-                Vi förenklar och effektiviserar arbetslivet för företagare och arbetstagare med målet att skapa det perfekta verktyget för den moderna arbetsmarknaden.
+                Vi är en marknadsplats för korttidsjobb och uppdrag.
+                Vi förenklar och effektiviserar rekryteringsprocessen för företagare och jobbsökare med målet att skapa det perfekta verktyget för den moderna arbetsmarknaden.
               </p>
           </div>
         </div>
