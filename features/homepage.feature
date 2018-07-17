@@ -19,6 +19,8 @@ Feature: Homepage
     And I click "Så fungerar det" in left menu
     And I click "Varför ska du använda ANewBiz? Läs mer här."
     Then I should see "Varför ANewBiz?"
+    And I click "Vanliga frågor" in left menu
+    And I should see "Här har vi samlat de vanligaste frågorna"
     And I click "Kontakta oss"
     And I should see "Här kan du kontakta oss"
     And I click "Faktura, avgifter & lön" in left menu
