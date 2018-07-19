@@ -5,7 +5,7 @@
         <div class='login-title'>
           <span style='color: white; font-weight: 700;'>Registrera företag</span>
         </div>
-        <div class="login-box-input"><%= link_to "Registrera frilansare >>", new_user_registration_path, class: 'switch-button' %></div>
+        <div class="login-box-input"><%= link_to "Registrera jobbsökande >>", new_user_registration_path, class: 'switch-button' %></div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
           <div class="login-box-input">
@@ -52,7 +52,7 @@
             <%= f.password_field :password_confirmation, placeholder: "Bekräfta lösenord", autocomplete: "off" %>
           </div><br>
           <div class="actions" style='margin-top: -10px;'>
-            <span style='color: #6D6D6D; font-size: 14px;'>När du klickar registrera godkänner du automatiskt</span> <%= link_to 'våra villkor.', terms_of_services_path , style: 'font-size: 14px; text-transform: lowercase;'%><br>
+            <span style='color: #6D6D6D; font-size: 14px;'>När du klickar registrera godkänner du automatiskt</span> <%= link_to 'våra villkor', terms_of_services_path , style: 'font-size: 14px; text-transform: lowercase;'%> och <%= link_to 'vår integritetspolicy.', integritypolicies_path , style: 'font-size: 14px; text-transform: lowercase;'%><br>
             <%= f.submit "Registrera", class: 'reply-button', style:'width: 60%;' %>
             <p>eller <%= render "companies/shared/links" %></p>
           </div>
