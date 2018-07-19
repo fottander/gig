@@ -25,7 +25,7 @@ Feature: User registration
       And I should see "Inga aktiva ansökningar"
       And I should see "Inga aktiva jobb"
       And I should see "Inga färdiga jobb"
-      And I should see "Inga fakturor"
+      And I should see "Inga aktiva utbetalningar"
       Then I should see "Nästa steg är att skapa en profil"
       And I click "LOGGA UT"
       Given I am on the home page

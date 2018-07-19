@@ -18,7 +18,7 @@ class InvoicesController < ApplicationController
       # Sends email to company when invoice is created.
       NotificationMailer.new_invoice_email(@company, @invoice).deliver_now
 
-      flash[:notice] = "Faktura skapad"
+      flash[:notice] = "Utbetalning skapad"
       redirect_back(fallback_location: root_path)
     else
       flash[:alert] = 'Fyll i alla fält korrekt!'
@@ -42,7 +42,6 @@ class InvoicesController < ApplicationController
     end
   end
 
-
   def edit
     @invoice = Invoice.find(params[:id])
   end
@@ -53,7 +52,7 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       if @invoice.update invoice_update_params
         @invoice.create_activity :update, owner: current_user.profile, recipient: @company
-        format.html { redirect_to edit_invoice_path(@invoice), notice: 'Faktura ändrad' }
+        format.html { redirect_to edit_invoice_path(@invoice), notice: 'Utbetalning ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else
         format.html { render :edit }
@@ -132,7 +131,7 @@ class InvoicesController < ApplicationController
   def destroy
     @invoice = Invoice.find(params[:id])
     if @invoice.destroy
-      flash[:notice] = "Faktura raderad!"
+      flash[:notice] = "Utbetalning raderad!"
       redirect_back(fallback_location: dashboards_path)
     else
       flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'

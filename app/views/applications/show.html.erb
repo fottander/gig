@@ -61,11 +61,11 @@
         <% if current_user.present? %>
           <% if @application.profile_id == current_user.profile.id %>
             <div class='invoice-title'>
-              <span style='color: white; font-weight: 700;'>Skapa faktura baserad på jobbet</span><br>
+              <span style='color: white; font-weight: 700;'>Skapa utbetalning baserad på jobbet</span><br>
               <span style='color: white; font-weight: 500; font-size: 10px;'>Första jobbdag: <%= @application.first_day %></span><br>
               <span style='color: white; font-weight: 500; font-size: 10px;'>Sista jobbdag: <%= @application.last_day %></span>
             </div>
-            <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa faktura? Tveka inte att <%= link_to 'kontakta oss!', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %></p>
+            <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa utbetalning? Tveka inte att <%= link_to 'kontakta oss!', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %></p>
             <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, job_title: @job.title, application_id: @application.id) do %>
             <%= hidden_field_tag :description, @job.categories.pluck(:name) %>
             <%= label_tag :quantity, 'Antal timmar(t.ex. 10)st', class: 'invoice-details-date' %>
@@ -77,7 +77,7 @@
             <%= hidden_field_tag :user_reference, current_user.profile.username %>
             <%= hidden_field_tag :company_reference, @job.company_username %>
             <%= hidden_field_tag :ssyk_code, @job.categories.pluck(:ssyk_code) %>
-            <%= submit_tag 'Skapa faktura', class: 'profile-button-expand', style: 'width: 100%;' %>
+            <%= submit_tag 'Skapa utbetalning', class: 'profile-button-expand', style: 'width: 100%;' %>
             <% end %>
           <% end %>
         <% else %>
