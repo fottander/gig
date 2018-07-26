@@ -66,7 +66,7 @@ class InvoicesController < ApplicationController
     @user = @invoice.user
     if @invoice.update invoice_feedback_params
       if @invoice.paid == false
-        @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
+        @invoice.update(invoice_fees: @invoice.invoice_fees - 100)
         flash[:notice] = "Sparat!"
         redirect_back(fallback_location: panels_path)
       else
@@ -84,7 +84,7 @@ class InvoicesController < ApplicationController
     @user = @invoice.user
     if @invoice.update invoice_rating_params
       if @invoice.paid == false
-        @invoice.update(invoice_fees: @invoice.invoice_fees - 50)
+        @invoice.update(invoice_fees: @invoice.invoice_fees - 100)
         flash[:notice] = "Sparat!"
         redirect_back(fallback_location: panels_path)
       else
