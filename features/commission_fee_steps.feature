@@ -54,7 +54,7 @@ Background:
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 7000 kr"
     Then I should see "Din nuvarande avgift är 10.0%. Läs mer om våra avgifter."
-    And I click "Snabbfaktura"
+    And I click "Fakturera utan företag"
     And I click "Skapa en faktura"
     And I fill in "Organisationsnummer" with "880914"
     And I fill in "Företagsnamn" with "GG"
