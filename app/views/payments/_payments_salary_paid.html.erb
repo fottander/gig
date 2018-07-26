@@ -2,12 +2,12 @@
   <% if @invoices_salary_paid.present? %>
     <% @invoices_salary_paid.each do |invoice| %>
       <% if invoice.user_id == current_user.id %>
-        <span class='item-define'>Faktura ID:</span> <%= invoice.id.first(8) %><br>
+        <span class='item-define'>Utbetalnings ID:</span> <%= invoice.id.first(8) %><br>
         <%= link_to invoice.updated_at.strftime("%F %R"), payment_path(invoice), class: 'reply-button' %><br><br>
       <% end %>
     <% end %>
   <% else %>
-    Inga fakturor registrerade
+    Inga utbetalningar registrerade
   <% end %>
 </p>
 <div class="will-paginate">

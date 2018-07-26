@@ -2,12 +2,12 @@
   <% if @ezinvoices_salary_paid.present? %>
     <% @ezinvoices_salary_paid.each do |ezinvoice| %>
       <% if ezinvoice.user_id == current_user.id %>
-        <span class='item-define'>Faktura ID:</span> <%= ezinvoice.id.first(8) %><br>
+        <span class='item-define'>Utbetalnings ID:</span> <%= ezinvoice.id.first(8) %><br>
         <%= link_to ezinvoice.updated_at.strftime("%F %R"), ezpayment_path(ezinvoice), class: 'reply-button' %><br><br>
       <% end %>
     <% end %>
   <% else %>
-    Inga fakturor registrerade
+    Inga utbetalningar registrerade
   <% end %>
 </p>
 <div class="will-paginate">
