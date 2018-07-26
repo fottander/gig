@@ -20,7 +20,7 @@ Feature: Extend profile
     Scenario: I go to dashboard
       Given I am on the home page
       And I click "LOGGA IN"
-      And I should see "Logga in som frilansare"
+      And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
@@ -50,7 +50,7 @@ Feature: Extend profile
       And I attach file
       And I click "Lägg till"
       And I should see "Profil redigerad!"
-      And I click "ALLA FRILANSARE"
+      And I click "ALLA JOBBSÖKARE"
       Then I should see "fisken" avatar name "anewbiz-logo.png"
       And I click "fisken"
       Then I should see "fisken" avatar name "anewbiz-logo.png"

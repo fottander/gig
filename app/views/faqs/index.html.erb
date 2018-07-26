@@ -1,0 +1,212 @@
+<div class="holy-grail-grid">
+  <div class="holy-grail-left-application" >
+    <div class='holy-grail-left-application-box' style='text-align: center; '>
+      <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Varför A New Biz?', why_us_path, class: 'holy-grail-left-application-box' %><br>
+      <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box' %>
+      <div style='background-color: #f77d0e; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
+        <%= link_to 'Vanliga frågor', faqs_path, class: 'holy-grail-left-application-box', style:'color: white;' %><br>
+      </div>
+    </div>
+  </div>
+  <div class="holy-grail-middle">
+    <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+    <h3 style='text-align: center;'>Vanliga frågor</h3>
+    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här har vi samlat de vanligaste frågorna vi får från användare. Om det är något du undrar som vi inte svarar på nedanför är du välkommen att kontakta oss.</p>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b0'>
+        <%= link_to '#', class: "read-more-b0" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Är jag försäkrad när jag jobbar genom ANewBiz?', '', class: "read-more-b0", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b0' style="display: none;">
+        <%= link_to '#', class: "read-less-b0" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Är jag försäkrad när jag jobbar genom ANewBiz?', '', class: "read-less-b0", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b0' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Är jag försäkrad när jag jobbar genom ANewBiz?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          Du är fullt försäkrad när du arbetar genom ANewBiz. Du omfattas alltid av en liv- och olycksfallsförsäkring under tiden du har en anställning, samma skydd som vid kollektivavtalsanställning.
+        </p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b1'>
+        <%= link_to '#', class: "read-more-b1" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur bestäms lönen?', '', class: "read-more-b1", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b1' style="display: none;">
+        <%= link_to '#', class: "read-less-b1" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur bestäms lönen?', '', class: "read-less-b1", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b1' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Hur bestäms lönen?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          Oftast står lönen i annonsen som bestämts av företaget som lagt upp annonsen. Du kan alltid förhandla om lön innan du tar jobbet om du känner att du är mer kvalificerad och förtjänar högre lön. Helt enkelt så är det upp till dig och företaget att komma överens vilken lön som gäller. <br>Lönen anges alltid som bruttolön per timma exklusive semesterersättning.
+        </p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b6'>
+        <%= link_to '#', class: "read-more-b6" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur mycket får jag ut i lön?', '', class: "read-more-b6", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b6' style="display: none;">
+        <%= link_to '#', class: "read-less-b6" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur mycket får jag ut i lön?', '', class: "read-less-b6", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b6' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Hur mycket får jag ut i lön?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          Här kan du se ett räkneexempel.<br>
+          35 årig snickare har jobbat en vecka för ett byggbolag och skapar en utbetalning.<br>
+          Snickaren har diskuterat med företaget och han får en timlön på 180kr/timma. Under veckan arbetade han 60 timmar.<br>
+          180kr gånger antal timmar 60 = 10 800kr <br>
+          Bruttolön inkl. semesterersättning(12% av lön) = 12 096kr <br>
+          Vår avgift är 10% av bruttolönen inkl. semesterersättning = 1210kr <br>
+          Nya bruttolönen inkl. semesterersättning blir 10 886kr <br>
+          Skatt 30% på 10 886kr är 3266kr <br>
+          Lön efter skatt och avgifter = 7620kr <br>
+          Om samma snickare sedan skulle fortsätta jobba i samma takt nästa vecka så betalar han endast 9% i avgift på den veckans utbetalning. <br>
+          Vår avgift blir sedan lägre och lägre ju mer du tjänar genom ANewBiz. Läs mer om <%= link_to 'våra avgifter här.', our_rates_path, style: 'text-transform: lowercase; color: #3db5e6; font-size: 16px; font-weight: 400; letter-spacing: 0;' %>
+        </p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b3'>
+        <%= link_to '#', class: "read-more-b3" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Vi använder personalliggare, hur gör man då?', '', class: "read-more-b3", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b3' style="display: none;">
+        <%= link_to '#', class: "read-less-b3" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Vi använder personalliggare, hur gör man då?', '', class: "read-less-b3", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b3' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Vi använder personalliggare, hur gör man då?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          Om ni som företag använder personalliggare fungerar det precis som ni skulle tagit in en underentrepenör. Ni lägger alltså till vårt företag FeltCap, Org.nr: 559129-6099 som underentrepenör. Därefter kan antingen ni eller den anställde kontakta vår kundtjänst så kommer vi ordna med allt som har med personalliggaren att göra.
+        </p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b4'>
+        <%= link_to '#', class: "read-more-b4" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Får jag semesterersättning när jag jobbar?', '', class: "read-more-b4", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b4' style="display: none;">
+        <%= link_to '#', class: "read-less-b4" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Får jag semesterersättning när jag jobbar?', '', class: "read-less-b4", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b4' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Får jag semesterersättning när jag jobbar?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          Det är lag på att alla svenska arbetsgivare ska betala semesterersättning på 12%. Det betyder därmed att om du kommit överens med ett företag om en timlön på 100kr så kommer din verkliga lön vara 112kr.
+        </p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b5'>
+        <%= link_to '#', class: "read-more-b5" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur fungerar det med pension?', '', class: "read-more-b5", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b5' style="display: none;">
+        <%= link_to '#', class: "read-less-b5" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur fungerar det med pension?', '', class: "read-less-b5", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b5' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Hur fungerar det med pension?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          Precis som på en vanlig arbetsplats betalar vi in pension om du är mellan 25 och 65 år, vilket är ett lagstadgat krav. Denna betalning består av 4.3% av bruttolönen. <br>För företag innebär detta att vi lägger på 4.3% på er faktura för personer mellan 25 och 65 år, precis det ni skulle betalat om ni själva anställt personen.
+        </p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b7'>
+        <%= link_to '#', class: "read-more-b7" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Vad kostar det att anställa genom ANewBiz?', '', class: "read-more-b7", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b7' style="display: none;">
+        <%= link_to '#', class: "read-less-b7" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Vad kostar det att anställa genom ANewBiz?', '', class: "read-less-b7", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b7' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Vad kostar det att anställa genom ANewBiz?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          Om en person arbetar 100 timmar och får 100kr/timma blir det 10 000kr i bruttolön.<br>
+          Lagstadgad semesterersättning måste betalas på 12% av bruttolönen vilket blir 1200kr.<br>
+          Bruttolön inkl. semesterersättning = 11 200kr <br>
+          Arbetsgivaravgifter på bruttolön inkl. semesterersättning måste betalas på 31,42% vilket blir 3519kr.<br>
+          Till detta tillkommer AFA-försäkringar för arbetare som tillhandahålls genom Fora. För personer mellan 25 och 65 år blir denna avgift 4.6%, vilket blir 515kr. Av dessa 515kr eller 4.6% består 4,3% eller 482kr av pension som företag måste betala särskild löneskatt på. Löneskatten är på 24,26%, vilket blir 117kr.<br>
+          Ni betalar 11 200 + 3519 + 515 + 117 = 15 351kr exkl. moms. Det är precis det beloppet vi fakturerar er som företag när ni använder vår tjänst, alltså helt gratis!<br>
+          För personer under 25 eller över 65 år betalas ingen pension eller särskild löneskatt. Då blir AFA-försäkringen endast 0.3%, alltså 33kr och ni betalar istället 11 200 + 3519 + 33 = 14 752kr exkl. moms.</p>
+      </div>
+    </span>
+    <div class="our-rates-box">
+      <span class='truncated-paragraph-b2'>
+        <%= link_to '#', class: "read-more-b2" do %>
+          <i class="fi-plus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur fungerar det med sjuklön och sjukfrånvaro?', '', class: "read-more-b2", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+      <span class='normal-paragraph-b2' style="display: none;">
+        <%= link_to '#', class: "read-less-b2" do %>
+          <i class="fi-minus size-15" style='color: white; padding-left: 5px;'></i>
+        <% end %>
+        <%= link_to 'Hur fungerar det med sjuklön och sjukfrånvaro?', '', class: "read-less-b2", style: 'margin-left: 5px; color: white; font-size: 12px; letter-spacing: 0.5px;' %>
+      </span>
+    </div>
+    <span class='normal-paragraph-b2' style="display: none;">
+      <div class='our-rates-normal-paragraph'>
+        <h4 style='text-align: center;'>Hur fungerar det med sjuklön och sjukfrånvaro?</h4>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center;'>
+          För korttidsanställda gäller särskilda regler för rätten till sjuklön. Då anställningarna genom ANewBiz alltid är kortare än en månad i taget behöver inte arbetsgivaren betala sjuklön vid sjukfrånvaro de första 14 dagarna av anställningen. Då får den anställde i stället begära sjukpenning från Försäkringskassan. Det finns dock undantag och en skyddsregel för personer som ofta har korttidsanställningar. Är uppehållet mellan anställningarna högst 14 kalenderdagar hos ett företag ska man räkna ihop anställningstiden. Är tiden då sammanlagt mer än en månad får alltså den anställde sjuklön utan kvalifikationstid. Har du som företag anställt en person längre än en månad är det ni som står för den eventuella kostnaden för sjuklön. Läs mer om <%= link_to 'det i våra villkor här.', terms_of_services_path, style: 'text-transform: lowercase; color: #3db5e6; font-size: 16px; font-weight: 400; letter-spacing: 0;' %>
+        </p>
+      </div>
+    </span>
+  </div>
+</div>

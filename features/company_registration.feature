@@ -11,7 +11,7 @@ Feature: Company registration
     Scenario: I register my company
       Given I am on the home page
       And I click "REGISTRERA"
-      And I should see "Registrera ny frilansare"
+      And I should see "Registrera nytt konto som jobbsökande"
       And I click "Registrera företag >"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Företagsnamn" with "hello"
@@ -59,7 +59,7 @@ Feature: Company registration
     Scenario: I register my company but email/användarnamn is already taken
       Given I am on the home page
       And I click "REGISTRERA"
-      And I should see "Registrera ny frilansare"
+      And I should see "Registrera nytt konto som jobbsökande"
       And I click "Registrera företag >"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Företagsnamn" with "hello"

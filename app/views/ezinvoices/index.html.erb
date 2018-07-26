@@ -9,16 +9,16 @@
       <% else %>
       <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu' %>
     <% end %><br>
-    <%= link_to 'Snabbfaktura', ezinvoices_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
+    <%= link_to 'Fakturera utan företag', ezinvoices_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
   </div>
 
   <div class="holy-grail-middle">
     <div class="login-box-form-section" style='text-align: left;'>
-      <div class='post-title'><h3>Snabbfakturor</h3></div>
-      <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons.</p>
+      <div class='post-title'><h3>Fakturera utan företag</h3></div>
+      <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor för jobb du utfört utanför vår plattform och som inte är kopplade till en aktiv jobbannons. Vi skickar fakturorna till företaget du jobbat för och sedan betalar vi ut din lön, precis som vanligt.</p>
       <%= link_to 'Skapa en faktura', new_ezinvoice_path, class: 'reply-button' %><br><br>
-      <p style='font-weight: 550; color: #696868;'>Nedanför listas alla dina snabbfakturor</p>
+      <p style='font-weight: 550; color: #696868;'>Nedanför listas alla dina fakturor</p>
       <% if current_user.profile.present? %>
         <% if @ezinvoices.present? %>
           <% @ezinvoices.each do |ezinvoice| %>
@@ -41,7 +41,7 @@
             <% end %>
           <% end %>
         <% else %>
-          <p style='font-weight: 550; color: #696868;'>Inga snabbfakturor ännu!</p>
+          <p style='font-weight: 550; color: #696868;'>Inga fakturor ännu!</p>
         <% end %>
       <% else %>
         <p style='font-weight: 550; color: #696868;'>Skapa en profil innan du kan fakturera!</p>

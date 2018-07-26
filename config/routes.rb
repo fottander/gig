@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'faqs/index'
+
   devise_for :admins
   devise_scope :admin do
     authenticated :admin do
@@ -51,11 +53,13 @@ Rails.application.routes.draw do
 
   resources :howitworks, only: [:index]
 
-  resources :why_freelances, only: [:index]
+  resources :why_us, only: [:index]
 
   resources :dashboards, only: [:index]
 
   resources :administrations, only: [:index]
+  
+  resources :faqs, only: [:index]
 
   get 'applications' => 'applications#index', as: :applications
 

@@ -31,9 +31,9 @@ Feature: Create an invoice without an ad
   Scenario: I create an invoice without an ad and edit it afterwards and then delete it
     Given I am logged in as user "felix@mail.com"
     Given I am on the dashboards page
-    And I click "Snabbfaktura"
+    And I click "Fakturera utan företag"
     And I click "Skapa en faktura"
-    Then I should see "Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons"
+    Then I should see "Här kan du skapa fakturor för jobb du utfört utanför vår plattform"
     And I fill in "* Organisationsnummer" with "324234"
     And I fill in "* Företagsnamn" with "Kul ab"
     And I fill in "* Företagets adress" with "Södra"
@@ -48,13 +48,13 @@ Feature: Create an invoice without an ad
     And I fill in "* Referens" with "Roger"
     And I click "Skapa"
     Then I should see "Ny faktura skapad!"
-    And I click "Snabbfaktura"
+    And I click "Fakturera utan företag"
     And I click "Visa/redigera faktura"
     And I should see "Redigera faktura"
     And I fill in "* Antal timmar" with "10"
     And I fill hidden field ez amount and fill "1000"
     And I click "Spara"
-    And I click "Snabbfaktura"
+    And I click "Fakturera utan företag"
     And I should see "Fakturan ej betald"
     Then I should see "1000"
     And I click "LOGGA UT"
@@ -88,7 +88,7 @@ Feature: Create an invoice without an ad
     And I click "LOGGA UT"
     Given I am logged in as user "felix@mail.com"
     Given I am on the dashboards page
-    And I click "Snabbfaktura"
+    And I click "Fakturera utan företag"
     Then I should see "Fakturan är betald"
     And I click "Visa utbetalningsinfo"
     And I should see "Nettolön (lön efter skatt): 706 SEK"
@@ -97,7 +97,7 @@ Feature: Create an invoice without an ad
   Scenario: I create an invoice without an ad but without a profile
     Given I am logged in as user "greger@mail.com"
     Given I am on the dashboards page
-    And I click "Snabbfaktura"
+    And I click "Fakturera utan företag"
     And I click "Skapa en faktura"
-    Then I should see "Här kan du skapa fakturor som inte är direkt kopplade till en aktiv jobbannons"
+    Then I should see "Här kan du skapa fakturor för jobb du utfört utanför vår plattform"
     Then I should see "Skapa en profil innan du kan fakturera!"

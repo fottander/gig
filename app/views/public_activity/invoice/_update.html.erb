@@ -1,6 +1,10 @@
 redigerade en
 <% if activity.trackable.present? %>
-  <%= link_to 'faktura', invoice_path(activity.trackable.id) %>
+  <% if activity.recipient.type == 'user' %>
+    <%= link_to 'utbetalning', invoice_path(activity.trackable.id) %>
+  <% else %>
+    <%= link_to 'faktura', invoice_path(activity.trackable.id) %>
+  <% end %>
 <% else %>
   faktura
 <% end %>

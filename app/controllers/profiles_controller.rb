@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
   def index
     add_breadcrumb 'Start', :root_path
-    add_breadcrumb 'Alla Frilansare'
+    add_breadcrumb 'Alla Jobbsökare'
     sleep 1
     @profiles = Profile.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|
@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @invoices = @profile.user.invoices.with_feedback.paginate(page: params[:with_feedback])
     add_breadcrumb 'Start', :root_path
-    add_breadcrumb 'Alla Frilansare', :profiles_path
+    add_breadcrumb 'Alla Jobbsökare', :profiles_path
     add_breadcrumb @profile.username
   end
 

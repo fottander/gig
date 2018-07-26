@@ -21,7 +21,7 @@ Feature: User dashboard
     Scenario: I go to dashboard
       Given I am on the home page
       And I click "LOGGA IN"
-      And I should see "Logga in som frilansare"
+      And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
@@ -42,7 +42,7 @@ Feature: User dashboard
       And I fill in "Födelsedatum" with "1988-09-14"
       And I click "Skapa"
       Then I should see "Ny profil skapad!"
-      And I click "ALLA FRILANSARE"
+      And I click "ALLA JOBBSÖKARE"
       And I should see "Felix O"
       And I should see "Målare, snickare med lång erfarenhet"
       And I should see "Ålder: 29"

@@ -10,12 +10,12 @@
         Sista jobbdag: <%= application.last_day %><br>
         Antal svar: <%= application.comments.count %>
       </div>
-      <%= link_to 'Visa ansökan/Skapa faktura', job_application_path(application.job_id, application.id), class: 'button-green' %>
+      <%= link_to 'Visa ansökan/Skapa utbetalning', job_application_path(application.job_id, application.id), class: 'button-green' %>
     </div>
   <% end %>
 <% else %>
   <div class='portfolio-card'>
-    <div class='portfolio-card-header'><strong>Inga aktiva jobb</strong></div>
+    <div class='portfolio-card-header' style='font-size: 14px;'><strong>Inga aktiva jobb</strong></div>
   </div>
 <% end %>
 </span>

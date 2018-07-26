@@ -6,7 +6,7 @@
       <div class="portfolio-resume-subheader">
         Ansöknings ID: <%= invoice.application_id %><br>
         Jobb ID: <%= invoice.job_id %> <br>
-        Faktura ID: <%= invoice.id.first(8) %> <br>
+        Utbetalnings ID: <%= invoice.id.first(8) %> <br>
         Skapad: <%= invoice.created_at.strftime("%F %R") %>
       </div>
       <% if invoice.paid == false %>
@@ -23,7 +23,7 @@
   <% end %>
 <% else %>
   <div class='portfolio-card'>
-    <div class='portfolio-card-header'><strong>Inga fakturor</strong></div>
+    <div class='portfolio-card-header' style='font-size: 14px;'><strong>Inga aktiva utbetalningar</strong></div>
   </div>
 <% end %>
 </span>

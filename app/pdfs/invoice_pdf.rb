@@ -49,7 +49,7 @@ class InvoicePdf < Prawn::Document
   def profile_info
     move_down 10
 
-    data = [ ["Frilansare", "ID", "Jobb ID", "Startdag", "Sista dag", "ssyk-kod", "Förfallodatum"],
+    data = [ ["Profil", "ID", "Jobb ID", "Startdag", "Sista dag", "ssyk-kod", "Förfallodatum"],
      ["#{@invoice.profile_username}", "#{@invoice.profile_id}", "#{@invoice.job_id}", "#{@invoice.first_day}", "#{@invoice.last_day}", "#{@invoice.ssyk_code}", "#{@due_date.strftime('%F')}"]]
 
     table(data, cell_style: { size: 10 }) do

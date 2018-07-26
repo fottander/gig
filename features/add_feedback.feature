@@ -29,7 +29,7 @@ Feature: Extend invoice and add feedback
     Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as company "felix@mail.com"
       Given I am on the home page
-      And I click "ALLA FRILANSARE"
+      And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
       And I should not see "Betyg"
       Given I am on control panel page
@@ -54,7 +54,7 @@ Feature: Extend invoice and add feedback
       And I select "5" from "rating"
       And I click "Skicka betyg"
       And I should see "Sparat!"
-      And I click "ALLA FRILANSARE"
+      And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
       And I should see "Betyg 5/5"
       And I should see "Betyg 4.3/5"
@@ -115,7 +115,7 @@ Feature: Extend invoice and add feedback
       And I fill in "feedback" with "Väldigt bra snubbe"
       And I click "Skicka feedback"
       And I should see "Sparat!"
-      And I click "ALLA FRILANSARE"
+      And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
       And I should see "5/5"
       Then I should see "Väldigt bra snubbe"

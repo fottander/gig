@@ -11,7 +11,7 @@ Feature: User registration
     Scenario: I register as a user
       Given I am on the home page
       And I click "REGISTRERA"
-      And I should see "Registrera ny frilansare"
+      And I should see "Registrera nytt konto som jobbsökande"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Förnamn" with "felix"
       And I fill in "Efternamn" with "ottander"
@@ -25,12 +25,12 @@ Feature: User registration
       And I should see "Inga aktiva ansökningar"
       And I should see "Inga aktiva jobb"
       And I should see "Inga färdiga jobb"
-      And I should see "Inga fakturor"
+      And I should see "Inga aktiva utbetalningar"
       Then I should see "Nästa steg är att skapa en profil"
       And I click "LOGGA UT"
       Given I am on the home page
       And I click "LOGGA IN"
-      And I should see "Logga in som frilansare"
+      And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
@@ -41,7 +41,7 @@ Feature: User registration
     Scenario: I register without first name or last name
       Given I am on the home page
       And I click "REGISTRERA"
-      And I should see "Registrera ny frilansare"
+      And I should see "Registrera nytt konto som jobbsökande"
       And I fill in "Email" with "greger@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
@@ -52,7 +52,7 @@ Feature: User registration
     Scenario: I login as a user
       Given I am on the home page
       And I click "LOGGA IN"
-      And I should see "Logga in som frilansare"
+      And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
@@ -61,7 +61,7 @@ Feature: User registration
     Scenario: I register already taken user
       Given I am on the home page
       And I click "REGISTRERA"
-      And I should see "Registrera ny frilansare"
+      And I should see "Registrera nytt konto som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
