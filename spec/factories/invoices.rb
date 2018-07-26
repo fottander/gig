@@ -10,7 +10,6 @@ FactoryGirl.define do
     company_reference "MyString"
     ocr_number "MyString"
     age 20
-    invoice_fees 0
     user_fee 0.1
     job_id 1
     application_id 1

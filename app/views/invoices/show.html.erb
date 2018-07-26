@@ -31,7 +31,7 @@
                   <div class='post-title'>
                     Rekommendera <%= @invoice.profile_username %> till andra
                     <% if @invoice.paid == false %>
-                      (spara 50kr)
+                      (spara 100kr)
                     <% end %>
                   </div>
                   <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
@@ -44,7 +44,7 @@
                 <%= form_tag rating_invoice_path(@invoice), method: :patch do %>
                   Ge betyg till <%= @invoice.profile_username %>
                   <% if @invoice.paid == false %>
-                    (spara 50kr)
+                    (spara 100kr)
                   <% end %>
                   <%= select_tag :rating, options_for_select(Invoice::RATING_OPTIONS), prompt: 'Välj betyg' %>
                   <%= submit_tag 'Skicka betyg', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
@@ -146,7 +146,7 @@
     <% if @invoice.user_id == current_user.id %>
       <div class="holy-grail-middle">
         <div class='simple-form'>
-          <div class='post-title'><h3>Fakturadetaljer</h3></div>
+          <div class='post-title'><h3>Utbetalningsdetaljer</h3></div>
           <div class='invoice-details'>
             Utbetalnings ID: <%= @invoice.id.first(8) %><br>
             <strong>Antal timmar:</strong> <%= @invoice.quantity %>st <br>
