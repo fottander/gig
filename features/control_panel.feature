@@ -50,6 +50,8 @@ Feature: Company control panel
       Then I should see "Aktiv"
       And I should see "2" jobs description "snickare sökes"
       Then I should see "Sista ansökningsdag nådd" beside "2"
+      And I click "Antal ansökningar: 1"
+      Then I should see "Fisken"
 
     Scenario: I edit job kollektivavtal and inactivate a job ad
       Given I am logged in as company "felix@mail.com"
