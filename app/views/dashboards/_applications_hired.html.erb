@@ -8,9 +8,15 @@
         Jobb ID: <%= application.job_id %><br>
         Första jobbdag: <%= application.first_day %><br>
         Sista jobbdag: <%= application.last_day %><br>
-        Antal svar: <%= application.comments.count %>
+        Chatsvar: <%= application.comments.count %>
       </div>
-      <%= link_to 'Visa ansökan/Skapa utbetalning', job_application_path(application.job_id, application.id), class: 'button-green' %>
+      <% if application.last_day > Date.today %>
+        <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
+      <% else %>
+        <div class='blinklink'>
+          <%= link_to 'Begär utbetalning', job_application_path(application.job_id, application.id), class: 'button-green-big' %>
+        </div>
+      <% end %>
     </div>
   <% end %>
 <% else %>

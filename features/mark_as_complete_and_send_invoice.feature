@@ -38,7 +38,8 @@ Feature: Mark As complete and send invoice
     Scenario: I create an invoice and see completed jobs change in index
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
-      And I click "Visa ansökan/Skapa utbetalning"
+      And I should not see "Visa ansökan"
+      And I click "Begär utbetalning"
       And I should see "Skapa utbetalning baserad på jobbet"
       And I fill in "quantity" with "120"
       And I fill hidden field unit and fill "100"

@@ -79,7 +79,8 @@ Feature: Apply to job
       And I should see "målare sökes" in active applications
       And I should see "Första jobbdag: 2018-01-01" in active applications
       And I should see "Sista jobbdag: 2018-01-20" in active applications
-      And I click "Visa ansökan/Skapa utbetalning"
+      And I should not see "Visa ansökan"
+      And I click "Begär utbetalning"
       And I should see "Skapa utbetalning baserad på jobbet"
       And I should not see "Diskutera & chatta"
       And I should not see "Anställ"

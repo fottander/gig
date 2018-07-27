@@ -38,7 +38,8 @@ Background:
     And I should see "Totalt intjänat: 0 kr"
     Then I should see "Din nuvarande avgift är 10.0%. Läs mer om våra avgifter."
     Given I am on the dashboards page
-    And I click "Visa ansökan/Skapa utbetalning"
+    And I should not see "Visa ansökan"
+    And I click "Begär utbetalning"
     And I should see "Skapa utbetalning baserad på jobbet"
     And I fill in "quantity" with "100"
     And I fill hidden field unit and fill "70"
