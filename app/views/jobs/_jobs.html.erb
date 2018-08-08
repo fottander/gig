@@ -35,12 +35,12 @@
                 </div>
                 <div class='large-2 columns'>
                   <span style='font-weight: 550;'>
-                    Krav:
+                    Anställningstyp:
                   </span>
-                  <% if job.requirement.length > 30 %>
-                    <%= truncate(job.requirement, length: 30) %>
+                  <% if job.jobtype.present? %>
+                    <%= job.jobtype %>
                   <% else %>
-                    <%= job.requirement %>
+                    Ej specificerat
                   <% end %>
                 </div>
                 <div class='large-2 columns'>

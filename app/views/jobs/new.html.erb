@@ -42,12 +42,22 @@
           </span>
         </div>
       </div>
+      <%= f.label :jobtype, 'Typ av anställning', class: 'form-text' %>
+      <%= f.select :jobtype, options_for_select(Job::JOBTYPE_OPTIONS), prompt: '-- Välj --', class: 'input-medium' %>
       <%= f.label :duration, 'Jobbets längd', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :duration, placeholder: 'Antal dagar/veckor ni behöver personen.' %>
         <div class="fieldInfo">
           Tips <br>
           Ange ungefärlig längd för jobbet i dagar eller veckor. En anställning kan inte vara längre än 30 dagar. Skulle ni vilja anställa en person längre tid kan en ny anställning skapas efter att den första slutförts.
+        </div>
+      </div>
+      <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.text_field :hour_day, placeholder: 'Hur många jobbtimmar per dag?' %>
+        <div class="fieldInfo">
+          Tips <br>
+          Vid projekt kan detta fält lämnas blankt. Annars anges hur många jobbtimmar per dag.
         </div>
       </div>
       <%= f.label :when_in_time, 'När ska jobbet utföras', class: 'form-text' %>
@@ -60,14 +70,6 @@
       </div>
       <%= f.label :deadline, 'Sista ansökningsdag (lämnas tom för löpande annons)', class: 'form-text' %>
       <%= f.date_field :deadline, class: 'input-mini'  %>
-      <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :hour_day, placeholder: 'Hur många jobbtimmar per dag?' %>
-        <div class="fieldInfo">
-          Tips <br>
-          Vid projekt kan detta fält lämnas blankt. Annars anges hur många jobbtimmar per dag.
-        </div>
-      </div>
       <%= f.label :requirement, 'Krav (kan lämnas blankt)', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :requirement, placeholder: 'Finns det några specifika krav för att få jobbet?' %>

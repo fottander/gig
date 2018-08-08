@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  validates_presence_of :name, :address, :zip_code, :city, :phone, :org_number, :contact
+  validates_presence_of :name, :address, :zip_code, :city, :phone, :org_number
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   has_many :jobs, dependent: :destroy

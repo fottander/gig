@@ -64,6 +64,7 @@ en:
         when_in_time: 'När'
         duration: 'Varaktighet'
         hour_day: 'Timmar'
+        jobtype: 'Typ av anställning'
         requirement: 'Krav'
         kollektivavtal: 'Kollektivavtal'
       user:
@@ -211,6 +212,8 @@ en:
             hour_day:
               blank: "kan inte vara blankt!"
             kollektivavtal:
+              blank: "kan inte vara blankt!"
+            jobtype:
               blank: "kan inte vara blankt!"
 
         profile:

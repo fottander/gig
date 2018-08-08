@@ -34,8 +34,6 @@
         <%= f.text_field :org_number %>
         <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
         <%= f.text_field :phone %>
-        <%= f.label :contact, 'Kontaktperson', class: 'form-text' %>
-        <%= f.text_field :contact %>
         <%= f.label :invoice_address, 'Fakturaadress(Om annan än företagsadress)', class: 'form-text' %>
         <%= f.text_field :invoice_address, placeholder: 'Ex. BB Redovisning, Norrgatan 43, 42334, Malmö' %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

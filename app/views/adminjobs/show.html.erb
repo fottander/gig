@@ -26,12 +26,13 @@
             <span class='item-define'>Stad:</span> <%= @job.cities.pluck(:name) %><br>
             <span class='item-define'>Budget:</span> <%= @job.budget %><br>
             <span class='item-define'>Sista ansökningsdag:</span> <%= @job.deadline %><br>
+            <span class='item-define'>Anställningstyp:</span> <%= @job.jobtype %><br>
             <span class='item-define'>När:</span> <%= @job.when_in_time %><br>
             <span class='item-define'>Varaktighet:</span> <%= @job.duration %><br>
             <span class='item-define'>Timmar/vecka:</span> <%= @job.hour_day %><br>
             <span class='item-define'>Aktiv:</span> <%= @job.active %><br>
             <span class='item-define'>Företags ID:</span> <%= @job.company_id %><br>
-            <span class='item-define'>Föratagsstad:</span> <%= @job.company_city %><br>
+            <span class='item-define'>Företagsstad:</span> <%= @job.company_city %><br>
             <span class='item-define'>Föratags namn:</span> <%= @job.company.name %><br>
             <span class='item-define'>Företags användarnamn:</span> <%= @job.company_username %><br>
             <span class='item-define'>Skapad:</span> <%= @job.created_at.strftime("%F %R") %><br>

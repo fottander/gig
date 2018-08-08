@@ -32,19 +32,27 @@
             Kategorier: <%= @job.categories.pluck(:name).flatten.join(' & ') %>
           </li>
           <li>
-            Sista ansökningsdag: <%= @job.deadline%>
-          </li>
-          <li>
-            Krav: <%= @job.requirement %>
-          </li>
-          <li>
-            När ska jobbet utföras: <%= @job.when_in_time %>
+            Typ av anställning:
+            <% if @job.jobtype.present? %>
+              <%= @job.jobtype %>
+            <% else %>
+              Ej specificerat
+            <% end %>
           </li>
           <li>
             Jobbets längd: <%= @job.duration %>
           </li>
           <li>
             Timmar per dag: <%= @job.hour_day %>
+          </li>
+          <li>
+            När ska jobbet utföras: <%= @job.when_in_time %>
+          </li>
+          <li>
+            Sista ansökningsdag: <%= @job.deadline%>
+          </li>
+          <li>
+            Krav: <%= @job.requirement %>
           </li>
           <li>
             Föreslagen lön: <%= @job.budget %>

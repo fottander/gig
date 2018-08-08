@@ -34,6 +34,34 @@
           Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Skriv inte ut företagsnamn eller annan liknande info. Vilka arbetstider? Vilken typ  av person ni söker? Med mera.
         </div>
       </div>
+      <%= f.label :jobtype, 'Typ av anställning', class: 'form-text' %>
+      <%= f.select :jobtype, options_for_select(Job::JOBTYPE_OPTIONS), selected: @job.jobtype, class: 'input-medium' %>
+      <%= f.label :duration, 'Jobbets längd', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.text_field :duration, value: @job.duration %>
+        <div class="fieldInfo">
+          Tips <br>
+          Ange ungefärlig längd för jobbet i dagar eller veckor. Max är 4 veckor per anställningstillfälle.
+        </div>
+      </div>
+      <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.text_field :hour_day, value: @job.hour_day %>
+        <div class="fieldInfo">
+          Tips <br>
+          Vid projekt kan detta fält lämnas blankt. Annars anges jobbtimmar per dag.
+        </div>
+      </div>
+      <%= f.label :when_in_time, 'När ska jobbet utföras', class: 'form-text' %>
+      <div class="fieldContainer">
+        <%= f.text_field :when_in_time, value: @job.when_in_time %>
+        <div class="fieldInfo">
+          Tips <br>
+          Ange "så fort som möjligt", mellan datum eller tidsperiod.
+        </div>
+      </div>
+      <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
+      <%= f.text_field :deadline, value: @job.deadline %>
       <%= f.label :requirement, 'Krav', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :requirement, value: @job.requirement %>
@@ -48,32 +76,6 @@
         <div class="fieldInfo">
           Tips <br>
           Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
-        </div>
-      </div>
-      <%= f.label :duration, 'Jobbets längd', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :duration, value: @job.duration %>
-        <div class="fieldInfo">
-          Tips <br>
-          Ange ungefärlig längd för jobbet i dagar eller veckor. Max är 4 veckor per anställningstillfälle.
-        </div>
-      </div>
-      <%= f.label :when_in_time, 'När ska jobbet utföras', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :when_in_time, value: @job.when_in_time %>
-        <div class="fieldInfo">
-          Tips <br>
-          Ange "så fort som möjligt", mellan datum eller tidsperiod.
-        </div>
-      </div>
-      <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
-      <%= f.text_field :deadline, value: @job.deadline %>
-      <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
-      <div class="fieldContainer">
-        <%= f.text_field :hour_day, value: @job.hour_day %>
-        <div class="fieldInfo">
-          Tips <br>
-          Vid projekt kan detta fält lämnas blankt. Annars anges jobbtimmar per dag.
         </div>
       </div>
       <%= f.check_box :active, value: true %>
