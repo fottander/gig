@@ -93,7 +93,6 @@ Company.create(
   org_number: "3423443453",
   phone: "079347238723",
   password: "123456",
-  contact: "Mikael",
   id: 99999
   )
 
@@ -107,7 +106,6 @@ Company.create(
   org_number: "3423443453",
   phone: "079347238723",
   password: "123456",
-  contact: "felix",
   id: 99998
   )
 
