@@ -36,6 +36,7 @@
         </div>
       </div>
       <%= f.label :category_ids, '* Kategorier', class: 'form-text' %>
+      <div style='font-size: 12px;'>Vilken/vilka kategorier kommer du söka jobb i?</div>
       <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
       <%= f.label :city_ids, '* Stad', class: 'form-text' %>
       <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
