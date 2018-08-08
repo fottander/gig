@@ -152,6 +152,7 @@ Job.create(
   when_in_time: "Asap",
   duration: "2veckor",
   hour_day: 8,
+  jobtype: "Projekt",
   company_id: 99999,
   company_username: "Greger",
   id: 99999
@@ -168,6 +169,7 @@ Job.create(
   when_in_time: "Asap",
   duration: "3 månader",
   hour_day: 5,
+  jobtype: "Deltid",
   company_id: 99999,
   company_username: "Greger",
   id: 99998
@@ -184,6 +186,7 @@ Job.create(
   when_in_time: "Asap",
   duration: "2 månader",
   hour_day: 8,
+  jobtype: "Projekt",
   company_id: 99998,
   company_username: "Anders P",
   id: 99997
@@ -200,6 +203,7 @@ Job.create(
   when_in_time: "Asap",
   duration: "3 veckor",
   hour_day: 9,
+  jobtype: "Deltid",
   company_id: 99998,
   company_username: "Anders P",
   id: 99996
