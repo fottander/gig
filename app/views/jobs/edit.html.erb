@@ -35,7 +35,7 @@
         </div>
       </div>
       <%= f.label :jobtype, 'Typ av anställning', class: 'form-text' %>
-      <%= f.select :jobtype, options_for_select(Job::JOBTYPE_OPTIONS), selected: @job.jobtype, class: 'input-medium' %>
+      <%= f.select :jobtype, options_for_select(Job::JOBTYPE_OPTIONS, selected: @job.jobtype), {}, class: 'input-medium' %>
       <%= f.label :duration, 'Jobbets längd', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :duration, value: @job.duration %>
