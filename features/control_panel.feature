@@ -53,12 +53,13 @@ Feature: Company control panel
       And I click "Antal ansökningar: 1"
       Then I should see "Fisken"
 
-    Scenario: I edit job kollektivavtal and inactivate a job ad
+    Scenario: I edit job jobtype and inactivate a job ad
       Given I am logged in as company "felix@mail.com"
       Given I am on the jobs page
       And I should see "målare sökes"
       And I click "KONTROLLPANEL"
       And I click job "1" button "Redigera"
+      And I select "Deltid" from "job_jobtype"
       And I uncheck Active check box
       And I click "Spara"
       And I click "KONTROLLPANEL"

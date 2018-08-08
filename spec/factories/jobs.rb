@@ -8,5 +8,6 @@ FactoryGirl.define do
     duration "MyString"
     when_in_time "MyString"
     hour_day 1
+    jobtype "Projekt"
   end
 end
