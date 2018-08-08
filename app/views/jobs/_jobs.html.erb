@@ -10,30 +10,27 @@
             <div class="profile-card-author">
               <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
                 <%= job.company_username %>
-              <div class="small-12 medium-2 columns add-friend">
-                <%= link_to 'Ansök', job_path(job), class: 'reply-button-media' %>
-              </div>
             </div>
           </div>
-          <div class="profile-card-about">
+          <div class="large-9 columns profile-card-about">
             <div class="profile-card-about-message">
               <div class='profile-card-about-title'>
                 <span class='profile-card-about-title'><%= job.categories.pluck(:name).flatten.join(' & ') %></span><br>
               </div>
                 <% if job.description.length > 100 %>
                     <%= truncate(job.description, length: 100) %>
+                    <%= link_to 'Läs mer', job_path(job), style: 'font-size: 12px; color: #3db5e6;' %>
                 <% else %>
-                    <%= job.description %>
+                    <%= job.description %>...
+                    <%= link_to 'Läs mer', job_path(job), style: 'font-size: 12px; color: #3db5e6;' %>
                 <% end %>
               <div class='row'>
-                <div class='large-2 columns'>
+                <div class='large-3 columns'>
                   <span style='font-weight: 550;'>Skapad:</span> <%= job.created_at.strftime("%Y-%m-%d") %><br>
                   <span style='font-weight: 550;'>Går ut:</span> <%= job.deadline %>
                 </div>
-                <div class='large-2 columns'>
-                  <span style='font-weight: 550;'>Stad:</span> <%= job.cities.pluck(:name).flatten.join(' & ') %>
-                </div>
-                <div class='large-2 columns'>
+                <div class='large-3 columns'>
+                  <span style='font-weight: 550;'>Stad:</span> <%= job.cities.pluck(:name).flatten.join(' & ') %><br>
                   <span style='font-weight: 550;'>
                     Anställningstyp:
                   </span>
@@ -43,7 +40,7 @@
                     Ej specificerat
                   <% end %>
                 </div>
-                <div class='large-2 columns'>
+                <div class='large-3 columns'>
                   <span style='font-weight: 550;'>
                     Jobbets längd:
                   </span>
@@ -52,17 +49,18 @@
                   <% else %>
                     <%= job.duration %>
                   <% end %>
+                  <span style='font-weight: 550;'>Timmar per dag:</span> <%= job.hour_day %><br>
                 </div>
-                <div class='large-2 columns'>
-                  <span style='font-weight: 550;'>Timmar per dag:</span> <%= job.hour_day %>
-                </div>
-                <div class='large-2 columns'>
+                <div class='large-3 columns'>
                   <span style='font-weight: 550;'>När:</span> <%= job.when_in_time %>
                 </div>
                 <div class='columns'>
                 </div>
               </div>
             </div>
+          </div>
+          <div class="large-3 columns profile-card-about">
+            <%= link_to 'Ansök', job_path(job), class: 'reply-button-expand' %>
           </div>
         </div>
       </div>
