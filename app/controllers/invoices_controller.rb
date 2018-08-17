@@ -18,8 +18,13 @@ class InvoicesController < ApplicationController
       # Sends email to company when invoice is created.
       NotificationMailer.new_invoice_email(@company, @invoice).deliver_now
 
-      flash[:notice] = "Utbetalning skapad"
-      redirect_back(fallback_location: root_path)
+      if current_user.bank_info == 'bank_info_ok'
+        flash[:notice] = "Utbetalning skapad"
+        redirect_back(fallback_location: root_path)
+      else
+        flash[:notice] = "Utbetalning skapad. Fyll i personnummer & bankuppgifter i ditt konto för att erhålla lön."
+        redirect_back(fallback_location: root_path)
+      end
     else
       flash[:alert] = 'Fyll i alla fält korrekt!'
       redirect_back(fallback_location: root_path)

@@ -70,4 +70,18 @@ class User < ApplicationRecord
       'Mer än 500 000 kr'
     end
   end
+
+  def bank_info
+    if self.bank.blank?
+      'bank_empty'
+    elsif self.pers_num.blank?
+      'persnum_empty'
+    elsif self.account_nr.blank?
+      'account_nr_empty'
+    elsif self.clear_nr.blank?
+      'clear_nr_empty'
+    else
+      'bank_info_ok'
+    end
+  end
 end

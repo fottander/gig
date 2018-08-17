@@ -44,6 +44,8 @@ Feature: Payments
     And I should see "Vi behöver personnummer och bankuppgifter"
     And I click "klicka här"
     And I fill in "Kontonummer" with "2384753453"
+    And I fill in "Clearingnummer" with "23432"
+    And I fill in "Bank" with "nordea"
     And I fill in "Nuvarande lösenord" with "12345678"
     And I click "Spara"
     Then I should see "Ditt konto har uppdaterats utan problem."
