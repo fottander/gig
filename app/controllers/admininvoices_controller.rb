@@ -33,7 +33,7 @@ class AdmininvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     respond_to do |format|
       if @invoice.update invoice_update_params
-        @invoice.create_activity :update, owner: current_admin, recipient: @invoice.user.profile
+        @invoice.create_activity :update, owner: current_admin, recipient: @invoice.user.profile, recipient_id: @invoice.user.id
         format.html { redirect_to edit_admininvoice_path(@invoice), notice: 'Faktura ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
       else

@@ -65,6 +65,9 @@ Feature: Apply to job
       And I click "Visa ansökan"
       And I should see "Hello give me job"
       And I should see "Hallå svara"
+      And I fill in "Skriv till Fisken" with "Hallå svara då"
+      And I click "Skicka"
+      Then I should see "Hallå svara då"
       And I fill in "Startdag(t.ex. 2018-11-01)" with "2018-01-01"
       And I fill in "Sista dag(t.ex. 2018-12-30)" with "2018-01-20"
       And I fill in "Bruttolön(t.ex. 150)kr/timma" with "150"
@@ -76,6 +79,8 @@ Feature: Apply to job
       And I click "målare"
       Then I should see "Du har redan ansökt till detta jobbet!"
       And I click "KONTROLLPANEL"
+      And I should see "Anders p anställde dig för ansökan"
+      And I should see "Anders p skickade ett svar"
       And I should see "målare sökes" in active applications
       And I should see "Första jobbdag: 2018-01-01" in active applications
       And I should see "Sista jobbdag: 2018-01-20" in active applications

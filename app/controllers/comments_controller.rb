@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
     if @comment.save
 
       if current_company.present?
-        @comment.create_activity :create, owner: current_company, recipient: @profile
+        @comment.create_activity :create, owner: current_company, recipient: @profile, recipient_id: @user.id
         # Sends email to user when comment by company is created.
         NotificationMailer.new_comment_email(@user, @application).deliver_now
       else

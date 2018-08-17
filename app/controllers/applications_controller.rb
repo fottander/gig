@@ -62,7 +62,7 @@ class ApplicationsController < ApplicationController
       if params[:last_day].present?
         if params[:salary].present?
           if @application.update application_hire_params
-            @application.create_activity :update, owner: current_company, recipient: @application.profile
+            @application.create_activity :update, owner: current_company, recipient: @application.profile, recipient_id: @user.id
 
             # Sends email to user when profile is hired.
             NotificationMailer.hired_email(@user, @application).deliver_now
@@ -110,7 +110,7 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @job = @application.job
     if @application.update application_extend_params
-      @application.create_activity :extend, owner: current_company, recipient: @application.profile
+      @application.create_activity :extend, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
 
       # Sends email to user when profile is hired.
       NotificationMailer.extend_email(@application.profile.user, @application).deliver_now
