@@ -137,24 +137,38 @@ class ApplicationsController < ApplicationController
 
   def clone
     @application = Application.find(params[:id])
-    @new_application = @application.dup
-    @new_application.update_attributes(dup_params)
-    @new_application.hired = true
-    @new_application.complete = false
-    respond_to do |format|
-      if @new_application.save
-        @application.create_activity :clone, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
+      if params[:first_day].present?
+        if params[:last_day].present?
+          if params[:salary].present?
+            @new_application = @application.dup
+            @new_application.update_attributes(dup_params)
+            @new_application.hired = true
+            @new_application.complete = false
+            if @new_application.save
+              @application.create_activity :clone, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
 
-        # Sends email to user when profile is hired.
-        NotificationMailer.clone_email(@application.profile.user, @application).deliver_now
+              # Sends email to user when profile is hired.
+              NotificationMailer.clone_email(@application.profile.user, @application).deliver_now
 
-        format.html { redirect_to panels_path, notice: "#{@new_application.profile_username} anställdes på nytt!" }
-        format.json { render :new, status: :created}
+              flash[:notice] = "#{@new_application.profile_username} anställdes på nytt!"
+              redirect_to panels_path
+            else
+              @new_application.destroy
+              flash[:alert] = "Något gick fel. Kontrollera start och sista dag och försök igen eller kontakta kundtjänst."
+              redirect_back(fallback_location: root_path)
+            end
+          else
+            flash[:alert] = "Lön måste fyllas i"
+            redirect_back(fallback_location: root_path)
+          end
+        else
+          flash[:alert] = "Sista dag måste fyllas i"
+          redirect_back(fallback_location: root_path)
+        end
       else
-        format.html { render :new }
-        format.json { render json: @new_application.errors, status: :unprocessable_entity }
+        flash[:alert] = "Startdag måste fyllas i"
+        redirect_back(fallback_location: root_path)
       end
-    end
   end
 
   private

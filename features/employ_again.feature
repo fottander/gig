@@ -29,7 +29,7 @@ Feature: A company hires a person
       | message    | job_id | profile_username | profile_id | company_id | job_title    | complete | hired | salary | first_day  | last_day   | id |
       | I want job | 1      | Fisken           | 1          | 1          | målare sökes | true     | true  | 150    | 2018-07-02 | 2018-08-01 | 1  |
 
-    Scenario: I hire a profile
+    Scenario: I hire a profile again
       Given I am logged in as company "greger@mail.com"
       Given I am on control panel page
       And I should not see "Fisken" in active employments
@@ -42,3 +42,40 @@ Feature: A company hires a person
       And I should see "Fisken" in active employments
       And I should see "2018-09-01" in active employments
       Then I should see "2018-09-20" in active employments
+
+    Scenario: I hire a profile again with filling incorrect fields
+      Given I am logged in as company "greger@mail.com"
+      Given I am on control panel page
+      And I should not see "Fisken" in active employments
+      And I click "Anställ igen"
+      And I fill in hidden field start day with "2018-09-01"
+      And I fill in hidden field last day with "2018-09-20"
+      And I fill in hidden field salary with ""
+      And I click hidden button with id "hire-button"
+      Then I should see "Lön måste fyllas i"
+      And I should not see "Fisken" in active employments
+      And I should not see "2018-09-01" in complete employments
+      And I click "Anställ igen"
+      And I fill in hidden field start day with "2018-09-01"
+      And I fill in hidden field last day with ""
+      And I fill in hidden field salary with "100"
+      And I click hidden button with id "hire-button"
+      Then I should see "Sista dag måste fyllas i"
+      And I should not see "Fisken" in active employments
+      And I should not see "2018-09-01" in complete employments
+      And I click "Anställ igen"
+      And I fill in hidden field start day with ""
+      And I fill in hidden field last day with "2018-09-20"
+      And I fill in hidden field salary with "100"
+      And I click hidden button with id "hire-button"
+      Then I should see "Startdag måste fyllas i"
+      And I should not see "Fisken" in active employments
+      And I should not see "2018-09-01" in complete employments
+      And I click "Anställ igen"
+      And I fill in hidden field start day with "2018-09-01"
+      And I fill in hidden field last day with "2018-08-20"
+      And I fill in hidden field salary with "100"
+      And I click hidden button with id "hire-button"
+      Then I should see "Något gick fel. Kontrollera start och sista dag och försök igen eller kontakta kundtjänst."
+      And I should not see "Fisken" in active employments
+      And I should not see "2018-09-01" in complete employments
