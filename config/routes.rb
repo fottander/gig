@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'faqs/index'
-
   devise_for :admins
   devise_scope :admin do
     authenticated :admin do
@@ -58,7 +56,7 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:index]
 
   resources :administrations, only: [:index]
-  
+
   resources :faqs, only: [:index]
 
   get 'applications' => 'applications#index', as: :applications
@@ -72,6 +70,7 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index, :new, :create, :show, :edit, :update] do
     resources :applications, except: [:index] do
       member do
+        patch :clone
         patch :hire
         patch :extend
       end

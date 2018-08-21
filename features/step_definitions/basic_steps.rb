@@ -102,3 +102,7 @@ Then("I click {string} in skill") do |link|
     click_link_or_button link
   end
 end
+
+Given("I click hidden button with id {string}") do |button_id|
+  find("##{button_id}", visible: false).click
+end

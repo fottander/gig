@@ -15,6 +15,9 @@ class NotificationMailerPreview < ActionMailer::Preview
   def extend_mail_preview
     NotificationMailer.extend_email(User.first, Application.first)
   end
+  def clone_mail_preview
+    NotificationMailer.clone_email(User.first, Application.first)
+  end
   def company_registration_mail_preview
     NotificationMailer.company_registration_email(Company.first)
   end

@@ -54,6 +54,12 @@ Then("I should see {string} in complete employments") do |content|
   end
 end
 
+Then("I should not see {string} in complete employments") do |content|
+  within "#complete-employments" do
+    expect(page).not_to have_content content
+  end
+end
+
 Then("I should not see {string} in active applications") do |content|
   within "#active-applications" do
     expect(page).not_to have_content content
