@@ -49,6 +49,16 @@ class NotificationMailer < ApplicationMailer
     )
   end
 
+  def clone_email(user, application)
+    @user = user
+    @application = application
+
+    mail(
+    to: @user.email,
+    subject: "Du har blivit anställd igen"
+    )
+  end
+
   def new_application_email(company, job)
     @company = company
     @job = job

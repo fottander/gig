@@ -1,6 +1,6 @@
 class ApplicationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :authenticate_company!, only: [:hire, :extend]
+  before_action :authenticate_company!, only: [:hire, :extend, :clone]
   before_action :authenticate_admin!, only: [:index]
 
   def index
@@ -135,7 +135,33 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def clone
+    @application = Application.find(params[:id])
+    @new_application = @application.dup
+    @new_application.update_attributes(dup_params)
+    @new_application.hired = true
+    @new_application.complete = false
+    respond_to do |format|
+      if @new_application.save
+        @application.create_activity :clone, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
+
+        # Sends email to user when profile is hired.
+        NotificationMailer.clone_email(@application.profile.user, @application).deliver_now
+
+        format.html { redirect_to panels_path, notice: "#{@new_application.profile_username} anställdes på nytt!" }
+        format.json { render :new, status: :created}
+      else
+        format.html { render :new }
+        format.json { render json: @new_application.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
+
+  def dup_params
+    params.permit(:first_day, :last_day, :salary)
+  end
 
   def application_update_params
     params.require(:application).permit(:message)

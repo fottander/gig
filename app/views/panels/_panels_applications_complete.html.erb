@@ -9,6 +9,29 @@
         Jobb ID: <%= application.job_id %>
       </div>
       <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
+      <span class='truncated-paragraph-<%= application.id %>'>
+        <%= link_to 'Anställ igen', '', class: "read-more-#{application.id}", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem; border: none;' %>
+      </span>
+      <span class='normal-paragraph-<%= application.id %>' style="display: none;">
+        <%= form_tag clone_job_application_path(application.job.id, application), method: :patch do %><br>
+          <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
+          <%= date_field_tag :first_day, required: true %>
+          <%= label_tag :last_day, 'Sista dag(t.ex. 2018-12-30)', class: 'invoice-details-date' %>
+          <%= date_field_tag :last_day, required: true %>
+          <%= label_tag :salary, 'Bruttolön(t.ex. 150)kr/timma', class: 'invoice-details-date' %>
+          <div class="fieldContainer">
+            <%= text_field_tag :salary, nil, placeholder: 'Endast siffror utan decimaler' %>
+            <div class="fieldInfo">
+              Tips <br>
+              Innan du anställer, kom överens med den anställde om lön, start och slutdatum. Max 30 dagars anställningar.
+            </div>
+          </div>
+          <%= hidden_field_tag 'hired', true %>
+          <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
+        <% end %>
+        <%= link_to 'Stäng x', '', class: "read-less-#{application.id}", style: 'background: white; color: black; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem;' %>
+        <br>
+      </span>
     </div>
   <% end %>
 <% else %>
