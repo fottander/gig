@@ -27,7 +27,7 @@
             </div>
           </div>
           <%= hidden_field_tag 'hired', true %>
-          <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
+          <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, id: 'hire-button', class: 'profile-button-expand', style:'width: 100%;' %>
         <% end %>
         <%= link_to 'Stäng x', '', class: "read-less-#{application.id}", style: 'background: white; color: black; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem;' %>
         <br>

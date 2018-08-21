@@ -80,3 +80,15 @@ end
 Given("I fill hidden field ez amount and fill {string}") do |content|
   find("#ezinvoice_amount", visible: false).set content
 end
+
+Given("I fill in hidden field start day with {string}") do |content|
+  find("#first_day", visible: false).set content
+end
+
+Given("I fill in hidden field last day with {string}") do |content|
+  find("#last_day", visible: false).set content
+end
+
+Given("I fill in hidden field salary with {string}") do |content|
+  find("#salary", visible: false).set content
+end
