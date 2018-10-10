@@ -42,7 +42,7 @@ Feature: Show freelancers
       Then I should see "Stad: Göteborg"
       And I click "fisken"
       Then I should see "Antal genomförda jobb: 1"
-      And I should see "Ålder: 29"
+      And I should see "Ålder: 30"
       And I should see "Feedback"
       And I should see "Bra snubbe"
       And I should see "2017 November"

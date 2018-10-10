@@ -34,7 +34,7 @@ Feature: User dashboard
       And I click "Skapa profil"
       And I should see "Skapa profil"
       And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
-      And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
+      And I fill in "Beskrivning" with "Jag är en 30 årig målare och snickare från gbg"
       And I check Category check box
       And I select "Göteborg" from "Stad"
       And I click "Skapa"
@@ -45,5 +45,5 @@ Feature: User dashboard
       And I click "ALLA JOBBSÖKARE"
       And I should see "Felix O"
       And I should see "Målare, snickare med lång erfarenhet"
-      And I should see "Ålder: 29"
-      Then I should see "Jag är en 29 årig målare och snickare från gbg"
+      And I should see "Ålder: 30"
+      Then I should see "Jag är en 30 årig målare och snickare från gbg"
