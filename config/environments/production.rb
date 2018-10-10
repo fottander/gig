@@ -62,7 +62,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "gig_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'https://www.anewbiz.se' }
+  config.action_mailer.default_url_options = { host: 'https://www.qnekt.se' }
 
   config.action_mailer.delivery_method = :smtp
 

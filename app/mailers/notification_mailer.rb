@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: "info@anewbiz.se"
+  default from: "info@qnekt.se"
 
   def new_invoice_email(company, invoice)
     @company = company
@@ -16,7 +16,7 @@ class NotificationMailer < ApplicationMailer
 
     mail(
     to: @company.email,
-    subject: "Välkommen till A New Biz"
+    subject: "Välkommen till Qnekt"
     )
   end
 
@@ -25,7 +25,7 @@ class NotificationMailer < ApplicationMailer
 
     mail(
     to: @user.email,
-    subject: "Välkommen till A New Biz"
+    subject: "Välkommen till Qnekt"
     )
   end
 
