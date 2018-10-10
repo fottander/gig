@@ -25,7 +25,7 @@ class EzinvoicePdf < Prawn::Document
   def header
     move_down 40
 
-    image  "#{Rails.root}/app/assets/images/anewbiz-logo-2.png", width: 194
+    image  "#{Rails.root}/app/assets/images/qnekt-2.jpg", width: 194
 
     move_down 8
     text "<color rgb='a6a6a6'>Fakturanummer: #{@ezinvoice.id.first(8)}</color>", inline_format: true
@@ -92,7 +92,7 @@ class EzinvoicePdf < Prawn::Document
      ["FeltCap AB", "0707301078", "Göteborg", "SE559129609901"],
      ["Storgatan 41, lgh 1101", "0735304864", "Org.nr", ""],
      ["41138, Göteborg", "Epost", "559129-6099"," "],
-     ["", "info@anewbiz.se", "Godkänd för F-skatt", ""]]
+     ["", "info@qnekt.se", "Godkänd för F-skatt", ""]]
 
     table(data, cell_style: { size: 9 }) do
      cells.padding = 5
