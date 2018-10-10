@@ -17,8 +17,8 @@ Feature: Homepage
     And I click "faktureringen."
     And I should see "Här förklarar vi i detalj"
     And I click "Så fungerar det" in left menu
-    And I click "Varför ska du använda ANewBiz? Läs mer här."
-    Then I should see "Varför ANewBiz?"
+    And I click "Varför ska du använda Qnekt? Läs mer här."
+    Then I should see "Varför Qnekt?"
     And I click "Vanliga frågor" in left menu
     And I should see "Här har vi samlat de vanligaste frågorna"
     And I click "Kontakta oss"
@@ -29,8 +29,8 @@ Feature: Homepage
     And I should see "Här finner du våra allmänna villkor"
     And I click "Kontakta" in left menu
     Then I should see "Här kan du kontakta oss"
-    And I click "Varför A New Biz?" in left menu
-    Then I should see "Varför ANewBiz?"
+    And I click "Varför Qnekt?" in left menu
+    Then I should see "Varför Qnekt?"
     Given I am on the home page
     And I click "REGISTRERA KONTO" within section
     Then I should see "Registrera nytt konto som jobbsökande"
