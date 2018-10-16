@@ -9,7 +9,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if @user.persisted?
-      flash[:notice] = "Du är registrerad! Bekräfta att du fått vårt Välkommen email. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
+      flash[:notice] = "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
       NotificationMailer.user_registration_email(@user).deliver_now
     end
   end
@@ -31,6 +31,10 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   protected
+
+  def after_inactive_sign_up_path_for(resource_or_scope)
+    new_user_session_path
+  end
 
   def configure_account_update_params
    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone, :pers_num, :bank, :clear_nr, :account_nr])

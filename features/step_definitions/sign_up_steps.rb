@@ -13,3 +13,9 @@ Given("the following companies exist") do |table|
     create(:company, hash)
   end
 end
+
+Then("the last created user is marked confirmed") do
+  u = User.first
+  u.confirm
+  u.save
+end

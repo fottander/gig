@@ -1,7 +1,7 @@
 Feature: User registration
   As an user
   In order to find work
-  I would like to create an account
+  I would like to register an account
 
   Background:
     Given the following users exist
@@ -18,10 +18,17 @@ Feature: User registration
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
-      Then I should see "Du är registrerad! Bekräfta att du fått"
-      And I should see "Välkommen till A New Biz"
-      And I click "DÖLJ"
-      Then I should not see "Du är registrerad! Bekräfta att du fått"
+      Then I should see "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna"
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
+      Then I should see "Du måste bekräfta din e-postadress innan du fortsätter."
+      And the last created user is marked confirmed
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
+      Then I should see "Välkommen! Du är inloggad"
+      Then I should not see "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna"
       And I should see "Inga aktiva ansökningar"
       And I should see "Inga aktiva jobb"
       And I should see "Inga färdiga jobb"
