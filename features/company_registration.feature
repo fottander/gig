@@ -25,7 +25,7 @@ Feature: Company registration
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
       Then I should see "Du är registrerad! Bekräfta att du fått"
-      And I should see "Välkommen till A New Biz"
+      And I should see "Välkommen till Qnekt"
       And I click "DÖLJ"
       Then I should not see "Du är registrerad! Bekräfta att du fått"
       And I should see "Dubbelkolla att du fått vårt"
