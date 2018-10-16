@@ -1,7 +1,7 @@
 Feature: User registration
   As an user
   In order to find work
-  I would like to create an account
+  I would like to register an account
 
   Background:
     Given the following users exist
