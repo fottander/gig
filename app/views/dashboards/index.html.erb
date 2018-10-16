@@ -68,6 +68,11 @@
               <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
               <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
             <% end %>
+          <% else %>
+            <% if current_user.profile.blank? %>
+              <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
+              <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
+            <% end %>
           <% end %>
           <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Totalt intjänat: <span style='color: #3db5e6;'>
             <% if current_user.profile.present? %>
