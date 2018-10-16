@@ -68,6 +68,7 @@ en:
         requirement: 'Krav'
         kollektivavtal: 'Kollektivavtal'
       user:
+        email_confirmation: 'Bekräfta email'
         current_password: 'Nuvarande lösenord'
         password: 'Lösenord'
         password_confirmation: 'Bekräfta lösenord'
@@ -138,7 +139,7 @@ en:
           attributes:
             email:
               blank: "är inte ifyllt"
-              taken: "redan tagen"
+              taken: "redan tagen. Testa ny eller logga in."
               invalid: "Var snäll och fyll i korrekt email"
             password:
               blank: "är inte ifyllt"
@@ -173,8 +174,10 @@ en:
           attributes:
             email:
               blank: "är inte ifyllt"
-              taken: "redan tagen"
+              taken: "redan tagen. Testa ny eller logga in."
               invalid: "Var snäll och fyll i korrekt email"
+            email_confirmation:
+              confirmation: '& email fälten matchar inte'
             first_name:
               blank: 'är inte ifyllt'
             last_name:
