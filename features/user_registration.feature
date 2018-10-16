@@ -19,6 +19,10 @@ Feature: User registration
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
       Then I should see "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna"
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
+      Then I should see "Du måste bekräfta din e-postadress innan du fortsätter."
       And the last created user is marked confirmed
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
