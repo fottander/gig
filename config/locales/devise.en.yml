@@ -18,13 +18,13 @@ en:
       unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter. Om du inte hittar vårt email, kolla även din skräppost.
     mailer:
       confirmation_instructions:
-        subject: 'Mastodon: Bekräftelsesinstruktioner för %{instance}'
+        subject: 'Qnekt info: Bekräftelsesinstruktioner'
       password_change:
-        subject: 'Mastodon: Lösenord ändrat'
+        subject: 'Qnekt info: Lösenord ändrat'
       reset_password_instructions:
-        subject: 'Mastodon: Instruktioner för återställning av lösenord'
+        subject: 'Qnekt info: Instruktioner för återställning av lösenord'
       unlock_instructions:
-        subject: 'Mastodon: Lås upp instruktioner'
+        subject: 'Qnekt info: Lås upp instruktioner'
     omniauth_callbacks:
       failure: Det gick inte att autentisera dig från %{kind} för "%{reason}".
       success: Autentiserad från %{kind} konto.
