@@ -18,7 +18,7 @@ en:
       unconfirmed: Du måste bekräfta din e-postadress innan du fortsätter. Om du inte hittar vårt email, kolla även din skräppost.
     mailer:
       confirmation_instructions:
-        subject: 'Qnekt info: Bekräftelsesinstruktioner'
+        subject: 'Qnekt info: Bekräfta din email'
       email_change:
         subject: 'Qnekt info: Email ändrad'
       password_change:
