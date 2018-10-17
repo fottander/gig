@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations]
+  as :admin do
+    get 'admins/edit' => 'admins/registrations#edit', as: 'edit_admin_registration'
+    put 'admins' => 'admins/registrations#update', as: 'admin_registration'
+  end
   devise_scope :admin do
     authenticated :admin do
       root to: 'administrations#index'
