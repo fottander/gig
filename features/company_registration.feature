@@ -35,7 +35,7 @@ Feature: Company registration
       And I click "Logga in"
       Then I should see "Välkommen! Du är inloggad"
       And I click "DÖLJ"
-      Then I should not see "Du är registrerad! Bekräfta att du fått"
+      Then I should not see "Registrerad! Kolla din mail efter vår bekräftelse"
       And I should see "Dubbelkolla att du fått vårt"
       Then I should see "Nästa steg är att skapa en annons"
       And I should see "Inga annonser ännu"
@@ -51,7 +51,7 @@ Feature: Company registration
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       And I should see "Välkommen! Du är inloggad."
-      Then I should not see "Nästa steg är att skapa en annons"
+      Then I should not see "Dubbelkolla att du fått vårt"
 
     Scenario: I log in as a company
       Given I am on the home page
