@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: "info@qnekt.se"
+  default from: "Qnekt info <info@qnekt.se>"
 
   def new_invoice_email(company, invoice)
     @company = company

@@ -1,7 +1,7 @@
 require 'digest/sha2'
 class MessageMailer < ApplicationMailer
-  default to: 'info@qnekt.se'
-  default subject: 'Support'
+  default to: "Qnekt <info@qnekt.se>"
+  default subject: 'Qnekt support'
   default "Message-ID"=>"<#{Digest::SHA2.hexdigest(Time.now.to_i.to_s)}@qnekt.se>"
 
   def message_me(msg)

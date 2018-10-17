@@ -19,6 +19,8 @@ en:
     mailer:
       confirmation_instructions:
         subject: 'Qnekt info: Bekräftelsesinstruktioner'
+      email_change:
+        subject: 'Qnekt info: Email ändrad'
       password_change:
         subject: 'Qnekt info: Lösenord ändrat'
       reset_password_instructions:
