@@ -2,7 +2,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   before_action :configure_account_update_params, only: [:update]
   before_action :sign_up_params, only: [:create]
   before_action :authenticate_company!, except: [:new, :create]
-  
+
   def new
     super
   end
@@ -10,7 +10,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if @company.persisted?
-      flash[:notice] = "Du är registrerad! Bekräfta att du fått vårt Välkommen email. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
+      flash[:notice] = "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
       NotificationMailer.company_registration_email(@company).deliver_now
     end
   end
@@ -32,6 +32,10 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def after_inactive_sign_up_path_for(resource_or_scope)
+    new_company_session_path
+  end
 
   def configure_account_update_params
    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :username, :email, :address, :zip_code, :city, :org_number, :phone, :invoice_address, :password, :password_confirmation])

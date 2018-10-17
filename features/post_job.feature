@@ -40,6 +40,7 @@ Feature: Post job ad
       And I click "Skapa annons"
       Then I should see "Ny annons skapad!"
       Given I click "KONTROLLPANEL"
+      Then I should not see "Nästa steg är att skapa en annons"
       And I should see "målare"
       Then I should not see "Inga annonser ännu"
       And I click "Visa annons"

@@ -79,6 +79,7 @@ en:
         clear_nr: 'Clearingnummer'
         account_nr: 'Kontonummer'
       company:
+        email_confirmation: 'Bekräfta email'
         current_password: 'Nuvarande lösenord'
         password: 'Lösenord'
         password_confirmation: 'Bekräfta lösenord'

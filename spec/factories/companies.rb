@@ -10,5 +10,6 @@ FactoryGirl.define do
     org_number "org"
     phone "phoner"
     invoice_address "ohi"
+    after(:create) { |c| c.confirm }
   end
 end

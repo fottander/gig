@@ -19,3 +19,9 @@ Then("the last created user is marked confirmed") do
   u.confirm
   u.save
 end
+
+Then("the last created company is marked confirmed") do
+  c = Company.first
+  c.confirm
+  c.save
+end
