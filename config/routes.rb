@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   devise_for :companies, controllers: {
     registrations: 'companies/registrations',
-    sessions: 'companies/sessions'
+    sessions: 'companies/sessions',
+    confirmations: 'companies/confirmations'
   }
   devise_scope :company do
     authenticated :company do

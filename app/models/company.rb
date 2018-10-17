@@ -7,7 +7,7 @@ class Company < ApplicationRecord
   default_scope {order('created_at DESC')}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   scope :with_email, -> (email) { where email: email }

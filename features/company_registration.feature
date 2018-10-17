@@ -24,10 +24,18 @@ Feature: Company registration
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
-      Then I should see "Du är registrerad! Bekräfta att du fått"
-      And I should see "Välkommen till Qnekt"
+      Then I should see "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna"
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
+      Then I should see "Du måste bekräfta din e-postadress innan du fortsätter."
+      And the last created company is marked confirmed
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
+      Then I should see "Välkommen! Du är inloggad"
       And I click "DÖLJ"
-      Then I should not see "Du är registrerad! Bekräfta att du fått"
+      Then I should not see "Registrerad! Kolla din mail efter vår bekräftelse"
       And I should see "Dubbelkolla att du fått vårt"
       Then I should see "Nästa steg är att skapa en annons"
       And I should see "Inga annonser ännu"
@@ -43,7 +51,7 @@ Feature: Company registration
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       And I should see "Välkommen! Du är inloggad."
-      Then I should not see "Nästa steg är att skapa en annons"
+      Then I should not see "Dubbelkolla att du fått vårt"
 
     Scenario: I log in as a company
       Given I am on the home page
@@ -78,4 +86,4 @@ Feature: Company registration
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
-      Then I should see "Du är registrerad! Bekräfta att du fått"
+      Then I should see "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna"
