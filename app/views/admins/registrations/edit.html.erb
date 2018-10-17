@@ -1,0 +1,59 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class='simple-form'>
+        <div class='post-title'><h3>Redigera konto</h3></div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.label :email, class: 'form-text' %>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          <div style='color: #f77d0e; font-weight: 600;'>Lösenord</div>
+          <div class="field">
+            <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
+            <i>(lämna tomt om du inte vill ändra lösenord)</i>
+            <% if @minimum_password_length %>
+              <em><%= @minimum_password_length %> tecken minimum</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(Vi behöver ditt nuvarande lösenord för att bekräfta ändringarna)</i>
+            <%= f.password_field :current_password, autocomplete: "off" %>
+          </div>
+
+          <div class="actions">
+            <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
+            <%= f.submit "Spara", class: 'reply-button' %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
