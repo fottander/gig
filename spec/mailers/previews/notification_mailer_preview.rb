@@ -10,7 +10,10 @@ class NotificationMailerPreview < ActionMailer::Preview
     NotificationMailer.new_application_email(Company.first, Job.first)
   end
   def new_comment_mail_preview
-    NotificationMailer.new_comment_email(User.first, Application.first)
+    NotificationMailer.new_comment_email(User.first, Application.first, Comment.first)
+  end
+  def new_user_comment_mail_preview
+    NotificationMailer.new_user_comment_email(Company.first, Application.first, Comment.first)
   end
   def extend_mail_preview
     NotificationMailer.extend_email(User.first, Application.first)

@@ -7,7 +7,7 @@ class NotificationMailer < ApplicationMailer
 
     mail(
     to: @company.email,
-    subject: "Ny faktura har skickats till er med ocr nummer: #{invoice.ocr_number}"
+    subject: "Ny faktura har skickats med ocr nummer: #{invoice.ocr_number}"
     )
   end
 
@@ -69,13 +69,25 @@ class NotificationMailer < ApplicationMailer
     )
   end
 
-  def new_comment_email(user, application)
+  def new_comment_email(user, application, comment)
     @user = user
     @application = application
+    @comment = comment
 
     mail(
     to: @user.email,
-    subject: "Nytt svar på ansökan nr: #{application.id}"
+    subject: "Nytt chattsvar på ansökan nr: #{application.id}"
+    )
+  end
+
+  def new_user_comment_email(company, application, comment)
+    @company = company
+    @application = application
+    @comment = comment
+
+    mail(
+    to: @company.email,
+    subject: "Nytt chattsvar på ansökan nr: #{application.id}"
     )
   end
 end

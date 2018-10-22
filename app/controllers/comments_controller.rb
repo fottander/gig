@@ -19,9 +19,11 @@ class CommentsController < ApplicationController
       if current_company.present?
         @comment.create_activity :create, owner: current_company, recipient: @profile, recipient_id: @user.id
         # Sends email to user when comment by company is created.
-        NotificationMailer.new_comment_email(@user, @application).deliver_now
+        NotificationMailer.new_comment_email(@user, @application, @comment).deliver_now
       else
         @comment.create_activity :create, owner: current_user.profile, recipient: @job.company
+        # Sends email to company when comment by user is created.
+        NotificationMailer.new_user_comment_email(@job.company, @application, @comment).deliver_now
       end
 
       flash[:notice] = "Nytt svar skickat!"
