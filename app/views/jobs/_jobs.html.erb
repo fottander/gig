@@ -45,9 +45,9 @@
                     Jobbets längd:
                   </span>
                   <% if job.duration.length > 30 %>
-                    <%= truncate(job.duration, length: 30) %>
+                    <%= truncate(job.duration, length: 30) %><br>
                   <% else %>
-                    <%= job.duration %>
+                    <%= job.duration %><br>
                   <% end %>
                   <span style='font-weight: 550;'>Timmar per dag:</span> <%= job.hour_day %><br>
                 </div>
