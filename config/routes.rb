@@ -45,7 +45,11 @@ Rails.application.routes.draw do
 
   resources :users_without_profiles, only: [:index]
 
-  resources :companies, only: [:index, :destroy]
+  resources :companies, only: [:index, :destroy] do
+    member do
+      patch :verify
+    end
+  end
 
   resources :panels, only: [:index]
 
