@@ -2,6 +2,7 @@
   <% @companies.each do |company| %>
     <span class='item-define'>ID:</span> <%= company.id %><br>
     <span> <%= link_to 'Radera', company_path(company), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
+    <span> <%= link_to 'Verifiera', verify_company_path(company), data: { confirm: 'Är du säker?' }, method: :patch, class: 'button-green' %></span><br>
     <span class='item-define'>Email:</span> <%= company.email %><br>
     <span class='item-define'>Namn:</span> <%= company.name %><br>
     <span class='item-define'>Användarnamn:</span> <%= company.username %><br>

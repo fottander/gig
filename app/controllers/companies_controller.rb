@@ -19,6 +19,17 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def verify
+    @company = Company.find(params[:id])
+    if @company.confirm
+      flash[:notice] = "Företag verifierat!"
+      redirect_back(fallback_location: companies_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def filtering_params(params)
