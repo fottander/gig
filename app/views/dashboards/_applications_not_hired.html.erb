@@ -6,7 +6,7 @@
         Ansöknings ID: <%= application.id %><br>
         Jobb ID: <%= application.job_id %><br>
         Skapad: <%= application.created_at.strftime("%F %R") %><br>
-        <span style='color: green;'>Chatsvar: <%= application.comments.count %></span>
+        <span style='color: green;'>Chattsvar: <%= application.comments.count %></span>
       </div>
       <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
       <%= link_to 'Redigera', edit_job_application_path(application.job_id, application.id), class: 'button-orange' %>

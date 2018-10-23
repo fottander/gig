@@ -8,7 +8,7 @@
         Jobb ID: <%= application.job_id %><br>
         Första jobbdag: <%= application.first_day %><br>
         Sista jobbdag: <%= application.last_day %><br>
-        Chatsvar: <%= application.comments.count %>
+        Chattsvar: <%= application.comments.count %>
       </div>
       <% if application.last_day > Date.today %>
         <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
