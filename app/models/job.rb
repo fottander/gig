@@ -18,7 +18,7 @@ class Job < ApplicationRecord
 
   self.per_page = 10
 
-  JOBTYPE_OPTIONS = [ "Projekt", "Deltid", "Heltid under viss period", "Heltid med möjlighet till fast anställning" ]
+  JOBTYPE_OPTIONS = [ "Projekt", "Visstid - Timanställd", "Deltid - Timanställd", "Heltid - Timanställd", "Vikariat" ]
 
   private
 
