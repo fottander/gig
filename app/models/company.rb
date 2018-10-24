@@ -16,6 +16,8 @@ class Company < ApplicationRecord
 
   self.per_page = 10
 
+  EMPLOYEE_OPTIONS = [ "1-5", "5-10", "10-25", "25-50", "50-100", "100+" ]
+
   def invoice_count
     self.invoices.count
   end

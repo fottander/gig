@@ -97,6 +97,16 @@
           <p>Stad: <%= @job.company.city %></p>
         </div>
         <%= image_tag @job.categories.first.avatar.url, class: "avatar-image", style: 'height: 100px; margin-bottom: 10px;' %>
+        <% if @job.company.employees.present? %>
+          <div class="portfolio-resume-contact-info">
+            Antal anställda: <%= @job.company.employees %>
+          </div>
+        <% end %>
+        <% if @job.company.description.present? %>
+          <div class="portfolio-resume-contact-info">
+            Företagsbeskrivning: <%= @job.company.description %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
