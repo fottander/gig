@@ -104,7 +104,7 @@
         <% end %>
         <% if @job.company.description.present? %>
           <div class="portfolio-resume-contact-info">
-            Företagsbeskrivning: <%= @job.company.description %>
+            Företagsbeskrivning: <%= simple_format @job.company.description %>
           </div>
         <% end %>
       </div>
