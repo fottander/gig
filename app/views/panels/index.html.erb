@@ -23,6 +23,14 @@
               Organisationsnummer: <%= current_company.org_number %><br>
               Telefonnummer: <%= current_company.phone %><br>
             </div>
+            <% if current_company.description.present? %>
+            <% else %>
+              <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till beskrivning!</span><br>
+            <% end %>
+            <% if current_company.employees.present? %>
+            <% else %>
+              <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att ange antal anställda!</span><br>
+            <% end %>
             <%= link_to 'Redigera konto', edit_company_registration_path, class: 'button-green'  %>
         </div>
       </div>
