@@ -22,6 +22,26 @@
       <div style='text-align: center; margin-top: 10px;'>
         <% if current_user.present? %>
           <% if @application.profile_id == current_user.profile.id %>
+            <% if @application.message.present? %>
+              <% if @application.message.length > 160 %>
+                <span class='truncated-paragraph-<%= @application.id %>'>
+                  <%= truncate(@application.message, length: 160) %>
+                  <%= link_to '..visa mer', '', class: "read-more-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
+                </span>
+                <span class='normal-paragraph-<%= @application.id %>' style="display: none;">
+                  <%= simple_format @application.message %>
+                  <%= link_to '..dölj', '', class: "read-less-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
+                </span>
+              <% else %>
+                <%= simple_format @application.message %>
+              <% end %>
+            <% else %>
+              Du har ansökt till jobbet<br>
+              <%= link_to "Visa jobbannons", job_path(@application.job), style:'font-size: 12px; letter-spacing: 1px;' %>
+            <% end %>
+          <% end %>
+        <% elsif @job.company_id == current_company.id %>
+          <% if @application.message.present? %>
             <% if @application.message.length > 160 %>
               <span class='truncated-paragraph-<%= @application.id %>'>
                 <%= truncate(@application.message, length: 160) %>
@@ -34,19 +54,9 @@
             <% else %>
               <%= simple_format @application.message %>
             <% end %>
-          <% end %>
-        <% elsif @job.company_id == current_company.id %>
-          <% if @application.message.length > 160 %>
-            <span class='truncated-paragraph-<%= @application.id %>'>
-              <%= truncate(@application.message, length: 160) %>
-              <%= link_to '..visa mer', '', class: "read-more-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
-            </span>
-            <span class='normal-paragraph-<%= @application.id %>' style="display: none;">
-              <%= simple_format @application.message %>
-              <%= link_to '..dölj', '', class: "read-less-#{@application.id}", style: 'font-weight: 500; font-size: 14px; color: #f77d0e;' %>
-            </span>
           <% else %>
-            <%= simple_format @application.message %>
+            <%= @application.profile_username %> har ansökt till jobbet<br>
+            <%= link_to "Läs mer om #{@application.profile_username}", profile_path(@application.profile_id), style:'font-size: 12px; letter-spacing: 1px;' %>
           <% end %>
         <% end %>
       </div>
@@ -159,15 +169,15 @@
           <% end %>
           <% if @comments.present? %>
             <% @comments.each do |comment| %>
-            <strong><%= comment.profile_username %></strong>
-            <strong style='color: #f77d0e;'><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
-            <div class="comment-section-comment">
-              <%= simple_format comment.comment %>
-            </div>
-            <hr style='margin-bottom: 10px; margin-top: -10px;'>
+              <strong><%= comment.profile_username %></strong>
+              <strong style='color: #f77d0e;'><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
+              <div class="comment-section-comment">
+                <%= simple_format comment.comment %>
+              </div>
+              <hr style='margin-bottom: 10px; margin-top: -10px;'>
             <% end %>
           <% else %>
-            <span>Inga svar ännu</span>
+            <span>Inga chattsvar ännu</span>
           <% end %>
         <% end %>
       <% elsif @job.company_id == current_company.id %>
@@ -184,15 +194,15 @@
         <% end %>
         <% if @comments.present? %>
           <% @comments.each do |comment| %>
-          <strong style='color: #f77d0e;'><%= comment.profile_username %></strong>
-          <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
-          <div class="comment-section-comment">
-            <%= simple_format comment.comment %>
-          </div>
-          <hr>
+            <strong style='color: #f77d0e;'><%= comment.profile_username %></strong>
+            <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
+            <div class="comment-section-comment">
+              <%= simple_format comment.comment %>
+            </div>
+            <hr>
           <% end %>
         <% else %>
-          <p>Inga svar ännu</p>
+          <p>Inga chattsvar ännu</p>
         <% end %>
       <% end %>
     </div>
