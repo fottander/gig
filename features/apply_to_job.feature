@@ -53,7 +53,7 @@ Feature: Apply to job
       And I click "KONTROLLPANEL"
       And I click "Redigera"
       And I should see "Ändra ansökan"
-      And I fill in "Skriv en kort ansökan" with "Hello give me job"
+      And I fill in "Skriv ett kortfattat meddelande" with "Hello give me job"
       And I click "Ändra"
       Then I should see "Hello give me job"
       And I click "LOGGA UT"

@@ -22,11 +22,13 @@
                 <li><%= message %></li>
               <% end %>
             <% end %>
+
             <div class="fieldContainer">
-              <%= f.text_area :message, placeholder: 'Skriv en kort ansökan' %>
+              <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
+              <%= f.text_area :message, placeholder: 'Skriv ett kortfattat meddelande' %>
               <div class="fieldInfo">
                 Tips <br>
-                I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför en ansökan baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+                I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
               </div>
             </div>
             <%= f.submit 'Ändra', class: 'reply-button' %>
