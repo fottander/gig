@@ -15,10 +15,6 @@ RSpec.describe Application, type: :model do
     it { is_expected.to have_db_column(:complete).of_type(:boolean) }
   end
 
-  describe 'Validations' do
-    it { is_expected.to validate_presence_of :message }
-  end
-
   describe 'Associations' do
     it { is_expected.to belong_to :profile }
     it { is_expected.to belong_to :job }

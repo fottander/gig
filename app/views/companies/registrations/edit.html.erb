@@ -38,7 +38,7 @@
         <%= f.label :invoice_address, 'Fakturaadress(Om annan än företagsadress)', class: 'form-text' %>
         <%= f.text_field :invoice_address, placeholder: 'Ex. BB Redovisning, Norrgatan 43, 42334, Malmö', value: @company.invoice_address %>
         <%= f.label :description, 'Beskrivning av er verksamhet', class: 'form-text', style:'margin-top: 5px;' %>
-        <%= f.text_field :description, placeholder: 'En beskrivning ger fler svar på annonserna', value: @company.description, style:'margin-bottom: 0px;' %>
+        <%= f.text_area :description, placeholder: 'En beskrivning ger fler svar på annonserna', value: @company.description, style:'margin-bottom: 0px;' %>
         <%= f.label :employees, 'Antal anställda', class: 'form-text', style:'margin-top: 5px;' %>
         <%= f.select :employees, options_for_select(Company::EMPLOYEE_OPTIONS, selected: @company.employees ), prompt: '-- Välj --', class: 'input-medium' %>
         <div style='color: #f77d0e; font-weight: 600;'>Lösenord</div>

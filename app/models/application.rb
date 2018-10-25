@@ -1,5 +1,4 @@
 class Application < ApplicationRecord
-  validates_presence_of :message
   validate :last_day_a_first_day, on: :update
   belongs_to :profile
   belongs_to :job, touch: true

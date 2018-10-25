@@ -4,8 +4,8 @@
       <div class='contact-title'>
         <span style='color: white; font-weight: 700;'>Tips för en bra ansökan</span>
       </div>
-      Hur utförlig din ansökan skrivs och hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
-      Kontaktinformation ska ej finnas med i ansökan. Företaget kommer kontakta er genom chatten. 
+      Hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
+      Kontaktinformation ska ej finnas med i ansökan. Företaget kommer kontakta er genom chatten.
     </div>
   </div>
   <div class="holy-grail-middle">
@@ -22,13 +22,19 @@
           <% end %>
         <% end %>
         <div class="fieldContainer">
-          <%= f.text_area :message, placeholder: 'Skriv en kort ansökan' %>
+          <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
+          <p style='color: #696868; font-size: 14px;'>
+            - Varför passar just du för jobbet <br>
+            - Vad med jobbet var det som lockade <br>
+            - Med mera
+          </p>
+          <%= f.text_area :message, placeholder: 'Skriv kortfattat meddelande (frivilligt)' %>
           <div class="fieldInfo">
             Tips <br>
-            I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför en ansökan baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+            I din ansökan kommer din profil(användarnamn, titel, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
           </div>
         </div>
-        <%= f.submit 'Skapa', class: 'reply-button' %>
+        <%= f.submit 'Skicka ansökan', class: 'reply-button' %>
         <% end %>
       <% else %>
       <p>Var vänlig skapa en profil innan du ansöker till jobb <%= link_to 'Klicka här', dashboards_path %></p>
