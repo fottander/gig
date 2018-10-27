@@ -13,7 +13,7 @@ gem 'foundation-icons-sass-rails'
 gem 'devise'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-foundation'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip"
 gem 'aws-sdk'
 gem "breadcrumbs_on_rails"
 gem 'prawn'
@@ -22,6 +22,11 @@ gem 'jquery-rails'
 gem 'attr_encrypted', '~> 3.0.0'
 gem 'public_activity'
 gem 'rollbar'
+gem 'sprockets', '~> 3.7.2'
+gem "nokogiri", ">= 1.8.2"
+gem "loofah", ">= 2.2.1"
+gem "rails-html-sanitizer", ">= 1.0.4"
+gem 'ffi', '>= 1.9.24'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -34,6 +39,7 @@ group :development, :test do
   gem 'launchy'
   gem 'dotenv-rails'
   gem 'bullet'
+  gem 'bundle-audit'
 end
 
 group :development do
