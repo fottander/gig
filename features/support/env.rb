@@ -11,6 +11,8 @@ end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+Capybara.ignore_hidden_elements = false
+
 include FactoryGirl::Syntax::Methods
 
 After do
