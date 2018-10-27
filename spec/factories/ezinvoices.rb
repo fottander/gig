@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :ezinvoice do
     org_number "MyString"
     company_name "MyString"
