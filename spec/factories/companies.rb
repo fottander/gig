@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :company do
     email "mail@mail.com"
     password "12345678"

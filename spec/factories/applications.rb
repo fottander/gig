@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :application do
     message "MyMessage"
     first_day "2017-10-30"

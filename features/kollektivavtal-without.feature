@@ -78,7 +78,7 @@ Background:
     And I should see "Arbetsgivaravgifter(31,42%): -317 SEK"
     And I should see "Sociala avgifter(0.3%): 3 SEK"
     And I should not see "pensionsinbetalning"
-    And I should see "Bruttolön inkl sem. ers:	1008 SEK"
+    And I should see "Bruttolön inkl sem. ers: 1008 SEK"
     And I should see "Skatt: -302 SEK"
     And I should see "Nettolön att utbetala: 706 SEK"
 
@@ -128,7 +128,7 @@ Background:
     And I should see "Arbetsgivaravgifter(31,42%): -317 SEK"
     And I should see "Sociala avgifter(4.6%): -46 SEK"
     And I should see "Varav pensionsinbetalning: 43 SEK"
-    And I should see "Bruttolön inkl sem. ers:	1008 SEK"
+    And I should see "Bruttolön inkl sem. ers: 1008 SEK"
     And I should see "Skatt: -302 SEK"
     And I should see "Nettolön att utbetala: 706 SEK"
 
@@ -176,6 +176,6 @@ Background:
     And I should see "Arbetsgivaravgifter(31,42%): -317 SEK"
     And I should see "Sociala avgifter(0.3%): 3 SEK"
     And I should not see "pensionsinbetalning"
-    And I should see "Bruttolön inkl sem. ers:	1008 SEK"
+    And I should see "Bruttolön inkl sem. ers: 1008 SEK"
     And I should see "Skatt: -302 SEK"
     And I should see "Nettolön att utbetala: 706 SEK"

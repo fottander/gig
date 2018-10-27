@@ -1,7 +1,7 @@
 Feature: User dashboard
   As an user
   In order to create a profile
-  I would like to be able to have a profile dashboard
+  I would like to be able to have a user dashboard
 
   Background:
     Given the following users exist

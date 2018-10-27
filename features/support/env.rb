@@ -1,5 +1,5 @@
 require 'cucumber/rails'
-require 'factory_girl'
+require 'factory_bot'
 
 ActionController::Base.allow_rescue = false
 
@@ -11,7 +11,9 @@ end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
-include FactoryGirl::Syntax::Methods
+Capybara.ignore_hidden_elements = false
+
+include FactoryBot::Syntax::Methods
 
 After do
   Warden.test_reset!
