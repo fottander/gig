@@ -10,7 +10,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if @user.persisted?
-      flash[:notice] = "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
+      flash[:notice] = "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till #{@user.email}. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
       NotificationMailer.user_registration_email(@user).deliver_now
     end
   end
