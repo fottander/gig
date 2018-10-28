@@ -24,7 +24,7 @@ class Companies::ConfirmationsController < Devise::ConfirmationsController
       if signed_in?(resource_name)
         signed_in_root_path(resource)
       else
-        new_company_session_path(resource_name)
+        new_session_path(resource_name)
       end
     end
 
