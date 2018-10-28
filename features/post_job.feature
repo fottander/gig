@@ -39,6 +39,8 @@ Feature: Post job ad
       And I fill in "Timmar" with "8"
       And I click "Skapa annons"
       Then I should see "Ny annons skapad!"
+      And I should see "målare"
+      And I should see "måla hus"
       Given I click "KONTROLLPANEL"
       Then I should not see "Nästa steg är att skapa en annons"
       And I should see "målare"

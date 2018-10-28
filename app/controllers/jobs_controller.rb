@@ -50,7 +50,7 @@ class JobsController < ApplicationController
     @job.company_city = current_company.city
     respond_to do |format|
       if @job.save
-        format.html { redirect_to new_job_path, notice: 'Ny annons skapad!' }
+        format.html { redirect_to job_path(@job), notice: 'Ny annons skapad!' }
         format.json { render :new, status: :created}
       else
         format.html { render :new }

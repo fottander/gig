@@ -63,7 +63,7 @@ Feature: Admin find companies
       And I fill in "Lösenord" with "12345678"
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
-      Then I should see "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna"
+      Then I should see "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till mail@mail.com."
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
       And I click "Företag"

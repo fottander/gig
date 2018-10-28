@@ -10,7 +10,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   def create
     super
     if @company.persisted?
-      flash[:notice] = "Registrerad! Kolla din mail efter vår bekräftelse och följ instruktionerna. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
+      flash[:notice] = "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till #{@company.email}. Ibland hamnar det i skräpposten, vänligen markera då mailet som ej spam för att ta emot viktiga emails för ditt konto."
       NotificationMailer.company_registration_email(@company).deliver_now
     end
   end

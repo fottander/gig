@@ -55,6 +55,31 @@ input[type='file'] {
   font-weight: 700;
 }
 
+#registered-wrapper {
+  position: absolute;
+  display: block;
+  margin-left: 10%;
+  margin-right: 10%;
+  top: inherit;
+  margin-top: 5%;
+  padding: 10%;
+  width: 75%;
+  z-index: 999;
+  background: #FEFEFE;
+  border: 1px solid;
+  border-color: #6D6D6D;
+}
+
+#registered-wrapper .registered {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.0rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  color: black;
+  letter-spacing: 1px;
+}
+
 #notice-wrapper {
   position: absolute;
   top: inherit;
