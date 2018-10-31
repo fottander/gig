@@ -5,6 +5,7 @@
         <div class='login-title'>
           <span style='color: white; font-weight: 700;'>Logga in som företag</span>
         </div>
+        <span style='font-size: 11px; color: #8a8a8a;'>eller</span>
         <div class="login-box-input"><%= link_to "Logga in jobbsökande >>", new_user_session_path, class: 'switch-button' %></div>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="login-box-input">
