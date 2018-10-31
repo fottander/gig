@@ -24,9 +24,31 @@ class AdminjobsController < ApplicationController
     end
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
+  def update
+    @job = Job.find(params[:id])
+    respond_to do |format|
+      if @job.update job_update_params
+        format.html { redirect_to edit_adminjob_path(@job), notice: 'Annons ändrad' }
+        format.json { render :edit, status: :ok, location: @job }
+      else
+        format.html { render :edit }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def filtering_params(params)
     params.slice(:with_id, :with_company_username, :with_company_id)
   end
+
+  def job_update_params
+    params.require(:job).permit(:title, :description, :jobtype, :active, :requirement, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar)
+  end
+
 end
