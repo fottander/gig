@@ -8,7 +8,7 @@ Feature: Homepage
     And I should see "Hitta Personal" within company
     Then I should see "REGISTRERA KONTO"
     And I click "REGISTRERA FÖRETAG" within section
-    Then I should see "Registrera företag"
+    Then I should see "Registrera nytt företag"
     And I click "Läs mer om hur det fungerar"
     And I should see "Hur går det till"
     And I click "våra avgifter."
@@ -36,7 +36,7 @@ Feature: Homepage
     Then I should see "Registrera nytt konto som jobbsökande"
     Given I am on the home page
     And I click "Hitta Personal" within company
-    Then I should see "Registrera företag"
+    Then I should see "Registrera nytt företag"
     Given I am on the home page
     And I click "Hitta Jobb" within freelancer
     Then I should see "Alla jobb"
