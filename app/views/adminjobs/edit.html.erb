@@ -1,0 +1,94 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="simple-form">
+      <h3 class="post-title">Redigera <%= @job.title %></h3>
+      <%= form_for @job, url: adminjob_path(@job) do |f| %>
+        <% if @job.errors.any? %>
+          <% @job.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
+        <%= f.label :title, 'Titel', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :title, value: @job.title %>
+          <div class="fieldInfo">
+            Tips <br>
+            Ha en kort lockande titel med max 140 tecken. Skriv inte ut företagsnamn eller annan liknande information.
+          </div>
+        </div>
+        <%= f.label :category_ids, 'Kategorier', class: 'form-text' %>
+        <%= f.collection_select(:category_ids, Category.all, :id, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
+        <%= f.label :city_ids, 'Stad', class: 'form-text' %>
+        <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @job.city_ids }, { class: 'input-medium' }) %>
+        <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_area :description, value: @job.description %>
+          <div class="fieldInfo">
+            Tips <br>
+            Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Skriv inte ut företagsnamn eller annan liknande info. Vilka arbetstider? Vilken typ  av person ni söker? Med mera.
+          </div>
+        </div>
+        <%= f.label :jobtype, 'Typ av anställning', class: 'form-text' %>
+        <%= f.select :jobtype, options_for_select(Job::JOBTYPE_OPTIONS, selected: @job.jobtype), {}, class: 'input-medium' %>
+        <%= f.label :duration, 'Jobbets längd', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :duration, value: @job.duration %>
+          <div class="fieldInfo">
+            Tips <br>
+            Ange ungefärlig längd för jobbet i dagar eller veckor. Max är 4 veckor per anställningstillfälle.
+          </div>
+        </div>
+        <%= f.label :hour_day, 'Timmar per dag', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :hour_day, value: @job.hour_day %>
+          <div class="fieldInfo">
+            Tips <br>
+            Vid projekt kan detta fält lämnas blankt. Annars anges jobbtimmar per dag.
+          </div>
+        </div>
+        <%= f.label :when_in_time, 'När ska jobbet utföras', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :when_in_time, value: @job.when_in_time %>
+          <div class="fieldInfo">
+            Tips <br>
+            Ange "så fort som möjligt", mellan datum eller tidsperiod.
+          </div>
+        </div>
+        <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
+        <%= f.text_field :deadline, value: @job.deadline %>
+        <%= f.label :requirement, 'Krav', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :requirement, value: @job.requirement %>
+          <div class="fieldInfo">
+            Tips <br>
+            Krävs utbildning? Behövs körkort? Krävs tidigare erfarenhet i form av anställd x antal år eller liknande?
+          </div>
+        </div>
+        <%= f.label :budget, 'Föreslagen lön', class: 'form-text' %>
+        <div class="fieldContainer">
+          <%= f.text_field :budget, value: @job.budget %>
+          <div class="fieldInfo">
+            Tips <br>
+            Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
+          </div>
+        </div>
+        <%= f.check_box :active, value: true %>
+        <span class='form-text'>Aktivera/Inaktivera för att låta personer se din annons eller inte.</span><br>
+        <%= f.submit 'Spara', class: 'reply-button' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -77,3 +77,18 @@ Feature: Admin find invoices
       And I click "Filtrera ej färdiga"
       Then I should see "Give me job"
       And I should not see "I want job"
+
+    Scenario: I see jobs and edit info
+      Given I am logged in as admin "admin@yahoo.com"
+      Given I am on the administrations page
+      And I click "Jobb"
+      And I should see "Alla jobb"
+      And I click "målare sökes"
+      Then I should see "I want job"
+      And I click "Redigera"
+      Then I should see "Redigera målare sökes"
+      And I fill in "Titel" with "Duktig målare sökes"
+      And I fill in "Beskrivning" with "Måla massa hus"
+      And I fill in "Föreslagen lön" with "150kr/timma"
+      And I click "Spara"
+      Then I should see "Annons ändrad"
