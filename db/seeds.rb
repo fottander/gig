@@ -426,6 +426,8 @@ Invoice.create(
 
 User.first.confirm
 User.last.confirm
+Company.first.confirm
+Company.last.confirm
 
 puts "Created #{Category.count} category"
 puts "Created #{City.count} city"

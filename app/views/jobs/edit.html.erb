@@ -49,7 +49,7 @@
         <%= f.text_field :hour_day, value: @job.hour_day %>
         <div class="fieldInfo">
           Tips <br>
-          Vid projekt kan detta fält lämnas blankt. Annars anges jobbtimmar per dag.
+          Vid projekt skriv "Projekt". Annars anges hur många jobbtimmar per dag.
         </div>
       </div>
       <%= f.label :when_in_time, 'När ska jobbet utföras', class: 'form-text' %>
@@ -60,9 +60,9 @@
           Ange "så fort som möjligt", mellan datum eller tidsperiod.
         </div>
       </div>
-      <%= f.label :deadline, 'Sista ansökningsdag', class: 'form-text' %>
+      <%= f.label :deadline, 'Sista ansökningsdag (lämnas tom för löpande annons)', class: 'form-text' %>
       <%= f.text_field :deadline, value: @job.deadline %>
-      <%= f.label :requirement, 'Krav', class: 'form-text' %>
+      <%= f.label :requirement, 'Krav (kan lämnas blankt)', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :requirement, value: @job.requirement %>
         <div class="fieldInfo">
@@ -70,7 +70,7 @@
           Krävs utbildning? Behövs körkort? Krävs tidigare erfarenhet i form av anställd x antal år eller liknande?
         </div>
       </div>
-      <%= f.label :budget, 'Föreslagen lön', class: 'form-text' %>
+      <%= f.label :budget, 'Föreslagen lön (kan lämnas blankt)', class: 'form-text' %>
       <div class="fieldContainer">
         <%= f.text_field :budget, value: @job.budget %>
         <div class="fieldInfo">
