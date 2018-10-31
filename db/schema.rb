@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_24_094511) do
+ActiveRecord::Schema.define(version: 2018_10_31_114124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 2018_10_24_094511) do
     t.date "deadline"
     t.string "when_in_time"
     t.string "duration"
-    t.integer "hour_day"
+    t.string "hour_day"
     t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
