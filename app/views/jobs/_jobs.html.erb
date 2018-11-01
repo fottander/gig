@@ -26,10 +26,6 @@
                 <% end %>
               <div class='row'>
                 <div class='large-3 columns'>
-                  <span style='font-weight: 550;'>Skapad:</span> <%= job.created_at.strftime("%Y-%m-%d") %><br>
-                  <span style='font-weight: 550;'>Går ut:</span> <%= job.deadline %>
-                </div>
-                <div class='large-3 columns'>
                   <span style='font-weight: 550;'>Stad:</span> <%= job.cities.pluck(:name).flatten.join(' & ') %><br>
                   <span style='font-weight: 550;'>
                     Anställningstyp:
@@ -53,6 +49,9 @@
                 </div>
                 <div class='large-3 columns'>
                   <span style='font-weight: 550;'>När:</span> <%= job.when_in_time %>
+                </div>
+                <div class='large-3 columns'>
+                  <span style='font-weight: 550;'>Går ut:</span> <%= job.deadline %>
                 </div>
                 <div class='columns'>
                 </div>
