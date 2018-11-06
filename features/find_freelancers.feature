@@ -32,7 +32,8 @@ Feature: Show freelancers
       | abc         | 120    | felix          | 15    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
 
     Scenario: I see freelancers
-      Given I am on the home page
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
       And I click nav "ALLA JOBBSÖKARE"
       And I should see "Alla Jobbsökare"
       And I should see "fisken"
@@ -49,7 +50,8 @@ Feature: Show freelancers
       Then I should see "Målare sökes"
 
     Scenario: I filtrate on a city
-      Given I am on the home page
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
       And I click nav "ALLA JOBBSÖKARE"
       And I select "Malmö" from "with_city"
       And I click "Filtrera"
@@ -57,7 +59,8 @@ Feature: Show freelancers
       Then I should not see "Erfaren målare"
 
     Scenario: I filtrate on a category
-      Given I am on the home page
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
       And I click nav "ALLA JOBBSÖKARE"
       And I select "Plåtslagare" from "with_category"
       And I click "Filtrera"
@@ -65,7 +68,8 @@ Feature: Show freelancers
       Then I should not see "Erfaren snickare"
 
     Scenario: I see freelancers
-      Given I am on the home page
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
       And I click nav "ALLA JOBBSÖKARE"
       And I should see "Alla Jobbsökare"
       And I should see "anders"
