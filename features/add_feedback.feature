@@ -27,11 +27,13 @@ Feature: Extend invoice and add feedback
       | abc         | 100      | 12  | 1200   | felix          | 15    | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
 
     Scenario: I give feedback with extended post, terms and rating
-      Given I am logged in as company "felix@mail.com"
+      Given I am logged in as user "felix@mail.com"
       Given I am on the home page
       And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
       And I should not see "Betyg"
+      And I click "LOGGA UT"
+      Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
@@ -54,11 +56,17 @@ Feature: Extend invoice and add feedback
       And I select "5" from "rating"
       And I click "Skicka betyg"
       And I should see "Sparat!"
+      And I click "LOGGA UT"
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the home page
       And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
       And I should see "Betyg 5/5"
       And I should see "Betyg 4.3/5"
       Then I should see "Väldigt bra snubbe"
+      And I click "LOGGA UT"
+      Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
       And I should see "Belopp ex. moms: 1770"
@@ -115,10 +123,16 @@ Feature: Extend invoice and add feedback
       And I fill in "feedback" with "Väldigt bra snubbe"
       And I click "Skicka feedback"
       And I should see "Sparat!"
+      And I click "LOGGA UT"
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the home page
       And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
       And I should see "5/5"
       Then I should see "Väldigt bra snubbe"
+      And I click "LOGGA UT"
+      Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
       And I should see "Belopp ex. moms: 1770"

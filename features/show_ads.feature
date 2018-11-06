@@ -32,7 +32,6 @@ Feature: Show job ads
       And I should see "När: asap"
       And I should see "Timmar per dag: 8"
       And I should see "Anders P"
-      And I should see "Skapad: 2018-01-01"
       And I should see "Går ut: 2019-10-10"
       Then I should see job "målare" avatar name "Default-company.png"
       And I click "Ansök"
