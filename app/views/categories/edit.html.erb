@@ -23,12 +23,12 @@
                 <li><%= message %></li>
               <% end %>
             <% end %>
-              <%= f.label :name, 'Namn', class: 'form-text' %>
-              <%= f.text_field :name, value: @category.name %>
-              <%= f.text_field :ssyk_code, value: @category.ssyk_code %>
-              <%= f.label :avatar, 'Kategoribild (.jpg .jpeg .png .gif)', class: 'form-text' %>
-              <%= f.file_field :avatar, class: 'form-text' %>
-              <%= f.submit 'Spara', class: 'reply-button' %>
+            <%= f.label :name, 'Namn', class: 'form-text' %>
+            <%= f.text_field :name, value: @category.name %>
+            <%= f.text_field :ssyk_code, value: @category.ssyk_code %>
+            <%= f.label :avatar, 'Kategoribild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+            <%= f.file_field :avatar, class: 'form-text' %>
+            <%= f.submit 'Spara', class: 'reply-button' %>
           <% end %>
         </div>
       </div>
