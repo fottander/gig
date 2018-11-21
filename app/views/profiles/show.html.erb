@@ -23,10 +23,6 @@
 
     <div class="card-profile-stats-container">
       <div class="card-profile-stats-statistic">
-        <span class="stat">Titel</span>
-        <p class='job-count'><%= @profile.title %></p>
-      </div>
-      <div class="card-profile-stats-statistic">
         <span class="stat">Stad</span>
           <p class='job-count'><%= @profile.cities.pluck(:name).flatten.join(' & ') %></p>
       </div>

@@ -9,7 +9,7 @@
             </div>
             <div class="profile-card-author">
               <h4 class="author-title"><%= link_to profile.username, profile_path(profile)%></h4>
-              <%= profile.title %>
+              <%= profile.years_old %> år
             </div>
           </div>
           <div class="large-9 columns profile-card-about">
@@ -31,9 +31,6 @@
                 <div class='large-3 columns'>
                   <span style='font-weight: 550;'>Totalt intjänat:</span> <br>
                   <%= profile.user.current_earnings %>
-                </div>
-                <div class='large-3 columns'>
-                  <span style='font-weight: 550;'>Ålder:</span> <%= profile.years_old %>
                 </div>
                 <div class='columns'>
                 </div>

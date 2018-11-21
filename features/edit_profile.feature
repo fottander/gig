@@ -19,7 +19,6 @@ Feature: Edit profile
       Given I am on the dashboards page
       And I click "Skapa profil"
       And I should see "Skapa profil"
-      And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
       And I fill in "Födelsedatum" with "1989-09-14"
       And I fill in "Beskrivning" with "Jag är en 29 årig målare och snickare från gbg"
       And I check Category check box
@@ -29,7 +28,6 @@ Feature: Edit profile
       And I click "Redigera profil"
       And I should see "Redigera profil"
       And I fill in "Användarnamn" with "fisken"
-      And I fill in "Titel" with "målare"
       And I fill in "Födelsedatum" with "1988-09-14"
       And I fill in "Beskrivning" with "målare från gbg"
       And I check Category check box

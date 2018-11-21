@@ -31,7 +31,6 @@ RSpec.describe Profile, type: :model do
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :description }
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :category_ids }
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :city_ids }
-    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_length_of(:title).is_at_most(50) }
   end
 
   describe 'Avatar attachment' do
