@@ -15,8 +15,8 @@ Feature: User dashboard
       | name      | id |
       | Göteborg  | 1  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id | age        |
-      | Johan    | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id | age        |
+      | Johan    | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
 
     Scenario: I go to dashboard
       Given I am on the home page

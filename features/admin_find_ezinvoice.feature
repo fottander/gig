@@ -18,9 +18,9 @@ Feature: Admin find ezinvoices
       | felix@yahoo.com | felix      | ottander  | 12345678  | 12345678              | 9999 |
       | johan@yahoo.com | johan      | stjärtis  | 12345678  | 12345678              | 9998 |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id   | age        |
-      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
-      | Greger   | målare 29 år | målare gbg  | 1            | 1        | 9998    | 9998 | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id   | age        |
+      | Fisken   | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
+      | Greger   | målare gbg  | 1            | 1        | 9998    | 9998 | 1988-09-14 |
     Given the following ezinvoices exist
       | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | paid  | user_id    |
       | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 15    | false | 9999       |

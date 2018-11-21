@@ -17,8 +17,8 @@ Feature: Extend invoice and add feedback
       | email          | first_name | last_name | password  | password_confirmation | id   |
       | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 9999 |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id   | age        |
-      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id   | age        |
+      | Fisken   | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
     Given the following invoices exist
       | description | quantity | unit| amount | user_reference | terms |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
       | ref         | 100      | 12  | 1200   | felix          | 15    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |

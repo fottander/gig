@@ -23,10 +23,10 @@ Feature: Show freelancers
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
     Given the following profiles exist
-      | username | title               | description                                      | category_ids | city_ids | id | user_id | age        |
-      | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       | 1988-09-14 |
-      | anders   | Erfaren snickare    | Erfaren snickare med 5 års erfarenhet            | 2            | 2        | 2  | 2       | 1988-09-14 |
-      | robert   | Erfaren plåtslagare | Erfaren plåtslagare med 5 års erfarenhet         | 3            | 3        | 3  | 3       | 1988-09-14 |
+      | username | description                                      | category_ids | city_ids | id | user_id | age        |
+      | fisken   | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       | 1988-09-14 |
+      | anders   | Erfaren snickare med 5 års erfarenhet            | 2            | 2        | 2  | 2       | 1988-09-14 |
+      | robert   | Erfaren plåtslagare med 5 års erfarenhet         | 3            | 3        | 3  | 3       | 1988-09-14 |
     Given the following invoices exist
       | description | amount | user_reference | terms |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id |
       | abc         | 120    | felix          | 15    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |

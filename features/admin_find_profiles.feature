@@ -18,9 +18,9 @@ Feature: Admin find profiles
       | name      | id |
       | Göteborg  | 1  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id   | age        |
-      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
-      | Greger   | målare 29 år | målare gbg  | 1            | 1        | 9998    | 9998 | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id   | age        |
+      | Fisken   | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
+      | Greger   | målare gbg  | 1            | 1        | 9998    | 9998 | 1988-09-14 |
 
     Scenario: I see profiles and search by username
       Given I am logged in as admin "admin@yahoo.com"

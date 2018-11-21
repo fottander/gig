@@ -25,8 +25,8 @@ Feature: Create an invoice without an ad
       | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
       | greger@mail.com| greger     | stjärtis  | 12345678  | 12345678              | 2  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id | age        |
-      | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id | age        |
+      | Fisken   | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
 
   Scenario: I create an invoice without an ad and edit it afterwards and then delete it
     Given I am logged in as user "felix@mail.com"

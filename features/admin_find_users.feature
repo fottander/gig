@@ -18,8 +18,8 @@ Feature: Admin find users
       | felix@yahoo.com | felix      | ottander  | 12345678  | 12345678              | 9999 |
       | johan@yahoo.com | johan      | stjärtis  | 12345678  | 12345678              | 9998 |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id   | age        |
-      | Fisken   | målare 29 år | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id   | age        |
+      | Fisken   | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
 
     Scenario: I see users and search by email
       Given I am logged in as admin "admin@yahoo.com"
