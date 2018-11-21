@@ -10,7 +10,6 @@
         <p class='job-count'>Antal genomförda jobb: <%= @profile.user.invoice_count %></p>
         <p class='job-count' style='margin-top: -7px;'>
           Totalt intjänat: <%= @profile.user.current_earnings %><br>
-          Ålder: <%= @profile.years_old %><br>
           <% if @profile.user.invoices.with_rating.count > 2 %>
             <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
           <% end %>
@@ -29,6 +28,10 @@
       <div class="card-profile-stats-statistic">
         <span class="stat">Kategorier</span>
         <p class='job-count'><%= @profile.categories.pluck(:name).flatten.join(' & ') %></p>
+      </div>
+      <div class="card-profile-stats-statistic">
+        <span class="stat">Ålder</span>
+        <p class='job-count'><%= @profile.years_old %> år</p>
       </div>
       <% if @profile.skill.present? %>
       <div class="card-profile-stats-statistic">

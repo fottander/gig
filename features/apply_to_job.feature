@@ -174,7 +174,7 @@ Feature: Apply to job
       Then I should see "Fisken har ansökt till jobbet"
       And I click "Läs mer om Fisken"
       And I should see "målare gbg"
-      Then I should see "Ålder: 30"
+      Then I should see "30 år"
 
     Scenario: I apply to a job without a profile
       Given I am on the jobs page
