@@ -35,8 +35,6 @@
             <li><%= message %></li>
           <% end %>
         <% end %>
-        <%= f.label :username, 'Användarnamn', class: 'form-text' %>
-        <%= f.text_field :username, value: @profile.username %>
         <%= f.label :age, 'Födelsedatum', class: 'form-text' %>
         <%= f.date_field :age, class: 'input-mini' %>
         <%= f.label :description, 'Beskrivning', class: 'form-text' %>
@@ -94,7 +92,7 @@
         <div class="prev-work">
           <%= f.submit 'Spara', class: 'button-blue' %>
         </div>
-        <%= f.label :skill, 'Kompetenser (Ex. Städning, vikarie, målning)', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.label :skill, 'Kompetenser (Ex. servis, bar, disk)', class: 'form-text', style:'margin-top: 5px;' %>
         <div class="fieldContainer">
           <%= f.text_field :skill, value: @profile.skill, style:'margin-bottom: 0px;' %>
           <div class="fieldInfo" style='margin-top: 0px;'>
