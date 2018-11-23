@@ -15,7 +15,6 @@ RSpec.describe Profile, type: :model do
 
   describe 'DB table' do
     it { is_expected.to have_db_column :username }
-    it { is_expected.to have_db_column :title }
     it { is_expected.to have_db_column :description }
     it { is_expected.to have_db_column :skill }
     it { is_expected.to have_db_column :language }
@@ -28,12 +27,10 @@ RSpec.describe Profile, type: :model do
 
   describe 'Validations' do
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100').username).to eq("Felix O")}
-    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :title }
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :age }
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :description }
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :category_ids }
     it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_presence_of :city_ids }
-    it { expect(create(:profile, user_id: 100, category_ids: '100', city_ids: '100')).to validate_length_of(:title).is_at_most(50) }
   end
 
   describe 'Avatar attachment' do

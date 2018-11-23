@@ -99,7 +99,6 @@
           <p class="portfolio-resume-subheader">
             <% @profiles.each do |profile| %>
               ID: <%= profile.id %><br>
-              Titel: <%= profile.title %><br>
               Username: <%= profile.username %><br>
               Skapad: <%= profile.created_at.strftime("%F %R") %><br><br>
             <% end %>

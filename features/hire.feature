@@ -23,8 +23,8 @@ Feature: A company hires a person
       | email          | password  | password_confirmation | id | first_name | last_name |
       | felix@mail.com | 12345678  | 12345678              | 1  | felix      | ottander  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id | age        |
-      | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id | age        |
+      | Fisken   | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    |
       | I want job | 1      | Fisken           | 1          | målare sökes |

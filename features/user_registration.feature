@@ -7,6 +7,12 @@ Feature: User registration
     Given the following users exist
       | email          | first_name | last_name | password  | password_confirmation |
       | felix@mail.com | felix      | ottander  | 12345678  | 12345678              |
+    Given the following categories exist
+      | name   | id |
+      | Målare | 1  |
+    Given the following cities exist
+      | name      | id |
+      | Göteborg  | 1  |
 
     Scenario: I register as a user
       Given I am on the home page
@@ -45,6 +51,33 @@ Feature: User registration
       And I should not see "Välkommen till Qnekt"
       And I should not see "Nästa steg är att söka jobb"
       Then I should see "Nästa steg är att skapa en profil"
+
+    Scenario: I register as a user with weird names
+      Given I am on the home page
+      And I click "REGISTRERA"
+      And I should see "Registrera nytt konto som jobbsökande"
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Förnamn" with "Anna Lena"
+      And I fill in "Efternamn" with "ottander"
+      And I fill in "Lösenord" with "12345678"
+      And I fill in "Bekräfta lösenord" with "12345678"
+      And I click "Registrera"
+      Then I should see "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till mail@mail.com."
+      And the last created user is marked confirmed
+      And I fill in "Email" with "mail@mail.com"
+      And I fill in "Lösenord" with "12345678"
+      And I click "Logga in"
+      Then I should see "Nästa steg är att skapa en profil"
+      And I click "Skapa profil"
+      And I should see "Skapa profil"
+      And I fill in "Beskrivning" with "Jag är en 30 årig målare och snickare från gbg"
+      And I check Category check box
+      And I fill in "Födelsedatum" with "1988-09-14"
+      And I select "Göteborg" from "Stad"
+      And I click "Skapa"
+      Then I should see "Ny profil skapad!"
+      And I click "ALLA JOBBSÖKARE"
+      Then I should see "Anna lena O"
 
     Scenario: I register without first name or last name
       Given I am on the home page

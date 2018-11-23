@@ -14,8 +14,8 @@ Feature: Extend profile
       | name      | id |
       | Göteborg  | 1  |
     Given the following profiles exist
-      | username | title          | description                                      | category_ids | city_ids | id | user_id | age        |
-      | fisken   | Erfaren målare | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       | 1988-09-14 |
+      | username | description                                      | category_ids | city_ids | id | user_id | age        |
+      | fisken   | Erfaren målare och snickare med 5 års erfarenhet | 1            | 1        | 1  | 1       | 1988-09-14 |
 
     Scenario: I go to dashboard
       Given I am on the home page

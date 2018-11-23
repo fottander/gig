@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_114124) do
+ActiveRecord::Schema.define(version: 2018_11_21_130934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -246,7 +246,6 @@ ActiveRecord::Schema.define(version: 2018_10_31_114124) do
 
   create_table "profiles", force: :cascade do |t|
     t.string "username"
-    t.string "title"
     t.text "description"
     t.string "skill"
     t.string "language"

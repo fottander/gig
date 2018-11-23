@@ -15,8 +15,8 @@ Feature: User dashboard
       | name      | id |
       | Göteborg  | 1  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id | age        |
-      | Johan    | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id | age        |
+      | Johan    | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
 
     Scenario: I go to dashboard
       Given I am on the home page
@@ -34,7 +34,6 @@ Feature: User dashboard
       Then I should see "Nästa steg är att skapa en profil"
       And I click "Skapa profil"
       And I should see "Skapa profil"
-      And I fill in "Titel" with "Målare, snickare med lång erfarenhet"
       And I fill in "Beskrivning" with "Jag är en 30 årig målare och snickare från gbg"
       And I check Category check box
       And I select "Göteborg" from "Stad"
@@ -47,8 +46,7 @@ Feature: User dashboard
       Then I should see "Nästa steg är att söka jobb"
       And I click "ALLA JOBBSÖKARE"
       And I should see "Felix O"
-      And I should see "Målare, snickare med lång erfarenhet"
-      And I should see "Ålder: 30"
+      And I should see "30 år"
       Then I should see "Jag är en 30 årig målare och snickare från gbg"
       And I click "KONTROLLPANEL"
       And I click "LOGGA UT"

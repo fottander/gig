@@ -28,9 +28,9 @@ Feature: Mark As complete and send invoice
       | felix@mail.com | 12345678  | 12345678              | 1  | felix      | ottander  |
       | filip@mail.com | 12345678  | 12345678              | 2  | filip      | bergfelt  |
     Given the following profiles exist
-      | username | title        | description | category_ids | city_ids | user_id | id | age        |
-      | Fisken   | 29 år målare | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
-      | Filip    | 29 år målare | målare gbg  | 1            | 1        | 2       | 2  | 1988-09-14 |
+      | username | description | category_ids | city_ids | user_id | id | age        |
+      | Fisken   | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
+      | Filip    | målare gbg  | 1            | 1        | 2       | 2  | 1988-09-14 |
     Given the following applications exist
       | message    | job_id | profile_username | profile_id | job_title    | hired | complete | first_day  | last_day   |
       | I want job | 1      | Fisken           | 1          | målare sökes | true  | false    | 2018-01-01 | 2018-01-20 |

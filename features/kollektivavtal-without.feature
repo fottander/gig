@@ -19,10 +19,10 @@ Background:
     | name     | id |
     | Göteborg | 1  |
   Given the following profiles exist
-    | username | title               | description                                      | skill                      | category_ids | city_ids | id | user_id | age        |
-    | fisken   | Erfaren målare      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 1  | 1       | 1998-01-14 |
-    | felix    | Erfaren snickare    | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 2  | 2       | 1988-01-14 |
-    | johan    | Erfaren plåtis      | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 3  | 3       | 1948-01-14 |
+    | username | description                                      | skill                      | category_ids | city_ids | id | user_id | age        |
+    | fisken   | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 1  | 1       | 1998-01-14 |
+    | felix    | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 2  | 2       | 1988-01-14 |
+    | johan    | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 3  | 3       | 1948-01-14 |
   Given the following companies exist
     | email           | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
     | fisken@mail.com | bill | Anders a | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
