@@ -70,7 +70,7 @@ Feature: Mark As complete and send invoice
       And I should see "Beskrivning: Måleri"
       And I should see "Antal timmar: "
       And I should see "Timlön: 100"
-      And I should see "Lön som betalas ut: 7307 SEK"
+      And I should see "Lön som betalas ut: 7056 SEK"
       And I should see "2018-01-01"
       And I should see "Fisken"
       And I should see "Anders"

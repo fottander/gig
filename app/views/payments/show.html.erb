@@ -50,7 +50,7 @@
               Din avgiftsnivå vid skapandet av fakturan: <%= (@invoice.user_fee * 100).round %>%<br>
               Vår avgift: -<%= @invoice.varavgift %> <br>
               Ny bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
-              Skatt:	-<%= @invoice.loneskatt %> SEK <br>
+              Skatt:	-<%= @invoice.loneskatt %> SEK <br> 
               Nettolön(lön efter skatt): <%= @invoice.nettolon %> SEK <br>
               <span class='item-define'>Utbetald summa: </span> <%= @invoice.nettolon %> SEK<br>
               Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>

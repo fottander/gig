@@ -1,7 +1,7 @@
 class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
-  before_save :soc_avgift_m_age_gen, :bruttolon_gen, :arbetsgivaravgifter_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :fakturabelopp_gen, :fakturabelopp_frilansare_gen, :varavgift_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :fakturabelopp_inklmoms_gen, :totalbelopp_gen, :totalbelopp_inklmoms_gen, :regenerate_values
+  before_save :soc_avgift_m_age_gen, :bruttolon_gen, :arbetsgivaravgifter_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :fakturabelopp_gen, :varavgift_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :fakturabelopp_inklmoms_gen, :totalbelopp_gen, :totalbelopp_inklmoms_gen, :regenerate_values
   validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
@@ -91,16 +91,12 @@ class Invoice < ApplicationRecord
     self.fakturabelopp = (self.bruttolon + self.arbetsgivaravgifter + self.sociala_avgifter + self.pension_loneskatt).round
   end
 
-  def fakturabelopp_frilansare_gen
-    self.fakturabelopp_frilansare = (self.bruttolon + self.arbetsgivaravgifter).round
-  end
-
   def varavgift_gen
     self.varavgift = (self.amount * self.user_fee).round
   end
 
   def bruttolon_ef_avg_gen
-    self.bruttolon_ef_avg = ((self.fakturabelopp_frilansare - self.varavgift) / (1 + self.a_g_avgift)).round
+    self.bruttolon_ef_avg = ((self.amount - self.varavgift) * (1+self.semester_ers)).round
   end
 
   def loneskatt_gen
@@ -143,9 +139,8 @@ class Invoice < ApplicationRecord
       self.pension_loneskatt = 0
     end
     self.fakturabelopp = (self.bruttolon + self.arbetsgivaravgifter + self.sociala_avgifter + self.pension_loneskatt).round if amount_changed?
-    self.fakturabelopp_frilansare = (self.bruttolon + self.arbetsgivaravgifter).round if amount_changed?
     self.varavgift = (self.amount * self.user_fee).round if amount_changed?
-    self.bruttolon_ef_avg = ((self.fakturabelopp_frilansare - self.varavgift) / (1 + self.a_g_avgift)).round if amount_changed?
+    self.bruttolon_ef_avg = self.bruttolon_ef_avg = ((self.amount - self.varavgift) * (1+self.semester_ers)).round if amount_changed?
     self.loneskatt = (self.bruttolon_ef_avg * self.inkomstskatt).round if amount_changed?
     self.nettolon = (self.bruttolon_ef_avg - self.loneskatt).round if amount_changed?
     self.arbetsgivaravgifter_ef_avg = (self.bruttolon_ef_avg * self.a_g_avgift).round if amount_changed?
