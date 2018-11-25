@@ -1,6 +1,7 @@
 class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
+  before_save :bruttolon_gen, :arbetsgivaravgifter_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :fakturabelopp_gen, :fakturabelopp_frilansare_gen, :varavgift_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :fakturabelopp_inklmoms_gen, :totalbelopp_gen, :totalbelopp_inklmoms_gen, :regenerate_values
   validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
@@ -28,28 +29,12 @@ class Invoice < ApplicationRecord
 
   self.per_page = 4
 
-  def nettolon
-    (self.bruttolon_ef_avg - self.loneskatt).round
-  end
-
-  def loneskatt
-    (self.bruttolon_ef_avg * self.inkomstskatt).round
-  end
-
-  def bruttolon
-    (self.amount + (self.amount * self.semester_ers)).round
-  end
-
-  def arbetsgivaravgifter
-    (self.bruttolon * self.a_g_avgift).round
+  def due_date
+    self.created_at + self.terms.day
   end
 
   def a_g_avgift
     0.3142
-  end
-
-  def sociala_avgifter
-    (self.bruttolon * self.soc_avgift_m_age).round
   end
 
   def soc_avgift_procent
@@ -66,58 +51,8 @@ class Invoice < ApplicationRecord
     end
   end
 
-  def pension_loneskatt
-    if self.age < 25
-      0
-    elsif (25..64).include? self.age
-      (0.2426 * (self.bruttolon * 0.043)).round
-    elsif self.age > 64
-      0
-    end
-  end
-
-  def fakturabelopp
-    (self.bruttolon + self.arbetsgivaravgifter + self.sociala_avgifter + self.pension_loneskatt).round
-  end
-
-  def fakturabelopp_frilansare
-    (self.bruttolon + self.arbetsgivaravgifter).round
-  end
-
-  def varavgift
-    (self.fakturabelopp_frilansare * self.user_fee).round
-  end
-
-  def bruttolon_ef_avg
-    ((self.fakturabelopp_frilansare - self.varavgift) / (1 + self.a_g_avgift)).round
-  end
-
-  def arbetsgivaravgifter_ef_avg
-    (self.bruttolon_ef_avg * self.a_g_avgift).round
-  end
-
-  def sociala_avgifter_ef_avg
-    (self.bruttolon_ef_avg * self.soc_avgift_m_age).round
-  end
-
   def semester_ers
     0.12
-  end
-
-  def fakturabelopp_inklmoms
-    (self.fakturabelopp * 1.25).round
-  end
-
-  def totalbelopp
-    (self.fakturabelopp + self.invoice_fees).round
-  end
-
-  def totalbelopp_inklmoms
-    (self.totalbelopp * 1.25).round
-  end
-
-  def due_date
-    self.created_at + self.terms.day
   end
 
   def inkomstskatt
@@ -129,4 +64,95 @@ class Invoice < ApplicationRecord
   def generate_ocr
     self.ocr_number = Digest::SHA1.hexdigest([Time.now, rand].join)[0..10]
   end
+
+  def bruttolon_gen
+    self.bruttolon = (self.amount + (self.amount * self.semester_ers)).round
+  end
+
+  def arbetsgivaravgifter_gen
+    self.arbetsgivaravgifter = (self.bruttolon * self.a_g_avgift).round
+  end
+
+  def sociala_avgifter_gen
+    self.sociala_avgifter = (self.bruttolon * self.soc_avgift_m_age).round
+  end
+
+  def pension_loneskatt_gen
+    if self.age < 25
+      self.pension_loneskatt = 0
+    elsif (25..64).include? self.age
+      self.pension_loneskatt = (0.2426 * (self.bruttolon * 0.043)).round
+    elsif self.age > 64
+      self.pension_loneskatt = 0
+    end
+  end
+
+  def fakturabelopp_gen
+    self.fakturabelopp = (self.bruttolon + self.arbetsgivaravgifter + self.sociala_avgifter + self.pension_loneskatt).round
+  end
+
+  def fakturabelopp_frilansare_gen
+    self.fakturabelopp_frilansare = (self.bruttolon + self.arbetsgivaravgifter).round
+  end
+
+  def varavgift_gen
+    self.varavgift = (self.fakturabelopp_frilansare * self.user_fee).round
+  end
+
+  def bruttolon_ef_avg_gen
+    self.bruttolon_ef_avg = ((self.fakturabelopp_frilansare - self.varavgift) / (1 + self.a_g_avgift)).round
+  end
+
+  def loneskatt_gen
+    self.loneskatt = (self.bruttolon_ef_avg * self.inkomstskatt).round
+  end
+
+  def nettolon_gen
+    self.nettolon = (self.bruttolon_ef_avg - self.loneskatt).round
+  end
+
+  def arbetsgivaravgifter_ef_avg_gen
+    self.arbetsgivaravgifter_ef_avg = (self.bruttolon_ef_avg * self.a_g_avgift).round
+  end
+
+  def sociala_avgifter_ef_avg_gen
+    self.sociala_avgifter_ef_avg = (self.bruttolon_ef_avg * self.soc_avgift_m_age).round
+  end
+
+  def fakturabelopp_inklmoms_gen
+    self.fakturabelopp_inklmoms = (self.fakturabelopp * 1.25).round
+  end
+
+  def totalbelopp_gen
+    self.totalbelopp = (self.fakturabelopp + self.invoice_fees).round
+  end
+
+  def totalbelopp_inklmoms_gen
+    self.totalbelopp_inklmoms = (self.totalbelopp * 1.25).round
+  end
+
+  def regenerate_values
+    self.bruttolon = (self.amount + (self.amount * self.semester_ers)).round if amount_changed?
+    self.arbetsgivaravgifter = (self.bruttolon * self.a_g_avgift).round if amount_changed?
+    self.sociala_avgifter = (self.bruttolon * self.soc_avgift_m_age).round if amount_changed?
+    if self.age < 25
+      self.pension_loneskatt = 0
+    elsif (25..64).include? self.age
+      self.pension_loneskatt = (0.2426 * (self.bruttolon * 0.043)).round if amount_changed?
+    elsif self.age > 64
+      self.pension_loneskatt = 0
+    end
+    self.fakturabelopp = (self.bruttolon + self.arbetsgivaravgifter + self.sociala_avgifter + self.pension_loneskatt).round if amount_changed?
+    self.fakturabelopp_frilansare = (self.bruttolon + self.arbetsgivaravgifter).round if amount_changed?
+    self.varavgift = (self.fakturabelopp_frilansare * self.user_fee).round if amount_changed?
+    self.bruttolon_ef_avg = ((self.fakturabelopp_frilansare - self.varavgift) / (1 + self.a_g_avgift)).round if amount_changed?
+    self.loneskatt = (self.bruttolon_ef_avg * self.inkomstskatt).round if amount_changed?
+    self.nettolon = (self.bruttolon_ef_avg - self.loneskatt).round if amount_changed?
+    self.arbetsgivaravgifter_ef_avg = (self.bruttolon_ef_avg * self.a_g_avgift).round if amount_changed?
+    self.sociala_avgifter_ef_avg = (self.bruttolon_ef_avg * self.soc_avgift_m_age).round if amount_changed?
+    self.fakturabelopp_inklmoms = (self.fakturabelopp * 1.25).round if amount_changed?
+    self.totalbelopp = (self.fakturabelopp + self.invoice_fees).round if amount_changed? || invoice_fees_changed?
+    self.totalbelopp_inklmoms = (self.totalbelopp * 1.25).round if amount_changed? || invoice_fees_changed?
+  end
+
 end
