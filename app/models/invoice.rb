@@ -96,7 +96,7 @@ class Invoice < ApplicationRecord
   end
 
   def varavgift_gen
-    self.varavgift = (self.fakturabelopp_frilansare * self.user_fee).round
+    self.varavgift = (self.amount * self.user_fee).round
   end
 
   def bruttolon_ef_avg_gen
@@ -144,7 +144,7 @@ class Invoice < ApplicationRecord
     end
     self.fakturabelopp = (self.bruttolon + self.arbetsgivaravgifter + self.sociala_avgifter + self.pension_loneskatt).round if amount_changed?
     self.fakturabelopp_frilansare = (self.bruttolon + self.arbetsgivaravgifter).round if amount_changed?
-    self.varavgift = (self.fakturabelopp_frilansare * self.user_fee).round if amount_changed?
+    self.varavgift = (self.amount * self.user_fee).round if amount_changed?
     self.bruttolon_ef_avg = ((self.fakturabelopp_frilansare - self.varavgift) / (1 + self.a_g_avgift)).round if amount_changed?
     self.loneskatt = (self.bruttolon_ef_avg * self.inkomstskatt).round if amount_changed?
     self.nettolon = (self.bruttolon_ef_avg - self.loneskatt).round if amount_changed?

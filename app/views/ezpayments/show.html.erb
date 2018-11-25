@@ -50,7 +50,7 @@
               Bruttolön: <%= @ezinvoice.amount %> <br>
               Bruttolön inkl. semesterersättning(12%): <%= @ezinvoice.bruttolon %> <br>
               Din avgiftsnivå vid skapandet av fakturan: <%= (@ezinvoice.user_fee * 100).round %>%<br>
-              Vår avgift: -<%= (@ezinvoice.bruttolon * @ezinvoice.user_fee).round %> <br>
+              Vår avgift: -<%= @ezinvoice.varavgift %> <br>
               Ny bruttolön inkl sem. ers:	<%= @ezinvoice.bruttolon_ef_avg %> SEK <br>
               Skatt:	-<%= @ezinvoice.loneskatt %> SEK <br>
               Nettolön (lön efter skatt): <%= @ezinvoice.nettolon %> SEK <br>
