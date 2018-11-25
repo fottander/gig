@@ -70,7 +70,7 @@ Feature: Mark As complete and send invoice
       And I should see "Beskrivning: Måleri"
       And I should see "Antal timmar: "
       And I should see "Timlön: 100"
-      And I should see "Lön som betalas ut: 7056 SEK"
+      And I should see "Lön som betalas ut: 7307 SEK"
       And I should see "2018-01-01"
       And I should see "Fisken"
       And I should see "Anders"
@@ -104,3 +104,18 @@ Feature: Mark As complete and send invoice
       And I should see "Sparat!"
       And I should see "Fakturaavgifter: 199"
       Then I should not see "Ge betyg till MyString"
+
+    Scenario: I create an invoice and see completed jobs change in index
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
+      And I should not see "Visa ansökan"
+      And I click "Begär utbetalning"
+      And I should see "Skapa utbetalning baserad på jobbet"
+      And I fill in "quantity" with "120"
+      And I fill hidden field unit and fill "100"
+      And I fill hidden field amount and fill "12000"
+      And I click "Skapa utbetalning"
+      And I should see "Jobbet har genomförts!"
+      And I click "KONTROLLPANEL"
+      And I click "Radera"
+      And I should not see "Radera"

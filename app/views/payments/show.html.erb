@@ -48,7 +48,7 @@
               Bruttolön: <%= @invoice.amount %> <br>
               Bruttolön inkl. semesterersättning(12%): <%= @invoice.bruttolon %> <br>
               Din avgiftsnivå vid skapandet av fakturan: <%= (@invoice.user_fee * 100).round %>%<br>
-              Vår avgift: -<%= (@invoice.bruttolon * @invoice.user_fee).round %> <br>
+              Vår avgift: -<%= @invoice.varavgift %> <br>
               Ny bruttolön inkl sem. ers:	<%= @invoice.bruttolon_ef_avg %> SEK <br>
               Skatt:	-<%= @invoice.loneskatt %> SEK <br>
               Nettolön(lön efter skatt): <%= @invoice.nettolon %> SEK <br>

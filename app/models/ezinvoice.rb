@@ -79,7 +79,7 @@ class Ezinvoice < ApplicationRecord
   end
 
   def varavgift
-    (self.fakturabelopp_frilansare * self.user_fee).round
+    (self.amount * self.user_fee).round
   end
 
   def bruttolon_ef_avg
