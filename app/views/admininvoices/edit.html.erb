@@ -41,8 +41,6 @@
         <%= f.text_field :company_reference, value: @invoice.company_reference %>
         <%= f.label :age, 'Ålder', class: 'form-text' %>
         <%= f.text_field :age, value: @invoice.age %>
-        <%= f.label :soc_avgift, 'Sociala avgifter', class: 'form-text' %>
-        <%= f.text_field :soc_avgift, value: @invoice.soc_avgift %>
         <%= f.submit 'Spara', class: 'reply-button' %>
       <% end %>
     </div>

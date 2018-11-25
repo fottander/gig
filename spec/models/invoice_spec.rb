@@ -35,6 +35,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column :job_title }
     it { is_expected.to have_db_column :profile_id }
     it { is_expected.to have_db_column :profile_username }
+    it { is_expected.to have_db_column :soc_avgift_m_age }
     it { is_expected.to have_db_column :bruttolon }
     it { is_expected.to have_db_column :nettolon }
     it { is_expected.to have_db_column :loneskatt }

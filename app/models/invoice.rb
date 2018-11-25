@@ -1,7 +1,7 @@
 class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
-  before_save :bruttolon_gen, :arbetsgivaravgifter_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :fakturabelopp_gen, :fakturabelopp_frilansare_gen, :varavgift_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :fakturabelopp_inklmoms_gen, :totalbelopp_gen, :totalbelopp_inklmoms_gen, :regenerate_values
+  before_save :soc_avgift_m_age_gen, :bruttolon_gen, :arbetsgivaravgifter_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :fakturabelopp_gen, :fakturabelopp_frilansare_gen, :varavgift_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :fakturabelopp_inklmoms_gen, :totalbelopp_gen, :totalbelopp_inklmoms_gen, :regenerate_values
   validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
   validates :quantity, numericality: { only_integer: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
@@ -41,16 +41,6 @@ class Invoice < ApplicationRecord
     (self.soc_avgift_m_age * 100).round(2)
   end
 
-  def soc_avgift_m_age
-    if self.age < 25
-      (self.soc_avgift - 0.043).round(5)
-    elsif (25..64).include? self.age
-      self.soc_avgift
-    elsif self.age > 64
-      (self.soc_avgift - 0.043).round(5)
-    end
-  end
-
   def semester_ers
     0.12
   end
@@ -63,6 +53,16 @@ class Invoice < ApplicationRecord
 
   def generate_ocr
     self.ocr_number = Digest::SHA1.hexdigest([Time.now, rand].join)[0..10]
+  end
+
+  def soc_avgift_m_age_gen
+    if self.age < 25
+      self.soc_avgift_m_age = (self.soc_avgift - 0.043).round(5)
+    elsif (25..64).include? self.age
+      self.soc_avgift_m_age = self.soc_avgift
+    elsif self.age > 64
+      self.soc_avgift_m_age = (self.soc_avgift - 0.043).round(5)
+    end
   end
 
   def bruttolon_gen
