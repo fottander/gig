@@ -27,6 +27,20 @@ RSpec.describe Ezinvoice, type: :model do
     it { is_expected.to have_db_column(:paid).of_type(:boolean) }
     it { is_expected.to have_db_column(:salary_paid).of_type(:boolean) }
     it { is_expected.to have_db_column(:post).of_type(:boolean) }
+    it { is_expected.to have_db_column :soc_avgift_m_age }
+    it { is_expected.to have_db_column :bruttolon }
+    it { is_expected.to have_db_column :nettolon }
+    it { is_expected.to have_db_column :loneskatt }
+    it { is_expected.to have_db_column :arbetsgivaravgifter }
+    it { is_expected.to have_db_column :sociala_avgifter }
+    it { is_expected.to have_db_column :pension_loneskatt }
+    it { is_expected.to have_db_column :fakturabelopp }
+    it { is_expected.to have_db_column :fakturabelopp_frilansare }
+    it { is_expected.to have_db_column :varavgift }
+    it { is_expected.to have_db_column :bruttolon_ef_avg }
+    it { is_expected.to have_db_column :arbetsgivaravgifter_ef_avg }
+    it { is_expected.to have_db_column :sociala_avgifter_ef_avg }
+    it { is_expected.to have_db_column :fakturabelopp_inklmoms }
   end
 
   describe 'Validations' do
