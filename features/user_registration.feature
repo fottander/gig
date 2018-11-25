@@ -52,7 +52,7 @@ Feature: User registration
       And I should not see "Nästa steg är att söka jobb"
       Then I should see "Nästa steg är att skapa en profil"
 
-    Scenario: I register as a user with weird names
+    Scenario: I register as a user with double names
       Given I am on the home page
       And I click "REGISTRERA"
       And I should see "Registrera nytt konto som jobbsökande"

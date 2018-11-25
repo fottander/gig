@@ -35,6 +35,21 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column :job_title }
     it { is_expected.to have_db_column :profile_id }
     it { is_expected.to have_db_column :profile_username }
+    it { is_expected.to have_db_column :bruttolon }
+    it { is_expected.to have_db_column :nettolon }
+    it { is_expected.to have_db_column :loneskatt }
+    it { is_expected.to have_db_column :arbetsgivaravgifter }
+    it { is_expected.to have_db_column :sociala_avgifter }
+    it { is_expected.to have_db_column :pension_loneskatt }
+    it { is_expected.to have_db_column :fakturabelopp }
+    it { is_expected.to have_db_column :fakturabelopp_frilansare }
+    it { is_expected.to have_db_column :varavgift }
+    it { is_expected.to have_db_column :bruttolon_ef_avg }
+    it { is_expected.to have_db_column :arbetsgivaravgifter_ef_avg }
+    it { is_expected.to have_db_column :sociala_avgifter_ef_avg }
+    it { is_expected.to have_db_column :fakturabelopp_inklmoms }
+    it { is_expected.to have_db_column :totalbelopp }
+    it { is_expected.to have_db_column :totalbelopp_inklmoms }
   end
 
   describe 'Validations' do

@@ -56,6 +56,7 @@ class InvoicesController < ApplicationController
     @company = Company.find_by(id: @invoice.company_id)
     respond_to do |format|
       if @invoice.update invoice_update_params
+        @invoice.save
         @invoice.create_activity :update, owner: current_user.profile, recipient: @company
         format.html { redirect_to edit_invoice_path(@invoice), notice: 'Utbetalning ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
