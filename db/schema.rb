@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_143114) do
+ActiveRecord::Schema.define(version: 2018_11_25_171213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -186,6 +186,20 @@ ActiveRecord::Schema.define(version: 2018_11_25_143114) do
     t.datetime "updated_at", null: false
     t.float "soc_avgift", default: 0.046
     t.integer "age"
+    t.integer "nettolon"
+    t.integer "loneskatt"
+    t.integer "bruttolon"
+    t.integer "arbetsgivaravgifter"
+    t.integer "sociala_avgifter"
+    t.integer "pension_loneskatt"
+    t.integer "fakturabelopp"
+    t.integer "fakturabelopp_frilansare"
+    t.integer "varavgift"
+    t.integer "bruttolon_ef_avg"
+    t.integer "arbetsgivaravgifter_ef_avg"
+    t.integer "sociala_avgifter_ef_avg"
+    t.integer "fakturabelopp_inklmoms"
+    t.float "soc_avgift_m_age"
     t.index ["created_at"], name: "index_ezinvoices_on_created_at"
     t.index ["user_id"], name: "index_ezinvoices_on_user_id"
   end
