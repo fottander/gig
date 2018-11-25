@@ -35,9 +35,9 @@ RSpec.describe Ezinvoice, type: :model do
     it { is_expected.to have_db_column :sociala_avgifter }
     it { is_expected.to have_db_column :pension_loneskatt }
     it { is_expected.to have_db_column :fakturabelopp }
-    it { is_expected.to have_db_column :fakturabelopp_frilansare }
     it { is_expected.to have_db_column :varavgift }
     it { is_expected.to have_db_column :bruttolon_ef_avg }
+    it { is_expected.to have_db_column :bruttol_exkl_semester_ef_avg }
     it { is_expected.to have_db_column :arbetsgivaravgifter_ef_avg }
     it { is_expected.to have_db_column :sociala_avgifter_ef_avg }
     it { is_expected.to have_db_column :fakturabelopp_inklmoms }

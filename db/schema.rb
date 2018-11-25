@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_171213) do
+ActiveRecord::Schema.define(version: 2018_11_25_192256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -193,13 +193,13 @@ ActiveRecord::Schema.define(version: 2018_11_25_171213) do
     t.integer "sociala_avgifter"
     t.integer "pension_loneskatt"
     t.integer "fakturabelopp"
-    t.integer "fakturabelopp_frilansare"
     t.integer "varavgift"
     t.integer "bruttolon_ef_avg"
     t.integer "arbetsgivaravgifter_ef_avg"
     t.integer "sociala_avgifter_ef_avg"
     t.integer "fakturabelopp_inklmoms"
     t.float "soc_avgift_m_age"
+    t.integer "bruttol_exkl_semester_ef_avg"
     t.index ["created_at"], name: "index_ezinvoices_on_created_at"
     t.index ["user_id"], name: "index_ezinvoices_on_user_id"
   end
@@ -241,7 +241,6 @@ ActiveRecord::Schema.define(version: 2018_11_25_171213) do
     t.integer "sociala_avgifter"
     t.integer "pension_loneskatt"
     t.integer "fakturabelopp"
-    t.integer "fakturabelopp_frilansare"
     t.integer "varavgift"
     t.integer "bruttolon_ef_avg"
     t.integer "arbetsgivaravgifter_ef_avg"
@@ -250,6 +249,7 @@ ActiveRecord::Schema.define(version: 2018_11_25_171213) do
     t.integer "totalbelopp"
     t.integer "totalbelopp_inklmoms"
     t.float "soc_avgift_m_age"
+    t.integer "bruttol_exkl_semester_ef_avg"
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["user_id"], name: "index_invoices_on_user_id"
