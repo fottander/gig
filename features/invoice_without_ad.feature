@@ -91,7 +91,7 @@ Feature: Create an invoice without an ad
     And I click "Fakturera utan företag"
     Then I should see "Fakturan är betald"
     And I click "Visa utbetalningsinfo"
-    And I should see "Nettolön (lön efter skatt): 706 SEK"
+    And I should see "Nettolön (lön efter skatt): 752 SEK"
     Then I should not see "ej utbetald"
 
   Scenario: I create an invoice without an ad but without a profile

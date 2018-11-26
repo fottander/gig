@@ -36,7 +36,7 @@ Background:
     Then I should see "Totalt intjänat: 0 - 10 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 0 kr"
-    Then I should see "Din nuvarande avgift är 10.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."
     Given I am on the dashboards page
     And I should not see "Visa ansökan"
     And I click "Begär utbetalning"
@@ -54,7 +54,7 @@ Background:
     Then I should see "Totalt intjänat: 0 - 10 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 7000 kr"
-    Then I should see "Din nuvarande avgift är 10.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 9.0%. Läs mer om våra avgifter."
     And I click "Fakturera utan företag"
     And I click "Skapa en faktura"
     And I fill in "Organisationsnummer" with "880914"
@@ -79,7 +79,7 @@ Background:
     Then I should see "Totalt intjänat: 10 000 - 20 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 10000 kr"
-    Then I should see "Din nuvarande avgift är 9.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 8.0%. Läs mer om våra avgifter."
     And an invoice with amount "4000" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 3"
@@ -89,7 +89,7 @@ Background:
     Then I should see "Totalt intjänat: 10 000 - 20 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 14000 kr"
-    Then I should see "Din nuvarande avgift är 9.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 8.0%. Läs mer om våra avgifter."
     And an invoice with amount "8000" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 4"
@@ -99,7 +99,7 @@ Background:
     Then I should see "Totalt intjänat: 20 000 - 50 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 22000 kr"
-    Then I should see "Din nuvarande avgift är 8.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 7.0%. Läs mer om våra avgifter."
     And an invoice with amount "40000" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 5"
@@ -109,7 +109,7 @@ Background:
     Then I should see "Totalt intjänat: 50 000 - 100 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 62000 kr"
-    Then I should see "Din nuvarande avgift är 7.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 6.0%. Läs mer om våra avgifter."
     And an invoice with amount "40000" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 6"
@@ -119,7 +119,7 @@ Background:
     Then I should see "Totalt intjänat: 100 000 - 250 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 102000 kr"
-    Then I should see "Din nuvarande avgift är 6.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 5.0%. Läs mer om våra avgifter."
     And an invoice with amount "160000" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 7"
@@ -129,7 +129,7 @@ Background:
     Then I should see "Totalt intjänat: 250 000 - 500 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 262000 kr"
-    Then I should see "Din nuvarande avgift är 5.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."
     And an invoice with amount "250000" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 8"
