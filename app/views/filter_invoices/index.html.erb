@@ -25,9 +25,9 @@
           <% end %>
           <br>
           <%= form_tag filter_invoices_path, method: 'get' do %>
-            <%= hidden_field_tag :pay_day_reached, Date.today-15 %>
+            <%= hidden_field_tag :pay_day_reached, Date.today-10 %>
             <%= submit_tag 'Förfallna fakturor', class: 'filter-button' %>
-            <p>Klicka för fakturor som skapades 15 dagar sedan och inte betalats</p>
+            <p>Klicka för fakturor som skapades 10 dagar sedan och inte betalats</p>
           <% end %>
           <p style='font-weight: 700;'>Fakturor som inte markerats som betalda</p>
           <div id='pagination-js'>

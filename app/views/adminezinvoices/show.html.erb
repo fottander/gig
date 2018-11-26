@@ -86,6 +86,7 @@
           <hr>
           <h3 class="portfolio-resume-header">Betalinfo</h3>
           <p class="portfolio-resume-subheader">
+            Utbetalningsdatum: <%= @ezinvoice.pay_day.strftime("%F") %><br>
             User fee: <%= @ezinvoice.user_fee %><br>
             Fakturabelopp exkl moms: <%= @ezinvoice.fakturabelopp %><br>
             Vår avgift: -<%= @ezinvoice.varavgift %> SEK <br>

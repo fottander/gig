@@ -33,6 +33,10 @@ class Invoice < ApplicationRecord
     self.created_at + self.terms.day
   end
 
+  def pay_day
+    self.created_at + 30.day
+  end
+
   def a_g_avgift
     0.3142
   end

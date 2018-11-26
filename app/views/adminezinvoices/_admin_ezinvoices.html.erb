@@ -15,7 +15,8 @@
       <span class='item-define'>Villkor:</span> <%= ezinvoice.terms %><br>
       <span class='item-define'>Beskrivning:</span> <%= ezinvoice.description %><br>
       <span class='item-define'>Skapad:</span> <%= ezinvoice.created_at.strftime("%F %R") %><br>
-      <span class='item-define'>Uppdaterad:</span> <%= ezinvoice.updated_at.strftime("%F %R") %><br><br>
+      <span class='item-define'>Uppdaterad:</span> <%= ezinvoice.updated_at.strftime("%F %R") %><br>
+      <span class='item-define'>Utbetalningsdatum:</span> <%= ezinvoice.pay_day.strftime("%F") %><br><br>
     </p>
   </div>
 <% end %>
