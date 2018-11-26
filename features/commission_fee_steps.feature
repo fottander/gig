@@ -36,7 +36,7 @@ Background:
     Then I should see "Totalt intjänat: 0 - 10 000 kr"
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 0 kr"
-    Then I should see "Din nuvarande avgift är 9.0%. Läs mer om våra avgifter."
+    Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."
     Given I am on the dashboards page
     And I should not see "Visa ansökan"
     And I click "Begär utbetalning"

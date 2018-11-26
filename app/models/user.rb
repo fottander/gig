@@ -36,18 +36,22 @@ class User < ApplicationRecord
   end
 
   def fee
-    if self.total_earnings < 10000
-      0.09
-    elsif (10000..20000).include? self.total_earnings
-      0.08
-    elsif (20001..50000).include? self.total_earnings
-      0.07
-    elsif (50001..100000).include? self.total_earnings
-      0.06
-    elsif (100001..250000).include? self.total_earnings
-      0.05
-    elsif self.total_earnings > 250000
+    if self.invoice_count == 0
       0.04
+    else
+      if self.total_earnings < 10000
+        0.09
+      elsif (10000..20000).include? self.total_earnings
+        0.08
+      elsif (20001..50000).include? self.total_earnings
+        0.07
+      elsif (50001..100000).include? self.total_earnings
+        0.06
+      elsif (100001..250000).include? self.total_earnings
+        0.05
+      elsif self.total_earnings > 250000
+        0.04
+      end
     end
   end
 
