@@ -29,7 +29,7 @@ Feature: Show freelancers
       | robert   | Erfaren plåtslagare med 5 års erfarenhet         | 3            | 3        | 3  | 3       | 1988-09-14 |
     Given the following invoices exist
       | description | amount | user_reference | terms |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id |
-      | abc         | 120    | felix          | 15    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
+      | abc         | 120    | felix          | 10    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
 
     Scenario: I see freelancers
       Given I am logged in as user "felix@mail.com"

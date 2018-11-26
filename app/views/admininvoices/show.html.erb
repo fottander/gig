@@ -100,11 +100,12 @@
           <hr>
           <h3 class="portfolio-resume-header">Betalinfo</h3>
           <p class="portfolio-resume-subheader">
+            Utbetalningsdatum: <%= @invoice.pay_day.strftime("%F") %><br>
             User fee: <%= @invoice.user_fee %><br>
             Fakturabelopp exkl moms: <%= @invoice.fakturabelopp %><br>
             Vår avgift: -<%= @invoice.varavgift %> SEK <br>
             Arbetsgivaravgifter(31,42%): -<%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
-            Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): -<%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
+            Sociala avgifter(<%= @invoice.soc_avgift_procent %>%): -<%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
             <% if (25..64).include? @invoice.age %>
               Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
             <% end %>

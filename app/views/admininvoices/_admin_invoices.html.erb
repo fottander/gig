@@ -17,7 +17,8 @@
       <span class='item-define'>Villkor:</span> <%= invoice.terms %><br>
       <span class='item-define'>Beskrivning:</span> <%= invoice.description %><br>
       <span class='item-define'>Skapad:</span> <%= invoice.created_at.strftime("%F %R") %><br>
-      <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at.strftime("%F %R") %><br><br>
+      <span class='item-define'>Uppdaterad:</span> <%= invoice.updated_at.strftime("%F %R") %><br>
+      <span class='item-define'>Utbetalningsdatum:</span> <%= invoice.pay_day.strftime("%F") %><br><br>
     </p>
   </div>
 <% end %>

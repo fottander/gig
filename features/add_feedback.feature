@@ -21,10 +21,10 @@ Feature: Extend invoice and add feedback
       | Fisken   | målare gbg  | 1            | 1        | 9999    | 9999 | 1988-09-14 |
     Given the following invoices exist
       | description | quantity | unit| amount | user_reference | terms |id | company_id | user_id | profile_id | job_id | job_title    | paid  | rating |
-      | ref         | 100      | 12  | 1200   | felix          | 15    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
-      | fer         | 100      | 12  | 1200   | felix          | 15    | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
-      | tyr         | 100      | 12  | 1200   | felix          | 15    | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 3      |
-      | abc         | 100      | 12  | 1200   | felix          | 15    | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
+      | ref         | 100      | 12  | 1200   | felix          | 10    | 1 | 1          | 9999    | 9999       | 1      | Målare sökes | true  |        |
+      | fer         | 100      | 12  | 1200   | felix          | 10    | 2 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 5      |
+      | tyr         | 100      | 12  | 1200   | felix          | 10    | 3 | 1          | 9999    | 9999       | 1      | Målare sökes | true  | 3      |
+      | abc         | 100      | 12  | 1200   | felix          | 10    | 4 | 1          | 9999    | 9999       | 1      | Målare sökes | false |        |
 
     Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as user "felix@mail.com"

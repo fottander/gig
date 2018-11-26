@@ -108,7 +108,7 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.find(params[:id])
     @user = @invoice.user
     if @invoice.update invoice_extend_params
-      if @invoice.terms == 30
+      if @invoice.terms == 20
         @invoice.update(invoice_fees: @invoice.invoice_fees + 500)
       end
       flash[:notice] = "Sparat!"

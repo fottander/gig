@@ -30,9 +30,9 @@ Background:
     | johan@mail.com  | bill | Anders c | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 3  |
   Given the following invoices exist
     | description     | amount | user_reference | terms |id | company_id | user_id | job_id | job_title      | paid  | salary_paid | soc_avgift | age | updated_at | profile_id | profile_username |
-    | fisken fakturan | 1000   | fisken         | 15    | 1 | 1          | 1       | 1      | Målare sökes   | true  | true        | 0.0491     | 20  | 2018-01-01 | 1          | fisken           |
-    | felix fakturan  | 1000   | felix          | 15    | 2 | 2          | 2       | 2      | Snickare sökes | true  | true        | 0.0491     | 30  | 2018-01-01 | 2          | felix            |
-    | johan fakturan  | 1000   | johan          | 15    | 3 | 3          | 3       | 3      | Plåtis sökes   | true  | true        | 0.0491     | 70  | 2018-01-01 | 3          | johan            |
+    | fisken fakturan | 1000   | fisken         | 10    | 1 | 1          | 1       | 1      | Målare sökes   | true  | true        | 0.0491     | 20  | 2018-01-01 | 1          | fisken           |
+    | felix fakturan  | 1000   | felix          | 10    | 2 | 2          | 2       | 2      | Snickare sökes | true  | true        | 0.0491     | 30  | 2018-01-01 | 2          | felix            |
+    | johan fakturan  | 1000   | johan          | 10    | 3 | 3          | 3       | 3      | Plåtis sökes   | true  | true        | 0.0491     | 70  | 2018-01-01 | 3          | johan            |
 
   Scenario: I see the invoices for under 25 with annat förbunds kollektivavtal
     Given I am logged in as user "fisken@mail.com"

@@ -52,13 +52,13 @@
               <% end %><br>
 
             <%= form_tag extend_invoice_path(@invoice), method: :patch do %>
-              <% if current_company.invoices.count > 3 %>
-                <% if @invoice.terms == 15 %>
+              <% if current_company.invoices.count > 2 %>
+                <% if @invoice.terms == 10 %>
                   <% if @invoice.created_at > 7.days.ago %>
-                    <%= hidden_field_tag :terms, '30' %>
+                    <%= hidden_field_tag :terms, '20' %>
                     <p id="invoice_terms_button">
                       <%= submit_tag 'Lägg till', data: { confirm: "Är du säker?" }, class: 'button-blue' %>
-                      Klicka för 30 dagars fakturatid(+500kr)<br>
+                      Klicka för 20 dagars fakturatid(+500kr)<br>
                     </p>
                   <% end %>
                 <% end %>
@@ -79,10 +79,10 @@
               <% end %>
 
               <% if @invoice.created_at > 7.days.ago %>
-                <% if current_company.invoices.count < 4 %>
-                  <del>Klicka för 30 dagars fakturatid(+500kr)</del><br>
+                <% if current_company.invoices.count < 3 %>
+                  <del>Klicka för 20 dagars fakturatid(+500kr)</del><br>
                   <span style='color: #f77d0e; font-size: 12px;'>
-                    När du mottagit tre tidigare fakturor får du möjligheten att förlänga dina betalningsvillkor.
+                    När du mottagit två tidigare fakturor får du möjligheten att förlänga dina betalningsvillkor.
                   </span>
                 <% end %>
               <% end %>

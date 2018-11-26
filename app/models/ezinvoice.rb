@@ -35,6 +35,10 @@ class Ezinvoice < ApplicationRecord
     self.created_at + self.terms.day
   end
 
+  def pay_day
+    self.created_at + 30.day
+  end
+
   def inkomstskatt
     0.3
   end
