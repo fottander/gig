@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_25_192256) do
+ActiveRecord::Schema.define(version: 2018_11_26_101931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -176,7 +176,7 @@ ActiveRecord::Schema.define(version: 2018_11_25_192256) do
     t.string "company_reference"
     t.integer "profile_id"
     t.string "profile_username"
-    t.integer "terms", default: 15
+    t.integer "terms", default: 10
     t.boolean "paid", default: false
     t.boolean "salary_paid", default: false
     t.boolean "post", default: false
@@ -219,7 +219,7 @@ ActiveRecord::Schema.define(version: 2018_11_25_192256) do
     t.float "user_fee"
     t.text "feedback"
     t.float "rating"
-    t.integer "terms", default: 15
+    t.integer "terms", default: 10
     t.boolean "post", default: false
     t.boolean "paid", default: false
     t.boolean "salary_paid", default: false

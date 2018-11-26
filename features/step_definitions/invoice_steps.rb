@@ -55,13 +55,13 @@ end
 
 Given("I should see invoice due date") do
   invoice = Invoice.first
-  date = (Date.today + 15.days).strftime("%F")
+  date = (Date.today + 10.days).strftime("%F")
   expect(invoice.due_date.strftime("%F")).to eq date
 end
 
 Given("I should see invoice new due date") do
   invoice = Invoice.first
-  date = (Date.today + 30.days).strftime("%F")
+  date = (Date.today + 20.days).strftime("%F")
   expect(invoice.due_date.strftime("%F")).to eq date
 end
 

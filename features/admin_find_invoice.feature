@@ -27,9 +27,9 @@ Feature: Admin find invoices
       | johan@mail.com | brag | johans p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9998 |
     Given the following invoices exist
       | description | amount | user_reference | terms | id    | company_id | paid  | user_id    |
-      | abc         | 120    | felix          | 15    | 9999  | 9999       | false | 9999       |
-      | def         | 120    | felix          | 15    | 9998  | 9998       | false | 9998       |
-      | ghi         | 120    | felix          | 15    | 9997  | 9998       | true  | 9998       |
+      | abc         | 120    | felix          | 10    | 9999  | 9999       | false | 9999       |
+      | def         | 120    | felix          | 10    | 9998  | 9998       | false | 9998       |
+      | ghi         | 120    | felix          | 10    | 9997  | 9998       | true  | 9998       |
 
     Scenario: I see invoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
