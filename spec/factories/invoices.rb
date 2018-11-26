@@ -10,7 +10,7 @@ FactoryBot.define do
     company_reference "MyString"
     ocr_number "MyString"
     age 20
-    user_fee 0.1
+    user_fee 0.09
     job_id 1
     application_id 1
     job_title "MyString"
