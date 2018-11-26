@@ -10,7 +10,7 @@ RSpec.describe Ezinvoice, type: :model do
     it { is_expected.to have_db_column :company_email }
     it { is_expected.to have_db_column :description }
     it { is_expected.to have_db_column(:unit).of_type(:integer) }
-    it { is_expected.to have_db_column(:quantity).of_type(:integer) }
+    it { is_expected.to have_db_column(:quantity).of_type(:float) }
     it { is_expected.to have_db_column(:amount).of_type(:integer) }
     it { is_expected.to have_db_column :first_day }
     it { is_expected.to have_db_column :last_day }

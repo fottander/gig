@@ -3,7 +3,7 @@ class Ezinvoice < ApplicationRecord
   before_validation :generate_ocr, on: :create
   before_save :bruttolon_gen, :arbetsgivaravgifter_gen, :soc_avgift_m_age_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :varavgift_gen, :bruttol_exkl_semester_ef_avg_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :fakturabelopp_gen, :fakturabelopp_inklmoms_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :regenerate_values
   validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :org_number, :company_reference, :company_name, :company_address, :company_zip, :company_city, :company_email, :terms, :user_fee
-  validates :quantity, numericality: { only_integer: true }, allow_blank: true
+  validates :quantity, numericality: { only_float: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
   validates :amount, numericality: { only_integer: true }
   belongs_to :user

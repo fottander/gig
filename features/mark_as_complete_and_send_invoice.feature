@@ -68,7 +68,7 @@ Feature: Mark As complete and send invoice
       And I click "KONTROLLPANEL"
       And I click "Visa" in active invoices
       And I should see "Beskrivning: Måleri"
-      And I should see "Antal timmar: "
+      And I should see "Antal timmar: 100.0st"
       And I should see "Timlön: 100"
       And I should see "Lön som betalas ut: 7056 SEK"
       And I should see "2018-01-01"
@@ -119,3 +119,23 @@ Feature: Mark As complete and send invoice
       And I click "KONTROLLPANEL"
       And I click "Radera"
       And I should not see "Radera"
+
+    Scenario: I create an invoice and see completed jobs change in index
+      Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
+      And I should not see "Visa ansökan"
+      And I click "Begär utbetalning"
+      And I should see "Skapa utbetalning baserad på jobbet"
+      And I fill in "quantity" with "100.5"
+      And I fill hidden field unit and fill "100"
+      And I fill hidden field amount and fill "10050"
+      And I click "Skapa utbetalning"
+      And I should see "Jobbet har genomförts!"
+      Then I should see "Utbetalning skapad"
+      And the latest created invoice is being paid
+      And I click "KONTROLLPANEL"
+      And I click "Visa"
+      And I should see "Beskrivning: Måleri"
+      And I should see "Antal timmar: 100.5st"
+      And I should see "Timlön: 100"
+      And I should see "Lön som betalas ut: 7091 SEK"
