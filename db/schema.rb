@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_101931) do
+ActiveRecord::Schema.define(version: 2018_11_26_134107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_101931) do
     t.string "company_city"
     t.string "company_email"
     t.text "description"
-    t.integer "quantity"
+    t.float "quantity"
     t.integer "unit"
     t.integer "amount"
     t.date "first_day"
@@ -205,7 +205,7 @@ ActiveRecord::Schema.define(version: 2018_11_26_101931) do
   end
 
   create_table "invoices", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
-    t.integer "quantity"
+    t.float "quantity"
     t.integer "unit"
     t.integer "amount"
     t.integer "invoice_fees", default: 199

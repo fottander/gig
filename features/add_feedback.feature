@@ -37,7 +37,7 @@ Feature: Extend invoice and add feedback
       Given I am on control panel page
       And I click "Visa/Kontrollera"
       And I should see "abc"
-      And I should see "Antal timmar: 100st"
+      And I should see "Antal timmar: 100.0st"
       And I should see "Timlön: 12kr/timma"
       And I should see "Bruttolön: 1200"
       And I should see "Bruttolön inkl semesterersättning(12%): 1344"

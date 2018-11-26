@@ -55,7 +55,7 @@ Feature: Admin edit and delete invoices
       And I should see "Företags ID: 9999"
       And I click "Visa/godkänn faktura"
       And I should see "Beskrivning: Målarjobb hos greger"
-      And I should see "Antal timmar: 100st"
+      And I should see "Antal timmar: 100.0st"
       And I should see "Timlön: 100kr/timma"
       And I should see "Summa: 1000 SEK"
       And I should see "Bruttolön inkl semesterersättning: 1120 SEK"
