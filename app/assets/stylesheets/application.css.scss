@@ -1131,6 +1131,15 @@ input[type='file'] {
   }
 }
 
+@media screen and (max-width: 39.9375em) {
+  .topbar-responsive .topbar-responsive-logo .logo-text {
+    color: white;
+    font-size: 9px;
+    margin-top: 5px;
+    text-align: center;
+  }
+}
+
 .topbar-responsive .menu {
   background: #3db5e6;
 }
@@ -1198,6 +1207,7 @@ input[type='file'] {
 @media screen and (max-width: 39.9375em) {
   .topbar-responsive .topbar-responsive-logo {
     margin-left: 50%;
+    max-width: 223px;
     transform: translate(-50%);
     margin-top: -5px;
     margin-bottom: -5px;
