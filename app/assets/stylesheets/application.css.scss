@@ -1081,11 +1081,25 @@ input[type='file'] {
  /* NEW NAV BAR */
 
 #logo{
-	float: left;
-	width: 164px;
+	float: center;
+	width: 228px;
 	height: 29px;
+  margin-bottom: 3.5px;
 	display: block;
-  background-image: image-url('qnekt2.png')
+  background-image: image-url('qnekt-logo.png')
+}
+
+@media screen and (min-width: 39.9375em) and (max-width: 50em) {
+  #logo{
+  	float: center;
+  	width: 228px;
+  	height: 29px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: 4px;
+  	display: block;
+    background-image: image-url('qnekt-logo.png')
+  }
 }
 
 .topbar-responsive {
@@ -1099,6 +1113,22 @@ input[type='file'] {
   margin-left: 20px;
   margin-top: -5px;
   margin-bottom: -5px;
+}
+
+.topbar-responsive .topbar-responsive-logo .logo-text {
+  color: white;
+  font-size: 10px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+@media screen and (min-width: 39.9375em) and (max-width: 50em) {
+  .topbar-responsive .topbar-responsive-logo .logo-text {
+    color: white;
+    font-size: 8px;
+    margin-top: 7px;
+    text-align: center;
+  }
 }
 
 .topbar-responsive .menu {
@@ -1135,13 +1165,13 @@ input[type='file'] {
 @media screen and (min-width: 45em) and (max-width: 55em) {
   .topbar-responsive .menu a {
     font-size: 12px;
-    margin-right: 5px;
+    margin-right: 7px;
   }
 }
 
 @media screen and (min-width: 39.9375em) and (max-width: 45em) {
   .topbar-responsive .menu a {
-    font-size: 10px;
+    font-size: 9.5px;
     margin-right: 0px;
   }
 }
