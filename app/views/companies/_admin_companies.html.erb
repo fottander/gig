@@ -13,7 +13,8 @@
     <span class='item-define'>Telefon:</span> <%= company.phone %><br>
     <span class='item-define'>Fakturaadress:</span> <%= company.invoice_address %><br>
     <span class='item-define'>Skapad:</span> <%= company.created_at.strftime("%F %R") %><br>
-    <span class='item-define'>Uppdaterad:</span> <%= company.updated_at.strftime("%F %R") %><br><br>
+    <span class='item-define'>Uppdaterad:</span> <%= company.updated_at.strftime("%F %R") %><br>
+    <span class='item-define'>Verifierad:</span> <%= company.confirmed? %><br><br>
   <% end %>
 </p>
 <div class="will-paginate">

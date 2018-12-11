@@ -8,7 +8,8 @@
     <span class='item-define'>Stad:</span> <%= profile.cities.pluck(:name) %> <br>
     <span class='item-define'>Skapad:</span> <%= profile.created_at.strftime("%F %R") %> <br>
     <span class='item-define'>Uppdaterad:</span> <%= profile.updated_at.strftime("%F %R") %> <br>
-    <span class='item-define'>User ID:</span> <%= profile.user_id %><br><br>
+    <span class='item-define'>User ID:</span> <%= profile.user_id %><br>
+    <span class='item-define'>Ansökningar:</span> <%= profile.applications.count %><br><br>
   <% end %>
 </p>
 <div class="will-paginate">
