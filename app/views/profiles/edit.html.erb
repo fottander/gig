@@ -17,16 +17,13 @@
     <div class="simple-form">
       <div class='post-title'><h3>Redigera profil</h3></div>
       <p><%= link_to "Visa din profil >>", profile_path(@profile), class: 'switch-button' %></p>
-      <% if @profile.avatar_file_name.present? %>
-      <% else %>
+      <% unless @profile.avatar_file_name.present? %>
         <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till profilbild!</span><br>
       <% end %>
-      <% if @profile.education.present? %>
-      <% else %>
+      <% unless @profile.education.present? %>
         <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till utbildning!</span><br>
       <% end %>
-      <% if @profile.prev_work.present? %>
-      <% else %>
+      <% unless @profile.prev_work.present? %>
         <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till arbetsplatser!</span>
       <% end %>
       <%= form_for @profile do |f| %>
@@ -39,7 +36,7 @@
         <%= f.date_field :age, class: 'input-mini' %>
         <%= f.label :description, 'Beskrivning', class: 'form-text' %>
         <div class="fieldContainer">
-          <%= f.text_area :description, value: @profile.description %>
+          <%= f.text_area :description, rows: 5, style: 'width:100%;', value: @profile.description %>
           <div class="fieldInfo">
             Tips <br>
             Här finns mycket utrymme för att beskriva dig på bästa sätt som kommer öka dina chanser till att få jobb. Vilka är dina bästa egenskaper? Vilka typer av jobb passar dig? Vad har du för andra erfarenheter? Beskriv dig själv som person. Liknande ett CV.
@@ -54,7 +51,7 @@
           <%= f.submit 'Spara', class: 'reply-button' %>
         </div>
         <div style='color: #f77d0e; font-weight: 600; margin-top: 15px;'>Extra information</div>
-        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text', id: 'profile-image' %>
         <% if @profile.avatar_file_name.present? %>
         <span style='font-size: 10px;'><%= @profile.avatar_file_name %></span>
         <% end %>
@@ -70,7 +67,7 @@
         <div class="license">
           <%= f.submit 'Spara', class: 'button-blue' %>
         </div>
-        <%= f.label :education, 'Utbildning', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.label :education, 'Utbildning', class: 'form-text', style:'margin-top: 5px;', id: 'education-section' %>
         <div class="fieldContainer">
           <%= f.text_area :education, value: @profile.education, style:'margin-bottom: 0px;' %>
           <div class="fieldInfo" style='margin-top: 0px;'>
@@ -81,7 +78,7 @@
         <div class="education">
           <%= f.submit 'Spara', class: 'button-blue' %>
         </div>
-        <%= f.label :prev_work, 'Tidigare arbetsplatser', class: 'form-text', style:'margin-top: 5px;' %>
+        <%= f.label :prev_work, 'Tidigare arbetsplatser', class: 'form-text', style:'margin-top: 5px;', id: 'work-section' %>
         <div class="fieldContainer">
           <%= f.text_area :prev_work, value: @profile.prev_work, style:'margin-bottom: 0px;' %>
           <div class="fieldInfo" style='margin-top: 0px;'>

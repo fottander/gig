@@ -34,7 +34,7 @@
       <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_area :description, placeholder: 'Vad går jobbet ut på? Var så utförlig som möjligt.' %>
+        <%= f.text_area :description, rows: 5, style: 'width:100%;', placeholder: 'Vad går jobbet ut på? Var så utförlig som möjligt.' %>
         <div class="fieldInfo">
           <span>
             Tips <br>

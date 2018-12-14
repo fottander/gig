@@ -60,18 +60,16 @@
           <%= f.text_field :account_nr %>
         </div>
 
-        <div style='color: #f77d0e; font-weight: 600;'>Lösenord</div>
-
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <span class='truncated-paragraph-pass2'>
+        <p class='truncated-paragraph-pass2'>
           <%= link_to 'Ändra lösenord', '', class: "read-more-pass2", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem; border: none;' %>
-        </span>
-        <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
-        <%= f.password_field :current_password, autocomplete: "off" %>
+        </p>
         <span class='normal-paragraph-pass2' style="display: none;">
+          <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
+          <%= f.password_field :current_password, autocomplete: "off" %>
           <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
           <i>(lämna tomt om du inte vill ändra lösenord)</i>
           <% if @minimum_password_length %>

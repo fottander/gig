@@ -6,7 +6,7 @@
           <span style='color: white; font-weight: 700;'>Registrera nytt företagskonto<br>(gratis)</span>
         </div>
         <span style='font-size: 11px; color: #8a8a8a;'>eller</span>
-        <div class="login-box-input"><%= link_to "Registrera jobbsökande >>", new_user_registration_path, class: 'switch-button' %></div>
+        <div class="login-box-input"><%= link_to "Logga in >>", new_company_session_path, class: 'switch-button' %></div>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
           <div class="login-box-input">
@@ -64,7 +64,7 @@
         <p class="login-box-social-content">Tillfällig personalbrist</p>
         <p class="login-box-social-content">Smidiga testanställningar</p>
         <p class="login-box-social-content">Enstaka uppdrag eller längre anställningar</p>
-        <p class="login-box-social-content">Du hittar personal plus att vi tar hand om löner, skatter och avgifter.</p>
+        <p class="login-box-social-content">Du hittar personal plus att vi tar hand om lön, skatt, avgift & försäkring</p>
         <p class="login-box-social-content">Du bestämmer timlönen och längden på anställningen. Endast <span class='cross'>599</span> 199kr/slutförd anställning.<br><br>
         <%= link_to 'Läs mer om hur det fungerar', howitworks_path, class: 'profile-button' %>
       </div>

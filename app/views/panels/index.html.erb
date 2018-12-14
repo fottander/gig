@@ -12,26 +12,24 @@
       <div class="large-4 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Konto</h3>
-            <div class="portfolio-resume-subheader">
-              Email: <%= current_company.email %><br><br>
-              Företagsnamn: <%= current_company.name %><br>
-              Konto ID: <%= current_company.id %><br>
-              Användarnamn: <%= current_company.username %><br>
-              Adress: <%= current_company.address %><br>
-              Postnummer: <%= current_company.zip_code %><br>
-              Stad: <%= current_company.city %><br>
-              Organisationsnummer: <%= current_company.org_number %><br>
-              Telefonnummer: <%= current_company.phone %><br>
-            </div>
-            <% if current_company.description.present? %>
-            <% else %>
-              <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till beskrivning!</span><br>
-            <% end %>
-            <% if current_company.employees.present? %>
-            <% else %>
-              <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att ange antal anställda!</span><br>
-            <% end %>
-            <%= link_to 'Redigera konto', edit_company_registration_path, class: 'button-green'  %>
+          <div class="portfolio-resume-subheader">
+            Email: <%= current_company.email %><br><br>
+            Företagsnamn: <%= current_company.name %><br>
+            Konto ID: <%= current_company.id %><br>
+            Användarnamn: <%= current_company.username %><br>
+            Adress: <%= current_company.address %><br>
+            Postnummer: <%= current_company.zip_code %><br>
+            Stad: <%= current_company.city %><br>
+            Organisationsnummer: <%= current_company.org_number %><br>
+            Telefonnummer: <%= current_company.phone %><br>
+          </div>
+          <% unless current_company.description.present? %>
+            <%= link_to 'Förbättra dina chanser genom att lägga till beskrivning!', edit_company_registration_path(anchor: 'description'), class: 'text-link-orange' %>
+          <% end %>
+          <% unless current_company.employees.present? %>
+            <%= link_to 'Förbättra dina chanser genom att ange antal anställda!', edit_company_registration_path(anchor: 'employee'), class: 'text-link-orange' %>
+          <% end %>
+          <%= link_to 'Redigera konto', edit_company_registration_path, class: 'button-green'  %>
         </div>
       </div>
 

@@ -62,7 +62,9 @@
           </li>
         </ul>
         <% if current_company.present? %>
-          <p style='color: #f77d0e;'>Som företag kan du inte ansöka till detta jobbet</p>
+          <% if @job.company_id == current_company.id %>
+            <%= link_to '✎ Redigera', edit_job_path(@job, anchor: 'description'), class: 'text-link-orange', style: 'font-size: 16px;' %>
+          <% end %>
         <% end %>
         <% if current_user.present? %>
           <% if current_user.profile.present? %>
@@ -74,6 +76,7 @@
           <% else %>
             <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button' %>
           <% end %>
+        <% elsif current_company.present? %>
         <% else %>
           <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button', style: 'margin-bottom: 10px;' %>
         <% end %>
@@ -87,6 +90,11 @@
           <h5><strong><%= @job.title %></strong></h5>
           Jobb ID: <%= @job.id %>
           <p><%= simple_format @job.description %></p>
+          <% if current_company.present? %>
+            <% if @job.company_id == current_company.id %>
+              <%= link_to '✎ Redigera', edit_job_path(@job, anchor: 'description'), class: 'text-link-orange', style: 'font-size: 16px;' %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -109,6 +117,14 @@
           <div class="portfolio-resume-contact-info">
             Företagsbeskrivning: <%= simple_format @job.company.description %>
           </div>
+        <% end %>
+        <% if current_company.present? %>
+          <% if @job.company_id == current_company.id %>
+            <% unless current_company.description.present? %>
+                <div style='color: #f77d0e; font-size: 10px;'>Lägg till företagsbeskrivning för att framhäva ert företag och få fler ansökningar.</div>
+                <%= link_to 'Lägg till beskrivning', edit_company_registration_path(anchor: 'description'), class: 'button-orange' %>
+            <% end %>
+          <% end %>
         <% end %>
       </div>
     </div>
