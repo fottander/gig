@@ -57,7 +57,7 @@
           <%= f.submit 'Spara', class: 'reply-button' %>
         </div>
         <div style='color: #f77d0e; font-weight: 600; margin-top: 15px;'>Extra information</div>
-        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
+        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text', id: 'profile-image-2' %>
         <% if @profile.avatar_file_name.present? %>
         <span style='font-size: 10px;'><%= @profile.avatar_file_name %></span>
         <% end %>
