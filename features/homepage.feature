@@ -36,6 +36,7 @@ Feature: Homepage
     Then I should see "Registrera nytt konto som jobbsökande"
     Given I am on the home page
     And I click "Hitta Personal" within company
+    And I click "SKAPA KONTO"
     Then I should see "Registrera nytt företag"
     Given I am on the home page
     And I click "Hitta Jobb" within freelancer

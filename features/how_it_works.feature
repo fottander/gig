@@ -6,21 +6,22 @@ Feature: How it works
   Scenario: I see page
     Given I am on the home page
     And I click "LOGGA IN"
+    And I click "som jobbsökare"
+    And I click "Läs mer om hur det fungerar"
+    Then I should see "Företag skapar en annons"
+    Given I am on the home page
+    And I click "Hitta Personal"
+    And I click "SKAPA KONTO"
     And I click "Läs mer om hur det fungerar"
     Then I should see "Företag skapar en annons"
     Given I am on the home page
     And I click "LOGGA IN"
-    And I click "Registrera"
+    And I click "som företag"
     And I click "Läs mer om hur det fungerar"
     Then I should see "Företag skapar en annons"
     Given I am on the home page
     And I click "LOGGA IN"
-    And I click "Logga in företag >>"
-    And I click "Läs mer om hur det fungerar"
-    Then I should see "Företag skapar en annons"
-    Given I am on the home page
-    And I click "LOGGA IN"
-    And I click "Logga in företag >>"
-    And I click "Registrera"
+    And I click "som jobbsökare"
+    And I click "Logga in"
     And I click "Läs mer om hur det fungerar"
     Then I should see "Företag skapar en annons"

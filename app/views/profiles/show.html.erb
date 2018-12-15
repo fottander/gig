@@ -16,6 +16,15 @@
             <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
           <% end %>
         </p>
+        <% if current_user.present? %>
+          <% if @profile.user.id == current_user.id %>
+            <%= link_to '✎ Redigera profil', edit_profile_path(@profile), class: 'text-link-orange', style: 'font-size: 16px;' %><br>
+            <%= link_to '+ Lägg till mer information', edit_profile_path(@profile, anchor: 'profile-image'), class: 'text-link-orange', style: 'font-size: 16px;' %><br>
+            <% unless @profile.avatar_file_name.present? %>
+              <%= link_to '• Lägg till en profilbild', edit_profile_path(@profile, anchor: 'profile-image-2'), class: 'text-link-orange', style: 'font-size: 16px;' %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <p><%= simple_format @profile.description %></p>
@@ -78,6 +87,8 @@
                 <%= invoice.feedback %>
               </div>
             <% end %>
+          <% else %>
+            <span style='color: #72777c;'>Här kommer feedback och betyg visas från dina genomförda jobb.</span>
           <% end %>
         </div>
     </div>

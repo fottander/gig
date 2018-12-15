@@ -28,8 +28,8 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     respond_to do |format|
       if @job.update job_params
-        format.html { redirect_to edit_job_path(@job), notice: 'Jobb redigerat!' }
-        format.json { render :edit, status: :ok, location: @job }
+        format.html { redirect_to job_path(@job), notice: 'Jobb redigerat!' }
+        format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
         format.json { render json: @job.errors, status: :unprocessable_entity }
@@ -50,8 +50,8 @@ class JobsController < ApplicationController
     @job.company_city = current_company.city
     respond_to do |format|
       if @job.save
-        format.html { redirect_to job_path(@job), notice: 'Ny annons skapad!' }
-        format.json { render :new, status: :created}
+        format.html { redirect_to job_path(@job), notice: 'Ny annons skapad! Status för annonsen hittar du i kontrollpanelen ⤴' }
+        format.json { render :show, status: :created}
       else
         format.html { render :new }
         format.json { render json: @job.errors, status: :unprocessable_entity }

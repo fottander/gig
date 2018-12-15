@@ -11,6 +11,10 @@
   <div class="holy-grail-middle">
     <div class="simple-form">
       <div class='post-title'><h3>Skapa profil</h3></div>
+      <p style= 'color: #f77d0e; font-size: 12px;'>
+        Innan du börjar söka jobb behöver du skapa en riktigt bra profil.<br>
+        Det som fylls i kommer synas i dina ansökningar.
+      </p>
       <%= form_for @profile do |f| %>
       <% if @profile.errors.any? %>
         <% @profile.errors.full_messages.each do |message| %>
@@ -21,7 +25,7 @@
       <%= f.date_field :age, class: 'input-mini' %>
       <%= f.label :description, '* Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_area :description, placeholder: 'En bra beskrivning ökar dina chanser i ansökan' %>
+        <%= f.text_area :description, rows: 5, style: 'width:100%;', placeholder: 'En bra beskrivning ökar dina chanser när du söker jobb' %>
         <div class="fieldInfo">
           Tips <br>
           Här finns mycket utrymme för att beskriva dig på bästa sätt som kommer öka dina chanser till att få jobb. Varför ska man anställa just dig? Vilka typer av jobb passar dig? Vad har du för andra erfarenheter? Beskriv dig själv som person. Liknande ett CV.

@@ -28,10 +28,10 @@
       <%= f.collection_select(:city_ids, City.all, :id, :name, { include_blank: true, selected: @job.city_ids }, { class: 'input-medium' }) %>
       <%= f.label :description, 'Beskrivning', class: 'form-text' %>
       <div class="fieldContainer">
-        <%= f.text_area :description, value: @job.description %>
+        <%= f.text_area :description, rows: 5, style: 'width:100%;', value: @job.description %>
         <div class="fieldInfo">
           Tips <br>
-          Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Skriv inte ut företagsnamn eller annan liknande info. Vilka arbetstider? Vilken typ  av person ni söker? Med mera.
+          Beskriv jobbet utförligt, för att få fler ansökningar men också bättre ansökningar. Skriv inte ut företagsnamn eller annan liknande info. Vilka arbetstider? Vilken typ av person ni söker? Med mera.
         </div>
       </div>
       <%= f.label :jobtype, 'Typ av anställning', class: 'form-text' %>

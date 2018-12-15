@@ -33,6 +33,6 @@ Feature: Edit profile
       And I select "Göteborg" from "Stad"
       And I click "Spara" in classic
       And I should see "Profil redigerad!"
-      And I click "Kontrollpanel"
+      And I click "KONTROLLPANEL"
       And I click "ALLA JOBBSÖKARE"
       Then I should see "målare från gbg"

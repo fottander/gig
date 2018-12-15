@@ -19,11 +19,12 @@ Feature: Post job ad
     Scenario: Company tries to post without being logged in
       Given I am on the home page
       And I click "SKAPA ANNONS"
-      Then I should see "Du måste logga in eller registrera dig innan du fortsätter."
+      And I click "SKAPA KONTO"
+      And I should see "Registrera nytt företagskonto"
 
     Scenario: Company posts an ad
-      Given I am on the home page
       Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
       And I click "SKAPA ANNONS"
       And I should see "Skapa annons"
       And I fill in "Titel" with "målare"
@@ -60,11 +61,16 @@ Feature: Post job ad
       And I should see "Antal genomförda jobb: 0"
       And I should see "Stad: gbgb"
       And I should see "Inga ansökningar hittills"
-      And I should see "Som företag kan du inte ansöka till detta jobbet"
+      And I should see "Lägg till företagsbeskrivning för att framhäva ert företag"
+      And I click "Lägg till beskrivning"
+      And I fill in "Beskrivning av er verksamhet" with "Hello"
+      And I click "Spara"
+      And I click "Visa annons"
+      And I should not see "Lägg till företagsbeskrivning för att framhäva ert företag"
 
     Scenario: I post an ad without title and succeed without filling budget or deadline or requirement
-      Given I am on the home page
       Given I am logged in as company "felix@mail.com"
+      Given I am on control panel page
       And I click "SKAPA ANNONS"
       And I should see "Skapa annons"
       And I fill in "Titel" with ""

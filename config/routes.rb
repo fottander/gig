@@ -35,6 +35,10 @@ Rails.application.routes.draw do
 
   root controller: :index, action: :index
 
+  resources :sign_ups, only: [:index]
+
+  resources :sign_ins, only: [:index]
+
   resources :our_rates, only: [:index]
 
   resources :terms_of_services, only: [:index]

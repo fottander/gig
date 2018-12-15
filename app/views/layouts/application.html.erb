@@ -38,10 +38,10 @@
               <li><%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %></li>
               <li><%= link_to "ADMINISTRATION", administrations_path %></li>
             <% else %>
-              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
+              <li><%= link_to "SKAPA ANNONS", sign_ups_path %></li>
               <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "REGISTRERA", new_user_registration_path %></li>
-              <li><%= link_to "LOGGA IN", new_user_session_path %></li>
+              <li><%= link_to "LOGGA IN", sign_ins_path %></li>
+              <li><%= link_to "KONTAKT", messages_path %></li>
             <% end %>
           </ul>
         </div>

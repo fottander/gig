@@ -31,7 +31,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  private
+  protected
 
   def after_inactive_sign_up_path_for(resource_or_scope)
     new_company_session_path
@@ -43,5 +43,13 @@ class Companies::RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     params.require(:company).permit(:email, :name, :username, :address, :zip_code, :city, :org_number, :phone, :contact, :password, :password_confirmation)
+  end
+
+  def update_resource(resource, params)
+    # Require current password if user is trying to change password.
+    return super if params["password"]&.present?
+
+    # Allows user to update registration information without password.
+    resource.update_without_password(params.except("current_password"))
   end
 end

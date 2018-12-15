@@ -13,6 +13,8 @@ Bundler.require(*Rails.groups)
 
 module Gig
   class Application < Rails::Application
+    config.autoload_paths << "#{Rails.root}/lib"
+    config.eager_load_paths << "#{Rails.root}/lib"
     config.time_zone = "Stockholm"
     config.generators do |generate|
       generate.helper false
