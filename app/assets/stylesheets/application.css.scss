@@ -913,6 +913,20 @@ input[type='file'] {
 }
 
 @media screen and (max-width: 55.9375em) {
+  .marketing-freelancer-sign-up {
+    background-position: center center;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 55.9375em) {
+  .marketing-freelancer-sign-up-2 {
+    background-position: center center;
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 55.9375em) {
   .marketing-company {
     background-position: center center;
   }
@@ -924,7 +938,7 @@ input[type='file'] {
 
 .marketing-site-hero-content-sign-up {
   margin: 0 auto;
-  margin-left: 20%;
+  margin-left: 10%;
   padding: 1.5rem;
   background-color: #ffff;
   border-radius: 10px;
@@ -950,7 +964,7 @@ input[type='file'] {
 
 .marketing-site-hero-content-sign-up p {
   font-size: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   line-height: normal;
   color: #72777c;
   font-weight: 300;
@@ -967,12 +981,13 @@ input[type='file'] {
 @media screen and (max-width: 49.9375em) {
   .marketing-site-hero-content-sign-up {
     margin: 0 auto;
-    margin-top: -15%;
-    padding: 1em;
+    padding: 1rem;
     background-color: #ffff;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     text-align: center;
     max-width: 90%;
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -980,7 +995,7 @@ input[type='file'] {
   margin: 0 auto;
   margin-left: 20%;
   margin-top: -15%;
-  padding: 2em;
+  padding: 2rem;
   background-color: #ffff;
   border-radius: 10px;
   text-align: center;
@@ -988,7 +1003,7 @@ input[type='file'] {
 
 .marketing-site-hero-content-sign-in p {
   font-size: 1em;
-  margin-bottom: 4px;
+  margin-bottom: 0.3rem;
   color: #72777c;
   font-weight: 300;
   text-align: center;
@@ -1004,12 +1019,14 @@ input[type='file'] {
 @media screen and (max-width: 49.9375em) {
   .marketing-site-hero-content-sign-in {
     margin: 0 auto;
-    margin-top: -35%;
-    padding: 1.5em;
+    margin-top: -10vh;
+    padding: 1.5rem;
     background-color: #ffff;
-    border-radius: 10px;
+    border-radius: 0.5rem;
     text-align: center;
     max-width: 90%;
+    position: relative;
+    z-index: 1;
   }
 }
 
