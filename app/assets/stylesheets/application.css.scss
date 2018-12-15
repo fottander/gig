@@ -855,7 +855,7 @@ input[type='file'] {
  .marketing-freelancer-sign-up {
    background-image: image-url('sign_up.jpg');
    background-repeat: no-repeat;
-   height: 80vh;
+   height: 90vh;
    background-size: cover;
    display: -webkit-flex;
    display: -ms-flexbox;
@@ -938,11 +938,14 @@ input[type='file'] {
 
 .marketing-site-hero-content-sign-up {
   margin: 0 auto;
-  margin-left: 10%;
+  margin-top: -10vh;
+  margin-left: 20vh;
   padding: 1.5rem;
   background-color: #ffff;
   border-radius: 10px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .marketing-site-hero-content-sign-up .cross {
@@ -971,6 +974,17 @@ input[type='file'] {
   text-align: center;
 }
 
+@media screen and (max-width: 49.9375em) {
+  .marketing-site-hero-content-sign-up p {
+    font-size: 0.8em;
+    margin-bottom: 0.8rem;
+    line-height: normal;
+    color: #72777c;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
 .marketing-site-hero-content-sign-up h2 {
   font-weight: 600;
   font-size: 1.5em;
@@ -979,8 +993,18 @@ input[type='file'] {
 }
 
 @media screen and (max-width: 49.9375em) {
+  .marketing-site-hero-content-sign-up h2 {
+    font-weight: 600;
+    font-size: 1.2em;
+    color: #494e51;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 49.9375em) {
   .marketing-site-hero-content-sign-up {
     margin: 0 auto;
+    margin-top: -10vh;
     padding: 1rem;
     background-color: #ffff;
     border-radius: 0.6rem;
@@ -993,12 +1017,14 @@ input[type='file'] {
 
 .marketing-site-hero-content-sign-in {
   margin: 0 auto;
-  margin-left: 20%;
-  margin-top: -15%;
+  margin-left: 40vh;
+  margin-top: -20vh;
   padding: 2rem;
   background-color: #ffff;
   border-radius: 10px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .marketing-site-hero-content-sign-in p {
