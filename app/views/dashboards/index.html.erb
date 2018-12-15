@@ -37,16 +37,22 @@
               Stad: <%= current_user.profile.cities.pluck(:name).flatten.join(' & ') %><br>
             </div>
             <% unless current_user.profile.avatar_file_name.present? %>
-              <%= link_to 'Förbättra dina chanser genom att lägga till profilbild!', edit_profile_path(current_user.profile, anchor: 'profile-image'), class: 'text-link-orange' %>
+              <div>
+                <%= link_to 'Förbättra dina chanser genom att lägga till profilbild!', edit_profile_path(current_user.profile, anchor: 'profile-image'), class: 'text-link-orange' %>
+              </div>
             <% end %>
             <% unless current_user.profile.education.present? %>
-              <%= link_to 'Förbättra dina chanser genom att lägga till utbildning!', edit_profile_path(current_user.profile, anchor: 'education-section'), class: 'text-link-orange' %>
+              <div>
+                <%= link_to 'Förbättra dina chanser genom att lägga till utbildning!', edit_profile_path(current_user.profile, anchor: 'education-section'), class: 'text-link-orange' %>
+              </div>
             <% end %>
             <% unless current_user.profile.prev_work.present? %>
-              <%= link_to 'Förbättra dina chanser genom att lägga till arbetsplatser!', edit_profile_path(current_user.profile, anchor: 'work-section'), class: 'text-link-orange' %>
+              <div>
+                <%= link_to 'Förbättra dina chanser genom att lägga till arbetsplatser!', edit_profile_path(current_user.profile, anchor: 'work-section'), class: 'text-link-orange' %>          
+              </div>
             <% end %>
             <div>
-              <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>              
+              <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>
             </div>
             <% else %>
               <strong>Skapa en profil för att söka jobb!</strong><br>

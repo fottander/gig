@@ -24,13 +24,17 @@
             Telefonnummer: <%= current_company.phone %><br>
           </div>
           <% unless current_company.description.present? %>
-            <%= link_to 'Förbättra dina chanser genom att lägga till beskrivning!', edit_company_registration_path(anchor: 'description'), class: 'text-link-orange' %>
+            <div>
+              <%= link_to 'Förbättra dina chanser genom att lägga till beskrivning!', edit_company_registration_path(anchor: 'description'), class: 'text-link-orange' %>
+            </div>
           <% end %>
           <% unless current_company.employees.present? %>
-            <%= link_to 'Förbättra dina chanser genom att ange antal anställda!', edit_company_registration_path(anchor: 'employee'), class: 'text-link-orange' %>
+            <div>
+              <%= link_to 'Förbättra dina chanser genom att ange antal anställda!', edit_company_registration_path(anchor: 'employee'), class: 'text-link-orange' %>            
+            </div>
           <% end %>
           <div>
-            <%= link_to 'Redigera konto', edit_company_registration_path, class: 'button-green'  %>          
+            <%= link_to 'Redigera konto', edit_company_registration_path, class: 'button-green'  %>
           </div>
         </div>
       </div>
