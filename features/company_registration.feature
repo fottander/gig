@@ -10,9 +10,11 @@ Feature: Company registration
 
     Scenario: I register my company
       Given I am on the home page
-      And I click "REGISTRERA"
-      And I should see "Registrera nytt konto som jobbsökande"
-      And I click "Registrera företag >"
+      And I click "Hitta Personal"
+      And I click "SKAPA KONTO"
+      And I click "Logga in"
+      And I should see "Logga in som företag"
+      And I click "Registrera"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Företagsnamn" with "hello"
       And I fill in "Användarnamn" with "oij12"
@@ -36,6 +38,9 @@ Feature: Company registration
       Then I should see "Välkommen! Du är inloggad"
       And I click "DÖLJ"
       Then I should not see "Registrerad! Kolla din mail efter vår bekräftelse"
+      And I should see "Skapa annons"
+      And I should see "Titel"
+      And I click "KONTROLLPANEL"
       And I should see "Dubbelkolla att du fått vårt"
       Then I should see "Nästa steg är att skapa en annons"
       And I should see "Inga annonser ännu"
@@ -45,18 +50,19 @@ Feature: Company registration
       And I click "LOGGA UT"
       Given I am on the home page
       And I click "LOGGA IN"
-      And I click "Logga in företag >"
+      And I click "som företag"
       And I should see "Logga in som företag"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       And I should see "Välkommen! Du är inloggad."
+      And I should not see "Titel"
       Then I should not see "Dubbelkolla att du fått vårt"
 
     Scenario: I log in as a company
       Given I am on the home page
       And I click "LOGGA IN"
-      And I click "Logga in företag >"
+      And I click "som företag"
       And I should see "Logga in som företag"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
@@ -65,9 +71,8 @@ Feature: Company registration
 
     Scenario: I register my company but email/användarnamn is already taken
       Given I am on the home page
-      And I click "REGISTRERA"
-      And I should see "Registrera nytt konto som jobbsökande"
-      And I click "Registrera företag >"
+      And I click "Hitta Personal"
+      And I click "SKAPA KONTO"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Företagsnamn" with "hello"
       And I fill in "Användarnamn" with "anders p"

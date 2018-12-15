@@ -51,6 +51,9 @@ Feature: Show job ads
       And I should see "Anders P"
       And I should see "Antal genomförda jobb: 0"
       And I should see "Stad: gbgb"
+      And I click "Ansök"
+      And I should see "Du måste logga in eller registrera dig innan du fortsätter"
+      Then I should see "Registrera nytt konto som jobbsökande"
 
     Scenario: I should not see ads where deadline is reached
       Given I am on the jobs page

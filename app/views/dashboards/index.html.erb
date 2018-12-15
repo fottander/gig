@@ -45,7 +45,9 @@
             <% unless current_user.profile.prev_work.present? %>
               <%= link_to 'Förbättra dina chanser genom att lägga till arbetsplatser!', edit_profile_path(current_user.profile, anchor: 'work-section'), class: 'text-link-orange' %>
             <% end %>
-              <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>
+            <div>
+              <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>              
+            </div>
             <% else %>
               <strong>Skapa en profil för att söka jobb!</strong><br>
               <%= link_to 'Skapa ny profil', new_profile_path, class: 'button-orange' %>

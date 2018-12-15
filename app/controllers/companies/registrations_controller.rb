@@ -34,7 +34,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_inactive_sign_up_path_for(resource_or_scope)
-    new_job_path
+    new_company_session_path
   end
 
   def configure_account_update_params

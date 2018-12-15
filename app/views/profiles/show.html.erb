@@ -17,10 +17,9 @@
           <% end %>
         </p>
         <% if current_user.present? %>
-          <% if @profile.id == current_user.id %>
-            <div>
-              <%= link_to '✎ Redigera profil', edit_profile_path(@profile), class: 'text-link-orange', style: 'font-size: 16px;' %>
-            </div>
+          <% if @profile.user.id == current_user.id %>
+            <%= link_to '✎ Redigera profil', edit_profile_path(@profile), class: 'text-link-orange', style: 'font-size: 16px;' %><br>
+            <%= link_to '+ Lägg till mer information', edit_profile_path(@profile, anchor: 'profile-image'), class: 'text-link-orange', style: 'font-size: 16px;' %>
           <% end %>
         <% end %>
       </div>
@@ -85,6 +84,8 @@
                 <%= invoice.feedback %>
               </div>
             <% end %>
+          <% else %>
+            <span style='color: #72777c;'>Här kommer feedback och betyg visas från dina genomförda jobb.</span>
           <% end %>
         </div>
     </div>

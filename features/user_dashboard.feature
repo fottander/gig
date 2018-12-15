@@ -21,12 +21,13 @@ Feature: User dashboard
     Scenario: I go to dashboard
       Given I am on the home page
       And I click "LOGGA IN"
+      And I click "som jobbsökare"
       And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       Then I should see "Välkommen! Du är inloggad."
-      And I should see "Kontrollpanel"
+      And I should see "Innan du börjar söka jobb behöver du skapa en riktigt bra profil."
 
     Scenario: I create a Profile
       Given I am logged in as user "felix@mail.com"
@@ -51,7 +52,9 @@ Feature: User dashboard
       And I click "KONTROLLPANEL"
       And I click "LOGGA UT"
       And I click "LOGGA IN"
-      And I fill in "Email" with "mail@mail.com"
+      And I click "som jobbsökare"
+      And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
+      And I should see "Förnamn: felix"
       Then I should not see "Nästa steg är att skapa en profil"

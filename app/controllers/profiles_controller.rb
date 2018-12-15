@@ -28,8 +28,8 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to dashboards_path, notice: 'Ny profil skapad! Lägg gärna till mer info för att förbättra dina chanser.' }
-        format.json { render :new, status: :created}
+        format.html { redirect_to profile_path(@profile), notice: 'Ny profil skapad! Lägg gärna till mer info för att förbättra dina chanser. Lycka till med jobbsökandet!' }
+        format.json { render :show, status: :created}
       else
         format.html { render :new }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
@@ -45,8 +45,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     respond_to do |format|
       if @profile.update profile_params
-        format.html { redirect_to edit_profile_path(@profile), notice: 'Profil redigerad!' }
-        format.json { render :edit, status: :ok, location: @profile }
+        format.html { redirect_to profile_path(@profile), notice: 'Profil redigerad!' }
+        format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit }
         format.json { render json: @profile.errors, status: :unprocessable_entity }

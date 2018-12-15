@@ -20,33 +20,43 @@ Feature: Extend profile
     Scenario: I go to dashboard
       Given I am on the home page
       And I click "LOGGA IN"
+      And I click "som jobbsökare"
       And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       Then I should see "Välkommen! Du är inloggad."
+      And I click "KONTROLLPANEL"
       And I should see "Förbättra dina chanser genom att lägga till utbildning!"
       And I should see "Förbättra dina chanser genom att lägga till arbetsplatser!"
       And I click "Profil"
-      And I should see "Förbättra dina chanser genom att lägga till utbildning!"
-      And I should see "Förbättra dina chanser genom att lägga till arbetsplatser!"
       And I fill in "Språk" with "Svenska och engelska"
       And I click "Spara" in language
       Then I should see "Profil redigerad!"
+      And I click "Redigera profil"
       And I fill in "Körkort" with "B-körkort"
       And I click "Spara" in license
       Then I should see "Profil redigerad!"
+      And I click "Lägg till mer information"
       And I fill in "Utbildning" with "Ekonomi"
       And I click "Spara" in education
       Then I should see "Profil redigerad!"
+      And I click "KONTROLLPANEL"
       And I should not see "Förbättra dina chanser genom att lägga till utbildning!"
+      And I click "Profil"
+      And I should not see "Förbättra dina chanser genom att lägga till utbildning!"
+      And I should see "Förbättra dina chanser genom att lägga till arbetsplatser!"
       And I fill in "Tidigare arbetsplatser" with "Gbg husmåleri"
       And I click "Spara" in prev-work
       Then I should see "Profil redigerad!"
+      And I click "KONTROLLPANEL"
+      And I should not see "Förbättra dina chanser genom att lägga till arbetsplatser!"
+      And I click "Profil"
       And I should not see "Förbättra dina chanser genom att lägga till arbetsplatser!"
       And I fill in "Kompetenser" with "Måleri, snickeri"
       And I click "Spara" in skill
       Then I should see "Profil redigerad!"
+      And I click "Redigera profil"
       And I attach file
       And I click "Lägg till"
       And I should see "Profil redigerad!"

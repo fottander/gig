@@ -10,6 +10,11 @@
   <div class="holy-grail-middle">
     <div class='simple-form'>
       <div class='post-title'><h3>Redigera konto</h3></div>
+      <% unless current_company.description.present? %>
+        <div>
+          <a href="#description" rel="" id="anchor1" class='text-link-orange'>Förbättra dina chanser genom att lägga till beskrivning!</a>
+        </div>
+      <% end %>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
         <%= f.label :email, class: 'form-text' %>

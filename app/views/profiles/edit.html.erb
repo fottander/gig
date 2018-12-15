@@ -18,13 +18,19 @@
       <div class='post-title'><h3>Redigera profil</h3></div>
       <p><%= link_to "Visa din profil >>", profile_path(@profile), class: 'switch-button' %></p>
       <% unless @profile.avatar_file_name.present? %>
-        <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till profilbild!</span><br>
+        <div>
+          <a href="#profile-image" rel="" id="anchor1" class='text-link-orange'>Förbättra dina chanser genom att lägga till profilbild!</a>
+        </div>
       <% end %>
       <% unless @profile.education.present? %>
-        <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till utbildning!</span><br>
+        <div>
+          <a href="#education-section" rel="" id="anchor2" class='text-link-orange'>Förbättra dina chanser genom att lägga till utbildning!</a>
+        </div>
       <% end %>
       <% unless @profile.prev_work.present? %>
-        <span style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Förbättra dina chanser genom att lägga till arbetsplatser!</span>
+        <div>
+          <a href="#work-section" rel="" id="anchor3" class='text-link-orange'>Förbättra dina chanser genom att lägga till arbetsplatser!</a>
+        </div>
       <% end %>
       <%= form_for @profile do |f| %>
         <% if @profile.errors.any? %>
@@ -51,12 +57,12 @@
           <%= f.submit 'Spara', class: 'reply-button' %>
         </div>
         <div style='color: #f77d0e; font-weight: 600; margin-top: 15px;'>Extra information</div>
-        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text', id: 'profile-image' %>
+        <%= f.label :avatar, 'Profilbild (.jpg .jpeg .png .gif)', class: 'form-text' %>
         <% if @profile.avatar_file_name.present? %>
         <span style='font-size: 10px;'><%= @profile.avatar_file_name %></span>
         <% end %>
         <%= f.file_field :avatar, class: 'form-text', style:'margin-bottom: -10px;' %>
-        <%= f.submit 'Lägg till', class: 'button-blue', style: 'margin-top: 5px;' %>
+        <%= f.submit 'Lägg till', class: 'button-blue', style: 'margin-top: 5px;', id: 'profile-image' %>
         <%= f.label :language, 'Språk (Ex. Svenska flytande, engelska grundläggande)', class: 'form-text', style:'margin-top: 5px;' %>
         <%= f.text_field :language, value: @profile.language, style:'margin-bottom: 0px;' %>
         <div class="language">
@@ -67,7 +73,7 @@
         <div class="license">
           <%= f.submit 'Spara', class: 'button-blue' %>
         </div>
-        <%= f.label :education, 'Utbildning', class: 'form-text', style:'margin-top: 5px;', id: 'education-section' %>
+        <%= f.label :education, 'Utbildning', class: 'form-text', style:'margin-top: 5px;' %>
         <div class="fieldContainer">
           <%= f.text_area :education, value: @profile.education, style:'margin-bottom: 0px;' %>
           <div class="fieldInfo" style='margin-top: 0px;'>
@@ -76,9 +82,9 @@
           </div>
         </div>
         <div class="education">
-          <%= f.submit 'Spara', class: 'button-blue' %>
+          <%= f.submit 'Spara', class: 'button-blue', id: 'education-section' %>
         </div>
-        <%= f.label :prev_work, 'Tidigare arbetsplatser', class: 'form-text', style:'margin-top: 5px;', id: 'work-section' %>
+        <%= f.label :prev_work, 'Tidigare arbetsplatser', class: 'form-text', style:'margin-top: 5px;' %>
         <div class="fieldContainer">
           <%= f.text_area :prev_work, value: @profile.prev_work, style:'margin-bottom: 0px;' %>
           <div class="fieldInfo" style='margin-top: 0px;'>
@@ -87,7 +93,7 @@
           </div>
         </div>
         <div class="prev-work">
-          <%= f.submit 'Spara', class: 'button-blue' %>
+          <%= f.submit 'Spara', class: 'button-blue', id: 'work-section' %>
         </div>
         <%= f.label :skill, 'Kompetenser (Ex. servis, bar, disk)', class: 'form-text', style:'margin-top: 5px;' %>
         <div class="fieldContainer">

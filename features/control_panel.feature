@@ -33,13 +33,13 @@ Feature: Company control panel
     Scenario: I go to dashboard
       Given I am on the home page
       And I click "LOGGA IN"
-      And I click "Logga in företag >"
+      And I click "som företag"
       And I should see "Logga in som företag"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in"
       Then I should see "Välkommen! Du är inloggad."
-      And I should see "Kontrollpanel"
+      And I should see "Skapa annons"
 
     Scenario: I see the job ad and applications answer count
       Given I am logged in as company "felix@mail.com"

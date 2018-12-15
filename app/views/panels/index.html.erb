@@ -29,7 +29,9 @@
           <% unless current_company.employees.present? %>
             <%= link_to 'Förbättra dina chanser genom att ange antal anställda!', edit_company_registration_path(anchor: 'employee'), class: 'text-link-orange' %>
           <% end %>
-          <%= link_to 'Redigera konto', edit_company_registration_path, class: 'button-green'  %>
+          <div>
+            <%= link_to 'Redigera konto', edit_company_registration_path, class: 'button-green'  %>          
+          </div>
         </div>
       </div>
 
