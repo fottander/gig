@@ -25,12 +25,12 @@
           </div>
           <% unless current_company.description.present? %>
             <div>
-              <%= link_to 'Förbättra dina chanser genom att lägga till beskrivning!', edit_company_registration_path(anchor: 'description'), class: 'text-link-orange' %>
+              <%= link_to '+ Förbättra dina chanser genom att lägga till beskrivning!', edit_company_registration_path(anchor: 'description'), class: 'text-link-orange' %>
             </div>
           <% end %>
           <% unless current_company.employees.present? %>
             <div>
-              <%= link_to 'Förbättra dina chanser genom att ange antal anställda!', edit_company_registration_path(anchor: 'employee'), class: 'text-link-orange' %>            
+              <%= link_to '+ Förbättra dina chanser genom att ange antal anställda!', edit_company_registration_path(anchor: 'employee'), class: 'text-link-orange' %>            
             </div>
           <% end %>
           <div>

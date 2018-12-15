@@ -290,7 +290,7 @@ input[type='file'] {
 
  .text-link-orange {
    font-weight: normal;
-   font-size: 11px;
+   font-size: 0.7rem;
    color: #f77d0e;
    margin-bottom: -1px;
    letter-spacing: normal;
@@ -925,7 +925,7 @@ input[type='file'] {
 .marketing-site-hero-content-sign-up {
   margin: 0 auto;
   margin-left: 20%;
-  padding: 20px;
+  padding: 1.5rem;
   background-color: #ffff;
   border-radius: 10px;
   text-align: center;
@@ -949,8 +949,8 @@ input[type='file'] {
 }
 
 .marketing-site-hero-content-sign-up p {
-  font-size: 16px;
-  margin-bottom: 15px;
+  font-size: 1em;
+  margin-bottom: 1em;
   line-height: normal;
   color: #72777c;
   font-weight: 300;
@@ -959,7 +959,7 @@ input[type='file'] {
 
 .marketing-site-hero-content-sign-up h2 {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 1.5em;
   color: #494e51;
   text-align: center;
 }
@@ -968,7 +968,7 @@ input[type='file'] {
   .marketing-site-hero-content-sign-up {
     margin: 0 auto;
     margin-top: -15%;
-    padding: 15px;
+    padding: 1em;
     background-color: #ffff;
     border-radius: 10px;
     text-align: center;
@@ -979,15 +979,15 @@ input[type='file'] {
 .marketing-site-hero-content-sign-in {
   margin: 0 auto;
   margin-left: 20%;
-  margin-top: -5%;
-  padding: 30px;
+  margin-top: -15%;
+  padding: 2em;
   background-color: #ffff;
   border-radius: 10px;
   text-align: center;
 }
 
 .marketing-site-hero-content-sign-in p {
-  font-size: 16px;
+  font-size: 1em;
   margin-bottom: 4px;
   color: #72777c;
   font-weight: 300;
@@ -996,7 +996,7 @@ input[type='file'] {
 
 .marketing-site-hero-content-sign-in h2 {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 1.8em;
   color: #494e51;
   text-align: center;
 }
@@ -1004,8 +1004,8 @@ input[type='file'] {
 @media screen and (max-width: 49.9375em) {
   .marketing-site-hero-content-sign-in {
     margin: 0 auto;
-    margin-top: -25%;
-    padding: 20px;
+    margin-top: -35%;
+    padding: 1.5em;
     background-color: #ffff;
     border-radius: 10px;
     text-align: center;

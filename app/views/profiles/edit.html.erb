@@ -19,17 +19,17 @@
       <p><%= link_to "Visa din profil >>", profile_path(@profile), class: 'switch-button' %></p>
       <% unless @profile.avatar_file_name.present? %>
         <div>
-          <a href="#profile-image" rel="" id="anchor1" class='text-link-orange'>Förbättra dina chanser genom att lägga till profilbild!</a>
+          <a href="#profile-image" rel="" id="anchor1" class='text-link-orange'>+ Förbättra dina chanser genom att lägga till profilbild!</a>
         </div>
       <% end %>
       <% unless @profile.education.present? %>
         <div>
-          <a href="#education-section" rel="" id="anchor2" class='text-link-orange'>Förbättra dina chanser genom att lägga till utbildning!</a>
+          <a href="#education-section" rel="" id="anchor2" class='text-link-orange'>+ Förbättra dina chanser genom att lägga till utbildning!</a>
         </div>
       <% end %>
       <% unless @profile.prev_work.present? %>
         <div>
-          <a href="#work-section" rel="" id="anchor3" class='text-link-orange'>Förbättra dina chanser genom att lägga till arbetsplatser!</a>
+          <a href="#work-section" rel="" id="anchor3" class='text-link-orange'>+ Förbättra dina chanser genom att lägga till arbetsplatser!</a>
         </div>
       <% end %>
       <%= form_for @profile do |f| %>
