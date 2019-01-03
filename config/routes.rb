@@ -102,6 +102,8 @@ Rails.application.routes.draw do
 
   resources :adminprofiles, only: [:index, :destroy, :edit, :update]
 
+  resources :exampleprofiles, only: [:index]
+
   resources :admininvoices, only: [:index, :show, :edit, :update, :destroy] do
     member do
       patch :pay

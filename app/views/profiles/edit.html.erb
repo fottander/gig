@@ -41,6 +41,7 @@
         <%= f.label :age, 'Födelsedatum', class: 'form-text' %>
         <%= f.date_field :age, class: 'input-mini' %>
         <%= f.label :description, 'Beskrivning', class: 'form-text' %>
+        <%= link_to 'Exempelprofil', exampleprofiles_path, target: :_blank %>
         <div class="fieldContainer">
           <%= f.text_area :description, rows: 5, style: 'width:100%;', value: @profile.description %>
           <div class="fieldInfo">

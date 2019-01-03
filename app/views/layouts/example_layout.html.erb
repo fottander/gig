@@ -19,7 +19,7 @@
         <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
           <button class="menu-icon" type="button" data-toggle></button>
         </span>
-        <a class="topbar-responsive-logo" href="/" id="logo"><br><p class='logo-text'>Restaurang • Café • Catering • Event</p></a>
+        <a class="topbar-responsive-logo" id="logo"><br><p class='logo-text'>Restaurang • Café • Catering • Event</p></a>
       </div>
       <div id="topbar-responsive" class="topbar-responsive-links">
         <div class="top-bar-right">
@@ -30,10 +30,12 @@
               <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
               <li><%= link_to "KONTROLLPANEL", panels_path %></li>
             <% elsif user_signed_in? %>
-              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
-              <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
-              <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
+              <% unless controller.controller_name == 'exampleprofiles' %>
+                <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
+                <li><%= link_to "HITTA JOBB", jobs_path %></li>
+                <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
+                <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
+              <% end %>
             <% elsif admin_signed_in? %>
               <li><%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %></li>
               <li><%= link_to "ADMINISTRATION", administrations_path %></li>
@@ -105,16 +107,18 @@
               </p>
           </div>
         </div>
-          <div class="medium-4 columns">
-            <p class="site-footer-title"></p>
-            <p class='site-footer-content'>
-              <%= link_to 'Så fungerar det', howitworks_path %><br>
-              <%= link_to 'Kontakta oss', messages_path %><br>
-              <%= link_to 'Faktura, avgifter & lön', our_rates_path %><br>
-              <%= link_to 'Varför Qnekt?', why_us_path %><br>
-              <%= link_to 'Användarvillkor', terms_of_services_path %><br>
-            </p>
-          </div>
+        <% unless controller.controller_name == 'exampleprofiles' %>
+            <div class="medium-4 columns">
+              <p class="site-footer-title"></p>
+              <p class='site-footer-content'>
+                <%= link_to 'Så fungerar det', howitworks_path %><br>
+                <%= link_to 'Kontakta oss', messages_path %><br>
+                <%= link_to 'Faktura, avgifter & lön', our_rates_path %><br>
+                <%= link_to 'Varför Qnekt?', why_us_path %><br>
+                <%= link_to 'Användarvillkor', terms_of_services_path %><br>
+              </p>
+            </div>
+        <% end %>
         <div class="medium-4 columns">
           <p class="site-footer-title">Qnekt</p>
           <p class="site-footer-content">
