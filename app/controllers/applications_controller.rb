@@ -45,7 +45,7 @@ class ApplicationsController < ApplicationController
         # Sends email to company when application is created.
         NotificationMailer.new_application_email(@company, @job).deliver_now
 
-        format.html { redirect_to dashboards_path, notice: 'Ny ansökan skickad!' }
+        format.html { redirect_to dashboards_path, notice: 'Ny ansökan skickad! Vi skickar ett email när du får svar på ansökan. Status för ansökan hittar du i kontrollpanelen ⤴' }
         format.json { render :new, status: :created}
       else
         format.html { render :new }
