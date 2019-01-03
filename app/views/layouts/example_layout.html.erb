@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <title><%= meta_title %></title>
+      <meta name="description" content="<%= meta_description %>">
+
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+
+      <%= favicon_link_tag asset_path('Qnekt-favicon.png') %>
+    </head>
+
+    <nav class="top-bar topbar-responsive">
+      <div class="top-bar-title">
+        <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+          <button class="menu-icon" type="button" data-toggle></button>
+        </span>
+        <a class="topbar-responsive-logo" id="logo"><br><p class='logo-text'>Restaurang • Café • Catering • Event</p></a>
+      </div>
+      <div id="topbar-responsive" class="topbar-responsive-links">
+        <div class="top-bar-right">
+          <ul class="menu simple vertical medium-horizontal" data-close-on-click-inside="false" data-dropdown-menu>
+              <li><%= link_to 'Stäng exempelsida', '_self', onclick: 'window.close();' %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <body>
+      <% if notice %>
+          <% if current_user.present? %>
+              <% if current_user.sign_in_count == 1 %>
+                  <div id="notice-wrapper" >
+                      <p class='notice-first-time'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% else %>
+                  <div id="notice-wrapper" >
+                      <p class='notice'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% end %>
+          <% elsif current_company.present? %>
+              <% if current_company.sign_in_count == 1 %>
+                  <div id="notice-wrapper" >
+                      <p class='notice-first-time'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% else %>
+                  <div id="notice-wrapper" >
+                      <p class='notice'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% end %>
+          <% else %>
+            <div id="registered-wrapper" >
+                <p class='registered'><%= notice %><br><br><%= link_to 'JAG FÖRSTÅR', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: black;' %></p>
+            </div>
+          <% end %>
+      <% elsif alert %>
+          <div id='alert-wrapper' >
+              <p class='alert'><%= alert %></p>
+          </div>
+      <% end %>
+      <%= yield %>
+
+      <% if Rails.env.production? %>
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129065480-1"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-129065480-1');
+          </script>
+      <% end %>
+    </body>
+
+    <footer class="site-footer">
+      <div class="row medium-unstack">
+        <div class="medium-4 columns">
+          <div class="site-footer-top">
+              <p class="site-footer-title">Om Qnekt</p>
+              <p class="site-footer-content">
+                Vi är en marknadsplats som matchar företagare med jobbsökare.
+                Vi förenklar och effektiviserar rekryteringsprocessen med målet att skapa det perfekta verktyget för den moderna arbetsmarknaden.
+              </p>
+          </div>
+        </div>
+        <div class="medium-4 columns">
+          <p class="site-footer-title"></p>
+          <p class='site-footer-content'>
+          </p>
+        </div>
+        <div class="medium-4 columns">
+          <p class="site-footer-title">Qnekt</p>
+          <p class="site-footer-content">
+            <i class='fi-mail size-15'></i> Org.nr: 559129-6099 <br>
+            <i class='fi-telephone size-15'></i> © Qnekt 2018 <br>
+          </p>
+        </div>
+      </div>
+    </footer>
+</html>
