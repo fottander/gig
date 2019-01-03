@@ -24,27 +24,7 @@
       <div id="topbar-responsive" class="topbar-responsive-links">
         <div class="top-bar-right">
           <ul class="menu simple vertical medium-horizontal" data-close-on-click-inside="false" data-dropdown-menu>
-            <% if company_signed_in? %>
-              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
-              <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
-              <li><%= link_to "KONTROLLPANEL", panels_path %></li>
-            <% elsif user_signed_in? %>
-              <% unless controller.controller_name == 'exampleprofiles' %>
-                <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
-                <li><%= link_to "HITTA JOBB", jobs_path %></li>
-                <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
-                <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
-              <% end %>
-            <% elsif admin_signed_in? %>
-              <li><%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %></li>
-              <li><%= link_to "ADMINISTRATION", administrations_path %></li>
-            <% else %>
-              <li><%= link_to "SKAPA ANNONS", sign_ups_path %></li>
-              <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "LOGGA IN", sign_ins_path %></li>
-              <li><%= link_to "KONTAKT", messages_path %></li>
-            <% end %>
+              <li><%= link_to 'Stäng exempelsida', '_self', onclick: 'window.close();' %></li>
           </ul>
         </div>
       </div>
@@ -107,25 +87,16 @@
               </p>
           </div>
         </div>
-        <% unless controller.controller_name == 'exampleprofiles' %>
-            <div class="medium-4 columns">
-              <p class="site-footer-title"></p>
-              <p class='site-footer-content'>
-                <%= link_to 'Så fungerar det', howitworks_path %><br>
-                <%= link_to 'Kontakta oss', messages_path %><br>
-                <%= link_to 'Faktura, avgifter & lön', our_rates_path %><br>
-                <%= link_to 'Varför Qnekt?', why_us_path %><br>
-                <%= link_to 'Användarvillkor', terms_of_services_path %><br>
-              </p>
-            </div>
-        <% end %>
+        <div class="medium-4 columns">
+          <p class="site-footer-title"></p>
+          <p class='site-footer-content'>
+          </p>
+        </div>
         <div class="medium-4 columns">
           <p class="site-footer-title">Qnekt</p>
           <p class="site-footer-content">
-            <i class='fi-mail size-15'></i> info@qnekt.se <br>
-            <i class='fi-telephone size-15'></i> 0707301078 <br>
-            Org.nr: 559129-6099 <br>
-            © Qnekt 2018
+            <i class='fi-mail size-15'></i> Org.nr: 559129-6099 <br>
+            <i class='fi-telephone size-15'></i> © Qnekt 2018 <br>
           </p>
         </div>
       </div>
