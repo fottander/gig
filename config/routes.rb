@@ -22,6 +22,16 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :admin_companies,
+    class_name: 'Company',
+    only: [],
+    controllers: { registrations: 'admin_companies' }
+
+  devise_scope :admin_company do
+    get   "/admin_companies/new", to: "admin_companies#new", as: :new_admin_companies
+    post  "/admin_companies",    to: "admin_companies#create", as: :admin_companies
+  end
+
   devise_for :users, controllers: {
     registrations: 'user/registrations',
     sessions: 'user/sessions',

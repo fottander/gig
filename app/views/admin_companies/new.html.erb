@@ -1,0 +1,58 @@
+<div class="login-box">
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1">
+      <div class="login-box-form-section">
+        <div class='login-title'>
+          <span style='color: white; font-weight: 700;'>Registrera nytt företagskonto<br>(gratis)</span>
+        </div>
+        <%= form_for( resource, as: :company, url: admin_companies_path ) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="login-box-input">
+            <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :name, placeholder: "Företagsnamn" %>
+          </div>
+          <div class="fieldContainer">
+            <div class="login-box-input">
+              <%= f.text_area :username, placeholder: "Användarnamn" %>
+            </div>
+            <div class="fieldInfo">
+              Tips <br>
+              Skriv inte ditt företagsnamn som användarnamn. Använd istället t.ex. ditt namn eller smeknamn(ex. Börje S, Limpan etc).
+            </div>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :address, placeholder: "Adress" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :zip_code, placeholder: "Postnummer" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :city, placeholder: "Stad" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :org_number, placeholder: "Organisationsnummer" %>
+          </div>
+          <div class="login-box-input">
+            <%= f.text_area :phone, placeholder: "Telefonnummer" %>
+          </div>
+          <div class="login-box-input">
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> tecken minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
+          </div>
+          <div class="login-box-input">
+            <br>
+            <%= f.password_field :password_confirmation, placeholder: "Bekräfta lösenord", autocomplete: "off" %>
+          </div><br>
+          <div class="actions" style='margin-top: -10px;'>
+            <span style='color: #6D6D6D; font-size: 14px;'>När du klickar registrera godkänner du <%= link_to 'våra villkor', terms_of_services_path , style: 'font-size: 14px; text-transform: lowercase;'%> och att du tagit del av <%= link_to 'vår integritetspolicy.', integritypolicies_path , style: 'font-size: 14px; text-transform: lowercase;'%></span><br>
+            <%= f.submit "Registrera", class: 'reply-button', style:'width: 60%;' %>
+          </div>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</div>
