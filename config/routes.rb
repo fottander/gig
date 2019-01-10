@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   devise_scope :admin_company do
     get   "/admin_companies/new", to: "admin_companies#new", as: :new_admin_companies
     post  "/admin_companies",    to: "admin_companies#create", as: :admin_companies
+    get "/admin_companies/:id", to: "admin_companies#show", as: :admin_company
   end
 
   devise_for :users, controllers: {

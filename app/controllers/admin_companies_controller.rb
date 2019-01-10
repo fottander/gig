@@ -10,6 +10,7 @@ class AdminCompaniesController < Devise::RegistrationsController
     build_resource(sign_up_params)
     resource.skip_confirmation!
     resource.confirm
+    resource.real = false
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -26,6 +27,11 @@ class AdminCompaniesController < Devise::RegistrationsController
       set_minimum_password_length
       respond_with resource
     end
+  end
+
+  def show
+    @company = Company.find(params[:id])
+    @jobs = Job.where(id: @company.id)
   end
 
   protected

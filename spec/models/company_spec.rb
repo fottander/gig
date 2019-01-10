@@ -14,6 +14,7 @@ RSpec.describe Company, type: :model do
     it { is_expected.to have_db_column :invoice_address }
     it { is_expected.to have_db_column :employees }
     it { is_expected.to have_db_column :description }
+    it { is_expected.to have_db_column :real }
   end
 
   describe 'Validations' do
