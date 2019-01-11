@@ -31,7 +31,7 @@ class AdminCompaniesController < Devise::RegistrationsController
 
   def show
     @company = Company.find(params[:id])
-    @jobs = Job.where(id: @company.id)
+    @jobs = Job.where(company_id: @company.id)
   end
 
   protected
