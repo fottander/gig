@@ -2,7 +2,8 @@
 <% @jobs.each do |job| %>
     <span class='item-define'>ID:</span> <%= job.id %><br>
     <span> <%= link_to 'Radera', adminjob_path(job), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
-    <span class='item-define'>Titel:</span> <%= link_to job.title, adminjob_path(job) %><br>
+    <%= link_to 'Visa', adminjob_path(job), class: 'button-green' %><br>
+    <span class='item-define'>Titel:</span> <%= job.title %><br>
     <span class='item-define'>Beskrivning:</span> <%= job.description %><br>
     <span class='item-define'>Krav:</span> <%= job.requirement %><br>
     <span class='item-define'>Kategori:</span> <%= job.categories.pluck(:name) %><br>
