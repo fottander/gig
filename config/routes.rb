@@ -107,7 +107,7 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:create, :destroy, :edit, :update]
 
-  resources :adminjobs, only: [:new, :create, :index, :show, :destroy, :edit, :update]
+  resources :adminjobs, only: [:create, :index, :show, :destroy, :edit, :update]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 

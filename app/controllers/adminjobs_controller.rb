@@ -8,10 +8,6 @@ class AdminjobsController < ApplicationController
     end
   end
 
-  def new
-    @job = Job.new
-  end
-
   def create
     @job = Job.new job_params
     @job.company = Company.find_by(id: params[:company_id])
