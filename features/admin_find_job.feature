@@ -69,7 +69,7 @@ Feature: Admin find invoices
       Given I am on the administrations page
       And I click "Jobb"
       And I should see "Alla jobb"
-      And I click "målare sökes"
+      And I click "Visa målare sökes"
       Then I should see "I want job"
       Given I am on the administrations page
       And I click "Ansökningar"
