@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_10_140055) do
+ActiveRecord::Schema.define(version: 2019_01_14_161838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -273,6 +273,7 @@ ActiveRecord::Schema.define(version: 2019_01_10_140055) do
     t.string "company_username"
     t.string "jobtype"
     t.boolean "real", default: true
+    t.integer "order_number"
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 

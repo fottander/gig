@@ -6,7 +6,7 @@ class Job < ApplicationRecord
   has_many :applications, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
   has_and_belongs_to_many :cities, dependent: :destroy
-  default_scope {order('created_at DESC')}
+  default_scope {order('order_number ASC, created_at DESC')}
 
   scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
   scope :with_city,  ->(city) { joins(:cities).where(cities: { name: city }) }

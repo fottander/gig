@@ -36,6 +36,7 @@
               <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
             <% elsif admin_signed_in? %>
               <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
               <li><%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %></li>
               <li><%= link_to "ADMINISTRATION", administrations_path %></li>
             <% else %>

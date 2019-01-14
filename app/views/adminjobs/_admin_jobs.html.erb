@@ -18,7 +18,8 @@
     <span class='item-define'>Föratagsstad:</span> <%= job.company_city %><br>
     <span class='item-define'>Företags användarnamn:</span> <%= job.company_username %><br>
     <span class='item-define'>Skapad:</span> <%= job.created_at.strftime("%F %R") %><br>
-    <span class='item-define'>Uppdaterad:</span> <%= job.updated_at.strftime("%F %R") %><br><br>
+    <span class='item-define'>Uppdaterad:</span> <%= job.updated_at.strftime("%F %R") %><br>
+    <span class='item-define'>Order number:</span> <%= job.order_number %><br><br>
 <% end %>
 </p>
 <div class="will-paginate">

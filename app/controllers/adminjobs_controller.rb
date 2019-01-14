@@ -63,7 +63,7 @@ class AdminjobsController < ApplicationController
   end
 
   def job_update_params
-    params.require(:job).permit(:title, :description, :jobtype, :active, :requirement, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar)
+    params.require(:job).permit(:title, :description, :jobtype, :active, :requirement, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar, :order_number)
   end
 
   def job_params
