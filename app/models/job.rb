@@ -1,5 +1,6 @@
 class Job < ApplicationRecord
   before_save :set_budget, :set_requirement, :set_deadline
+  before_update :set_order_number_to_nil
   validates_presence_of :title, :description, :jobtype, :category_ids, :city_ids, :duration, :hour_day, :when_in_time
   validates_length_of :title, maximum: 50
   belongs_to :company
@@ -32,5 +33,11 @@ class Job < ApplicationRecord
 
   def set_deadline
     self.deadline = Date.today + 730.days if self.deadline.blank?
+  end
+
+  def set_order_number_to_nil
+    if order_number == 0
+      self.order_number = nil
+    end
   end
 end
