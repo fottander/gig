@@ -1942,6 +1942,14 @@ input[type='file'] {
   padding: 0.2rem 1rem;
 }
 
+@media screen and (min-width: 63.9375em) {
+  .profile-card-action-icons .card-section .profile-card-header,
+  .profile-card-action-icons .card-section .profile-card-about-button {
+    padding: 0.2rem 1rem;
+    margin-top: 1em;
+  }
+}
+
 @media screen and (max-width: 39.9375em) {
   .profile-card-action-icons .card-section .profile-card-header {
     padding: 0.1rem 0.5rem;
