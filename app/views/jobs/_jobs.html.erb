@@ -4,13 +4,13 @@
       <div class='job-<%= job.id %>'>
         <div class="card profile-card-action-icons">
           <div class="card-section">
-            <div class="profile-card-header">
+            <div class="profile-card-header" style='background-color: #f77d0e;'>
               <div class="profile-card-avatar">
                 <%= link_to image_tag(job.categories.first.avatar.url, class: "avatar-image"), job_path(job) %>
               </div>
               <div class="profile-card-author">
-                <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
-                <%= job.company_username %>
+                <h4 class="author-title"><%= link_to job.title, job_path(job), style:'color: white;'%></h4>
+                <span style='color: white;'><%= job.company_username %></span>
               </div>
             </div>
             <div class="large-9 columns profile-card-about">
@@ -59,7 +59,7 @@
                 </div>
               </div>
             </div>
-            <div class="large-3 columns profile-card-about">
+            <div class="large-3 columns profile-card-about-button">
               <%= link_to 'Ansök', job_path(job), class: 'reply-button-expand' %>
             </div>
           </div>
@@ -72,7 +72,7 @@
             <div class="large-9 columns profile-card-about">
               <div class="profile-card-about-message">
                 <div class='profile-card-about-title'>
-                  <h6 class="author-title" style='font-size: 0.8em;'><%= link_to job.title, job_path(job)%></h6>
+                  <h6 class="author-title" style='font-size: 0.9em;'><%= link_to job.title, job_path(job), style:'font-size: 1.2em;'%></h6>
                   <span class='profile-card-about-title'><%= job.categories.pluck(:name).flatten.join(' & ') %></span><br>
                 </div>
                   <% if job.description.length > 100 %>

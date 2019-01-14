@@ -1934,10 +1934,12 @@ input[type='file'] {
 
 .profile-card-action-icons .card-section {
   background-color: inherit;
-  padding: 0.1rem 0 0;
+  padding: 0rem 0 0;
 }
 
-.profile-card-action-icons .card-section .profile-card-header,
+.profile-card-action-icons .card-section .profile-card-header {
+  padding: 0.2rem 1rem;
+}
 .profile-card-action-icons .card-section .profile-card-about {
   padding: 0.2rem 1rem;
 }
@@ -1945,7 +1947,7 @@ input[type='file'] {
 @media screen and (min-width: 63.9375em) {
   .profile-card-action-icons .card-section .profile-card-about-button {
     padding: 0.2rem 1rem;
-    margin-top: 1em;
+    margin-top: 1.5em;
   }
 }
 
