@@ -25,6 +25,7 @@ RSpec.describe Job, type: :model do
     it { is_expected.to have_db_column :company_id }
     it { is_expected.to have_db_column :company_city }
     it { is_expected.to have_db_column :company_username }
+    it { is_expected.to have_db_column :order_number }
   end
 
   describe 'Validations' do

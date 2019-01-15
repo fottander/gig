@@ -1,0 +1,64 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Företag: <%= @company.name %></h3>
+          <p class="portfolio-resume-subheader">
+            <span class='item-define'>Id:</span> <%= @company.id %><br>
+            <span class='item-define'>Email:</span> <%= @company.email %><br>
+            <span class='item-define'>Användarnamn:</span> <%= @company.username %><br>
+            <span class='item-define'>Adress:</span> <%= @company.address %><br>
+            <span class='item-define'>Postnummer:</span> <%= @company.zip_code %><br>
+            <span class='item-define'>Stad:</span> <%= @company.city %><br>
+            <span class='item-define'>Org.nr:</span> <%= @company.org_number %><br>
+            <span class='item-define'>Telefon:</span> <%= @company.phone %><br>
+            <span class='item-define'>Fakturaadress:</span> <%= @company.invoice_address %><br>
+            <span class='item-define'>Skapad:</span> <%= @company.created_at.strftime("%F %R") %><br>
+            <span class='item-define'>Uppdaterad:</span> <%= @company.updated_at.strftime("%F %R") %><br>
+            <span class='item-define'>Verifierad:</span> <%= @company.confirmed? %><br><br>
+          </p>
+          <h3>Lägg in nytt jobb</h3>
+          <%= form_tag adminjobs_path(@job, company_id: @company.id, company_username: @company.username, company_city: @company.city) do %>
+          <%= text_field_tag :title, nil, placeholder: 'Titel', class: 'invoice-details-date' %>
+          <%= select_tag :city_ids, options_from_collection_for_select(City.all, :id, :name), class: 'input-medium' %>
+          <%= select_tag :category_ids, options_from_collection_for_select(Category.all, :id, :name), class: 'input-medium' %>
+          <%= text_area_tag :description, nil, placeholder: 'Beskrivning', class: 'invoice-details-date' %>
+          <%= select_tag :jobtype, options_for_select(Job::JOBTYPE_OPTIONS), class: 'input-medium' %>
+          <%= text_field_tag :duration, nil, placeholder: 'Jobbets längd', class: 'invoice-details-date' %>
+          <%= text_field_tag :hour_day, nil, placeholder: 'Timmar per dag', class: 'invoice-details-date' %>
+          <%= text_field_tag :when_in_time, nil, placeholder: 'När ska jobbet utföras', class: 'invoice-details-date' %>
+          <%= date_field_tag :deadline, nil, placeholder: 'Deadline', class: 'invoice-details-date' %>
+          <%= text_field_tag :requirement, nil, placeholder: 'Krav', class: 'invoice-details-date' %>
+          <%= text_field_tag :budget, nil, placeholder: 'Föreslagen lön', class: 'invoice-details-date' %>
+          <%= submit_tag 'Skapa annons', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style: 'width: 100%;' %>
+          <% end %>
+          <br>
+          <h3>Företagets aktiva jobb</h3>
+          <p class="portfolio-resume-subheader">
+            <% @jobs.each do |job| %>
+              <%= link_to 'Visa', job_path(job), class: 'button-green' %><br>
+              <span class='item-define'>ID:</span> <%= job.id %><br>
+              <span class='item-define'>Jobb titel:</span> <%= job.title %><br>
+              <span class='item-define'>Skapad:</span> <%= job.created_at.strftime("%F %R") %><br>
+              <span class='item-define'>Uppdaterad:</span> <%= job.updated_at.strftime("%F %R") %><br><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

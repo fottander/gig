@@ -3,17 +3,17 @@
     <div class='job-<%= job.id %>'>
       <div class="card profile-card-action-icons">
         <div class="card-section">
-          <div class="profile-card-header">
+          <div class="profile-card-header" style='background-color: #F5F5F5;'>
             <div class="profile-card-avatar">
               <%= link_to image_tag(job.categories.first.avatar.url, class: "avatar-image"), job_path(job) %>
             </div>
             <div class="profile-card-author">
-              <h4 class="author-title"><%= link_to job.title, job_path(job)%></h4>
+              <h4 class="author-title"><%= link_to job.title, job_path(job) %></h4>
               <%= job.company_username %>
             </div>
           </div>
           <div class="large-9 columns profile-card-about">
-            <div class="profile-card-about-message">
+            <div class="profile-card-about-message" style="line-height: 1.4em;">
               <div class='profile-card-about-title'>
                 <span class='profile-card-about-title'><%= job.categories.pluck(:name).flatten.join(' & ') %></span><br>
               </div>
@@ -58,7 +58,7 @@
               </div>
             </div>
           </div>
-          <div class="large-3 columns profile-card-about">
+          <div class="large-3 columns profile-card-about-button">
             <%= link_to 'Ansök', job_path(job), class: 'reply-button-expand' %>
           </div>
         </div>

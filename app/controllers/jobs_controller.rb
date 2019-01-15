@@ -66,7 +66,7 @@ class JobsController < ApplicationController
   end
 
   def filtering_params(params)
-    params.slice(:with_category, :with_city)
+    params.slice(:with_category, :with_city, :with_jobtype)
   end
 
 end

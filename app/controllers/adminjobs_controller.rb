@@ -8,6 +8,21 @@ class AdminjobsController < ApplicationController
     end
   end
 
+  def create
+    @job = Job.new job_params
+    @job.company = Company.find_by(id: params[:company_id])
+    @job.real = false
+    respond_to do |format|
+      if @job.save
+        format.html { redirect_to job_path(@job), notice: "Ny annons skapad!" }
+        format.json { render :show, status: :created}
+      else
+        format.html { render :new }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def show
     @job = Job.find(params[:id])
     @applications = Application.where(job_id: @job.id)
@@ -48,7 +63,11 @@ class AdminjobsController < ApplicationController
   end
 
   def job_update_params
-    params.require(:job).permit(:title, :description, :jobtype, :active, :requirement, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar)
+    params.require(:job).permit(:title, :description, :jobtype, :active, :requirement, :category_ids, :city_ids, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar, :order_number)
+  end
+
+  def job_params
+    params.permit(:title, :description, :jobtype, :active, :requirement, :category_ids, :city_ids, :company, :budget, :deadline, :duration, :hour_day, :when_in_time, :active, :avatar, :company_username, :company_city, :company_id)
   end
 
 end

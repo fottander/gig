@@ -85,6 +85,8 @@
             Genom att ange en föreslagen lön har ni något att utgå från. Sedan kan individuella löner för varje anställd diskuteras och justeras.
           </div>
         </div>
+        <%= f.label :order_number, 'Order number', class: 'form-text' %>
+        <%= f.text_field :order_number, value: @job.order_number %>
         <%= f.check_box :active, value: true %>
         <span class='form-text'>Aktivera/Inaktivera för att låta personer se din annons eller inte.</span><br>
         <%= f.submit 'Spara', class: 'reply-button' %>

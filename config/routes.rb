@@ -22,6 +22,17 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :admin_companies,
+    class_name: 'Company',
+    only: [],
+    controllers: { registrations: 'admin_companies' }
+
+  devise_scope :admin_company do
+    get   "/admin_companies/new", to: "admin_companies#new", as: :new_admin_companies
+    post  "/admin_companies",    to: "admin_companies#create", as: :admin_companies
+    get "/admin_companies/:id", to: "admin_companies#show", as: :admin_company
+  end
+
   devise_for :users, controllers: {
     registrations: 'user/registrations',
     sessions: 'user/sessions',
@@ -96,7 +107,7 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:create, :destroy, :edit, :update]
 
-  resources :adminjobs, only: [:index, :show, :destroy, :edit, :update]
+  resources :adminjobs, only: [:create, :index, :show, :destroy, :edit, :update]
 
   resources :profiles, only: [:index, :new, :create, :show, :edit, :update]
 

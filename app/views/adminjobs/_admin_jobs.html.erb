@@ -2,7 +2,7 @@
 <% @jobs.each do |job| %>
     <span class='item-define'>ID:</span> <%= job.id %><br>
     <span> <%= link_to 'Radera', adminjob_path(job), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
-    <span class='item-define'>Titel:</span> <%= link_to job.title, adminjob_path(job) %><br>
+    <%= link_to "Visa #{job.title}", adminjob_path(job), class: 'button-green' %><br>
     <span class='item-define'>Beskrivning:</span> <%= job.description %><br>
     <span class='item-define'>Krav:</span> <%= job.requirement %><br>
     <span class='item-define'>Kategori:</span> <%= job.categories.pluck(:name) %><br>
@@ -18,7 +18,8 @@
     <span class='item-define'>Föratagsstad:</span> <%= job.company_city %><br>
     <span class='item-define'>Företags användarnamn:</span> <%= job.company_username %><br>
     <span class='item-define'>Skapad:</span> <%= job.created_at.strftime("%F %R") %><br>
-    <span class='item-define'>Uppdaterad:</span> <%= job.updated_at.strftime("%F %R") %><br><br>
+    <span class='item-define'>Uppdaterad:</span> <%= job.updated_at.strftime("%F %R") %><br>
+    <span class='item-define'>Order number:</span> <%= job.order_number %><br><br>
 <% end %>
 </p>
 <div class="will-paginate">

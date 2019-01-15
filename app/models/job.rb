@@ -1,15 +1,17 @@
 class Job < ApplicationRecord
   before_save :set_budget, :set_requirement, :set_deadline
+  before_update :set_order_number_to_nil
   validates_presence_of :title, :description, :jobtype, :category_ids, :city_ids, :duration, :hour_day, :when_in_time
   validates_length_of :title, maximum: 50
   belongs_to :company
   has_many :applications, dependent: :destroy
   has_and_belongs_to_many :categories, dependent: :destroy
   has_and_belongs_to_many :cities, dependent: :destroy
-  default_scope {order('created_at DESC')}
+  default_scope {order('order_number ASC, created_at DESC')}
 
-  scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
-  scope :with_city,  ->(city) { joins(:cities).where(cities: { name: city }) }
+  scope :with_category,  -> (category) { joins(:categories).where(categories: { name: category }) }
+  scope :with_city,  -> (city) { joins(:cities).where(cities: { name: city }) }
+  scope :with_jobtype,  -> (jobtype) { where jobtype: jobtype }
   scope :with_id, -> (id) { where id: id }
   scope :active, -> { where active: true }
   scope :expired, -> { where('deadline >= ?', Date.today) }
@@ -32,5 +34,11 @@ class Job < ApplicationRecord
 
   def set_deadline
     self.deadline = Date.today + 730.days if self.deadline.blank?
+  end
+
+  def set_order_number_to_nil
+    if order_number == 0
+      self.order_number = nil
+    end
   end
 end
