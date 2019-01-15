@@ -562,7 +562,16 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 1rem 1.75rem 1rem;
    border: none;
-   max-width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 90%;
+ }
+
+ @media screen and (max-width: 39.9375em) {
+   .reply-button-expand {
+     padding: 0.8rem 1.5rem 0.8rem;
+     font-size: 0.9rem;
+   }
  }
 
  .profile-button-expand:hover {
@@ -1935,6 +1944,13 @@ input[type='file'] {
 .profile-card-action-icons .card-section {
   background-color: inherit;
   padding: 0rem 0 0;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .profile-card-action-icons .card-section {
+    line-height: 1.25em;
+    font-size: 0.9em;
+  }
 }
 
 .profile-card-action-icons .card-section .profile-card-header {

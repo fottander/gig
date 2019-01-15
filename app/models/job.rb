@@ -9,8 +9,9 @@ class Job < ApplicationRecord
   has_and_belongs_to_many :cities, dependent: :destroy
   default_scope {order('order_number ASC, created_at DESC')}
 
-  scope :with_category,  ->(category) { joins(:categories).where(categories: { name: category }) }
-  scope :with_city,  ->(city) { joins(:cities).where(cities: { name: city }) }
+  scope :with_category,  -> (category) { joins(:categories).where(categories: { name: category }) }
+  scope :with_city,  -> (city) { joins(:cities).where(cities: { name: city }) }
+  scope :with_jobtype,  -> (jobtype) { where jobtype: jobtype }
   scope :with_id, -> (id) { where id: id }
   scope :active, -> { where active: true }
   scope :expired, -> { where('deadline >= ?', Date.today) }
