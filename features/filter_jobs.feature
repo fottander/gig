@@ -1,6 +1,6 @@
 Feature: Filter jobs
   As an user
-  In order to search for jobs
+  In order to filter through jobs
   I would like to browse all the job ads and filter by category, city and jobtype
 
   Background:
