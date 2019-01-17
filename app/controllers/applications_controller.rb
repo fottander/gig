@@ -186,7 +186,7 @@ class ApplicationsController < ApplicationController
   end
 
   def application_hire_params
-    params.permit(:first_day, :last_day, :hired, :salary)
+    params.permit(:first_day, :last_day, :hired, :salary, :add_ob)
   end
 
   def application_params

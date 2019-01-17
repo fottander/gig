@@ -11,6 +11,9 @@ class InvoicesController < ApplicationController
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
     @invoice.age = @invoice.user.profile.years_old
+    if @application.add_ob == true
+      @invoice.add_ob = true
+    end
     if @invoice.save
       @application.update_attributes(complete: true)
       @invoice.create_activity :create, owner: current_user.profile, recipient: @company
@@ -148,7 +151,7 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username, :ssyk_code, :add_ob)
+    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username, :ssyk_code)
   end
 
   def invoice_update_params
