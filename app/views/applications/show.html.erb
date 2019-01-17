@@ -142,6 +142,8 @@
                 Ange bruttolön exkl. semesterersättning
               </div>
             </div>
+            <%= label_tag :add_ob, 'Ska den anställde omfattas av avtal med OB-tillägg?', class: 'invoice-details-date' %>
+            <%= check_box_tag('add_ob', value = true, checked = false) %>
             <%= hidden_field_tag 'hired', true %>
             <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
           <% end %>

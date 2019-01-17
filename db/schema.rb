@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_14_161838) do
+ActiveRecord::Schema.define(version: 2019_01_17_154935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_01_14_161838) do
     t.string "job_title"
     t.integer "company_id"
     t.integer "salary"
+    t.boolean "add_ob", default: false
     t.index ["job_id"], name: "index_applications_on_job_id"
     t.index ["profile_id"], name: "index_applications_on_profile_id"
   end
@@ -251,6 +252,7 @@ ActiveRecord::Schema.define(version: 2019_01_14_161838) do
     t.integer "totalbelopp_inklmoms"
     t.float "soc_avgift_m_age"
     t.integer "bruttol_exkl_semester_ef_avg"
+    t.boolean "add_ob", default: false
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["user_id"], name: "index_invoices_on_user_id"
