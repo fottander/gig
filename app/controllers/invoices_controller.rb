@@ -5,12 +5,24 @@ class InvoicesController < ApplicationController
   def create
     @invoice = Invoice.new invoice_params
     @application = Application.find(params[:application_id])
+    @invoice.amount = (params[:quantity].to_f * params[:unit].to_i).to_i
     @company = @application.job.company
+    @job = @application.job
     @invoice.profile_id = current_user.profile.id
     @invoice.profile_username = current_user.profile.username
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
     @invoice.age = @invoice.user.profile.years_old
+    @invoice.add_ob = @application.add_ob
+    @invoice.company_id = @job.company_id
+    @invoice.job_id = @job.id
+    @invoice.job_title = @job.title
+    @invoice.first_day = @application.first_day
+    @invoice.last_day = @application.last_day
+    @invoice.company_reference = @job.company_username
+    @invoice.user_reference = current_user.profile.username
+    @invoice.description = @job.categories.pluck(:name).first
+    @invoice.ssyk_code = @job.categories.pluck(:ssyk_code)
     if @invoice.save
       @application.update_attributes(complete: true)
       @invoice.create_activity :create, owner: current_user.profile, recipient: @company

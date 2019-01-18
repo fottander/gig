@@ -43,7 +43,6 @@ Background:
     And I should see "Skapa utbetalning baserad på jobbet"
     And I fill in "quantity" with "100"
     And I fill hidden field unit and fill "70"
-    And I fill hidden field amount and fill "7000"
     And I click "Skapa utbetalning"
     Then I should see "Utbetalning skapad"
     Given I am on the profiles_path
