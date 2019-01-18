@@ -61,14 +61,6 @@ class Invoice < ApplicationRecord
     self.ocr_number = Digest::SHA1.hexdigest([Time.now, rand].join)[0..10]
   end
 
-  def ob1_amount_gen
-    self.ob1_amount = (22 * self.ob1_hours)
-  end
-
-  def ob2_amount_gen
-    self.ob2_amount = (44 * self.ob2_hours)
-  end
-
   def soc_avgift_m_age_gen
     if self.age < 25
       self.soc_avgift_m_age = (self.soc_avgift - 0.043).round(5)
