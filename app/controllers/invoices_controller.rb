@@ -160,7 +160,7 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username, :ssyk_code, :add_ob)
+    params.permit(:quantity, :unit, :amount, :terms, :paid, :application_id )
   end
 
   def invoice_update_params
