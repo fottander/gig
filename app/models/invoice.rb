@@ -9,7 +9,7 @@ class Invoice < ApplicationRecord
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company
-
+  
   include PublicActivity::Common
 
   default_scope {order('created_at DESC')}

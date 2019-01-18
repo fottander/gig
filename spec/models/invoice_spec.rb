@@ -51,6 +51,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to have_db_column :fakturabelopp_inklmoms }
     it { is_expected.to have_db_column :totalbelopp }
     it { is_expected.to have_db_column :totalbelopp_inklmoms }
+    it { is_expected.to have_db_column(:add_ob).of_type(:boolean) }
   end
 
   describe 'Validations' do

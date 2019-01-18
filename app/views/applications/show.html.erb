@@ -76,18 +76,12 @@
               <span style='color: white; font-weight: 500; font-size: 10px;'>Sista jobbdag: <%= @application.last_day %></span>
             </div>
             <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa utbetalning? Tveka inte att <%= link_to 'kontakta oss!', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %></p>
-            <%= form_tag invoices_path(@invoice, company_id: @job.company_id, job_id: @job.id, job_title: @job.title, application_id: @application.id) do %>
-            <%= hidden_field_tag :description, @job.categories.pluck(:name) %>
-            <%= label_tag :quantity, 'Antal timmar(t.ex. 10)st', class: 'invoice-details-date' %>
-            <%= text_field_tag :quantity, nil, placeholder: 'Endast hel- & halvtal(2, 2.5 etc)' %>
-            <%= hidden_field_tag :unit, @application.salary, placeholder: 'Endast siffror utan decimaler' %>
-            <%= hidden_field_tag :amount, nil, placeholder: 'Endast siffror utan decimaler' %>
-            <%= hidden_field_tag :first_day, @application.first_day %>
-            <%= hidden_field_tag :last_day, @application.last_day %>
-            <%= hidden_field_tag :user_reference, current_user.profile.username %>
-            <%= hidden_field_tag :company_reference, @job.company_username %>
-            <%= hidden_field_tag :ssyk_code, @job.categories.pluck(:ssyk_code) %>
-            <%= submit_tag 'Skapa utbetalning', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style: 'width: 100%;' %>
+            <%= form_with url: invoices_path do |f| %>
+              <%= f.hidden_field :application_id, value: @application.id %>
+              <%= f.label :quantity, 'Antal timmar(t.ex. 10). Varje påbörjad halvtimme betalas som full halvtimme.', class: 'invoice-details-date' %>
+              <%= f.text_field :quantity, placeholder: 'Endast hel- & halvtal(2, 2.5 etc)' %>
+              <%= f.hidden_field :unit, value: @application.salary, id: 'unit-amount' %>
+              <%= f.submit 'Skapa utbetalning', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style: 'width: 100%;' %>
             <% end %>
           <% end %>
         <% else %>
@@ -142,6 +136,13 @@
                 Ange bruttolön exkl. semesterersättning
               </div>
             </div>
+            <span><%= check_box_tag('add_ob', value = true, checked = false) %> OB-tillägg enligt avtal</span>
+            <span class="fieldContainerHire">
+               <%= link_to 'ⓘ', faqs_path %>
+              <div class="fieldInfoHire" style="font-size: 0.8em;">
+                OB tillägget avser Hotell & Restaurangfackets riktlinjer för OB1 & OB2. Klicka på ⓘ för detaljer.
+              </div>
+            </span>
             <%= hidden_field_tag 'hired', true %>
             <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
           <% end %>

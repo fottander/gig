@@ -70,7 +70,7 @@ Given("I fill hidden field amount and fill {string}") do |content|
 end
 
 Given("I fill hidden field unit and fill {string}") do |content|
-  find("#unit", visible: false).set content
+  find(:xpath, "//input[@id='unit-amount']").set content
 end
 
 Given("I edit hidden field amount and fill {string}") do |content|
