@@ -136,8 +136,13 @@
                 Ange bruttolön exkl. semesterersättning
               </div>
             </div>
-            <%= label_tag :add_ob, 'Ska den anställde omfattas av avtal med OB-tillägg?', class: 'invoice-details-date' %>
-            <%= check_box_tag('add_ob', value = true, checked = false) %>
+            <span><%= check_box_tag('add_ob', value = true, checked = false) %> OB-tillägg enligt avtal</span>
+            <span class="fieldContainerHire">
+               <%= link_to 'ⓘ', faqs_path %>
+              <div class="fieldInfoHire" style="font-size: 0.8em;">
+                OB tillägget avser Hotell & Restaurangfackets riktlinjer för OB1 & OB2. Klicka på ⓘ för detaljer.
+              </div>
+            </span>
             <%= hidden_field_tag 'hired', true %>
             <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
           <% end %>
