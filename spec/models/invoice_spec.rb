@@ -73,7 +73,6 @@ RSpec.describe Invoice, type: :model do
   describe 'Associations' do
     it { is_expected.to belong_to :user }
     it { is_expected.to belong_to :company }
-    it { is_expected.to have_many :shifts}
   end
 
   describe 'Factory' do

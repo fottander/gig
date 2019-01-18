@@ -9,9 +9,7 @@ class Invoice < ApplicationRecord
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company
-  has_many :shifts, dependent: :destroy
-  accepts_nested_attributes_for :shifts, allow_destroy: true, reject_if: proc { |attributes| attributes.any? {|k,v| v.blank?} }
-
+  
   include PublicActivity::Common
 
   default_scope {order('created_at DESC')}
