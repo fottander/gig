@@ -6,8 +6,14 @@
       <div class="portfolio-resume-subheader">
         Ansöknings ID: <%= application.id %><br>
         Jobb ID: <%= application.job_id %><br>
-        Första jobbdag: <%= application.first_day %><br>
-        Sista jobbdag: <%= application.last_day %><br>
+        Första jobbdag:
+        <% if application.first_day.present? %>
+          <%= application.first_day %><br>
+        <% end %>
+        Sista jobbdag:
+        <% if application.last_day.present? %>
+          <%= application.last_day %><br>
+        <% end %>
         Chattsvar: <%= application.comments.count %>
       </div>
       <% if application.last_day > Date.today %>

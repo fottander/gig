@@ -7,8 +7,14 @@
         <%= application.job_title %><br>
         Ansöknings ID: <%= application.id %><br>
         Jobb ID: <%= application.job_id %><br>
-        Första jobbdag: <%= application.first_day %><br>
-        Sista jobbdag: <%= application.last_day %>
+        Första jobbdag:
+        <% if application.first_day.present? %>
+          <%= application.first_day %><br>
+        <% end %>
+        Sista jobbdag:
+        <% if application.last_day.present? %>
+          <%= application.last_day %>
+        <% end %>
       </div>
       <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
       <span class='truncated-paragraph-<%= application.id %>'>
