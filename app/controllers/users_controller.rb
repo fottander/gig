@@ -36,6 +36,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def verify
+    @user = User.find(params[:id])
+    if @user.confirm
+      flash[:notice] = "User verifierad!"
+      redirect_back(fallback_location: administrations_path)
+    else
+      flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+      redirect_back(fallback_location: administrations_path)
+    end
+  end
+
   private
 
   def user_params

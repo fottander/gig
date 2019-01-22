@@ -2,7 +2,8 @@
   <% @users.each do |user| %>
       <span class='item-define'>ID:</span> <%= user.id %><br>
       <span> <%= link_to 'Radera', user_path(user), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
-      <%= link_to 'Redigera', edit_user_path(user), class: 'button-green' %><br>
+      <%= link_to 'Redigera', edit_user_path(user), class: 'button-green' %><br><br>
+      <span> <%= link_to 'Verifiera', user_verify_path(user), data: { confirm: 'Är du säker?' }, method: :patch, class: 'button-green' %></span><br>
       <span class='item-define'>Namn:</span> <%= user.first_name %> <%= user.last_name %> <br>
       <span class='item-define'>Email:</span> <%= user.email %><br>
       <span class='item-define'>Telefon:</span> <%= user.phone %><br>

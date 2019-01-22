@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     confirmations: 'user/confirmations'
   }
   devise_scope :user do
+    patch 'users/:id/verify' => 'users#verify', as: :user_verify
     authenticated :user do
       root to: 'dashboards#index'
     end
