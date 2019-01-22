@@ -1,10 +1,15 @@
 class InvoicesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
   before_action :authenticate_company!, only: [:extend, :feedback, :rating, :postal]
+
+  def new
+    @invoice = Invoice.new
+    @invoice.shifts.build
+  end
 
   def create
     @invoice = Invoice.new invoice_params
-    @application = Application.find(params[:application_id])
+    @application = Application.find(params[:invoice][:application_id])
     @invoice.amount = (params[:quantity].to_f * params[:unit].to_i).to_i
     @company = @application.job.company
     @job = @application.job
@@ -160,7 +165,7 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.permit(:quantity, :unit, :amount, :terms, :paid, :application_id )
+    params.require(:invoice).permit(:quantity, :unit, :amount, :terms, :paid, :application_id, shifts_attributes: [:id, :_destroy, :start_date, :start_time, :end_date, :end_time])
   end
 
   def invoice_update_params

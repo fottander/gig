@@ -9,6 +9,8 @@ class Invoice < ApplicationRecord
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company
+  has_many :shifts, dependent: :destroy
+  accepts_nested_attributes_for :shifts, allow_destroy: true, reject_if: ->(attrs) { attrs['start_date'].blank? || attrs['start_time'].blank? || attrs['end_date'].blank? || attrs['end_time'].blank? }
 
   include PublicActivity::Common
 
@@ -24,8 +26,6 @@ class Invoice < ApplicationRecord
   scope :pay_day_reached, -> (selected_day) { where('"created_at" < ?', selected_day)}
   scope :with_feedback, -> { where.not(feedback: nil )}
   scope :with_rating, -> { where.not(rating: nil )}
-  has_many :shifts, dependent: :destroy
-  accepts_nested_attributes_for :shifts, allow_destroy: true, reject_if: proc { |attributes| attributes.any? {|k,v| v.blank?} }
 
   RATING_OPTIONS = [ "1", "2", "3", "4", "5" ]
 

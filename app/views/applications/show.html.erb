@@ -83,6 +83,7 @@
               <%= f.hidden_field :unit, value: @application.salary, id: 'unit-amount' %>
               <%= f.submit 'Skapa utbetalning', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style: 'width: 100%;' %>
             <% end %>
+            <%= link_to 'Skapa shift', new_invoice_path(application_id: @application.id) %>
           <% end %>
         <% else %>
           <div class='holy-grail-left-application-box'>

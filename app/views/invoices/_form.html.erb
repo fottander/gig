@@ -1,0 +1,18 @@
+
+  <%= simple_form_for @invoice do |f| %>
+    <%= f.error_notification %>
+    <div class='form-inputs'>
+      <%= f.input :quantity %>
+      <%= f.input :application_id, input_html: { value: params[:application_id] } %>
+      <%= f.input :unit, input_html: { value: '30'} %>
+    </div>
+    <div class="shifts">
+      <%= f.simple_fields_for :shifts do |builder| %>
+        <%= render 'shift_fields', f: builder %>
+      <% end %>
+    </div>
+    <%= link_to_add_association "Lägg till fler skift", f, :shifts, data: { association_insertion_node: '.shifts', association_insertion_method: :append }, class: 'button-green' %>
+    <div class='form-actions'>
+      <%= f.submit 'Skapa' %>
+    </div>
+  <% end %>
