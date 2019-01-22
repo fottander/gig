@@ -1,0 +1,50 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="simple-form">
+      <h3 class="post-title">Redigera ansökan <%= @application.id %></h3>
+      <%= form_for @application, url: admin_application_path(@application) do |f| %>
+        <% if @application.errors.any? %>
+          <% @application.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        <% end %>
+        <%= f.label :message, 'Meddelande', class: 'form-text' %>
+        <%= f.text_area :message, value: @application.message %>
+        Hired:
+        <%= @application.hired %><br>
+        Complete:
+        <%= @application.complete %><br>
+        Job ID:
+        <%= @application.job_id %><br>
+        Profile ID:
+        <%= @application.profile_id %><br>
+        Profile username:
+        <%= @application.profile_username %><br>
+        Company ID:
+        <%= @application.company_id %><br>
+        Salary:
+        <%= @application.salary %><br>
+        OB:
+        <%= @application.add_ob %><br>
+        <%= f.label :first_day, '* Första dag', class: 'form-text' %>
+        <%= f.text_field :first_day, value: @application.first_day %>
+        <%= f.label :last_day, '* Sista dag', class: 'form-text' %>
+        <%= f.text_field :last_day, value: @application.last_day %>
+        <%= f.submit 'Spara', class: 'reply-button' %>
+      <% end %>
+    </div>
+  </div>
+</div>

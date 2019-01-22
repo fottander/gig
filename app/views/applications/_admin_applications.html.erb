@@ -2,6 +2,7 @@
   <% @applications.each do |application| %>
       <span class='item-define'>ID:</span> <%= application.id %><br>
       <span> <%= link_to 'Radera', job_application_path(application.job, application), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
+      <span> <%= link_to 'Redigera', edit_admin_application_path(application), class: 'button-green' %></span><br>
       <span class='item-define'>Meddelande:</span> <%= application.message %><br>
       <span class='item-define'>Hired:</span> <%= application.hired %><br>
       <span class='item-define'>First day:</span> <%= application.first_day %><br>
