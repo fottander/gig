@@ -26,6 +26,9 @@ Feature: Apply to job
 
     Scenario: I apply to a job
       Given I am logged in as user "felix@mail.com"
+      Given I am on the dashboards page
+      And I click "Fisken"
+      Then I should see "Du har inte sökt några jobb ännu - Gör det här"
       Given I am on the jobs page
       And I should see "målare"
       And I click "Ansök"
@@ -56,6 +59,9 @@ Feature: Apply to job
       And I fill in "Skriv ett kortfattat meddelande" with "Hello give me job"
       And I click "Ändra"
       Then I should see "Hello give me job"
+      Given I am on the dashboards page
+      And I click "Fisken"
+      Then I should not see "Du har inte sökt några jobb ännu - Gör det här"
       And I click "LOGGA UT"
       Given I am logged in as company "anders@mail.com"
       Given I am on control panel page

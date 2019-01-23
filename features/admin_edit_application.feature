@@ -28,10 +28,10 @@ Feature: Admin find and edit application
       | username | description | category_ids | city_ids | user_id | id | age        |
       | Fisken   | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
     Given the following applications exist
-      | message     | job_id | profile_username | profile_id | job_title    | updated_at | hired | complete | first_day | last_day |
-      | I want job  | 9999   | Fisken           | 1          | målare sökes | 2017-12-03 | true  | false    |           |          |
+      | message     | job_id | profile_username | profile_id | job_title    | updated_at | hired | complete | first_day | last_day | company_id |
+      | I want job  | 9999   | Fisken           | 1          | målare sökes | 2017-12-03 | true  | false    |           |          | 9998       |
 
-    Scenario: I see jobs and search by title
+    Scenario: I find and edit application
       Given I am logged in as admin "admin@yahoo.com"
       Given I am on the administrations page
       And I click "Ansökningar"
@@ -46,7 +46,7 @@ Feature: Admin find and edit application
       Then I should see "Första jobbdag: 2018-01-01"
       Then I should see "Sista jobbdag: 2018-01-30"
       And I click "LOGGA UT"
-      Given I am logged in as company "greger@mail.com"
+      Given I am logged in as company "johan@mail.com"
       Given I am on control panel page
       Then I should see "Första jobbdag: 2018-01-01"
       Then I should see "Sista jobbdag: 2018-01-30"

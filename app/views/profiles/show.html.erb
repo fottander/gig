@@ -23,6 +23,11 @@
             <% unless @profile.avatar_file_name.present? %>
               <%= link_to '• Lägg till en profilbild', edit_profile_path(@profile, anchor: 'profile-image-2'), class: 'text-link-orange', style: 'font-size: 16px;' %>
             <% end %>
+            <% if current_user.profile.applications_any == false %>
+              <div class='blinklink'>
+                <%= link_to 'Du har inte sökt några jobb ännu - Gör det här', jobs_path, class: 'button-green-big' %>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>

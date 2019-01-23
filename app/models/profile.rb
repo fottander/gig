@@ -41,6 +41,10 @@ class Profile < ApplicationRecord
 
   self.per_page = 10
 
+  def applications_any
+    self.applications.any?
+  end
+
   private
 
   def set_username
