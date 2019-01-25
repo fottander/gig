@@ -301,8 +301,8 @@ ActiveRecord::Schema.define(version: 2019_01_18_104740) do
   create_table "shifts", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.time "start_time"
-    t.time "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.uuid "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

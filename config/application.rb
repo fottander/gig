@@ -16,6 +16,7 @@ module Gig
     config.autoload_paths << "#{Rails.root}/lib"
     config.eager_load_paths << "#{Rails.root}/lib"
     config.time_zone = "Stockholm"
+    config.active_record.default_timezone = :local
     config.generators do |generate|
       generate.helper false
       generate.assets false
