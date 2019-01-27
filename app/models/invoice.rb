@@ -138,6 +138,7 @@ class Invoice < ApplicationRecord
   end
 
   def regenerate_values
+    self.amount = (self.quantity * self.unit).round if quantity_changed? || unit_changed?
     self.bruttolon = (self.amount + (self.amount * self.semester_ers)).round if amount_changed?
     self.arbetsgivaravgifter = (self.bruttolon * self.a_g_avgift).round if amount_changed?
     self.sociala_avgifter = (self.bruttolon * self.soc_avgift_m_age).round if amount_changed?

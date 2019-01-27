@@ -32,8 +32,8 @@ Feature: Mark As complete and send invoice
       | Fisken   | målare gbg  | 1            | 1        | 1       | 1  | 1988-09-14 |
       | Filip    | målare gbg  | 1            | 1        | 2       | 2  | 1988-09-14 |
     Given the following applications exist
-      | message    | job_id | profile_username | profile_id | job_title    | hired | complete | first_day  | last_day   |
-      | I want job | 1      | Fisken           | 1          | målare sökes | true  | false    | 2018-01-01 | 2018-01-20 |
+      | message    | job_id | profile_username | profile_id | job_title    | hired | complete | first_day  | last_day   | salary |
+      | I want job | 1      | Fisken           | 1          | målare sökes | true  | false    | 2018-01-01 | 2018-01-20 | 100    |
 
     Scenario: I create an invoice and see completed jobs change in index
       Given I am logged in as user "felix@mail.com"
@@ -41,10 +41,12 @@ Feature: Mark As complete and send invoice
       And I should not see "Visa ansökan"
       And I click "Begär utbetalning"
       And I should see "Skapa utbetalning baserad på jobbet"
-      And I fill in "quantity" with "120"
-      And I fill hidden field unit and fill "100"
+      And I click "Begär utbetalning"
+      And I fill in "Startdatum" with "2019-01-01"
+      And I fill in "Starttid" with "18:00"
+      And I fill in "Slutdatum" with "2019-01-02"
+      And I fill in "Sluttid" with "05:00"
       And I click "Skapa utbetalning"
-      And I should see "Jobbet har genomförts!"
       Then I should see "Utbetalning skapad"
       And I click "LOGGA UT"
       Given I am logged in as admin "admin@yahoo.com"
@@ -110,10 +112,12 @@ Feature: Mark As complete and send invoice
       And I should not see "Visa ansökan"
       And I click "Begär utbetalning"
       And I should see "Skapa utbetalning baserad på jobbet"
-      And I fill in "quantity" with "120"
-      And I fill hidden field unit and fill "100"
+      And I click "Begär utbetalning"
+      And I fill in "Startdatum" with "2019-01-01"
+      And I fill in "Starttid" with "18:00"
+      And I fill in "Slutdatum" with "2019-01-02"
+      And I fill in "Sluttid" with "05:00"
       And I click "Skapa utbetalning"
-      And I should see "Jobbet har genomförts!"
       And I click "KONTROLLPANEL"
       And I click "Radera"
       And I should not see "Radera"
@@ -124,15 +128,17 @@ Feature: Mark As complete and send invoice
       And I should not see "Visa ansökan"
       And I click "Begär utbetalning"
       And I should see "Skapa utbetalning baserad på jobbet"
-      And I fill in "quantity" with "100.5"
-      And I fill hidden field unit and fill "100"
+      And I click "Begär utbetalning"
+      And I fill in "Startdatum" with "2019-01-01"
+      And I fill in "Starttid" with "18:00"
+      And I fill in "Slutdatum" with "2019-01-02"
+      And I fill in "Sluttid" with "05:00"
       And I click "Skapa utbetalning"
-      And I should see "Jobbet har genomförts!"
       Then I should see "Utbetalning skapad"
       And the latest created invoice is being paid
       And I click "KONTROLLPANEL"
       And I click "Visa"
       And I should see "Beskrivning: Måleri"
-      And I should see "Antal timmar: 100.5st"
+      And I should see "Antal timmar: 11.0st"
       And I should see "Timlön: 100"
-      And I should see "Lön som betalas ut: 7564 SEK"
+      And I should see "Lön som betalas ut: 828 SEK"

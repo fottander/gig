@@ -15,8 +15,6 @@ RSpec.describe Shift, type: :model do
     it { is_expected.to validate_presence_of :end_date }
     it { is_expected.to validate_presence_of :start_time }
     it { is_expected.to validate_presence_of :end_time }
-    it { is_expected.to validate_presence_of :quantity }
-    it { is_expected.to validate_presence_of :ob_amount }
   end
 
   describe 'Associations' do
