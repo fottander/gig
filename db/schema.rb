@@ -299,6 +299,8 @@ ActiveRecord::Schema.define(version: 2019_01_18_104740) do
   end
 
   create_table "shifts", force: :cascade do |t|
+    t.float "quantity"
+    t.float "ob_amount"
     t.date "start_date"
     t.date "end_date"
     t.datetime "start_time"

@@ -6,6 +6,8 @@ RSpec.describe Shift, type: :model do
     it { is_expected.to have_db_column :end_date }
     it { is_expected.to have_db_column :start_time }
     it { is_expected.to have_db_column :end_time }
+    it { is_expected.to have_db_column(:quantity).of_type(:float) }
+    it { is_expected.to have_db_column(:ob_amount).of_type(:float) }
   end
 
   describe 'Validations' do
@@ -13,6 +15,8 @@ RSpec.describe Shift, type: :model do
     it { is_expected.to validate_presence_of :end_date }
     it { is_expected.to validate_presence_of :start_time }
     it { is_expected.to validate_presence_of :end_time }
+    it { is_expected.to validate_presence_of :quantity }
+    it { is_expected.to validate_presence_of :ob_amount }
   end
 
   describe 'Associations' do

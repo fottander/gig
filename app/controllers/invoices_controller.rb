@@ -30,6 +30,8 @@ class InvoicesController < ApplicationController
     @invoice.ssyk_code = @job.categories.pluck(:ssyk_code)
     if @invoice.save
       @application.update_attributes(complete: true)
+      @invoice.update_attributes(quantity: @invoice.shifts.sum('quantity'))
+      @invoice.update_attributes(amount: ((@invoice.shifts.sum('quantity') * @application.unit) + @invoice.shifts('ob_amount')))
       @invoice.create_activity :create, owner: current_user.profile, recipient: @company
 
       # Sends email to company when invoice is created.

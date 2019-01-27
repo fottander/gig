@@ -1,0 +1,7 @@
+<% @shifts.each do |shift| %>
+  Startdag: <%= shift.start_date.strftime("%A") %><br>
+  Starttid: <%= shift.start_time.strftime("%H:%M") %><br>
+  Slutdag: <%= shift.end_date.strftime("%A") %><br>
+  Sluttid: <%= shift.end_time.strftime("%H:%M") %><br>
+  Total OB: <%= shift.generate_ob_hours %><br><br>
+<% end %>
