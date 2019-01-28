@@ -68,6 +68,7 @@ RSpec.describe Invoice, type: :model do
     it { is_expected.to validate_presence_of :terms }
     it { is_expected.to validate_presence_of :profile_id }
     it { is_expected.to validate_presence_of :profile_username }
+    it { is_expected.to validate_presence_of :shifts }
   end
 
   describe 'Associations' do

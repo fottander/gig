@@ -51,7 +51,7 @@ class InvoicesController < ApplicationController
           format.json { render :index, status: :created}
         end
       else
-        format.html { render :new }
+        format.html { redirect_back fallback_location: new_invoice_path(application_id: @application.id), notice: "Något gick fel. Fyll i fälten korrekt och försök igen eller ring kundtjänst." }
         format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
     end

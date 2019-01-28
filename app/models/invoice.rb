@@ -2,7 +2,7 @@ class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
   before_save :soc_avgift_m_age_gen, :bruttolon_gen, :arbetsgivaravgifter_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :fakturabelopp_gen, :varavgift_gen, :bruttol_exkl_semester_ef_avg_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :fakturabelopp_inklmoms_gen, :totalbelopp_gen, :totalbelopp_inklmoms_gen, :regenerate_values
-  validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
+  validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms, :shifts
   validates :quantity, numericality: { only_float: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
   validates :rating, numericality: { only_float: true }, allow_blank: true
