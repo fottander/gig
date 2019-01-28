@@ -15,6 +15,10 @@ Given("the following ezinvoices exist") do |table|
   end
 end
 
+Then("I check OB checkbox") do
+  check 'add_ob'
+end
+
 Given("the following shifts exist") do |table|
   table.hashes.each do |hash|
     create(:shift, hash)
@@ -104,4 +108,20 @@ end
 
 Given("I fill in hidden field salary with {string}") do |content|
   find("#salary", visible: false).set content
+end
+
+Then("I fill in startdatum with date {string}") do |content|
+  find("#invoice_shifts_attributes_0_start_date").set(content)
+end
+
+Then("I fill in starttid with time {string}") do |content|
+  find("#invoice_shifts_attributes_0_start_time").set(content)
+end
+
+Then("I fill in slutdatum with date {string}") do |content|
+  find("#invoice_shifts_attributes_0_end_date").set(content)
+end
+
+Then("I fill in sluttid with time {string}") do |content|
+  find("#invoice_shifts_attributes_0_end_time").set(content)
 end

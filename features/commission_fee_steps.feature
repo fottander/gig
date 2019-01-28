@@ -23,8 +23,8 @@ Background:
     | username | description                                      | skill                      | category_ids | city_ids | id | user_id | age        |
     | fisken   | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 1  | 1       | 1988-09-14 |
   Given the following applications exist
-    | message    | job_id | profile_username | profile_id | job_title    | hired | complete | id | salary |
-    | I want job | 1      | fisken           | 1          | målare sökes | true  | false    | 1  | 70     |
+    | message    | job_id | profile_username | profile_id | job_title    | hired | complete | id | salary | add_ob |
+    | I want job | 1      | fisken           | 1          | målare sökes | true  | false    | 1  | 700    | false  |
 
   Scenario: I create invioces and my fee lowers
     Given I am logged in as user "felix@mail.com"
@@ -43,9 +43,9 @@ Background:
     And I should see "Skapa utbetalning baserad på jobbet"
     And I click "Begär utbetalning"
     And I fill in "Startdatum" with "2019-01-01"
-    And I fill in "Starttid" with "10:00"
+    And I fill in "Starttid" with "15:00"
     And I fill in "Slutdatum" with "2019-01-02"
-    And I fill in "Sluttid" with "20:00"
+    And I fill in "Sluttid" with "02:00"
     And I click "Skapa utbetalning"
     Then I should see "Utbetalning skapad"
     Given I am on the profiles_path
@@ -55,9 +55,14 @@ Background:
     And I should see "Antal genomförda jobb: 1"
     Then I should see "Totalt intjänat: 0 - 10 000 kr"
     And I click "KONTROLLPANEL"
-    And I click "Redigera"
-    And I fill in "Antal timmar" with "100"
-    And I click "Spara"
+    And I click "Visa/Redigera"
+    And I click "Redigera arbetspass och tider"
+    And I fill in startdatum with date "2019-01-01"
+    And I fill in starttid with time "10:00"
+    And I fill in slutdatum with date "2019-01-01"
+    And I fill in sluttid with time "20:00"
+    And I click "Ändra utbetalning"
+    Then I should see "Utbetalning ändrad"
     Given I am on the dashboards page
     And I should see "Totalt intjänat: 7000 kr"
     Then I should see "Din nuvarande avgift är 9.0%. Läs mer om våra avgifter."

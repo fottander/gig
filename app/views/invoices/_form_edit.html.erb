@@ -1,0 +1,19 @@
+<%= simple_form_for @invoice do |f| %>
+  <%= f.error_notification %>
+  <% if @invoice.errors.any? %>
+    <ul>
+    <% @invoice.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+  <div class="shifts">
+    <%= f.simple_fields_for :shifts do |builder| %>
+      <%= render 'shift_fields', f: builder %>
+    <% end %>
+  </div>
+  <%= link_to_add_association "+ Lägg till fler pass", f, :shifts, data: { association_insertion_node: '.shifts', association_insertion_method: :append }, class: 'button-green' %><br><br>
+  <div class='form-actions'>
+    <%= f.submit 'Ändra utbetalning', class: 'profile-button-expand' %><br>
+  </div>
+<% end %>

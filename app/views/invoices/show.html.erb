@@ -103,6 +103,18 @@
             <div class='invoice-details'>
               Faktura ID: <%= @invoice.id.first(8) %><br>
               <strong>Antal timmar:</strong> <%= @invoice.quantity %>st<br>
+              <div class="fieldContainerHire">
+                <span style='color: #f77d0e;'>Visa exakta arbetstider +</span>
+                <div class="fieldInfoHire">
+                  <% @invoice.shifts.each do |shift| %>
+                    <div style= 'background-color: #f77d0e; color: white;'>ID: <%= shift.id %></div>
+                    Startdatum: <%= shift.start_date.strftime("%F") %><br>
+                    Starttid: <%= shift.start_time.strftime("%H:%M") %><br>
+                    Slutdatum: <%= shift.end_date.strftime("%F") %><br>
+                    Sluttid: <%= shift.end_time.strftime("%H:%M") %><br><br>
+                  <% end %>
+                </div>
+              </div>
               <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma<br>
               <% if @invoice.add_ob == true %>
                 <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %><br>

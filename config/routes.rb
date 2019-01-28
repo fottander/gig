@@ -142,6 +142,7 @@ Rails.application.routes.draw do
 
   resources :invoices, only: [:new, :create, :show, :edit, :update, :destroy] do
     member do
+      patch :pre_edit
       patch :extend
       patch :feedback
       patch :postal
