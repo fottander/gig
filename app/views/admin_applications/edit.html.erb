@@ -39,6 +39,8 @@
         <%= @application.salary %><br>
         OB:
         <%= @application.add_ob %><br>
+        <%= f.label :add_ob, '* OB', class: 'form-text' %>
+        <%= f.check_box :add_ob, value: true %><br>
         <%= f.label :first_day, '* Första dag', class: 'form-text' %>
         <%= f.text_field :first_day, value: @application.first_day %>
         <%= f.label :last_day, '* Sista dag', class: 'form-text' %>
