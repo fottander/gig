@@ -36,6 +36,7 @@ class InvoicesController < ApplicationController
         @invoice.update_attributes(quantity: @invoice.shifts.sum('quantity').to_f)
         if @invoice.add_ob == true
           @invoice.update_attributes(amount: ((@invoice.quantity * @invoice.unit) + @invoice.shifts.sum('ob_amount')).to_i)
+          @invoice.update_attributes(ob_amount: @invoice.shifts.sum('ob_amount'))
         else
           @invoice.update_attributes(amount: (@invoice.quantity * @invoice.unit).to_i)
         end

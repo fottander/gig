@@ -4,6 +4,7 @@
       <span> <%= link_to 'Radera', job_application_path(application.job, application), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
       <span class='item-define'>Meddelande:</span> <%= application.message %><br>
       <span class='item-define'>Hired:</span> <%= application.hired %><br>
+      <span class='item-define'>OB:</span> <%= application.add_ob %><br>
       <span class='item-define'>First day:</span> <%= application.first_day %><br>
       <span class='item-define'>Last day:</span> <%= application.last_day %><br>
       <span class='item-define'>Complete:</span> <%= application.complete %><br>
