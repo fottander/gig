@@ -7,6 +7,8 @@ RSpec.describe Invoice, type: :model do
     create(:company, name: 'bygg ab', id: 100)
     User.destroy_all
     create(:user, email: 'greger@greger.se', first_name: 'felix', last_name: 'ottander', id: 100)
+    Shift.destroy_all
+    create(:shift, start_date: '2019-01-01', start_time: '18:00', end_date: '2019-01-01', end_time: '20:00', id: '20', invoice_id: nil)
   end
 
   describe 'DB table' do
@@ -79,7 +81,7 @@ RSpec.describe Invoice, type: :model do
 
   describe 'Factory' do
     it 'should have valid Factory' do
-      expect(create(:invoice, user_id: 100, company_id: 100, user_id: 100)).to be_valid
+      expect(create(:invoice, user_id: 100, company_id: 100, user_id: 100, shift_ids: 20)).to be_valid
     end
   end
 end

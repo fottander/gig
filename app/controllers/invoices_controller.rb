@@ -33,11 +33,11 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       if @invoice.save
         @application.update_attributes(complete: true)
-        @invoice.update_attributes(quantity: @invoice.shifts.sum('quantity'))
+        @invoice.update_attributes(quantity: @invoice.shifts.sum('quantity').to_f)
         if @invoice.add_ob == true
-          @invoice.update_attributes(amount: ((@invoice.shifts.sum('quantity') * @invoice.unit) + @invoice.shifts.sum('ob_amount')).to_i)
+          @invoice.update_attributes(amount: ((@invoice.quantity * @invoice.unit) + @invoice.shifts.sum('ob_amount')).to_i)
         else
-          @invoice.update_attributes(amount: ((@invoice.shifts.sum('quantity') * @invoice.unit)).to_i)
+          @invoice.update_attributes(amount: (@invoice.quantity * @invoice.unit).to_i)
         end
         @invoice.create_activity :create, owner: current_user.profile, recipient: @company
 
