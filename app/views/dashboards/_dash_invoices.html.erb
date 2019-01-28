@@ -11,7 +11,7 @@
       </div>
       <% if invoice.paid == false %>
         <% if invoice.created_at > 7.days.ago %>
-          <%= link_to 'Redigera', edit_invoice_path(invoice), class: 'button-green' %>
+          <%= link_to 'Visa/Redigera', pre_edit_invoice_path(invoice), method: :patch, class: 'button-green' %>
           <%= link_to 'Radera', invoice_path(invoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %>
         <% else %>
           <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>

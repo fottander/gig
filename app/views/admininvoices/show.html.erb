@@ -22,6 +22,7 @@
             <span class='item-define'>ID:</span> <%= @invoice.id.first(8) %><br>
             <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
             <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
+            <span class='item-define'>OB-lön:</span> <%= @invoice.ob_amount.round %>kr<br>
             <span class='item-define'>Summa:</span> <%= @invoice.amount %> SEK<br>
             <span class='item-define'>Bruttolön inkl semesterersättning:</span> <%= @invoice.bruttolon %> SEK<br>
             <span class='item-define'>Arbetsgivaravgifter:</span> <%= @invoice.arbetsgivaravgifter %> SEK<br>

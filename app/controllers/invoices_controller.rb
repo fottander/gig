@@ -45,11 +45,11 @@ class InvoicesController < ApplicationController
         # Sends email to company when invoice is created.
         NotificationMailer.new_invoice_email(@company, @invoice).deliver_now
         if current_user.bank_info == 'bank_info_ok'
-          format.html { redirect_to dashboards_path, notice: "Utbetalning skapad!" }
-          format.json { render :index, status: :created}
+          format.html { redirect_to edit_invoice_path(@invoice), notice: "Utbetalning skapad! Kontrollera att dina pass nedan stämmer." }
+          format.json { render :edit, status: :created}
         else
-          format.html { redirect_to dashboards_path, notice: "Utbetalning skapad. Fyll i personnummer & bankuppgifter i ditt konto för att erhålla lön." }
-          format.json { render :index, status: :created}
+          format.html { redirect_to edit_invoice_path(@invoice), notice: "Utbetalning skapad. Fyll i personnummer & bankuppgifter i ditt konto för att erhålla lön. Kontrollera att dina pass nedan stämmer." }
+          format.json { render :edit, status: :created}
         end
       else
         format.html { redirect_back fallback_location: new_invoice_path(application_id: @application.id), notice: "Något gick fel. Fyll i fälten korrekt och försök igen eller ring kundtjänst." }
@@ -74,8 +74,14 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def pre_edit
+    @invoice = Invoice.find(params[:id])
+  end
+
   def edit
     @invoice = Invoice.find(params[:id])
+    @application = Application.find_by(id: params[:application_id])
+    @invoice.shifts.build
   end
 
   def update
@@ -84,6 +90,13 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       if @invoice.update invoice_update_params
         @invoice.save
+        @invoice.update_attributes(quantity: @invoice.shifts.sum('quantity').to_f)
+        if @invoice.add_ob == true
+          @invoice.update_attributes(amount: ((@invoice.quantity * @invoice.unit) + @invoice.shifts.sum('ob_amount')).to_i)
+          @invoice.update_attributes(ob_amount: @invoice.shifts.sum('ob_amount'))
+        else
+          @invoice.update_attributes(amount: (@invoice.quantity * @invoice.unit).to_i)
+        end
         @invoice.create_activity :update, owner: current_user.profile, recipient: @company
         format.html { redirect_to edit_invoice_path(@invoice), notice: 'Utbetalning ändrad' }
         format.json { render :edit, status: :ok, location: @invoice }
@@ -179,7 +192,7 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_update_params
-    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username)
+    params.require(:invoice).permit(:description, :quantity, :unit, :amount, :first_day, :last_day, :user_reference, :company_reference, :terms, :paid, :company_id, :application_id, :job_id, :job_title, :profile_id, :profile_username, shifts_attributes: [:id, :_destroy, :start_date, :start_time, :end_date, :end_time])
   end
 
   def invoice_feedback_params
