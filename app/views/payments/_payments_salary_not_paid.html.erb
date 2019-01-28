@@ -4,7 +4,8 @@
       <% if invoice.user_id == current_user.id %>
         <span class='item-define'>Utbetalnings ID:</span> <%= invoice.id.first(8) %><br>
         Ocr.nr: <%= invoice.ocr_number %> <br>
-        Skapad: <%= invoice.updated_at.strftime("%F %R") %><br><br>
+        Skapad: <%= invoice.updated_at.strftime("%F %R") %><br>
+        <%= link_to 'Visa/Redigera', pre_edit_invoice_path(invoice), method: :patch, class: 'button-green', style: 'color: white;' %><br>
       <% end %>
     <% end %>
   <% else %>
