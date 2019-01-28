@@ -171,6 +171,7 @@
             <% if @invoice.add_ob == true %>
               <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %> SEK <br>
             <% end %>
+            <strong>Total bruttolön:</strong> <%= @invoice.amount %> SEK <br>
             <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
             Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
             Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
