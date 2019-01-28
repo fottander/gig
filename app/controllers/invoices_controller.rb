@@ -1,18 +1,25 @@
 class InvoicesController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :create]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
   before_action :authenticate_company!, only: [:extend, :feedback, :rating, :postal]
+
+  def new
+    @invoice = Invoice.new
+    @application = Application.find_by(id: params[:application_id])
+    @invoice.shifts.build
+  end
 
   def create
     @invoice = Invoice.new invoice_params
-    @application = Application.find(params[:application_id])
-    @invoice.amount = (params[:quantity].to_f * params[:unit].to_i).to_i
+    @application = Application.find(params[:invoice][:application_id])
     @company = @application.job.company
     @job = @application.job
+    @invoice.application_id = @application.id
+    @invoice.amount = 10
     @invoice.profile_id = current_user.profile.id
     @invoice.profile_username = current_user.profile.username
     @invoice.user_id = current_user.id
     @invoice.user_fee = current_user.fee
-    @invoice.age = @invoice.user.profile.years_old
+    @invoice.age = current_user.profile.years_old
     @invoice.add_ob = @application.add_ob
     @invoice.company_id = @job.company_id
     @invoice.job_id = @job.id
@@ -23,23 +30,31 @@ class InvoicesController < ApplicationController
     @invoice.user_reference = current_user.profile.username
     @invoice.description = @job.categories.pluck(:name).first
     @invoice.ssyk_code = @job.categories.pluck(:ssyk_code)
-    if @invoice.save
-      @application.update_attributes(complete: true)
-      @invoice.create_activity :create, owner: current_user.profile, recipient: @company
+    respond_to do |format|
+      if @invoice.save
+        @application.update_attributes(complete: true)
+        @invoice.update_attributes(quantity: @invoice.shifts.sum('quantity').to_f)
+        if @invoice.add_ob == true
+          @invoice.update_attributes(amount: ((@invoice.quantity * @invoice.unit) + @invoice.shifts.sum('ob_amount')).to_i)
+          @invoice.update_attributes(ob_amount: @invoice.shifts.sum('ob_amount'))
+        else
+          @invoice.update_attributes(amount: (@invoice.quantity * @invoice.unit).to_i)
+        end
+        @invoice.create_activity :create, owner: current_user.profile, recipient: @company
 
-      # Sends email to company when invoice is created.
-      NotificationMailer.new_invoice_email(@company, @invoice).deliver_now
-
-      if current_user.bank_info == 'bank_info_ok'
-        flash[:notice] = "Utbetalning skapad"
-        redirect_back(fallback_location: root_path)
+        # Sends email to company when invoice is created.
+        NotificationMailer.new_invoice_email(@company, @invoice).deliver_now
+        if current_user.bank_info == 'bank_info_ok'
+          format.html { redirect_to dashboards_path, notice: "Utbetalning skapad!" }
+          format.json { render :index, status: :created}
+        else
+          format.html { redirect_to dashboards_path, notice: "Utbetalning skapad. Fyll i personnummer & bankuppgifter i ditt konto för att erhålla lön." }
+          format.json { render :index, status: :created}
+        end
       else
-        flash[:notice] = "Utbetalning skapad. Fyll i personnummer & bankuppgifter i ditt konto för att erhålla lön."
-        redirect_back(fallback_location: root_path)
+        format.html { redirect_back fallback_location: new_invoice_path(application_id: @application.id), notice: "Något gick fel. Fyll i fälten korrekt och försök igen eller ring kundtjänst." }
+        format.json { render json: @invoice.errors, status: :unprocessable_entity }
       end
-    else
-      flash[:alert] = 'Fyll i alla fält korrekt!'
-      redirect_back(fallback_location: root_path)
     end
   end
 
@@ -160,7 +175,7 @@ class InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.permit(:quantity, :unit, :amount, :terms, :paid, :application_id )
+    params.require(:invoice).permit(:quantity, :unit, :terms, :paid, :application_id, shifts_attributes: [:id, :_destroy, :start_date, :start_time, :end_date, :end_time])
   end
 
   def invoice_update_params

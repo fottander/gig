@@ -237,7 +237,8 @@ Application.create(
   job_id: 99999,
   profile_id: 99999,
   profile_username: "Johan P",
-  job_title: "Målare sökes"
+  job_title: "Målare sökes",
+  add_ob: true
   )
 
 Application.create(
@@ -254,7 +255,8 @@ company_id: 99999,
 job_id: 99998,
 profile_id: 99999,
 profile_username: "Johan P",
-job_title: "Vi söker snickare för 3 månader"
+job_title: "Vi söker snickare för 3 månader",
+add_ob: true
 )
 
 Application.create(

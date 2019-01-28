@@ -28,6 +28,8 @@ gem "nokogiri", ">= 1.8.2"
 gem "loofah", ">= 2.2.1"
 gem "rails-html-sanitizer", ">= 1.0.4"
 gem 'ffi', '>= 1.9.24'
+gem 'simple_form'
+gem "cocoon"
 
 group :development, :test do
   gem 'pry-byebug'

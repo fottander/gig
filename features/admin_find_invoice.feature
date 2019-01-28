@@ -13,6 +13,9 @@ Feature: Admin find invoices
     Given the following cities exist
       | name      | id |
       | Göteborg  | 1  |
+    Given the following shifts exist
+      | start_date  | start_time | end_date   | end_time | id |
+      | 2019-01-01  | 18:00      | 2019-01-01 | 20:00    | 20 |
     Given the following users exist
       | email           | first_name | last_name | password  | password_confirmation | id   |
       | felix@yahoo.com | felix      | ottander  | 12345678  | 12345678              | 9999 |
@@ -26,10 +29,10 @@ Feature: Admin find invoices
       | felix@mail.com | bill | anders p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9999 |
       | johan@mail.com | brag | johans p | gatan 3 | 53653643 | gbgb | 3453324533 | 98789 | 12345678  | 12345678              | 9998 |
     Given the following invoices exist
-      | description | amount | user_reference | terms | id    | company_id | paid  | user_id    |
-      | abc         | 120    | felix          | 10    | 9999  | 9999       | false | 9999       |
-      | def         | 120    | felix          | 10    | 9998  | 9998       | false | 9998       |
-      | ghi         | 120    | felix          | 10    | 9997  | 9998       | true  | 9998       |
+      | description | amount | user_reference | terms | id    | company_id | paid  | user_id    | shift_ids |
+      | abc         | 120    | felix          | 10    | 9999  | 9999       | false | 9999       | 20        |
+      | def         | 120    | felix          | 10    | 9998  | 9998       | false | 9998       | 20        |
+      | ghi         | 120    | felix          | 10    | 9997  | 9998       | true  | 9998       | 20        |
 
     Scenario: I see invoices and search by id
       Given I am logged in as admin "admin@yahoo.com"

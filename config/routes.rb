@@ -140,7 +140,7 @@ Rails.application.routes.draw do
 
   resources :filter_ezinvoices, only: [:index, :new]
 
-  resources :invoices, only: [:create, :show, :edit, :update, :destroy] do
+  resources :invoices, only: [:new, :create, :show, :edit, :update, :destroy] do
     member do
       patch :extend
       patch :feedback

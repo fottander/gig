@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_162833) do
+ActiveRecord::Schema.define(version: 2019_01_28_101039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -253,6 +253,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_162833) do
     t.float "soc_avgift_m_age"
     t.integer "bruttol_exkl_semester_ef_avg"
     t.boolean "add_ob", default: false
+    t.float "ob_amount", default: 0.0
     t.index ["company_id"], name: "index_invoices_on_company_id"
     t.index ["created_at"], name: "index_invoices_on_created_at"
     t.index ["user_id"], name: "index_invoices_on_user_id"
@@ -296,6 +297,19 @@ ActiveRecord::Schema.define(version: 2019_01_17_162833) do
     t.datetime "avatar_updated_at"
     t.date "age"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "shifts", force: :cascade do |t|
+    t.float "quantity"
+    t.float "ob_amount"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.uuid "invoice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id"], name: "index_shifts_on_invoice_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -13,6 +13,9 @@ Feature: Admin edit and delete invoices
     Given the following cities exist
       | name      | id |
       | Göteborg  | 1  |
+    Given the following shifts exist
+      | start_date  | start_time | end_date   | end_time | id |
+      | 2019-01-01  | 18:00      | 2019-01-01 | 20:00    | 20 |
     Given the following users exist
       | email           | first_name | last_name | password  | password_confirmation | id   |
       | felix@yahoo.com | felix      | ottander  | 12345678  | 12345678              | 9999 |
@@ -29,8 +32,8 @@ Feature: Admin edit and delete invoices
       | org_number | company_name | company_address | company_zip | company_city | company_email | description | amount | user_reference | terms | updated_at | paid  | user_id    |
       | 1234       | greger ab    | södra 1         | 412         | gbg          | a@mail.com    | abc fakt    | 120    | felix          | 10    | 2017-11-01 | false | 9999       |
     Given the following invoices exist
-      | description | amount | user_reference | terms | id    | company_id | updated_at | paid  | user_id    |
-      | abc         | 120    | felix          | 10    | 9999  | 9999       | 2017-11-01 | false | 9999       |
+      | description | amount | user_reference | terms | id    | company_id | updated_at | paid  | user_id    | shift_ids |
+      | abc         | 120    | felix          | 10    | 9999  | 9999       | 2017-11-01 | false | 9999       | 20        |
 
     Scenario: I see ezinvoices and search by id
       Given I am logged in as admin "admin@yahoo.com"
@@ -40,7 +43,7 @@ Feature: Admin edit and delete invoices
       And I should see "abc"
       And I click "Redigera"
       And I fill in "Beskrivning" with "Målarjobb hos greger"
-      And I fill in "Antal timmar" with "100"
+      And I fill in "Antal timmar" with "10"
       And I fill in "Timlön" with "100"
       And I edit hidden field amount and fill "1000"
       And I fill in "Fakturaavgifter exkl moms" with "100"
@@ -55,7 +58,7 @@ Feature: Admin edit and delete invoices
       And I should see "Företags ID: 9999"
       And I click "Visa/godkänn faktura"
       And I should see "Beskrivning: Målarjobb hos greger"
-      And I should see "Antal timmar: 100.0st"
+      And I should see "Antal timmar: 10.0st"
       And I should see "Timlön: 100kr/timma"
       And I should see "Summa: 1000 SEK"
       And I should see "Bruttolön inkl semesterersättning: 1120 SEK"

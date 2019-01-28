@@ -1,10 +1,23 @@
 Then("an invoice with amount {string} is created") do |amount|
-  create(:invoice, user_id: 1, profile_id: 1, company_id: 1, job_id: 1, application_id: 1, description: 'abc', amount: amount, user_reference: 'felix')
+  create(:shift, start_date: '2019-01-01', end_date: '2019-01-01', start_time: '10:00', end_time: '20:00', id: 20)
+  create(:invoice, shift_ids: 20, user_id: 1, profile_id: 1, company_id: 1, job_id: 1, application_id: 1, description: 'abc', amount: amount, user_reference: 'felix')
 end
+
+Then("an invoice with amount {string} and quantity {string} and unit {string} and shiftid {string} is created") do |amount, quantity, unit, shift_id|
+  create(:shift, start_date: '2019-01-01', end_date: '2019-01-01', start_time: '10:00', end_time: '20:00', id: shift_id, quantity: quantity)
+  create(:invoice, shift_ids: shift_id, user_id: 1, profile_id: 1, company_id: 1, job_id: 1, application_id: 1, description: 'abc', amount: amount, quantity: quantity, unit: unit, user_reference: 'felix')
+end
+
 
 Given("the following ezinvoices exist") do |table|
   table.hashes.each do |hash|
     create(:ezinvoice, hash)
+  end
+end
+
+Given("the following shifts exist") do |table|
+  table.hashes.each do |hash|
+    create(:shift, hash)
   end
 end
 

@@ -4,6 +4,9 @@ Feature: Extend invoice with post or email
   I would like to be able to extend it by setting email or postway
 
   Background:
+    Given the following shifts exist
+      | start_date  | start_time | end_date   | end_time | id |
+      | 2019-01-01  | 18:00      | 2019-01-01 | 20:00    | 20 |
     Given the following companies exist
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
@@ -11,10 +14,10 @@ Feature: Extend invoice with post or email
       | email          | first_name | last_name | password  | password_confirmation | id |
       | felix@mail.com | felix      | ottander  | 12345678  | 12345678              | 1  |
     Given the following invoices exist
-      | description | amount | user_reference | terms |id | company_id | user_id | job_id | job_title    | paid  |
-      | fer         | 120    | felix          | 10    | 2 | 1          | 1       | 1      | Målare sökes | true  |
-      | try         | 120    | felix          | 10    | 3 | 1          | 1       | 1      | Målare sökes | true  |
-      | abc         | 120    | felix          | 10    | 4 | 1          | 1       | 1      | Målare sökes | false |
+      | description | amount | user_reference | terms |id | company_id | user_id | job_id | job_title    | paid  | shift_ids |
+      | fer         | 120    | felix          | 10    | 2 | 1          | 1       | 1      | Målare sökes | true  | 20        |
+      | try         | 120    | felix          | 10    | 3 | 1          | 1       | 1      | Målare sökes | true  | 20        |
+      | abc         | 120    | felix          | 10    | 4 | 1          | 1       | 1      | Målare sökes | false | 20        |
 
     Scenario: I extend invoice with post
       Given I am logged in as company "felix@mail.com"

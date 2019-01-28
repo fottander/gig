@@ -104,7 +104,12 @@
               Faktura ID: <%= @invoice.id.first(8) %><br>
               <strong>Antal timmar:</strong> <%= @invoice.quantity %>st<br>
               <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma<br>
-              <strong>Bruttolön:</strong> <%= @invoice.amount %><br>
+              <% if @invoice.add_ob == true %>
+                <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %><br>
+                <strong>Bruttolön inkl. OB:</strong> <%= @invoice.amount %><br>
+              <% else %>
+                <strong>Bruttolön:</strong> <%= @invoice.amount %><br>
+              <% end %>
               <strong>Bruttolön inkl semesterersättning(12%):</strong> <%= @invoice.bruttolon %><br>
               <strong>Arbetsgivaravgifter(31,42%):</strong> <%= @invoice.arbetsgivaravgifter %><br>
               <strong>Sociala avgifter(<%= @invoice.soc_avgift_procent %>%):</strong> <%= @invoice.sociala_avgifter %><br>
@@ -151,6 +156,9 @@
             Utbetalnings ID: <%= @invoice.id.first(8) %><br>
             <strong>Antal timmar:</strong> <%= @invoice.quantity %>st <br>
             <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma <br>
+            <% if @invoice.add_ob == true %>
+              <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %> SEK <br>
+            <% end %>
             <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
             Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
             Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>

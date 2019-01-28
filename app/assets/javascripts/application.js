@@ -14,6 +14,7 @@
 //= require jquery
 //= require foundation
 //= require turbolinks
+//= require cocoon
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {

@@ -19,6 +19,9 @@ Feature: Show freelancers
       | Göteborg  | 1  |
       | Stockholm | 2  |
       | Malmö     | 3  |
+    Given the following shifts exist
+      | start_date  | start_time | end_date   | end_time | id |
+      | 2019-01-01  | 18:00      | 2019-01-01 | 20:00    | 20 |
     Given the following companies exist
       | email          | name | username | address | zip_code | city     | org_number | phone | password  | password_confirmation | id |
       | felix@mail.com | bill | Anders p | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 1  |
@@ -28,8 +31,8 @@ Feature: Show freelancers
       | anders   | Erfaren snickare med 5 års erfarenhet            | 2            | 2        | 2  | 2       | 1988-09-14 |
       | robert   | Erfaren plåtslagare med 5 års erfarenhet         | 3            | 3        | 3  | 3       | 1988-09-14 |
     Given the following invoices exist
-      | description | amount | user_reference | terms |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id |
-      | abc         | 120    | felix          | 10    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          |
+      | description | amount | user_reference | terms |id | user_id | profile_id | feedback   | job_id | job_title    | updated_at  | company_id | shift_ids |
+      | abc         | 120    | felix          | 10    | 1 | 1       | 1          | Bra snubbe | 1      | Målare sökes | 2017-11-11  | 1          | 20        |
 
     Scenario: I see freelancers
       Given I am logged in as user "felix@mail.com"

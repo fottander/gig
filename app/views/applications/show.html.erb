@@ -72,17 +72,9 @@
           <% if @application.profile_id == current_user.profile.id %>
             <div class='invoice-title'>
               <span style='color: white; font-weight: 700;'>Skapa utbetalning baserad på jobbet</span><br>
-              <span style='color: white; font-weight: 500; font-size: 10px;'>Första jobbdag: <%= @application.first_day %></span><br>
-              <span style='color: white; font-weight: 500; font-size: 10px;'>Sista jobbdag: <%= @application.last_day %></span>
             </div>
-            <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa utbetalning? Tveka inte att <%= link_to 'kontakta oss!', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %></p>
-            <%= form_with url: invoices_path do |f| %>
-              <%= f.hidden_field :application_id, value: @application.id %>
-              <%= f.label :quantity, 'Antal timmar(t.ex. 10). Varje påbörjad halvtimme betalas som full halvtimme.', class: 'invoice-details-date' %>
-              <%= f.text_field :quantity, placeholder: 'Endast hel- & halvtal(2, 2.5 etc)' %>
-              <%= f.hidden_field :unit, value: @application.salary, id: 'unit-amount' %>
-              <%= f.submit 'Skapa utbetalning', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style: 'width: 100%;' %>
-            <% end %>
+            <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa utbetalning? Tveka inte att <%= link_to 'kontakta oss', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %> eller ring 0707301078</p>
+            <%= link_to 'Begär utbetalning', new_invoice_path(application_id: @application.id), class: 'profile-button-expand', style: 'margin-left: 1.2em; margin-right: 1.2em;' %>
           <% end %>
         <% else %>
           <div class='holy-grail-left-application-box'>

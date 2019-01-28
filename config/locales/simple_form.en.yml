@@ -1,0 +1,30 @@
+en:
+  simple_form:
+    error_notification:
+      default_message: "Vänligen rätta till felet nedan:"
+    hints:
+      defaults:
+      user:
+        chosen_languages: När aktiverat så visas bara inlägg i dina valda språk i den offentliga tidslinjen
+    labels:
+      account:
+        fields:
+          start_date: 'Startdatum'
+          start_time: 'Starttid'
+          end_date: 'Slutdatum'
+          end_time: 'Sluttid'
+        shifts:
+          start_date: 'Startdatum'
+          start_time: 'Starttid'
+          end_date: 'Slutdatum'
+          end_time: 'Sluttid'
+      defaults:
+        start_date: 'Startdatum'
+        start_time: 'Starttid'
+        end_date: 'Slutdatum'
+        end_time: 'Sluttid'
+    'no': Nej
+    required:
+      mark: "*"
+      text: obligatorisk
+    'yes': Ja

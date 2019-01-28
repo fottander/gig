@@ -1,0 +1,24 @@
+  <%= simple_form_for @invoice do |f| %>
+    <%= f.error_notification %>
+    <% if @invoice.errors.any? %>
+      <ul>
+      <% @invoice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    <% end %>
+    <div class='form-inputs'>
+      <%= f.input :application_id, input_html: { value: @application.id }, as: :hidden %>
+      <%= f.input :unit, input_html: { value: @application.salary.to_i}, as: :hidden %>
+      <%= f.input :quantity, input_html: { value: @application.salary.to_f}, as: :hidden %>
+    </div>
+    <div class="shifts">
+      <%= f.simple_fields_for :shifts do |builder| %>
+        <%= render 'shift_fields', f: builder %>
+      <% end %>
+    </div>
+    <%= link_to_add_association "+ Lägg till fler pass", f, :shifts, data: { association_insertion_node: '.shifts', association_insertion_method: :append }, class: 'button-green' %><br><br>
+    <div class='form-actions'>
+      <%= f.submit 'Skapa utbetalning', class: 'profile-button-expand' %><br>
+    </div>
+  <% end %>

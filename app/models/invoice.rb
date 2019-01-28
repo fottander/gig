@@ -2,14 +2,16 @@ class Invoice < ApplicationRecord
   before_create :generate_ocr
   before_validation :generate_ocr, on: :create
   before_save :soc_avgift_m_age_gen, :bruttolon_gen, :arbetsgivaravgifter_gen, :sociala_avgifter_gen, :pension_loneskatt_gen, :fakturabelopp_gen, :varavgift_gen, :bruttol_exkl_semester_ef_avg_gen, :bruttolon_ef_avg_gen, :loneskatt_gen, :nettolon_gen, :arbetsgivaravgifter_ef_avg_gen, :sociala_avgifter_ef_avg_gen, :fakturabelopp_inklmoms_gen, :totalbelopp_gen, :totalbelopp_inklmoms_gen, :regenerate_values
-  validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms
+  validates_presence_of :description, :amount, :quantity, :unit, :user_reference, :user_fee, :job_id, :job_title, :profile_id, :invoice_fees, :profile_username, :application_id, :terms, :shifts
   validates :quantity, numericality: { only_float: true }, allow_blank: true
   validates :unit, numericality: { only_integer: true }, allow_blank: true
   validates :rating, numericality: { only_float: true }, allow_blank: true
   validates :amount, numericality: { only_integer: true }
   belongs_to :user
   belongs_to :company
-  
+  has_many :shifts, dependent: :destroy
+  accepts_nested_attributes_for :shifts, allow_destroy: true, reject_if: ->(attrs) { attrs['start_date'].blank? || attrs['start_time'].blank? || attrs['end_date'].blank? || attrs['end_time'].blank? }
+
   include PublicActivity::Common
 
   default_scope {order('created_at DESC')}
@@ -136,6 +138,7 @@ class Invoice < ApplicationRecord
   end
 
   def regenerate_values
+    self.amount = (self.quantity * self.unit).round if quantity_changed? || unit_changed?
     self.bruttolon = (self.amount + (self.amount * self.semester_ers)).round if amount_changed?
     self.arbetsgivaravgifter = (self.bruttolon * self.a_g_avgift).round if amount_changed?
     self.sociala_avgifter = (self.bruttolon * self.soc_avgift_m_age).round if amount_changed?

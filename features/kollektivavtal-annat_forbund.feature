@@ -18,6 +18,9 @@ Background:
   Given the following cities exist
     | name     | id |
     | Göteborg | 1  |
+  Given the following shifts exist
+    | start_date  | start_time | end_date   | end_time | id | quantity |
+    | 2019-01-01  | 10:00      | 2019-01-01 | 20:00    | 20 | 10       |
   Given the following profiles exist
     | username | description                                      | skill                      | category_ids | city_ids | id | user_id | age        |
     | fisken   | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 1  | 1       | 1998-01-14 |
@@ -29,10 +32,10 @@ Background:
     | felix@mail.com  | bill | Anders b | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 2  |
     | johan@mail.com  | bill | Anders c | gatan 3 | 53653643 | Göteborg | 3453324533 | 98789 | 12345678  | 12345678              | 3  |
   Given the following invoices exist
-    | description     | amount | user_reference | terms |id | company_id | user_id | job_id | job_title      | paid  | salary_paid | soc_avgift | age | updated_at | profile_id | profile_username |
-    | fisken fakturan | 1000   | fisken         | 10    | 1 | 1          | 1       | 1      | Målare sökes   | true  | true        | 0.0491     | 20  | 2018-01-01 | 1          | fisken           |
-    | felix fakturan  | 1000   | felix          | 10    | 2 | 2          | 2       | 2      | Snickare sökes | true  | true        | 0.0491     | 30  | 2018-01-01 | 2          | felix            |
-    | johan fakturan  | 1000   | johan          | 10    | 3 | 3          | 3       | 3      | Plåtis sökes   | true  | true        | 0.0491     | 70  | 2018-01-01 | 3          | johan            |
+    | description     | amount | unit | quantity | user_reference | terms |id | company_id | user_id | job_id | job_title      | paid  | salary_paid | soc_avgift | age | updated_at | profile_id | profile_username | shift_ids |
+    | fisken fakturan | 1000   | 100  | 10       | fisken         | 10    | 1 | 1          | 1       | 1      | Målare sökes   | true  | true        | 0.0491     | 20  | 2018-01-01 | 1          | fisken           | 20        |
+    | felix fakturan  | 1000   | 100  | 10       | felix          | 10    | 2 | 2          | 2       | 2      | Snickare sökes | true  | true        | 0.0491     | 30  | 2018-01-01 | 2          | felix            | 20        |
+    | johan fakturan  | 1000   | 100  | 10       | johan          | 10    | 3 | 3          | 3       | 3      | Plåtis sökes   | true  | true        | 0.0491     | 70  | 2018-01-01 | 3          | johan            | 20        |
 
   Scenario: I see the invoices for under 25 with annat förbunds kollektivavtal
     Given I am logged in as user "fisken@mail.com"
