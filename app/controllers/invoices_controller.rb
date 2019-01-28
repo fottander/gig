@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create, :pre_edit]
   before_action :authenticate_company!, only: [:extend, :feedback, :rating, :postal]
 
   def new
