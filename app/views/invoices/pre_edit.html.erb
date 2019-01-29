@@ -25,13 +25,12 @@
         <% end %>
         <strong>Total bruttolön:</strong> <%= @invoice.amount %> SEK <br>
         <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
+        <%= link_to 'Visa mer utbetalningsinfo', payment_path(@invoice), class: 'button-orange' %><br>
         Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
-        Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
+        <span style='font-size: 0.9em;'>Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%):</span> <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
         <% if (25..64).include? @invoice.age %>
           Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
         <% end %>
-        Startdag: <%= @invoice.first_day %> <br>
-        Sista dag: <%= @invoice.last_day %><br>
         Jobb ID: <%= @invoice.job_id %><br>
         Ansöknings ID: <%= @invoice.application_id %><br>
         Profil: <%= @invoice.profile_username %><br>
@@ -41,7 +40,6 @@
         Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
         <% if @invoice.paid == true %>
           Betalningsstatus: <p style="color: green;">Godkänd</p>
-          <%= link_to 'Visa mer utbetalningsinfo', payment_path(@invoice), class: 'button-orange' %><br>
         <% else %>
           <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
         <% end %>

@@ -65,7 +65,7 @@ class InvoicePdf < Prawn::Document
     data = [ ["Beskrivning", "Antal timmar", "Timlön", "Bruttolön inkl semesterersättning"],
      [@invoice.description.first(25), @invoice.quantity, @invoice.unit, @invoice.bruttolon],
      ["Arbetsgivaravgifter:", "", "", "#{@invoice.arbetsgivaravgifter}"],
-     ["Sociala avgifter(#{@invoice.soc_avgift_procent} %):", "", "", "#{@invoice.sociala_avgifter}"],
+     ["Sociala avgifter & försäkring(#{@invoice.soc_avgift_procent}%):", "", "", "#{@invoice.sociala_avgifter}"],
      ["Löneskatt på pension:", "", "", "#{@invoice.pension_loneskatt}"],
      ["Fakturaavgifter:", "", "", "#{@invoice.invoice_fees}"],
      ["Totalsumma exkl. moms:", "", "", "#{@invoice.totalbelopp}"],

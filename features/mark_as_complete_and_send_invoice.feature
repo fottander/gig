@@ -72,7 +72,6 @@ Feature: Mark As complete and send invoice
       And I should see "Antal timmar: 100.0st"
       And I should see "Timlön: 100"
       And I should see "Lön som betalas ut: 7526 SEK"
-      And I should see "2018-01-01"
       And I should see "Fisken"
       And I should see "Anders"
       And I click "ALLA JOBBSÖKARE"

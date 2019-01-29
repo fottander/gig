@@ -124,17 +124,14 @@
               <% end %>
               <strong>Bruttolön inkl semesterersättning(12%):</strong> <%= @invoice.bruttolon %><br>
               <strong>Arbetsgivaravgifter(31,42%):</strong> <%= @invoice.arbetsgivaravgifter %><br>
-              <strong>Sociala avgifter(<%= @invoice.soc_avgift_procent %>%):</strong> <%= @invoice.sociala_avgifter %><br>
+              <strong>Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent %>%):</strong> <%= @invoice.sociala_avgifter %><br>
               <% if (25..64).include? @invoice.age %>
                 <strong>Löneskatt på pensionskostnader:</strong> <%= @invoice.pension_loneskatt %><br>
               <% end %>
               <strong>Belopp ex. moms:</strong> <%= @invoice.fakturabelopp %><br>
-              <strong>Belopp inkl. moms:</strong> <%= @invoice.fakturabelopp_inklmoms %><br>
               <strong>Fakturaavgifter:</strong> <%= @invoice.invoice_fees %><br>
               <strong>Totalsumma exkl. moms:</strong> <%= @invoice.totalbelopp %><br>
               <strong>Totalsumma inkl. moms:</strong> <%= @invoice.totalbelopp_inklmoms %><br>
-              Startdag: <%= @invoice.first_day %> <br>
-              Sista dag: <%= @invoice.last_day %><br>
               Jobb ID: <%= @invoice.job_id %><br>
               Ansöknings ID: <%= @invoice.application_id %><br>
               Profil: <%= @invoice.profile_username %><br>
@@ -174,12 +171,10 @@
             <strong>Total bruttolön:</strong> <%= @invoice.amount %> SEK <br>
             <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
             Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
-            Sociala avgifter(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
+            Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
             <% if (25..64).include? @invoice.age %>
               Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
             <% end %>
-            Startdag: <%= @invoice.first_day %> <br>
-            Sista dag: <%= @invoice.last_day %><br>
             Jobb ID: <%= @invoice.job_id %><br>
             Ansöknings ID: <%= @invoice.application_id %><br>
             Profil: <%= @invoice.profile_username %><br>
