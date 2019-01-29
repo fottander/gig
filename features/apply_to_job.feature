@@ -136,8 +136,8 @@ Feature: Apply to job
       And I click "KONTROLLPANEL"
       And I click "Visa"
       And I should see "Beskrivning: Måleri"
-      Then I should see "2018-01-01"
-      And I should see "2018-01-20"
+      Then I should see "Timlön: 150kr/timma"
+      And I should see "OB-lön: 196 SEK"
       And the latest created invoice should have ssyk code "12010"
       Then I click "KONTROLLPANEL"
       And I should see "målare sökes" in done applications

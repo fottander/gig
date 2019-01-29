@@ -63,7 +63,7 @@ class PaymentPdf < Prawn::Document
      ["Skatt:", "", "", "-#{@invoice.loneskatt}"],
      ["Utbetald nettolön:", "", "", "#{@invoice.nettolon}"],
      ["Arbetsgivaravgifter:", "", "", "#{@invoice.arbetsgivaravgifter_ef_avg}"],
-     ["Sociala avgifter(#{@invoice.soc_avgift_procent} %):", "", "", "#{@invoice.sociala_avgifter_ef_avg}"],
+     ["Sociala avgifter & försäkring(#{@invoice.soc_avgift_procent} %):", "", "", "#{@invoice.sociala_avgifter_ef_avg}"],
      ["Varav pensionsinbetalning:", "", "", "#{@pension}"]]
 
     table(data, cell_style: { size: 10 }) do

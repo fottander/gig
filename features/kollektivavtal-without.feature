@@ -19,8 +19,10 @@ Background:
     | name     | id |
     | Göteborg | 1  |
   Given the following shifts exist
-    | start_date  | start_time | end_date   | end_time | id | quantity |
-    | 2019-01-01  | 10:00      | 2019-01-01 | 20:00    | 20 | 10       |
+    | start_date  | start_time | end_date   | end_time | id | quantity | invoice_id |
+    | 2019-01-01  | 10:00      | 2019-01-01 | 20:00    | 20 | 10       | 1          |
+    | 2019-01-01  | 10:00      | 2019-01-01 | 20:00    | 21 | 10       | 2          |
+    | 2019-01-01  | 10:00      | 2019-01-01 | 20:00    | 22 | 10       | 3          |
   Given the following profiles exist
     | username | description                                      | skill                      | category_ids | city_ids | id | user_id | age        |
     | fisken   | Erfaren målare och snickare med 5 års erfarenhet | måleri 5 år, snicker 3 år. | 1            | 1        | 1  | 1       | 1998-01-14 |
@@ -34,8 +36,8 @@ Background:
   Given the following invoices exist
     | description     | amount | unit | quantity | user_reference | terms |id | company_id | user_id | job_id | job_title      | paid  | salary_paid | soc_avgift | age | updated_at | profile_id | profile_username | shift_ids |
     | fisken fakturan | 1000   | 100  | 10       | fisken         | 10    | 1 | 1          | 1       | 1      | Målare sökes   | true  | true        | 0.046      | 20  | 2018-01-01 | 1          | fisken           | 20        |
-    | felix fakturan  | 1000   | 100  | 10       | felix          | 10    | 2 | 2          | 2       | 2      | Snickare sökes | true  | true        | 0.046      | 30  | 2018-01-01 | 2          | felix            | 20        |
-    | johan fakturan  | 1000   | 100  | 10       | johan          | 10    | 3 | 3          | 3       | 3      | Plåtis sökes   | true  | true        | 0.046      | 70  | 2018-01-01 | 3          | johan            | 20        |
+    | felix fakturan  | 1000   | 100  | 10       | felix          | 10    | 2 | 2          | 2       | 2      | Snickare sökes | true  | true        | 0.046      | 30  | 2018-01-01 | 2          | felix            | 21        |
+    | johan fakturan  | 1000   | 100  | 10       | johan          | 10    | 3 | 3          | 3       | 3      | Plåtis sökes   | true  | true        | 0.046      | 70  | 2018-01-01 | 3          | johan            | 22        |
 
   Scenario: I see the invoices for under 25 without kollektivavtal
     Given I am logged in as user "fisken@mail.com"
@@ -52,7 +54,7 @@ Background:
     And I should see "Skatt: -306 SEK"
     And I should see "Utbetald summa: 713 SEK"
     And I should not see "pensionsinbetalning"
-    And I should see "Sociala avgifter(0.3%): 3 SEK"
+    And I should see "Sociala avgifter & försäkring(0.3%): 3 SEK"
     And I click "LOGGA UT"
     Given I am logged in as company "fisken@mail.com"
     Given I am on control panel page
@@ -60,7 +62,7 @@ Background:
     And I should see "Bruttolön: 1000"
     And I should see "Bruttolön inkl semesterersättning(12%): 1120"
     And I should see "Arbetsgivaravgifter(31,42%): 352"
-    And I should see "Sociala avgifter(0.3%): 3"
+    And I should see "Sociala avgifter & försäkring(0.3%): 3"
     And I should see "Belopp ex. moms: 1475"
     And I click "LOGGA UT"
     Given I am logged in as admin "admin@yahoo.com"
@@ -100,7 +102,7 @@ Background:
     And I should see "Skatt: -306 SEK"
     And I should see "Utbetald summa: 713 SEK"
     And I should see "Arbetsgivaravgifter(31,42%): 320 SEK"
-    And I should see "Sociala avgifter(4.6%): 47 SEK"
+    And I should see "Sociala avgifter & försäkring(4.6%): 47 SEK"
     And I should see "Varav pensionsinbetalning: 44 SEK"
     And I click "LOGGA UT"
     Given I am logged in as company "felix@mail.com"
@@ -109,7 +111,7 @@ Background:
     And I should see "Bruttolön: 1000"
     And I should see "Bruttolön inkl semesterersättning(12%): 1120"
     And I should see "Arbetsgivaravgifter(31,42%): 352"
-    And I should see "Sociala avgifter(4.6%): 52"
+    And I should see "Sociala avgifter & försäkring(4.6%): 52"
     And I should see "Löneskatt på pensionskostnader: 12"
     And I should see "Belopp ex. moms: 1536"
     And I click "LOGGA UT"
@@ -150,7 +152,7 @@ Background:
     And I should see "Skatt: -306 SEK"
     And I should see "Utbetald summa: 713 SEK"
     And I should not see "pensionsinbetalning"
-    And I should see "Sociala avgifter(0.3%): 3 SEK"
+    And I should see "Sociala avgifter & försäkring(0.3%): 3 SEK"
     And I click "LOGGA UT"
     Given I am logged in as company "johan@mail.com"
     Given I am on control panel page
@@ -158,7 +160,7 @@ Background:
     And I should see "Bruttolön: 1000"
     And I should see "Bruttolön inkl semesterersättning(12%): 1120"
     And I should see "Arbetsgivaravgifter(31,42%): 352"
-    And I should see "Sociala avgifter(0.3%): 3"
+    And I should see "Sociala avgifter & försäkring(0.3%): 3"
     And I should see "Belopp ex. moms: 1475"
     And I click "LOGGA UT"
     Given I am logged in as admin "admin@yahoo.com"
