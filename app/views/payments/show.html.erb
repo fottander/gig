@@ -17,6 +17,49 @@
     <div class="portfolio-resume row">
       <div class="large-6 columns">
         <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Detaljer</h3>
+          <p class="portfolio-resume-subheader">
+            <% if @invoice.user_id == current_user.id %>
+              <% if @invoice.paid == true %>
+                <span class='item-define'>Utbetald:</span> <%= @invoice.updated_at.strftime("%F %R") %><br>
+              <% end %>
+              <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
+              <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
+              Bruttolön: <%= @invoice.amount %> <br>
+              Din avgiftsnivå vid skapandet av utbetalningen: <%= (@invoice.user_fee * 100).round %>%<br>
+              Vår avgift: -<%= @invoice.varavgift %> <br>
+              Ny bruttolön:	<%= @invoice.bruttol_exkl_semester_ef_avg %> SEK <br>
+              Bruttolön inkl. semesterersättning(12%): <%= @invoice.bruttolon_ef_avg %> SEK <br>
+              Skatt:	-<%= @invoice.loneskatt %> SEK <br>
+              Nettolön(lön efter skatt): <%= @invoice.nettolon %> SEK <br>
+              <% if @invoice.paid == true %>
+                <span class='item-define'>Utbetald summa: </span> <%= @invoice.nettolon %> SEK<br>
+              <% else %>
+                <span class='item-define'>Lön som betalas ut: </span> <%= @invoice.nettolon %> SEK<br>
+              <% end %>
+              Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
+              Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
+              <% if (25..64).include? @invoice.age %>
+                Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
+              <% end %>
+            <% end %>
+            <div class="fieldContainerHire">
+              <span style='color: #f77d0e;'>Visa exakta arbetstider +</span>
+              <div class="fieldInfoHire">
+                <% @invoice.shifts.each do |shift| %>
+                  <div style= 'background-color: #f77d0e; color: white;'>ID: <%= shift.id %></div>
+                  Startdatum: <%= shift.start_date.strftime("%F") %><br>
+                  Starttid: <%= shift.start_time.strftime("%H:%M") %><br>
+                  Slutdatum: <%= shift.end_date.strftime("%F") %><br>
+                  Sluttid: <%= shift.end_time.strftime("%H:%M") %><br><br>
+                <% end %>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="large-6 columns">
+        <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Utbetalning</h3>
           <p class="portfolio-resume-subheader">
             <% if @invoice.user_id == current_user.id %>
@@ -33,31 +76,6 @@
               <span class='item-define'>Profil ID:</span> <%= @invoice.profile_id %><br>
               <span class='item-define'>Profil användarnamn:</span> <%= @invoice.profile_username %><br>
               <span class='item-define'>Feedback:</span> <%= @invoice.feedback %><br><br>
-            <% end %>
-          </p>
-        </div>
-      </div>
-      <div class="large-6 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Detaljer</h3>
-          <p class="portfolio-resume-subheader">
-            <% if @invoice.user_id == current_user.id %>
-              <span class='item-define'>Utbetald:</span> <%= @invoice.updated_at.strftime("%F %R") %><br>
-              <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
-              <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
-              Bruttolön: <%= @invoice.amount %> <br>
-              Din avgiftsnivå vid skapandet av fakturan: <%= (@invoice.user_fee * 100).round %>%<br>
-              Vår avgift: -<%= @invoice.varavgift %> <br>
-              Ny bruttolön:	<%= @invoice.bruttol_exkl_semester_ef_avg %> SEK <br>
-              Bruttolön inkl. semesterersättning(12%): <%= @invoice.bruttolon_ef_avg %> SEK <br>
-              Skatt:	-<%= @invoice.loneskatt %> SEK <br>
-              Nettolön(lön efter skatt): <%= @invoice.nettolon %> SEK <br>
-              <span class='item-define'>Utbetald summa: </span> <%= @invoice.nettolon %> SEK<br>
-              Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
-              Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
-              <% if (25..64).include? @invoice.age %>
-                Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
-              <% end %>
             <% end %>
           </p>
         </div>
