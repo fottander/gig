@@ -16,25 +16,31 @@
       <div class='post-title'><h3>Skapa ansökan</h3></div>
       <% if current_user.profile.present? %>
         <%= form_for ([@job, @application]) do |f| %>
-        <% if @application.errors.any? %>
-          <% @application.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+          <% if @application.errors.any? %>
+            <% @application.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
           <% end %>
-        <% end %>
-        <div class="fieldContainer">
-          <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
-          <p style='color: #696868; font-size: 14px;'>
-            - Varför passar just du för jobbet <br>
-            - Tidigare erfarenheter som är relevant för jobbet <br>
-            - Med mera
-          </p>
-          <%= f.text_area :message, placeholder: 'Skriv kortfattat meddelande (frivilligt)' %>
-          <div class="fieldInfo">
-            Tips <br>
-            I din ansökan kommer din profil(användarnamn, ålder, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+          <div class="fieldContainer">
+            <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
+            <p style='color: #696868; font-size: 14px;'>
+              - Varför passar just du för jobbet <br>
+              - Tidigare erfarenheter som är relevant för jobbet <br>
+              - Med mera
+            </p>
+            <%= f.text_area :message, placeholder: 'Skriv kortfattat meddelande (frivilligt)' %>
+            <div class="fieldInfo">
+              Tips <br>
+              I din ansökan kommer din profil(användarnamn, ålder, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+            </div>
           </div>
-        </div>
-        <%= f.submit 'Skicka ansökan', class: 'reply-button' %>
+          <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>
+            <span style='color: #f77d0e;'>Du har redan ansökt till detta jobbet!</span>
+          <% else %>
+            <p>
+              <%= f.submit 'Skicka ansökan', class: 'reply-button' %>
+            </p>
+          <% end %>
         <% end %>
       <% else %>
       <p>Var vänlig skapa en profil innan du ansöker till jobb <%= link_to 'Klicka här', dashboards_path %></p>
