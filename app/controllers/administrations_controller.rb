@@ -5,8 +5,8 @@ class AdministrationsController < ApplicationController
     @cities = City.all.paginate(page: params[:cities])
     @invoices = Invoice.paginate(page: params[:invoices])
     @ezinvoices = Ezinvoice.paginate(page: params[:ezinvoices])
-    @jobs = Job.last(10)
-    @applications = Application.hired.last(10)
-    @companies = Company.last(10)
+    @jobs = Job.first(10)
+    @applications = Application.hired.first(10)
+    @companies = Company.first(10)
   end
 end
