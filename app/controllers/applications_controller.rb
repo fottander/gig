@@ -14,6 +14,7 @@ class ApplicationsController < ApplicationController
   def new
     @application = Application.new
     @job = Job.find(params[:job_id])
+    @applications = @job.applications ##//Denna styr så man inte kan se ansök knappen i application.new om man redan ansökt till det jobbet. Dvs går tillbaka av misstag.//##
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Hitta Jobb', :jobs_path
     add_breadcrumb @job.title.truncate(24), job_path(@job)
