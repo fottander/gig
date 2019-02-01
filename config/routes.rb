@@ -102,7 +102,6 @@ Rails.application.routes.draw do
         patch :hire
         patch :extend
         patch :revert
-        patch :dehire
       end
       resources :comments, only: [:create]
     end

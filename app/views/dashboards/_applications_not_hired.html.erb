@@ -1,23 +1,25 @@
-<% if @applications_not_hired.present? %>
-  <% @applications_not_hired.each do |application| %>
-    <div class='portfolio-card'>
-      <div class='portfolio-card-header'><%= link_to application.job_title, job_path(application.job_id) %></div>
-      <div class="portfolio-resume-subheader">
-        Ansöknings ID: <%= application.id %><br>
-        Jobb ID: <%= application.job_id %><br>
-        Skapad: <%= application.created_at.strftime("%F %R") %><br>
-        <span style='color: green;'>Chattsvar: <%= application.comments.count %></span>
+<span id='not_active_applications'>
+  <% if @applications_not_hired.present? %>
+    <% @applications_not_hired.each do |application| %>
+      <div class='portfolio-card'>
+        <div class='portfolio-card-header'><%= link_to application.job_title, job_path(application.job_id) %></div>
+        <div class="portfolio-resume-subheader">
+          Ansöknings ID: <%= application.id %><br>
+          Jobb ID: <%= application.job_id %><br>
+          Skapad: <%= application.created_at.strftime("%F %R") %><br>
+          <span style='color: green;'>Chattsvar: <%= application.comments.count %></span>
+        </div>
+        <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
+        <%= link_to 'Redigera', edit_job_application_path(application.job_id, application.id), class: 'button-orange' %>
       </div>
-      <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
-      <%= link_to 'Redigera', edit_job_application_path(application.job_id, application.id), class: 'button-orange' %>
+    <% end %>
+  <% else %>
+    <div class='portfolio-card'>
+      <div class='portfolio-card-header' style='font-size: 14px;'><strong>Inga aktiva ansökningar</strong></div>
+      <%= link_to 'Ansök till jobb här!', jobs_path %>
     </div>
   <% end %>
-<% else %>
-  <div class='portfolio-card'>
-    <div class='portfolio-card-header' style='font-size: 14px;'><strong>Inga aktiva ansökningar</strong></div>
-    <%= link_to 'Ansök till jobb här!', jobs_path %>
-  </div>
-<% end %>
+</span>
 <div class="will-paginate">
     <%= will_paginate @applications_not_hired, param_name: 'not_hired', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
 </div>

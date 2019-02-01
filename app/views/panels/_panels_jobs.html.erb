@@ -1,37 +1,39 @@
-<% if @jobs.present? %>
-  <% @jobs.each do |job| %>
-    <div class='portfolio-card'>
-      <div class='job-<%= job.id %>'>
-        <div class='portfolio-card-header'><%= link_to job.title, job_path(job) %></div>
-        <p class="portfolio-resume-subheader">
-          Jobb ID: <%= job.id %><br>
-          Skapat: <%= job.created_at.strftime("%F %R") %><br>
-          <% if job.applications.count > 0 %>
-            <%= link_to "Antal ansökningar: #{ job.applications.count }", job_path(job), class: 'blinklink', style:'color: green;' %><br>
-          <% else %>
-            <span style='color: green;'>Antal ansökningar: <%= job.applications.count %><br></span>
-          <% end %>
-          <% if job.active == true %>
-            <p class="dash-active", style="color: green;">Aktivt</p>
-            <% if job.deadline <= Date.today %>
-              <br>
-              <p class="dash-active", style="color: red; padding-top: 4px;">Sista ansökningsdag nådd</p>
+<span id="active_jobs">
+  <% if @jobs.present? %>
+    <% @jobs.each do |job| %>
+      <div class='portfolio-card'>
+        <div class='job-<%= job.id %>'>
+          <div class='portfolio-card-header'><%= link_to job.title, job_path(job) %></div>
+          <p class="portfolio-resume-subheader">
+            Jobb ID: <%= job.id %><br>
+            Skapat: <%= job.created_at.strftime("%F %R") %><br>
+            <% if job.applications.count > 0 %>
+              <%= link_to "Antal ansökningar: #{ job.applications.count }", job_path(job), class: 'blinklink', style:'color: green;' %><br>
+            <% else %>
+              <span style='color: green;'>Antal ansökningar: <%= job.applications.count %><br></span>
             <% end %>
-          <% else %>
-            <p class="dash-active", style="color: red;">Inaktivt</p>
-          <% end %>
-        </p>
-        <%= link_to 'Visa annons', job_path(job), class: 'button-green' %>
-        <%= link_to 'Redigera', edit_job_path(job), class: 'button-orange' %>
+            <% if job.active == true %>
+              <p class="dash-active", style="color: green;">Aktivt</p>
+              <% if job.deadline <= Date.today %>
+                <br>
+                <p class="dash-active", style="color: red; padding-top: 4px;">Sista ansökningsdag nådd</p>
+              <% end %>
+            <% else %>
+              <p class="dash-active", style="color: red;">Inaktivt</p>
+            <% end %>
+          </p>
+          <%= link_to 'Visa annons', job_path(job), class: 'button-green' %>
+          <%= link_to 'Redigera', edit_job_path(job), class: 'button-orange' %>
+        </div>
       </div>
+    <% end %>
+  <% else %>
+    <div class='portfolio-card'>
+      <div class='portfolio-card-header'><strong>Inga annonser ännu</strong></div>
+      <%= link_to 'Skapa annons här!', new_job_path %>
     </div>
   <% end %>
-<% else %>
-  <div class='portfolio-card'>
-    <div class='portfolio-card-header'><strong>Inga annonser ännu</strong></div>
-    <%= link_to 'Skapa annons här!', new_job_path %>
-  </div>
-<% end %>
+</span>
 <div class="will-paginate">
     <%= will_paginate @jobs, param_name: 'active_jobs', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
 </div>

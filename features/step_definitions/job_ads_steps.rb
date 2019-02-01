@@ -30,6 +30,18 @@ Then("I get hired") do
   application.save
 end
 
+Given("I should see {string} in active jobs") do |content|
+  within "#active_jobs" do
+    expect(page).to have_content content
+  end
+end
+
+Then("I should see {string} in not active applications") do |content|
+  within "#not_active_applications" do
+    expect(page).to have_content content
+  end
+end
+
 Then("I should see {string} in active applications") do |content|
   within "#active-applications" do
     expect(page).to have_content content
