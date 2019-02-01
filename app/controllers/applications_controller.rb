@@ -136,6 +136,36 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def revert
+    @application = Application.find(params[:id])
+    @job = Job.find(params[:job_id])
+    @application.hired = false
+    @application.first_day = ''
+    @application.last_day = ''
+    @application.salary = ''
+    @application.add_ob = false
+    if @application.save
+      if current_user.present?
+        @application.create_activity :revert, owner: current_user.profile, recipient: @job.company, recipient_id: @job.company.id
+
+        # Sends email to company when application is deleted.
+        NotificationMailer.revert_email(@job.company, @application).deliver_now
+        flash[:notice] = "Anställningen raderad!"
+        redirect_to dashboards_path
+      else
+        @application.create_activity :dehire, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
+
+        # Sends email to user when person is dehired.
+        NotificationMailer.dehire_email(@application.profile.user, @application).deliver_now
+        flash[:notice] = "Anställningen raderad!"
+        redirect_to panels_path
+      end
+    else
+      flash[:alert] = 'Något gick fel'
+      redirect_to root_path
+    end
+  end
+
   def clone
     @application = Application.find(params[:id])
       if params[:first_day].present?

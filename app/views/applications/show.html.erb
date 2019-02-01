@@ -74,7 +74,25 @@
               <span style='color: white; font-weight: 700;'>Skapa utbetalning baserad på jobbet</span><br>
             </div>
             <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa utbetalning? Tveka inte att <%= link_to 'kontakta oss', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %> eller ring 0707301078</p>
-            <%= link_to 'Begär utbetalning', new_invoice_path(application_id: @application.id), class: 'profile-button-expand', style: 'margin-left: 1.2em; margin-right: 1.2em;' %>
+            <%= link_to 'Begär utbetalning', new_invoice_path(application_id: @application.id), class: 'profile-button-expand', style: 'margin-left: 1.2em; margin-right: 1.2em;' %><br>
+            <% if @application.last_day.present? %>
+              <% if @application.last_day > Date.today %>
+                <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
+                  Kontakta företaget genom att ringa eller skriva i chatten bredvid innan du lämnar återbud.<br>
+                  <%= link_to 'Lämna återbud', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+                </p>
+              <% else %>
+                <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
+                  Har du inte genomfört jobbet och vill ta bort anställningen, gör det nedan.<br>
+                  <%= link_to 'Ta bort anställning', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+                </p>
+              <% end %>
+            <% else %>
+              <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
+                Har du inte genomfört jobbet och vill ta bort anställningen, gör det nedan.<br>
+                <%= link_to 'Ta bort anställning', revert_job_application_path(@application.job, @application), method: :patch,  data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+              </p>
+            <% end %>
           <% end %>
         <% else %>
           <div class='holy-grail-left-application-box'>
@@ -82,7 +100,11 @@
             Faktura skickas när jobb genomförts. <br>
             Diskutera & chatta.<br>
             Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
-          </div>
+          </div><br>
+          <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
+            Kontakta personen genom chatten innan du avanställer.<br>
+            <%= link_to 'Avanställ/Ta bort', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+          </p>
         <% end %>
       <% else %>
         <div class='holy-grail-left-application-box'>

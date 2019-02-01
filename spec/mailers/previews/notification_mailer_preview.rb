@@ -18,6 +18,12 @@ class NotificationMailerPreview < ActionMailer::Preview
   def extend_mail_preview
     NotificationMailer.extend_email(User.first, Application.first)
   end
+  def revert_mail_preview
+    NotificationMailer.revert_email(Company.first, Application.first)
+  end
+  def dehire_mail_preview
+    NotificationMailer.dehire_email(User.first, Application.first)
+  end
   def clone_mail_preview
     NotificationMailer.clone_email(User.first, Application.first)
   end

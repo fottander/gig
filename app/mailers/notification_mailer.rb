@@ -49,6 +49,26 @@ class NotificationMailer < ApplicationMailer
     )
   end
 
+  def revert_email(company, application)
+    @company = company
+    @application = application
+
+    mail(
+    to: @company.email,
+    subject: "Ett återbud har lämnats på din anställning"
+    )
+  end
+
+  def dehire_email(user, application)
+    @user = user
+    @application = application
+
+    mail(
+    to: @user.email,
+    subject: "Du är inte längre anställd för jobbet"
+    )
+  end
+
   def clone_email(user, application)
     @user = user
     @application = application
