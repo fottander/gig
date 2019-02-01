@@ -101,7 +101,7 @@ Background:
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 14000 kr"
     Then I should see "Din nuvarande avgift är 8.0%. Läs mer om våra avgifter."
-    And an invoice with amount "8000" and quantity "80" and unit "100" and shiftid "2" is created
+    And an invoice with amount "8000" and quantity "80" and unit "100" and shiftid "21" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 4"
     Then I should see "Totalt intjänat: 20 000 - 50 000 kr"
@@ -111,7 +111,7 @@ Background:
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 22000 kr"
     Then I should see "Din nuvarande avgift är 7.0%. Läs mer om våra avgifter."
-    And an invoice with amount "40000" and quantity "400" and unit "100" and shiftid "3" is created
+    And an invoice with amount "40000" and quantity "400" and unit "100" and shiftid "31" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 5"
     Then I should see "Totalt intjänat: 50 000 - 100 000 kr"
@@ -121,7 +121,7 @@ Background:
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 62000 kr"
     Then I should see "Din nuvarande avgift är 6.0%. Läs mer om våra avgifter."
-    And an invoice with amount "40000" and quantity "400" and unit "100" and shiftid "4" is created
+    And an invoice with amount "40000" and quantity "400" and unit "100" and shiftid "41" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 6"
     Then I should see "Totalt intjänat: 100 000 - 250 000 kr"
@@ -131,7 +131,7 @@ Background:
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 102000 kr"
     Then I should see "Din nuvarande avgift är 5.0%. Läs mer om våra avgifter."
-    And an invoice with amount "160000" and quantity "1600" and unit "100" and shiftid "5" is created
+    And an invoice with amount "160000" and quantity "1600" and unit "100" and shiftid "51" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 7"
     Then I should see "Totalt intjänat: 250 000 - 500 000 kr"
@@ -141,7 +141,7 @@ Background:
     And I click "KONTROLLPANEL"
     And I should see "Totalt intjänat: 262000 kr"
     Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."
-    And an invoice with amount "250000" and quantity "2500" and unit "100" and shiftid "6" is created
+    And an invoice with amount "250000" and quantity "2500" and unit "100" and shiftid "61" is created
     Given I am on the profiles_path
     And I should see "Genomförda jobb: 8"
     Then I should see "Totalt intjänat: Mer än 500 000 kr"
