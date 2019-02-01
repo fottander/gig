@@ -71,7 +71,7 @@ class ApplicationsController < ApplicationController
             flash[:notice] = "Grattis! Du har anlitat personen."
             redirect_back(fallback_location: root_path)
           else
-            flash[:alert] = 'Något gick fel. Försök igen eller kontakta kundtjänst.'
+            flash[:alert] = 'Något gick fel. Kontrollera att du fyllt i alla fält korrekt eller kontakta kundtjänst.'
             redirect_back(fallback_location: root_path)
           end
         else
@@ -136,40 +136,70 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def revert
+    @application = Application.find(params[:id])
+    @job = Job.find(params[:job_id])
+    @application.hired = false
+    @application.first_day = ''
+    @application.last_day = ''
+    @application.salary = ''
+    @application.add_ob = false
+    if @application.save
+      if current_user.present?
+        @application.create_activity :revert, owner: current_user.profile, recipient: @job.company, recipient_id: @job.company.id
+
+        # Sends email to company when application is deleted.
+        NotificationMailer.revert_email(@job.company, @application).deliver_now
+        flash[:notice] = "Anställningen raderad!"
+        redirect_to dashboards_path
+      else
+        @application.create_activity :dehire, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
+
+        # Sends email to user when person is dehired.
+        NotificationMailer.dehire_email(@application.profile.user, @application).deliver_now
+        flash[:notice] = "Anställningen raderad!"
+        redirect_to panels_path
+      end
+    else
+      flash[:alert] = 'Något gick fel'
+      redirect_to root_path
+    end
+  end
+
   def clone
     @application = Application.find(params[:id])
-      if params[:first_day].present?
-        if params[:last_day].present?
-          if params[:salary].present?
-            @new_application = @application.dup
-            @new_application.update_attributes(dup_params)
-            @new_application.hired = true
-            @new_application.complete = false
-            if @new_application.save
-              @application.create_activity :clone, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
+    if params[:first_day].present?
+      if params[:last_day].present?
+        if params[:salary].present?
+          @new_application = @application.dup
+          @new_application.update_attributes(dup_params)
+          @new_application.hired = true
+          @new_application.complete = false
+          if @new_application.save
+            @application.create_activity :clone, owner: current_company, recipient: @application.profile, recipient_id: @application.profile.user.id
 
-              # Sends email to user when profile is hired.
-              NotificationMailer.clone_email(@application.profile.user, @application).deliver_now
+            # Sends email to user when profile is hired.
+            NotificationMailer.clone_email(@application.profile.user, @application).deliver_now
 
-              flash[:notice] = "#{@new_application.profile_username} anställdes på nytt!"
-              redirect_to panels_path
-            else
-              @new_application.destroy
-              flash[:alert] = "Något gick fel. Kontrollera start och sista dag och försök igen eller kontakta kundtjänst."
-              redirect_back(fallback_location: root_path)
-            end
+            flash[:notice] = "#{@new_application.profile_username} anställdes på nytt!"
+            redirect_to panels_path
           else
-            flash[:alert] = "Lön måste fyllas i"
+            @new_application.destroy
+            flash[:alert] = "Något gick fel. Kontrollera start och sista dag och försök igen eller kontakta kundtjänst."
             redirect_back(fallback_location: root_path)
           end
         else
-          flash[:alert] = "Sista dag måste fyllas i"
+          flash[:alert] = "Lön måste fyllas i"
           redirect_back(fallback_location: root_path)
         end
       else
-        flash[:alert] = "Startdag måste fyllas i"
+        flash[:alert] = "Sista dag måste fyllas i"
         redirect_back(fallback_location: root_path)
       end
+    else
+      flash[:alert] = "Startdag måste fyllas i"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   private

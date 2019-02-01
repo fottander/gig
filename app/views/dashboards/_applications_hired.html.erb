@@ -19,13 +19,16 @@
       <% if application.last_day.present? %>
         <% if application.last_day > Date.today %>
           <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
+          <%= link_to 'Lämna återbud', job_application_path(application.job_id, application.id), class: 'button-orange' %>
         <% else %>
           <div class='blinklink'>
             <%= link_to 'Begär utbetalning', job_application_path(application.job_id, application.id), class: 'button-green-big' %>
+            <%= link_to 'Radera', job_application_path(application.job_id, application.id), class: 'button-orange' %>
           </div>
         <% end %>
       <% else %>
         <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
+        <%= link_to 'Radera', job_application_path(application.job_id, application.id), class: 'button-orange' %>
       <% end %>
     </div>
   <% end %>

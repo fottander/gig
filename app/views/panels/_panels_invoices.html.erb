@@ -1,31 +1,31 @@
 <span id="1"></span>
-<% if @invoices.present? %>
-  <% @invoices.each do |invoice| %>
-    <div class='portfolio-card'>
-      <div class='portfolio-card-header'><%= link_to invoice.profile_username, profile_path(invoice.profile_id) %></div>
-      <div class="portfolio-resume-subheader">
-        <%= invoice.job_title %><br>
-        Ansöknings ID: <%= invoice.application_id %><br>
-        Jobb ID: <%= invoice.job_id %><br>
-        Faktura ID: <%= invoice.id.first(8) %><br>
-        Skapad: <%= invoice.created_at.strftime("%Y-%m-%d") %><br>
-      </div>
-      <% if invoice.paid == false %>
-        <% if invoice.created_at > 7.days.ago %>
-          <%= link_to 'Visa/Kontrollera', invoice_path(invoice), class: 'button-green' %>
+  <% if @invoices.present? %>
+    <% @invoices.each do |invoice| %>
+      <div class='portfolio-card'>
+        <div class='portfolio-card-header'><%= link_to invoice.profile_username, profile_path(invoice.profile_id) %></div>
+        <div class="portfolio-resume-subheader">
+          <%= invoice.job_title %><br>
+          Ansöknings ID: <%= invoice.application_id %><br>
+          Jobb ID: <%= invoice.job_id %><br>
+          Faktura ID: <%= invoice.id.first(8) %><br>
+          Skapad: <%= invoice.created_at.strftime("%Y-%m-%d") %><br>
+        </div>
+        <% if invoice.paid == false %>
+          <% if invoice.created_at > 7.days.ago %>
+            <%= link_to 'Visa/Kontrollera', invoice_path(invoice), class: 'button-green' %>
+          <% else %>
+            <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
+          <% end %>
         <% else %>
           <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
         <% end %>
-      <% else %>
-        <%= link_to 'Visa', invoice_path(invoice), class: 'button-green' %>
-      <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class='portfolio-card'>
+      <div class='portfolio-card-header'><strong>Inga fakturor</strong></div>
     </div>
   <% end %>
-<% else %>
-  <div class='portfolio-card'>
-    <div class='portfolio-card-header'><strong>Inga fakturor</strong></div>
-  </div>
-<% end %>
 <div class="will-paginate">
     <%= will_paginate @invoices, param_name: 'invoices', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
 </div>

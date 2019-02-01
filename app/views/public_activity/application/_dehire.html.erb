@@ -1,0 +1,6 @@
+<span style='font-weight: 600;'>avanställde</span> dig för
+<% if activity.trackable.present? %>
+  <%= link_to 'anställningen', job_application_path(activity.trackable.job.id, activity.trackable.id) %>
+<% else %>
+  anställningen som sedan dess har tagits bort
+<% end %>

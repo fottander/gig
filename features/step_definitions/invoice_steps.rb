@@ -8,7 +8,6 @@ Then("an invoice with amount {string} and quantity {string} and unit {string} an
   create(:invoice, shift_ids: shift_id, user_id: 1, profile_id: 1, company_id: 1, job_id: 1, application_id: 1, description: 'abc', amount: amount, quantity: quantity, unit: unit, user_reference: 'felix')
 end
 
-
 Given("the following ezinvoices exist") do |table|
   table.hashes.each do |hash|
     create(:ezinvoice, hash)

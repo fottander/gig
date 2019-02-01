@@ -101,6 +101,7 @@ Rails.application.routes.draw do
         patch :clone
         patch :hire
         patch :extend
+        patch :revert
       end
       resources :comments, only: [:create]
     end
