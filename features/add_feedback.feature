@@ -66,12 +66,17 @@ Feature: Extend invoice and add feedback
       Given I am on the home page
       And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
-      And I should see "Betyg 5/5"
       And I should see "Betyg 4.3/5"
-      Then I should see "Väldigt bra snubbe"
+      Then I should not see "Betyg 5/5"
+      And I should not see "Väldigt bra snubbe"
       And I click "LOGGA UT"
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
+      And I am on the profiles_path
+      And  I click "Fisken"
+      Then I should see "Betyg 5/5"
+      And I should see "Väldigt bra snubbe"
+      And I should see "Målare sökes"
       And I click "KONTROLLPANEL"
       And I click "Visa/Kontrollera"
       And I should see "Belopp ex. moms: 1770"
@@ -122,13 +127,17 @@ Feature: Extend invoice and add feedback
       And I fill in "feedback" with "Väldigt bra snubbe"
       And I click "Skicka feedback"
       And I should see "Sparat!"
+      And I am on the profiles_path
+      And  I click "Fisken"
+      Then I should see "Betyg 5/5"
+      And I should see "Väldigt bra snubbe"
       And I click "LOGGA UT"
       Given I am logged in as user "felix@mail.com"
       Given I am on the home page
       And I click "ALLA JOBBSÖKARE"
       And I click "Fisken"
-      And I should see "5/5"
-      Then I should see "Väldigt bra snubbe"
+      And I should not see "5/5"
+      Then I should not see "Väldigt bra snubbe"
       And I click "LOGGA UT"
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page

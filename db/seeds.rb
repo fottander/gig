@@ -7,6 +7,7 @@ User.delete_all
 Company.delete_all
 Admin.delete_all
 Invoice.delete_all
+Shift.delete_all
 
 Admin.create(
   email: "info@admin.se",
@@ -274,7 +275,62 @@ Application.create(
   job_title: "Vi söker snickare för 3 månader"
   )
 
+Shift.create(
+  id: 9999,
+  start_date: '2019-01-01',
+  start_time: '18:00',
+  end_date: '2019-01-01',
+  end_time: '23:00',
+  invoice_id: 9999
+)
+
+Shift.create(
+  id: 9998,
+  start_date: '2019-01-01',
+  start_time: '18:00',
+  end_date: '2019-01-01',
+  end_time: '23:00',
+  invoice_id: 9998
+)
+
+Shift.create(
+  id: 9997,
+  start_date: '2019-01-01',
+  start_time: '18:00',
+  end_date: '2019-01-01',
+  end_time: '23:00',
+  invoice_id: 9997
+)
+
+Shift.create(
+  id: 9996,
+  start_date: '2019-01-01',
+  start_time: '18:00',
+  end_date: '2019-01-01',
+  end_time: '23:00',
+  invoice_id: 9996
+)
+
+Shift.create(
+  id: 9995,
+  start_date: '2019-01-01',
+  start_time: '18:00',
+  end_date: '2019-01-01',
+  end_time: '23:00',
+  invoice_id: 9995
+)
+
+Shift.create(
+  id: 9994,
+  start_date: '2019-01-01',
+  start_time: '18:00',
+  end_date: '2019-01-01',
+  end_time: '23:00',
+  invoice_id: 9994
+)
+
 Invoice.create(
+  id: 9999,
   description: "Målning 2 veckor",
   quantity: 100,
   unit: 150,
@@ -296,10 +352,12 @@ Invoice.create(
   profile_id: 99998,
   company_id: 99999,
   profile_username: "Felix O",
-  user_id: 99998
+  user_id: 99998,
+  shift_ids: 9999
   )
 
 Invoice.create(
+  id: 9998,
   description: "Utomhusmålning 2 veckor",
   quantity: 100,
   unit: 100,
@@ -322,10 +380,12 @@ Invoice.create(
   profile_id: 99998,
   company_id: 99999,
   profile_username: "Felix O",
-  user_id: 99998
+  user_id: 99998,
+  shift_ids: 9998
   )
 
 Invoice.create(
+  id: 9997,
   description: "Snickeri 2 veckor",
   quantity: 50,
   unit: 1000,
@@ -347,10 +407,12 @@ Invoice.create(
   profile_id: 99998,
   company_id: 99998,
   profile_username: "Felix O",
-  user_id: 99998
+  user_id: 99998,
+  shift_ids: 9997
   )
 
 Invoice.create(
+  id: 9996,
   description: "Målning 4 veckor",
   quantity: 40,
   unit: 140,
@@ -371,10 +433,12 @@ Invoice.create(
   profile_id: 99998,
   company_id: 99998,
   profile_username: "Felix O",
-  user_id: 99998
+  user_id: 99998,
+  shift_ids: 9996
   )
 
 Invoice.create(
+  id: 9995,
   description: "Snickeri 2 veckor",
   quantity: 100,
   unit: 100,
@@ -397,10 +461,12 @@ Invoice.create(
   profile_id: 99999,
   company_id: 99998,
   profile_username: "Johan P",
-  user_id: 99999
+  user_id: 99999,
+  shift_ids: 9995
   )
 
 Invoice.create(
+  id: 9994,
   description: "Snickeri 4 veckor",
   quantity: 40,
   unit: 140,
@@ -421,7 +487,8 @@ Invoice.create(
   profile_id: 99999,
   company_id: 99998,
   profile_username: "Johan P",
-  user_id: 99999
+  user_id: 99999,
+  shift_ids: 9994
   )
 
 User.first.confirm
@@ -429,11 +496,12 @@ User.last.confirm
 Company.first.confirm
 Company.last.confirm
 
-puts "Created #{Category.count} category"
-puts "Created #{City.count} city"
-puts "Created #{Company.count} company"
-puts "Created #{User.count} user"
-puts "Created #{Job.count} job"
-puts "Created #{Admin.count} admin"
-puts "Created #{Application.count} application"
-puts "Created #{Invoice.count} invoice"
+puts "Created #{Category.count} categories"
+puts "Created #{City.count} cities"
+puts "Created #{Company.count} companies"
+puts "Created #{User.count} users"
+puts "Created #{Job.count} jobs"
+puts "Created #{Admin.count} admins"
+puts "Created #{Application.count} applications"
+puts "Created #{Invoice.count} invoices"
+puts "Created #{Shift.count} shifts"

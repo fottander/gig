@@ -47,10 +47,10 @@ Feature: Show freelancers
       And I click "fisken"
       Then I should see "Antal genomförda jobb: 1"
       And I should see "30 år"
-      And I should see "Feedback"
-      And I should see "Bra snubbe"
-      And I should see "2017 November"
-      Then I should see "Målare sökes"
+      And I should not see "Feedback"
+      And I should not see "Bra snubbe"
+      And I should not see "2017 November"
+      Then I should not see "Målare sökes"
 
     Scenario: I filtrate on a city
       Given I am logged in as user "felix@mail.com"
