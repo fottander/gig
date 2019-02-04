@@ -73,8 +73,9 @@
   </div>
 </div>
 
-  <div class="card profile-card-action-icons">
-    <div class="card-section">
+  <% if current_company.present? %>
+    <div class="card profile-card-action-icons">
+      <div class="card-section">
         <div class="profile-card-header">
           <h4 class='feedback-title'>Feedback</h4>
         </div>
@@ -96,11 +97,12 @@
             <span style='color: #72777c;'>Här kommer feedback och betyg visas från dina genomförda jobb.</span>
           <% end %>
         </div>
+      </div>
+      <div class="will-paginate">
+          <%= will_paginate @invoices, param_name: 'with_feedback', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+      </div>
     </div>
-    <div class="will-paginate">
-        <%= will_paginate @invoices, param_name: 'with_feedback', renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
-    </div>
-  </div>
+  <% end %>
 
 <% if @profile.prev_work.present? %>
   <div class="card profile-card-action-icons">
