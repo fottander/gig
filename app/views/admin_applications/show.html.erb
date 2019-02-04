@@ -1,0 +1,45 @@
+<div class="holy-grail-grid">
+
+  <div class="holy-grail-left">
+    <%= link_to 'Kontrollpanel', administrations_path, class: 'button-menu' %>
+    <%= link_to 'Användare', users_path, class: 'button-menu' %>
+    <%= link_to 'Frilansare', adminprofiles_path, class: 'button-menu' %>
+    <%= link_to 'Företag', companies_path, class: 'button-menu' %>
+    <%= link_to 'Jobb', adminjobs_path, class: 'button-menu' %>
+    <%= link_to 'Fakturor', admininvoices_path, class: 'button-menu' %>
+    <%= link_to 'Snabbfakturor', adminezinvoices_path, class: 'button-menu' %>
+    <%= link_to 'Ansökningar', applications_path, class: 'button-menu' %>
+    <%= link_to 'Betalningar', adminpayments_path, class: 'button-menu' %>
+  </div>
+
+  <div class="holy-grail-middle">
+    <div class="portfolio-resume row">
+      <div class="large-12 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">ID: <%= @application.id %></h3>
+          <p class="portfolio-resume-subheader">
+            <span class='item-define'>Meddelande:</span> <%= @application.message %><br>
+            <span class='item-define'>Hired:</span> <%= @application.hired %><br>
+            <span class='item-define'>OB:</span> <%= @application.add_ob %><br>
+            <span class='item-define'>First day:</span> <%= @application.first_day %><br>
+            <span class='item-define'>Last day:</span> <%= @application.last_day %><br>
+            <span class='item-define'>Complete:</span> <%= @application.complete %><br>
+            <span class='item-define'>Jobb ID:</span> <%= @application.job_id %><br>
+            <span class='item-define'>Jobb title:</span> <%= @application.job_title %><br>
+            <span class='item-define'>Profil ID:</span> <%= @application.profile_id %><br>
+            <span class='item-define'>Profile username:</span> <%= @application.profile_username %><br>
+            <span class='item-define'>Skapad:</span> <%= @application.created_at.strftime("%F %R") %><br>
+            <span class='item-define'>Uppdaterad:</span> <%= @application.updated_at.strftime("%F %R") %><br><br>
+          </p>
+          <p class="portfolio-resume-subheader">
+            <% @comments.each do |comment| %>
+              <span class='item-define'>ID:</span> <%= comment.id %><br>
+              <span class='item-define'>Message:</span> <%= comment.comment %><br>
+              <span class='item-define'>Skapad:</span> <%= comment.created_at.strftime("%F %R") %><br>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

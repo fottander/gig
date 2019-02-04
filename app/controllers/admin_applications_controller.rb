@@ -1,6 +1,11 @@
 class AdminApplicationsController < ApplicationController
   before_action :authenticate_admin!
 
+  def show
+    @application = Application.find(params[:id])
+    @comments = Comment.where(application_id: @application.id)
+  end
+
   def edit
     @application = Application.find(params[:id])
   end

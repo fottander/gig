@@ -75,7 +75,7 @@ Rails.application.routes.draw do
 
   resources :adminpayments, only: [:index, :new]
 
-  resources :admin_applications, only: [:edit, :update]
+  resources :admin_applications, only: [:edit, :update, :show]
 
   resources :howitworks, only: [:index]
 

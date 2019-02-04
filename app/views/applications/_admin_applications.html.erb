@@ -1,6 +1,6 @@
 <p class="portfolio-resume-subheader">
   <% @applications.each do |application| %>
-      <span class='item-define'>ID:</span> <%= application.id %><br>
+      <%= link_to "ID: #{application.id}", admin_application_path(application) %><br>
       <span> <%= link_to 'Radera', job_application_path(application.job, application), data: { confirm: 'Är du säker?' }, method: :delete, class: 'button-orange' %></span><br>
       <span> <%= link_to 'Redigera', edit_admin_application_path(application), class: 'button-green' %></span><br>
       <span class='item-define'>Meddelande:</span> <%= application.message %><br>
