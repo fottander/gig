@@ -62,8 +62,8 @@ class InvoicePdf < Prawn::Document
   def invoice_items
     move_down 20
     @moms = @invoice.totalbelopp_inklmoms * 0.2
-    data = [ ["Beskrivning", "Antal timmar", "Timlön", "Bruttolön inkl semesterersättning"],
-     [@invoice.description.first(25), @invoice.quantity, @invoice.unit, @invoice.bruttolon],
+    data = [ ["Beskrivning", "Grundlön #{@invoice.quantity} x #{@invoice.unit}", "OB-lön", "Bruttolön inkl semesterersättning"],
+     [@invoice.description.first(25), @invoice.amount, @invoice.ob_amount, @invoice.bruttolon],
      ["Arbetsgivaravgifter:", "", "", "#{@invoice.arbetsgivaravgifter}"],
      ["Sociala avgifter & försäkring(#{@invoice.soc_avgift_procent}%):", "", "", "#{@invoice.sociala_avgifter}"],
      ["Löneskatt på pension:", "", "", "#{@invoice.pension_loneskatt}"],
