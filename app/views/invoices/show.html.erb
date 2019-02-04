@@ -34,7 +34,7 @@
                       (spara 100kr)
                     <% end %>
                   </div>
-                  <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation' %>
+                  <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation (anonymt)' %>
                   <%= submit_tag 'Skicka feedback', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
                 <% end %>
               <% end %><br>
@@ -42,9 +42,9 @@
               <% if @invoice.rating.present? %>
               <% else %>
                 <%= form_tag rating_invoice_path(@invoice), method: :patch do %>
-                  Ge betyg till <%= @invoice.profile_username %>
+                  Ge betyg till <%= @invoice.profile_username %> (anonymt)
                   <% if @invoice.paid == false %>
-                    (spara 100kr)
+                    & spara 100kr
                   <% end %>
                   <%= select_tag :rating, options_for_select(Invoice::RATING_OPTIONS), prompt: 'Välj betyg' %>
                   <%= submit_tag 'Skicka betyg', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
