@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+      <title><%= meta_title %></title>
+      <meta name="description" content="<%= meta_description %>">
+
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+
+      <%= favicon_link_tag asset_path('Qnekt-favicon.png') %>
+    </head>
+
+    <nav class="top-bar topbar-responsive">
+      <div class="top-bar-title">
+        <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+          <button class="menu-icon" type="button" data-toggle></button>
+        </span>
+        <a class="topbar-responsive-logo" href="/" id="logo"><br><p class='logo-text'>Restaurang • Café • Catering • Event</p></a>
+      </div>
+      <div id="topbar-responsive" class="topbar-responsive-links">
+        <div class="top-bar-right">
+          <ul class="menu simple vertical medium-horizontal" data-close-on-click-inside="false" data-dropdown-menu>
+            <% if company_signed_in? %>
+              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
+              <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
+              <li><%= link_to "KONTROLLPANEL", panels_path %></li>
+            <% elsif user_signed_in? %>
+              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
+              <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
+              <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
+            <% elsif admin_signed_in? %>
+              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
+              <li><%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %></li>
+              <li><%= link_to "ADMINISTRATION", administrations_path %></li>
+            <% else %>
+              <li><%= link_to "SKAPA ANNONS", sign_ups_path %></li>
+              <li><%= link_to "HITTA JOBB", jobs_path %></li>
+              <li><%= link_to "LOGGA IN", sign_ins_path %></li>
+              <li><%= link_to "KONTAKT", messages_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <body>
+      <% if notice %>
+          <% if current_user.present? %>
+              <% if current_user.sign_in_count == 1 %>
+                  <div id="notice-wrapper" >
+                      <p class='notice-first-time'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% else %>
+                  <div id="notice-wrapper" >
+                      <p class='notice'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% end %>
+          <% elsif current_company.present? %>
+              <% if current_company.sign_in_count == 1 %>
+                  <div id="notice-wrapper" >
+                      <p class='notice-first-time'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% else %>
+                  <div id="notice-wrapper" >
+                      <p class='notice'><%= notice %><br><%= link_to 'DÖLJ', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: #FEFEFE;' %></p>
+                  </div>
+              <% end %>
+          <% else %>
+            <div id="registered-wrapper" >
+                <p class='registered'><%= notice %><br><br><%= link_to 'JAG FÖRSTÅR', '', style: 'border: 1px solid; padding: 0.3rem 0.9rem 0.2rem; color: black;' %></p>
+            </div>
+          <% end %>
+      <% elsif alert %>
+          <div id='alert-wrapper' >
+              <p class='alert'><%= alert %></p>
+          </div>
+      <% end %>
+      <%= yield %>
+
+      <% if Rails.env.production? %>
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129065480-1"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-129065480-1');
+          </script>
+      <% end %>
+    </body>
+</html>
