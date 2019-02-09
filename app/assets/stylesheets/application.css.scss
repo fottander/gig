@@ -1526,6 +1526,31 @@ input[type='file'] {
 
   /* FOOTER */
 
+ .site-footer-unscroll {
+   background: #2f2e2e;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 0.8rem;
+   letter-spacing: 1.0px;
+   line-height: 1.5;
+   color: #fefefe;
+   padding: 1em 0em 1em 0em;
+ }
+
+ .site-footer-unscroll a {
+   background: #2f2e2e;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 0.8rem;
+   line-height: 1.5;
+   color: #fefefe;
+ }
+
+ .site-footer-unscroll #footer-column {
+  background: #2f2e2e;
+  color: #fefefe;
+  text-align: center;
+  height: 35vh;
+ }
+
  .site-footer {
    background: #0a0a0a;
    font-family: 'Montserrat', sans-serif;
@@ -1602,7 +1627,7 @@ input[type='file'] {
       grid-template-columns: 1fr 3fr;
   -ms-grid-rows: 1fr 8fr 1fr;
       grid-template-rows: 1fr 8fr 1fr;
-  height: 80vh;
+  height: 100vh;
 }
 .holy-grail-grid-show {
   margin-left: 40px;
@@ -1627,6 +1652,24 @@ input[type='file'] {
 .holy-grail-left {
   background-color: #2f2e2e;
   min-height: 100vh;
+  position: relative;
+}
+
+.holy-grail-left .holy-grail-logo {
+  margin-left: 0.9em;
+  transform: scale(1, 0.85);
+  bottom: 1.7em;
+  color: white;
+  font-weight: 900;
+  font-size: 3em;
+  position: absolute;
+  letter-spacing: 0.12em;
+}
+
+@media screen and (max-width: 60em) {
+  .holy-grail-left .holy-grail-logo {
+    display: none;
+  }
 }
 
 .button-menu {
@@ -1693,7 +1736,6 @@ input[type='file'] {
 .holy-grail-middle-application,
 .holy-grail-middle {
   background-color: #ffff;
-  margin-bottom: 10px;
   padding-top: 15px;
 }
 
