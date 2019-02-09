@@ -24,14 +24,16 @@
           <% end %><br />
           <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
         </div>
-        <div class="field" style='margin-bottom: -10px;'>
+        <div class="field" style='margin-bottom: -10px; width: 75%; margin-left: auto; margin-right: auto;'>
           <br>
           <%= f.password_field :password_confirmation, placeholder: "Bekräfta lösenord", autocomplete: "off" %>
         </div>
         <div class="actions">
           <span style='color: #6D6D6D; font-size: 14px;'>När du klickar på registrera godkänner du <%= link_to 'våra villkor', terms_of_services_path , style: 'font-size: 14px; text-transform: lowercase;'%> och att du tagit del av <%= link_to 'vår integritetspolicy.', integritypolicies_path , style: 'font-size: 14px; text-transform: lowercase;'%></span><br>
           <%= f.submit "Registrera", class: 'reply-button', style:'width: 60%;' %>
-          <p>eller <%= render "devise/shared/links" %></p>
+          <p class='shared-links'>eller <br>
+            <%= render "devise/shared/links" %>
+          </p>
         </div>
         <%end %>
       </div>

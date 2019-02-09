@@ -768,7 +768,7 @@ input[type='file'] {
 .login-box-social-section-company-register {
   background-image: image-url('bar-company-2-reg.jpg');
   height: 100%;
-  min-height: 790px;
+  min-height: 55rem;
   padding-top: 1.0rem;
   background-size: cover;
   background-position: center;
@@ -784,6 +784,7 @@ input[type='file'] {
 .login-box-social-section-company-login {
   background-image: image-url('bar-company-2-reg.jpg');
   height: 100%;
+  min-height: 27rem;
   padding-top: 1.0rem;
   background-size: cover;
   background-position: center;
@@ -802,7 +803,7 @@ input[type='file'] {
 .login-box-social-section-user-register {
   background-image: image-url('hitta-jobb-front.png');
   height: 100%;
-  min-height: 555px;
+  min-height: 38rem;
   padding-top: 1.0rem;
   background-size: cover;
   background-position: center;
@@ -815,10 +816,26 @@ input[type='file'] {
   }
 }
 
+.shared-links {
+  margin-top: 1em;
+  font-weight: normal;
+  font-size: 0.85em;
+  color: #8a8a8a;
+}
+
+.shared-links a {
+  font-weight: normal;
+  font-size: 0.95em;
+  color: #f77d0e;
+  letter-spacing: normal;
+}
+
 .login-box-input {
-  margin-bottom: 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  margin-bottom: 1.5rem;
   height: 2rem;
-  border: 0;
   padding-left: 0;
   box-shadow: none;
   font-weight: 400;
@@ -1656,14 +1673,23 @@ input[type='file'] {
 }
 
 .holy-grail-left .holy-grail-logo {
-  margin-left: 0.9em;
-  transform: scale(1, 0.85);
-  bottom: 1.7em;
+  margin-left: 3em;
+  bottom: 5em;
   color: white;
-  font-weight: 900;
-  font-size: 3em;
   position: absolute;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.4em;
+}
+
+.holy-grail-left .holy-grail-logo .q-font {
+  font-family: "Century Gothic", 'Montserrat', sans-serif;
+  font-size: 2.8em;
+  font-weight: 900;
+}
+
+.holy-grail-left .holy-grail-logo .nekt-font {
+  font-family: "Century Gothic", 'Montserrat', sans-serif;
+  font-size: 2.8em;
+  font-weight: 900;
 }
 
 @media screen and (max-width: 60em) {

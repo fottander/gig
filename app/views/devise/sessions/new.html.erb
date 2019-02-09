@@ -10,10 +10,10 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
         <div class="login-box-input">
-          <%= f.email_field :email, placeholder: "Email", autofocus: true %>
+          <%= f.email_field :email, placeholder: "Email", autofocus: true, style: 'height: 150%;' %>
         </div>
         <div class="login-box-input">
-          <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off" %>
+          <%= f.password_field :password, placeholder: "Lösenord", autocomplete: "off", style: 'height: 150%;' %>
         </div>
         <% if devise_mapping.rememberable? -%>
           <div class="login-box-input">
@@ -23,7 +23,9 @@
         <% end -%>
         <div class="actions">
           <%= f.submit "Logga in", id: 'reply', class: 'reply-button', style:'width: 50%;' %>
-          <p>eller <%= render "devise/shared/links" %></p>
+          <p class='shared-links'>eller <br>
+            <%= render "devise/shared/links" %>
+          </p>
         </div>
         <%end %>
       </div>
