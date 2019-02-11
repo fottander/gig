@@ -7,5 +7,6 @@ class PanelsController < ApplicationController
     @applications_complete = @applications.complete.paginate(page: params[:complete])
     @invoices = Invoice.where(company_id: current_company.id).paginate(page: params[:invoices])
     @activities = PublicActivity::Activity.order('created_at desc').where(recipient_id: current_company.id, recipient_type: 'Company').includes(:owner, :trackable).first(10)
+    render layout: 'mobile_scroll_layout'
   end
 end

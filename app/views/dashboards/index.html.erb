@@ -17,143 +17,143 @@
   </div>
 
   <div class="holy-grail-middle">
-    <div class="portfolio-resume row">
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Konto</h3>
-          <div class="portfolio-resume-subheader">
-            <%= current_user.email %><br>
-            Förnamn: <%= current_user.first_name %><br>
-            Efternamn: <%= current_user.last_name %><br>
-            Telefon: <%= current_user.phone %>
-          </div>
-          <%= link_to 'Redigera konto', edit_user_registration_path, class: 'button-green' %>
-        </div>
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header" style='margin-bottom: 0px; margin-top: 5px;'>Profil</h3>
-          <% if current_user.profile.present? %>
+    <div class="holy-grail-vh">
+      <div class="portfolio-resume row">
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Konto</h3>
             <div class="portfolio-resume-subheader">
-              Användarnamn: <br>
-              <%= link_to current_user.profile.username, profile_path(current_user.profile) %><br>
-              Kompetenser: <%= current_user.profile.skill %><br>
-              Kategorier: <%= current_user.profile.categories.pluck(:name).flatten.join(' & ') %> <br>
-              Stad: <%= current_user.profile.cities.pluck(:name).flatten.join(' & ') %><br>
+              <%= current_user.email %><br>
+              Förnamn: <%= current_user.first_name %><br>
+              Efternamn: <%= current_user.last_name %><br>
+              Telefon: <%= current_user.phone %>
             </div>
-            <% unless current_user.profile.avatar_file_name.present? %>
-              <div>
-                <%= link_to '+ Förbättra dina chanser genom att lägga till profilbild!', edit_profile_path(current_user.profile, anchor: 'profile-image-2'), class: 'text-link-orange' %>
+            <%= link_to 'Redigera konto', edit_user_registration_path, class: 'button-green' %>
+          </div>
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header" style='margin-bottom: 0px; margin-top: 5px;'>Profil</h3>
+            <% if current_user.profile.present? %>
+              <div class="portfolio-resume-subheader">
+                Användarnamn: <br>
+                <%= link_to current_user.profile.username, profile_path(current_user.profile) %><br>
+                Kompetenser: <%= current_user.profile.skill %><br>
+                Kategorier: <%= current_user.profile.categories.pluck(:name).flatten.join(' & ') %> <br>
+                Stad: <%= current_user.profile.cities.pluck(:name).flatten.join(' & ') %><br>
               </div>
-            <% end %>
-            <% unless current_user.profile.education.present? %>
+              <% unless current_user.profile.avatar_file_name.present? %>
+                <div>
+                  <%= link_to '+ Förbättra dina chanser genom att lägga till profilbild!', edit_profile_path(current_user.profile, anchor: 'profile-image-2'), class: 'text-link-orange' %>
+                </div>
+              <% end %>
+              <% unless current_user.profile.education.present? %>
+                <div>
+                  <%= link_to '+ Förbättra dina chanser genom att lägga till utbildning!', edit_profile_path(current_user.profile, anchor: 'education-section'), class: 'text-link-orange' %>
+                </div>
+              <% end %>
+              <% unless current_user.profile.prev_work.present? %>
+                <div>
+                  <%= link_to '+ Förbättra dina chanser genom att lägga till arbetsplatser!', edit_profile_path(current_user.profile, anchor: 'work-section'), class: 'text-link-orange' %>
+                </div>
+              <% end %>
               <div>
-                <%= link_to '+ Förbättra dina chanser genom att lägga till utbildning!', edit_profile_path(current_user.profile, anchor: 'education-section'), class: 'text-link-orange' %>
+                <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>
               </div>
+              <% else %>
+                <strong>Skapa en profil för att söka jobb!</strong><br>
+                <%= link_to 'Skapa ny profil', new_profile_path, class: 'button-orange' %>
             <% end %>
-            <% unless current_user.profile.prev_work.present? %>
-              <div>
-                <%= link_to '+ Förbättra dina chanser genom att lägga till arbetsplatser!', edit_profile_path(current_user.profile, anchor: 'work-section'), class: 'text-link-orange' %>
-              </div>
-            <% end %>
-            <div>
-              <%= link_to 'Redigera profil', edit_profile_path(current_user.profile.id), class: 'button-green' %>
-            </div>
-            <% else %>
-              <strong>Skapa en profil för att söka jobb!</strong><br>
-              <%= link_to 'Skapa ny profil', new_profile_path, class: 'button-orange' %>
-          <% end %>
+          </div>
         </div>
-      </div>
 
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Aviseringar</h3>
-          <% if current_user.sign_in_count == 1 %>
-            <span style='font-size: 16px; color: #f77d0e;'>Välkommen till Qnekt!</span><br>
-            <% if current_user.profile.present? %>
-              <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att söka jobb</span>
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Aviseringar</h3>
+            <% if current_user.sign_in_count == 1 %>
+              <span style='font-size: 16px; color: #f77d0e;'>Välkommen till Qnekt!</span><br>
+              <% if current_user.profile.present? %>
+                <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att söka jobb</span>
+              <% else %>
+                <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
+                <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
+              <% end %>
             <% else %>
-              <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
-              <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
+              <% if current_user.profile.blank? %>
+                <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
+                <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
+              <% end %>
             <% end %>
-          <% else %>
-            <% if current_user.profile.blank? %>
-              <span style='font-size: 16px; color: #f77d0e;'>Nästa steg är att skapa en profil</span>
-              <%= link_to 'Skapa en profil', new_profile_path, class: 'button-orange', style:'margin-bottom: 10px;' %>
-            <% end %>
-          <% end %>
-          <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Totalt intjänat: <span style='color: #3db5e6;'>
-            <% if current_user.profile.present? %>
-              <%= current_user.total_earnings %> kr</span>
-            <% else %>
-              0 - 10 000 kr
-            <% end %>
-          </p>
-            <% if current_user.profile.present? %>
-              <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Din nuvarande avgift är <span style='color: #3db5e6;'><%= (current_user.fee * 100).round %>.0%.</span>
-              Läs mer om <%= link_to 'våra avgifter.', our_rates_path, style: 'text-transform: lowercase; color: #3db5e6; font-size: 11px; font-weight: 400; letter-spacing: 0;' %>
-            <% else %>
-              </span> Läs mer om <span style='color: #3db5e6;'>våra avgifter.</span>
-            <% end %>
-          </p>
-          <p style='font-size: 11px; color: #f77d0e;'>Har du gjort jobb utanför vår plattform du vill ha betalt för? Kolla "Fakturera utan företag" i menyn.</p>
-          <div class="portfolio-resume-notice">
-            <% @activities.each do |activity| %>
-              <div class="portfolio-resume-notice-items">
-                <% if activity.owner.present? %>
-                  <%= activity.created_at.strftime("%b %d %R") %>
-                  <% if activity.owner_type == 'Admin' %>
-                    Admin <%= render_activity activity %>
-                  <% else %>
-                    <%= link_to activity.owner.username, profile_path(activity.owner) %>
-                    <%= render_activity activity %>
+            <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Totalt intjänat: <span style='color: #3db5e6;'>
+              <% if current_user.profile.present? %>
+                <%= current_user.total_earnings %> kr</span>
+              <% else %>
+                0 - 10 000 kr
+              <% end %>
+            </p>
+              <% if current_user.profile.present? %>
+                <p style='font-size: 11px; color: #f77d0e;margin-bottom: -1px;'>Din nuvarande avgift är <span style='color: #3db5e6;'><%= (current_user.fee * 100).round %>.0%.</span>
+                Läs mer om <%= link_to 'våra avgifter.', our_rates_path, style: 'text-transform: lowercase; color: #3db5e6; font-size: 11px; font-weight: 400; letter-spacing: 0;' %>
+              <% else %>
+                </span> Läs mer om <span style='color: #3db5e6;'>våra avgifter.</span>
+              <% end %>
+            </p>
+            <p style='font-size: 11px; color: #f77d0e;'>Har du gjort jobb utanför vår plattform du vill ha betalt för? Kolla "Fakturera utan företag" i menyn.</p>
+            <div class="portfolio-resume-notice">
+              <% @activities.each do |activity| %>
+                <div class="portfolio-resume-notice-items">
+                  <% if activity.owner.present? %>
+                    <%= activity.created_at.strftime("%b %d %R") %>
+                    <% if activity.owner_type == 'Admin' %>
+                      Admin <%= render_activity activity %>
+                    <% else %>
+                      <%= link_to activity.owner.username, profile_path(activity.owner) %>
+                      <%= render_activity activity %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </div>
-            <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Ansökningar</h3>
+            <div id="partial-not-hired">
+              <%= render 'applications_not_hired' %>
+            </div>
           </div>
         </div>
       </div>
+      <hr>
+      <div class="portfolio-resume row">
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Aktiva jobb</h3>
+            <div id="partial-hired">
+              <%= render 'applications_hired' %>
+            </div>
+          </div>
+        </div>
 
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Ansökningar</h3>
-          <div id="partial-not-hired">
-            <%= render 'applications_not_hired' %>
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Färdiga jobb</h3>
+            <div id="partial-complete">
+              <%= render 'applications_complete' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="large-4 columns">
+          <div class="portfolio-resume-wrapper">
+            <h3 class="portfolio-resume-header">Utbetalningar</h3>
+            <div id="partial-invoices">
+              <%= render 'dash_invoices' %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <hr>
-    <div class="portfolio-resume row">
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Aktiva jobb</h3>
-          <div id="partial-hired">
-            <%= render 'applications_hired' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Färdiga jobb</h3>
-          <div id="partial-complete">
-            <%= render 'applications_complete' %>
-          </div>
-        </div>
-      </div>
-
-      <div class="large-4 columns">
-        <div class="portfolio-resume-wrapper">
-          <h3 class="portfolio-resume-header">Utbetalningar</h3>
-          <div id="partial-invoices">
-            <%= render 'dash_invoices' %>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <%= render 'footer_unscroll' %>
-
   </div>
 </div>

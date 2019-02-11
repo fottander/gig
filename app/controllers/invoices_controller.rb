@@ -63,6 +63,7 @@ class InvoicesController < ApplicationController
     @company = @invoice.company
     @profile = @invoice.user.profile
     @due_date = @invoice.due_date
+    render layout: 'mobile_scroll_layout'
     respond_to do |format|
       format.html
       format.pdf do
@@ -76,6 +77,7 @@ class InvoicesController < ApplicationController
 
   def pre_edit
     @invoice = Invoice.find(params[:id])
+    render layout: 'mobile_scroll_layout'
   end
 
   def edit

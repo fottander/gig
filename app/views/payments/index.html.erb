@@ -11,49 +11,55 @@
     <% end %><br>
     <%= link_to 'Fakturera utan företag', ezinvoices_path, class: 'button-menu' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
+    <div class="holy-grail-logo">
+      <span class='q-font'>Q</span><span class='nekt-font'>NEKT</span>
+    </div>
   </div>
 
   <div class="holy-grail-middle">
-    <% if current_user.bank_info == 'bank_info_ok' %>
-      <div class="portfolio-resume row">
-        <div class="large-6 columns">
-          <div class="portfolio-resume-wrapper">
-            <h3 class="portfolio-resume-header">Utbetalningar</h3>
-            <div id="payments-salary-paid">
-              <%= render 'payments_salary_paid' %>
+    <div class="holy-grail-vh">
+      <% if current_user.bank_info == 'bank_info_ok' %>
+        <div class="portfolio-resume row">
+          <div class="large-6 columns">
+            <div class="portfolio-resume-wrapper">
+              <h3 class="portfolio-resume-header">Utbetalningar</h3>
+              <div id="payments-salary-paid">
+                <%= render 'payments_salary_paid' %>
+              </div>
+            </div>
+          </div>
+          <div class="large-6 columns">
+            <div class="portfolio-resume-wrapper">
+              <h3 class="portfolio-resume-header">Påbörjade utbetalningar som ej betalats ut</h3>
+              <div id="payments-salary-not-paid">
+                <%= render 'payments_salary_not_paid' %>
+              </div>
             </div>
           </div>
         </div>
-        <div class="large-6 columns">
-          <div class="portfolio-resume-wrapper">
-            <h3 class="portfolio-resume-header">Påbörjade utbetalningar som ej betalats ut</h3>
-            <div id="payments-salary-not-paid">
-              <%= render 'payments_salary_not_paid' %>
+        <div class="portfolio-resume row">
+          <div class="large-6 columns">
+            <div class="portfolio-resume-wrapper">
+              <h3 class="portfolio-resume-header">Utbetalningar för fakturor utan jobbannons</h3>
+              <div id="ezpayments-salary-paid">
+                <%= render 'ezpayments_salary_paid' %>
+              </div>
+            </div>
+          </div>
+          <div class="large-6 columns">
+            <div class="portfolio-resume-wrapper">
+              <h3 class="portfolio-resume-header">Fakturor utan jobbannons som ej betalats ut</h3>
+              <div id="ezpayments-salary-not-paid">
+                <%= render 'ezpayments_salary_not_paid' %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="portfolio-resume row">
-        <div class="large-6 columns">
-          <div class="portfolio-resume-wrapper">
-            <h3 class="portfolio-resume-header">Utbetalningar för fakturor utan jobbannons</h3>
-            <div id="ezpayments-salary-paid">
-              <%= render 'ezpayments_salary_paid' %>
-            </div>
-          </div>
-        </div>
-        <div class="large-6 columns">
-          <div class="portfolio-resume-wrapper">
-            <h3 class="portfolio-resume-header">Fakturor utan jobbannons som ej betalats ut</h3>
-            <div id="ezpayments-salary-not-paid">
-              <%= render 'ezpayments_salary_not_paid' %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% else %>
-      <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vi behöver personnummer och bankuppgifter för att kunna betala ut din lön och visa utbetalningar.</p>
-      <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vänligen <%= link_to 'klicka här', edit_user_registration_path %> för att färdigställa dina kontouppgifter.</p>
-    <% end %>
+      <% else %>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vi behöver personnummer och bankuppgifter för att kunna betala ut din lön och visa utbetalningar.</p>
+        <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Vänligen <%= link_to 'klicka här', edit_user_registration_path %> för att färdigställa dina kontouppgifter.</p>
+      <% end %>
+    </div>
+    <%= render 'footer_unscroll' %>
   </div>
 </div>

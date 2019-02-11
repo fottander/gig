@@ -21,124 +21,172 @@
   <% if current_company.present? %>
     <% if @invoice.company_id == current_company.id %>
       <div class="holy-grail-middle">
-        <div class='simple-form'>
-          <h3 style='margin-left: 0;'>Faktura <%= @invoice.id.first(8) %></h3>
-          <div class="large-6 columns">
-            <div class='post-title'><h4>Feedback & tillval</h4></div>
-              <% if @invoice.feedback.present? %>
-              <% else %>
-                <%= form_tag feedback_invoice_path(@invoice), method: :patch do %>
-                  <div class='post-title'>
-                    Rekommendera <%= @invoice.profile_username %> till andra
+        <div class="holy-grail-vh">
+          <div class='simple-form'>
+            <h3 style='margin-left: 0;'>Faktura <%= @invoice.id.first(8) %></h3>
+            <div class="large-6 columns">
+              <div class='post-title'><h4>Feedback & tillval</h4></div>
+                <% if @invoice.feedback.present? %>
+                <% else %>
+                  <%= form_tag feedback_invoice_path(@invoice), method: :patch do %>
+                    <div class='post-title'>
+                      Rekommendera <%= @invoice.profile_username %> till andra
+                      <% if @invoice.paid == false %>
+                        (spara 100kr)
+                      <% end %>
+                    </div>
+                    <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation (anonymt)' %>
+                    <%= submit_tag 'Skicka feedback', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+                  <% end %>
+                <% end %><br>
+
+                <% if @invoice.rating.present? %>
+                <% else %>
+                  <%= form_tag rating_invoice_path(@invoice), method: :patch do %>
+                    Ge betyg till <%= @invoice.profile_username %> (anonymt)
                     <% if @invoice.paid == false %>
-                      (spara 100kr)
+                      & spara 100kr
+                    <% end %>
+                    <%= select_tag :rating, options_for_select(Invoice::RATING_OPTIONS), prompt: 'Välj betyg' %>
+                    <%= submit_tag 'Skicka betyg', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
+                  <% end %>
+                <% end %><br>
+
+              <%= form_tag extend_invoice_path(@invoice), method: :patch do %>
+                <% if current_company.invoices.count > 2 %>
+                  <% if @invoice.terms == 10 %>
+                    <% if @invoice.created_at > 7.days.ago %>
+                      <%= hidden_field_tag :terms, '20' %>
+                      <p id="invoice_terms_button">
+                        <%= submit_tag 'Lägg till', data: { confirm: "Är du säker?" }, class: 'button-blue' %>
+                        Klicka för 20 dagars fakturatid(+500kr)<br>
+                      </p>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% end %>
+
+              <% if @invoice.paid == false %>
+                <%= form_tag postal_invoice_path(@invoice), method: :patch do %>
+                  <% if @invoice.post == false %>
+                    <% if @invoice.created_at > 7.days.ago %>
+                      <%= hidden_field_tag :post, true %>
+                      <p id="invoice_post_button">
+                        <%= submit_tag 'Lägg till', data: { confirm: "Är du säker?" }, class: 'button-blue' %>
+                        Klicka för att få fakturan på posten(+40kr)<br>
+                      </p>
+                    <% end %>
+                  <% end %>
+                <% end %>
+
+                <% if @invoice.created_at > 7.days.ago %>
+                  <% if current_company.invoices.count < 3 %>
+                    <del>Klicka för 20 dagars fakturatid(+500kr)</del><br>
+                    <span style='color: #f77d0e; font-size: 12px;'>
+                      När du mottagit två tidigare fakturor får du möjligheten att förlänga dina betalningsvillkor.
+                    </span>
+                  <% end %>
+                <% end %>
+
+                <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
+                  Fakturan ska betalas innan <%= @invoice.due_date.strftime("%F") %><br>
+                  Om du har några frågor får ni gärna kontakta kundtjänsten.
+                </p>
+              <% else %>
+                <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
+                  Fakturan är betald!
+                </p>
+              <% end %>
+            </div>
+            <div class="large-6 columns">
+              <div class='post-title'><h4>Fakturadetaljer</h4></div>
+              <p><%= link_to 'Visa/Skriv ut pdf', invoice_path(@invoice, format: 'pdf'), class: 'profile-button-expand' %></p>
+              <div class='invoice-details'>
+                Faktura ID: <%= @invoice.id.first(8) %><br>
+                <strong>Antal timmar:</strong> <%= @invoice.quantity %>st<br>
+                <div class="fieldContainerHire">
+                  <span style='color: #f77d0e;'>Visa exakta arbetstider +</span>
+                  <div class="fieldInfoHire">
+                    <% @invoice.shifts.each do |shift| %>
+                      <div style= 'background-color: #f77d0e; color: white;'>ID: <%= shift.id %></div>
+                      Startdatum: <%= shift.start_date.strftime("%F") %><br>
+                      Starttid: <%= shift.start_time.strftime("%H:%M") %><br>
+                      Slutdatum: <%= shift.end_date.strftime("%F") %><br>
+                      Sluttid: <%= shift.end_time.strftime("%H:%M") %><br><br>
                     <% end %>
                   </div>
-                  <%= text_area_tag :feedback, nil, placeholder: 'Skriv en rekommendation (anonymt)' %>
-                  <%= submit_tag 'Skicka feedback', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-                <% end %>
-              <% end %><br>
-
-              <% if @invoice.rating.present? %>
-              <% else %>
-                <%= form_tag rating_invoice_path(@invoice), method: :patch do %>
-                  Ge betyg till <%= @invoice.profile_username %> (anonymt)
-                  <% if @invoice.paid == false %>
-                    & spara 100kr
-                  <% end %>
-                  <%= select_tag :rating, options_for_select(Invoice::RATING_OPTIONS), prompt: 'Välj betyg' %>
-                  <%= submit_tag 'Skicka betyg', data: { confirm: "Är du säker?" }, class: 'profile-button-expand' %>
-                <% end %>
-              <% end %><br>
-
-            <%= form_tag extend_invoice_path(@invoice), method: :patch do %>
-              <% if current_company.invoices.count > 2 %>
-                <% if @invoice.terms == 10 %>
-                  <% if @invoice.created_at > 7.days.ago %>
-                    <%= hidden_field_tag :terms, '20' %>
-                    <p id="invoice_terms_button">
-                      <%= submit_tag 'Lägg till', data: { confirm: "Är du säker?" }, class: 'button-blue' %>
-                      Klicka för 20 dagars fakturatid(+500kr)<br>
-                    </p>
-                  <% end %>
-                <% end %>
-              <% end %>
-            <% end %>
-
-            <% if @invoice.paid == false %>
-              <%= form_tag postal_invoice_path(@invoice), method: :patch do %>
-                <% if @invoice.post == false %>
-                  <% if @invoice.created_at > 7.days.ago %>
-                    <%= hidden_field_tag :post, true %>
-                    <p id="invoice_post_button">
-                      <%= submit_tag 'Lägg till', data: { confirm: "Är du säker?" }, class: 'button-blue' %>
-                      Klicka för att få fakturan på posten(+40kr)<br>
-                    </p>
-                  <% end %>
-                <% end %>
-              <% end %>
-
-              <% if @invoice.created_at > 7.days.ago %>
-                <% if current_company.invoices.count < 3 %>
-                  <del>Klicka för 20 dagars fakturatid(+500kr)</del><br>
-                  <span style='color: #f77d0e; font-size: 12px;'>
-                    När du mottagit två tidigare fakturor får du möjligheten att förlänga dina betalningsvillkor.
-                  </span>
-                <% end %>
-              <% end %>
-
-              <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
-                Fakturan ska betalas innan <%= @invoice.due_date.strftime("%F") %><br>
-                Om du har några frågor får ni gärna kontakta kundtjänsten.
-              </p>
-            <% else %>
-              <p class="holy-grail-left-application" style='color: #f77d0e; min-height: 100px;'>
-                Fakturan är betald!
-              </p>
-            <% end %>
-          </div>
-          <div class="large-6 columns">
-            <div class='post-title'><h4>Fakturadetaljer</h4></div>
-            <p><%= link_to 'Visa/Skriv ut pdf', invoice_path(@invoice, format: 'pdf'), class: 'profile-button-expand' %></p>
-            <div class='invoice-details'>
-              Faktura ID: <%= @invoice.id.first(8) %><br>
-              <strong>Antal timmar:</strong> <%= @invoice.quantity %>st<br>
-              <div class="fieldContainerHire">
-                <span style='color: #f77d0e;'>Visa exakta arbetstider +</span>
-                <div class="fieldInfoHire">
-                  <% @invoice.shifts.each do |shift| %>
-                    <div style= 'background-color: #f77d0e; color: white;'>ID: <%= shift.id %></div>
-                    Startdatum: <%= shift.start_date.strftime("%F") %><br>
-                    Starttid: <%= shift.start_time.strftime("%H:%M") %><br>
-                    Slutdatum: <%= shift.end_date.strftime("%F") %><br>
-                    Sluttid: <%= shift.end_time.strftime("%H:%M") %><br><br>
-                  <% end %>
                 </div>
+                <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma<br>
+                <% if @invoice.add_ob == true %>
+                  <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %><br>
+                  <strong>Bruttolön inkl. OB:</strong> <%= @invoice.amount %><br>
+                <% else %>
+                  <strong>Bruttolön:</strong> <%= @invoice.amount %><br>
+                <% end %>
+                <strong>Bruttolön inkl semesterersättning(12%):</strong> <%= @invoice.bruttolon %><br>
+                <strong>Arbetsgivaravgifter(31,42%):</strong> <%= @invoice.arbetsgivaravgifter %><br>
+                <strong>Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent %>%):</strong> <%= @invoice.sociala_avgifter %><br>
+                <% if (25..64).include? @invoice.age %>
+                  <strong>Löneskatt på pensionskostnader:</strong> <%= @invoice.pension_loneskatt %><br>
+                <% end %>
+                <strong>Belopp ex. moms:</strong> <%= @invoice.fakturabelopp %><br>
+                <strong>Fakturaavgifter:</strong> <%= @invoice.invoice_fees %><br>
+                <strong>Totalsumma exkl. moms:</strong> <%= @invoice.totalbelopp %><br>
+                <strong>Totalsumma inkl. moms:</strong> <%= @invoice.totalbelopp_inklmoms %><br>
+                Jobb ID: <%= @invoice.job_id %><br>
+                Ansöknings ID: <%= @invoice.application_id %><br>
+                Profil: <%= @invoice.profile_username %><br>
+                Beskrivning: <%= @invoice.description %> <br>
+                Referens: <%= @invoice.user_reference %><br>
+                Er referens: <%= @invoice.company_reference %><br>
+                Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
+                Villkor: <%= @invoice.terms %> dagar<br>
+                OCR: <%= @invoice.ocr_number %><br>
+                <% if @invoice.post == false %>
+                  Leveranssätt: Email <br>
+                <% else %>
+                  Leveranssätt: Post <br>
+                <% end %>
+                <% if @invoice.paid == true %>
+                  Betalningsstatus: <p style="color: green;">Godkänd</p>
+                <% else %>
+                  <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
+                <% end %><br><br>
               </div>
-              <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma<br>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% elsif current_user.present? %>
+    <% if @invoice.user_id == current_user.id %>
+      <div class="holy-grail-middle">
+        <div class="holy-grail-vh">
+          <div class='simple-form'>
+            <div class='post-title'><h3>Utbetalningsdetaljer</h3></div>
+            <div class='invoice-details'>
+              Utbetalnings ID: <%= @invoice.id.first(8) %><br>
+              <strong>Antal timmar:</strong> <%= @invoice.quantity %>st <br>
+              <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma <br>
               <% if @invoice.add_ob == true %>
-                <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %><br>
-                <strong>Bruttolön inkl. OB:</strong> <%= @invoice.amount %><br>
-              <% else %>
-                <strong>Bruttolön:</strong> <%= @invoice.amount %><br>
+                <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %> SEK <br>
               <% end %>
-              <strong>Bruttolön inkl semesterersättning(12%):</strong> <%= @invoice.bruttolon %><br>
-              <strong>Arbetsgivaravgifter(31,42%):</strong> <%= @invoice.arbetsgivaravgifter %><br>
-              <strong>Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent %>%):</strong> <%= @invoice.sociala_avgifter %><br>
+              <strong>Total bruttolön:</strong> <%= @invoice.amount %> SEK <br>
+              <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
+              <%= link_to 'Visa mer utbetalningsinfo', payment_path(@invoice), class: 'button-orange' %><br>
+              Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
+              Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
               <% if (25..64).include? @invoice.age %>
-                <strong>Löneskatt på pensionskostnader:</strong> <%= @invoice.pension_loneskatt %><br>
+                Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
               <% end %>
-              <strong>Belopp ex. moms:</strong> <%= @invoice.fakturabelopp %><br>
-              <strong>Fakturaavgifter:</strong> <%= @invoice.invoice_fees %><br>
-              <strong>Totalsumma exkl. moms:</strong> <%= @invoice.totalbelopp %><br>
-              <strong>Totalsumma inkl. moms:</strong> <%= @invoice.totalbelopp_inklmoms %><br>
               Jobb ID: <%= @invoice.job_id %><br>
               Ansöknings ID: <%= @invoice.application_id %><br>
               Profil: <%= @invoice.profile_username %><br>
               Beskrivning: <%= @invoice.description %> <br>
               Referens: <%= @invoice.user_reference %><br>
-              Er referens: <%= @invoice.company_reference %><br>
+              Företagsreferens: <%= @invoice.company_reference %><br>
               Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
+              Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
               Villkor: <%= @invoice.terms %> dagar<br>
               OCR: <%= @invoice.ocr_number %><br>
               <% if @invoice.post == false %>
@@ -150,54 +198,11 @@
                 Betalningsstatus: <p style="color: green;">Godkänd</p>
               <% else %>
                 <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
-              <% end %><br><br>
+              <% end %>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  <% elsif current_user.present? %>
-    <% if @invoice.user_id == current_user.id %>
-      <div class="holy-grail-middle">
-        <div class='simple-form'>
-          <div class='post-title'><h3>Utbetalningsdetaljer</h3></div>
-          <div class='invoice-details'>
-            Utbetalnings ID: <%= @invoice.id.first(8) %><br>
-            <strong>Antal timmar:</strong> <%= @invoice.quantity %>st <br>
-            <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma <br>
-            <% if @invoice.add_ob == true %>
-              <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %> SEK <br>
-            <% end %>
-            <strong>Total bruttolön:</strong> <%= @invoice.amount %> SEK <br>
-            <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
-            <%= link_to 'Visa mer utbetalningsinfo', payment_path(@invoice), class: 'button-orange' %><br>
-            Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
-            Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
-            <% if (25..64).include? @invoice.age %>
-              Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
-            <% end %>
-            Jobb ID: <%= @invoice.job_id %><br>
-            Ansöknings ID: <%= @invoice.application_id %><br>
-            Profil: <%= @invoice.profile_username %><br>
-            Beskrivning: <%= @invoice.description %> <br>
-            Referens: <%= @invoice.user_reference %><br>
-            Företagsreferens: <%= @invoice.company_reference %><br>
-            Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
-            Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
-            Villkor: <%= @invoice.terms %> dagar<br>
-            OCR: <%= @invoice.ocr_number %><br>
-            <% if @invoice.post == false %>
-              Leveranssätt: Email <br>
-            <% else %>
-              Leveranssätt: Post <br>
-            <% end %>
-            <% if @invoice.paid == true %>
-              Betalningsstatus: <p style="color: green;">Godkänd</p>
-            <% else %>
-              <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
-            <% end %>
-          </div>
-        </div>
+        <%= render 'footer_unscroll' %>
       </div>
     <% end %>
   <% end %>

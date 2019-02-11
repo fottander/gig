@@ -11,61 +11,67 @@
     <% end %><br>
     <%= link_to 'Fakturera utan företag', ezinvoices_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
+    <div class="holy-grail-logo">
+      <span class='q-font'>Q</span><span class='nekt-font'>NEKT</span>
+    </div>
   </div>
 
   <div class="holy-grail-middle">
-    <div class="simple-form">
-      <div class='post-title'><h3>Redigera faktura</h3></div>
-      <% if current_user.profile.present? %>
-        <% if current_user.profile.id == @ezinvoice.profile_id %>
-          <%= form_for @ezinvoice do |f| %>
-            <% if @ezinvoice.errors.any? %>
-              <% @ezinvoice.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+    <div class="holy-grail-vh">
+      <div class="simple-form">
+        <div class='post-title'><h3>Redigera faktura</h3></div>
+        <% if current_user.profile.present? %>
+          <% if current_user.profile.id == @ezinvoice.profile_id %>
+            <%= form_for @ezinvoice do |f| %>
+              <% if @ezinvoice.errors.any? %>
+                <% @ezinvoice.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
               <% end %>
+              <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
+              <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
+              <%= f.text_field :org_number, value: @ezinvoice.org_number %>
+              <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
+              <%= f.text_field :company_name, value: @ezinvoice.company_name %>
+              <%= f.label :company_address, '* Företagets adress', class: 'form-text' %>
+              <%= f.text_field :company_address, value: @ezinvoice.company_address %>
+              <%= f.label :company_zip, '* Postnummer', class: 'form-text' %>
+              <%= f.text_field :company_zip, value: @ezinvoice.company_zip %>
+              <%= f.label :company_city, '* Stad', class: 'form-text' %>
+              <%= f.text_field :company_city, value: @ezinvoice.company_city %>
+              <%= f.label :company_email, '* Email', class: 'form-text' %>
+              <%= f.email_field :company_email, value: @ezinvoice.company_email  %>
+              <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
+              <%= f.text_field :company_reference, value: @ezinvoice.company_reference %>
+              <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
+              <%= f.label :description, '* Beskrivning', class: 'form-text' %>
+              <%= f.text_area :description, value: @ezinvoice.description %>
+              <%= f.label :quantity, '* Antal timmar(t.ex. 10)st', class: 'form-text' %>
+              <%= f.text_field :quantity, value: @ezinvoice.quantity %>
+              <%= f.label :unit, '* Timlön(t.ex. 150)kr/timma', class: 'form-text' %>
+              <%= f.text_field :unit, value: @ezinvoice.unit %>
+              <%= f.hidden_field :amount, value: @ezinvoice.amount %>
+              <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
+              <%= f.date_field :first_day, value: @ezinvoice.first_day %>
+              <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
+              <%= f.date_field :last_day, value: @ezinvoice.last_day %>
+              <%= f.label :ssyk_code, 'Kategorier', class: 'form-text' %>
+              <%= f.collection_select(:ssyk_code, Category.all, :ssyk_code, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
+              <%= f.label :user_reference, '* Referens', class: 'form-text' %>
+              <%= f.text_field :user_reference, value: @ezinvoice.user_reference %>
+              <%= f.label :terms, 'Betalningsvillkor(15 dagar om inget annat avtalats)', class: 'form-text' %>
+              <%= f.text_field :terms, value: @ezinvoice.terms %>
+              <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
+              <%= f.submit 'Spara', class: 'reply-button' %>
             <% end %>
-            <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
-            <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
-            <%= f.text_field :org_number, value: @ezinvoice.org_number %>
-            <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
-            <%= f.text_field :company_name, value: @ezinvoice.company_name %>
-            <%= f.label :company_address, '* Företagets adress', class: 'form-text' %>
-            <%= f.text_field :company_address, value: @ezinvoice.company_address %>
-            <%= f.label :company_zip, '* Postnummer', class: 'form-text' %>
-            <%= f.text_field :company_zip, value: @ezinvoice.company_zip %>
-            <%= f.label :company_city, '* Stad', class: 'form-text' %>
-            <%= f.text_field :company_city, value: @ezinvoice.company_city %>
-            <%= f.label :company_email, '* Email', class: 'form-text' %>
-            <%= f.email_field :company_email, value: @ezinvoice.company_email  %>
-            <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
-            <%= f.text_field :company_reference, value: @ezinvoice.company_reference %>
-            <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
-            <%= f.label :description, '* Beskrivning', class: 'form-text' %>
-            <%= f.text_area :description, value: @ezinvoice.description %>
-            <%= f.label :quantity, '* Antal timmar(t.ex. 10)st', class: 'form-text' %>
-            <%= f.text_field :quantity, value: @ezinvoice.quantity %>
-            <%= f.label :unit, '* Timlön(t.ex. 150)kr/timma', class: 'form-text' %>
-            <%= f.text_field :unit, value: @ezinvoice.unit %>
-            <%= f.hidden_field :amount, value: @ezinvoice.amount %>
-            <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
-            <%= f.date_field :first_day, value: @ezinvoice.first_day %>
-            <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
-            <%= f.date_field :last_day, value: @ezinvoice.last_day %>
-            <%= f.label :ssyk_code, 'Kategorier', class: 'form-text' %>
-            <%= f.collection_select(:ssyk_code, Category.all, :ssyk_code, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
-            <%= f.label :user_reference, '* Referens', class: 'form-text' %>
-            <%= f.text_field :user_reference, value: @ezinvoice.user_reference %>
-            <%= f.label :terms, 'Betalningsvillkor(15 dagar om inget annat avtalats)', class: 'form-text' %>
-            <%= f.text_field :terms, value: @ezinvoice.terms %>
-            <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
-            <%= f.submit 'Spara', class: 'reply-button' %>
+          <% else %>
+            <p>Skapa en faktura för att redigera fakturor</p>
           <% end %>
         <% else %>
-          <p>Skapa en faktura för att redigera fakturor</p>
+          <p>Skapa en profil innan du kan fakturera!</p>
         <% end %>
-      <% else %>
-        <p>Skapa en profil innan du kan fakturera!</p>
-      <% end %>
+      </div>
     </div>
+    <%= render 'footer_unscroll' %>
   </div>
 </div>

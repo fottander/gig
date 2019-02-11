@@ -11,44 +11,50 @@
     <% end %><br>
     <%= link_to 'Fakturera utan företag', ezinvoices_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
+    <div class="holy-grail-logo">
+      <span class='q-font'>Q</span><span class='nekt-font'>NEKT</span>
+    </div>
   </div>
 
   <div class="holy-grail-middle">
-    <div class="login-box-form-section" style='text-align: left;'>
-      <div class='post-title'><h3>Fakturera utan företag</h3></div>
-      <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor för jobb du utfört utanför vår plattform och som inte är kopplade till en aktiv jobbannons. Vi skickar fakturorna till företaget du jobbat för och sedan betalar vi ut din lön, precis som vanligt.</p>
-      <%= link_to 'Skapa en faktura', new_ezinvoice_path, class: 'reply-button' %><br><br>
-      <p style='font-weight: 550; color: #696868;'>Nedanför listas alla dina fakturor</p>
-      <% if current_user.profile.present? %>
-        <% if @ezinvoices.present? %>
-          <% @ezinvoices.each do |ezinvoice| %>
-            <span class="portfolio-resume-subheader">
-              ID: <%= ezinvoice.id.first(8) %><br>
-              Företag: <%= ezinvoice.company_name %><br>
-              Skapad: <%= ezinvoice.created_at.strftime("%Y %R") %><br>
-              Summa: <%= ezinvoice.amount %><br>
-              <% if ezinvoice.paid == true %>
-                Fakturan är betald <br>
+    <div class="holy-grail-vh">
+      <div class="login-box-form-section" style='text-align: left;'>
+        <div class='post-title'><h3>Fakturera utan företag</h3></div>
+        <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor för jobb du utfört utanför vår plattform och som inte är kopplade till en aktiv jobbannons. Vi skickar fakturorna till företaget du jobbat för och sedan betalar vi ut din lön, precis som vanligt.</p>
+        <%= link_to 'Skapa en faktura', new_ezinvoice_path, class: 'reply-button' %><br><br>
+        <p style='font-weight: 550; color: #696868;'>Nedanför listas alla dina fakturor</p>
+        <% if current_user.profile.present? %>
+          <% if @ezinvoices.present? %>
+            <% @ezinvoices.each do |ezinvoice| %>
+              <span class="portfolio-resume-subheader">
+                ID: <%= ezinvoice.id.first(8) %><br>
+                Företag: <%= ezinvoice.company_name %><br>
+                Skapad: <%= ezinvoice.created_at.strftime("%Y %R") %><br>
+                Summa: <%= ezinvoice.amount %><br>
+                <% if ezinvoice.paid == true %>
+                  Fakturan är betald <br>
+                <% else %>
+                  Fakturan ej betald <br>
+                <% end %>
+              </span>
+              <% if ezinvoice.paid == false %>
+                <%= link_to 'Visa/redigera faktura', edit_ezinvoice_path(ezinvoice), class: 'button-green' %>
+                <%= link_to 'Radera', ezinvoice_path(ezinvoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %><br><br>
               <% else %>
-                Fakturan ej betald <br>
+                <%= link_to 'Visa utbetalningsinfo', ezpayment_path(ezinvoice), class: 'button-green' %>
               <% end %>
-            </span>
-            <% if ezinvoice.paid == false %>
-              <%= link_to 'Visa/redigera faktura', edit_ezinvoice_path(ezinvoice), class: 'button-green' %>
-              <%= link_to 'Radera', ezinvoice_path(ezinvoice), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-orange' %><br><br>
-            <% else %>
-              <%= link_to 'Visa utbetalningsinfo', ezpayment_path(ezinvoice), class: 'button-green' %>
             <% end %>
+          <% else %>
+            <p style='font-weight: 550; color: #696868;'>Inga fakturor ännu!</p>
           <% end %>
         <% else %>
-          <p style='font-weight: 550; color: #696868;'>Inga fakturor ännu!</p>
+          <p style='font-weight: 550; color: #696868;'>Skapa en profil innan du kan fakturera!</p>
         <% end %>
-      <% else %>
-        <p style='font-weight: 550; color: #696868;'>Skapa en profil innan du kan fakturera!</p>
-      <% end %>
+      </div>
+      <div class="will-paginate">
+          <%= will_paginate @ezinvoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
+      </div>
     </div>
-    <div class="will-paginate">
-        <%= will_paginate @ezinvoices, renderer: FoundationPagination::Rails, previous_label: 'Tidigare', next_label: 'Nästa', inner_window: 1, outer_window: 1 %>
-    </div>
+    <%= render 'footer_unscroll' %>
   </div>
 </div>
