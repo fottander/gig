@@ -1,50 +1,55 @@
-<div class="holy-grail-grid">
-  <div class="holy-grail-left-application">
-    <div class='holy-grail-left-application-box'>
-      <div class='contact-title'>
-        <span style='color: white; font-weight: 700;'>Tips för en bra ansökan</span>
+<div class="login-box-application" style='margin-left: 0em; margin-right: 0em; min-height: 100vh;'>
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1" >
+      <div class="login-box-social-section-application">
+        <div class='holy-grail-left-application-box' style='padding: 1em;'>
+          Tips för en bra ansökan <br>
+          Hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
+          Kontaktinformation ska ej finnas med i ansökan. Företaget kommer kontakta er genom chatten.
+        </div>
       </div>
-      Hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
-      Kontaktinformation ska ej finnas med i ansökan. Företaget kommer kontakta er genom chatten.
     </div>
-  </div>
-  <div class="holy-grail-middle">
-    <div class='breadcrumb-holder-small'>
-        <%= render_breadcrumbs separator: ' > ' %>
-    </div>
-    <div class="simple-form">
-      <div class='post-title'><h3>Skapa ansökan</h3></div>
-      <% if current_user.profile.present? %>
-        <%= form_for ([@job, @application]) do |f| %>
-          <% if @application.errors.any? %>
-            <% @application.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
+  <div class="small-12 medium-6 column small-order-1 medium-order-2">
+    <div class="login-box-social-section-application-chat" style='margin-bottom: 2em;'>
+      <div class='login-title-blue'>
+        <span style='color: white; font-weight: 700;'>Skapa ansökan</span><br>
+      </div>
+      <div class='application-chat-box' style='padding: 1em 0em 0em 0em;'>
+        <div class="simple-form" style='padding-bottom: 1em;'>
+          <% if current_user.profile.present? %>
+            <%= form_for ([@job, @application]) do |f| %>
+              <% if @application.errors.any? %>
+                <% @application.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              <% end %>
+              <div class="fieldContainer">
+                <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
+                <p style='color: #696868; font-size: 14px;'>
+                  - Varför passar just du för jobbet <br>
+                  - Tidigare erfarenheter som är relevant för jobbet <br>
+                  - Med mera
+                </p>
+                <%= f.text_area :message, placeholder: 'Skriv kortfattat meddelande (frivilligt)', style: 'height: 150%; max-width: 40em;' %>
+                <div class="fieldInfo" style='max-width: 46em;'>
+                  Tips <br>
+                  I din ansökan kommer din profil(användarnamn, ålder, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+                </div>
+              </div>
+              <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>
+                <span style='color: #f77d0e;'>Du har redan ansökt till detta jobbet!</span>
+              <% else %>
+                <p>
+                  <%= f.submit 'Skicka ansökan', class: 'reply-button' %>
+                </p>
+              <% end %>
             <% end %>
-          <% end %>
-          <div class="fieldContainer">
-            <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
-            <p style='color: #696868; font-size: 14px;'>
-              - Varför passar just du för jobbet <br>
-              - Tidigare erfarenheter som är relevant för jobbet <br>
-              - Med mera
-            </p>
-            <%= f.text_area :message, placeholder: 'Skriv kortfattat meddelande (frivilligt)' %>
-            <div class="fieldInfo">
-              Tips <br>
-              I din ansökan kommer din profil(användarnamn, ålder, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
-            </div>
-          </div>
-          <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>
-            <span style='color: #f77d0e;'>Du har redan ansökt till detta jobbet!</span>
           <% else %>
-            <p>
-              <%= f.submit 'Skicka ansökan', class: 'reply-button' %>
-            </p>
+          <p>Var vänlig skapa en profil innan du ansöker till jobb <%= link_to 'Klicka här', dashboards_path %></p>
           <% end %>
-        <% end %>
-      <% else %>
-      <p>Var vänlig skapa en profil innan du ansöker till jobb <%= link_to 'Klicka här', dashboards_path %></p>
-      <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

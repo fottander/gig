@@ -1,41 +1,46 @@
-<div class="holy-grail-grid">
-  <div class="holy-grail-left-application">
-    <div class='holy-grail-left-application-box'>
-      <div class='holy-grail-left-application-box-title'>
-        TIPS FÖR EN BRA ANSÖKAN <br>
+<div class="login-box-application" style='margin-left: 0em; margin-right: 0em; min-height: 100vh;'>
+  <div class="row collapse expanded">
+      <div class="small-12 medium-6 column small-order-2 medium-order-1" >
+        <div class="login-box-social-section-application">
+          <div class='holy-grail-left-application-box' style='padding: 1em;'>
+            Tips för en bra ansökan <br>
+            Hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
+            Kontaktinformation ska ej finnas med i ansökan. Företaget kommer kontakta er genom chatten.
+          </div>
+        </div>
       </div>
-      Hur utförlig ditt meddelande skrivs och hur bra din profil matchar jobbet ökar dina chanser för att få jobbet. <br>
-      Kontaktinformation ska ej finnas med i ansökan.
-    </div>
-  </div>
-  <div class="holy-grail-middle">
-    <div class='breadcrumb-holder-small'>
-        <%= render_breadcrumbs separator: ' > ' %>
-    </div>
-    <div class="simple-form">
-      <div class='post-title'><h3>Ändra ansökan</h3></div>
-      <% if current_user.profile.present? %>
-        <% if current_user.profile == @application.profile %>
-          <%= form_for ([@job, @application]) do |f| %>
-            <% if @application.errors.any? %>
-              <% @application.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+    <div class="small-12 medium-6 column small-order-1 medium-order-2">
+      <div class="login-box-social-section-application-chat" style='margin-bottom: 2em;'>
+        <div class='login-title-blue'>
+          <span style='color: white; font-weight: 700;'>Ändra ansökan</span><br>
+        </div>
+        <div class='application-chat-box' style='padding: 1em 0em 0em 0em;'>
+          <div class="simple-form" style='padding-bottom: 1em;'>
+            <% if current_user.profile.present? %>
+              <% if current_user.profile == @application.profile %>
+                <%= form_for ([@job, @application]) do |f| %>
+                  <% if @application.errors.any? %>
+                    <% @application.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  <% end %>
+
+                  <div class="fieldContainer">
+                    <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
+                    <%= f.text_area :message, placeholder: 'Skriv ett kortfattat meddelande' %>
+                    <div class="fieldInfo">
+                      Tips <br>
+                      I din ansökan kommer din profil(användarnamn, ålder, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
+                    </div>
+                  </div>
+                  <%= f.submit 'Ändra', class: 'reply-button' %>
+                  <%= link_to 'Radera ansökan', job_application_path(@job, @application), data: { confirm: "Är du säker?" }, method: :delete, class: 'profile-button' %>
+                <% end %>
               <% end %>
             <% end %>
-
-            <div class="fieldContainer">
-              <%= f.label :message, 'Öka dina chanser genom att utöka din ansökan med ett kort meddelande till företaget (frivilligt)', class: 'form-text' %>
-              <%= f.text_area :message, placeholder: 'Skriv ett kortfattat meddelande' %>
-              <div class="fieldInfo">
-                Tips <br>
-                I din ansökan kommer din profil(användarnamn, ålder, beskrivning etc.) att bifogas. Skriv därför ett meddelande baserat just på det jobb du söker till. Håll utkik i din kontrollpanel och mailkorg för svar på ansökan.
-              </div>
-            </div>
-            <%= f.submit 'Ändra', class: 'reply-button' %>
-            <%= link_to 'Radera ansökan', job_application_path(@job, @application), data: { confirm: "Är du säker?" }, method: :delete, class: 'profile-button' %>
-          <% end %>
-        <% end %>
-      <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

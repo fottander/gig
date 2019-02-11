@@ -3,7 +3,7 @@
     <div class='job-<%= job.id %>'>
       <div class="card profile-card-action-icons">
         <div class="card-section">
-          <div class="profile-card-header" style='background-color: #F5F5F5;'>
+          <div class="profile-card-header">
             <div class="profile-card-avatar">
               <%= link_to image_tag(job.categories.first.avatar.url, class: "avatar-image"), job_path(job) %>
             </div>
