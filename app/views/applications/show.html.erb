@@ -86,7 +86,7 @@
                     </p>
                   <% else %>
                     <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
-                      Har du inte genomfört jobbet och vill ta bort anställningen, gör det nedan.<br>
+                      Har du inte genomfört jobbet, ta bort anställningen nedan.<br>
                       <%= link_to 'Ta bort anställning', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
                     </p>
                   <% end %>
@@ -197,7 +197,7 @@
                   <hr style='margin-bottom: 10px; margin-top: -10px;'>
                 <% end %>
               <% else %>
-                <span>Inga chattsvar ännu</span>
+                <div style='text-align: center;'>Inga chattsvar ännu</div>
               <% end %>
             <% end %>
           <% elsif @job.company_id == current_company.id %>
@@ -222,7 +222,7 @@
                 <hr>
               <% end %>
             <% else %>
-              <p>Inga chattsvar ännu</p>
+              <div style='text-align: center;'>Inga chattsvar ännu</div>
             <% end %>
           <% end %>
         </div>
