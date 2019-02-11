@@ -63,163 +63,171 @@
     </div>
   </div>
 </div>
-<div class="holy-grail-grid-show">
-  <div class="holy-grail-left-application">
-    <p class="portfolio-resume-subheader">
-    <% if @application.hired == true %>
-      <% if @application.complete == false %>
-        <% if current_user.present? %>
-          <% if @application.profile_id == current_user.profile.id %>
-            <div class='invoice-title'>
-              <span style='color: white; font-weight: 700;'>Skapa utbetalning baserad på jobbet</span><br>
-            </div>
-            <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa utbetalning? Tveka inte att <%= link_to 'kontakta oss', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %> eller ring 0707301078</p>
-            <%= link_to 'Begär utbetalning', new_invoice_path(application_id: @application.id), class: 'profile-button-expand', style: 'margin-left: 1.2em; margin-right: 1.2em;' %><br>
-            <% if @application.last_day.present? %>
-              <% if @application.last_day > Date.today %>
-                <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
-                  Kontakta företaget genom att ringa eller skriva i chatten bredvid innan du lämnar återbud.<br>
-                  <%= link_to 'Lämna återbud', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
-                </p>
-              <% else %>
-                <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
-                  Har du inte genomfört jobbet och vill ta bort anställningen, gör det nedan.<br>
-                  <%= link_to 'Ta bort anställning', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
-                </p>
+
+<div class="login-box-application">
+  <div class="row collapse expanded">
+    <div class="small-12 medium-6 column small-order-2 medium-order-1" >
+      <div class="login-box-social-section-application">
+        <p class="portfolio-resume-subheader">
+        <% if @application.hired == true %>
+          <% if @application.complete == false %>
+            <% if current_user.present? %>
+              <% if @application.profile_id == current_user.profile.id %>
+                <div class='login-title'>
+                  <span style='color: white; font-weight: 700;'>Skapa utbetalning baserad på jobbet</span><br>
+                </div>
+                <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>Hjälp med att skapa utbetalning? Tveka inte att <%= link_to 'kontakta oss', messages_path, style: 'font-size: 14px; text-transform: lowercase;' %> eller ring 0707301078</p>
+                <%= link_to 'Begär utbetalning', new_invoice_path(application_id: @application.id), class: 'profile-button-expand', style: 'margin-left: 1.2em; margin-right: 1.2em;' %><br>
+                <% if @application.last_day.present? %>
+                  <% if @application.last_day > Date.today %>
+                    <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
+                      Kontakta företaget genom att ringa eller skriva i chatten bredvid innan du lämnar återbud.<br>
+                      <%= link_to 'Lämna återbud', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+                    </p>
+                  <% else %>
+                    <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
+                      Har du inte genomfört jobbet och vill ta bort anställningen, gör det nedan.<br>
+                      <%= link_to 'Ta bort anställning', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+                    </p>
+                  <% end %>
+                <% else %>
+                  <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
+                    Har du inte genomfört jobbet och vill ta bort anställningen, gör det nedan.<br>
+                    <%= link_to 'Ta bort anställning', revert_job_application_path(@application.job, @application), method: :patch,  data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+                  </p>
+                <% end %>
               <% end %>
             <% else %>
+              <div class='holy-grail-left-application-box'>
+                Personen har blivit anställd.<br>
+                Faktura skickas när jobb genomförts. <br>
+                Diskutera & chatta.<br>
+                Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
+              </div><br>
               <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
-                Har du inte genomfört jobbet och vill ta bort anställningen, gör det nedan.<br>
-                <%= link_to 'Ta bort anställning', revert_job_application_path(@application.job, @application), method: :patch,  data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
+                Kontakta personen genom chatten innan du avanställer.<br>
+                <%= link_to 'Avanställ/Ta bort', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
               </p>
             <% end %>
-          <% end %>
-        <% else %>
-          <div class='holy-grail-left-application-box'>
-            Personen har blivit anställd.<br>
-            Faktura skickas när jobb genomförts. <br>
-            Diskutera & chatta.<br>
-            Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
-          </div><br>
-          <p style='color: #696868; text-align: center; line-height: 1.2; font-size: 14px;'>
-            Kontakta personen genom chatten innan du avanställer.<br>
-            <%= link_to 'Avanställ/Ta bort', revert_job_application_path(@application.job, @application), method: :patch, data: { confirm: "Är du säker?" }, class: 'profile-button-small' %>
-          </p>
-        <% end %>
-      <% else %>
-        <div class='holy-grail-left-application-box'>
-          Jobbet har genomförts! <br>
-          Faktura har skickats. <br>
-          Nya fakturor hittas i din kontrollpanel.
-        </div>
-      <% end %>
-    <% else %>
-      <% if current_user.present? %>
-        <div class='holy-grail-left-application-box'>
-          Diskutera & chatta.<br>
-          Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
-        </div>
-      <% end %>
-      </p>
-      <% if current_company.present? %>
-        <% if @job.company_id == current_company.id %>
-        <div class='application-title'>
-          <span style='color: white; font-weight: 700;'>Anställ <%= @application.profile_username %></span><br>
-        </div>
-        <div class='holy-grail-left-application-box-small'>
-          Dags att anställa? <br>
-          Anställningen får högst vara 30 dagar. <br>
-          Lönen anges som bruttolön exkl. semesterersättning.
-          <div class="fieldContainerHire">
-            <span style='color: #f77d0e;'>Läs mer om att anställa här.</span>
-            <div class="fieldInfoHire">
-              När du anställer är det viktigt att du och den anställde diskuterat startdag och sista dag för anställningen. Ni ska också komma överens om lön. Lönen anges som bruttolön exklusive semesterersättning. <br>
-              En anställning kan inte vara längre än 30 dagar. Om ni skulle vilja anställa en person längre tid kan en ny anställning skapas efter att den första slutförts.
-            </div>
-          </div>
-        </div>
-          <%= form_tag hire_job_application_path(@job, @application), method: :patch do %>
-            <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
-            <%= date_field_tag :first_day, required: true %>
-            <%= label_tag :last_day, 'Sista dag(t.ex. 2018-12-30)', class: 'invoice-details-date' %>
-            <%= date_field_tag :last_day, required: true %>
-            <%= label_tag :salary, 'Bruttolön(t.ex. 150)kr/timma', class: 'invoice-details-date' %>
-            <div class="fieldContainer">
-              <%= text_field_tag :salary, nil, placeholder: 'Endast siffror utan decimaler' %>
-              <div class="fieldInfo">
-                Ange bruttolön exkl. semesterersättning
-              </div>
-            </div>
-            <span><%= check_box_tag('add_ob', value = true, checked = false) %> OB-tillägg enligt avtal</span>
-            <span class="fieldContainerHire">
-               <%= link_to 'ⓘ', faqs_path %>
-              <div class="fieldInfoHire" style="font-size: 0.8em;">
-                OB tillägget avser Hotell & Restaurangfackets riktlinjer för OB1 & OB2. Klicka på ⓘ för detaljer.
-              </div>
-            </span>
-            <%= hidden_field_tag 'hired', true %>
-            <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
-          <% end %>
-        <% end %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="holy-grail-middle">
-    <div class="comment-section">
-      <div class='application-title'>
-        <span style='color: white; font-weight: 700;'>Chatt</span>
-      </div>
-      <% if current_user.present? %>
-        <% if @application.profile_id == current_user.profile.id %>
-          <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-            <div class="fieldContainer" style='margin-top: 10px;'>
-              <%= text_area_tag :comment, nil, placeholder: "Skriv till #{@job.company_username}" %>
-              <% if @application.hired == false %>
-                <div class="fieldInfo">
-                  Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
-                </div>
-              <% end %>
-            </div>
-            <%= submit_tag 'Skicka', class: 'reply-button', style: 'min-width: 200px;' %>
-          <% end %>
-          <% if @comments.present? %>
-            <% @comments.each do |comment| %>
-              <strong><%= comment.profile_username %></strong>
-              <strong style='color: #f77d0e;'><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
-              <div class="comment-section-comment">
-                <%= simple_format comment.comment %>
-              </div>
-              <hr style='margin-bottom: 10px; margin-top: -10px;'>
-            <% end %>
           <% else %>
-            <span>Inga chattsvar ännu</span>
-          <% end %>
-        <% end %>
-      <% elsif @job.company_id == current_company.id %>
-        <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
-          <div class="fieldContainer" style='margin-top: 10px;'>
-            <%= text_area_tag :comment, nil, placeholder: "Skriv till #{@application.profile_username}" %>
-            <% if @application.hired == false %>
-              <div class="fieldInfo">
-                Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
-              </div>
-            <% end %>
-          </div>
-          <%= submit_tag 'Skicka', class: 'reply-button', style: 'min-width: 200px;' %>
-        <% end %>
-        <% if @comments.present? %>
-          <% @comments.each do |comment| %>
-            <strong style='color: #f77d0e;'><%= comment.profile_username %></strong>
-            <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
-            <div class="comment-section-comment">
-              <%= simple_format comment.comment %>
+            <div class='holy-grail-left-application-box'>
+              Jobbet har genomförts! <br>
+              Faktura har skickats. <br>
+              Nya fakturor hittas i din kontrollpanel.
             </div>
-            <hr>
           <% end %>
         <% else %>
-          <p>Inga chattsvar ännu</p>
+          <% if current_user.present? %>
+            <div class='holy-grail-left-application-box'>
+              Diskutera & chatta.<br>
+              Kom ihåg att vara tydlig & ha ett bra bemötande.<br>
+            </div>
+          <% end %>
+        </p>
+          <% if current_company.present? %>
+            <% if @job.company_id == current_company.id %>
+              <div class='login-title'>
+                <span style='color: white; font-weight: 700;'>Anställ <%= @application.profile_username %></span>
+              </div>
+              <div class='holy-grail-left-application-box-small' style='margin-top: 1em;'>
+                Dags att anställa? <br>
+                Anställningen får högst vara 30 dagar. <br>
+                Lönen anges som bruttolön exkl. semesterersättning.
+                <div class="fieldContainerHire">
+                  <span style='color: #f77d0e;'>Läs mer om att anställa här.</span>
+                  <div class="fieldInfoHire">
+                    När du anställer är det viktigt att du och den anställde diskuterat startdag och sista dag för anställningen. Ni ska också komma överens om lön. Lönen anges som bruttolön exklusive semesterersättning. <br>
+                    En anställning kan inte vara längre än 30 dagar. Om ni skulle vilja anställa en person längre tid kan en ny anställning skapas efter att den första slutförts.
+                  </div>
+                </div>
+              </div>
+              <%= form_tag hire_job_application_path(@job, @application), method: :patch, class: 'application-fields' do %>
+                <%= label_tag :first_day, 'Startdag(t.ex. 2018-11-01)', class: 'invoice-details-date' %>
+                <%= date_field_tag :first_day, required: true %>
+                <%= label_tag :last_day, 'Sista dag(t.ex. 2018-12-30)', class: 'invoice-details-date' %>
+                <%= date_field_tag :last_day, required: true %>
+                <%= label_tag :salary, 'Bruttolön(t.ex. 150)kr/timma', class: 'invoice-details-date' %>
+                <div class="fieldContainer">
+                  <%= text_field_tag :salary, nil, placeholder: 'Endast siffror utan decimaler' %>
+                  <div class="fieldInfo">
+                    Ange bruttolön exkl. semesterersättning
+                  </div>
+                </div>
+                <span><%= check_box_tag('add_ob', value = true, checked = false) %> OB-tillägg enligt avtal</span>
+                <span class="fieldContainerHire">
+                   <%= link_to 'ⓘ', faqs_path %>
+                  <div class="fieldInfoHire" style="font-size: 0.8em;">
+                    OB tillägget avser Hotell & Restaurangfackets riktlinjer för OB1 & OB2. Klicka på ovan ⓘ för detaljer.
+                  </div>
+                </span>
+                <%= hidden_field_tag 'hired', true %>
+                <%= submit_tag 'Anställ', data: { confirm: 'Är du säker?'}, class: 'profile-button-expand', style:'width: 100%;' %>
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+    </div>
+    <div class="small-12 medium-6 column small-order-1 medium-order-2">
+      <div class="login-box-social-section-application-chat">
+        <div class='login-title-blue'>
+          <span style='color: white; font-weight: 700;'>Chatt</span><br>
+        </div>
+        <div class='application-chat-box'>
+          <% if current_user.present? %>
+            <% if @application.profile_id == current_user.profile.id %>
+              <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+                <div class="fieldContainer" style='margin-top: 10px;'>
+                  <%= text_area_tag :comment, nil, placeholder: "Skriv till #{@job.company_username}" %>
+                  <% if @application.hired == false %>
+                    <div class="fieldInfo">
+                      Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
+                    </div>
+                  <% end %>
+                </div>
+                <%= submit_tag 'Skicka', class: 'reply-button-expand', style: 'width: 70%;' %>
+              <% end %>
+              <% if @comments.present? %>
+                <% @comments.each do |comment| %>
+                  <strong><%= comment.profile_username %></strong>
+                  <strong style='color: #f77d0e;'><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
+                  <div class="comment-section-comment">
+                    <%= simple_format comment.comment %>
+                  </div>
+                  <hr style='margin-bottom: 10px; margin-top: -10px;'>
+                <% end %>
+              <% else %>
+                <span>Inga chattsvar ännu</span>
+              <% end %>
+            <% end %>
+          <% elsif @job.company_id == current_company.id %>
+            <%= form_tag job_application_comments_path(@job, @application, @comment) do %>
+              <div class="fieldContainer" style='margin-top: 10px;'>
+                <%= text_area_tag :comment, nil, placeholder: "Skriv till #{@application.profile_username}" %>
+                <% if @application.hired == false %>
+                  <div class="fieldInfo">
+                    Glöm inte bestämma första jobbdag, sista jobbdag samt lön.
+                  </div>
+                <% end %>
+              </div>
+              <%= submit_tag 'Skicka', class: 'reply-button-expand', style: 'width: 70%;' %><br>
+            <% end %>
+            <% if @comments.present? %>
+              <% @comments.each do |comment| %>
+                <strong style='color: #f77d0e;'><%= comment.profile_username %></strong>
+                <strong><%= comment.company_username %></strong> | <%= comment.created_at.strftime("%F %R") %> |<br>
+                <div class="comment-section-comment">
+                  <%= simple_format comment.comment %>
+                </div>
+                <hr>
+              <% end %>
+            <% else %>
+              <p>Inga chattsvar ännu</p>
+            <% end %>
+          <% end %>
+        </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
