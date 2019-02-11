@@ -13,6 +13,7 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    render layout: 'mobile_scroll_layout'
   end
 
   def show
@@ -39,6 +40,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = Profile.find(params[:id])
+    render layout: 'mobile_scroll_layout'
   end
 
   def update

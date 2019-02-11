@@ -22,6 +22,7 @@ class JobsController < ApplicationController
 
   def edit
     @job = Job.find(params[:id])
+    render layout: 'mobile_scroll_layout'
   end
 
   def update

@@ -18,78 +18,79 @@
   </div>
 
   <div class="holy-grail-middle">
-    <div class='simple-form'>
-      <div class='post-title'><h3>Redigera konto</h3></div>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= devise_error_messages! %>
+    <div class="holy-grail-vh">
+      <div class='simple-form'>
+        <div class='post-title'><h3>Redigera konto</h3></div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
 
-        <div class="field">
-          <%= f.label :email, class: 'form-text' %>
-          <%= f.email_field :email, autofocus: true %>
-        </div>
+          <div class="field">
+            <%= f.label :email, class: 'form-text' %>
+            <%= f.email_field :email, autofocus: true %>
+          </div>
 
-        <div class="field">
-          <%= f.label :first_name, 'Förnamn', class: 'form-text' %>
-          <%= f.text_field :first_name %>
-        </div>
+          <div class="field">
+            <%= f.label :first_name, 'Förnamn', class: 'form-text' %>
+            <%= f.text_field :first_name %>
+          </div>
 
-        <div class="field">
-          <%= f.label :last_name, 'Efternamn', class: 'form-text' %>
-          <%= f.text_field :last_name %>
-        </div>
+          <div class="field">
+            <%= f.label :last_name, 'Efternamn', class: 'form-text' %>
+            <%= f.text_field :last_name %>
+          </div>
 
-        <div class="field">
-          <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
-          <%= f.text_field :phone %>
-        </div>
-        <div style='color: #f77d0e; font-weight: 600;'>Betalningsinformation</div>
-        <div class="field">
-          <%= f.label :pers_num, 'Personnummer(10 siffror, ex. 751212xxxx)', class: 'form-text' %>
-          <%= f.text_field :pers_num %>
-        </div>
+          <div class="field">
+            <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
+            <%= f.text_field :phone %>
+          </div>
+          <div style='color: #f77d0e; font-weight: 600;'>Betalningsinformation</div>
+          <div class="field">
+            <%= f.label :pers_num, 'Personnummer(10 siffror, ex. 751212xxxx)', class: 'form-text' %>
+            <%= f.text_field :pers_num %>
+          </div>
 
-        <div class="field">
-          <%= f.label :bank, 'Bank', class: 'form-text' %>
-          <%= f.text_field :bank %>
-        </div>
+          <div class="field">
+            <%= f.label :bank, 'Bank', class: 'form-text' %>
+            <%= f.text_field :bank %>
+          </div>
 
-        <div class="field">
-          <%= f.label :clear_nr, 'Clearingnummer', class: 'form-text' %>
-          <%= f.text_field :clear_nr %>
-        </div>
+          <div class="field">
+            <%= f.label :clear_nr, 'Clearingnummer', class: 'form-text' %>
+            <%= f.text_field :clear_nr %>
+          </div>
 
-        <div class="field">
-          <%= f.label :account_nr, 'Kontonummer', class: 'form-text' %>
-          <%= f.text_field :account_nr %>
-        </div>
+          <div class="field">
+            <%= f.label :account_nr, 'Kontonummer', class: 'form-text' %>
+            <%= f.text_field :account_nr %>
+          </div>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <p class='truncated-paragraph-pass2'>
-          <%= link_to 'Ändra lösenord', '', class: "read-more-pass2", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem; border: none;' %>
-        </p>
-        <span class='normal-paragraph-pass2' style="display: none;">
-          <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
-          <%= f.password_field :current_password, autocomplete: "off" %>
-          <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
-          <i>(lämna tomt om du inte vill ändra lösenord)</i>
-          <% if @minimum_password_length %>
-            <em><%= @minimum_password_length %> tecken minimum</em>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-          <%= f.password_field :password, autocomplete: "off" %>
-          <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </span>
 
-        <div class="actions">
-          <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
-          <%= f.submit "Spara", class: 'reply-button' %>
-        </div>
-      <% end %>
+          <p class='truncated-paragraph-pass2'>
+            <%= link_to 'Ändra lösenord', '', class: "read-more-pass2", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem; border: none;' %>
+          </p>
+          <span class='normal-paragraph-pass2' style="display: none;">
+            <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
+            <%= f.password_field :current_password, autocomplete: "off" %>
+            <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
+            <i>(lämna tomt om du inte vill ändra lösenord)</i>
+            <% if @minimum_password_length %>
+              <em><%= @minimum_password_length %> tecken minimum</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off" %>
+            <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          </span>
+
+          <div class="actions">
+            <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
+            <%= f.submit "Spara", class: 'reply-button' %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <%= render 'footer_unscroll' %>
   </div>
-
 </div>

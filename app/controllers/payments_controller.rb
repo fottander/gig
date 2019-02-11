@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
     @ezinvoices = Ezinvoice.where(profile_id: current_user.profile.id)
     @ezinvoices_salary_paid = @ezinvoices.salary_paid.paginate(page: params[:ez_salary_paid])
     @ezinvoices_salary_not_paid = @ezinvoices.salary_not_paid.paginate(page: params[:ez_salary_not_paid])
+    render layout: 'mobile_scroll_layout'
   end
 
   def show
@@ -14,6 +15,7 @@ class PaymentsController < ApplicationController
     @company = @invoice.company
     @user = @invoice.user
     @profile = @user.profile
+    render layout: 'mobile_scroll_layout'
     respond_to do |format|
       format.html
       format.pdf do

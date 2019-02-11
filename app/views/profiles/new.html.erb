@@ -5,41 +5,47 @@
     <%= link_to 'Konto', edit_user_registration_path, class: 'button-menu' %><br>
     <%= link_to 'Skapa profil', new_profile_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
     <%= link_to 'Fakturera utan företag', ezinvoices_path, class: 'button-menu' %><br>
-    <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %><br>
+    <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
+    <div class="holy-grail-logo">
+      <span class='q-font'>Q</span><span class='nekt-font'>NEKT</span>
+    </div>
   </div>
 
   <div class="holy-grail-middle">
-    <div class="simple-form">
-      <div class='post-title'><h3>Skapa profil</h3></div>
-      <p style= 'color: #f77d0e; font-size: 12px;'>
-        Innan du börjar söka jobb behöver du skapa en riktigt bra profil.<br>
-        Det som fylls i kommer synas i dina ansökningar.
-      </p>
-      <%= form_for @profile do |f| %>
-      <% if @profile.errors.any? %>
-        <% @profile.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+    <div class="holy-grail-vh">
+      <div class="simple-form">
+        <div class='post-title'><h3>Skapa profil</h3></div>
+        <p style= 'color: #f77d0e; font-size: 12px;'>
+          Innan du börjar söka jobb behöver du skapa en riktigt bra profil.<br>
+          Det som fylls i kommer synas i dina ansökningar.
+        </p>
+        <%= form_for @profile do |f| %>
+        <% if @profile.errors.any? %>
+          <% @profile.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         <% end %>
-      <% end %>
-      <%= f.label :age, '* Födelsedatum', class: 'form-text' %>
-      <%= f.date_field :age, class: 'input-mini' %>
-      <%= f.label :description, '* Beskrivning', class: 'form-text', style: 'margin-bottom: -5px;' %>
-      <%= link_to 'ⓘ Tips kolla in denna exempelprofil', exampleprofiles_path, target: :_blank, class: 'text-link-orange' %>
-      <div class="fieldContainer">
-        <%= f.text_area :description, rows: 5, style: 'width:100%;', placeholder: 'En bra beskrivning av dig själv ökar dina chanser när du söker jobb' %>
-        <div class="fieldInfo">
-          Tips <br>
-          Här finns mycket utrymme för att beskriva dig på bästa sätt som ökar dina chanser att få jobb. Berätta om dig som person, som ett CV. Vem är du? Varför ska man anställa just dig? Vilka typer av jobb passar dig? Vad har du för andra erfarenheter?
+        <%= f.label :age, '* Födelsedatum', class: 'form-text' %>
+        <%= f.date_field :age, class: 'input-mini' %>
+        <%= f.label :description, '* Beskrivning', class: 'form-text', style: 'margin-bottom: -5px;' %>
+        <%= link_to 'ⓘ Tips kolla in denna exempelprofil', exampleprofiles_path, target: :_blank, class: 'text-link-orange' %>
+        <div class="fieldContainer">
+          <%= f.text_area :description, rows: 5, style: 'width:100%;', placeholder: 'En bra beskrivning av dig själv ökar dina chanser när du söker jobb' %>
+          <div class="fieldInfo">
+            Tips <br>
+            Här finns mycket utrymme för att beskriva dig på bästa sätt som ökar dina chanser att få jobb. Berätta om dig som person, som ett CV. Vem är du? Varför ska man anställa just dig? Vilka typer av jobb passar dig? Vad har du för andra erfarenheter?
+          </div>
         </div>
+        <%= f.label :category_ids, '* Kategorier', class: 'form-text' %>
+        <div style='font-size: 12px;'>Vilken/vilka kategorier kommer du söka jobb i?</div>
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
+        <%= f.label :city_ids, '* Stad', class: 'form-text' %>
+        <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
+        <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
+        <%= f.submit 'Skapa', class: 'reply-button' %>
+        <% end %>
       </div>
-      <%= f.label :category_ids, '* Kategorier', class: 'form-text' %>
-      <div style='font-size: 12px;'>Vilken/vilka kategorier kommer du söka jobb i?</div>
-      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {:multiple => true} %>
-      <%= f.label :city_ids, '* Stad', class: 'form-text' %>
-      <%= f.collection_select(:city_ids, City.all, :id, :name, { prompt: 'Välj stad' }, { class: 'input-medium' }) %>
-      <%= link_to 'Avbryt', dashboards_path, class: 'cancel-button' %>
-      <%= f.submit 'Skapa', class: 'reply-button' %>
-      <% end %>
     </div>
+    <%= render 'footer_unscroll' %>
   </div>
 </div>

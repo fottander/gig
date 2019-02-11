@@ -3,10 +3,12 @@ class EzinvoicesController < ApplicationController
 
   def index
     @ezinvoices = Ezinvoice.where(user_id: current_user.id).paginate(page: params[:page])
+    render layout: 'mobile_scroll_layout'
   end
 
   def new
     @ezinvoice = Ezinvoice.new
+    render layout: 'mobile_scroll_layout'
   end
 
   def create
@@ -29,6 +31,7 @@ class EzinvoicesController < ApplicationController
 
   def edit
     @ezinvoice = Ezinvoice.find(params[:id])
+    render layout: 'mobile_scroll_layout'
   end
 
   def update
