@@ -11,12 +11,12 @@
       </div>
     </div>
     <div class="small-12 medium-6 column small-order-1 medium-order-2">
-      <div class="login-box-social-section-application-chat">
+      <div class="login-box-social-section-application-chat" style='margin-bottom: 2em;'>
         <div class='login-title-blue'>
           <span style='color: white; font-weight: 700;'>Skapa annons</span><br>
         </div>
         <div class='application-chat-box'>
-          <div class="simple-form" style='padding-bottom: 1em;'>
+          <div class="simple-form" >
             <%= form_for @job do |f| %>
               <% if @job.errors.any? %>
                 <% @job.errors.full_messages.each do |message| %>
