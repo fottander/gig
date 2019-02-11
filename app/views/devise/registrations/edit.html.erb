@@ -12,6 +12,9 @@
     <%= link_to 'Fakturera utan företag', ezinvoices_path, class: 'button-menu' %><br>
     <%= link_to 'Hitta jobb', jobs_path, class: 'button-menu' %>
     <%= link_to "Avsluta konto", registration_path(resource_name), data: { confirm: "Är du säker?" }, method: :delete, class: 'button-menu' %>
+    <div class="holy-grail-logo">
+      <span class='q-font'>Q</span><span class='nekt-font'>NEKT</span>
+    </div>
   </div>
 
   <div class="holy-grail-middle">
@@ -86,6 +89,7 @@
         </div>
       <% end %>
     </div>
+    <%= render 'footer_unscroll' %>
   </div>
 
 </div>

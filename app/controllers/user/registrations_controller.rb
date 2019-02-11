@@ -20,7 +20,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit
-    super
+    render layout: 'mobile_scroll_layout'
   end
 
   def destroy
