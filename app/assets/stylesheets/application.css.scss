@@ -28,7 +28,7 @@
   font: italic 14px/110% Georgia,'Times New Roman',serif;
   z-index: 2;
   vertical-align:middle;
-  background-color: #F8F8F8;
+  background-color: #f9f5ee;
   color: #5D5C5C;
 }
 
@@ -840,6 +840,94 @@ input[type='file'] {
   text-align: center;
 }
 
+.login-box-social-section-login {
+  height: 100%;
+  margin-top: 1em;
+  max-width: 25em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: #ffff;
+    box-shadow: 5px 5px 10px rgba(51,51,51,.3);
+}
+
+.login-box-social-section-login .login-title {
+  background-color: #f77d0e;
+  font-weight: 800;
+  font: normal 18px Montserrat,Arial,sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.login-box-social-section-login .login-title-blue {
+  background-color: #3db5e6;
+  font-weight: 800;
+  font: normal 18px Montserrat,Arial,sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.login-box-social-section-application-chat {
+  height: 100%;
+  margin-top: 1em;
+  max-width: 35em;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffff;
+    box-shadow: 5px 5px 10px rgba(51,51,51,.3);
+}
+
+.login-box-social-section-application-chat .application-chat-box {
+  padding: 1em;
+}
+
+.login-box-social-section-application-chat .login-title {
+  background-color: #f77d0e;
+  font-weight: 800;
+  font: normal 18px Montserrat,Arial,sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.login-box-social-section-application-chat .login-title-blue {
+  background-color: #3db5e6;
+  font-weight: 800;
+  font: normal 18px Montserrat,Arial,sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.login-box-social-section-application {
+  height: 100%;
+  margin-top: 1em;
+  max-width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background: #ffff;
+    box-shadow: 5px 5px 10px rgba(51,51,51,.3);
+}
+
+.login-box-social-section-application .application-fields {
+  padding: 1em;
+}
+
+.login-box-social-section-application .login-title {
+  background-color: #f77d0e;
+  font-weight: 800;
+  font: normal 18px Montserrat,Arial,sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
+.login-box-social-section-application .login-title-blue {
+  background-color: #3db5e6;
+  font-weight: 800;
+  font: normal 18px Montserrat,Arial,sans-serif;
+  padding: 10px;
+  text-align: center;
+}
+
 .login-box-social-section-application-chat {
   height: 100%;
   margin-top: 1em;
@@ -1546,6 +1634,12 @@ input[type='file'] {
    .topbar-responsive-new .menu #nav-head-button a {
     font-size: 0.6em;
     padding: 0.7em 0.6em 0.7em 0.6em;
+   }
+ }
+
+ @media screen and (max-width: 39.9375em) {
+   .topbar-responsive-new .menu #nav-head-button a {
+    margin-top: 1em;
    }
  }
 
