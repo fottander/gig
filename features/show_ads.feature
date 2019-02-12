@@ -21,7 +21,7 @@ Feature: Show job ads
 
     Scenario: I see job ads
       Given I am on the home page
-      And I click nav "HITTA JOBB"
+      And I click nav "Hitta jobb"
       And I should see "Alla jobb"
       And I should see "målare"
       And I should see "måla hus"

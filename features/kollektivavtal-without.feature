@@ -55,7 +55,7 @@ Background:
     And I should see "Utbetald summa: 713 SEK"
     And I should not see "pensionsinbetalning"
     And I should see "Sociala avgifter & försäkring(0.3%): 3 SEK"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as company "fisken@mail.com"
     Given I am on control panel page
     And I click "Visa"
@@ -64,7 +64,7 @@ Background:
     And I should see "Arbetsgivaravgifter(31,42%): 352"
     And I should see "Sociala avgifter & försäkring(0.3%): 3"
     And I should see "Belopp ex. moms: 1475"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as admin "admin@yahoo.com"
     Given I am on the administrations page
     And I click "Fakturor"
@@ -104,7 +104,7 @@ Background:
     And I should see "Arbetsgivaravgifter(31,42%): 320 SEK"
     And I should see "Sociala avgifter & försäkring(4.6%): 47 SEK"
     And I should see "Varav pensionsinbetalning: 44 SEK"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as company "felix@mail.com"
     Given I am on control panel page
     And I click "Visa"
@@ -114,7 +114,7 @@ Background:
     And I should see "Sociala avgifter & försäkring(4.6%): 52"
     And I should see "Löneskatt på pensionskostnader: 12"
     And I should see "Belopp ex. moms: 1536"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as admin "admin@yahoo.com"
     Given I am on the administrations page
     And I click "Fakturor"
@@ -153,7 +153,7 @@ Background:
     And I should see "Utbetald summa: 713 SEK"
     And I should not see "pensionsinbetalning"
     And I should see "Sociala avgifter & försäkring(0.3%): 3 SEK"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as company "johan@mail.com"
     Given I am on control panel page
     And I click "Visa"
@@ -162,7 +162,7 @@ Background:
     And I should see "Arbetsgivaravgifter(31,42%): 352"
     And I should see "Sociala avgifter & försäkring(0.3%): 3"
     And I should see "Belopp ex. moms: 1475"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as admin "admin@yahoo.com"
     Given I am on the administrations page
     And I click "Fakturor"

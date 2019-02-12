@@ -35,10 +35,10 @@ Feature: Extend invoice and add feedback
     Scenario: I give feedback with extended post, terms and rating
       Given I am logged in as user "felix@mail.com"
       Given I am on the home page
-      And I click "ALLA JOBBSÖKARE"
+      And I click "Alla jobbsökare"
       And I click "Fisken"
       And I should not see "Betyg"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I click "Visa/Kontrollera"
@@ -61,15 +61,15 @@ Feature: Extend invoice and add feedback
       And I select "5" from "rating"
       And I click "Skicka betyg"
       And I should see "Sparat!"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as user "felix@mail.com"
       Given I am on the home page
-      And I click "ALLA JOBBSÖKARE"
+      And I click "Alla jobbsökare"
       And I click "Fisken"
       And I should see "Betyg 4.3/5"
       Then I should not see "Betyg 5/5"
       And I should not see "Väldigt bra snubbe"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
       And I am on the profiles_path
@@ -77,7 +77,7 @@ Feature: Extend invoice and add feedback
       Then I should see "Betyg 5/5"
       And I should see "Väldigt bra snubbe"
       And I should see "Målare sökes"
-      And I click "KONTROLLPANEL"
+      And I click "Kontrollpanel"
       And I click "Visa/Kontrollera"
       And I should see "Belopp ex. moms: 1770"
       And I should see "Fakturaavgifter: -1"
@@ -131,17 +131,17 @@ Feature: Extend invoice and add feedback
       And  I click "Fisken"
       Then I should see "Betyg 5/5"
       And I should see "Väldigt bra snubbe"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as user "felix@mail.com"
       Given I am on the home page
-      And I click "ALLA JOBBSÖKARE"
+      And I click "Alla jobbsökare"
       And I click "Fisken"
       And I should not see "5/5"
       Then I should not see "Väldigt bra snubbe"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      And I click "KONTROLLPANEL"
+      And I click nav "Kontrollpanel"
       And I click "Visa/Kontrollera"
       And I should see "Belopp ex. moms: 1770"
       And I should see "Fakturaavgifter: 539"

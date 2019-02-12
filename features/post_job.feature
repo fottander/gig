@@ -18,14 +18,13 @@ Feature: Post job ad
 
     Scenario: Company tries to post without being logged in
       Given I am on the home page
-      And I click "SKAPA ANNONS"
-      And I click "SKAPA KONTO"
-      And I should see "Registrera nytt företagskonto"
+      And I click "Skapa annons"
+      And I should see "Du måste logga in eller registrera dig innan du fortsätter"
 
     Scenario: Company posts an ad
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      And I click "SKAPA ANNONS"
+      And I click nav "Skapa annons"
       And I should see "Skapa annons"
       And I fill in "Titel" with "målare"
       And I fill in "Beskrivning" with "måla hus"
@@ -38,11 +37,11 @@ Feature: Post job ad
       And I fill in "job_when_in_time" with "Så snart som möjligt"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
-      And I click "Skapa annons"
+      And I click "Skapa annons" in simple form
       Then I should see "Ny annons skapad!"
       And I should see "målare"
       And I should see "måla hus"
-      Given I click "KONTROLLPANEL"
+      Given I click "Kontrollpanel"
       Then I should not see "Nästa steg är att skapa en annons"
       And I should see "målare"
       Then I should not see "Inga annonser ännu"
@@ -71,7 +70,7 @@ Feature: Post job ad
     Scenario: I post an ad without title and succeed without filling budget or deadline or requirement
       Given I am logged in as company "felix@mail.com"
       Given I am on control panel page
-      And I click "SKAPA ANNONS"
+      And I click nav "Skapa annons"
       And I should see "Skapa annons"
       And I fill in "Titel" with ""
       And I fill in "Beskrivning" with "måla hus"
@@ -81,7 +80,7 @@ Feature: Post job ad
       And I fill in "job_duration" with "5 dagar"
       And I select "Projekt" from "job_jobtype"
       And I fill in "Timmar" with "8"
-      And I click "Skapa annons"
+      And I click "Skapa annons" in simple form
       Then I should see "Titel kan inte vara blankt!"
       And I fill in "Titel" with "Målare"
       And I fill in "Beskrivning" with "måla hus"
@@ -90,9 +89,9 @@ Feature: Post job ad
       And I fill in "job_when_in_time" with "Så snart som möjligt"
       And I fill in "job_duration" with "5 dagar"
       And I fill in "Timmar" with "8"
-      And I click "Skapa annons"
+      And I click "Skapa annons" in simple form
       Then I should see "Ny annons skapad!"
-      And I click "HITTA JOBB"
+      And I click "Hitta jobb"
       And I click "Ansök"
       And I should see "Föreslagen lön: Ej specificerat"
       And I should see "Krav: Inga krav"

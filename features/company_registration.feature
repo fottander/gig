@@ -11,8 +11,8 @@ Feature: Company registration
     Scenario: I register my company
       Given I am on the home page
       And I click "Hitta Personal"
-      And I click "SKAPA KONTO"
-      And I click "Logga in"
+      And I click "Skapa konto"
+      And I click "Logga in" in shared links
       And I should see "Logga in som företag"
       And I click "Registrera"
       And I fill in "Email" with "mail@mail.com"
@@ -29,50 +29,50 @@ Feature: Company registration
       Then I should see "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till mail@mail.com."
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Du måste bekräfta din e-postadress innan du fortsätter."
       And the last created company is marked confirmed
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad"
       And I click "DÖLJ"
       Then I should not see "Registrerad! Kolla din mail efter vår bekräftelse"
       And I should see "Skapa annons"
       And I should see "Titel"
-      And I click "KONTROLLPANEL"
+      And I click "Kontrollpanel"
       And I should see "Dubbelkolla att du fått vårt"
       Then I should see "Nästa steg är att skapa en annons"
       And I should see "Inga annonser ännu"
       And I should see "Inga aktiva anställningar"
       And I should see "Inga färdiga anställningar"
       And I should see "Inga fakturor"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am on the home page
-      And I click "LOGGA IN"
+      And I click "Logga in"
       And I click "som företag"
       And I should see "Logga in som företag"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       And I should see "Välkommen! Du är inloggad."
       And I should not see "Titel"
       Then I should not see "Dubbelkolla att du fått vårt"
 
     Scenario: I log in as a company
       Given I am on the home page
-      And I click "LOGGA IN"
+      And I click "Logga in"
       And I click "som företag"
       And I should see "Logga in som företag"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad."
 
     Scenario: I register my company but email/användarnamn is already taken
       Given I am on the home page
       And I click "Hitta Personal"
-      And I click "SKAPA KONTO"
+      And I click "Skapa konto"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Företagsnamn" with "hello"
       And I fill in "Användarnamn" with "anders p"

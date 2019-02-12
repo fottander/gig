@@ -19,14 +19,14 @@ Feature: Extend profile
 
     Scenario: I go to dashboard
       Given I am on the home page
-      And I click "LOGGA IN"
+      And I click "Logga in"
       And I click "som jobbsökare"
       And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad."
-      And I click "KONTROLLPANEL"
+      And I click nav "Kontrollpanel"
       And I should see "Förbättra dina chanser genom att lägga till utbildning!"
       And I should see "Förbättra dina chanser genom att lägga till arbetsplatser!"
       And I click "Profil"
@@ -41,7 +41,7 @@ Feature: Extend profile
       And I fill in "Utbildning" with "Ekonomi"
       And I click "Spara" in education
       Then I should see "Profil redigerad!"
-      And I click "KONTROLLPANEL"
+      And I click nav "Kontrollpanel"
       And I should not see "Förbättra dina chanser genom att lägga till utbildning!"
       And I click "Profil"
       And I should not see "Förbättra dina chanser genom att lägga till utbildning!"
@@ -49,7 +49,7 @@ Feature: Extend profile
       And I fill in "Tidigare arbetsplatser" with "Gbg husmåleri"
       And I click "Spara" in prev-work
       Then I should see "Profil redigerad!"
-      And I click "KONTROLLPANEL"
+      And I click nav "Kontrollpanel"
       And I should not see "Förbättra dina chanser genom att lägga till arbetsplatser!"
       And I click "Profil"
       And I should not see "Förbättra dina chanser genom att lägga till arbetsplatser!"
@@ -60,7 +60,7 @@ Feature: Extend profile
       And I attach file
       And I click "Lägg till"
       And I should see "Profil redigerad!"
-      And I click "ALLA JOBBSÖKARE"
+      And I click "Alla jobbsökare"
       Then I should see "fisken" avatar name "anewbiz-logo.png"
       And I click "fisken"
       Then I should see "fisken" avatar name "anewbiz-logo.png"
@@ -69,7 +69,7 @@ Feature: Extend profile
       And I should see "Ekonomi"
       And I should see "Gbg husmåleri"
       And I should see "Måleri, snickeri"
-      And I click "KONTROLLPANEL"
+      And I click nav "Kontrollpanel"
       And I should not see "Förbättra dina chanser genom att lägga till utbildning!"
       And I should not see "Förbättra dina chanser genom att lägga till arbetsplatser!"
       And I click "Profil"

@@ -63,7 +63,7 @@ Feature: Admin payments
       And I fill in "with_user_id" with "9999"
       And I click "Sök"
       And I should see "abc"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as user "felix@yahoo.com"
       Given I am on the dashboards page
       Then I should see "Admin gjorde en utbetalning till dig"

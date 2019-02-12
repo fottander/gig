@@ -40,12 +40,12 @@ Feature: Admin find and edit application
       And I fill in "* Sista dag" with "2018-01-30"
       And I click "Spara"
       Then I should see "Ansökan ändrad"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
       Then I should see "Första jobbdag: 2018-01-01"
       Then I should see "Sista jobbdag: 2018-01-30"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as company "johan@mail.com"
       Given I am on control panel page
       Then I should see "Första jobbdag: 2018-01-01"

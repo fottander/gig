@@ -32,12 +32,12 @@ Feature: Company control panel
 
     Scenario: I go to dashboard
       Given I am on the home page
-      And I click "LOGGA IN"
+      And I click "Logga in"
       And I click "som företag"
       And I should see "Logga in som företag"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad."
       And I should see "Skapa annons"
 
@@ -57,12 +57,12 @@ Feature: Company control panel
       Given I am logged in as company "felix@mail.com"
       Given I am on the jobs page
       And I should see "målare sökes"
-      And I click "KONTROLLPANEL"
+      And I click "Kontrollpanel"
       And I click job "1" button "Redigera"
       And I select "Deltid" from "job_jobtype"
       And I uncheck Active check box
       And I click "Spara"
-      And I click "KONTROLLPANEL"
+      And I click "Kontrollpanel"
       Then I should see "Inaktivt"
       Given I am on the jobs page
       Then I should not see "målare sökes"

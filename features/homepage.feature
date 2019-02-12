@@ -6,8 +6,8 @@ Feature: Homepage
     Then I should see "Jag är ett Företag som behöver hjälp"
     And I should see "Hitta Jobb" within freelancer
     And I should see "Hitta Personal" within company
-    Then I should see "REGISTRERA KONTO"
-    And I click "REGISTRERA FÖRETAG" within section
+    Then I should see "Registrera konto"
+    And I click "Registrera företag" within section
     Then I should see "Registrera nytt företag"
     And I click "Läs mer om hur det fungerar"
     And I should see "Hur går det till"
@@ -21,7 +21,7 @@ Feature: Homepage
     Then I should see "Varför Qnekt?"
     And I click "Vanliga frågor" in left menu
     And I should see "Här har vi samlat de vanligaste frågorna"
-    And I click "Kontakta oss"
+    And I click "Kontakta" in left menu
     And I should see "Här kan du kontakta oss"
     And I click "Faktura, avgifter & lön" in left menu
     And I should see "Här förklarar vi i detalj"
@@ -32,11 +32,11 @@ Feature: Homepage
     And I click "Varför Qnekt?" in left menu
     Then I should see "Varför Qnekt?"
     Given I am on the home page
-    And I click "REGISTRERA KONTO" within section
+    And I click "Registrera konto" within section
     Then I should see "Registrera nytt konto som jobbsökande"
     Given I am on the home page
     And I click "Hitta Personal" within company
-    And I click "SKAPA KONTO"
+    And I click "Skapa konto"
     Then I should see "Registrera nytt företag"
     Given I am on the home page
     And I click "Hitta Jobb" within freelancer

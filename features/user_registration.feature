@@ -38,31 +38,31 @@ Feature: User registration
       Then I should see "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till mail@mail.com."
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Du måste bekräfta din e-postadress innan du fortsätter."
-      And I click "LOGGA IN"
+      And I click nav "Logga in"
       And I click "som jobbsökare"
       And the last created user is marked confirmed
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad"
       Then I should not see "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till mail@mail.com."
       And I should see "Innan du börjar söka jobb behöver du skapa en riktigt bra profil."
-      And I click "KONTROLLPANEL"
+      And I click nav "Kontrollpanel"
       And I should see "Inga aktiva ansökningar"
       And I should see "Inga aktiva jobb"
       And I should see "Inga färdiga jobb"
       And I should see "Inga aktiva utbetalningar"
       Then I should see "Nästa steg är att skapa en profil"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am on the home page
-      And I click "LOGGA IN"
+      And I click nav "Logga in"
       And I click "som jobbsökare"
       And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad."
       And I should not see "Välkommen till Qnekt"
       And I should not see "Nästa steg är att söka jobb"
@@ -81,12 +81,12 @@ Feature: User registration
       And I fill in "Bekräfta lösenord" with "12345678"
       And I click "Registrera"
       Then I should see "Snart klar! Aktivera ditt konto genom att följa instruktionerna i det bekräftelse email vi skickat till mail@mail.com."
-      And I click "LOGGA IN"
+      And I click nav "Logga in"
       And I click "som jobbsökare"
       And the last created user is marked confirmed
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       And I should see "Skapa profil"
       And I fill in "Beskrivning" with "Jag är en 30 årig målare och snickare från gbg"
       And I check Category check box
@@ -94,7 +94,7 @@ Feature: User registration
       And I select "Göteborg" from "Stad"
       And I click "Skapa"
       Then I should see "Ny profil skapad!"
-      And I click "ALLA JOBBSÖKARE"
+      And I click "Alla jobbsökare"
       Then I should see "Anna lena O"
 
     Scenario: I register without first name or last name
@@ -112,12 +112,12 @@ Feature: User registration
 
     Scenario: I login as a user
       Given I am on the home page
-      And I click "LOGGA IN"
+      And I click "Logga in"
       And I click "som jobbsökare"
       And I should see "Logga in som jobbsökande"
       And I fill in "Email" with "felix@mail.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad."
 
     Scenario: I register already taken user

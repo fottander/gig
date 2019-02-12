@@ -13,7 +13,7 @@ Feature: Admin login
       And I should see "Logga in som admin"
       And I fill in "Email" with "admin@yahoo.com"
       And I fill in "Lösenord" with "12345678"
-      And I click "Logga in"
+      And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad."
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Then I should see "Utloggad"
