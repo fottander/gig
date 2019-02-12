@@ -1655,10 +1655,18 @@ input[type='file'] {
  }
 
  .site-footer {
-   background: #0a0a0a;
+   background: #2f2e2e;
    font-family: 'Montserrat', sans-serif;
    color: #fefefe;
-   padding: 0.8rem 0 0;
+   padding: 2rem 0 2rem 0;
+ }
+
+ .site-footer .footer-logo {
+   text-align: center;
+   font-family: "Century Gothic", 'Montserrat', sans-serif;
+   font-size: 2.8em;
+   font-weight: 900;
+   margin-bottom: 0.5em;
  }
 
   @media screen and (max-width: 39.9375em) {
