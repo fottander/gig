@@ -31,11 +31,11 @@
           <%= f.text_field :phone_number, placeholder: 'Telefonnummer' %>
         </div>
 
-        <div class="login-box-input">
-          <%= f.text_area :content, placeholder: '* Meddelande' %>
+        <div class="login-box-input" style='margin-bottom: 3em;'>
+          <%= f.text_area :content, placeholder: '* Meddelande', style: 'height: 250%;' %>
         </div>
 
-        <span>Fyll i fält markerade med *</span>
+        <div>Fyll i fält markerade med *</div>
 
         <div class="actions" style='margin-bottom: 15px;'>
           <%= f.submit 'Skicka', class: 'reply-button', style:'width: 50%;' %>
