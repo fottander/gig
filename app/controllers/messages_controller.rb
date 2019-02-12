@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new
     add_breadcrumb 'Start', :root_path
     add_breadcrumb 'Kontakta oss'
+    render layout: 'mobile_scroll_layout'
   end
 
   def create
