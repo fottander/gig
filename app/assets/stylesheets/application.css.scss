@@ -2012,14 +2012,27 @@ input[type='file'] {
 
 /* SHOW PROFILE */
 
+.card-holder {
+  background: #f9f5ee;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
+}
+
 .card-profile-stats {
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-bottom: 20px;
-  border: 1px solid #cacaca;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 5px 5px 10px rgba(51,51,51,.3);
   padding: 1.25rem;
   background: #fefefe;
   min-height: 80vh;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .card-profile-stats {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 .card-profile-stats .card-profile-stats-intro {
@@ -2111,10 +2124,10 @@ input[type='file'] {
 .profile-card-action-icons {
   margin-left: 3rem;
   margin-right: 3rem;
-  background-color: #fefefe;
+  background-color: #ffff;
   font-weight: 400;
-  margin-bottom: 1.6rem;
-  border: 2.5px solid #cacaca;
+  margin-bottom: 1.5rem;
+    box-shadow: 5px 5px 10px rgba(51,51,51,.3);
 }
 
 .profile-card-action-icons .card-section {
@@ -2124,8 +2137,8 @@ input[type='file'] {
 
 @media screen and (max-width: 39.9375em) {
   .profile-card-action-icons {
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
   }
 }
 
