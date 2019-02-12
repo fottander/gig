@@ -815,6 +815,7 @@ input[type='file'] {
   max-width: 20em;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
   background: #ffff;
     box-shadow: 5px 5px 10px rgba(51,51,51,.3);
 }
@@ -1061,10 +1062,6 @@ input[type='file'] {
   z-index: 1;
 }
 
-.marketing-site-hero-content-sign-up .cross {
-    position: relative;
-    display: inline-block;
-}
 .cross::before, .cross::after {
     content: '';
     width: 105%;
@@ -1126,6 +1123,36 @@ input[type='file'] {
     position: relative;
     z-index: 1;
   }
+}
+
+.marketing-site-hero-content-sign-up-login {
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #ffff;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.marketing-site-hero-content-sign-up-login .cross {
+    position: relative;
+    display: inline-block;
+}
+
+.marketing-site-hero-content-sign-up-login p {
+  font-size: 1em;
+  margin-bottom: 1rem;
+  line-height: normal;
+  color: #72777c;
+  font-weight: 300;
+  text-align: center;
+}
+
+.marketing-site-hero-content-sign-up-login h2 {
+  font-weight: 600;
+  font-size: 1.5em;
+  color: #494e51;
+  text-align: center;
 }
 
 .marketing-site-hero-content-sign-in {
