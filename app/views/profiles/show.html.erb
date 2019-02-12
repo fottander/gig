@@ -1,80 +1,81 @@
-<div class="profile-<%= @profile.id %>">
-  <div class="card-profile-stats">
-    <% unless current_company.present? %>
-    <div class='breadcrumb-holder-smaller'>
-        <%= render_breadcrumbs separator: ' > ' %>
-    </div>
-    <% end %>
-    <div class="card-profile-stats-intro">
-      <%= image_tag @profile.avatar.url, class: 'card-profile-stats-intro-pic' %>
-      <div class="card-profile-stats-intro-content">
-        <h2><%= @profile.username %></h2>
-        <p class='job-count'>Antal genomförda jobb: <%= @profile.user.invoice_count %></p>
-        <p class='job-count' style='margin-top: -7px;'>
-          Totalt intjänat: <%= @profile.user.current_earnings %><br>
-          <% if @profile.user.invoices.with_rating.count > 2 %>
-            <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
-          <% end %>
-        </p>
-        <% if current_user.present? %>
-          <% if @profile.user.id == current_user.id %>
-            <%= link_to '✎ Redigera profil', edit_profile_path(@profile), class: 'text-link-orange', style: 'font-size: 16px;' %><br>
-            <%= link_to '+ Lägg till mer information', edit_profile_path(@profile, anchor: 'profile-image'), class: 'text-link-orange', style: 'font-size: 16px;' %><br>
-            <% unless @profile.avatar_file_name.present? %>
-              <%= link_to '• Lägg till en profilbild', edit_profile_path(@profile, anchor: 'profile-image-2'), class: 'text-link-orange', style: 'font-size: 16px;' %>
+<div class="card-holder">
+  <div class="profile-<%= @profile.id %>">
+    <div class="card-profile-stats">
+      <% unless current_company.present? %>
+      <div class='breadcrumb-holder-smaller'>
+          <%= render_breadcrumbs separator: ' > ' %>
+      </div>
+      <% end %>
+      <div class="card-profile-stats-intro">
+        <%= image_tag @profile.avatar.url, class: 'card-profile-stats-intro-pic' %>
+        <div class="card-profile-stats-intro-content">
+          <h2><%= @profile.username %></h2>
+          <p class='job-count'>Antal genomförda jobb: <%= @profile.user.invoice_count %></p>
+          <p class='job-count' style='margin-top: -7px;'>
+            Totalt intjänat: <%= @profile.user.current_earnings %><br>
+            <% if @profile.user.invoices.with_rating.count > 2 %>
+              <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
             <% end %>
-            <% if current_user.profile.applications_any == false %>
-              <div class='blinklink'>
-                <%= link_to 'Du har inte sökt några jobb ännu - Gör det här', jobs_path, class: 'button-green-big' %>
-              </div>
+          </p>
+          <% if current_user.present? %>
+            <% if @profile.user.id == current_user.id %>
+              <%= link_to '✎ Redigera profil', edit_profile_path(@profile), class: 'text-link-orange', style: 'font-size: 16px;' %><br>
+              <%= link_to '+ Lägg till mer information', edit_profile_path(@profile, anchor: 'profile-image'), class: 'text-link-orange', style: 'font-size: 16px;' %><br>
+              <% unless @profile.avatar_file_name.present? %>
+                <%= link_to '• Lägg till en profilbild', edit_profile_path(@profile, anchor: 'profile-image-2'), class: 'text-link-orange', style: 'font-size: 16px;' %>
+              <% end %>
+              <% if current_user.profile.applications_any == false %>
+                <div class='blinklink'>
+                  <%= link_to 'Du har inte sökt några jobb ännu - Gör det här', jobs_path, class: 'button-green-big' %>
+                </div>
+              <% end %>
             <% end %>
           <% end %>
+        </div>
+      </div>
+      <p><%= simple_format @profile.description %></p>
+
+      <hr />
+
+      <div class="card-profile-stats-container">
+        <div class="card-profile-stats-statistic">
+          <span class="stat">Stad</span>
+            <p class='job-count'><%= @profile.cities.pluck(:name).flatten.join(' & ') %></p>
+        </div>
+        <div class="card-profile-stats-statistic">
+          <span class="stat">Kategorier</span>
+          <p class='job-count'><%= @profile.categories.pluck(:name).flatten.join(' & ') %></p>
+        </div>
+        <div class="card-profile-stats-statistic">
+          <span class="stat">Ålder</span>
+          <p class='job-count'><%= @profile.years_old %> år</p>
+        </div>
+        <% if @profile.skill.present? %>
+        <div class="card-profile-stats-statistic">
+          <span class="stat">Kompetenser</span>
+          <p class='job-count'><%= @profile.skill %></p>
+        </div>
         <% end %>
-      </div>
-    </div>
-    <p><%= simple_format @profile.description %></p>
-
-    <hr />
-
-    <div class="card-profile-stats-container">
-      <div class="card-profile-stats-statistic">
-        <span class="stat">Stad</span>
-          <p class='job-count'><%= @profile.cities.pluck(:name).flatten.join(' & ') %></p>
-      </div>
-      <div class="card-profile-stats-statistic">
-        <span class="stat">Kategorier</span>
-        <p class='job-count'><%= @profile.categories.pluck(:name).flatten.join(' & ') %></p>
-      </div>
-      <div class="card-profile-stats-statistic">
-        <span class="stat">Ålder</span>
-        <p class='job-count'><%= @profile.years_old %> år</p>
-      </div>
-      <% if @profile.skill.present? %>
-      <div class="card-profile-stats-statistic">
-        <span class="stat">Kompetenser</span>
-        <p class='job-count'><%= @profile.skill %></p>
-      </div>
-      <% end %>
-      <% if @profile.language.present? %>
-      <div class="card-profile-stats-statistic">
-        <span class="stat">Språk</span>
-        <p class='job-count'><%= @profile.language %></p>
-      </div>
-      <% end %>
-      <% if @profile.license.present? %>
-      <div class="card-profile-stats-statistic">
-        <span class="stat">Körkort</span>
-        <p class='job-count'><%= @profile.license %></p>
-      </div>
-      <% end %>
-      <div class="card-profile-stats-statistic">
+        <% if @profile.language.present? %>
+        <div class="card-profile-stats-statistic">
+          <span class="stat">Språk</span>
+          <p class='job-count'><%= @profile.language %></p>
+        </div>
+        <% end %>
+        <% if @profile.license.present? %>
+        <div class="card-profile-stats-statistic">
+          <span class="stat">Körkort</span>
+          <p class='job-count'><%= @profile.license %></p>
+        </div>
+        <% end %>
+        <div class="card-profile-stats-statistic">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <% if current_company.present? %>
-    <div class="card profile-card-action-icons">
+    <div class="profile-card-action-application">
       <div class="card-section">
         <div class="profile-card-header">
           <h4 class='feedback-title'>Feedback</h4>
@@ -104,31 +105,32 @@
     </div>
   <% end %>
 
-<% if @profile.prev_work.present? %>
-  <div class="card profile-card-action-icons">
-    <div class="card-section">
-        <div class="profile-card-header">
-          <h4 class='feedback-title'>Tidigare arbetsplatser</h4>
-        </div>
-        <div class="profile-card-about-feed">
-          <div class="profile-card-about-feed-message">
-            <%= simple_format @profile.prev_work %>
+  <% if @profile.prev_work.present? %>
+    <div class="card profile-card-action-application">
+      <div class="card-section">
+          <div class="profile-card-header">
+            <h4 class='feedback-title'>Tidigare arbetsplatser</h4>
           </div>
-        </div>
-    </div>
-  </div>
-<% end %>
-<% if @profile.education.present? %>
-  <div class="card profile-card-action-icons">
-    <div class="card-section">
-        <div class="profile-card-header">
-          <h4 class='feedback-title'>Utbildning</h4>
-        </div>
-        <div class="profile-card-about-feed">
-          <div class="profile-card-about-feed-message">
-            <%= simple_format @profile.education %>
+          <div class="profile-card-about-feed">
+            <div class="profile-card-about-feed-message">
+              <%= simple_format @profile.prev_work %>
+            </div>
           </div>
-        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+  <% if @profile.education.present? %>
+    <div class="card profile-card-action-application">
+      <div class="card-section">
+          <div class="profile-card-header">
+            <h4 class='feedback-title'>Utbildning</h4>
+          </div>
+          <div class="profile-card-about-feed">
+            <div class="profile-card-about-feed-message">
+              <%= simple_format @profile.education %>
+            </div>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>
