@@ -1,11 +1,11 @@
 <div class="card-holder">
   <div class="profile-<%= @profile.id %>">
+    <% unless current_company.present? %>
+    <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+    </div>
+    <% end %>
     <div class="card-profile-stats">
-      <% unless current_company.present? %>
-      <div class='breadcrumb-holder-smaller'>
-          <%= render_breadcrumbs separator: ' > ' %>
-      </div>
-      <% end %>
       <div class="card-profile-stats-intro">
         <%= image_tag @profile.avatar.url, class: 'card-profile-stats-intro-pic' %>
         <div class="card-profile-stats-intro-content">
