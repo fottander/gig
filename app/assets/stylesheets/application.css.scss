@@ -2265,6 +2265,165 @@ input[type='file'] {
   color: #3db5e6;
 }
 
+/* APPLICATION SHOW */
+
+.profile-card-action-application {
+  margin-left: 3rem;
+  margin-right: 3rem;
+  background-color: #fefefe;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  border: 2.5px solid #cacaca;
+}
+
+.profile-card-action-application .card-section {
+  background-color: inherit;
+  padding: 0rem 0 0;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .profile-card-action-application {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .profile-card-action-application .card-section {
+    line-height: 1.25em;
+    font-size: 0.9em;
+  }
+}
+
+.profile-card-action-application .card-section .profile-card-header {
+  padding: 0.2rem 1rem;
+}
+.profile-card-action-application .card-section .profile-card-about {
+  padding: 0.2rem 1rem;
+}
+
+@media screen and (min-width: 63.9375em) {
+  .profile-card-action-application .card-section .profile-card-about-button {
+    padding: 0.2rem 1rem;
+    margin-top: 1.5em;
+  }
+}
+
+@media screen and (max-width: 39.9375em) {
+  .profile-card-action-application .card-section .profile-card-header {
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+.profile-card-action-application .card-section .profile-card-about-feed {
+  padding: 0.2rem 1rem;
+  margin: 10px;
+}
+
+.profile-card-action-application .card-section .profile-card-about-title {
+  font-weight: 700;
+}
+
+.profile-card-action-application .card-section .profile-card-about-title-message {
+  font-weight: 600;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.profile-card-action-application .card-section .profile-card-about-message {
+  color: #696868;
+  margin-top: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-bottom: 5px;
+}
+
+.profile-card-action-application .card-section .profile-card-about-message-2 {
+  color: #696868;
+  margin-top: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.profile-card-action-application .card-section .profile-card-about-message-2 .application-title {
+  background-color: #3db5e6;
+  padding: 5px;
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-top: -3px;
+  text-align: center;
+}
+
+.profile-card-action-application .card-section .profile-card-about-feed-message {
+  color: #696868;
+  font-style: italic;
+  margin-top: 3px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #cacaca;
+}
+
+.profile-card-action-application .card-section .profile-card-header {
+  background-color: #f9f5ee;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile-card-action-application .card-section .profile-card-header .profile-card-avatar {
+  margin-right: 0.5rem;
+
+}
+
+.profile-card-action-application .card-section .profile-card-header .profile-card-avatar .avatar-image {
+  border-radius: 50%;
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
+.profile-card-action-application .card-section .profile-card-header .profile-card-author {
+  -webkit-flex: 1 0 0;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 39.9375em) {
+  .profile-card-action-application .card-section .profile-card-header .profile-card-author {
+    text-align: center;
+  }
+}
+
+  @media screen and (max-width: 39.9375em) {
+    .profile-card-action-application .card-section .profile-card-header .profile-card-author .add-friend {
+      -webkit-justify-content: flex-start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+    }
+  }
+
+.profile-card-action-application .card-section .profile-card-header .profile-card-author .author-title {
+  overflow: auto;
+  margin-bottom: 0;
+}
+.profile-card-action-application .card-section .profile-card-header .profile-card-author .author-description {
+  margin-bottom: 0;
+}
+
+.profile-card-action-application .card-section .profile-card-header .profile-card-author .author-description {
+  color: #8a8a8a;
+  font-size: 0.9em;
+}
+
+.profile-card-action-application .card-section .profile-card-about .profile-card-about-title {
+  color: #3db5e6;
+}
+
 /* SHOW JOB AD & APPLY & DASHBOARDS */
 
 .portfolio-card {
