@@ -1,135 +1,136 @@
 <% content_for :meta_title, "#{@job.title} | Jobb på Qnekt.se" %>
 <% content_for :meta_description, @job.description %>
 
-<h3>Jobbdetaljer</h3>
-<div class='breadcrumb-holder'>
-    <%= render_breadcrumbs separator: ' > ' %>
-</div>
-<div class="card-profile-stats">
-  <div class="portfolio-resume row">
-    <% if current_company.present? %>
-      <% if @job.company_id == current_company.id %>
-        <div class="large-3 columns">
-          <div class="portfolio-resume-wrapper">
-            <h3 class="portfolio-resume-header">Ansökningar</h3>
-            <div class="portfolio-resume-spacing">
-              <div id="pagination-js">
-                <div id="job-applications">
-                  <%= render 'job_applications' %><br>
+<div class="card-holder">
+  <div class='breadcrumb-holder-small'>
+      <%= render_breadcrumbs separator: ' > ' %>
+  </div>
+  <div class="card-profile-stats">
+    <div class="portfolio-resume row">
+      <% if current_company.present? %>
+        <% if @job.company_id == current_company.id %>
+          <div class="large-3 columns">
+            <div class="portfolio-resume-wrapper">
+              <h3 class="portfolio-resume-header">Ansökningar</h3>
+              <div class="portfolio-resume-spacing">
+                <div id="pagination-js">
+                  <div id="job-applications">
+                    <%= render 'job_applications' %><br>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <div class="large-3 columns">
-      <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Detaljer</h3>
-        <% if current_company.present? %>
-          <% if @job.company_id == current_company.id %>
-            <%= link_to '✎ Redigera', edit_job_path(@job, anchor: 'description'), class: 'text-link-orange', style: 'font-size: 16px;' %>
-          <% end %>
         <% end %>
-        <ul >
-          <li>
-            Stad: <%= @job.cities.pluck(:name).flatten.join(' & ') %>
-          </li>
-          <li>
-            Kategorier: <%= @job.categories.pluck(:name).flatten.join(' & ') %>
-          </li>
-          <li>
-            Typ av anställning:
-            <% if @job.jobtype.present? %>
-              <%= @job.jobtype %>
-            <% else %>
-              Ej specificerat
+      <% end %>
+
+      <div class="large-3 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Jobbdetaljer</h3>
+          <% if current_company.present? %>
+            <% if @job.company_id == current_company.id %>
+              <%= link_to '✎ Redigera', edit_job_path(@job, anchor: 'description'), class: 'text-link-orange', style: 'font-size: 16px;' %>
             <% end %>
-          </li>
-          <li>
-            Jobbets längd: <%= @job.duration %>
-          </li>
-          <li>
-            Timmar per dag: <%= @job.hour_day %>
-          </li>
-          <li>
-            När ska jobbet utföras: <%= @job.when_in_time %>
-          </li>
-          <li>
-            Sista ansökningsdag: <%= @job.deadline%>
-          </li>
-          <li>
-            Krav: <%= @job.requirement %>
-          </li>
-          <li>
-            Föreslagen lön: <%= @job.budget %>
-          </li>
-        </ul>
-        <% if current_user.present? %>
-          <% if current_user.profile.present? %>
-            <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>
-              <span style='color: #f77d0e;'>Du har redan ansökt till detta jobbet!</span>
+          <% end %>
+          <ul >
+            <li>
+              Stad: <%= @job.cities.pluck(:name).flatten.join(' & ') %>
+            </li>
+            <li>
+              Kategorier: <%= @job.categories.pluck(:name).flatten.join(' & ') %>
+            </li>
+            <li>
+              Typ av anställning:
+              <% if @job.jobtype.present? %>
+                <%= @job.jobtype %>
+              <% else %>
+                Ej specificerat
+              <% end %>
+            </li>
+            <li>
+              Jobbets längd: <%= @job.duration %>
+            </li>
+            <li>
+              Timmar per dag: <%= @job.hour_day %>
+            </li>
+            <li>
+              När ska jobbet utföras: <%= @job.when_in_time %>
+            </li>
+            <li>
+              Sista ansökningsdag: <%= @job.deadline%>
+            </li>
+            <li>
+              Krav: <%= @job.requirement %>
+            </li>
+            <li>
+              Föreslagen lön: <%= @job.budget %>
+            </li>
+          </ul>
+          <% if current_user.present? %>
+            <% if current_user.profile.present? %>
+              <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>
+                <span style='color: #f77d0e;'>Du har redan ansökt till detta jobbet!</span>
+              <% else %>
+                <p>
+                  <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button' %>
+                </p>
+              <% end %>
             <% else %>
               <p>
                 <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button' %>
               </p>
             <% end %>
+          <% elsif current_company.present? %>
           <% else %>
-            <p>
-              <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button' %>
-            </p>
+            <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button', style: 'margin-bottom: 10px;' %>
           <% end %>
-        <% elsif current_company.present? %>
-        <% else %>
-          <%= link_to 'Ansök', new_job_application_path(@job), class: 'reply-button', style: 'margin-bottom: 10px;' %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="large-3 columns">
-      <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Beskrivning</h3>
-        <% if current_company.present? %>
-          <% if @job.company_id == current_company.id %>
-            <%= link_to '✎ Redigera', edit_job_path(@job, anchor: 'description'), class: 'text-link-orange', style: 'font-size: 16px;' %>
-          <% end %>
-        <% end %>
-        <div class="portfolio-resume-spacing">
-          <h5><strong><%= @job.title %></strong></h5>
-          Jobb ID: <%= @job.id %>
-          <p><%= simple_format @job.description %></p>
         </div>
       </div>
-    </div>
 
-    <div class="large-3 columns">
-      <div class="portfolio-resume-wrapper">
-        <h3 class="portfolio-resume-header">Företagsinfo</h3>
-        <h5><strong><%= @job.company_username %></strong></h5>
-        <div class="portfolio-resume-contact-info">
-          Antal genomförda jobb: <%= @job.company.invoice_count %>
-          <p>Stad: <%= @job.company.city %></p>
-        </div>
-        <%= image_tag @job.categories.first.avatar.url %>
-        <% if @job.company.employees.present? %>
-          <div class="portfolio-resume-contact-info">
-            Antal anställda: <%= @job.company.employees %>
-          </div>
-        <% end %>
-        <% if @job.company.description.present? %>
-          <div class="portfolio-resume-contact-info">
-            Företagsbeskrivning: <%= simple_format @job.company.description %>
-          </div>
-        <% end %>
-        <% if current_company.present? %>
-          <% if @job.company_id == current_company.id %>
-            <% unless current_company.description.present? %>
-                <div style='color: #f77d0e; font-size: 10px;'>Lägg till företagsbeskrivning för att framhäva ert företag och få fler ansökningar.</div>
-                <%= link_to 'Lägg till beskrivning', edit_company_registration_path(anchor: 'description'), class: 'button-orange' %>
+      <div class="large-3 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Beskrivning</h3>
+          <% if current_company.present? %>
+            <% if @job.company_id == current_company.id %>
+              <%= link_to '✎ Redigera', edit_job_path(@job, anchor: 'description'), class: 'text-link-orange', style: 'font-size: 16px;' %>
             <% end %>
           <% end %>
-        <% end %>
+          <div class="portfolio-resume-spacing">
+            <h5><strong><%= @job.title %></strong></h5>
+            Jobb ID: <%= @job.id %>
+            <p><%= simple_format @job.description %></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="large-3 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Företagsinfo</h3>
+          <h5><strong><%= @job.company_username %></strong></h5>
+          <div class="portfolio-resume-contact-info">
+            Antal genomförda jobb: <%= @job.company.invoice_count %>
+            <p>Stad: <%= @job.company.city %></p>
+          </div>
+          <%= image_tag @job.categories.first.avatar.url %>
+          <% if @job.company.employees.present? %>
+            <div class="portfolio-resume-contact-info">
+              Antal anställda: <%= @job.company.employees %>
+            </div>
+          <% end %>
+          <% if @job.company.description.present? %>
+            <div class="portfolio-resume-contact-info">
+              Företagsbeskrivning: <%= simple_format @job.company.description %>
+            </div>
+          <% end %>
+          <% if current_company.present? %>
+            <% if @job.company_id == current_company.id %>
+              <% unless current_company.description.present? %>
+                  <div style='color: #f77d0e; font-size: 10px;'>Lägg till företagsbeskrivning för att framhäva ert företag och få fler ansökningar.</div>
+                  <%= link_to 'Lägg till beskrivning', edit_company_registration_path(anchor: 'description'), class: 'button-orange' %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
