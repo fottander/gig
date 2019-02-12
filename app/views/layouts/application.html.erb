@@ -14,36 +14,36 @@
       <%= favicon_link_tag asset_path('Qnekt-favicon.png') %>
     </head>
 
-    <nav class="top-bar topbar-responsive">
+    <nav class="top-bar topbar-responsive-new">
       <div class="top-bar-title">
         <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
           <button class="menu-icon" type="button" data-toggle></button>
         </span>
-        <a class="topbar-responsive-logo" href="/" id="logo"><br><p class='logo-text'>Restaurang • Café • Catering • Event</p></a>
+        <a class="topbar-responsive-logo" href="/" id="logo-new"><br><p class='logo-text'>Restaurang • Café • Catering • Event</p></a>
       </div>
       <div id="topbar-responsive" class="topbar-responsive-links">
         <div class="top-bar-right">
           <ul class="menu simple vertical medium-horizontal" data-close-on-click-inside="false" data-dropdown-menu>
             <% if company_signed_in? %>
-              <li><%= link_to "SKAPA ANNONS", new_job_path %></li>
-              <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "LOGGA UT", destroy_company_session_path, {method: :delete} %></li>
-              <li><%= link_to "KONTROLLPANEL", panels_path %></li>
+              <li><%= link_to "Skapa annons", new_job_path %></li>
+              <li><%= link_to "Hitta jobb", jobs_path %></li>
+              <li id='nav-second-button'><%= link_to "Logga ut", destroy_company_session_path, {method: :delete} %></li>
+              <li id='nav-head-button'><%= link_to "Kontrollpanel", panels_path %></li>
             <% elsif user_signed_in? %>
-              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
-              <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "LOGGA UT", destroy_user_session_path, {method: :delete} %></li>
-              <li><%= link_to "KONTROLLPANEL", dashboards_path %></li>
+              <li><%= link_to "Alla jobbsökare", profiles_path %></li>
+              <li><%= link_to "Hitta jobb", jobs_path %></li>
+              <li id='nav-second-button'><%= link_to "Logga ut", destroy_user_session_path, {method: :delete} %></li>
+              <li id='nav-head-button'><%= link_to "Kontrollpanel", dashboards_path %></li>
             <% elsif admin_signed_in? %>
-              <li><%= link_to "ALLA JOBBSÖKARE", profiles_path %></li>
-              <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "LOGGA UT", destroy_admin_session_path, {method: :delete} %></li>
-              <li><%= link_to "ADMINISTRATION", administrations_path %></li>
+              <li><%= link_to "Alla jobbsökare", profiles_path %></li>
+              <li><%= link_to "Hitta jobb", jobs_path %></li>
+              <li id='nav-second-button'><%= link_to "Logga ut", destroy_admin_session_path, {method: :delete} %></li>
+              <li id='nav-head-button'><%= link_to "Administration", administrations_path %></li>
             <% else %>
-              <li><%= link_to "SKAPA ANNONS", sign_ups_path %></li>
-              <li><%= link_to "HITTA JOBB", jobs_path %></li>
-              <li><%= link_to "LOGGA IN", sign_ins_path %></li>
-              <li><%= link_to "KONTAKT", messages_path %></li>
+              <li><%= link_to "Skapa annons", new_job_path %></li>
+              <li><%= link_to "Hitta jobb", jobs_path %></li>
+              <li><%= link_to "Kontakt", messages_path %></li>
+              <li id='nav-head-button'><%= link_to "Logga in", sign_ins_path %></li>
             <% end %>
           </ul>
         </div>
