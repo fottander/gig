@@ -1220,6 +1220,13 @@ input[type='file'] {
 
 .hero-divider-flow-title {
   color: white;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+  transform: scale(1, 1.1);
+    -webkit-transform: scale(1, 1.1);
+    -moz-transform: scale(1, 1.1);
+    -ms-transform: scale(1, 1.1);
+    -o-transform: scale(1, 1.1);
 }
 
 .hero-divider-flow-content {
@@ -1236,6 +1243,13 @@ input[type='file'] {
 
 .hero-divider-flow-grey-title {
   color: black;
+  font-size: 1.6em;
+  margin-bottom: 1em;
+  transform: scale(1, 1.1);
+    -webkit-transform: scale(1, 1.1);
+    -moz-transform: scale(1, 1.1);
+    -ms-transform: scale(1, 1.1);
+    -o-transform: scale(1, 1.1);
 }
 
 .hero-divider-flow-grey-content {
@@ -1269,7 +1283,7 @@ input[type='file'] {
 
 .progress-indicator-headline {
   text-align: center;
-  font-size: 22px;
+  font-size: 1.6em;
   color: black;
   margin-top: 10px;
 }
