@@ -162,43 +162,45 @@
     <% if @invoice.user_id == current_user.id %>
       <div class="holy-grail-middle">
         <div class="holy-grail-vh">
-          <div class='simple-form'>
-            <div class='post-title'><h3>Utbetalningsdetaljer</h3></div>
-            <div class='invoice-details'>
-              Utbetalnings ID: <%= @invoice.id.first(8) %><br>
-              <strong>Antal timmar:</strong> <%= @invoice.quantity %>st <br>
-              <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma <br>
-              <% if @invoice.add_ob == true %>
-                <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %> SEK <br>
-              <% end %>
-              <strong>Total bruttolön:</strong> <%= @invoice.amount %> SEK <br>
-              <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
-              <%= link_to 'Visa mer utbetalningsinfo', payment_path(@invoice), class: 'button-orange' %><br>
-              Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
-              Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
-              <% if (25..64).include? @invoice.age %>
-                Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
-              <% end %>
-              Jobb ID: <%= @invoice.job_id %><br>
-              Ansöknings ID: <%= @invoice.application_id %><br>
-              Profil: <%= @invoice.profile_username %><br>
-              Beskrivning: <%= @invoice.description %> <br>
-              Referens: <%= @invoice.user_reference %><br>
-              Företagsreferens: <%= @invoice.company_reference %><br>
-              Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
-              Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
-              Villkor: <%= @invoice.terms %> dagar<br>
-              OCR: <%= @invoice.ocr_number %><br>
-              <% if @invoice.post == false %>
-                Leveranssätt: Email <br>
-              <% else %>
-                Leveranssätt: Post <br>
-              <% end %>
-              <% if @invoice.paid == true %>
-                Betalningsstatus: <p style="color: green;">Godkänd</p>
-              <% else %>
-                <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
-              <% end %>
+          <div class="login-box-social-section-application-chat" style='padding-bottom: 2em;'>
+            <div class='simple-form'>
+              <div class='post-title'><h3>Utbetalningsdetaljer</h3></div>
+              <div class='invoice-details'>
+                Utbetalnings ID: <%= @invoice.id.first(8) %><br>
+                <strong>Antal timmar:</strong> <%= @invoice.quantity %>st <br>
+                <strong>Timlön:</strong> <%= @invoice.unit %>kr/timma <br>
+                <% if @invoice.add_ob == true %>
+                  <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %> SEK <br>
+                <% end %>
+                <strong>Total bruttolön:</strong> <%= @invoice.amount %> SEK <br>
+                <strong>Lön som betalas ut:</strong> <%= @invoice.nettolon %> SEK <br>
+                <%= link_to 'Visa mer utbetalningsinfo', payment_path(@invoice), class: 'button-orange' %><br>
+                Arbetsgivaravgifter(31,42%): <%= @invoice.arbetsgivaravgifter_ef_avg %> SEK<br>
+                Sociala avgifter & försäkring(<%= @invoice.soc_avgift_procent%>%): <%= @invoice.sociala_avgifter_ef_avg %> SEK<br>
+                <% if (25..64).include? @invoice.age %>
+                  Varav pensionsinbetalning: <%= (@invoice.bruttolon_ef_avg * 0.043).round %> SEK<br>
+                <% end %>
+                Jobb ID: <%= @invoice.job_id %><br>
+                Ansöknings ID: <%= @invoice.application_id %><br>
+                Profil: <%= @invoice.profile_username %><br>
+                Beskrivning: <%= @invoice.description %> <br>
+                Referens: <%= @invoice.user_reference %><br>
+                Företagsreferens: <%= @invoice.company_reference %><br>
+                Skapad: <%= @invoice.created_at.strftime("%F %R") %><br>
+                Förfallodatum: <%= @invoice.due_date.strftime("%F") %><br>
+                Villkor: <%= @invoice.terms %> dagar<br>
+                OCR: <%= @invoice.ocr_number %><br>
+                <% if @invoice.post == false %>
+                  Leveranssätt: Email <br>
+                <% else %>
+                  Leveranssätt: Post <br>
+                <% end %>
+                <% if @invoice.paid == true %>
+                  Betalningsstatus: <p style="color: green;">Godkänd</p>
+                <% else %>
+                  <span style="color: red;">Betalning ej bekräftad</span>(kan ta upp till 2 arbetsdagar från betalningen blev genomförd)
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
