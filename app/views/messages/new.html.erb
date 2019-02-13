@@ -1,54 +1,56 @@
 <div class="holy-grail-grid">
-  <div class="holy-grail-left-application" >
-    <div class='holy-grail-left-application-box' style='text-align: center; '>
-      <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
-      <div style='background-color: #f77d0e; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
-        <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box', style:'color: white;' %><br>
-      </div>
-      <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'holy-grail-left-application-box' %><br>
-      <%= link_to 'Varför Qnekt?', why_us_path, class: 'holy-grail-left-application-box' %><br>
-      <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box' %><br>
-      <%= link_to 'Vanliga frågor', faqs_path, class: 'holy-grail-left-application-box' %><br>
+  <div class="holy-grail-left" >
+    <%= link_to 'Så fungerar det', howitworks_path, class: 'button-menu' %><br>
+    <%= link_to 'Kontakta', messages_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
+    <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'button-menu' %><br>
+    <%= link_to 'Varför Qnekt?', why_us_path, class: 'button-menu' %><br>
+    <%= link_to 'Användarvillkor', terms_of_services_path, class: 'button-menu' %><br>
+    <%= link_to 'Vanliga frågor', faqs_path, class: 'button-menu' %>
+    <div class="holy-grail-logo">
+      <span class='q-font'>Q</span><span class='nekt-font'>NEKT</span>
     </div>
   </div>
   <div class="holy-grail-middle">
-    <div class='breadcrumb-holder-small'>
-        <%= render_breadcrumbs separator: ' > ' %>
+    <div class="login-box-social-section-application-chat" style='margin-bottom: 2em;'>
+      <div class='breadcrumb-holder-small'>
+          <%= render_breadcrumbs separator: ' > ' %>
+      </div>
+      <h3 style='text-align: center;'>Kontakta oss</h3>
+      <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här kan du kontakta oss om du har några frågor om tjänsten eller behöver hjälp. Vi vill alltid ha nöjda kunder och därför är det viktigt för oss att du får hjälp med stora som små frågor.</p>
+      <div class="simple-form" style='text-align: center;'>
+        <%= form_for @message do |f| %>
+          <div class="login-box-input">
+            <%= f.text_field :name, placeholder: '* Namn' %>
+          </div>
+
+          <div class="login-box-input">
+            <%= f.email_field :email, placeholder: "* Email", autofocus: true %>
+          </div>
+
+          <div class="login-box-input">
+            <%= f.text_field :phone_number, placeholder: 'Telefonnummer' %>
+          </div>
+
+          <div class="login-box-input" style='margin-bottom: 3em;'>
+            <%= f.text_area :content, placeholder: '* Meddelande', style: 'height: 250%;' %>
+          </div>
+
+          <div>Fyll i fält markerade med *</div>
+
+          <div class="actions" style='margin-bottom: 15px;'>
+            <%= f.submit 'Skicka', class: 'reply-button', style:'width: 50%;' %>
+          </div>
+        <% end %>
+      </div>
+      <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 400; color: #696868;'>
+        <span style='font-weight: 550;'>Qnekt</span><br>
+        <i class='fi-home size-15'></i> Storgatan 41 <br>
+        411 38 Göteborg <br>
+        <i class='fi-telephone size-15'></i> 0707301078 <br>
+        <i class='fi-mail size-15'></i> info@qnekt.se <br>
+        Org.nr: 559129-6099
+      </p>
     </div>
-    <h3 style='text-align: center;'>Kontakta oss</h3>
-    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här kan du kontakta oss om du har några frågor om tjänsten eller behöver hjälp. Vi vill alltid ha nöjda kunder och därför är det viktigt för oss att du får hjälp med stora som små frågor.</p>
-    <div class="simple-form" style='text-align: center;'>
-      <%= form_for @message do |f| %>
-        <div class="login-box-input">
-          <%= f.text_field :name, placeholder: '* Namn' %>
-        </div>
-
-        <div class="login-box-input">
-          <%= f.email_field :email, placeholder: "* Email", autofocus: true %>
-        </div>
-
-        <div class="login-box-input">
-          <%= f.text_field :phone_number, placeholder: 'Telefonnummer' %>
-        </div>
-
-        <div class="login-box-input" style='margin-bottom: 3em;'>
-          <%= f.text_area :content, placeholder: '* Meddelande', style: 'height: 250%;' %>
-        </div>
-
-        <div>Fyll i fält markerade med *</div>
-
-        <div class="actions" style='margin-bottom: 15px;'>
-          <%= f.submit 'Skicka', class: 'reply-button', style:'width: 50%;' %>
-        </div>
-      <% end %>
-    </div>
-    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 400; color: #696868;'>
-      <span style='font-weight: 550;'>Qnekt</span><br>
-      <i class='fi-home size-15'></i> Storgatan 41 <br>
-      411 38 Göteborg <br>
-      <i class='fi-telephone size-15'></i> 0707301078 <br>
-      <i class='fi-mail size-15'></i> info@qnekt.se <br>
-      Org.nr: 559129-6099
-    </p>
+    <%= render 'footer_unscroll' %>
   </div>
 </div>

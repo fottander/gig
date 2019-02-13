@@ -21,7 +21,7 @@
       <% if current_user.bank_info == 'bank_info_ok' %>
         <div class="portfolio-resume row">
           <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
+            <div class="portfolio-resume-control-panel">
               <h3 class="portfolio-resume-header">Utbetalningar</h3>
               <div id="payments-salary-paid">
                 <%= render 'payments_salary_paid' %>
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
+            <div class="portfolio-resume-control-panel">
               <h3 class="portfolio-resume-header">Påbörjade utbetalningar som ej betalats ut</h3>
               <div id="payments-salary-not-paid">
                 <%= render 'payments_salary_not_paid' %>
@@ -39,7 +39,7 @@
         </div>
         <div class="portfolio-resume row">
           <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
+            <div class="portfolio-resume-control-panel">
               <h3 class="portfolio-resume-header">Utbetalningar för fakturor utan jobbannons</h3>
               <div id="ezpayments-salary-paid">
                 <%= render 'ezpayments_salary_paid' %>
@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="large-6 columns">
-            <div class="portfolio-resume-wrapper">
+            <div class="portfolio-resume-control-panel">
               <h3 class="portfolio-resume-header">Fakturor utan jobbannons som ej betalats ut</h3>
               <div id="ezpayments-salary-not-paid">
                 <%= render 'ezpayments_salary_not_paid' %>

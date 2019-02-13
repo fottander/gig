@@ -12,68 +12,70 @@
 
   <div class="holy-grail-middle">
     <div class='holy-grail-vh'>
-      <div class='simple-form'>
-        <div class='post-title'><h3>Redigera konto</h3></div>
-        <% unless current_company.description.present? %>
-          <div>
-            <a href="#description" rel="" id="anchor1" class='text-link-orange'>Förbättra dina chanser genom att lägga till beskrivning!</a>
-          </div>
-        <% end %>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= devise_error_messages! %>
-          <%= f.label :email, class: 'form-text' %>
-          <%= f.email_field :email, autofocus: true %>
-          <%= f.label :name, 'Företagsnamn', class: 'form-text' %>
-          <%= f.text_field :name %>
-          <%= f.label :username, 'Användarnamn', class: 'form-text' %>
-          <div class="fieldContainer">
-            <%= f.text_field :username %>
-            <div class="fieldInfo">
-              Tips <br>
-              Skriv inte ditt företagsnamn som användarnamn. Använd istället t.ex. ditt namn eller smeknamn(ex. Börje S, Limpan etc).
+      <div class="login-box-social-section-application-chat" style='padding-bottom: 2em;'>
+        <div class='simple-form'>
+          <div class='post-title'><h3>Redigera konto</h3></div>
+          <% unless current_company.description.present? %>
+            <div>
+              <a href="#description" rel="" id="anchor1" class='text-link-orange'>Förbättra dina chanser genom att lägga till beskrivning!</a>
             </div>
-          </div>
-          <%= f.label :address, 'Adress', class: 'form-text' %>
-          <%= f.text_field :address %>
-          <%= f.label :zip_code, 'Postnummer', class: 'form-text' %>
-          <%= f.text_field :zip_code %>
-          <%= f.label :city, 'Stad', class: 'form-text' %>
-          <%= f.text_field :city %>
-          <%= f.label :org_number, 'Organisationsnummer', class: 'form-text' %>
-          <%= f.text_field :org_number %>
-          <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
-          <%= f.text_field :phone %>
-          <div style='color: #f77d0e; font-weight: 600;'>Extra information</div>
-          <%= f.label :invoice_address, 'Fakturaadress(Om annan än företagsadress)', class: 'form-text' %>
-          <%= f.text_field :invoice_address, placeholder: 'Ex. BB Redovisning, Norrgatan 43, 42334, Malmö', value: @company.invoice_address %>
-          <%= f.label :description, 'Beskrivning av er verksamhet', class: 'form-text', style:'margin-top: 5px;', id: 'description' %>
-          <%= f.text_area :description, rows: 5, style: 'width:100%;', placeholder: 'En beskrivning ger fler svar på annonserna. Skriv inte ut ert företagsnamn.', value: @company.description, style:'margin-bottom: 0px;' %>
-          <%= f.label :employees, 'Antal anställda', class: 'form-text', style:'margin-top: 5px;', id: 'employee' %>
-          <%= f.select :employees, options_for_select(Company::EMPLOYEE_OPTIONS, selected: @company.employees ), prompt: '-- Välj --', class: 'input-medium' %>
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+            <%= f.label :email, class: 'form-text' %>
+            <%= f.email_field :email, autofocus: true %>
+            <%= f.label :name, 'Företagsnamn', class: 'form-text' %>
+            <%= f.text_field :name %>
+            <%= f.label :username, 'Användarnamn', class: 'form-text' %>
+            <div class="fieldContainer">
+              <%= f.text_field :username %>
+              <div class="fieldInfo">
+                Tips <br>
+                Skriv inte ditt företagsnamn som användarnamn. Använd istället t.ex. ditt namn eller smeknamn(ex. Börje S, Limpan etc).
+              </div>
+            </div>
+            <%= f.label :address, 'Adress', class: 'form-text' %>
+            <%= f.text_field :address %>
+            <%= f.label :zip_code, 'Postnummer', class: 'form-text' %>
+            <%= f.text_field :zip_code %>
+            <%= f.label :city, 'Stad', class: 'form-text' %>
+            <%= f.text_field :city %>
+            <%= f.label :org_number, 'Organisationsnummer', class: 'form-text' %>
+            <%= f.text_field :org_number %>
+            <%= f.label :phone, 'Telefonnummer', class: 'form-text' %>
+            <%= f.text_field :phone %>
+            <div style='color: #f77d0e; font-weight: 600;'>Extra information</div>
+            <%= f.label :invoice_address, 'Fakturaadress(Om annan än företagsadress)', class: 'form-text' %>
+            <%= f.text_field :invoice_address, placeholder: 'Ex. BB Redovisning, Norrgatan 43, 42334, Malmö', value: @company.invoice_address %>
+            <%= f.label :description, 'Beskrivning av er verksamhet', class: 'form-text', style:'margin-top: 5px;', id: 'description' %>
+            <%= f.text_area :description, rows: 5, style: 'width:100%;', placeholder: 'En beskrivning ger fler svar på annonserna. Skriv inte ut ert företagsnamn.', value: @company.description, style:'margin-bottom: 0px;' %>
+            <%= f.label :employees, 'Antal anställda', class: 'form-text', style:'margin-top: 5px;', id: 'employee' %>
+            <%= f.select :employees, options_for_select(Company::EMPLOYEE_OPTIONS, selected: @company.employees ), prompt: '-- Välj --', class: 'input-medium' %>
 
-          <p class='truncated-paragraph-pass2'>
-            <%= link_to 'Ändra lösenord', '', class: "read-more-pass2", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem; border: none;' %>
-          </p>
-          <span class='normal-paragraph-pass2' style="display: none;">
-            <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
-            <%= f.password_field :current_password, autocomplete: "off" %>
-            <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
-            <i>(lämna tomt om du inte vill ändra lösenord)</i>
-            <% if @minimum_password_length %>
-              <em><%= @minimum_password_length %> tecken minimum</em>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
-            <%= f.password_field :password, autocomplete: "off" %>
-            <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
-          </span>
 
-          <%= link_to 'Avbryt', panels_path, class: 'cancel-button' %>
-          <%= f.submit "Spara", class: 'reply-button' %>
-        <% end %>
+            <p class='truncated-paragraph-pass2'>
+              <%= link_to 'Ändra lösenord', '', class: "read-more-pass2", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; line-height: 1; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.4rem 0.6rem 0.4rem; border-radius: 4px;' %>
+            </p>
+            <span class='normal-paragraph-pass2' style="display: none;">
+              <%= f.label :current_password, 'Nuvarande lösenord', class: 'form-text' %> <i>(vi behöver ditt nuvarande lösenord för att bekräfta ändringar)</i>
+              <%= f.password_field :current_password, autocomplete: "off" %>
+              <%= f.label :password, 'Nytt lösenord', class: 'form-text-grey' %>
+              <i>(lämna tomt om du inte vill ändra lösenord)</i>
+              <% if @minimum_password_length %>
+                <em><%= @minimum_password_length %> tecken minimum</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.label :password_confirmation, 'Bekräfta nytt lösenord', class: 'form-text-grey' %>
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </span>
+
+            <%= link_to 'Avbryt', panels_path, class: 'cancel-button' %>
+            <%= f.submit "Spara", class: 'reply-button' %>
+          <% end %>
+        </div>
       </div>
     </div>
     <%= render 'footer_unscroll' %>

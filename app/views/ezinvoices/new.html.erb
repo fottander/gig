@@ -18,56 +18,58 @@
 
   <div class="holy-grail-middle">
     <div class="holy-grail-vh">
-      <div class="simple-form">
-        <div class='post-title'><h3>Skapa faktura</h3></div>
-        <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor för jobb du utfört utanför vår plattform och som inte är kopplade till en aktiv jobbannons. Vi skickar fakturorna till företaget du jobbat för och sedan betalar vi ut din lön, precis som vanligt.</p>
-        <p style='font-weight: 550; color: #696868;'>Kom ihåg att skicka in en beskrivning till oss av det arbete du ska utföra och för vilket företag innan du påbörjar anställningen. Kontakta kundtjänst vid frågor.</p>
-        <% if current_user.profile.present? %>
-          <%= form_for @ezinvoice do |f| %>
-            <% if @ezinvoice.errors.any? %>
-              <% @ezinvoice.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+      <div class="login-box-social-section-application-chat" style='padding-bottom: 2em;'>
+        <div class="simple-form">
+          <div class='post-title'><h3>Skapa faktura</h3></div>
+          <p style='font-weight: 550; color: #696868;'>Här kan du skapa fakturor för jobb du utfört utanför vår plattform och som inte är kopplade till en aktiv jobbannons. Vi skickar fakturorna till företaget du jobbat för och sedan betalar vi ut din lön, precis som vanligt.</p>
+          <p style='font-weight: 550; color: #696868;'>Kom ihåg att skicka in en beskrivning till oss av det arbete du ska utföra och för vilket företag innan du påbörjar anställningen. Kontakta kundtjänst vid frågor.</p>
+          <% if current_user.profile.present? %>
+            <%= form_for @ezinvoice do |f| %>
+              <% if @ezinvoice.errors.any? %>
+                <% @ezinvoice.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
               <% end %>
+              <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
+              <%= f.label :company_email, '* Email', class: 'form-text' %>
+              <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
+              <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
+              <%= f.text_field :org_number, placeholder: 'ex. xxxxxx-xxxx' %>
+              <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
+              <%= f.text_field :company_name, placeholder: 'ex. Brabra Bygg AB' %>
+              <%= f.label :company_address, '* Företagets adress', class: 'form-text' %>
+              <%= f.text_field :company_address, placeholder: 'ex. Södra gatan 33' %>
+              <%= f.label :company_zip, '* Postnummer', class: 'form-text' %>
+              <%= f.text_field :company_zip, placeholder: 'ex. 412 22' %>
+              <%= f.label :company_city, '* Stad', class: 'form-text' %>
+              <%= f.text_field :company_city, placeholder: 'ex. Göteborg' %>
+              <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
+              <%= f.text_field :company_reference, placeholder: 'Din kontaktperson på företaget' %>
+              <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
+              <%= f.label :description, '* Beskrivning', class: 'form-text' %>
+              <%= f.text_area :description, placeholder: 'Kort beskrivning på vad som utförts och vad som faktureras' %>
+              <%= f.label :quantity, '* Antal timmar(t.ex. 10)st', class: 'form-text' %>
+              <%= f.text_field :quantity, placeholder: 'Endast siffror utan decimaler' %>
+              <%= f.label :unit, '* Timlön(t.ex. 150)kr/timma', class: 'form-text' %>
+              <%= f.text_field :unit, placeholder: 'Endast siffror utan decimaler' %>
+              <%= f.hidden_field :amount, placeholder: 'Endast siffror utan decimaler' %>
+              <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
+              <%= f.date_field :first_day %>
+              <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
+              <%= f.date_field :last_day %>
+              <%= f.label :ssyk_code, 'Kategorier', class: 'form-text' %>
+              <%= f.collection_select(:ssyk_code, Category.all, :ssyk_code, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
+              <%= f.label :user_reference, '* Referens', class: 'form-text' %>
+              <%= f.text_field :user_reference, placeholder: 'Ditt förnamn & efternamn' %>
+              <%= f.label :terms, 'Betalningsvillkor(15 dagar om inget annat avtalats)', class: 'form-text' %>
+              <%= f.text_field :terms %>
+              <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
+              <%= f.submit 'Skapa', class: 'reply-button' %>
             <% end %>
-            <p style='color: #f77d0e; font-weight: 700;'>Mottagare</p>
-            <%= f.label :company_email, '* Email', class: 'form-text' %>
-            <%= f.email_field :company_email, placeholder: 'ex. brabrabygg@mail.com', autofocus: true  %>
-            <%= f.label :org_number, '* Organisationsnummer', class: 'form-text' %>
-            <%= f.text_field :org_number, placeholder: 'ex. xxxxxx-xxxx' %>
-            <%= f.label :company_name, '* Företagsnamn', class: 'form-text' %>
-            <%= f.text_field :company_name, placeholder: 'ex. Brabra Bygg AB' %>
-            <%= f.label :company_address, '* Företagets adress', class: 'form-text' %>
-            <%= f.text_field :company_address, placeholder: 'ex. Södra gatan 33' %>
-            <%= f.label :company_zip, '* Postnummer', class: 'form-text' %>
-            <%= f.text_field :company_zip, placeholder: 'ex. 412 22' %>
-            <%= f.label :company_city, '* Stad', class: 'form-text' %>
-            <%= f.text_field :company_city, placeholder: 'ex. Göteborg' %>
-            <%= f.label :company_reference, '* Företagsreferens', class: 'form-text' %>
-            <%= f.text_field :company_reference, placeholder: 'Din kontaktperson på företaget' %>
-            <p style='color: #f77d0e; font-weight: 700;'>Detaljer</p>
-            <%= f.label :description, '* Beskrivning', class: 'form-text' %>
-            <%= f.text_area :description, placeholder: 'Kort beskrivning på vad som utförts och vad som faktureras' %>
-            <%= f.label :quantity, '* Antal timmar(t.ex. 10)st', class: 'form-text' %>
-            <%= f.text_field :quantity, placeholder: 'Endast siffror utan decimaler' %>
-            <%= f.label :unit, '* Timlön(t.ex. 150)kr/timma', class: 'form-text' %>
-            <%= f.text_field :unit, placeholder: 'Endast siffror utan decimaler' %>
-            <%= f.hidden_field :amount, placeholder: 'Endast siffror utan decimaler' %>
-            <%= f.label :first_day, 'Startdag(ex. 2018-11-01)', class: 'form-text' %>
-            <%= f.date_field :first_day %>
-            <%= f.label :last_day, 'Sista dag(ex. 2018-12-30)', class: 'form-text' %>
-            <%= f.date_field :last_day %>
-            <%= f.label :ssyk_code, 'Kategorier', class: 'form-text' %>
-            <%= f.collection_select(:ssyk_code, Category.all, :ssyk_code, :name, { prompt: 'Välj kategori' }, { class: 'input-medium' }) %>
-            <%= f.label :user_reference, '* Referens', class: 'form-text' %>
-            <%= f.text_field :user_reference, placeholder: 'Ditt förnamn & efternamn' %>
-            <%= f.label :terms, 'Betalningsvillkor(15 dagar om inget annat avtalats)', class: 'form-text' %>
-            <%= f.text_field :terms %>
-            <%= link_to 'Avbryt', :back, class: 'cancel-button' %>
-            <%= f.submit 'Skapa', class: 'reply-button' %>
+          <% else %>
+            <p>Skapa en profil innan du kan fakturera!</p>
           <% end %>
-        <% else %>
-          <p>Skapa en profil innan du kan fakturera!</p>
-        <% end %>
+        </div>
       </div>
     </div>
     <%= render 'footer_unscroll' %>

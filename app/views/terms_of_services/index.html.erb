@@ -1,190 +1,194 @@
 <div class="holy-grail-grid">
-  <div class="holy-grail-left-application" >
-    <div class='holy-grail-left-application-box' style='text-align: center; '>
-      <%= link_to 'Så fungerar det', howitworks_path, class: 'holy-grail-left-application-box' %><br>
-      <%= link_to 'Kontakta', messages_path, class: 'holy-grail-left-application-box' %><br>
-      <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'holy-grail-left-application-box' %><br>
-      <%= link_to 'Varför Qnekt?', why_us_path, class: 'holy-grail-left-application-box' %><br>
-      <div style='background-color: #f77d0e; margin-left: -8px; margin-right: -8px; padding-bottom: 3px;'>
-        <%= link_to 'Användarvillkor', terms_of_services_path, class: 'holy-grail-left-application-box', style:'color: white;' %>
-      </div>
-      <%= link_to 'Vanliga frågor', faqs_path, class: 'holy-grail-left-application-box' %>
+  <div class="holy-grail-left" >
+    <%= link_to 'Så fungerar det', howitworks_path, class: 'button-menu' %><br>
+    <%= link_to 'Kontakta', messages_path, class: 'button-menu' %><br>
+    <%= link_to 'Faktura, avgifter & lön', our_rates_path, class: 'button-menu' %><br>
+    <%= link_to 'Varför Qnekt?', why_us_path, class: 'button-menu' %><br>
+    <%= link_to 'Användarvillkor', terms_of_services_path, class: 'button-menu', style: 'background-color: #f77d0e;' %><br>
+    <%= link_to 'Vanliga frågor', faqs_path, class: 'button-menu' %>
+    <div class="holy-grail-logo">
+      <span class='q-font'>Q</span><span class='nekt-font'>NEKT</span>
     </div>
   </div>
   <div class="holy-grail-middle">
-    <div class='breadcrumb-holder-small'>
-      <%= render_breadcrumbs separator: ' > ' %>
-    </div>
-    <h3 style='text-align: center;'>Allmänna villkor</h3>
-    <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här finner du våra allmänna villkor. Läs igenom dem noga innan du använder tjänsten. Om du har några ytterligare frågor kan du kontakta oss.</p>
-    <div class="our-rates-box">
-      <span class='truncated-paragraph-b1'>
-        <%= link_to '#', class: "read-more-b1" do %>
-          <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
-        <% end %>
-        <%= link_to 'VILLKOR ARBETSSÖKANDE', '', class: "read-more-b1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
-      </span>
+    <div class="holy-grail-vh">
+      <div class="login-box-social-section-application-chat" style='padding-bottom: 2em;' >
+      <div class='breadcrumb-holder-small'>
+        <%= render_breadcrumbs separator: ' > ' %>
+      </div>
+      <h3 style='text-align: center;'>Allmänna villkor</h3>
+      <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här finner du våra allmänna villkor. Läs igenom dem noga innan du använder tjänsten. Om du har några ytterligare frågor kan du kontakta oss.</p>
+      <div class="our-rates-box">
+        <span class='truncated-paragraph-b1'>
+          <%= link_to '#', class: "read-more-b1" do %>
+            <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
+          <% end %>
+          <%= link_to 'Villkor för arbetssökande', '', class: "read-more-b1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+        </span>
+        <span class='normal-paragraph-b1' style="display: none;">
+          <%= link_to '#', class: "read-less-b1" do %>
+            <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
+          <% end %>
+          <%= link_to 'Villkor för arbetssökande', '', class: "read-less-b1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+        </span>
+      </div>
       <span class='normal-paragraph-b1' style="display: none;">
-        <%= link_to '#', class: "read-less-b1" do %>
-          <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
-        <% end %>
-        <%= link_to 'VILLKOR ARBETSSÖKANDE', '', class: "read-less-b1", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+        <div class='our-rates-normal-paragraph'>
+          <span style='color: #3db5e6; font-weight: 700;'>1. Omfattning</span><br>
+          <p>1.1 Dessa bestämmelser gäller egenanställningsuppdrag, som privatperson (nedan kallad ”Egenanställd”) utför åt kund (nedan kallad ”Kunden”) genom egenanställningsföretaget FeltCap AB (nedan kallad ”FC”).</p>
+          <span>1.2 Med egenanställning avses ett affärsmässigt och rättsligt förhållande mellan FC, Egenanställd och Kunden i vilket FC på den Egenanställdes eget initiativ och prissättning ställer den Egenanställde till Kundens förfogande för att utföra arbete som hör till Kundens verksamhet under Kundens kontroll och ledning. Med ”Uppdraget” avses den arbetsuppgift som Egenanställde utför hos Kunden genom FC. Med ”Administrativa uppgifter” avses den arbetsuppgift FC utför åt Egenanställde, dvs:</span><br>
+          <span>– Fakturering och bevakning av fakturor genom FC</span><br>
+          <span>– Inkassohantering genom tredje part</span><br>
+          <span>– Löneadministration</span><br>
+          <span>– Administration och inbetalning av arbetsgivaravgifter, källskatter och moms</span><br>
+          <span>– Kontrolluppgifter</span><br>
+          <span>– Bedömning av vilka kostnader i samband med Uppdraget som kan ge ersättning till Egenanställde</span><br>
+          <span>– Utfärdande av arbetsgivarintyg</span><br>
+          <span>– Erhållande av Bankgiro</span><br>
+          <span>– Erbjuda försäkringslösningar från försäkringsbolag</span><br>
+          <span>– Erhålla administrativ internetplattform</span><br>
+          <br>
+          <span style='color: #3db5e6; font-weight: 700;'>2. Avtal om uppdrag</span><br>
+          <p>2.1 Vid anskaffning av uppdrag har Egenanställde rätt att använda sig av FCs företagsuppgifter, förutsatt att särskilt skriftligt (inklusive via e-post) tillstånd ges av FC vid varje sådan anskaffning.</p>
+          <p>2.2 Egenanställde ska vid anskaffning av uppdrag utanför plattformen, tillse att Kunden avger anbud eller offert till FC om uppdraget i enlighet med de villkor som Egenanställde och Kunden diskuterat. Den Egenanställde ska informera Kunden om att FCs Allmänna Bestämmelser tillämpas på förhållandet mellan FC och Kunden såvitt inget annat avtalats skriftligen mellan FC och Kunden. Omedelbart i anslutning till avgivande av sådant anbud eller offert har FC rätt – men ingen skyldighet – att efter samråd med Egenanställde teckna Uppdragsavtalet med Kunden, och ska tillhandahålla Egenanställde en kopia av avtalet.</p>
+          <p>2.3 Egenanställde ska sedan utföra Uppdraget inom ramen för den allmänna visstidsanställningen hos FC, dvs. en anställning vars villkor, tid, utförande och omfattning i övrigt, korresponderar med Uppdragsavtalet.</p>
+          <p>2.4 Egenanställde har rätt att närsomhelst under Uppdragets utförande och Anställningen vidta åtgärder för anskaffning av ytterligare uppdrag.</p>
+          <p>2.5 Fakturan skickas ut senast 30 dagar efter avslutat uppdrag varför fakturaunderlaget måste vara FC tillhanda senast 30 dagar efter avslutat uppdrag. </p>
+          <p>2.6 Vid överenskommelse om förändrat Uppdrag skall Egenanställde meddela FC detta skriftligen. Önskas ny uppdragsbekräftelse från Kundens sida är Egenanställde skyldig att meddela FC detta skriftligen.</p>
+          <p>2.7 FC förbehåller sig vid varje tidpunkt rätten att neka Egenanställde anställning utan att ange särskilda skäl.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>3. Pris</span><br>
+          <p>3.1 Pris för Uppdrag anges av Egenanställde i uppdragsbekräftelsen/fakturaunderlaget. Pris för Administrativa uppgifter gentemot Egenanställd anges av FC. Eventuell moms tillkommer på priset och på prisändringar.</p>
+          <p>3.2 Utbetalning till den Egenanställde sker först vid betalning av fakturan avseende uppdraget från kunden.</p>
+          <p>3.3 Om Egenanställdes eller FCs arbetskraftskostnader ökar till följd av ändrade kollektivavtal, lag, räntor eller ändrade skatter och arbetsgivaravgifter samt övriga avgifter har Egenanställde och FC rätt att, med retroaktiv verkan från dagen för ändringen, justera priset i motsvarande mån både vad gäller Uppdraget samt Administrativa uppgifter.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>4. Reklamation</span><br>
+          <p>4.1 Den Egenanställde ska hantera reklamationer avseende Uppdraget. Anmärkningar avseende FCs utförande av Administrativa uppgifter ska av Kunden och/eller Egenanställde framställas direkt till FC utan dröjsmål och senast inom 14 dagar efter slutförandet av aktuella Administrativa Uppgifter.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>5. Ansvar</span><br>
+          <p>5.1 FCs ansvar är begränsat till oaktsamhet avseende Administrativa uppgifter gällande den Egenanställde och frånsäger sig allt ansvar för direkt eller indirekt skada av vilket slag det må vara, som uppstår till följd av och/eller har samband med Egenanställdes utförande av Uppdrag åt Kunden.</p>
+          <p>5.2 Egenanställde är ansvarig gentemot Kunden för att de arbetsuppgifter som Egenanställde utför inom ramen för Uppdraget utförs på ett fackmannamässigt sätt och med den kvalitet som Kunden rimligen kan förvänta sig av Egenanställde med hänsyn tagen till gjorda överenskommelser och utfästelser, pris och övriga omständigheter. Egenanställde är vidare ansvarig för att avhjälpa fel och brister i den omfattning och enligt de villkor som gäller för Uppdraget och enligt tillämpliga lagar och regler (inklusive Konsumenttjänstlagen (1985:716)). I det fall Kunden begär avhjälpande från FC så har FC rätt att välja att antingen självt utföra avhjälpande på Egenanställdes bekostnad eller kräva att Egenanställde utför och bekostar sådant avhjälpande. Om och i den omfattning den brist som Kunden påtalar omfattas av FC:s ansvarsförsäkring har FC rätt att bestämma att avhjälpandet och andra kostnader som kan komma att uppstå i samband därmed, ska bäras av FC:s ansvarsförsäkring, i vilket fall eventuell självrisk och ökade försäkringskostnader som FC kan komma att drabbas av ska ersättas av Egenanställde. Egenanställde är skyldig att samverka och bistå FC och försäkringsbolag vid försäkringsutredningar och liknande.</p>
+          <p>5.3 Då Kunden ansvarar för Egenanställde såsom för egen anställd personal är den Egenanställde själv ansvarig för förlust och skada som Egenanställde kan orsaka Kunden eller tredje man inom ramen för Egenanställdes utförande av arbete åt Kunden, såvida det inte täcks av Kundens befintliga ansvarsförsäkring eller den ansvarsförsäkring som FC tecknat för den Egenanställde.</p>
+          <p>5.4 FC ansvarar inte i något fall för indirekt skada såsom t.ex. utebliven vinst, förlust, eller annan följdskada, inklusive Kundens eventuella ersättningsskyldighet gentemot tredje man eller förlust av information.</p>
+          <p>5.5 Ansvar för personskada regleras enligt svensk lagstiftning.</p>
+          <p>5.6 Skulle skadeståndsansvar uppstå för FC är FCs ansvar begränsat till 0,5 prisbasbelopp, dock högst FCs andel av Uppdragets fakturerade belopp. Vid Uppdrag på löpande räkning beräknas det fakturerade beloppet på priset för de senaste tolv (6) månaderna för uppdraget. Om det pris Egenanställde avtalat med Kunden understiger 0,5 prisbasbelopp skall FCs maximala ansvar istället vara begränsat till ett belopp som motsvarar 0,1 prisbasbelopp.</p>
+          <p>5.7 I den mån skadestånds-, ersättnings- eller annat ansvar skulle uppstå för FC gentemot tredje man utöver vad parterna kommit överens om enligt dessa villkor, skall Egenanställde stå ansvaret därför och hålla FC skadeslöst. </p>
+          <p>5.8 Egenanställde förbinder sig att vara informerad om och att följa gällande lagstiftning i sitt yrkesutövande, samt att på heder och samvete försäkrar att de uppgifter som lämnas om person, uppdrag och verksamhet är korrekta.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>6. Immateriella rättigheter</span><br>
+          <p>6.1 Den Egenanställde överlåter äganderätten till allt material och det resultat som Egenanställde utför med anledning av Uppdraget (“Resultatet”) till FC, som överlåter desamma till Kunden, om inte annat följer av tvingande lag eller särskilt avtal med Kunden. All upphovsrätt exklusive ideell rätt liksom annan immateriell rätt till Resultatet ska således utgöra Kundens egendom. Kunden ska ersätta FC vad FC kan vara skyldig att betala till Egenanställde för överlåtelse av den immateriella rättigheten enligt lag eller kollektivavtal. För uppfinning gäller att Kunden får inträda som rättsinnehavare avseende uppfinningen enbart enligt gällande lag eller berört kollektivavtal. Om Egenanställde använder medtagen programvara eller annat verktyg vid utförande av arbete åt Kunden, så övergår inte rätten till sådana verktyg till Kunden.</p>
+          <p>6.2 FC ansvarar inte för Resultatets immaterialrättsliga intrång eller Egenanställdes olovliga brukande av andras system.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>7. Personuppgifter</span><br>
+          <p>7.1 I samband med att Du registrerar dig hos FeltCap AB kommer FeltCap AB att behandla Dina personuppgifter. FeltCap AB behandlar endast Dina personuppgifter så länge det finns en rättslig grund för det. Fullständig information kring hur FeltCap AB behandlar Dina personuppgifter samt vilka rättigheter Du har finns under “Integritetspolicy” på <%= link_to 'www.qnekt.se/integritypolicies', integritypolicies_path, style: 'font-size: 14px;'%>. Det går också bra att höra av sig till info@qnekt.se med frågor.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>8. Sekretess</span><br>
+          <p>8.1 FC, Egenanställde och Kunden förbinder sig att hålla avtalets innehåll och andra uppgifter hänförliga till Uppdragets innehåll konfidentiell.</p>
+          <p>8.2 Part har inte någon skyldighet att iaktta sekretess avseende sådan information som: a) vid tidpunkten för Uppdragets bekräftelse är allmänt tillgänglig; b) är känd för part före det att den andre parten avslöjat den; eller  c) part är skyldig att avslöja enligt lag eller annan författning.</p>
+          <p>8.3 Punkt 8.1 och 8.2 ska överleva avtalets upphörande.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>9. Försäkring</span><br>
+          <p>Egenanställde ska i första hand aktualisera Kundens ansvarsförsäkring. Om Kundens ansvarsförsäkring av någon anledning inte gäller, aktualiseras FCs ansvarsförsäkring under förutsättning att den Egenanställdes yrke/SSYK-kod omfattas av FCs ansvarsförsäkring. FC ansvarar vidare för att tillse att den Egenanställde omfattas av en liv- och olycksfallsförsäkring under tiden för arbetet. Vid ett eventuellt utfall av ansvarsförsäkringen kan den Egenanställde komma att belastas med en självrisk på upp till men inte överstigande 9 000 kronor enligt villkoren för försäkringen. FC ansvarar självständigt för kostnad för försäkringspremie utom i fall där den Egenanställdes yrke/SSYK-kod medför att FCs ordinarie ansvarsförsäkring inte gäller. I det senare fallet ansvarar den Egenanställde för hela eller delar av försäkringspremien. Hur stor del av försäkringspremien som skall belasta den Egenanställde åligger det parterna att träffa överenskommelse om innan anställningsavtal träffas. Information om omfattningen av försäkring ska på begäran tillhandahållas den Egenanställde.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>10. Ansvarsfriskrivning</span><br>
+          <p>FC friskriver sig från allt ansvar och alla påföljder som kan uppkomma för det fall Egenanställde har angivit felaktiga uppgifter till FC.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>11. Uppsägning av avtal</span><br>
+          <span>FC förbehåller sig rätten att med omedelbar verkan ensidigt säga upp avtalet och återkalla fakturan i följande fall:</span><br>
+          <span>- Kund bestrider fakturan.</span><br>
+          <span>- Egenanställde har inte fullgjort arbetet.</span><br>
+          <span>- Egenanställde har underlåtit att informera FC om omständigheter som är viktiga eller avgörande för avtals fullgörande mot kund.</span><br>
+          <span>- Egenanställde eller kund har underlåtit att informera FC om omständigheter som är viktiga eller avgörande för att Egenanställde ska omfattas av FCs försäkringsvillkor.</span><br><br>
+          <p>FC förbehåller sig rätten att ändra i ovanstående text och avtal utan att meddela detta i förhand.  Allmänna villkor för Egenanställning: senast uppdaterad 2018-03-05.</p>
+        </div>
       </span>
-    </div>
-    <span class='normal-paragraph-b1' style="display: none;">
-      <div class='our-rates-normal-paragraph'>
-        <span style='color: #3db5e6; font-weight: 700;'>1. Omfattning</span><br>
-        <p>1.1 Dessa bestämmelser gäller egenanställningsuppdrag, som privatperson (nedan kallad ”Egenanställd”) utför åt kund (nedan kallad ”Kunden”) genom egenanställningsföretaget FeltCap AB (nedan kallad ”FC”).</p>
-        <span>1.2 Med egenanställning avses ett affärsmässigt och rättsligt förhållande mellan FC, Egenanställd och Kunden i vilket FC på den Egenanställdes eget initiativ och prissättning ställer den Egenanställde till Kundens förfogande för att utföra arbete som hör till Kundens verksamhet under Kundens kontroll och ledning. Med ”Uppdraget” avses den arbetsuppgift som Egenanställde utför hos Kunden genom FC. Med ”Administrativa uppgifter” avses den arbetsuppgift FC utför åt Egenanställde, dvs:</span><br>
-        <span>– Fakturering och bevakning av fakturor genom FC</span><br>
-        <span>– Inkassohantering genom tredje part</span><br>
-        <span>– Löneadministration</span><br>
-        <span>– Administration och inbetalning av arbetsgivaravgifter, källskatter och moms</span><br>
-        <span>– Kontrolluppgifter</span><br>
-        <span>– Bedömning av vilka kostnader i samband med Uppdraget som kan ge ersättning till Egenanställde</span><br>
-        <span>– Utfärdande av arbetsgivarintyg</span><br>
-        <span>– Erhållande av Bankgiro</span><br>
-        <span>– Erbjuda försäkringslösningar från försäkringsbolag</span><br>
-        <span>– Erhålla administrativ internetplattform</span><br>
-        <br>
-        <span style='color: #3db5e6; font-weight: 700;'>2. Avtal om uppdrag</span><br>
-        <p>2.1 Vid anskaffning av uppdrag har Egenanställde rätt att använda sig av FCs företagsuppgifter, förutsatt att särskilt skriftligt (inklusive via e-post) tillstånd ges av FC vid varje sådan anskaffning.</p>
-        <p>2.2 Egenanställde ska vid anskaffning av uppdrag utanför plattformen, tillse att Kunden avger anbud eller offert till FC om uppdraget i enlighet med de villkor som Egenanställde och Kunden diskuterat. Den Egenanställde ska informera Kunden om att FCs Allmänna Bestämmelser tillämpas på förhållandet mellan FC och Kunden såvitt inget annat avtalats skriftligen mellan FC och Kunden. Omedelbart i anslutning till avgivande av sådant anbud eller offert har FC rätt – men ingen skyldighet – att efter samråd med Egenanställde teckna Uppdragsavtalet med Kunden, och ska tillhandahålla Egenanställde en kopia av avtalet.</p>
-        <p>2.3 Egenanställde ska sedan utföra Uppdraget inom ramen för den allmänna visstidsanställningen hos FC, dvs. en anställning vars villkor, tid, utförande och omfattning i övrigt, korresponderar med Uppdragsavtalet.</p>
-        <p>2.4 Egenanställde har rätt att närsomhelst under Uppdragets utförande och Anställningen vidta åtgärder för anskaffning av ytterligare uppdrag.</p>
-        <p>2.5 Fakturan skickas ut senast 30 dagar efter avslutat uppdrag varför fakturaunderlaget måste vara FC tillhanda senast 30 dagar efter avslutat uppdrag. </p>
-        <p>2.6 Vid överenskommelse om förändrat Uppdrag skall Egenanställde meddela FC detta skriftligen. Önskas ny uppdragsbekräftelse från Kundens sida är Egenanställde skyldig att meddela FC detta skriftligen.</p>
-        <p>2.7 FC förbehåller sig vid varje tidpunkt rätten att neka Egenanställde anställning utan att ange särskilda skäl.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>3. Pris</span><br>
-        <p>3.1 Pris för Uppdrag anges av Egenanställde i uppdragsbekräftelsen/fakturaunderlaget. Pris för Administrativa uppgifter gentemot Egenanställd anges av FC. Eventuell moms tillkommer på priset och på prisändringar.</p>
-        <p>3.2 Utbetalning till den Egenanställde sker först vid betalning av fakturan avseende uppdraget från kunden.</p>
-        <p>3.3 Om Egenanställdes eller FCs arbetskraftskostnader ökar till följd av ändrade kollektivavtal, lag, räntor eller ändrade skatter och arbetsgivaravgifter samt övriga avgifter har Egenanställde och FC rätt att, med retroaktiv verkan från dagen för ändringen, justera priset i motsvarande mån både vad gäller Uppdraget samt Administrativa uppgifter.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>4. Reklamation</span><br>
-        <p>4.1 Den Egenanställde ska hantera reklamationer avseende Uppdraget. Anmärkningar avseende FCs utförande av Administrativa uppgifter ska av Kunden och/eller Egenanställde framställas direkt till FC utan dröjsmål och senast inom 14 dagar efter slutförandet av aktuella Administrativa Uppgifter.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>5. Ansvar</span><br>
-        <p>5.1 FCs ansvar är begränsat till oaktsamhet avseende Administrativa uppgifter gällande den Egenanställde och frånsäger sig allt ansvar för direkt eller indirekt skada av vilket slag det må vara, som uppstår till följd av och/eller har samband med Egenanställdes utförande av Uppdrag åt Kunden.</p>
-        <p>5.2 Egenanställde är ansvarig gentemot Kunden för att de arbetsuppgifter som Egenanställde utför inom ramen för Uppdraget utförs på ett fackmannamässigt sätt och med den kvalitet som Kunden rimligen kan förvänta sig av Egenanställde med hänsyn tagen till gjorda överenskommelser och utfästelser, pris och övriga omständigheter. Egenanställde är vidare ansvarig för att avhjälpa fel och brister i den omfattning och enligt de villkor som gäller för Uppdraget och enligt tillämpliga lagar och regler (inklusive Konsumenttjänstlagen (1985:716)). I det fall Kunden begär avhjälpande från FC så har FC rätt att välja att antingen självt utföra avhjälpande på Egenanställdes bekostnad eller kräva att Egenanställde utför och bekostar sådant avhjälpande. Om och i den omfattning den brist som Kunden påtalar omfattas av FC:s ansvarsförsäkring har FC rätt att bestämma att avhjälpandet och andra kostnader som kan komma att uppstå i samband därmed, ska bäras av FC:s ansvarsförsäkring, i vilket fall eventuell självrisk och ökade försäkringskostnader som FC kan komma att drabbas av ska ersättas av Egenanställde. Egenanställde är skyldig att samverka och bistå FC och försäkringsbolag vid försäkringsutredningar och liknande.</p>
-        <p>5.3 Då Kunden ansvarar för Egenanställde såsom för egen anställd personal är den Egenanställde själv ansvarig för förlust och skada som Egenanställde kan orsaka Kunden eller tredje man inom ramen för Egenanställdes utförande av arbete åt Kunden, såvida det inte täcks av Kundens befintliga ansvarsförsäkring eller den ansvarsförsäkring som FC tecknat för den Egenanställde.</p>
-        <p>5.4 FC ansvarar inte i något fall för indirekt skada såsom t.ex. utebliven vinst, förlust, eller annan följdskada, inklusive Kundens eventuella ersättningsskyldighet gentemot tredje man eller förlust av information.</p>
-        <p>5.5 Ansvar för personskada regleras enligt svensk lagstiftning.</p>
-        <p>5.6 Skulle skadeståndsansvar uppstå för FC är FCs ansvar begränsat till 0,5 prisbasbelopp, dock högst FCs andel av Uppdragets fakturerade belopp. Vid Uppdrag på löpande räkning beräknas det fakturerade beloppet på priset för de senaste tolv (6) månaderna för uppdraget. Om det pris Egenanställde avtalat med Kunden understiger 0,5 prisbasbelopp skall FCs maximala ansvar istället vara begränsat till ett belopp som motsvarar 0,1 prisbasbelopp.</p>
-        <p>5.7 I den mån skadestånds-, ersättnings- eller annat ansvar skulle uppstå för FC gentemot tredje man utöver vad parterna kommit överens om enligt dessa villkor, skall Egenanställde stå ansvaret därför och hålla FC skadeslöst. </p>
-        <p>5.8 Egenanställde förbinder sig att vara informerad om och att följa gällande lagstiftning i sitt yrkesutövande, samt att på heder och samvete försäkrar att de uppgifter som lämnas om person, uppdrag och verksamhet är korrekta.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>6. Immateriella rättigheter</span><br>
-        <p>6.1 Den Egenanställde överlåter äganderätten till allt material och det resultat som Egenanställde utför med anledning av Uppdraget (“Resultatet”) till FC, som överlåter desamma till Kunden, om inte annat följer av tvingande lag eller särskilt avtal med Kunden. All upphovsrätt exklusive ideell rätt liksom annan immateriell rätt till Resultatet ska således utgöra Kundens egendom. Kunden ska ersätta FC vad FC kan vara skyldig att betala till Egenanställde för överlåtelse av den immateriella rättigheten enligt lag eller kollektivavtal. För uppfinning gäller att Kunden får inträda som rättsinnehavare avseende uppfinningen enbart enligt gällande lag eller berört kollektivavtal. Om Egenanställde använder medtagen programvara eller annat verktyg vid utförande av arbete åt Kunden, så övergår inte rätten till sådana verktyg till Kunden.</p>
-        <p>6.2 FC ansvarar inte för Resultatets immaterialrättsliga intrång eller Egenanställdes olovliga brukande av andras system.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>7. Personuppgifter</span><br>
-        <p>7.1 I samband med att Du registrerar dig hos FeltCap AB kommer FeltCap AB att behandla Dina personuppgifter. FeltCap AB behandlar endast Dina personuppgifter så länge det finns en rättslig grund för det. Fullständig information kring hur FeltCap AB behandlar Dina personuppgifter samt vilka rättigheter Du har finns under “Integritetspolicy” på <%= link_to 'www.qnekt.se/integritypolicies', integritypolicies_path, style: 'font-size: 14px;'%>. Det går också bra att höra av sig till info@qnekt.se med frågor.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>8. Sekretess</span><br>
-        <p>8.1 FC, Egenanställde och Kunden förbinder sig att hålla avtalets innehåll och andra uppgifter hänförliga till Uppdragets innehåll konfidentiell.</p>
-        <p>8.2 Part har inte någon skyldighet att iaktta sekretess avseende sådan information som: a) vid tidpunkten för Uppdragets bekräftelse är allmänt tillgänglig; b) är känd för part före det att den andre parten avslöjat den; eller  c) part är skyldig att avslöja enligt lag eller annan författning.</p>
-        <p>8.3 Punkt 8.1 och 8.2 ska överleva avtalets upphörande.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>9. Försäkring</span><br>
-        <p>Egenanställde ska i första hand aktualisera Kundens ansvarsförsäkring. Om Kundens ansvarsförsäkring av någon anledning inte gäller, aktualiseras FCs ansvarsförsäkring under förutsättning att den Egenanställdes yrke/SSYK-kod omfattas av FCs ansvarsförsäkring. FC ansvarar vidare för att tillse att den Egenanställde omfattas av en liv- och olycksfallsförsäkring under tiden för arbetet. Vid ett eventuellt utfall av ansvarsförsäkringen kan den Egenanställde komma att belastas med en självrisk på upp till men inte överstigande 9 000 kronor enligt villkoren för försäkringen. FC ansvarar självständigt för kostnad för försäkringspremie utom i fall där den Egenanställdes yrke/SSYK-kod medför att FCs ordinarie ansvarsförsäkring inte gäller. I det senare fallet ansvarar den Egenanställde för hela eller delar av försäkringspremien. Hur stor del av försäkringspremien som skall belasta den Egenanställde åligger det parterna att träffa överenskommelse om innan anställningsavtal träffas. Information om omfattningen av försäkring ska på begäran tillhandahållas den Egenanställde.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>10. Ansvarsfriskrivning</span><br>
-        <p>FC friskriver sig från allt ansvar och alla påföljder som kan uppkomma för det fall Egenanställde har angivit felaktiga uppgifter till FC.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>11. Uppsägning av avtal</span><br>
-        <span>FC förbehåller sig rätten att med omedelbar verkan ensidigt säga upp avtalet och återkalla fakturan i följande fall:</span><br>
-        <span>- Kund bestrider fakturan.</span><br>
-        <span>- Egenanställde har inte fullgjort arbetet.</span><br>
-        <span>- Egenanställde har underlåtit att informera FC om omständigheter som är viktiga eller avgörande för avtals fullgörande mot kund.</span><br>
-        <span>- Egenanställde eller kund har underlåtit att informera FC om omständigheter som är viktiga eller avgörande för att Egenanställde ska omfattas av FCs försäkringsvillkor.</span><br><br>
-        <p>FC förbehåller sig rätten att ändra i ovanstående text och avtal utan att meddela detta i förhand.  Allmänna villkor för Egenanställning: senast uppdaterad 2018-03-05.</p>
+      <div class="our-rates-box">
+        <span class='truncated-paragraph-b2'>
+          <%= link_to '#', class: "read-more-b2" do %>
+            <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
+          <% end %>
+          <%= link_to 'Villkor för företag', '', class: "read-more-b2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+        </span>
+        <span class='normal-paragraph-b2' style="display: none;">
+          <%= link_to '#', class: "read-less-b2" do %>
+            <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
+          <% end %>
+          <%= link_to 'Villkor för företag', '', class: "read-less-b2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+        </span>
       </div>
-    </span>
-    <div class="our-rates-box">
-      <span class='truncated-paragraph-b2'>
-        <%= link_to '#', class: "read-more-b2" do %>
-          <i class="fi-plus size-20" style='color: white; padding-left: 10px;'></i>
-        <% end %>
-        <%= link_to 'VILLKOR FÖRETAG', '', class: "read-more-b2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
-      </span>
       <span class='normal-paragraph-b2' style="display: none;">
-        <%= link_to '#', class: "read-less-b2" do %>
-          <i class="fi-minus size-20" style='color: white; padding-left: 10px;'></i>
-        <% end %>
-        <%= link_to 'VILLKOR FÖRETAG', '', class: "read-less-b2", style: 'margin-left: 20px; color: white; font-weight: 700;' %>
+        <div class='our-rates-normal-paragraph'>
+          <span style='color: #3db5e6; font-weight: 700;'>1. Omfattning</span><br>
+          <p>1.1 Dessa bestämmelser reglerar avtalsförhållandet mellan FeltCap AB (härefter kallad ” FC”) och kundföretaget (härefter kallad ”Kunden”).</p>
+          <p>1.2 Avtalet omfattar ett affärsmässigt och rättsligt förhållande mellan FC och Kund i vilket FC anställer personer som utför arbete hos Kunden (”Egenanställde”) under Kundens kontroll och ledning i enlighet med vad som överenskommits mellan Kunden och den Egenanställde (”Uppdrag/et”). För varje Uppdrag är det således FC som är juridisk kontraktspart och uppdragstagare i relation till Kunden. Det åligger den Egenanställde att tillse att den Egenanställde har FCs godkännande (vilket kan lämnas av FC generellt för vissa på förhand väl definierade typer av uppdrag eller från fall till fall) till att åta sig Uppdrag med FC som uppdragstagare och sådant godkännande krävs för att binda FC. FC kan på begäran av potentiell Kund lämna uppgift om och bekräfta huruvida godkännande finns.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>2. Avtal om uppdrag</span><br>
+          <p>2.1 Om FC så kräver ska Kunden ange erforderlig information om de arbetsuppgifter som ska utföras, arbetets längd, ersättning, arbetstider, tillämpligt kollektivavtal, andra lokala avtal som tillämpas eller andra omständigheter som är av vikt för arbetet som ska utföras.</p>
+          <p>2.2 Uppdrag som träffas utanför plattformen bekräftas av Kunden genom att Kunden betalar fakturan eller skriftligen eller per e-post, bekräftar den av Egenanställde tillhandahållna Uppdragsbeskrivningen där Uppdragets art, omfattning, överenskomna krav och Uppdragets längd preciseras. För Uppdraget gäller i övrigt de villkor som framgår av Uppdragsbeskrivningen samt vad som i övrigt överenskommits mellan Egenanställde och Kunden.</p>
+          <p>2.3 Uppdrag som träffas via plattformen bekräftas av Kunden genom att Kunden via plattformen godkänner den Egenanställde för uppdraget.  För Uppdraget gäller dessa Allmänna villkor samt vad som i övrigt överenskommits mellan Egenanställde och Kunden. Kunden är därmed fullt ansvarig för valet av Egenanställd som anställs genom plattformen och kan inte åberopa reklamation vid undermåligt utförda arbetsuppgifter.</p>
+          <p>2.4 Kunden får inte kontakta Egenanställda genom plattformen och därefter anställa dem utanför plattformen. Vi genomför kontroller och om det skulle uppdagas att så skett kommer ni åläggas att betala en straffavgift om 15 000 SEK.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>3. Arbetsledning</span><br>
+          <p>3.1 Det åligger Kunden att ansvara för arbetsledning av den Egenanställde, att ansvara för kontroll och uppföljning av den Egenanställdes arbete samt att lämna erforderliga instruktioner, information samt tillhandahålla arbetsplats och nödvändig utrustning som behövs för den Egenanställdes arbetsuppgifter.</p>
+          <p>3.2 Kunden förbinder sig att behandla den Egenanställde rättvist och jämlikt i relation till sina egna arbetstagare och i enlighet med lag och god sed på arbetsmarknaden.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>4. Arbetsmiljö</span><br>
+          <p>4.1 Det åligger Kunden att iakttaga 3kap 12 § Arbetsmiljölagen genom att informera den Egenanställde om lagar och förordningar jämte egna interna instruktioner och rutiner som är hänförliga till verksamheten hos Kunden. Kunden ska vidare i övrigt vidta de skyddsåtgärder som behövs för att den Egenanställde inte ska utsättas för ohälsa eller olycksfall. Det åligger Kunden att tillhandahålla erforderlig skyddsutrustning.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>5. Reklamation</span><br>
+          <p>5.1 Fel eller brist hänförlig till FCs ansvar för Uppdraget ska av Kunden omgående skriftligen reklameras till FC. Fel eller brist som upptäcks av Kunden efter det att Uppdraget slutförts eller upphört ska skriftligen reklameras senast inom sju (7) kalenderdagar efter det att Uppdraget har avslutats. Reklamationen ska innehålla tydlig uppgift om felets eller bristens art och omfattning. Kundens rätt till skadestånd eller prisavdrag är förverkad om Kunden inte reklamerar inom föreskriven tid och på föreskrivet sätt.</p>
+          <p>5.2 FC ska efter reklamation eller anmärkning beredas tillfälle att inom skälig tid avhjälpa felet eller bristen, innan Kunden framställer anspråk på skadestånd eller prisavdrag. Vad som är skälig tid ska bedömas med hänsyn till art och omfattning av fel eller brist.</p>
+          <p>5.3 Krav på skadestånd eller prisavdrag gentemot FC ska, för att kunna medföra rätt till ersättning, alltid föregås av reklamation och ska utan oskäligt dröjsmål av Kunden framställas skriftligen dock senast inom tre (3) månader från det att Uppdraget, vartill kravet hör, avslutats.</p>
+          <p>5.4 Anmärkningar avseende den Egenanställde ska framställas direkt till den Egenanställde och således ej till FC.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>6. Ansvar</span><br>
+          <p>6.1 FCs ansvar är begränsat till oaktsamhet vid utförandet av de administrativa tjänster som FC ska utföra för Uppdraget.</p>
+          <p>6.2 Kunden ansvarar för den Egenanställde såsom för egen anställd personal. Kunden är således själv ansvarig för fel och skada som den Egenanställde kan orsaka Kunden eller tredje man inom ramen för det arbete som den Egenanställde utför hos Kunden. FC ska hållas skadefri för all skada hos Kunden eller tredje man som uppstår på grund av det arbete som den Egenanställde utför hos Kunden.</p>
+          <p>6.3 FC ansvarar inte i något fall för indirekt skada såsom t.ex. utebliven vinst, förlust eller annan följdskada, inklusive Kundens eventuella ersättningsskyldighet gentemot tredje man eller förlust av information.</p>
+          <p>6.4 Ansvar för personskada regleras enligt svensk lag.</p>
+          <p>6.5 Kunden bör teckna och upprätthålla för sin verksamhet adekvat försäkring, inklusive försäkring hänförlig till den Egenanställde och dennes arbete för Kunden. Den Egenanställde ska i detta avseende anses jämställd med Kundens egna arbetstagare. FC har dock arbetsgivaransvaret för den Egenanställde, vilket bl.a. innebär att FC erlägger lön, arbetsgivaravgifter, olycksfallsförsäkring (TFO) och grupplivförsäkring (TGL). Som följd av punkten 6.2 ansvarar FC således inte för skada:</p>
+          <p>a) på Kundens motordrivna fordon eller för följdskador till sådana skador;</p>
+          <p>b) på gods som transporteras med Kundens egna eller inhyrda motordrivna fordon (Flytt- och speditörföretag ansvarar för att upprätthålla en tillräcklig och godkänd transportöransvarsförsäkring);</p>
+          <p>c) som omfattas av Trafikskadelagen eller motsvarande svensk eller utländsk lagstiftning;</p>
+          <p>d) som inträffar till följd av trafik med motorfordon när det används inom inhägnat tävlingsområde;</p>
+          <p>e) genom luftfartyg och inte heller det ansvar som kan åläggas den försäkrade i sin egenskap av flygansvarig;</p>
+          <p>f) till följd av kollision orsakad genom fartyg eller av deras bogserade föremål; eller</p>
+          <p>g) hänförlig till patientskada enligt lag.</p>
+          <p>6.6 Skulle skadeståndsansvar uppstå för FC är FCs ansvar begränsat till ett sammanlagt belopp om 0,5 prisbasbelopp, dock högst till priset för Uppdraget. Vid Uppdrag på löpande räkning utgörs priset för Uppdraget av priset för de senaste sex (6) månaderna för Uppdraget. Med prisbasbelopp menas prisbasbelopp enligt socialförsäkringsbalken (2010:110) gällande vid tiden för skadans uppkomst.</p>
+          <p>6.7 Eventuell sjuklön betalas av Kunden. Då anställningarna genom Qnekt alltid är kortare än en månad i taget behövs inte sjuklön betalas vid sjukfrånvaro de första 14 dagarna av anställningen. Då får den Egenanställde istället begära sjukpenning från Försäkringskassan. Det finns dock undantag och en skyddsregel för personer som ofta har korttidsanställningar. Är uppehållet mellan anställningarna högst 14 kalenderdagar hos ett företag ska man räkna ihop anställningstiden. Är tiden då sammanlagt mer än en månad får alltså den anställde/Egenanställde sjuklön utan kvalifikationstid. Har Kunden anställt en person längre än en månad och uppehållet mellan anställningarna är högst 14 kalenderdagar är det Kunden som står för den eventuella kostnaden för sjuklön.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>7. Immateriella rättigheter</span><br>
+          <p>7.1 FC ska tillse genom avtal med Egenanställde att äganderätten till allt material och det resultat som Egenanställde utför med anledning av Uppdraget (“Resultatet”) tillkommer Kunden, om inte annat följer av tvingande lag. All upphovsrätt exklusive ideell rätt liksom annan immateriell rätt till Resultatet ska således utgöra Kundens egendom. Kunden ska ersätta FC vad FC kan vara skyldig att betala till den Egenanställde för överlåtelse av den immateriella rättigheten enligt lag eller kollektivavtal. För uppfinning gäller att Kunden får inträda som rättsinnehavare avseende uppfinningen enbart enligt gällande lag eller berört kollektivavtal. Om Egenanställde använder medtagen programvara eller annat verktyg vid utförande av arbete åt Kunden, så övergår inte rätten till sådana verktyg till Kunden.</p>
+          <p>7.2 FC ansvarar inte för Resultatets immaterialrättsliga intrång eller Egenanställdes olovliga brukande av andras system.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>8. Personuppgifter</span><br>
+          <p>8.1 I samband med att Du, såsom företrädare eller kontaktperson för företaget, registrerar dig hos FeltCap AB kommer FeltCap AB att behandla Dina personuppgifter. FeltCap AB behandlar endast Dina personuppgifter så länge det finns en rättslig grund för det. Fullständig information kring hur FeltCap AB behandlar Dina personuppgifter samt vilka rättigheter Du har finns under “Integritetspolicy” på <%= link_to 'www.qnekt.se/integritypolicies', integritypolicies_path, style: 'font-size: 14px;'%>. Det går också bra att höra av sig till info@qnekt.se med frågor.</p>
+          <p>8.2 Om den Egenanställde vid arbete hos Kunden behandlar personuppgifter är FC inte personuppgiftsbiträde för sådan behandling. Kunden ska säkerställa att den Egenanställde givit samtycke till Kundens hantering av personuppgifter, i enlighet med EU:s personuppgiftslag, som kan anses nödvändig i anledning av Uppdraget. Kunden är personuppgiftsansvarig för dessa uppgifter.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>9. Försäkring</span><br>
+          <p>Kunden är ansvarig för att upprätthålla för sin verksamhet adekvat försäkring, inklusive försäkring hänförlig till den Egenanställde och dennes arbete för Kunden. FC ansvarar för att tillse att Egenanställde omfattas av en liv- och olycksfallsförsäkring under tiden för arbetet.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>10. Ansvarsfriskrivning</span><br>
+          <p>FC friskriver sig från allt ansvar och alla påföljder som kan uppkomma för det fall Kunden har angivit felaktiga uppgifter om uppdraget till FC.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>11. Sekretess</span><br>
+          <p>11.1 FC och Kunden förbinder sig att hålla avtalets innehåll och andra uppgifter hänförliga till Uppdraget innehåll konfidentiellt.</p>
+          <p>11.2 Part har inte någon skyldighet att iaktta sekretess avseende sådan information som:</p>
+          <p>a) vid tidpunkten för Uppdragets bekräftelse är allmänt tillgänglig;</p>
+          <p>b) är känd för part före det att den andre parten avslöjat den; eller</p>
+          <p>c) part är skyldig att avslöja enligt lag eller annan författning.</p>
+          <p>11.3 Punkt 11.1 och 11.2 ska överleva avtalets upphörande.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>12. Avtalstid</span><br>
+          <p>12.1 Avtalet gäller tills vidare såvida inte annat avtalats. Uppdraget gäller under den tid som angetts i Uppdragsbeskrivningen.</p>
+          <p>12.2 Om inte annat avtalats kan såväl avtalet som Uppdraget sägas upp med 30 dagars uppsägningstid. Uppsägning ska vara skriftlig.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>13. Avtalets upphörande i förtid</span><br>
+          <p>13.1 Part äger säga upp avtalet till omedelbart upphörande genom skriftligt meddelande till den andre parten om:</p>
+          <p>a) Egenanställde eller kund har underlåtit att informera FC om omständigheter som är viktiga eller avgörande för att Egenanställde ska omfattas av FCs försäkringsvillkor.</p>
+          <p>b) den andra parten i något väsentligt hänseende bryter mot avtalet och inte har vidtagit rättelse inom fjorton (14) dagar efter skriftlig anmodan; eller</p>
+          <p>c) den andra parten försätts i konkurs, inleder ackordsförhandlingar, träder i likvidation eller på annat vis kan antas ha kommit på obestånd eller om den andre parten beläggs med näringsförbud och part inte omedelbart efter begäran ställer betryggande säkerhet för sitt åtagande; eller</p>
+          <p>d) om part utan medgivande från den andre parten överlåter avtalet på annan.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>14. Befrielsegrunder</span><br>
+          <p>14.1 Part får inställa eller skjuta upp Uppdrag på grund av händelse som inträffar och som part inte rimligen kunnat förutse och som hindrar eller orimligt fördyrar genomförandet av Uppdraget. Part är inte ansvarig för skada eller försening som beror på sådan händelse eller svenskt eller utländskt lagbud eller myndighetsbeslut, våldshandlingar eller risk för våldshandlingar, naturhändelser, plötsligt skadegörande händelser, epidemier, arbetskonflikter eller annan ej förutsebar omständighet. Förbehållet i fråga om arbetskonflikt gäller även om parten själv är föremål för eller vidtar sådan konfliktåtgärd.</p>
+          <p>14.2 Part ska snarast efter det att händelse enligt punkten 14.1 bedöms föreligga underrätta motparten. Är Uppdraget ännu efter tre (3) månader uppskjutet ska Uppdraget upphöra om inte parterna enas om annat. Om Uppdraget upphör äger FC rätt till ersättning för dittills utfört arbete samt kostnader.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>15. Övrigt</span><br>
+          <p>15.1 Parterna har rätt att på sina hemsidor eller i övriga företagspresentationer ange den andra Partens namn och logga samt ange Parternas samarbete.</p>
+          <p>15.2 Parterna äger inte utan den andra Partens godkännande överlåta Avtalet, och/eller därtill hörande rättigheter och/eller skyldigheter, till tredje man.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>16. Meddelanden</span><br>
+          <p>16.1 Samtliga meddelanden under detta avtal ska ske genom bud, rekommenderat brev, telefax eller e¬mail till parternas i uppdragsbekräftelsen överenskomna adresser.</p>
+          <p>16.2 Meddelande ska anses ha kommit mottagaren tillhanda:</p>
+          <p>a) om avlämnat med bud: vid överlämnandet;</p>
+          <p>b) om avsänt med rekommenderat brev: två dagar efter avlämnande för postbefordran;</p>
+          <p>c) om avsänt med telefax: vid avsändandet om mottagande behörigen bekräftats; och</p>
+          <p>d) om avsänt med e­post: vid avsändandet om mottagand behörigen bekräftats.</p>
+          <span style='color: #3db5e6; font-weight: 700;'>17. Tvister</span><br>
+          <p>17.1 Tvister som uppstår i anledning av detta avtal ska slutligt avgöras genom skiljedom enligt Regler för Förenklat Skiljeförfarande för Göteborgs Handelskammares Skiljedomsinstitut. Skiljeförfarandets säte ska vara Göteborg. Språket för förfarandet ska vara svenska. Svensk lag ska tillämpas på tvisten.</p>
+          <p>17.2 Såvitt avser ostridig förfallen fordran äger FC dock alltid rätt att framställa krav vid allmän domstol.</p>
+          <p>FC förbehåller sig rätten att ändra i ovanstående text och avtal utan att meddela detta i förhand. Allmänna villkor för Kund: senast uppdaterad 2018-03-05.</p>
+        </div>
       </span>
-    </div>
-    <span class='normal-paragraph-b2' style="display: none;">
-      <div class='our-rates-normal-paragraph'>
-        <span style='color: #3db5e6; font-weight: 700;'>1. Omfattning</span><br>
-        <p>1.1 Dessa bestämmelser reglerar avtalsförhållandet mellan FeltCap AB (härefter kallad ” FC”) och kundföretaget (härefter kallad ”Kunden”).</p>
-        <p>1.2 Avtalet omfattar ett affärsmässigt och rättsligt förhållande mellan FC och Kund i vilket FC anställer personer som utför arbete hos Kunden (”Egenanställde”) under Kundens kontroll och ledning i enlighet med vad som överenskommits mellan Kunden och den Egenanställde (”Uppdrag/et”). För varje Uppdrag är det således FC som är juridisk kontraktspart och uppdragstagare i relation till Kunden. Det åligger den Egenanställde att tillse att den Egenanställde har FCs godkännande (vilket kan lämnas av FC generellt för vissa på förhand väl definierade typer av uppdrag eller från fall till fall) till att åta sig Uppdrag med FC som uppdragstagare och sådant godkännande krävs för att binda FC. FC kan på begäran av potentiell Kund lämna uppgift om och bekräfta huruvida godkännande finns.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>2. Avtal om uppdrag</span><br>
-        <p>2.1 Om FC så kräver ska Kunden ange erforderlig information om de arbetsuppgifter som ska utföras, arbetets längd, ersättning, arbetstider, tillämpligt kollektivavtal, andra lokala avtal som tillämpas eller andra omständigheter som är av vikt för arbetet som ska utföras.</p>
-        <p>2.2 Uppdrag som träffas utanför plattformen bekräftas av Kunden genom att Kunden betalar fakturan eller skriftligen eller per e-post, bekräftar den av Egenanställde tillhandahållna Uppdragsbeskrivningen där Uppdragets art, omfattning, överenskomna krav och Uppdragets längd preciseras. För Uppdraget gäller i övrigt de villkor som framgår av Uppdragsbeskrivningen samt vad som i övrigt överenskommits mellan Egenanställde och Kunden.</p>
-        <p>2.3 Uppdrag som träffas via plattformen bekräftas av Kunden genom att Kunden via plattformen godkänner den Egenanställde för uppdraget.  För Uppdraget gäller dessa Allmänna villkor samt vad som i övrigt överenskommits mellan Egenanställde och Kunden. Kunden är därmed fullt ansvarig för valet av Egenanställd som anställs genom plattformen och kan inte åberopa reklamation vid undermåligt utförda arbetsuppgifter.</p>
-        <p>2.4 Kunden får inte kontakta Egenanställda genom plattformen och därefter anställa dem utanför plattformen. Vi genomför kontroller och om det skulle uppdagas att så skett kommer ni åläggas att betala en straffavgift om 15 000 SEK.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>3. Arbetsledning</span><br>
-        <p>3.1 Det åligger Kunden att ansvara för arbetsledning av den Egenanställde, att ansvara för kontroll och uppföljning av den Egenanställdes arbete samt att lämna erforderliga instruktioner, information samt tillhandahålla arbetsplats och nödvändig utrustning som behövs för den Egenanställdes arbetsuppgifter.</p>
-        <p>3.2 Kunden förbinder sig att behandla den Egenanställde rättvist och jämlikt i relation till sina egna arbetstagare och i enlighet med lag och god sed på arbetsmarknaden.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>4. Arbetsmiljö</span><br>
-        <p>4.1 Det åligger Kunden att iakttaga 3kap 12 § Arbetsmiljölagen genom att informera den Egenanställde om lagar och förordningar jämte egna interna instruktioner och rutiner som är hänförliga till verksamheten hos Kunden. Kunden ska vidare i övrigt vidta de skyddsåtgärder som behövs för att den Egenanställde inte ska utsättas för ohälsa eller olycksfall. Det åligger Kunden att tillhandahålla erforderlig skyddsutrustning.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>5. Reklamation</span><br>
-        <p>5.1 Fel eller brist hänförlig till FCs ansvar för Uppdraget ska av Kunden omgående skriftligen reklameras till FC. Fel eller brist som upptäcks av Kunden efter det att Uppdraget slutförts eller upphört ska skriftligen reklameras senast inom sju (7) kalenderdagar efter det att Uppdraget har avslutats. Reklamationen ska innehålla tydlig uppgift om felets eller bristens art och omfattning. Kundens rätt till skadestånd eller prisavdrag är förverkad om Kunden inte reklamerar inom föreskriven tid och på föreskrivet sätt.</p>
-        <p>5.2 FC ska efter reklamation eller anmärkning beredas tillfälle att inom skälig tid avhjälpa felet eller bristen, innan Kunden framställer anspråk på skadestånd eller prisavdrag. Vad som är skälig tid ska bedömas med hänsyn till art och omfattning av fel eller brist.</p>
-        <p>5.3 Krav på skadestånd eller prisavdrag gentemot FC ska, för att kunna medföra rätt till ersättning, alltid föregås av reklamation och ska utan oskäligt dröjsmål av Kunden framställas skriftligen dock senast inom tre (3) månader från det att Uppdraget, vartill kravet hör, avslutats.</p>
-        <p>5.4 Anmärkningar avseende den Egenanställde ska framställas direkt till den Egenanställde och således ej till FC.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>6. Ansvar</span><br>
-        <p>6.1 FCs ansvar är begränsat till oaktsamhet vid utförandet av de administrativa tjänster som FC ska utföra för Uppdraget.</p>
-        <p>6.2 Kunden ansvarar för den Egenanställde såsom för egen anställd personal. Kunden är således själv ansvarig för fel och skada som den Egenanställde kan orsaka Kunden eller tredje man inom ramen för det arbete som den Egenanställde utför hos Kunden. FC ska hållas skadefri för all skada hos Kunden eller tredje man som uppstår på grund av det arbete som den Egenanställde utför hos Kunden.</p>
-        <p>6.3 FC ansvarar inte i något fall för indirekt skada såsom t.ex. utebliven vinst, förlust eller annan följdskada, inklusive Kundens eventuella ersättningsskyldighet gentemot tredje man eller förlust av information.</p>
-        <p>6.4 Ansvar för personskada regleras enligt svensk lag.</p>
-        <p>6.5 Kunden bör teckna och upprätthålla för sin verksamhet adekvat försäkring, inklusive försäkring hänförlig till den Egenanställde och dennes arbete för Kunden. Den Egenanställde ska i detta avseende anses jämställd med Kundens egna arbetstagare. FC har dock arbetsgivaransvaret för den Egenanställde, vilket bl.a. innebär att FC erlägger lön, arbetsgivaravgifter, olycksfallsförsäkring (TFO) och grupplivförsäkring (TGL). Som följd av punkten 6.2 ansvarar FC således inte för skada:</p>
-        <p>a) på Kundens motordrivna fordon eller för följdskador till sådana skador;</p>
-        <p>b) på gods som transporteras med Kundens egna eller inhyrda motordrivna fordon (Flytt- och speditörföretag ansvarar för att upprätthålla en tillräcklig och godkänd transportöransvarsförsäkring);</p>
-        <p>c) som omfattas av Trafikskadelagen eller motsvarande svensk eller utländsk lagstiftning;</p>
-        <p>d) som inträffar till följd av trafik med motorfordon när det används inom inhägnat tävlingsområde;</p>
-        <p>e) genom luftfartyg och inte heller det ansvar som kan åläggas den försäkrade i sin egenskap av flygansvarig;</p>
-        <p>f) till följd av kollision orsakad genom fartyg eller av deras bogserade föremål; eller</p>
-        <p>g) hänförlig till patientskada enligt lag.</p>
-        <p>6.6 Skulle skadeståndsansvar uppstå för FC är FCs ansvar begränsat till ett sammanlagt belopp om 0,5 prisbasbelopp, dock högst till priset för Uppdraget. Vid Uppdrag på löpande räkning utgörs priset för Uppdraget av priset för de senaste sex (6) månaderna för Uppdraget. Med prisbasbelopp menas prisbasbelopp enligt socialförsäkringsbalken (2010:110) gällande vid tiden för skadans uppkomst.</p>
-        <p>6.7 Eventuell sjuklön betalas av Kunden. Då anställningarna genom Qnekt alltid är kortare än en månad i taget behövs inte sjuklön betalas vid sjukfrånvaro de första 14 dagarna av anställningen. Då får den Egenanställde istället begära sjukpenning från Försäkringskassan. Det finns dock undantag och en skyddsregel för personer som ofta har korttidsanställningar. Är uppehållet mellan anställningarna högst 14 kalenderdagar hos ett företag ska man räkna ihop anställningstiden. Är tiden då sammanlagt mer än en månad får alltså den anställde/Egenanställde sjuklön utan kvalifikationstid. Har Kunden anställt en person längre än en månad och uppehållet mellan anställningarna är högst 14 kalenderdagar är det Kunden som står för den eventuella kostnaden för sjuklön.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>7. Immateriella rättigheter</span><br>
-        <p>7.1 FC ska tillse genom avtal med Egenanställde att äganderätten till allt material och det resultat som Egenanställde utför med anledning av Uppdraget (“Resultatet”) tillkommer Kunden, om inte annat följer av tvingande lag. All upphovsrätt exklusive ideell rätt liksom annan immateriell rätt till Resultatet ska således utgöra Kundens egendom. Kunden ska ersätta FC vad FC kan vara skyldig att betala till den Egenanställde för överlåtelse av den immateriella rättigheten enligt lag eller kollektivavtal. För uppfinning gäller att Kunden får inträda som rättsinnehavare avseende uppfinningen enbart enligt gällande lag eller berört kollektivavtal. Om Egenanställde använder medtagen programvara eller annat verktyg vid utförande av arbete åt Kunden, så övergår inte rätten till sådana verktyg till Kunden.</p>
-        <p>7.2 FC ansvarar inte för Resultatets immaterialrättsliga intrång eller Egenanställdes olovliga brukande av andras system.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>8. Personuppgifter</span><br>
-        <p>8.1 I samband med att Du, såsom företrädare eller kontaktperson för företaget, registrerar dig hos FeltCap AB kommer FeltCap AB att behandla Dina personuppgifter. FeltCap AB behandlar endast Dina personuppgifter så länge det finns en rättslig grund för det. Fullständig information kring hur FeltCap AB behandlar Dina personuppgifter samt vilka rättigheter Du har finns under “Integritetspolicy” på <%= link_to 'www.qnekt.se/integritypolicies', integritypolicies_path, style: 'font-size: 14px;'%>. Det går också bra att höra av sig till info@qnekt.se med frågor.</p>
-        <p>8.2 Om den Egenanställde vid arbete hos Kunden behandlar personuppgifter är FC inte personuppgiftsbiträde för sådan behandling. Kunden ska säkerställa att den Egenanställde givit samtycke till Kundens hantering av personuppgifter, i enlighet med EU:s personuppgiftslag, som kan anses nödvändig i anledning av Uppdraget. Kunden är personuppgiftsansvarig för dessa uppgifter.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>9. Försäkring</span><br>
-        <p>Kunden är ansvarig för att upprätthålla för sin verksamhet adekvat försäkring, inklusive försäkring hänförlig till den Egenanställde och dennes arbete för Kunden. FC ansvarar för att tillse att Egenanställde omfattas av en liv- och olycksfallsförsäkring under tiden för arbetet.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>10. Ansvarsfriskrivning</span><br>
-        <p>FC friskriver sig från allt ansvar och alla påföljder som kan uppkomma för det fall Kunden har angivit felaktiga uppgifter om uppdraget till FC.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>11. Sekretess</span><br>
-        <p>11.1 FC och Kunden förbinder sig att hålla avtalets innehåll och andra uppgifter hänförliga till Uppdraget innehåll konfidentiellt.</p>
-        <p>11.2 Part har inte någon skyldighet att iaktta sekretess avseende sådan information som:</p>
-        <p>a) vid tidpunkten för Uppdragets bekräftelse är allmänt tillgänglig;</p>
-        <p>b) är känd för part före det att den andre parten avslöjat den; eller</p>
-        <p>c) part är skyldig att avslöja enligt lag eller annan författning.</p>
-        <p>11.3 Punkt 11.1 och 11.2 ska överleva avtalets upphörande.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>12. Avtalstid</span><br>
-        <p>12.1 Avtalet gäller tills vidare såvida inte annat avtalats. Uppdraget gäller under den tid som angetts i Uppdragsbeskrivningen.</p>
-        <p>12.2 Om inte annat avtalats kan såväl avtalet som Uppdraget sägas upp med 30 dagars uppsägningstid. Uppsägning ska vara skriftlig.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>13. Avtalets upphörande i förtid</span><br>
-        <p>13.1 Part äger säga upp avtalet till omedelbart upphörande genom skriftligt meddelande till den andre parten om:</p>
-        <p>a) Egenanställde eller kund har underlåtit att informera FC om omständigheter som är viktiga eller avgörande för att Egenanställde ska omfattas av FCs försäkringsvillkor.</p>
-        <p>b) den andra parten i något väsentligt hänseende bryter mot avtalet och inte har vidtagit rättelse inom fjorton (14) dagar efter skriftlig anmodan; eller</p>
-        <p>c) den andra parten försätts i konkurs, inleder ackordsförhandlingar, träder i likvidation eller på annat vis kan antas ha kommit på obestånd eller om den andre parten beläggs med näringsförbud och part inte omedelbart efter begäran ställer betryggande säkerhet för sitt åtagande; eller</p>
-        <p>d) om part utan medgivande från den andre parten överlåter avtalet på annan.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>14. Befrielsegrunder</span><br>
-        <p>14.1 Part får inställa eller skjuta upp Uppdrag på grund av händelse som inträffar och som part inte rimligen kunnat förutse och som hindrar eller orimligt fördyrar genomförandet av Uppdraget. Part är inte ansvarig för skada eller försening som beror på sådan händelse eller svenskt eller utländskt lagbud eller myndighetsbeslut, våldshandlingar eller risk för våldshandlingar, naturhändelser, plötsligt skadegörande händelser, epidemier, arbetskonflikter eller annan ej förutsebar omständighet. Förbehållet i fråga om arbetskonflikt gäller även om parten själv är föremål för eller vidtar sådan konfliktåtgärd.</p>
-        <p>14.2 Part ska snarast efter det att händelse enligt punkten 14.1 bedöms föreligga underrätta motparten. Är Uppdraget ännu efter tre (3) månader uppskjutet ska Uppdraget upphöra om inte parterna enas om annat. Om Uppdraget upphör äger FC rätt till ersättning för dittills utfört arbete samt kostnader.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>15. Övrigt</span><br>
-        <p>15.1 Parterna har rätt att på sina hemsidor eller i övriga företagspresentationer ange den andra Partens namn och logga samt ange Parternas samarbete.</p>
-        <p>15.2 Parterna äger inte utan den andra Partens godkännande överlåta Avtalet, och/eller därtill hörande rättigheter och/eller skyldigheter, till tredje man.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>16. Meddelanden</span><br>
-        <p>16.1 Samtliga meddelanden under detta avtal ska ske genom bud, rekommenderat brev, telefax eller e¬mail till parternas i uppdragsbekräftelsen överenskomna adresser.</p>
-        <p>16.2 Meddelande ska anses ha kommit mottagaren tillhanda:</p>
-        <p>a) om avlämnat med bud: vid överlämnandet;</p>
-        <p>b) om avsänt med rekommenderat brev: två dagar efter avlämnande för postbefordran;</p>
-        <p>c) om avsänt med telefax: vid avsändandet om mottagande behörigen bekräftats; och</p>
-        <p>d) om avsänt med e­post: vid avsändandet om mottagand behörigen bekräftats.</p>
-        <span style='color: #3db5e6; font-weight: 700;'>17. Tvister</span><br>
-        <p>17.1 Tvister som uppstår i anledning av detta avtal ska slutligt avgöras genom skiljedom enligt Regler för Förenklat Skiljeförfarande för Göteborgs Handelskammares Skiljedomsinstitut. Skiljeförfarandets säte ska vara Göteborg. Språket för förfarandet ska vara svenska. Svensk lag ska tillämpas på tvisten.</p>
-        <p>17.2 Såvitt avser ostridig förfallen fordran äger FC dock alltid rätt att framställa krav vid allmän domstol.</p>
-        <p>FC förbehåller sig rätten att ändra i ovanstående text och avtal utan att meddela detta i förhand. Allmänna villkor för Kund: senast uppdaterad 2018-03-05.</p>
       </div>
-    </span>
+    </div>
+    <%= render 'footer_unscroll' %>
   </div>
 </div>

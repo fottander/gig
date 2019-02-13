@@ -66,8 +66,8 @@ input[type='file'] {
   width: 75%;
   z-index: 999;
   background: #FEFEFE;
-  border: 1px solid;
-  border-color: #6D6D6D;
+  border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(51, 51, 51, 0.3);
 }
 
 #registered-wrapper .registered {
@@ -2131,6 +2131,7 @@ input[type='file'] {
       grid-template-rows: 1fr 8fr 1fr;
   height: 100vh;
 }
+
 .holy-grail-grid-show {
   margin-left: 40px;
   margin-right: 40px;
@@ -2187,7 +2188,6 @@ input[type='file'] {
   color: #fff;
   display: inline-block;
   text-align: center;
-  text-transform: uppercase;
   line-height: 1;
   font-size: 1rem;
   font-family: 'Montserrat',Arial,sans-serif;
@@ -2198,7 +2198,7 @@ input[type='file'] {
   width: calc(100%);
 }
 .holy-grail-left-application {
-  background-color: #F8F8F8;
+  background-color: #f9f5ee;
   padding: 0.5rem;
   min-height: 100vh;
 }
@@ -2246,7 +2246,7 @@ input[type='file'] {
 
 .holy-grail-middle-application,
 .holy-grail-middle {
-  background-color: #ffff;
+  background-color: #f9f5ee;
   padding-top: 15px;
 }
 
@@ -2850,8 +2850,10 @@ input[type='file'] {
 /* SHOW JOB AD & APPLY & DASHBOARDS */
 
 .portfolio-card {
-  border: 1px solid #ddd;
-  margin-bottom: 5px;
+  background-color: #ffff;
+    box-shadow: 5px 5px 10px rgba(51, 51, 51, 0.3);
+    padding-bottom: 0.3em;
+  margin-bottom: 0.5em;
 }
 
 @media screen and (min-width: 34.9375em) and (max-width: 63.9375em) {
@@ -2988,6 +2990,14 @@ input[type='file'] {
   margin-top: -18px;
   font-size: 13px;
   margin-bottom: 0px;
+}
+
+.portfolio-resume-control-panel {
+  text-align: center;
+  background-color: #ffff;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+    box-shadow: 5px 5px 10px rgba(51, 51, 51, 0.3);
 }
 
 /* HOW IT WORKS */
