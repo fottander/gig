@@ -62,7 +62,7 @@ Then("I should see {string} within company") do |content|
 end
 
 Then("I click {string} in left menu") do |link|
-  within ".holy-grail-left-application" do
+  within ".holy-grail-left" do
     click_link_or_button link
   end
 end
