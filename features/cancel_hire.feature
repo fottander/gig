@@ -33,7 +33,7 @@ Background:
     And I click "Ta bort anställning"
     Then I should see "Anställningen raderad"
     And I should see "målare sökes" in not active applications
-    Then I click "LOGGA UT"
+    Then I click "Logga ut"
     Given I am logged in as company "felix@mail.com"
     Given I am on control panel page
     And I should see "fisken lämnade återbud på din anställning"
@@ -47,7 +47,7 @@ Background:
     Then I should see "Grattis! Du har anlitat personen"
     And I click "Avanställ/Ta bort"
     Then I should see "Anställningen raderad"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as user "felix@mail.com"
     Given I am on the dashboards page
     Then I should see "Anders p anställde dig för ansökan"

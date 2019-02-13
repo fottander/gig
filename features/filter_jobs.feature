@@ -27,7 +27,7 @@ Feature: Filter jobs
 
       Scenario: I filter
         Given I am on the home page
-        And I click nav "HITTA JOBB"
+        And I click nav "Hitta jobb"
         And I should see "Alla jobb"
         And I should see "målare"
         And I select "Målare" from "with_category"

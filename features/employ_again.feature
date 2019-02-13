@@ -42,7 +42,7 @@ Feature: A company hires a person
       And I should see "Fisken" in active employments
       And I should see "2018-09-01" in active employments
       Then I should see "2018-09-20" in active employments
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
       And I should see "Anders p har skapat en ny anställning"

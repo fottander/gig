@@ -34,7 +34,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 0"
     Then I should see "Totalt intjänat: 0 - 10 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 0 kr"
     Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."
     Given I am on the dashboards page
@@ -54,7 +54,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 1"
     Then I should see "Totalt intjänat: 0 - 10 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I click "Visa/Redigera"
     And I click "Redigera arbetspass och tider"
     And I fill in startdatum with date "2019-01-01"
@@ -88,7 +88,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 2"
     Then I should see "Totalt intjänat: 10 000 - 20 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 10000 kr"
     Then I should see "Din nuvarande avgift är 8.0%. Läs mer om våra avgifter."
     And an invoice with amount "4000" and quantity "40" and unit "100" and shiftid "1" is created
@@ -98,7 +98,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 3"
     Then I should see "Totalt intjänat: 10 000 - 20 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 14000 kr"
     Then I should see "Din nuvarande avgift är 8.0%. Läs mer om våra avgifter."
     And an invoice with amount "8000" and quantity "80" and unit "100" and shiftid "21" is created
@@ -108,7 +108,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 4"
     Then I should see "Totalt intjänat: 20 000 - 50 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 22000 kr"
     Then I should see "Din nuvarande avgift är 7.0%. Läs mer om våra avgifter."
     And an invoice with amount "40000" and quantity "400" and unit "100" and shiftid "31" is created
@@ -118,7 +118,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 5"
     Then I should see "Totalt intjänat: 50 000 - 100 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 62000 kr"
     Then I should see "Din nuvarande avgift är 6.0%. Läs mer om våra avgifter."
     And an invoice with amount "40000" and quantity "400" and unit "100" and shiftid "41" is created
@@ -128,7 +128,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 6"
     Then I should see "Totalt intjänat: 100 000 - 250 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 102000 kr"
     Then I should see "Din nuvarande avgift är 5.0%. Läs mer om våra avgifter."
     And an invoice with amount "160000" and quantity "1600" and unit "100" and shiftid "51" is created
@@ -138,7 +138,7 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 7"
     Then I should see "Totalt intjänat: 250 000 - 500 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 262000 kr"
     Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."
     And an invoice with amount "250000" and quantity "2500" and unit "100" and shiftid "61" is created
@@ -148,6 +148,6 @@ Background:
     And I click "fisken"
     And I should see "Antal genomförda jobb: 8"
     Then I should see "Totalt intjänat: Mer än 500 000 kr"
-    And I click "KONTROLLPANEL"
+    And I click "Kontrollpanel"
     And I should see "Totalt intjänat: 512000 kr"
     Then I should see "Din nuvarande avgift är 4.0%. Läs mer om våra avgifter."

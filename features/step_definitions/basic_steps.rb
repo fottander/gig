@@ -106,3 +106,21 @@ end
 Given("I click hidden button with id {string}") do |button_id|
   find("##{button_id}", visible: false).click
 end
+
+Given("I click {string} in actions") do |link|
+  within ".actions" do
+    click_link_or_button link
+  end
+end
+
+Given("I click {string} in shared links") do |link|
+  within ".shared-links" do
+    click_link_or_button link
+  end
+end
+
+Given("I click {string} in simple form") do |link|
+  within ".simple-form" do
+    click_link_or_button link
+  end
+end

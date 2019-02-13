@@ -53,7 +53,7 @@ Feature: A company hires a person
       And I should not see "Anställ"
       And I should not see "Skapa faktura baserad på jobbet"
       And I should not see "Jobbet har genomförts!"
-      And I click "KONTROLLPANEL"
+      And I click "Kontrollpanel"
       Then I should see "Fisken" in active employments
       And I should see "Första jobbdag: 2018-01-01" in active employments
       And I should see "Sista jobbdag: 2018-01-20" in active employments
@@ -65,12 +65,12 @@ Feature: A company hires a person
       And I should not see "Anställ"
       And I should not see "Skapa faktura baserad på jobbet"
       And the application gets marked as completed
-      And I click "KONTROLLPANEL"
+      And I click "Kontrollpanel"
       Then I should see "Fisken" in complete employments
       And I should not see "Fisken" in active employments
       And I click "målare sökes"
       Then I should see "Anställd! & jobb genomfört!"
-      And I click "LOGGA UT"
+      And I click "Logga ut"
       Given I am logged in as user "felix@mail.com"
       Given I am on the dashboards page
       And I should see "Anders p skickade ett svar"

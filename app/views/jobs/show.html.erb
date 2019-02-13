@@ -32,40 +32,22 @@
               <%= link_to '✎ Redigera', edit_job_path(@job, anchor: 'description'), class: 'text-link-orange', style: 'font-size: 16px;' %>
             <% end %>
           <% end %>
-          <ul >
-            <li>
-              Stad: <%= @job.cities.pluck(:name).flatten.join(' & ') %>
-            </li>
-            <li>
-              Kategorier: <%= @job.categories.pluck(:name).flatten.join(' & ') %>
-            </li>
-            <li>
-              Typ av anställning:
-              <% if @job.jobtype.present? %>
-                <%= @job.jobtype %>
-              <% else %>
-                Ej specificerat
-              <% end %>
-            </li>
-            <li>
-              Jobbets längd: <%= @job.duration %>
-            </li>
-            <li>
-              Timmar per dag: <%= @job.hour_day %>
-            </li>
-            <li>
-              När ska jobbet utföras: <%= @job.when_in_time %>
-            </li>
-            <li>
-              Sista ansökningsdag: <%= @job.deadline%>
-            </li>
-            <li>
-              Krav: <%= @job.requirement %>
-            </li>
-            <li>
-              Föreslagen lön: <%= @job.budget %>
-            </li>
-          </ul>
+          <div class='portfolio-list'>
+            <span class='portfolio-li'>Stad:</span> <%= @job.cities.pluck(:name).flatten.join(' & ') %><br>
+            <span class='portfolio-li'>Kategorier:</span> <%= @job.categories.pluck(:name).flatten.join(' & ') %><br>
+            <span class='portfolio-li'>Typ av anställning:</span>
+            <% if @job.jobtype.present? %>
+              <%= @job.jobtype %><br>
+            <% else %>
+              Ej specificerat <br>
+            <% end %>
+            <span class='portfolio-li'>Jobbets längd:</span> <%= @job.duration %><br>
+            <span class='portfolio-li'>Timmar per dag:</span> <%= @job.hour_day %><br>
+            <span class='portfolio-li'>När ska jobbet utföras:</span> <%= @job.when_in_time %><br>
+            <span class='portfolio-li'>Sista ansökningsdag:</span> <%= @job.deadline%><br>
+            <span class='portfolio-li'>Krav:</span> <%= @job.requirement %><br>
+            <span class='portfolio-li'>Föreslagen lön:</span> <%= @job.budget %><br>
+          </div>
           <% if current_user.present? %>
             <% if current_user.profile.present? %>
               <% if @applications.any? { |a| a.profile_id == current_user.profile.id } %>

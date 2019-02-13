@@ -50,7 +50,7 @@ Feature: Admin find companies
     Scenario: I register company and then verify it as admin
       Given I am on the home page
       And I click "Hitta Personal"
-      And I click "SKAPA KONTO"
+      And I click "Skapa konto"
       And I fill in "Email" with "mail@mail.com"
       And I fill in "Företagsnamn" with "hello"
       And I fill in "Användarnamn" with "oij12"

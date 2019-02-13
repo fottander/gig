@@ -57,12 +57,12 @@ Feature: Create an invoice without an ad
     And I click "Fakturera utan företag"
     And I should see "Fakturan ej betald"
     Then I should see "1000"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am on the admin login page
     And I should see "Logga in som admin"
     And I fill in "Email" with "admin@yahoo.com"
     And I fill in "Lösenord" with "12345678"
-    And I click "Logga in"
+    And I click "Logga in" in actions
     Then I should see "Välkommen! Du är inloggad."
     And I click "Snabbfakturor"
     And I click "Visa/godkänn faktura"
@@ -85,7 +85,7 @@ Feature: Create an invoice without an ad
     And I should see "Frilansar användarnamn: Fisken"
     And I click "Markera som betald"
     And I click "Markera som lön utbetald"
-    And I click "LOGGA UT"
+    And I click "Logga ut"
     Given I am logged in as user "felix@mail.com"
     Given I am on the dashboards page
     And I click "Fakturera utan företag"

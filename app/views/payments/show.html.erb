@@ -68,7 +68,7 @@
             <p class="portfolio-resume-subheader">
               <% if @invoice.user_id == current_user.id %>
                 <% if @invoice.paid == true %>
-                  <%= link_to 'Visa Lönebesked', payment_path(@invoice, format: 'pdf'), class: 'profile-button-expand' %><br>
+                  <%= link_to 'Visa lönebesked', payment_path(@invoice, format: 'pdf'), class: 'profile-button-expand' %><br>
                 <% end %>
                 <span class='item-define'>Utbetalnings ID:</span> <%= @invoice.id.first(8) %><br>
                 <span class='item-define'>Beskrivning:</span> <%= @invoice.description %><br>
