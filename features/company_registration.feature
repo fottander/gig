@@ -36,7 +36,7 @@ Feature: Company registration
       And I fill in "Lösenord" with "12345678"
       And I click "Logga in" in actions
       Then I should see "Välkommen! Du är inloggad"
-      And I click "DÖLJ"
+      And I click "Dölj"
       Then I should not see "Registrerad! Kolla din mail efter vår bekräftelse"
       And I should see "Skapa annons"
       And I should see "Titel"

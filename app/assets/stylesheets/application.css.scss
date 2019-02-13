@@ -309,6 +309,7 @@ input[type='file'] {
    padding: 0.9rem 1.75rem 0.9rem;
    margin-right: 10px;
    border-radius: 4px;
+   border: none;
  }
 
  .button-green {
@@ -323,6 +324,7 @@ input[type='file'] {
      letter-spacing: 0.5px;
      padding: 0.3rem 0.5rem 0.3rem;
      border-radius: 4px;
+     border: none;
  }
 
  .button-green-big {
@@ -337,6 +339,7 @@ input[type='file'] {
      letter-spacing: 0.5px;
      padding: 0.6rem 0.8rem 0.6rem;
      border-radius: 4px;
+     border: none;
  }
 
  .button-blue {
@@ -351,6 +354,7 @@ input[type='file'] {
      letter-spacing: 0.5px;
      padding: 0.5rem 0.8rem 0.5rem;
      border-radius: 4px;
+     border: none;
  }
 
  .button-blue:hover {
@@ -381,6 +385,7 @@ input[type='file'] {
    letter-spacing: 0.5px;
    padding: 0.3rem 0.5rem 0.3rem;
    border-radius: 4px;
+   border: none;
  }
 
  .button-select {
@@ -432,6 +437,7 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 1rem 1.75rem 1rem;
    border-radius: 4px;
+   border: none;
  }
 
  #reply-button {
@@ -446,6 +452,7 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 1rem 1.75rem 1rem;
    border-radius: 4px;
+   border: none;
  }
 
  @media screen and (max-width: 35.9375em) {
@@ -471,6 +478,7 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 1rem 1.75rem 1rem;
    border-radius: 4px;
+   border: none;
  }
 
  @media screen and (max-width: 39.9375em) {
@@ -491,6 +499,7 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 1rem 1.75rem 1rem;
    border-radius: 4px;
+   border: none;
  }
 
  #profile-button {
@@ -505,6 +514,7 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 1rem 1.75rem 1rem;
    border-radius: 4px;
+   border: none;
  }
 
  @media screen and (max-width: 35.9375em) {
@@ -531,6 +541,7 @@ input[type='file'] {
    padding: 1rem 1.75rem 1rem;
    max-width: 100%;
    border-radius: 4px;
+   border: none;
  }
 
  .profile-button-expand:hover {
@@ -552,6 +563,7 @@ input[type='file'] {
    margin-right: auto;
    max-width: 100%;
    border-radius: 4px;
+   border: none;
  }
 
  .reply-button-expand:hover {
@@ -573,6 +585,7 @@ input[type='file'] {
    margin-right: auto;
    max-width: 90%;
    border-radius: 4px;
+   border: none;
  }
 
  @media screen and (max-width: 39.9375em) {
@@ -596,6 +609,7 @@ input[type='file'] {
    font-family: 'Montserrat',Arial,sans-serif;
    padding: 0.5rem 1rem 0.5rem;
    border-radius: 4px;
+   border: none;
  }
 
  .filter-button {
@@ -609,6 +623,7 @@ input[type='file'] {
    letter-spacing: 0.8px;
    padding: 0.7rem 1.5rem 0.7rem;
    border-radius: 4px;
+   border: none;
  }
 
  .filter-button:hover {
