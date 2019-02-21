@@ -136,6 +136,7 @@
                 Jobb ID: <%= @invoice.job_id %><br>
                 Ansöknings ID: <%= @invoice.application_id %><br>
                 Profil: <%= @invoice.profile_username %><br>
+                För- och efternamn: <%= @invoice.user.first_name %> <%= @invoice.user.last_name %><br>
                 Beskrivning: <%= @invoice.description %> <br>
                 Referens: <%= @invoice.user_reference %><br>
                 Er referens: <%= @invoice.company_reference %><br>

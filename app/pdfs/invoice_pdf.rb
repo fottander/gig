@@ -1,7 +1,7 @@
 class InvoicePdf < Prawn::Document
-  def initialize(invoice, profile, company, due_date)
+  def initialize(invoice, user, company, due_date)
     @invoice = invoice
-    @profile = profile
+    @user = user
     @company = company
     @due_date = due_date
 
@@ -34,8 +34,9 @@ class InvoicePdf < Prawn::Document
     text "Datum: #{@invoice.updated_at.strftime('%F')}"
     text "Förfallodatum: #{@due_date.strftime('%F')}"
     text "Referens: #{@invoice.user_reference}"
+    text "För- och efternamn: #{@user.first_name} #{@user.last_name}"
+    text "Personnummer: #{@user.pers_num}"
     text "Er referens: #{@invoice.company_reference}"
-
     text "Kundnummer: #{@company.id}"
     text "#{@company.name}"
     if @company.invoice_address.present?
