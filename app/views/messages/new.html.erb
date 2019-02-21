@@ -18,7 +18,7 @@
       <h3 style='text-align: center;'>Kontakta oss</h3>
       <p style='margin-left: 20px; margin-right: 20px; text-align: center; font-weight: 550; color: #696868;'>Här kan du kontakta oss om du har några frågor om tjänsten eller behöver hjälp. Vi vill alltid ha nöjda kunder och därför är det viktigt för oss att du får hjälp med stora som små frågor.</p>
       <div class="simple-form" style='text-align: center;'>
-        <%= form_for @message do |f| %>
+        <%= form_with url: messages_path do |f| %>
           <div class="login-box-input">
             <%= f.text_field :name, placeholder: '* Namn' %>
           </div>

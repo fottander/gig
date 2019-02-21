@@ -79,7 +79,7 @@
     </div>
     <div class="portfolio-resume row">
 
-      <div class="large-4 columns">
+      <div class="large-3 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Nya Jobb</h3>
           <p class="portfolio-resume-subheader">
@@ -93,7 +93,7 @@
         </div>
       </div>
 
-      <div class="large-4 columns">
+      <div class="large-3 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Nya Anställningar</h3>
           <p class="portfolio-resume-subheader">
@@ -107,7 +107,7 @@
         </div>
       </div>
 
-      <div class="large-4 columns">
+      <div class="large-3 columns">
         <div class="portfolio-resume-wrapper">
           <h3 class="portfolio-resume-header">Nya Företag</h3>
           <p class="portfolio-resume-subheader">
@@ -117,6 +117,16 @@
               Username: <%= company.username %><br>
               Skapad: <%= company.created_at.strftime("%F %R") %><br><br>
             <% end %>
+          </p>
+        </div>
+      </div>
+
+      <div class="large-3 columns">
+        <div class="portfolio-resume-wrapper">
+          <h3 class="portfolio-resume-header">Qnekt i siffror</h3>
+          <p class="portfolio-resume-subheader">
+            Ansökningar per jobb: <%= @applications_per_job.round(2) %><br>
+            Anställningar per jobb: <%= @hires_per_job.round(2) %>
           </p>
         </div>
       </div>
