@@ -8,5 +8,10 @@ class AdministrationsController < ApplicationController
     @jobs = Job.first(10)
     @applications = Application.hired.first(10)
     @companies = Company.first(10)
+    @job_count = Job.all.count.to_f
+    @application_count = Application.all.count.to_f
+    @hire_count = Application.hired.count.to_f
+    @applications_per_job = @application_count / @job_count
+    @hires_per_job = @hire_count / (@job_count - 4)
   end
 end

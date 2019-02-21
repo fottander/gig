@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     @message = Message.new message_params
     if @message.valid?
       MessageMailer.message_me(@message).deliver_now
-      redirect_to messages_path
+      redirect_to root_path
       flash[:notice] = 'Vi har mottagit ditt meddelande och hör av oss så fort vi kan!'
     else
       flash[:alert] = 'Något gick fel, vänligen försök igen.'
@@ -22,6 +22,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:name, :email, :phone_number, :content)
+    params.permit(:name, :email, :phone_number, :content)
   end
 end

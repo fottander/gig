@@ -70,7 +70,38 @@
             <p>• Enstaka uppdrag eller längre anställningar</p>
             <p>• Du hittar personal plus att vi tar hand om lön, skatt, avgift & försäkring</p>
             <p>• Du bestämmer timlönen och längden på anställningen. Endast 199kr/slutförd anställning.<p>
-            <%= link_to 'Läs mer om hur det fungerar', howitworks_path, class: 'profile-button' %>
+            <%= link_to 'Läs mer om hur det fungerar', howitworks_path, class: 'profile-button' %><br>
+            <p style='font-size: 0.8em; margin-bottom: 1em;'>eller</p>
+            <span class='truncated-paragraph-now %>'>
+              <%= link_to "Bli uppringd", '', class: "read-more-now", id: 'cancel-button' %>
+            </span>
+            <span class='normal-paragraph-now' style="display: none;">
+              <div style= 'margin-left: 10%; width: 80%;'>
+                <%= form_with url: messages_path do |f| %>
+                  <div class="login-box-input">
+                    <%= f.text_field :name, placeholder: '* Namn' %>
+                  </div>
+
+                  <div class="login-box-input">
+                    <%= f.email_field :email, placeholder: "* Email", autofocus: true %>
+                  </div>
+
+                  <div class="login-box-input">
+                    <%= f.text_field :phone_number, placeholder: '* Telefonnummer' %>
+                  </div>
+
+                  <%= f.hidden_field :content, value: 'Meddelande från Registrering om att bli kontaktad.' %>
+
+                  <div>Fyll i fält markerade med *</div>
+
+                  <div class="actions" style='margin-bottom: 15px;'>
+                    <%= f.submit 'Skicka', class: 'reply-button', style:'width: 50%;' %>
+                  </div>
+                <% end %>
+                <%= link_to 'Stäng x', '', class: "read-less-now", style: 'background: white; color: black; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem;' %>
+              </div>
+            </span>
+
           </div>
         </div>
       </div>

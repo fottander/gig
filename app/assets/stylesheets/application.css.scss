@@ -311,6 +311,21 @@ input[type='file'] {
    border-radius: 4px;
  }
 
+ #cancel-button {
+   border: 1px solid #ddd;
+   color: #525252;
+   background-color: #fefefe;
+   text-align: center;
+   line-height: 1;
+   font-size: 1rem;
+   font-family: 'Montserrat',Arial,sans-serif;
+   font-weight: 700;
+   letter-spacing: 0.8px;
+   padding: 0.9rem 1.75rem 0.9rem;
+   margin-right: 10px;
+   border-radius: 4px;
+ }
+
  .button-green {
      background: #3db5e6;
      color: #fff;
