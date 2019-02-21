@@ -15,7 +15,6 @@ class PaymentsController < ApplicationController
     @company = @invoice.company
     @user = @invoice.user
     @profile = @user.profile
-    render layout: 'mobile_scroll_layout'
     respond_to do |format|
       format.html
       format.pdf do

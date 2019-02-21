@@ -32,6 +32,7 @@ class PaymentPdf < Prawn::Document
     text "Lönebesked"
     move_down 10
     text "<color rgb='a6a6a6'>#{@user.first_name} #{@user.last_name}</color>", inline_format: true
+    text "<color rgb='a6a6a6'>Personnummer: #{@user.pers_num}</color>", inline_format: true
     text "<color rgb='a6a6a6'>Startdag: #{@invoice.first_day}</color>", inline_format: true
     text "<color rgb='a6a6a6'>Sista dag: #{@invoice.last_day}</color>", inline_format: true
     text "<color rgb='a6a6a6'>Utbetalningsdatum: #{@invoice.updated_at.strftime("%F %R")}</color>", inline_format: true

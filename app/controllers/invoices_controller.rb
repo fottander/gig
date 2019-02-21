@@ -63,11 +63,10 @@ class InvoicesController < ApplicationController
     @company = @invoice.company
     @profile = @invoice.user.profile
     @due_date = @invoice.due_date
-    render layout: 'mobile_scroll_layout'
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = InvoicePdf.new(@invoice, @profile, @company, @due_date)
+        pdf = InvoicePdf.new(@invoice, @profile.user, @company, @due_date)
         send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
                               type: 'application/pdf',
                               disposition: 'inline'
