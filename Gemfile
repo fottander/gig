@@ -32,6 +32,7 @@ gem 'simple_form'
 gem "cocoon"
 
 group :development, :test do
+  gem 'rb-readline'
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'

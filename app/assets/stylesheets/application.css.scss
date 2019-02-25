@@ -1069,10 +1069,81 @@ input[type='file'] {
 
  /* HERO & FRONT */
 
+ @import url('https://fonts.googleapis.com/css?family=Lobster');
+
+ .hero-content {
+  height: 83vh;
+  position: relative;
+ }
+
+  .hero-content #hero-references {
+    color: #ffff;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-content #hero-references #quality-reference {
+    font-family: 'Lobster';
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+
+  @media screen and (max-width: 45em) {
+    .hero-content #hero-references #quality-reference {
+      font-size: 1em;
+    }
+  }
+
+  .hero-content #hero-references #smokk-reference {
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-left: 1em;
+    font-size: 1em;
+    display:inline-block;
+      -webkit-transform:scale(1,1.5); /* Safari and Chrome */
+      -moz-transform:scale(1,1.5); /* Firefox */
+      -ms-transform:scale(1,1.5); /* IE 9 */
+      -o-transform:scale(1,1.5); /* Opera */
+      transform:scale(1,1.5);
+  }
+
+  @media screen and (max-width: 45em) {
+    .hero-content #hero-references #smokk-reference  {
+      font-size: 0.85em;
+    }
+  }
+
+  .hero-content #hero-references #beat-reference {
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    font-size: 0.8em;
+    letter-spacing: 0.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+  @media screen and (max-width: 45em) {
+    .hero-content #hero-references #beat-reference  {
+      font-size: 0.6em;
+    }
+  }
+
+  .hero-content #hero-references #parkner-reference {
+    display: inline-block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 2.5em;
+    width: 6em;
+    margin-bottom: -0.7em;
+    background-image: image-url('logo-small.png');
+  }
+
  .marketing-freelancer {
-   background-image: image-url('gig_jobbare.jpg');
+   background-image: image-url('pexels-886465.jpg');
    background-repeat: no-repeat;
-   height: 80vh;
+   height: 85vh;
    margin-bottom: 10px;
    background-size: cover;
    display: -webkit-flex;
@@ -1081,6 +1152,14 @@ input[type='file'] {
    -webkit-align-items: center;
        -ms-flex-align: center;
            align-items: center;
+ }
+
+ @media screen and (min-width: 64em) {
+   .marketing-freelancer  {
+     -webkit-box-shadow: inset 0px 8px 20px -5px #000;
+     -moz-box-shadow: inset 0px 8px 20px -5px #000;
+     box-shadow: inset 0px 8px 20px -5px #000;
+   }
  }
 
  .marketing-freelancer-sign-up {
@@ -1110,10 +1189,12 @@ input[type='file'] {
  }
 
  .marketing-company {
-   background-image: image-url('pexels-886465.jpg');
+   background-image: image-url('gig_jobbare.jpg');
    background-repeat: no-repeat;
-   height: 80vh;
-   margin-bottom: 10px;
+   height: 85vh;
+   -webkit-box-shadow: inset 0px 8px 20px -5px #000;
+   -moz-box-shadow: inset 0px 8px 20px -5px #000;
+   box-shadow: inset 0px 8px 20px -5px #000;
    background-size: cover;
    display: -webkit-flex;
    display: -ms-flexbox;
@@ -1177,6 +1258,32 @@ input[type='file'] {
   text-align: center;
   position: relative;
   z-index: 1;
+  box-shadow: 0 0 20px -5px #000;
+}
+
+.marketing-site-hero-content-sign-up-numbers {
+  margin: 0 auto;
+  margin-left: 1em;
+  color: #72777c;
+  font-weight: 300;
+  text-align: center;
+  margin-top: -10vh;
+  margin-right: 30vh;
+  padding: 1.0rem;
+  background-color: #ffff;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 20px -5px #000;
+}
+
+@media screen and (max-width: 49.9375em) {
+  .marketing-site-hero-content-sign-up-numbers {
+    margin-right: 0.5em;
+    font-size: 0.8em;
+    padding: 0.5rem;
+  }
 }
 
 .cross::before, .cross::after {
@@ -1249,6 +1356,18 @@ input[type='file'] {
   border-radius: 10px;
   text-align: center;
   position: relative;
+}
+
+.marketing-site-hero-content-sign-up-login {
+  width: 80%;
+  margin-left: 10%;
+}
+
+@media screen and (max-width: 49.9375em) {
+  .marketing-site-hero-content-sign-up-login .call-me {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 .marketing-site-hero-content-sign-up-login .cross {

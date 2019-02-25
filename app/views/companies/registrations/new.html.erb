@@ -76,7 +76,7 @@
               <%= link_to "Bli uppringd", '', class: "read-more-now", id: 'cancel-button' %>
             </span>
             <span class='normal-paragraph-now' style="display: none;">
-              <div style= 'margin-left: 10%; width: 80%;'>
+              <div class='call-me'>
                 <%= form_with url: messages_path do |f| %>
                   <div class="login-box-input">
                     <%= f.text_field :name, placeholder: '* Namn' %>
