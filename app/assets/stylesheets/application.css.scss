@@ -1331,11 +1331,15 @@ input[type='file'] {
   border-radius: 10px;
   text-align: center;
   position: relative;
-}
-
-.marketing-site-hero-content-sign-up-login {
   width: 80%;
   margin-left: 10%;
+}
+
+@media screen and (max-width: 49.9375em) {
+  .marketing-site-hero-content-sign-up-login {
+    width: 100%;
+    margin-left: 0%;
+  }
 }
 
 @media screen and (max-width: 49.9375em) {
