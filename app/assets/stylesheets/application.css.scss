@@ -1261,31 +1261,6 @@ input[type='file'] {
   box-shadow: 0 0 20px -5px #000;
 }
 
-.marketing-site-hero-content-sign-up-numbers {
-  margin: 0 auto;
-  margin-left: 1em;
-  color: #72777c;
-  font-weight: 300;
-  text-align: center;
-  margin-top: -10vh;
-  margin-right: 30vh;
-  padding: 1.0rem;
-  background-color: #ffff;
-  border-radius: 10px;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  box-shadow: 0 0 20px -5px #000;
-}
-
-@media screen and (max-width: 49.9375em) {
-  .marketing-site-hero-content-sign-up-numbers {
-    margin-right: 0.5em;
-    font-size: 0.8em;
-    padding: 0.5rem;
-  }
-}
-
 .cross::before, .cross::after {
     content: '';
     width: 105%;
