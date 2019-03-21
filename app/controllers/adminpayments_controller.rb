@@ -9,6 +9,22 @@ class AdminpaymentsController < ApplicationController
     end
   end
 
+  def show
+    @invoice = Invoice.find(params[:id])
+    @company = @invoice.company
+    @user = @invoice.user
+    @profile = @user.profile
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PaymentPdf.new(@invoice, @user, @profile, @company)
+        send_data pdf.render, filename: "invoice_#{@invoice.id}.pdf",
+                              type: 'application/pdf',
+                              disposition: 'inline'
+      end
+    end
+  end
+
   def new
     @invoices = Invoice.where(nil).paginate(page: params[:page])
     filtering_params(params).each do |key, value|

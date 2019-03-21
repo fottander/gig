@@ -73,7 +73,7 @@ Rails.application.routes.draw do
 
   resources :ezpayments, only: [:show]
 
-  resources :adminpayments, only: [:index, :new]
+  resources :adminpayments, only: [:index, :new, :show]
 
   resources :admin_applications, only: [:edit, :update, :show]
 
