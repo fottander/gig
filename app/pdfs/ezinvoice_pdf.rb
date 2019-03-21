@@ -30,7 +30,7 @@ class EzinvoicePdf < Prawn::Document
     move_down 8
     text "<color rgb='a6a6a6'>Fakturanummer: #{@ezinvoice.id.first(8)}</color>", inline_format: true
     move_down 10
-    text "Datum: #{@ezinvoice.updated_at.strftime('%F')}"
+    text "Datum: #{@ezinvoice.created_at.strftime('%F')}"
     text "Referens: #{@ezinvoice.user_reference}"
     text "Er referens: #{@ezinvoice.company_reference}"
     text "Org. nummer: #{@ezinvoice.org_number}"
