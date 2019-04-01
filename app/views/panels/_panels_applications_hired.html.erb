@@ -18,7 +18,7 @@
       </div>
       <%= link_to 'Visa ansökan', job_application_path(application.job_id, application.id), class: 'button-green' %>
       <span class='truncated-paragraph-<%= application.id %>'>
-        <%= link_to 'Förläng', '', class: "read-more-#{application.id}", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; text-transform: uppercase; line-height: 1; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.3rem 0.5rem 0.3rem; border: none;' %><br>
+        <%= link_to 'Förläng', '', class: "read-more-#{application.id}", style: 'background: #f77d0e; color: #fff; display: inline-block; text-align: center; line-height: 1; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.5px; padding: 0.4rem 0.5rem 0.4rem; border-radius: 4px; border: none;' %><br>
         <%= link_to 'Ta bort anställning', job_application_path(application.job_id, application.id), class: 'text-link-orange' %>
       </span>
       <span class='normal-paragraph-<%= application.id %>' style="display: none;">
