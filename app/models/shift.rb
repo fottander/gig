@@ -30,11 +30,11 @@ class Shift < ApplicationRecord
   end
 
   def ob_1
-    22.35
+    22.84
   end
 
   def ob_2
-    19.69
+    20.13
   end
 
   private
