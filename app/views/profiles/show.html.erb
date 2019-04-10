@@ -13,8 +13,12 @@
           <p class='job-count'>Antal genomförda jobb: <%= @profile.user.invoice_count %></p>
           <p class='job-count' style='margin-top: -7px;'>
             Totalt intjänat: <%= @profile.user.current_earnings %><br>
-            <% if @profile.user.invoices.with_rating.count > 2 %>
-              <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
+            <% if current_user.present? %>
+              <% if @profile.user.invoices.with_rating.count > 2 %>
+                <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
+              <% end %>
+            <% elsif current_company.present? %>
+                <p class='job-count'>Betyg <span style='color: #f77d0e;'><%= @profile.user.rating_average.round(1) %>/5</span></p>
             <% end %>
           </p>
           <% if current_user.present? %>
