@@ -37,6 +37,10 @@
         <%= @application.company_id %><br>
         Salary:
         <%= @application.salary %><br>
+        <% if @application.complete == false %>
+          <%= f.label :salary, 'Lön', class: 'form-text' %>
+          <%= f.text_field :salary, value: @application.salary %>
+        <% end %>
         OB:
         <%= @application.add_ob %><br>
         <%= f.label :add_ob, '* OB', class: 'form-text' %>

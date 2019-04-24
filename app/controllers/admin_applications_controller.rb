@@ -26,7 +26,7 @@ class AdminApplicationsController < ApplicationController
   private
 
   def admin_application_params
-    params.require(:application).permit(:message, :first_day, :last_day, :add_ob)
+    params.require(:application).permit(:message, :first_day, :last_day, :add_ob, :salary)
   end
 
 end
