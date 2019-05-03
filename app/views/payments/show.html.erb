@@ -29,6 +29,9 @@
                 <% end %>
                 <span class='item-define'>Antal timmar:</span> <%= @invoice.quantity %>st<br>
                 <span class='item-define'>Timlön:</span> <%= @invoice.unit %>kr/timma<br>
+                <% if @invoice.add_ob == true %>
+                  <strong>OB-lön:</strong> <%= @invoice.ob_amount.round %> SEK <br>
+                <% end %>
                 Bruttolön: <%= @invoice.amount %> <br>
                 Din avgiftsnivå vid skapandet av utbetalningen: <%= (@invoice.user_fee * 100).round %>%<br>
                 Vår avgift: -<%= @invoice.varavgift %> <br>

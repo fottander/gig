@@ -1,5 +1,6 @@
 <div class="application-holder">
   <h3>Ansökan för jobb ID <%= @application.job_id %></h3>
+  <div style='text-align: center; margin-top:-1em;'><%= link_to 'Visa jobbdetaljer', job_path(@application.job_id), style:'font-size: 10px; letter-spacing: 1px;' %></div>
 
   <div class="card profile-card-action-application">
     <div class="card-section">
